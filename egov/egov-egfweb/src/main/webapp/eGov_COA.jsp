@@ -4,8 +4,8 @@
 
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -58,20 +58,20 @@
  <!-- Required CSS -->
 <link rel="stylesheet" type="text/css" href="/services/EGF/resources/commonyui/build/treeview/assets/css/folders/tree.css">
 <!--<link rel="stylesheet" type="text/css" href="../build/assets/skins/sam/treeview.css">-->
-<!-- Dependency source files --> 
-<script src = "/services/EGF/resources/commonyui/build/yahoo/yahoo-min.js" ></script>  
-<script src = "/services/EGF/resources/commonyui/build/event/event-min.js" ></script> 
+<!-- Dependency source files -->
+<script src = "/services/EGF/resources/commonyui/build/yahoo/yahoo-min.js" ></script>
+<script src = "/services/EGF/resources/commonyui/build/event/event-min.js" ></script>
 <!-- Source file -->
 <script src="/services/EGF/resources/commonyui/build/connection/connection-min.js"></script>
 <%-- <script type="text/javascript" src="/services/EGF/resources/javascript/jsCommonMethods.js?rnd=${app_release_no}"></script> --%>
-<!-- TreeView source file -->   
+<!-- TreeView source file -->
 <script src = "/services/EGF/resources/commonyui/build/treeview/treeview-min.js" ></script>
 </head>
 <body onload="treeInit()" >
 <h2>
 	Chart Of Accounts
 </h2>
- 
+
 <div id="treeDiv1">
 <script>
 	var coaDetailLength ='<%=FinancialConstants.GLCODEMAXLENGTH%>';
@@ -82,19 +82,19 @@
 	 if(actionId==null)
 		actionId=(String)session.getAttribute("actionid");
 		%>
-		
+
 		var actionId=<%=request.getParameter("actionid")%>
 
 	 var userid = <%=session.getAttribute("com.egov.user.LoginUserId")%>;
-	 
+
 	function openPopupWindow(url, name, width, height)
 	{
 	    var myPopupWindow = '';
-	  
+
 		//bootbox.alert('In openpopup url '+url+' name '+name+' width '+width+' height '+height);
 	    //Remove special characters from name
 	    name = name.replace(/\/|\-|\./gi, "");
-	
+
 	    //Remove whitespaces from name;
 	    var whitespace = new RegExp("\\s","g");
 	    name = name.replace(whitespace,"");
@@ -107,27 +107,27 @@
 	    else
 	    {
 	     window.open(url,name, "resizable=yes,scrollbars=yes,left="+leftPos+",top=40, width="+width+", height= "+height);
-	      //  window.open(url,"mainFrame");	
-		       
+	      //  window.open(url,"mainFrame");
+
 	    }
-	
-	    
+
+
 	}
 
-      
+
       /* This function is same as loadselectdata(), but here we load the values for a row in a table */
 
 function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 {
-	
+
 	// bootbox.alert("loadSelectDataForChartOfacounts");
-	
+
 
 		var link=url;
 		var request = initiateRequest();
 		request.open("GET", link, false);
-		request.send(null);		
-		if (request.status == 200) 
+		request.send(null);
+		if (request.status == 200)
 		{
 			//bootbox.alert('Got response');
 			var response=request.responseText.split("^");
@@ -140,10 +140,10 @@ function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 			menuObj.length = id.length;
 			menuObj.length = 0;
 			var nodeurl = null;
-			
+
 			for(var i = 0 ; i < id.length  ; i++)
 			{
-				
+
 				//var nodeCustom = {id:id[i]};
 				/*if ((actionurl[i] != null) && (actionurl[i].substr("http") <= 0)){
 					nodeurl = null;
@@ -153,54 +153,54 @@ function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 				var menuItem =  { label: actionurl[i]+'-'+name[i], id: id[i], url: actionurl[i] } ;
 				var tempNode = new YAHOO.widget.TextNode(menuItem, menuObj, false);
 				tempNode.onLabelClick = onLabelClick
-				
+
 				if( nodeurl == null || nodeurl=='null') {
 					tempNode.setDynamicLoad(loadNodeData);
 				} else{
-				
+
 					tempNode.isLeaf = true;
 				}
-						
-			}					
+
+			}
 		}
-			
-			
-		
-		
+
+
+
+
 	}
 
-      
-      
-      
+
+
+
       function treeInit()
-      {                                                     
-         
+      {
+
          buildTree(new YAHOO.widget.TreeView("treeDiv1"));
-                              
+
       }
       function buildTree(tree){
-      
+
       //var userid = 133;
       //bootbox.alert(typeof(userid));
-      if (typeof(userid) != "undefined"){ 
-	    
-	     tree.setDynamicLoad(loadNodeData);   
-	    
-	     var root = tree.getRoot();   
-	     
+      if (typeof(userid) != "undefined"){
+
+	     tree.setDynamicLoad(loadNodeData);
+
+	     var root = tree.getRoot();
+
         loadSelectDataForChartOfacounts('/services/EGF/voucher/common-ajaxloadcoa.action','roleId',root);
-	     tree.draw(); 
-	      }        
-     }             
-    var onLabelClick = function(oNode) {       
+	     tree.draw();
+	      }
+     }
+    var onLabelClick = function(oNode) {
         var baseUrl = oNode.data.url;
         var id=oNode.data.id;
         var windowname=oNode.data.label;
-    
+
         if ('null' == baseUrl){
         }
         else{
-			
+
 			var url="${pageContext.request.contextPath}";
 			actionidstr = 'actionId='+oNode.data.id;
 			if (!baseUrl.indexOf("/") != 0) {
@@ -211,7 +211,7 @@ function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 				url = url +'&'+actionidstr;
 			} else
 				{
-			
+
 			url = url +'?'+actionidstr;
 				//var actionId=449;
 				url="/services/EGF/masters/chartOfAccounts-view.action?model.id="+id;
@@ -219,9 +219,9 @@ function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 				//var actionid=449;
 				//window.open("/services/EGF/masters/chartOfAccounts.action?chartOfAccounts_glCode="+noded+"&actionId="+actionId,"mainFrame");
 				openPopupWindow(url, windowname , 900, 650)
-		}			
-    }    
-function loadNodeData(node, fnLoadComplete){  
+		}
+    }
+function loadNodeData(node, fnLoadComplete){
 	var nodeLabel = encodeURI(node.label);
 	var nodeId = encodeURI(node.data.id);
 	var nodeUrl =  node.data.url;
@@ -235,11 +235,11 @@ function loadNodeData(node, fnLoadComplete){
 				//openPopupWindow(url, "" , 900, 650)
 				//by mani not to open a new window on every click
 	//first call for modules
-	
+
 	//prepare our callback object
 	var callback = {
-	
-			
+
+
 		//if our XHR call is successful, we want to make use
 		//of the returned data and create child nodes.
 		success: function(oResponse) {
@@ -248,63 +248,63 @@ function loadNodeData(node, fnLoadComplete){
 			var id = response[1].split("+");
 			var name = response[2].split("+");
 			var actionurl = response[4].split("+");
-			
+
 			var nodeurl = null;
 			//bootbox.alert('Number of children '+id.length+""+actionurl);
-			
+
 			for(var i = 0 ; i < id.length  ; i++)
 			{
-				
+
 				if ((actionurl[i] != null) && (actionurl[i].length < 1)){
 					nodeurl = null;
 				} else{
 					nodeurl = actionurl[i];
 				}
 				if ((name[i] != null) && (name[i].length > 0)){
-				
+
 					var menuItem =  { label: actionurl[i]+'-'+name[i], id: id[i], url: nodeurl } ;
 					////bootbox.alert('node url '+nodeurl);
 					var tempNode = new YAHOO.widget.TextNode(menuItem, node, false);
 					tempNode.onLabelClick = onLabelClick
-					if( nodeurl.length<parseInt(coaDetailLength)) 
+					if( nodeurl.length<parseInt(coaDetailLength))
 					{
 					tempNode.setDynamicLoad(loadNodeData);
 					} else{
-							
+
 						tempNode.isLeaf = true;
 					}
 				}
-			}					
+			}
 			//When we're done creating child nodes, we execute the node's
 			//loadComplete callback method which comes in via the argument
 			//in the response object (we could also access it at node.loadComplete,
 			//if necessary):
 			oResponse.argument.fnLoadComplete();
-		},		
+		},
 		//if our XHR call is not successful, we want to
 		//fire the TreeView callback and let the Tree
 		//proceed with its business.
 		failure: function(oResponse) {
 			////bootbox.alert('Failed to process XHR transaction.');
 			oResponse.argument.fnLoadComplete();
-		},		
+		},
 		//our handlers for the XHR response will need the same
 		//argument information we got to loadNodeData, so
 		//we'll pass those along:
 		argument: {
 			"node": node,
 			"fnLoadComplete": fnLoadComplete
-		},		
+		},
 		//timeout -- if more than 7 seconds go by, we'll abort
 		//the transaction and assume there are no children:
 		timeout: 7000
-	};	
-	//With our callback object ready, it's now time to 
+	};
+	//With our callback object ready, it's now time to
 	//make our XHR call using Connection Manager's
 	//asyncRequest method:
-	YAHOO.util.Connect.asyncRequest('GET', moduleQuery, callback);	          
-    }    
-</script>                
+	YAHOO.util.Connect.asyncRequest('GET', moduleQuery, callback);
+    }
+</script>
 </div>
 </body>
 </html>

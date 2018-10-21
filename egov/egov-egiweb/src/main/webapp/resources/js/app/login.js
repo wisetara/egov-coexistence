@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -48,7 +48,7 @@
 
 $(document).ready(function()
 {
-	
+
 	localStorage.clear();
 	$('.recovrbtn').click(function(){
 		if($('#emailOrMobileNum').val()===""){
@@ -80,9 +80,9 @@ $(document).ready(function()
 			$('.search-error-msg').removeClass('display-hide');
 		}
 	});
-	
+
 	var checklocation = false;
-	
+
 	$('#j_username').blur(function(){
 		$('#locationId').empty();
 		if(!$.trim($(this).val())){
@@ -91,7 +91,7 @@ $(document).ready(function()
 			$.ajax({
 			      url: "requiredlocations?username="+this.value,
 			      dataType: "json",
-			      success: function(data) { 
+			      success: function(data) {
 			    	  checklocation = true;
 			    	  //console.log(JSON.stringify(data));
 			    	  if(data.length > 0){
@@ -101,7 +101,7 @@ $(document).ready(function()
 							  var opt = "<option value=" + value.id + ">" + value.name + "</option>";
 							  $('#locationId').append(opt);
 							  $("#locationId").attr('required', true);
-						  });	
+						  });
 			    		  $('#counter-section').removeClass('display-hide');
 			    		  loaddpdown_value();
 			    	  }else{
@@ -116,11 +116,11 @@ $(document).ready(function()
 			});
 		}
 		//ajax call to load counter
-		
+
 	});
-	
+
 	function loaddpdown_value(){
-		$("#locationId").each(function() { 
+		$("#locationId").each(function() {
 			console.log($(this).children('option').length);
 			if($(this).children('option').length == 2)
 			{
@@ -128,7 +128,7 @@ $(document).ready(function()
 			}
 		});
 	}
-	
+
 	$("#signin-action").click(function(e){
 		if($('#signform').valid()){
 			//console.log('Form valid');
@@ -141,7 +141,7 @@ $(document).ready(function()
 			e.preventDefault();
 		}
 	});
-	
+
 	$("#signform").validate({
 	    rules: {
 	    	j_username: "required",
@@ -152,12 +152,12 @@ $(document).ready(function()
 	    	j_password: "Please enter your password"
 	    }
 	});
-	
+
 	if(navigator.cookieEnabled){
-		
+
 	}else{
 		$('#cookieornoscript').modal('show', {backdrop: 'static'});
 	}
-	
-	
+
+
 });

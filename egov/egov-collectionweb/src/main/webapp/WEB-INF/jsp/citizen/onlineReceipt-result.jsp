@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,7 +54,7 @@
 <title><s:text name="onlineReceipts.title"/></title>
 <script type="text/javascript">
 function onBodyLoad(){
-	
+
 }
 
 </script>
@@ -77,11 +77,11 @@ function onBodyLoad(){
 	</tr>
 	<tr>
 			<td>Transaction Amount : <s:property value="%{onlinePaymentReceiptHeader.onlinePayment.transactionAmount}" /></td>
-	</tr> 
+	</tr>
 	<tr>
 			<td>Transaction Number : <s:property value="%{onlinePaymentReceiptHeader.onlinePayment.transactionNumber}" /></td>
 	</tr> -->
-	
+
 	<div id="paymentInfo" style="text-align: center;padding-bottom: 15px;">Your payment of Amount &#8377; <s:property value="%{onlinePaymentReceiptHeader.totalAmount}" /> has been received. The Reference Number is <s:property value="%{onlinePaymentReceiptHeader.referencenumber}" />. Please click on <span>Generate Receipt to print the receipt</span></div>
     <a href='${pageContext.request.contextPath}/citizen/onlineReceipt-view.action?receiptId=<s:property value='%{onlinePaymentReceiptHeader.id}'/>' class="btn btn-primary" id="btnGenerateReceipt">Generate Receipt</a>&nbsp;
 </s:else>

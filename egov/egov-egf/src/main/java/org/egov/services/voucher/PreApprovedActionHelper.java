@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -91,7 +91,7 @@ public class PreApprovedActionHelper {
 
     @Autowired
     private MicroserviceUtils microserviceUtils;
-    
+
     @Autowired
     SecurityUtils securityUtils;
     @Transactional
@@ -152,17 +152,17 @@ public class PreApprovedActionHelper {
 //        List<Position> positionsForUser = positionMasterService.getPositionsForEmployee(securityUtils.getCurrentUser().getId());
 //        return positionsForUser.contains(state.getOwnerPosition());
         Boolean check = false;
-//        
+//
         List<Long> positions = new ArrayList();
         Long empId = ApplicationThreadLocals.getUserId();
         List<EmployeeInfo> employs = microserviceUtils.getEmployee(empId, new Date(),null, null);
-        
+
         if(null !=employs && employs.size()>0 )
-                
+
         employs.get(0).getAssignments().forEach(assignment->{
                 positions.add(assignment.getPosition());
         });
-        
+
         for (final Long pos : positions)
             if (state.getOwnerPosition()==pos) {
                 check = true;

@@ -1,7 +1,7 @@
 
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -56,18 +56,18 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * The PaymentRequestAdaptor class frames the request object for the payment service.
- * 
+ *
  */
 
 public class DefaultPaymentResponseTest{
-	
+
 	CollectionObjectFactory objectFactory = new CollectionObjectFactory();
-	
+
 	@Test
 	public void testPaymentResponse(){
-		
+
 		PaymentResponse paytResponse = objectFactory.createPaytResponse();
-		
+
 		assertNotNull(paytResponse.getMerchantId());
 		assertNotNull(paytResponse.getMerchantId());
 		assertNotNull(paytResponse.getCustomerId());
@@ -98,5 +98,5 @@ public class DefaultPaymentResponseTest{
 		assertNotNull(paytResponse.getErrorDescription());
 		assertNotNull(paytResponse.getChecksum());
 	}
-	
+
 }

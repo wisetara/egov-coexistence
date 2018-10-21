@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -100,10 +100,10 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			column="subscheme" fetch="select" />
 		<many-to-one name="function" class="org.egov.commons.CFunction"
 			column="function" fetch="select" />
-			
+
 		<many-to-one name="serviceCategory" class="org.egov.infstr.models.ServiceCategory"
-			column="servicecategory" fetch="select" />	
-			
+			column="servicecategory" fetch="select" />
+
 		<set name="serviceDept" table="egcl_service_dept_mapping" >
 			<key>
 				<column name="servicedetails" precision="22" scale="0" />
@@ -111,7 +111,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			<many-to-many class="org.egov.infra.admin.master.entity.Department"
 				column="department" />
 		</set>
-	
+
 		<set name="serviceAccountDtls" inverse="true" cascade="all,delete-orphan">
 			<key>
 				<column name="servicedetails" precision="22" scale="0" />
@@ -119,11 +119,11 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 			<one-to-many class="org.egov.infstr.models.ServiceAccountDetails" />
 		</set>
 	</class>
-	
+
 	<query name="SERVICE_BY_CATEGORY_FOR_TYPE">
 		<![CDATA[select sd from org.egov.infstr.models.ServiceDetails sd where sd.serviceCategory.id=? and sd.serviceType=? and sd.isEnabled=?]]>
 	</query>
-	
+
 	<query name="getServicesByType">
     <![CDATA[select s from ServiceDetails s where s.serviceType = ?]]></query>
 
@@ -132,9 +132,9 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 
 	<query name="getServiceByCode">
     <![CDATA[select s from ServiceDetails s where s.code=?]]></query>
-    
+
     <query name="getServicesByName">
     <![CDATA[select s from ServiceDetails s where s.name = ?]]></query>
-	
-	
+
+
 </hibernate-mapping>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -49,15 +49,15 @@ package org.egov.commons;
 
 public interface Bidder {
 
-	
+
 	public Integer getBidderId();
-	
+
 	public String getName();
-	
+
 	public String getAddress();
-	
+
 	public String getCode();
-	
+
 	//return RELATION,CONTRACTOR or OWNER
 	public String getBidderType();
 }

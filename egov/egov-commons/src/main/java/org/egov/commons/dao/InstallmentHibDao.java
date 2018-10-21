@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -136,7 +136,7 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
         qry.setString("installmentType", installmentType);
         return (Installment) qry.uniqueResult();
     }
-    
+
     @Override
     public List<Installment> getInstallmentsByModuleForGivenDateAndInstallmentType(final Module module, final Date installmentDate,
             final String installmentType) {
@@ -148,7 +148,7 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
         qry.setString("installmentType", installmentType);
         return qry.list();
     }
-    
+
     @Override
     public List<Installment> getInstallmentsByModuleBetweenFromDateAndToDateAndInstallmentType(final Module module,
             final Date fromDate, final Date toDate, final String installmentType) {
@@ -160,7 +160,7 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
         qry.setString("installmentType", installmentType);
         return qry.list();
     }
-    
+
     @Override
     public List<Installment> getInstallmentsByModuleAndFromDateAndInstallmentType(final Module module,
             final Date fromDate, final Date currentDate, final String installmentType) {
@@ -193,8 +193,8 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
         qry.setDate("currDate", currDate);
         return qry.list();
     }
-    
-    
+
+
 
     @Override
     public Installment fetchInstallmentByModuleAndInstallmentNumber(final Module module, final Integer installmentNumber) {
@@ -213,7 +213,7 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
     public Installment findById(final int i, final boolean b) {
         return (Installment)getCurrentSession().get(Installment.class, i);
     }
-    
+
     @Override
     public List<Installment> fetchPreviousInstallmentsInDescendingOrderByModuleAndDate(final Module module, final Date installmentDate, final int noOfInstallmentToFetch) {
         final Query qry = getCurrentSession()
@@ -223,7 +223,7 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
         qry.setMaxResults(noOfInstallmentToFetch);
         return qry.list();
     }
-    
+
     @Override
     public List<Installment> fetchNextInstallmentsByModuleAndDate(final Module module, final Date date)
     {
@@ -237,7 +237,7 @@ public class InstallmentHibDao<T, id extends Serializable> implements Installmen
         return qry.list();
 
     }
-    
+
     @Override
     public List<Installment> getInstallmentsByModuleAndInstallmentYearOrderByInstallmentYearDescending(final Module module,
             final int year) {

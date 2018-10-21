@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -70,47 +70,47 @@ public class CreateBoundaryTypeController {
 
 	private HierarchyTypeService hierarchyTypeService;
 	private BoundaryTypeService boundaryTypeService;
-	
+
 	@Autowired
 	public CreateBoundaryTypeController(BoundaryTypeService boundaryTypeService,HierarchyTypeService hierarchyTypeService) {
 		this.boundaryTypeService = boundaryTypeService;
 		this.hierarchyTypeService = hierarchyTypeService;
 	}
-	
+
 	@ModelAttribute
 	 public BoundaryType boundaryTypeModel() {
 	        return new BoundaryType();
 	 }
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String newForm() {
 	    return "boundaryType-form";
 	}
-	
+
 	@ModelAttribute("hierarchyTypes")
 	public List<HierarchyType> getHierarchyTypes(){
-		final List<HierarchyType> heirarchyList = new ArrayList<HierarchyType>();
+		final List<HierarchyType> hierarchyList = new ArrayList<HierarchyType>();
 		List<HierarchyType> hierarchyTypeList = hierarchyTypeService.getAllHierarchyTypes();
 		for (final HierarchyType hierarchyType : hierarchyTypeList) {
 			BoundaryType bType = boundaryTypeService.getBoundaryTypeByHierarchyTypeNameAndLevel(hierarchyType.getName(),1l);
 			if(bType == null){
-				heirarchyList.add(hierarchyType);
+				hierarchyList.add(hierarchyType);
 			}
 		}
-		return heirarchyList;
+		return hierarchyList;
 	}
-	
+
 	@RequestMapping(method =RequestMethod.POST)
 	public String create(@Valid @ModelAttribute BoundaryType boundaryType, final BindingResult errors, RedirectAttributes redirectAttrs) {
-    	
+
         if (errors.hasErrors())
             return "boundaryType-form";
-        
+
         boundaryTypeService.setHierarchyLevel(boundaryType, "create");
         boundaryTypeService.createBoundaryType(boundaryType);
         redirectAttrs.addFlashAttribute("message", "msg.bndrytype.create.success");
 
         return "redirect:/boundarytype/view/"+boundaryType.getId();
     }
-	
+
 }

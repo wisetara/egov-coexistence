@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -209,7 +209,7 @@
 		 	return true;
 		 }
 	function validate(){
-	
+
 		document.getElementById('lblError').innerHTML ="";
 		if(document.getElementById('expType').value == -1){
 			document.getElementById('lblError').innerHTML = "Please select expenditure type";
@@ -222,79 +222,79 @@
 		if(document.getElementById('billDateTo').value.trim().length == 0){
 			document.getElementById('lblError').innerHTML = "Please select bill to date";
 			return false;
-			
+
 		}
 
 		var fromDate=document.getElementById('billDateFrom').value;
 		var toDate=document.getElementById('billDateTo').value;
 		if(!DateValidation(fromDate,toDate))
 			return false;
-		
-		 <s:if test="%{isFieldMandatory('fund')}"> 
+
+		 <s:if test="%{isFieldMandatory('fund')}">
 				 if(null != document.getElementById('fundId') && document.getElementById('fundId').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please Select a fund";
 					return false;
 				 }
 			 </s:if>
-			<s:if test="%{isFieldMandatory('department')}"> 
+			<s:if test="%{isFieldMandatory('department')}">
 				 if(null!= document.getElementById('vouchermis.departmentcode') && document.getElementById('vouchermis.departmentcode').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a department";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('scheme')}"> 
+			<s:if test="%{isFieldMandatory('scheme')}">
 				 if(null!=document.getElementById('schemeid') &&  document.getElementById('schemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a scheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('subscheme')}"> 
+			<s:if test="%{isFieldMandatory('subscheme')}">
 				 if(null!= document.getElementById('subschemeid') && document.getElementById('subschemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a subscheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('functionary')}"> 
+			<s:if test="%{isFieldMandatory('functionary')}">
 				 if(null!=document.getElementById('vouchermis.functionary') &&  document.getElementById('vouchermis.functionary').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a functionary";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('fundsource')}"> 
+			<s:if test="%{isFieldMandatory('fundsource')}">
 				 if(null !=document.getElementById('fundsourceId') &&  document.getElementById('fundsourceId').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a fundsource";
 					return false;
 				}
 			</s:if>
-			<s:if test="%{isFieldMandatory('field')}"> 
+			<s:if test="%{isFieldMandatory('field')}">
 				 if(null!= document.getElementById('vouchermis.divisionid') && document.getElementById('vouchermis.divisionid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a field";
 					return false;
 				 }
 			</s:if>
-			
-			
+
+
 		return true;
 	}
 function openBill(url){
-		
+
 			window.open(url,'','width=900, height=700,scrollbars=1');
-			
+
 		}
 function doAfterSubmit(){
 		document.getElementById('loading').style.display ='block';
 		dom.get('msgdiv').style.display='none';
 		dom.get('listid').style.display='none';
 	}
- 
-			
+
+
 String.prototype.trim = function () {
     return this.replace(/^\s*/, "").replace(/\s*$/, "");
 }
@@ -307,8 +307,8 @@ String.prototype.trim = function () {
 				dom.get('msgdiv').style.display='none';
 				document.getElementById('loading').style.display ='none';
 				dom.get('listid').style.display='block';
-	</s:if>	
-	
+	</s:if>
+
 function changeMandatoryField()
 	{
 		if(jQuery('#billnumber').val()!="")
@@ -323,7 +323,7 @@ function changeMandatoryField()
 				jQuery("#toDateMandatory").html("*");
 				jQuery("#fundDateMandatory").html("*");
 			}
-		
+
 	}
 </script>
 

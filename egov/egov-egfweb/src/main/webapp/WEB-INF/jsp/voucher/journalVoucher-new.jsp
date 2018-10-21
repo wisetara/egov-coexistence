@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -138,7 +138,7 @@
 					<div id="billDetailTable"></div>
 				</div>
 				<script>
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="80%"
 	 </script>
@@ -153,9 +153,9 @@
 					<div id="subLedgerTable"></div>
 				</div>
 				<script>
-			
+
 			makeSubLedgerTable();
-			
+
 			document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="80%"
 		</script>
 				<br />
@@ -188,10 +188,10 @@
 	<s:hidden name="functionValue" id="functionValue" />
 	<s:hidden name="functionId" id="functionId" />
 	<script type="text/javascript">
-		
+
 			if(dom.get('targetvalue').value=='success')
 			{
-				document.getElementById('voucherDate').value=""; 
+				document.getElementById('voucherDate').value="";
 				if(document.getElementById('voucherNumber')){
 					document.getElementById('voucherNumber').value="";
 				}
@@ -199,12 +199,12 @@
 				if(document.getElementById('fundId')){
 					document.getElementById('fundId').value=-1;
 				}
-				if(document.getElementById('vouchermis.function')){   
+				if(document.getElementById('vouchermis.function')){
 					document.getElementById('vouchermis.function').value=-1;
 				}
 				if(document.getElementById('vouchermis.departmentid')){
 					document.getElementById('vouchermis.departmentid').value=-1;
-				}   
+				}
 				if(document.getElementById('schemeid')){
 					document.getElementById('schemeid').value=-1;
 				}
@@ -220,11 +220,11 @@
 				if(document.getElementById('vouchermis.divisionid')){
 					document.getElementById('vouchermis.divisionid').value=-1;
 				}
-			}	
+			}
 			function validateApproverUser(name,value){
-				//bootbox.alert("action name"+name);     
+				//bootbox.alert("action name"+name);
 				document.getElementById("actionName").value= name;
-				//bootbox.alert("button value"+value);  
+				//bootbox.alert("button value"+value);
 				<s:if test='%{! wfitemstate.equalsIgnoreCase("END")}'>
 					if(!validateUser(name,value)){ return false; }
 				</s:if>
@@ -235,7 +235,7 @@
 		if(validateJV()){
 			document.jvcreateform.action='/services/EGF/voucher/journalVoucher-create.action';
 	    	return true;
-				
+
 		}else{
 			return false;
 		}
@@ -260,19 +260,19 @@
 			return false;
 		}
 	}
-	
+
 	function validateJV()
 	{
 	   //document.getElementById("buttonValue").value=btnval;
 		document.getElementById('lblError').innerHTML ="";
 		var cDate = new Date();
-		
+
 		var currDate = cDate.getDate()+"/"+(parseInt(cDate.getMonth())+1)+"/"+cDate.getYear();
 		var vhDate=document.getElementById('voucherDate').value;
 		var vhType=document.getElementById('vType').value;
 
 		console.log(vhType);
-		
+
 		if(vhType =='-1' )	{
 			document.getElementById('lblError').innerHTML = "Please select voucher sub type ";
 			document.getElementById('voucherDate').focus();
@@ -321,71 +321,71 @@
 	        bootbox.alert("Party bill date is greater than today's date ");
 	        return false
 	    }
-		
+
 	// Javascript validation of the MIS Manadate attributes.
-		<s:if test="%{isFieldMandatory('vouchernumber')}"> 
+		<s:if test="%{isFieldMandatory('vouchernumber')}">
 			 if(null != document.getElementById('voucherNumber') && document.getElementById('voucherNumber').value.trim().length == 0 ){
 
 				document.getElementById('lblError').innerHTML = "Please enter the Voucher number";
 				return false;
 			 }
 		 </s:if>
-		 <s:if test="%{isFieldMandatory('voucherdate')}"> 
+		 <s:if test="%{isFieldMandatory('voucherdate')}">
 				 if(null != document.getElementById('voucherDate') && document.getElementById('voucherDate').value.trim().length == 0){
 
 					document.getElementById('lblError').innerHTML = "Please enter the Voucher date";
 					return false;
 				 }
-			 </s:if>    
-		 	<s:if test="%{isFieldMandatory('fund')}"> 
+			 </s:if>
+		 	<s:if test="%{isFieldMandatory('fund')}">
 				 if(null != document.getElementById('fundId') && document.getElementById('fundId').value == -1){
 					document.getElementById('lblError').innerHTML = "Please select a Fund";
 					return false;
-				 }    
-			 </s:if>   
-			 <s:if test="%{isFieldMandatory('function')}">                        
+				 }
+			 </s:if>
+			 <s:if test="%{isFieldMandatory('function')}">
 			 if(null != document.getElementById('vouchermis.function') && document.getElementById('vouchermis.function').value == -1){
 
 				document.getElementById('lblError').innerHTML = "Please select a Function";
 				return false;
 			 }
 		 </s:if>
-			<s:if test="%{isFieldMandatory('department')}"> 
+			<s:if test="%{isFieldMandatory('department')}">
 				 if(null!= document.getElementById('vouchermis.departmentid') && document.getElementById('vouchermis.departmentid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a Department";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('scheme')}"> 
+			<s:if test="%{isFieldMandatory('scheme')}">
 				 if(null!=document.getElementById('schemeid') &&  document.getElementById('schemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a Scheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('subscheme')}"> 
+			<s:if test="%{isFieldMandatory('subscheme')}">
 				 if(null!= document.getElementById('subschemeid') && document.getElementById('subschemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a Subscheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('functionary')}"> 
+			<s:if test="%{isFieldMandatory('functionary')}">
 				 if(null!=document.getElementById('vouchermis.functionary') &&  document.getElementById('vouchermis.functionary').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a Functionary";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('fundsource')}"> 
+			<s:if test="%{isFieldMandatory('fundsource')}">
 				 if(null !=document.getElementById('fundsourceId') &&  document.getElementById('fundsourceId').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a Fundsource";
 					return false;
 				}
 			</s:if>
-			<s:if test="%{isFieldMandatory('field')}"> 
+			<s:if test="%{isFieldMandatory('field')}">
 				 if(null!= document.getElementById('vouchermis.divisionid') && document.getElementById('vouchermis.divisionid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a Field";
@@ -397,10 +397,10 @@
 
 				document.getElementById('lblError').innerHTML = "Please select a Field";
 				return false;
-			 }	
-			
+			 }
+
 			//result =validateApproverUser(name,value);
-			
+
 	return true;
 }function loadBank(fund){
 	}
@@ -411,10 +411,10 @@ function onloadtask(){
 	var month = currentTime.getMonth() + 1
 	var day = currentTime.getDate()
 	var year = currentTime.getFullYear()
-	if(document.getElementById('voucherDate').value  =="")  
+	if(document.getElementById('voucherDate').value  =="")
 		document.getElementById('voucherDate').value = day + "/" + month + "/" + year ;
 	var VTypeFromBean = '<s:property value="voucherTypeBean.voucherSubType"/>';
-	if(VTypeFromBean == "") 
+	if(VTypeFromBean == "")
 		VTypeFromBean = '-1';
 	document.getElementById('vType').value = VTypeFromBean;
 	if('<s:property value="voucherTypeBean.voucherSubType"/>' == 'JVGeneral' || '<s:property value="voucherTypeBean.voucherSubType"/>'== ""){
@@ -449,21 +449,21 @@ function showMessage(message){
 	{
 		if( document.forms[0].elements[i].id!='Close')
 		document.forms[0].elements[i].disabled =true;
-	} 
+	}
 	//bootbox.alert(message);
 	bootbox.alert(message, function() {
 		var voucherHeaderId = '<s:property value="voucherHeader.id"/>';
 		document.forms[0].action = "/services/EGF/voucher/preApprovedVoucher-loadvoucherview.action?vhid="+voucherHeaderId;
-		document.forms[0].submit(); 
+		document.forms[0].submit();
 	});
-	     
-	
+
+
 }
 
 function printJV()
-{		
+{
 		var voucherHeaderId = '<s:property value="voucherHeader.id"/>';
-		window.location="${pageContext.request.contextPath}/voucher/journalVoucherPrint-print.action?id="+voucherHeaderId;		
+		window.location="${pageContext.request.contextPath}/voucher/journalVoucherPrint-print.action?id="+voucherHeaderId;
 		//document.forms[0].submit();
 }
 

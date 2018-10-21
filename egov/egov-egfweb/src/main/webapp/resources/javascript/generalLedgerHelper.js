@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -54,7 +54,7 @@
         var endDate = document.getElementById('endDate').value;
         var currDate = new Date();
         var currentDate = currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear() ;
-     	
+
      	/*To check whether Start Date is Greater than End Date*/
      	if( compareDate(formatDate6(strtDate),formatDate6(endDate)) == -1 )
      	{
@@ -63,15 +63,15 @@
  	    	document.getElementById('endDate').value='';
  	    	document.getElementById('startDate').focus();
  	    	return false;
-     	}	
+     	}
      	   /*to check whether the End Date is greater than the Current Date*/
      	if( compareDate(formatDate6(currentDate),formatDate6(endDate)) == 1 )
      	{
      		bootbox.alert('End Date cannot be greater than Current Date');
      		document.getElementById('endDate').value='';
-     		document.getElementById('endDate').focus();	
-     		return false;	
-    	}	
+     		document.getElementById('endDate').focus();
+     		return false;
+    	}
      	doLoadingMask();
     	document.getElementById("resultDiv").style.display="none";
         var formObj = jQuery(document.getElementById("generalLedgerForm"));
@@ -82,10 +82,10 @@
             data:  formData,
             type : 'POST',
     		async : false,
-    		datatype : 'text',  
-    		processData: false, 
+    		datatype : 'text',
+    		processData: false,
     		contentType: false,
-        	
+
         success: function(data)
         {
             document.getElementById("resultDiv").innerHTML=data;
@@ -95,11 +95,11 @@
          error: function(jqXHR, textStatus, errorThrown)
          {
         	 undoLoadingMask();
-         }         
+         }
         });
             return true;
-           
-    	
+
+
     }
     var path="../..";
 	var oAutoCompEntityForJV;
@@ -111,9 +111,9 @@
 		   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 		   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 		   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-			 //  loadWaitingImage(); 
+			 //  loadWaitingImage();
 			   return sQuery+"&glCode="+document.getElementById("glCode1").value;
-		   } 
+		   }
 
 		   oAutoCompEntityForJV.queryDelay = 0.5;
 		   oAutoCompEntityForJV.minQueryLength = 3;
@@ -130,7 +130,7 @@
 		           YAHOO.util.Dom.setXY(oContainer,pos);
 		           return true;
 
-			};  
+			};
 	}
 	function splitAccountCodes(obj) {
 	var entity = obj.value;
@@ -153,7 +153,7 @@
 		   oACDS.scriptQueryParam = "startsWith";
 		   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 		   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-			   loadWaitingImage(); 
+			   loadWaitingImage();
 			   return sQuery+"&function="+document.getElementById("functionCode").value;
 		   }
 		   oAutoCompEntityForJV.queryDelay = 0.5;
@@ -169,11 +169,11 @@
 		           pos[1] += YAHOO.util.Dom.get(oTextbox).offsetHeight + 6;
 		           oContainer.style.width=300;
 		           YAHOO.util.Dom.setXY(oContainer,pos);
-		           return true; 
+		           return true;
 		   };
 	}
-	function splitFunction(obj) 
-	{	
+	function splitFunction(obj)
+	{
 		document.getElementById("functionCodeId").value = '';
 		var entity=obj.value;
 		if(entity.trim()!="")
@@ -187,10 +187,10 @@
 		}
 
 	}
-		
-	
+
+
 	function viewVoucher(vid){
 		var url = '../voucher/preApprovedVoucher-loadvoucherview.action?vhid='+vid;
 		window.open(url,'Search','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 	}
-	
+

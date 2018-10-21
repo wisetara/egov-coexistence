@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,7 +47,7 @@
  */
 
 /**
- * 
+ *
  */
 package org.egov.collection.util;
 
@@ -189,7 +189,7 @@ public class FinancialsUtilTest {
 		financialsUtil.updateCheque_DD_Card_Deposit(1L, "testGlCode", createMock(InstrumentHeader.class));
 		verify(contraService);
 	}
-	
+
 	@Test
 	public void testUpdateCashDeposit() {
 		contraService.updateCashDeposit(isA(Long.class), isA(String.class), isA(InstrumentHeader.class));
@@ -197,11 +197,11 @@ public class FinancialsUtilTest {
 		financialsUtil.updateCashDeposit(1L, "testGlCode", createMock(InstrumentHeader.class));
 		verify(contraService);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testCreatePreApprovalVoucherBasedOnConfig() {
-		
+
 		CVoucherHeader voucherHeaderExpected = createMock(CVoucherHeader.class);
 
 		expect(
@@ -218,7 +218,7 @@ public class FinancialsUtilTest {
 		verify(voucherCreator);
 		assertEquals(voucherHeaderExpected, voucherHeaderActual);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testCreateApprovalVoucherBasedOnConfig() {
@@ -238,11 +238,11 @@ public class FinancialsUtilTest {
 		verify(voucherCreator);
 		assertEquals(voucherHeaderExpected, voucherHeaderActual);
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	@Test 
+	@Test
 	public void testCreateVoucherBasedOnInvalidConfig() {
-		
+
 		expect(
 				voucherCreator.createPreApprovedVoucher(isA(HashMap.class), isA(List.class), isA(List.class))).andReturn(new CVoucherHeader());
 		replay(voucherCreator);

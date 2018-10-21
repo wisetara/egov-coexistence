@@ -2,8 +2,8 @@
 <%@ include file="/includes/taglibs.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -95,7 +95,7 @@
 						</div>
 						<div class="col-sm-3 add-margin view-content">
 							${budget.referenceBudget.name}</div>
-					 
+
 					<div class="col-xs-3 add-margin">
 							<spring:message code="lbl.isprimarybudget" />
 						</div>

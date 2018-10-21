@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,7 +63,7 @@ public class CollectionSummaryActionTest { /*extends
 	@Before
 	public void setupAction() {
 		objectFactory = new CollectionObjectFactory(session);
-		
+
 		action = new CollectionSummaryAction();
 		action.setPersistenceService(genericService);
 		action.setSession(actionSession);
@@ -93,14 +93,14 @@ public class CollectionSummaryActionTest { /*extends
 	public void testCriteria() {
 		CollectionsUtil collectionsUtilMock = EasyMock.createMock(CollectionsUtil.class);
 		action.setCollectionsUtil(collectionsUtilMock);
-		
+
 		Department dept = objectFactory.createDept("test.dept");
 		EasyMock.expect(collectionsUtilMock.getDepartmentOfLoggedInUser(EasyMock.isA(Map.class))).andReturn(dept);
 		EasyMock.replay(collectionsUtilMock);
-		
+
 		String critResult = action.criteria();
 		EasyMock.verify(collectionsUtilMock);
-		
+
 		assertEquals(critResult, BaseFormAction.INDEX);
 		assertEquals(dept.getId(), action.getDeptId());
 		assertNotNull(action.getFromDate());
@@ -118,7 +118,7 @@ public class CollectionSummaryActionTest { /*extends
 
 		replay(reportService);
 		assertEquals(CashCollectionReportAction.REPORT, action.report());
-		
+
 		LRUCache<Integer, ReportOutput> reportOutputCache = (LRUCache<Integer, ReportOutput>)actionSession
 				.get(ReportConstants.ATTRIB_EGOV_REPORT_OUTPUT_MAP);
 		assertTrue(reportOutputCache.containsValue(reportOutput));

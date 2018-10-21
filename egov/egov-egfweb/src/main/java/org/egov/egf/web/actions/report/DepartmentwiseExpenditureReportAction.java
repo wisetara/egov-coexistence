@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -118,13 +118,13 @@ public class DepartmentwiseExpenditureReportAction extends BaseFormAction {
     static final String CURRENT = "current";
     static final String PREVIOUS = "previous";
     final static Logger LOGGER = Logger.getLogger(DepartmentwiseExpenditureReportAction.class);
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
  @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     @Override
     public void prepare() {
         persistenceService.getSession().setDefaultReadOnly(true);

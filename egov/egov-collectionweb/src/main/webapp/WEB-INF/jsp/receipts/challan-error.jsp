@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -49,7 +49,7 @@
 
 <%@ taglib prefix="egov" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
-<%@ taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld" %>  
+<%@ taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld" %>
 
 <head>
 	<title>Challan</title>
@@ -65,9 +65,9 @@
     </s:if>
     <s:if test="%{hasActionMessages()}">
         <div class="messagestyle">
-        	<s:actionmessage theme="simple"/>        	
+        	<s:actionmessage theme="simple"/>
         </div>
     </s:if>
 
 </body>
-	
+

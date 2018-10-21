@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,25 +59,25 @@ import java.util.List;
  * @author Sahina
  */
 public class EgovPaginatedList implements PaginatedList {
-	
+
 	/** The full list size. */
 	private int fullListSize;
-	
+
 	/** The page number. */
 	private int pageNumber;
-	
+
 	/** The list. */
 	private List list;
-	
+
 	/** The objects per page. */
 	private int objectsPerPage;
-	
+
 	/** The sort criterion. */
 	private String sortCriterion;
-	
+
 	/** The sort direction. */
 	private SortOrderEnum sortDirection = SortOrderEnum.ASCENDING;
-	
+
 	/**
 	 * Instantiates a new egov paginated list.
 	 * @param page the page
@@ -88,7 +88,7 @@ public class EgovPaginatedList implements PaginatedList {
 
 	/**
 	 * Instantiates a new egov paginated list.
-	 * 
+	 *
 	 * @param page
 	 *            the page
 	 * @param fullListSize
@@ -108,7 +108,7 @@ public class EgovPaginatedList implements PaginatedList {
 		this.sortCriterion = sortCriterion;
 		this.sortDirection = sortDir;
 	}
-	
+
 	/**
 	 * Instantiates a new egov paginated list.
 	 * @param pageNumber the page number
@@ -123,7 +123,7 @@ public class EgovPaginatedList implements PaginatedList {
 		}
 		this.objectsPerPage = objectsPerPage;
 	}
-	
+
 	/**
 	 * Instantiates a new egov paginated list.
 	 * @param page the page
@@ -137,7 +137,7 @@ public class EgovPaginatedList implements PaginatedList {
 		this.sortCriterion = sortCriterion;
 		this.sortDirection = sortDir;
 	}
-	
+
 	/**
 	 * Instantiates a new egov paginated list.
 	 * @param pageNumber the page number
@@ -156,7 +156,7 @@ public class EgovPaginatedList implements PaginatedList {
 		this.sortCriterion = sortCriterion;
 		this.sortDirection = sortDir;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getFullListSize()
 	 */
@@ -164,7 +164,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public int getFullListSize() {
 		return this.fullListSize;
 	}
-	
+
 	/**
 	 * Sets the full list size.
 	 * @param fullListSize the new full list size
@@ -172,7 +172,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public void setFullListSize(final int fullListSize) {
 		this.fullListSize = fullListSize;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getList()
 	 */
@@ -180,7 +180,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public List getList() {
 		return this.list;
 	}
-	
+
 	/**
 	 * Sets the list.
 	 * @param list the new list
@@ -188,7 +188,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public void setList(final List list) {
 		this.list = list;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getObjectsPerPage()
 	 */
@@ -196,7 +196,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public int getObjectsPerPage() {
 		return this.objectsPerPage;
 	}
-	
+
 	/**
 	 * Sets the objects per page.
 	 * @param objectsPerPage the new objects per page
@@ -204,7 +204,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public void setObjectsPerPage(final int objectsPerPage) {
 		this.objectsPerPage = objectsPerPage;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getPageNumber()
 	 */
@@ -212,7 +212,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public int getPageNumber() {
 		return this.pageNumber;
 	}
-	
+
 	/**
 	 * Sets the page number.
 	 * @param pageNumber the new page number
@@ -224,7 +224,7 @@ public class EgovPaginatedList implements PaginatedList {
 			this.pageNumber = pageNumber;
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getSearchId()
 	 */
@@ -232,7 +232,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public String getSearchId() {
 		return null;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getSortCriterion()
 	 */
@@ -240,7 +240,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public String getSortCriterion() {
 		return this.sortCriterion;
 	}
-	
+
 	/**
 	 * Sets the sort criterion.
 	 * @param sortCriterion the new sort criterion
@@ -248,7 +248,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public void setSortCriterion(final String sortCriterion) {
 		this.sortCriterion = sortCriterion;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.displaytag.pagination.PaginatedList#getSortDirection()
 	 */
@@ -256,7 +256,7 @@ public class EgovPaginatedList implements PaginatedList {
 	public SortOrderEnum getSortDirection() {
 		return this.sortDirection;
 	}
-	
+
 	/**
 	 * Sets the sort direction.
 	 * @param sortDirection the new sort direction

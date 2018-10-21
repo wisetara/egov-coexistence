@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -48,7 +48,7 @@
 function initRequest() {
 	if (window.XMLHttpRequest) {
 		var req=new XMLHttpRequest();
-		if (req.overrideMimeType) 
+		if (req.overrideMimeType)
 			req.overrideMimeType("text/html;charset=utf-8");
 		return req;
 	} else if (window.ActiveXObject) {
@@ -59,15 +59,15 @@ function initRequest() {
 
 
 /* This function checks whether entered field is unique or not.
- * It returns a boolean value if it is unique, 
- * it returns true else false 
+ * It returns a boolean value if it is unique,
+ * it returns true else false
  * */
 
 function uniqueIdentifierBoolean(url,tablename,columnname,fieldobj,uppercase,lowercase)
 {
 	var fieldvalue = document.getElementById(fieldobj).value;
 	var isUnique;
-		
+
 	if(url != "" && tablename != "" && columnname != "" && fieldvalue != "" && uppercase != "" && lowercase != "")
 	{
 	fieldvalue = trimFieldValue(fieldvalue);
@@ -75,13 +75,13 @@ function uniqueIdentifierBoolean(url,tablename,columnname,fieldobj,uppercase,low
 	var request = initRequest();
 	request.open("GET", link, false);
 	request.send(null);
-	
-		if (request.readyState == 4) 
+
+		if (request.readyState == 4)
 		{
-			if (request.status == 200) 
+			if (request.status == 200)
 			{
 				var response=request.responseText.split("^");
-				
+
 				if(response[0]=="false")
 				{
 					isUnique=false;
@@ -91,7 +91,7 @@ function uniqueIdentifierBoolean(url,tablename,columnname,fieldobj,uppercase,low
 			}
 		}
 	}
-	
+
 	return isUnique;
 }
 
@@ -102,15 +102,15 @@ function trimFieldValue(value) {
 	   while (value.charAt(value.length-1) == " ")
 	   {
 		value = value.substring(0,value.length-1);
-		
+
 	   }
 	   while(value.substring(0,1) ==" ")
 	   {
 		value = value.substring(1,value.length);
-		
-	   }	   
+
+	   }
    }
-   
+
    return value ;
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,22 +54,22 @@
 <egi-department>
 	<type>hql</type>
 	<query>from Department order by NAME</query>
-</egi-department> 
+</egi-department>
 
 <egi-DesignationMaster>
 	<type>hql</type>
 	<query>from DesignationMaster </query>
-</egi-DesignationMaster> 
+</egi-DesignationMaster>
 
 <egi-ward>
 	<type>hql</type>
 	<query>from Boundary BI left join fetch BI.children where upper(BI.boundaryType.name) = 'WARD' order by BI.id</query>
-</egi-ward> 
+</egi-ward>
 
 <egi-boundary>
 	<type>hql</type>
 	<query>from Boundary BI order by BI.id</query>
-</egi-boundary> 
+</egi-boundary>
 
 
 <egi-accountCodes>
@@ -77,16 +77,16 @@
 	<query>from CChartOfAccounts c where c.classification=4  and c.type in('I'\,'A'\,'L') order by c.glcode </query>
 </egi-accountCodes>
 
-	
+
 <egi-function>
 	<type>hql</type>
 	<query>from CFunction where isActive = true AND isNotLeaf=false order by upper(name)</query>
-</egi-function> 
+</egi-function>
 
 <egi-fund>
 	<type>hql</type>
 	<query>from Fund where isactive = true and isnotleaf!=true order by upper(name)</query>
-</egi-fund> 
+</egi-fund>
 
 <egi-fundSource>
 	<type>hql</type>
@@ -96,7 +96,7 @@
 <egi-functionary>
 	<type>hql</type>
 	<query>from Functionary where isactive=true order by upper(name) </query>
-</egi-functionary> 
+</egi-functionary>
 <egi-chartOfAccounts>
 	<type>hql</type>
 	<query>select acc from CChartOfAccounts acc where acc.classification='4' and acc.isActiveForPosting=true order by acc.glcode</query>
@@ -128,7 +128,7 @@
 <egi-relationtype>
 	<type>hql</type>
 	<query>from Relationtype order by id desc</query>
-</egi-relationtype> 
+</egi-relationtype>
 <egi-coaCodes>
 	<type>sql</type>
 	<query>SELECT ID\,GLCODE FROM CHARTOFACCOUNTS WHERE CLASSIFICATION = 4 AND ISACTIVEFORPOSTING=true ORDER BY GLCODE</query>
@@ -136,26 +136,26 @@
 <egi-activeCoaCodes>
 	<type>sql</type>
 	<query>select glcode||'`-`'||name||'`-`'||ID as "code" from chartofaccounts where classification=4 and isActiveForPosting=true  order by glcode </query>
-</egi-activeCoaCodes>	
+</egi-activeCoaCodes>
 
 <egi-coaCodesForLiability>
 	<type>sql</type>
-	<query>	select ca.id\, ca.glcode||'`-`'||ca.name as "code" from   chartofaccounts  ca   
+	<query>	select ca.id\, ca.glcode||'`-`'||ca.name as "code" from   chartofaccounts  ca
 where ca.ID in(select cd.glcodeID  from  chartofaccountdetail cd ) and   ca.classification=4  and ca.type in('A'\,'L') and ca.isactiveforposting = true   order by ca.glcode\,ca.type</query>
-</egi-coaCodesForLiability>	
+</egi-coaCodesForLiability>
 
 <!-- this is only for employee earnings it need not be control code -->
 
 <egi-AllCoaCodesOfEarning>
 <type>sql</type>
-<query>select ca.id\, ca.glcode||'`-`'||ca.name as "code" from chartofaccounts  ca 
+<query>select ca.id\, ca.glcode||'`-`'||ca.name as "code" from chartofaccounts  ca
 where ca.classification=4  and ca.type in('E') and ca.isactiveforposting = true   order by ca.glcode\,ca.type</query>
 </egi-AllCoaCodesOfEarning>
 
 <egi-partyTypeMaster>
 	<type>sql</type>
 	<query>select id\, code as "typecode" from eg_partytype pt where pt.PARENTID is null order by code</query>
-</egi-partyTypeMaster>	
+</egi-partyTypeMaster>
 
 <egi-partyTypeAllChild>
 	<type>sql</type>
@@ -165,12 +165,12 @@ where ca.classification=4  and ca.type in('E') and ca.isactiveforposting = true 
 <egi-typeOfWorkParent>
 	<type>sql</type>
 	<query>select id\, code as "typecode" from egw_typeofwork tw where tw.PARENTID is null and PARTYTYPEID is not null order by code</query>
-</egi-typeOfWorkParent>	
+</egi-typeOfWorkParent>
 
 <egi-tdsType>
 	<type>sql</type>
 	<query>select id\, type as "tdstype" from tds td where td.PARTYTYPEID is not null order by upper(type)</query>
-</egi-tdsType>	
+</egi-tdsType>
 
 
 
@@ -191,7 +191,7 @@ where ca.classification=4  and ca.type in('E') and ca.isactiveforposting = true 
 <egi-egwSubTypeOfWork>
 	<type>hql</type>
 	<query>from EgwTypeOfWork etw1 where etw1.parentid is null and etw1.id in (select etw2.parentid from EgwTypeOfWork etw2 where etw2.parentid = etw1.id) order by upper(code)</query>
-</egi-egwSubTypeOfWork> 
+</egi-egwSubTypeOfWork>
 <egi-dept>
 	<type>sql</type>
 	<query>select id\,name from eg_department order by id desc</query>
@@ -243,21 +243,21 @@ where ca.classification=4  and ca.type in('E') and ca.isactiveforposting = true 
 <egi-liabilityCOACodes>
 	<type>sql</type>
 	<query>select ca.id\, ca.glcode||' : '||ca.name from chartofaccounts  ca where ca.classification=4  and ca.type in('L') and ca.isActiveForPosting=true order by ca.glcode</query>
-</egi-liabilityCOACodes>	
+</egi-liabilityCOACodes>
 
 <egi-locationIP>
 	<type>hql</type>
 	<query>from LocationIPMap order by id</query>
 </egi-locationIP>
 
- 
+
 
 
 
 
 <egi-hierarchyType>
 	<type>sql</type>
-	<query>SELECT ID_HEIRARCHY_TYPE\,TYPE_NAME FROM EG_HEIRARCHY_TYPE ORDER BY ID_HEIRARCHY_TYPE</query>
+	<query>SELECT ID_HIERARCHY_TYPE\,TYPE_NAME FROM EG_HIERARCHY_TYPE ORDER BY ID_HIERARCHY_TYPE</query>
 </egi-hierarchyType>
 
 <egi-location>
@@ -285,8 +285,8 @@ where ca.classification=4  and ca.type in('E') and ca.isactiveforposting = true 
  	<type>sql</type>
  	<query>SELECT USER_NAME FROM EG_USER</query>
  </egi-userName>
- 
- 
+
+
  <egi-position>
   	<type>sql</type>
   	<query>select position_name||'`-`'||id as "code" from eg_position</query>
@@ -298,14 +298,14 @@ where ca.classification=4  and ca.type in('E') and ca.isactiveforposting = true 
 <egi-Position>
 	<type>hql</type>
 	<query>from Position  </query>
-</egi-Position> 
+</egi-Position>
 
 
 <egi-ObjectType>
 	<type>hql</type>
 	<query>from ObjectType </query>
-</egi-ObjectType> 
+</egi-ObjectType>
 
 </sql>
 
-</properties> 
+</properties>

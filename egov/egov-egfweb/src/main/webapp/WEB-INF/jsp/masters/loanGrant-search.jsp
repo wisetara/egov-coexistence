@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -101,7 +101,7 @@
 </style>
 <script>
 	 function checkuniquenesscode(){
-   		return; 	
+   		return;
   }
 	</script>
 </head>
@@ -249,12 +249,12 @@ function autocompleteSchemeBy20LG()
 	     oACDS = new YAHOO.widget.DS_XHR("/services/EGF/voucher/common!ajaxLoadSchemeBy20.action", [ "~^"]);
 	   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 	   oACDS.scriptQueryParam = "startsWith";
-	  
+
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete('subScheme.scheme.name','codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&fundId="+document.getElementById("fundId").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 3;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";
@@ -272,7 +272,7 @@ function autocompleteSchemeBy20LG()
 	   };
 
 
-	
+
 }
 function autocompleteSubSchemeBy20LG()
 {
@@ -281,9 +281,9 @@ function autocompleteSubSchemeBy20LG()
 	   oACDS.scriptQueryParam = "startsWith";
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete('subScheme.name','codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&schemeId="+document.getElementById("schemeId").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 3;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";

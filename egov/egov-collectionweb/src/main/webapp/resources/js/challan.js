@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,12 +59,12 @@ var codeTextMessage='Enter 3 letters';
 
 function resetTables(fYearId){
 
-            var length = billDetailsTable.getRecordSet().getLength(); 
-             if(length > 1) { 
-	                var count = (length > 2) ? length : 2; 
-	               billDetailsTable.deleteRows(1,count); 
-	            } 
-	     
+            var length = billDetailsTable.getRecordSet().getLength();
+             if(length > 1) {
+	                var count = (length > 2) ? length : 2;
+	               billDetailsTable.deleteRows(1,count);
+	            }
+
 	     for(var i=0;i<billDetailTableIndex+1;i++)
 	{
 		if(null != document.getElementById('billDetailslist['+i+'].creditAmountDetail')){
@@ -76,15 +76,15 @@ function resetTables(fYearId){
 						fYearObj.options[k].selected=true;
 					}
 			}
-			
+
 		}
 	}
-	      var slength = subLedgersTable.getRecordSet().getLength(); 
-                if(slength > 1) { 
-	                var scount = (slength > 2) ? slength : 2; 
-	                subLedgersTable.deleteRows(1,scount); 
-	            } 
-	            
+	      var slength = subLedgersTable.getRecordSet().getLength();
+                if(slength > 1) {
+	                var scount = (slength > 2) ? slength : 2;
+	                subLedgersTable.deleteRows(1,scount);
+	            }
+
 	          for (var j=0; j<slDetailTableIndex+1; j++ )
 				{
 					if(document.getElementById('subLedgerlist['+j+'].glcode.id')!=null){
@@ -116,7 +116,7 @@ function validateAccountDetail(){
 	for (var i=0; i<billDetailTableIndex+1; i++)
 	{
 		for (var j=0; j<billDetailTableIndex+1; j++ )
-		{	
+		{
 			if (i!=j)
 			{
 				if(document.getElementById('billDetailslist['+i+'].glcodeDetail')!=null && document.getElementById('billDetailslist['+j+'].glcodeDetail')!=null  ){
@@ -127,7 +127,7 @@ function validateAccountDetail(){
 					}
 				}
 			}
-			
+
 		}
 		if(document.getElementById('billDetailslist['+i+'].glcodeDetail')!=null){
 			if (  document.getElementById('billDetailslist['+i+'].glcodeDetail').value.length > 0 && document.getElementById('billDetailslist['+i+'].accounthead').value.length==0)
@@ -155,7 +155,7 @@ function validateAccountDetail(){
 				document.getElementById('challan_error_area').innerHTML+='Please enter correct amount in Account Details for account code :'+document.getElementById('billDetailslist['+i+'].glcodeDetail').value+'<br>';
 				validate=false;
 			}
-			
+
 			creditTotal = creditTotal + credit;
 			if (credit>0 &&  document.getElementById('billDetailslist['+i+'].glcodeDetail').value.length == 0)
 			{
@@ -181,11 +181,11 @@ function validateAccountDetail(){
 //				document.getElementById('billDetailslist['+i+'].debitAmountDetail').focus();
 //				document.getElementById('challan_error_area').innerHTML+='Please enter correct amount in Account Details for account code :'+document.getElementById('billDetailslist['+i+'].glcodeDetail').value+'<br>';
 //				validate=false;
-//			
+//
 //			}
-//			
+//
 //			debitTotal = debitTotal + debit;
-		
+
 //			if (debit>0 &&  document.getElementById('billDetailslist['+i+'].glcodeDetail').value.length == 0)
 //			if (debit>0 &&  document.getElementById('billDetailslist['+i+'].glcodeDetail').value.length == 0)
 //			{
@@ -193,7 +193,7 @@ function validateAccountDetail(){
 //				document.getElementById('challan_error_area').innerHTML+='Account code is missing in Account Details for debit supplied field'+'<br>';
 //				validate=false;
 //			}
-//			
+//
 //			if ((credit > 0 && debit>0) )
 //			{
 //				document.getElementById('billDetailslist['+i+'].creditAmountDetail').focus();
@@ -201,7 +201,7 @@ function validateAccountDetail(){
 //				validate=false;
 //				return false;
 //			}
-//			
+//
 //			if ((credit == 0 && debit==0) && document.getElementById('billDetailslist['+i+'].glcodeDetail').value.length!= 0)
 //			{
 //				document.getElementById('billDetailslist['+i+'].creditAmountDetail').focus();
@@ -215,7 +215,7 @@ function validateAccountDetail(){
 				document.getElementById('challan_error_area').innerHTML+='Please select the year for the account code :'+document.getElementById('billDetailslist['+i+'].glcodeDetail').value +'<br>';
 				validate=false;
 			}
-			
+
 		}
 	}
 	if(creditTotal<=0)
@@ -243,7 +243,7 @@ function validateSubLedgerDetail(){
 				for (var j=0; j<slDetailTableIndex+1; j++ )
 				{
 					if(document.getElementById('subLedgerlist['+j+'].glcode.id')!=null){
-				
+
 						var accountCode = document.getElementById('billDetailslist['+i+'].glcodeDetail').value;
 						var subledgerid = document.getElementById('subLedgerlist['+j+'].glcode.id');
 						var detailtypeid = document.getElementById('subLedgerlist['+j+'].detailType.id');
@@ -251,7 +251,7 @@ function validateSubLedgerDetail(){
 						var subledgerAccCode =0;
 						if(subledgerid!='null')
 							subledgerAccCode= subledgerid.options[subledgerid.selectedIndex].value;
-						
+
 						if( ( subledgerAccCode !=0) && (detailtypeid.value == "" || detailtypeid.value == 0 || detailKeyid ==""))
 						{
 								document.getElementById('challan_error_area').innerHTML += "Please enter subledger details correctly<br>";
@@ -270,11 +270,11 @@ function validateSubLedgerDetail(){
 						if (accountCode == subledgerid.options[subledgerid.selectedIndex].text.trim())
 						{
 							if(eval(document.getElementById('billDetailslist['+i+'].creditAmountDetail').value) > 0){
-			
+
 								accountDetailamount = document.getElementById('billDetailslist['+i+'].creditAmountDetail').value;
 							}
 							//if(eval(document.getElementById('billDetailslist['+i+'].debitAmountDetail').value) > 0){
-								
+
 								//accountDetailRebateAmount = document.getElementById('billDetailslist['+i+'].debitAmountDetail').value;
 							//}
 							subledgerTotalAmt = subledgerTotalAmt + eval(document.getElementById('subLedgerlist['+j+'].amount').value);
@@ -292,7 +292,7 @@ function validateSubLedgerDetail(){
 						}
 						//document.getElementById('subLedgerlist['+j+'].subledgerCode').value= subledgerid.options[subledgerid.selectedIndex].text;
 						//document.getElementById('subLedgerlist['+j+']'+'.detailTypeName').value =  detailtypeid.options[detailtypeid.selectedIndex].text;
-					
+
 					}
 				}
 				if(accountDetailamount>0){
@@ -311,15 +311,15 @@ function validateSubLedgerDetail(){
 				}*/
 			}
 		}
-		
+
 		return true;
 	}
 function getAccountDetails(obj){
 	var serviceId=obj.value;
-	
+
 		var url = path+'/receipts/ajaxReceiptCreate-getAccountForService.action?serviceId='+serviceId;
 		var transaction = YAHOO.util.Connect.asyncRequest('POST', url, postTypeNew, null);
-	
+
 }
 
 var postTypeNew = {
@@ -328,10 +328,10 @@ success: function(o) {
 		var accountDetails = accounts.split('#');
 		var eachItem;
 		var row;
-		
+
 			if(billDetailsTable.getRecordSet().getLength()>1){
 				for(var l=billDetailsTable.getRecordSet().getLength();l>1;l--){
-					billDetailsTable.deleteRows(0,l); 
+					billDetailsTable.deleteRows(0,l);
 				}
 			}
 			else if(billDetailsTable.getRecordSet().getLength()==1){
@@ -339,10 +339,10 @@ success: function(o) {
 			}
 			billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 			updateAccountTableIndex();
-			
+
 			if(subLedgersTable.getRecordSet().getLength()>1){
 				for(var l=subLedgersTable.getRecordSet().getLength();l>1;l--){
-					subLedgersTable.deleteRows(0,l); 
+					subLedgersTable.deleteRows(0,l);
 				}
 			}
 			else if(subLedgersTable.getRecordSet().getLength()==1){
@@ -353,8 +353,8 @@ success: function(o) {
 			document.getElementById('totalcramount').value = 0;
 			// document.getElementById('totaldbamount').value = 0;
 		for(var i=0;i<accountDetails.length;i++)
-		{	
-		
+		{
+
 			if(accountDetails[i].trim().length>0){
 				eachItem =accountDetails[i].split('~');
 				var firstRowNo=billDetailTableIndex-1;
@@ -382,7 +382,7 @@ function getServiceMISDetails(obj){
 	var serviceId=obj.value;
 	var newurl = path+'/receipts/ajaxReceiptCreate-getMISdetailsForService.action?serviceId='+serviceId;
 	var transaction = YAHOO.util.Connect.asyncRequest('POST', newurl, getMISdetails, null);
-		
+
 }
 
 var getMISdetails = {
@@ -392,10 +392,10 @@ success: function(o) {
 		var eachItem;
 		document.getElementById('receiptMisc.fund.id').value="-1";
 		//document.getElementById('deptId').value="-1";
-			
+
 		for(var i=0;i<details.length;i++)
-		{	
-		
+		{
+
 			if(details[i].trim().length>0){
 				eachItem =details[i].split('~');
 				document.getElementById('receiptMisc.fund.id').value=eachItem[0].trim();
@@ -448,7 +448,7 @@ function createTextFieldFormatter(prefix,suffix,type,table){
     var rec=billDetailTableIndex;
     var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' readOnly style='width:80;' tabIndex='-1' />";
-	
+
 	}
 }
 
@@ -505,7 +505,7 @@ function createSLAmountFieldFormatter(prefix,suffix){
 function createSLDetailCodeTextFieldFormatter(prefix,suffix,onblurfunction){
  return function(el, oRecord, oColumn, oData) {
 			el.innerHTML = "<input type='text' id='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' style='width:90px;' onkeyup='autocompleteForEntity(this,event)' autocomplete='off' onblur = 'waterMarkTextOut(\""+prefix+"["+slDetailTableIndex+"]"+suffix+"\",\""+codeTextMessage+"\");"+onblurfunction+"' onfocus='onFocusDetailCode(this);waterMarkTextIn(\""+prefix+"["+slDetailTableIndex+"]"+suffix+"\",\""+codeTextMessage+"\");' />";
-			
+
 		}
 }
 
@@ -526,9 +526,9 @@ function createDropdownFormatterFYear(prefix,currentFYearId){
             selectEl = el.appendChild(selectEl);
             selectEl.disabled=true;
             YAHOO.util.Event.addListener(selectEl,"change",this._onDropdownChange,this);
-			
+
         }
-       
+
         selectEl = collection[0];
 
         if(selectEl) {
@@ -570,9 +570,9 @@ function createDropdownFormatterDetailCode(prefix){
 	            selectEl.name = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 				selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 	            selectEl = el.appendChild(selectEl);
-	            var selectedIndex = {value: slDetailTableIndex }; 
+	            var selectedIndex = {value: slDetailTableIndex };
 	            YAHOO.util.Event.addListener(selectEl,"change",onDropdownDetailCodeChange,selectedIndex,this);
-				
+
 	        }
 
 	        selectEl = collection[0];
@@ -602,8 +602,8 @@ function createDropdownFormatterDetailCode(prefix){
 	        }
 	    }
 }
-	
-	var onDropdownDetailCodeChange = function(index,obj) { 
+
+	var onDropdownDetailCodeChange = function(index,obj) {
 		var detailtypeid = document.getElementById('subLedgerlist['+obj.value+'].detailType.id').value;
 			var selecteddetailcode1=document.getElementById('subLedgerlist['+obj.value+'].detailCode').value;
 			var url =  path+'/receipts/ajaxReceiptCreate-ajaxValidateDetailCodeNew.action?code='+selecteddetailcode1+'&detailtypeid='+detailtypeid+'&index='+obj.value;
@@ -632,7 +632,7 @@ function createDropdownFormatterDetailCode(prefix){
 	    failure: function(o) {
 	    	bootbox.alert('failure');
 	    }
-	}	
+	}
 
 function createDropdownFormatterDetail(prefix){
     return function(el, oRecord, oColumn, oData) {
@@ -647,9 +647,9 @@ function createDropdownFormatterDetail(prefix){
             selectEl.name = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 			selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
             selectEl = el.appendChild(selectEl);
-            var selectedIndex = {value: slDetailTableIndex }; 
+            var selectedIndex = {value: slDetailTableIndex };
             YAHOO.util.Event.addListener(selectEl,"change",onDropdownDetailChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -703,7 +703,7 @@ var onDropdownDetailChange = function(index,obj) {
 							yuiflag1[obj.value] =undefined;
 						}
 					}
-				
+
 };
 
 function onFocusDetailCode(obj){
@@ -711,7 +711,7 @@ function onFocusDetailCode(obj){
 	var detailtypeidObj=document.getElementById('subLedgerlist['+currRow+'].detailType.id');
 	if(detailTypeId != detailtypeidObj.value){
 		detailTypeId = detailtypeidObj.value;
-		//loadDropDownCodesForEntities(detailtypeidObj); 
+		//loadDropDownCodesForEntities(detailtypeidObj);
 	}
 }
 
@@ -729,9 +729,9 @@ function createDropdownFormatterCode(prefix){
 			selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 			//selectEl.onfocus=check;
             selectEl = el.appendChild(selectEl);
-			var selectedIndex = {value: slDetailTableIndex }; 
+			var selectedIndex = {value: slDetailTableIndex };
             YAHOO.util.Event.addListener(selectEl,"change",onDropdownChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -762,7 +762,7 @@ function createDropdownFormatterCode(prefix){
     }
 }
 var selecteddetailtype;
-var onDropdownChange = function(index,obj) { 
+var onDropdownChange = function(index,obj) {
 		var subledgerid=document.getElementById('subLedgerlist['+obj.value+'].glcode.id');
 		var accountCode = subledgerid.options[subledgerid.selectedIndex].text;
 		if(subledgerid.options[subledgerid.selectedIndex].value==0){
@@ -820,7 +820,7 @@ success: function(o) {
 			if(obj.options[k].value==selectedval){
 				obj.options[k].selected=true;
 			}
-		}	
+		}
 
 	if(onload=='false')
 	{
@@ -830,7 +830,7 @@ success: function(o) {
 		document.getElementById(SUBLEDGERLIST+'['+rowid+']'+'.detailKey').value='';
 		document.getElementById(SUBLEDGERLIST+'['+rowid+']'+'.amount').value='0';
 	}
-		
+
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -838,13 +838,13 @@ success: function(o) {
 }
 
 function updateAccountTableIndex(){
-	
+
 	billDetailTableIndex = billDetailTableIndex +1 ;
     patternvalidation();
 }
 
 function updateSLTableIndex(){
-	
+
 	 slDetailTableIndex = slDetailTableIndex +1 ;
 }
 
@@ -917,22 +917,22 @@ function loadDropDownCodesFunction()
 
 function autocompletecodeFunction(obj,myEvent)
 {
-	
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0]+"px";	
+
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0]+"px";
 	target.style.top=posSrc[1]+"px";
-	target.style.width=650;	
-		
+	target.style.width=650;
+
 	var fObj=obj;
 	//var  currRow=getRowIndex(obj);
 
 	//40 --> Down arrow, 38 --> Up arrow
 	//if(yuiflagFunc[currRow] == undefined)
 	//{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -952,7 +952,7 @@ function autocompletecodeFunction(obj,myEvent)
 			}
 		}
 		//yuiflagFunc[currRow] = 1;
-	//}	
+	//}
 }
 
 
@@ -962,12 +962,12 @@ function fillNeibrAfterSplitFunction(obj)
 	var temp = obj.value;
 	temp = temp.split("`~~`");
 	if(temp.length>1)
-	{ 
+	{
 		var temp1=temp[0];
 		temp1=temp1.split("`~`");
 		obj.value=temp1[0];
 		document.getElementById('billDetailslist['+currRow+'].functionIdDetail').value=temp[1];
-	} else if(temp == '') 
+	} else if(temp == '')
 	{
 		obj.value='';
 		document.getElementById('billDetailslist['+currRow+'].functionIdDetail').value='';
@@ -982,7 +982,7 @@ function fillNeibrAfterSplitGlcode(obj)
 	var currRow=getRowIndex(obj);
 	var glcodeId = document.getElementById('billDetailslist['+currRow+'].glcodeIdDetail').value;
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		document.getElementById('billDetailslist['+currRow+'].glcodeIdDetail').value=temp[2];
 		document.getElementById('billDetailslist['+currRow+'].glcodeDetail').value=temp[1];
@@ -994,19 +994,19 @@ function fillNeibrAfterSplitGlcode(obj)
 		document.getElementById('billDetailslist['+currRow+'].glcodeDetail').value="";
 		document.getElementById('billDetailslist['+currRow+'].accounthead').value="";
 	}
-	
+
 }
 
 
 function getDetailType(val){
 			selecteddetailtype=document.getElementById('subLedgerlist['+val+'].detailType.id').value;
 			var detail = document.getElementById('subLedgerlist['+val+'].detailType.id');
-			
+
 			for(k=detail.options.length-1;k>=1;k--)
 			{
 				detail.remove(k);
 			}
-			
+
 			var subledgerid=document.getElementById('subLedgerlist['+val+'].glcode.id');
 			var accountCode = subledgerid.options[subledgerid.selectedIndex].text;
 			if( subledgerid.options[subledgerid.selectedIndex].value!=0){
@@ -1023,7 +1023,7 @@ function getDetailType(val){
 					document.getElementById(SUBLEDGERLIST+'['+val+']'+'.amount').value='';
 				}
 			}
-	
+
 }
 function getDetailCode(val){
 	var selecteddetailcode1=document.getElementById('subLedgerlist['+val+'].detailCode').value;
@@ -1038,7 +1038,7 @@ function getDetailCode(val){
 		var url = path+'/receipts/ajaxReceiptCreate-getCodeNew.action?accountCode='+accountCode+'&index='+val+'&detailTypeId='+detailtypeid+'&selectedDetailCode='+selecteddetailcode1;
 		//var transaction = YAHOO.util.Connect.asyncRequest('POST', url, postTypeDetail, null);
 	}
-	
+
 }
 
 function getDetailCodeValue(val){
@@ -1051,7 +1051,7 @@ function getDetailCodeValue(val){
 
 }
 function check(){
-	
+
 	var accountCodes=new Array();
 	var count=0;
 	for(var i=0;i<billDetailTableIndex+1;i++){
@@ -1060,11 +1060,11 @@ function check(){
 			count++;
 		}
 	}
-	
+
 		var url =  path+'/receipts/ajaxReceiptCreate-getDetailCode.action?accountCodes='+accountCodes;
 		var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackJV, null);
 
-	
+
 }
 var glcodeObj;
 var glcodeArray;
@@ -1095,9 +1095,9 @@ success: function(o) {
 									 document.getElementById('billDetailslist['+j+'].glcodeDetail').value='';
 									 document.getElementById('billDetailslist['+j+'].glcodeIdDetail').value="";
 									 document.getElementById('billDetailslist['+j+'].accounthead').value="";
-									 		
+
 								}
-								
+
 							}
 						}
 						break;
@@ -1114,9 +1114,9 @@ success: function(o) {
 						d.options[i].selected=true;
 					}
 				}
-								
+
 				getDetailType(j);
-			} 
+			}
 			if(test.length<2)
 			{
 				var d = document.getElementById('subLedgerlist['+j+'].glcode.id');
@@ -1126,7 +1126,7 @@ success: function(o) {
 						d.remove(k);
 					}
 				}
-				
+
 				var detail = document.getElementById('subLedgerlist['+j+'].detailType.id');
 				if(detail!=null){
 					for(var k=detail.options.length-1;k>=1;k--)
@@ -1147,7 +1147,7 @@ success: function(o) {
 					document.getElementById(SUBLEDGERLIST+'['+j+']'+'.amount').value='';
 					document.getElementById(SUBLEDGERLIST+'['+j+']'+'.amount').readOnly=false;
 			//}
-				
+
 			}
 		}
     },
@@ -1168,8 +1168,8 @@ function populatesubledgeramount1(){
 						}
 					}
 				}
-			
-			
+
+
 		}
 	}
 }
@@ -1177,11 +1177,11 @@ function populatesubledgeramount(glcode,index){
 	for(var i=0;i<billDetailTableIndex+1;i++){
 		if(null != document.getElementById('billDetailslist['+i+'].glcodeDetail')){
 			if( document.getElementById('billDetailslist['+i+'].glcodeDetail').value==glcode){
-				
+
 				 document.getElementById('subLedgerlist['+index+'].amount').value=document.getElementById('billDetailslist['+i+'].creditAmountDetail').value;
 				 document.getElementById('subLedgerlist['+index+'].amount').readOnly=true;
 			}
-			
+
 		}
 	}
 }
@@ -1251,13 +1251,13 @@ var yuiflag = new Array();
 var yuiflag1 = new Array();
 function autocompletecode(obj,myEvent)
 {
-var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
+var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
 
-	target.style.left=posSrc[0];	
+	target.style.left=posSrc[0];
 	target.style.top=posSrc[1]-40;
-	target.style.width=450;	
+	target.style.width=450;
 	codeObj
 	var coaCodeObj=obj;
 		var  currRow=getRowIndex(obj);
@@ -1265,7 +1265,7 @@ var src = obj;
 	//40 --> Down a+rrow, 38 --> Up arrow
 	if(yuiflag[currRow] == undefined)
 	{
-		var key = window.event ? window.event.keyCode : myEvent.charCode; 
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 
 		if(key != 40 )
 		{
@@ -1283,7 +1283,7 @@ var src = obj;
 			}
 		}
 		yuiflag[currRow] = 1;
-	}	
+	}
 }
 function getRow(obj){
 	if(!obj)return null;
@@ -1329,8 +1329,8 @@ var entobj;
 var entevent;
 function autocompleteForEntity(obj,myEvent){
 var  currRow=getRowIndex(obj);
-		
-	
+
+
 	if(obj.value.length<3){
 		if(entities)
 			{
@@ -1366,7 +1366,7 @@ entevent=myEvent;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackAutoCompleteEntities, null);
 			}
 		}
-		
+
 	}
 }
 
@@ -1379,29 +1379,29 @@ var callbackAutoCompleteEntities = {
 		var eachEntity = a[0];
 		entitiesArray=eachEntity.split("+");
 		entities = new YAHOO.widget.DS_JSArray(entitiesArray);
-		var src = entobj;	
-	var target = document.getElementById('subledgercodescontainer');	
-	var posSrc=findPos(src); 
-	
-	target.style.left=posSrc[0]+"px";	
+		var src = entobj;
+	var target = document.getElementById('subledgercodescontainer');
+	var posSrc=findPos(src);
+
+	target.style.left=posSrc[0]+"px";
 	target.style.top=posSrc[1]-40+"px";
-	target.style.width=650;	
-	      		
-	
+	target.style.width=650;
+
+
 	var coaCodeObj=entobj;
 if(onElementFocused(entobj))//To check if the element is still under focus
 {
 	var  currRow=getRowIndex(entobj);
 	//40 --> Down arrow, 38 --> Up arrow
-	if(yuiflag1[currRow] == undefined)//To make sure autocomplete instance is created only once with that event 
+	if(yuiflag1[currRow] == undefined)//To make sure autocomplete instance is created only once with that event
 	{
-		var key = window.event ? window.event.keyCode : entevent.charCode;  
+		var key = window.event ? window.event.keyCode : entevent.charCode;
 
 		if(key != 40 )
 		{
 			if(key != 38 )
 			{
-				
+
 				oAutoCompEntity = new YAHOO.widget.AutoComplete(coaCodeObj,'subledgercodescontainer', entities);
 				oAutoCompEntity.queryDelay = 0;
 				oAutoCompEntity.prehighlightClassName = "yui-ac-prehighlight";
@@ -1425,7 +1425,7 @@ if(onElementFocused(entobj))//To check if the element is still under focus
 
 }
 HideImage(entobj);
-	
+
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -1464,20 +1464,20 @@ HideImage(obj);
 function ShowImage(obj)
 {
  obj.style.backgroundImage  = 'url('+path+'/images/LoadingV2.gif)';
- 
+
  obj.style.backgroundRepeat= 'no-repeat';
-                    
+
  obj.style.backgroundPosition = 'right';
 }
 function HideImage(obj)
 {
  obj.style.backgroundImage  = 'none';
-} 
+}
 function onElementFocused(e)
 {
     return document.activeElement ==e?true:false;
-       
-} 
+
+}
 
 
 
@@ -1485,20 +1485,20 @@ function onElementFocused(e)
 function  populateService(serviceCategory){
 	dom.get('receiptMisc.fund.id').value="-1";
 	dom.get('functionId').value="-1";
-	populateserviceId({serviceCatId:serviceCategory.options[serviceCategory.selectedIndex].value});	
+	populateserviceId({serviceCatId:serviceCategory.options[serviceCategory.selectedIndex].value});
 }
 
 function loadFinDetails(service){
 
 	var dept = dom.get('deptId').value;
 	var service = dom.get('serviceId').value;
-	
+
 	var path = '/services/collection';
-	
+
 	var url1 = path+"/receipts/ajaxReceiptCreate-ajaxFinMiscDtlsByService.action?serviceId="+service+"&deptId="+dept;
 	var transaction = YAHOO.util.Connect.asyncRequest('POST', url1,loadMiscDetails, null);
-	
-	
+
+
 	var url2 = path+"/receipts/ajaxReceiptCreate-ajaxFinAccDtlsByService.action";
 	makeJSONCall(["glcodeIdDetail","glcodeDetail","accounthead","creditAmountDetail"]
 	,url2,{serviceId:service,deptId:dept},loadFinAccSuccessHandler,loadFinAccFailureHandler);
@@ -1516,8 +1516,8 @@ var result = o.responseText;
 
 if(null != result && result.length !=0){
 	 miscArray = result.split('~');
-		if(null != dom.get('receiptMisc.fund.id') ) {	
-				 dom.get('receiptMisc.fund.id').value = parseInt(miscArray[0]);		
+		if(null != dom.get('receiptMisc.fund.id') ) {
+				 dom.get('receiptMisc.fund.id').value = parseInt(miscArray[0]);
 		}
 		if(null != dom.get('schemeId') ){
 				var url= "/services/EGF/voucher/common-ajaxLoadSchemes.action";
@@ -1529,21 +1529,21 @@ if(null != result && result.length !=0){
 				var url= "/services/EGF/voucher/common-ajaxLoadSubSchemes.action";
 				var schemeId = dom.get('schemeId').value;
 				makeJSONCall(["Text","Value"],url,{schemeId:miscArray[1]},subschemeDropDownSuccessHandler,subschemeDropDownFailureHandler);
-				
+
 		}
-		
+
 		if(null != dom.get('fundSourceId') ){
 				var url= "/services/EGF/voucher/common-ajaxLoadFundSource.action";
 				var subschemeId = dom.get('subschemeId').value;
 				makeJSONCall(["Text","Value"],url,{subSchemeId:miscArray[2]},fundsourceDropDownSuccessHandler,fundsourceDropDownFailureHandler);
 
 		}
-		
+
 		if(null != dom.get('receiptMisc.idFunctionary.id') ){
 				 dom.get('receiptMisc.idFunctionary.id').value = parseInt(miscArray[4]);
 		}
-		if(null != dom.get('functionId') ) {	
-			 dom.get('functionId').value = parseInt(miscArray[5]);	
+		if(null != dom.get('functionId') ) {
+			 dom.get('functionId').value = parseInt(miscArray[5]);
 		}
 }
 
@@ -1623,16 +1623,16 @@ alert('failure while loading fundource drop down');
 
 loadFinAccSuccessHandler=function(req,res){
 var noOfRows =  billDetailsTable.getRecordSet().getLength();
-billDetailsTable.deleteRows(0,noOfRows); 
+billDetailsTable.deleteRows(0,noOfRows);
 billDetailTableIndex = 0;
 billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
      "glcodeid":"",
      "glcode":"",
      "accounthead":"",
      "creditamount":""
- });      
+ });
 updateGrid(VOUCHERDETAILLIST,'creditAmountDetail',0,0);
-totalcramt = 0;          
+totalcramt = 0;
 billDetailTableIndex = 1;
 for(i=0;i<res.results.length-1;i++){
 	 billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
@@ -1641,10 +1641,10 @@ for(i=0;i<res.results.length-1;i++){
             "accounthead":res.results[i].accounthead,
             "creditamount":res.results[i].creditAmountDetail
         });
-        updateAccountTableIndex();  
+        updateAccountTableIndex();
 }
 
-for(i=0;i<res.results.length;i++){  
+for(i=0;i<res.results.length;i++){
         updateGrid(VOUCHERDETAILLIST,'glcodeIdDetail',i,res.results[i].glcodeIdDetail);
         updateGrid(VOUCHERDETAILLIST,'glcodeDetail',i,res.results[i].glcodeDetail);
         updateGrid(VOUCHERDETAILLIST,'accounthead',i,res.results[i].accounthead);
@@ -1671,7 +1671,7 @@ alert('failure');
 loadFinSubledgerSuccessHandler=function(req,res){
 
 var noOfRows =  subLedgersTable.getRecordSet().getLength();
-subLedgersTable.deleteRows(0,noOfRows); 
+subLedgersTable.deleteRows(0,noOfRows);
 slDetailTableIndex = 0;
 subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
  "glcode":"",
@@ -1696,12 +1696,12 @@ for(i=0;i<res.results.length-1;i++){
             "detailKeyId":res.results[i].detailKeyId,
             "detailKey":res.results[i].detailKey,
             "amount":res.results[i].amount
-          
+
         });
          updateSLTableIndex();
     }
 for(i=0;i<res.results.length;i++){
-      
+
         updateGridSLDropdown('glcode.id',i,res.results[i].glcodeId,res.results[i].subledgerCode);
         updateGridSLDropdown('detailType.id',i,res.results[i].detailTypeId,res.results[i].detailTypeName);
         updateSLGrid('detailCode',i,res.results[i].detailCode);

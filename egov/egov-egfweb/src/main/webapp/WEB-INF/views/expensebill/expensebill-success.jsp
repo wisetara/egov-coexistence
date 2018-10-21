@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,10 +53,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <script>
 			function processRequest(){
-		
-				
-				
-				
+
+
+
+
 		console.log('posted the message');
 	}
 </script>
@@ -73,7 +73,7 @@
 				</div>
 			</div>
 		</div>
-	</div>			
-	<div class="text-center"><input type="button" name="button2" id="button2" value="Close" class="btn btn-default" onclick="window.parent.postMessage('close','*');window.close();"/></div>		
-</div>					
+	</div>
+	<div class="text-center"><input type="button" name="button2" id="button2" value="Close" class="btn btn-default" onclick="window.parent.postMessage('close','*');window.close();"/></div>
+</div>
 </div>

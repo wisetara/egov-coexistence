@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -152,8 +152,8 @@ public class RemitRecoveryService {
         query.append(dateQry);
         query.append(getMisSQlQuery(voucherHeader));
         query.append(" ORDER BY vh.VOUCHERNUMBER,  vh.VOUCHERDATE");
-        }                       
-                                
+        }
+
 
         if (LOGGER.isDebugEnabled())
             LOGGER.debug("RemitRecoveryService | getRecoveryDetails | query := " + query.toString());
@@ -165,7 +165,7 @@ public class RemitRecoveryService {
             LOGGER.debug("RemitRecoveryService | getRecoveryDetails | End");
         return listRemitBean;
     }
-    
+
     public StringBuilder getRecoveryListForSelectedBank(final RemittanceBean remittanceBean, final CVoucherHeader voucherHeader,
             final StringBuilder dateQuery) {
         StringBuilder query = new StringBuilder();
@@ -205,7 +205,7 @@ public class RemitRecoveryService {
         if (LOGGER.isDebugEnabled())
             LOGGER.debug("RemitRecoveryService | getRecoveryDetails | Start");
         final List<RemittanceBean> listRemitBean = new ArrayList<RemittanceBean>();
-        
+
         StringBuilder query = new StringBuilder();
         query.append(" SELECT vh.NAME  AS col_0_0_,  vh.VOUCHERNUMBER AS col_1_0_,  vh.VOUCHERDATE   AS col_2_0_,");
         query.append(" egr.GLDTLAMT   AS col_3_0_,  gld.DETAILTYPEID  AS col_4_0_,  gld.DETAILKEYID   AS col_5_0_,");
@@ -224,7 +224,7 @@ public class RemitRecoveryService {
         query.append(" where vh.status not in (1,2,4) and  eg.PAYMENTVHID=vh.id and egd.remittanceid=eg.id and egr1.id=egd.remittancegldtlid and egr1.id=egr.id)");
         query.append(" <>0  ");
         query.append(" ORDER BY vh.VOUCHERNUMBER,  vh.VOUCHERDATE");
-                               
+
         if (LOGGER.isDebugEnabled())
             LOGGER.debug("RemitRecoveryService | getRecoveryDetails | query := " + query.toString());
 

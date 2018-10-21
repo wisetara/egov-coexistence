@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,7 +54,7 @@
 <script>
 jQuery.noConflict();
 jQuery(document).ready(function() {
-  	 
+
      jQuery(" form ").submit(function( event ) {
     	 doLoadingMask();
     });
@@ -92,7 +92,7 @@ function enableButtons() {
 	} else {
 		if(isSubmitAction) {
 			document.collectionsWorkflowForm.submitCollections.disabled = true;
-			document.collectionsWorkflowForm.submitCollections.className="button";	
+			document.collectionsWorkflowForm.submitCollections.className="button";
 		} else {
 			document.collectionsWorkflowForm.approveCollections.disabled = true;
 			document.collectionsWorkflowForm.rejectCollections.disabled = true;
@@ -144,7 +144,7 @@ function handleReceiptSelectionEvent(receiptAmount, instrumentType, isSelected) 
 	if(instrumentType == "cash") {
 		cashAmount = cashAmount + delta;
 	}
-	
+
 	if(instrumentType == "cheque") {
 		chequeAmount = chequeAmount + delta;
 	}
@@ -168,7 +168,7 @@ function isChecked(chk) {
   			return true;
  		} else {
  	 		return false;
- 		}	
+ 		}
  	} else {
  		for (i = 0; i < chk.length; i++)
 		{
@@ -190,7 +190,7 @@ function changeSelectionOfAllReceipts(checked) {
 		{
  			chk[j].checked = checked;
 		}
- 	}	
+ 	}
 }
 
 //DeSelect all receipts
@@ -303,18 +303,18 @@ function onChangePaymentMode(obj)
 									id="paymentMode" label="paymentMode" name="paymentMode"
 									value="%{paymentMode}" onchange="onChangePaymentMode(this);" /></td>
 	</div>
-			<s:hidden name="inboxItemDetails" id="inboxItemDetails" value="%{inboxItemDetails}"/>								
-									
-	</tr>	
+			<s:hidden name="inboxItemDetails" id="inboxItemDetails" value="%{inboxItemDetails}"/>
+
+	</tr>
 	<br/><br/>
 	<s:if test="%{!receiptHeaders.isEmpty() && !hasErrors()}">
 		<table width="100%" border="0" align="center" cellpadding="0"
 			cellspacing="0" class="tablebottom">
-		
+
 			<display:table name="receiptHeaders"
 				uid="currentRow" pagesize="30" style="border:1px;empty-cells:show;border-collapse:collapse;" cellpadding="0"
 				cellspacing="0" export="false" requestURI="">
-				<s:hidden name="receiptDate" id="receiptDate" value="%{receiptdate}"/>	
+				<s:hidden name="receiptDate" id="receiptDate" value="%{receiptdate}"/>
 				<s:if test="%{allowPartialSelection == true}">
 					<!--  Partial selection allowed. Enable the checkboxes -->
 					<display:column headerClass="bluebgheadtd" class="blueborderfortd"
@@ -343,7 +343,7 @@ function onChangePaymentMode(obj)
 				<display:column headerClass="bluebgheadtd" class="blueborderfortd"
 					property="receiptdate" title="Receipt Date"
 					format="{0,date,dd/MM/yyyy}" style="width:10%; text-align: center" />
-				
+
 
 				<display:column headerClass="bluebgheadtd" class="blueborderfortd"
 					property="service.name" title="Service" style="width:10%; text-align: center;" />
@@ -367,7 +367,7 @@ function onChangePaymentMode(obj)
 					title="Bill Description" style="width:15%;">&nbsp;${currentRow.referenceDesc}</display:column>
 
 			</display:table>
-			
+
 			<br/>
 
 			<table width="50%" border="0" align="center" cellpadding="0"
@@ -422,23 +422,23 @@ function onChangePaymentMode(obj)
 						name="totalAmount" disabled="true"
 						style="border-width: 0px;font-weight: bold; background-color: #F5F5F5; text-align: right; width: 90%" /></td>
 				</tr>
-				
-				
+
+
 			</table>
 
 			<br />
-			
+
             <table width="50%" border="0" align="center" cellpadding="0"
 				cellspacing="0">
-				
+
 				<tr>
-				
+
 				<td><s:label>Remarks</s:label></td>
-						
-				<td><s:textarea id="remarks" name="remarks" maxlength="1024" cols="40" cssClass="form-control"></s:textarea></td>		
-				
+
+				<td><s:textarea id="remarks" name="remarks" maxlength="1024" cols="40" cssClass="form-control"></s:textarea></td>
+
 				</tr>
-				
+
 		    </table>
 			<br />
 			<br />
@@ -446,43 +446,43 @@ function onChangePaymentMode(obj)
 			<s:if test="%{isSubmitAction == true}">
 				<s:submit type="submit" cssClass="buttonsubmit"
 					id="submitCollections" name="submitCollections"
-					value="Submit Page Collections" 
+					value="Submit Page Collections"
 					disabled="false"
 					onclick="doLoadingMask('#loadingMask');document.collectionsWorkflowForm.action='collectionsWorkflow-submitCollections.action'" />
 					<s:submit type="submit" cssClass="buttonsubmit"
 					id="submitCollections" name="submitCollections"
-					value="Submit All Collections" 
+					value="Submit All Collections"
 					disabled="false"
 					onclick="doLoadingMask('#loadingMask');document.collectionsWorkflowForm.action='collectionsWorkflow-submitAllCollections.action'" />
 			</s:if> <!-- else show only approve and reject buttons --> <s:else>
 				<s:submit type="submit" cssClass="buttonsubmit"
 					id="approveCollections" name="approveCollections"
-					value="Approve Page Collections" 
+					value="Approve Page Collections"
 					disabled="false"
 					onclick="doLoadingMask('#loadingMask');document.collectionsWorkflowForm.action='collectionsWorkflow-approveCollections.action'" />
 				&nbsp;
 				<s:submit type="submit" cssClass="buttonsubmit"
 					id="approveCollections" name="approveCollections"
-					value="Approve All Collections" 
+					value="Approve All Collections"
 					disabled="false"
 					onclick="doLoadingMask('#loadingMask');document.collectionsWorkflowForm.action='collectionsWorkflow-approveAllCollections.action'" />
 				&nbsp;
 				<s:submit type="submit" cssClass="buttonsubmit"
 					id="rejectCollections" name="rejectCollections"
-					value="Reject Collections" 
+					value="Reject Collections"
 					disabled="false"
 					onclick="doLoadingMask('#loadingMask');document.collectionsWorkflowForm.action='collectionsWorkflow-rejectCollections.action'" />
 			</s:else>
 			&nbsp;<input type="button" class="button" id="buttonClose"
 				value="<s:text name='common.buttons.close'/>"
 				onclick="window.close()" />
-			</div>		
+			</div>
 			</table>
 			</s:if>
-			
+
 			<s:if test='%{receiptHeaders.isEmpty()}'>
 				<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablebottom">
-				<tr> 
+				<tr>
 					<div>&nbsp;</div>
 					<div class="subheadnew"><s:text name="collectionsWorkflow.noReceipts"/></div>
 				</tr>

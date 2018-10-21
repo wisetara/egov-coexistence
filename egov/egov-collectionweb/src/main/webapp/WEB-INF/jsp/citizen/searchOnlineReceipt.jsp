@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -60,9 +60,9 @@ function onBodyLoad(){
 	var txDate=document.getElementsByName('transactionDate');
 	var remarks=document.getElementsByName('remarks');
 	var el = document.forms[0].elements;
-	
+
 	for (i = 0; i < cnt.length; i++){
-		if(paymentstatus[i].value=='Success' || paymentstatus[i].value=='Failure' || paymentstatus[i].value=='Refunded'){  
+		if(paymentstatus[i].value=='Success' || paymentstatus[i].value=='Failure' || paymentstatus[i].value=='Refunded'){
 		    statuscode[i].setAttribute('disabled',true);
 		    txId[i].setAttribute('disabled',true);
 		    txDate[i].setAttribute('disabled',true);
@@ -112,7 +112,7 @@ function transitionStates(){
 	var valErrorMsg5="";
 	var validation=true;
 	var selected=false;
-	
+
 	for (i = 0; i < cnt.length; i++){
 	    if(paymentstatus[i].value=='To Be Refunded'){
 	    	if(!(statuscode[i].value==-1 || statuscode[i].value=='ONLINE_STATUS_SUCCESS' || statuscode[i].value=='ONLINE_STATUS_REFUNDED')){
@@ -141,10 +141,10 @@ function transitionStates(){
 	       }
 	    }
 	    if(paymentstatus[i].value=='Pending'){
-	    	if(!(statuscode[i].value==-1 || statuscode[i].value=='ONLINE_STATUS_SUCCESS' || 
-	    	    statuscode[i].value=='ONLINE_STATUS_REFUNDED' || 
+	    	if(!(statuscode[i].value==-1 || statuscode[i].value=='ONLINE_STATUS_SUCCESS' ||
+	    	    statuscode[i].value=='ONLINE_STATUS_REFUNDED' ||
 	    	    statuscode[i].value=='TO_BE_REFUNDED')){
-	    			if(valErrorMsg3==""){ 
+	    			if(valErrorMsg3==""){
 	    		    	valErrorMsg3='<s:text name="onlinereceipt.manualrecon.pending.errormsg" />' + '<br>';
 	    			}
 	    			//dom.get("stateerror"+(i+1)).style.display='';
@@ -155,14 +155,14 @@ function transitionStates(){
 	       		document.getElementById("stateerror"+(i+1)).style.display = "none";
 	       }
 	    }
-	    
+
 	    //validations on moving a payment to Success state.
 	    if(statuscode[i].value=='ONLINE_STATUS_SUCCESS'){
 	        if(txId[i].value==null || txId[i].value==""){
-	            if(valErrorMsg4==""){ 
+	            if(valErrorMsg4==""){
 	                valErrorMsg4='<s:text name="onlinereceipt.manualrecon.transactionid.mandatory.errormsg" />' + '<br>';
 	            }
-	        	//dom.get("transactionIdError"+(i+1)).style.display=''; 
+	        	//dom.get("transactionIdError"+(i+1)).style.display='';
 	        	document.getElementById("transactionIdError"+(i+1)).style.display = "block";
 	            validation=false;
 	        }
@@ -170,10 +170,10 @@ function transitionStates(){
 	            document.getElementById("transactionIdError"+(i+1)).style.display = "none";
 	        }
 	        if(txDate[i].value==null || txDate[i].value==""){
-	            if(valErrorMsg5==""){ 
+	            if(valErrorMsg5==""){
 	                valErrorMsg5='<s:text name="onlinereceipt.manualrecon.transactiondate.mandatory.errormsg" />' + '<br>';
 	            }
-	        	//dom.get("transactionDateError"+(i+1)).style.display=''; 
+	        	//dom.get("transactionDateError"+(i+1)).style.display='';
 	        	document.getElementById("transactionDateError"+(i+1)).style.display = "block";
 	            validation=false;
 	        }
@@ -181,22 +181,22 @@ function transitionStates(){
 	            document.getElementById("transactionDateError"+(i+1)).style.display = "none";
 	        }
 	    }
-	    
+
 	    if(statuscode[i].value!=-1){
 	        selected=true;
 	    }
 	}
-	
+
 	document.getElementById("onlinepayt_error_area").innerHTML+=valErrorMsg1 + valErrorMsg2 + valErrorMsg3 + valErrorMsg4 + valErrorMsg5;
-	
-	if(selected==false){ 
+
+	if(selected==false){
 	    document.getElementById("onlinepayt_error_area").innerHTML+='<s:text name="onlinereceipt.manualrecon.no.transaction.selected.errormsg" />' + '<br>';
 	    validation=false;
 	}
-	
+
 	if(validation==false){
 	    /**
-	    Internet Explorer 7- (and some minor browsers) cannot set values for style, class or event handlers. - 
+	    Internet Explorer 7- (and some minor browsers) cannot set values for style, class or event handlers. -
 	    through dom
 	    **/
 		//dom.get('onlinepayt_error_area').style.display="block";
@@ -204,9 +204,9 @@ function transitionStates(){
 		window.scroll(0,0);
 		return validation;
 	}
-	
+
 	var remarks=document.getElementsByName('remarks');
-	
+
 	//if validation is true, enable the disabled fields so that they are available in the action
 	for (i = 0; i < cnt.length; i++){
 		    txId[i].disabled=false;
@@ -214,12 +214,12 @@ function transitionStates(){
 		    statuscode[i].disabled=false;
 		    remarks[i].disabled=false;
 	}
-	
+
 	document.searchOnlineReceiptForm.action="onlineReceipt-reconcileOnlinePayment.action";
 	document.searchOnlineReceiptForm.submit();
 }
 
-</script> 
+</script>
 </head>
 <body onLoad="onBodyLoad();" >
 
@@ -258,7 +258,7 @@ function transitionStates(){
 	      <td width="24%" class="bluebox2"><s:textfield id="referenceId" type="text" name="referenceId"/></td>
 	      <td width="21%" class="bluebox2"><s:text name="searchOnlineReceipts.transaction.status"/></td>
 	      <td width="30%" class="bluebox2"><s:select id="searchTransactionStatus" name="searchTransactionStatus" headerKey="-1" headerValue="%{getText('searchOnlineReceipts.default.transaction.status')}" cssClass="selectwk" list="%{onlineReceiptStatuses}" value="%{searchTransactionStatus}" listKey="id" listValue="description" /> </td>
-	    </tr>	    
+	    </tr>
 	    </table>
 	    <br/>
 </div>
@@ -268,7 +268,7 @@ function transitionStates(){
       <s:if test="%{results.isEmpty()}">
       	<input name="closebutton" type="button" class="button" id="closebutton" value="Close" onclick="window.close();"/>
       </s:if>
-      
+
 </div>
 
 <div class="errorstyle" id="onlinepayt_error_area" name="onlinepayt_error_area" style="display:none;"></div>
@@ -281,7 +281,7 @@ function transitionStates(){
 </span>
 <s:if test="%{!results.isEmpty()}">
 <div style="overflow:auto; margin-left: 8px;margin-right: 8px;">
-<div align="center">		
+<div align="center">
 
 <display:table name="results" uid="currentRow" pagesize = "30" style="border:1px;width:100%;empty-cells:show;border-collapse:collapse;" cellpadding="0" cellspacing="0" export="false" requestURI="">
 
@@ -289,26 +289,26 @@ function transitionStates(){
 	<display:column headerClass="bluebgheadtd"  class="blueborderfortd" title="Sl.No" style="width:3%;text-align: center"> <c:out value="${currentRow_rowNum}"/>
 	<input type="hidden" name="selectedReceipts"  id="selectedReceipts" value="${currentRow.receiptHeader.id}"/>
 	<input type="hidden" name="paymentstatus" id="paymentstatus" value="${currentRow.status.description}" />
-	 </display:column>  
+	 </display:column>
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Bill Number" property="receiptHeader.referencenumber"  format="{0,date,dd/MM/yyyy}" style="width:6%;text-align: center" />
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Reference ID" property="receiptHeader.id" style="width:8%;text-align:center"  />
-	
+
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Department" property="receiptHeader.receiptMisc.department.name" style="width:8%;text-align:center"  />
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Amount (Rs.)" property="receiptHeader.totalAmount" style="width:4%;text-align: center" format="{0, number, #,##0.00}" />
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Service Type" property="receiptHeader.service.name" style="width:10%; text-align: right" />
-	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Status" property="status.description" style="width:8%" />  
+	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Status" property="status.description" style="width:8%" />
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Change Status" style="width:8%">
-		<s:select name="statusCode" id="statusCode" cssClass="selectwk" headerKey="-1" headerValue="%{getText('searchOnlineReceipts.default.transition.transaction.status')}" 
+		<s:select name="statusCode" id="statusCode" cssClass="selectwk" headerKey="-1" headerValue="%{getText('searchOnlineReceipts.default.transition.transaction.status')}"
      		 list="%{onlineReceiptTransitionStatuses}" listKey="code" listValue="description" value="%{code}" />
-     	<span id="stateerror${currentRow_rowNum}" style='display:none;color:red;font-weight:bold'>&nbsp;x</span>     		
-	</display:column> 
+     	<span id="stateerror${currentRow_rowNum}" style='display:none;color:red;font-weight:bold'>&nbsp;x</span>
+	</display:column>
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Transaction ID" style="width:5%">
 		<input type="text" name="transactionId" id="transactionId" style='width:100px;' value="${currentRow.transactionNumber}" />
-		<span id="transactionIdError${currentRow_rowNum}" style='display:none;color:red;font-weight:bold'>&nbsp;x</span> 
+		<span id="transactionIdError${currentRow_rowNum}" style='display:none;color:red;font-weight:bold'>&nbsp;x</span>
 	</display:column>
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Transaction Date(dd/mm/yyyy)" style="width:5%;text-align:center" >
-	
-	
+
+
 	<fmt:formatDate value="${currentRow.transactionDate}" pattern="dd/MM/yyyy" var="trnDate"/>
 		<input type="text" name="transactionDate" id="transactionDate" styleId="transactionDate" style='width:100px;text-align:center;'  value='<c:out value="${trnDate}"/> ' onblur="waterMarkTextOut('transactionDate','DD/MM/YYYY');validateDateFormat(this)" onkeyup="DateFormat(this,this.value,event,false,'3')" onfocus = "waterMarkTextIn('transactionDate','DD/MM/YYYY');" />
 		<span id="transactionDateError${currentRow_rowNum}" style='display:none;color:red;font-weight:bold'>&nbsp;x</span>
@@ -316,27 +316,27 @@ function transitionStates(){
 	<display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Remarks" style="width:5%">
 	   <input type="text" name="remarks" id="remarks" value="${currentRow.remarks}" />
 	</display:column>
-	
-</display:table>	
+
+</display:table>
 </div>
 <br/>
 <div class="buttonbottom">
   <input name="button32" type="button" class="buttonsubmit" id="button32" value="Submit" onclick="return transitionStates()" />
   <input name="button32" type="button" class="button" id="button32" value="Close" onclick="window.close();"/>
 </div>
-</div>	
-				
+</div>
+
 </s:if>
     <s:if test="%{results.isEmpty()}">
 	<s:if test="target=='searchresult'">
-	
+
 		<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablebottom">
-		<tr> 
+		<tr>
 			<div>&nbsp;</div>
 			<div class="subheadnew"><s:text name="searchresult.norecord"/></div>
 		</tr>
 		</table>
-	
+
 	</s:if>
 </s:if>
 </s:form>
@@ -345,4 +345,4 @@ onBodyLoad();
 </script>
 </body>
 
-	
+

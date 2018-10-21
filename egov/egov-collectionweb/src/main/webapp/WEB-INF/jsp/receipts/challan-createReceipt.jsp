@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -105,7 +105,7 @@ jQuery(document).ready(function() {
      doLoadingMask();
 
 
-     jQuery("#instrumentDate").datepicker({ 
+     jQuery("#instrumentDate").datepicker({
      	 format: 'dd/mm/yyyy',
      	 autoclose:true,
          onRender: function(date) {
@@ -114,18 +114,18 @@ jQuery(document).ready(function() {
       }).on('changeDate', function(ev) {
      	  var string=jQuery(this).val();
      	  if(!(string.indexOf("_") > -1)){
-     		  isDatepickerOpened=false; 
+     		  isDatepickerOpened=false;
            	  checkForCurrentDate(this);
      	  }
-     	  
+
       }).data('datepicker');
-     
+
      var nowTemp = new Date();
      var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-      jQuery( "#challanDate").datepicker({ 
+      jQuery( "#challanDate").datepicker({
      	 format: 'dd/mm/yyyy',
-     	 endDate: nowTemp, 
+     	 endDate: nowTemp,
      	 autoclose:true,
          onRender: function(date) {
       	    return date.valueOf() < now.valueOf() ? 'disabled' : '';
@@ -133,13 +133,13 @@ jQuery(document).ready(function() {
        }).on('changeDate', function(ev) {
      	  var string=jQuery(this).val();
      	  if(!(string.indexOf("_") > -1)){
-     		  isDatepickerOpened=false; 
+     		  isDatepickerOpened=false;
      	  }
        }).data('datepicker');
-      
-      jQuery( "#receiptdate").datepicker({ 
+
+      jQuery( "#receiptdate").datepicker({
       	 format: 'dd/mm/yyyy',
-      	 endDate: nowTemp, 
+      	 endDate: nowTemp,
       	 autoclose:true,
           onRender: function(date) {
        	    return date.valueOf() < now.valueOf() ? 'disabled' : '';
@@ -147,7 +147,7 @@ jQuery(document).ready(function() {
         }).on('changeDate', function(ev) {
       	  var string=jQuery(this).val();
       	  if(!(string.indexOf("_") > -1)){
-      		  isDatepickerOpened=false; 
+      		  isDatepickerOpened=false;
       	  }
         }).data('datepicker');
  });
@@ -198,29 +198,29 @@ function showInstrumentDetails(obj){
 
 function clearCashDetails(){
 	dom.get('instrHeaderCash.instrumentAmount').value="";
-	
+
 	dom.get("totalamountdisplay").value="";
 }
 
 function clearChequeDDDetails(){
 	var table=document.getElementById('chequegrid');
 	var len=table.rows.length;
-	
+
 	dom.get("totalamountdisplay").value="";
-	
+
 	for(var j=0;j<len;j++)
 	{
 	    //clear instrument type
 	    if(getControlInBranch(table.rows[j],'instrumentType')!=null){
 	    	getControlInBranch(table.rows[j],'instrumentType').value="";
 	    }
-	    
-	    //deselect dd checkbox  
+
+	    //deselect dd checkbox
 	    if(getControlInBranch(table.rows[j],'instrumenttypedd')!=null){
 	    	getControlInBranch(table.rows[j],'instrumenttypedd').checked=false;
     }
-	    
-	    //deselect cheque checkbox  
+
+	    //deselect cheque checkbox
 	    if(getControlInBranch(table.rows[j],'instrumenttypecheque')!=null){
 	    	getControlInBranch(table.rows[j],'instrumenttypecheque').checked=false;
 	    }
@@ -229,11 +229,11 @@ function clearChequeDDDetails(){
 	    if(getControlInBranch(table.rows[j],'instrumentChequeNumber')!=null){
 	    	getControlInBranch(table.rows[j],'instrumentChequeNumber').value="";
 	    }
-	    //clear bank name 
+	    //clear bank name
 	    if(getControlInBranch(table.rows[j],'bankID')!=null){
 	    	getControlInBranch(table.rows[j],'bankID').value="-1";
 	    }
-	    
+
 	   if(getControlInBranch(table.rows[j],'bankName')!=null){
 	    	getControlInBranch(table.rows[j],'bankName').value="";
 	    }
@@ -247,13 +247,13 @@ function clearChequeDDDetails(){
 	    if(getControlInBranch(table.rows[j],'instrumentChequeAmount')!=null){
 	    	getControlInBranch(table.rows[j],'instrumentChequeAmount').value="";
 	    }
-	    
-	    //clear branch name 
+
+	    //clear branch name
 	    if(getControlInBranch(table.rows[j],'instrumentBranchName')!=null){
 	    	getControlInBranch(table.rows[j],'instrumentBranchName').value="";
 	    }
 	}
-	
+
 	for(var z=5;z<len;z++)
 	{
 		table.deleteRow(5);
@@ -264,7 +264,7 @@ function clearCardDetails(){
 	dom.get('instrHeaderCard.instrumentAmount').value="";
 	dom.get('instrHeaderCard.transactionNumber').value="";
 	dom.get('instrHeaderCard.instrumentNumber').value="";
-	
+
 	dom.get("totalamountdisplay").value="";
 }
 <jsp:useBean id="now" class="java.util.Date" />
@@ -325,15 +325,15 @@ function verifyChequeDetails(table,len1)
 		   	   	 if(receiptDate !=null && receiptDate != '' && instrDate.value != null && instrDate.value!= '' && check==true ){
 		   				if(process(instrDate.value) > process(receiptDate)){
 		   		    		document.getElementById("challan_error_area").innerHTML+=
-		   						'<s:text name="miscreceipt.error.instrumentdate.greaterthan.receiptdate" />'+ '<br>';   	
+		   						'<s:text name="miscreceipt.error.instrumentdate.greaterthan.receiptdate" />'+ '<br>';
 		   					window.scroll(0,0);
 		   					check=false;
 		   		 	   	}
 		   			}
 	    	      checkForCurrentDate(instrDate);
-	    	    } 	                 
+	    	    }
 	    }
-	    
+
 	    if(getControlInBranch(table.rows[j],'instrumentChequeAmount')!=null)
 		{
 				var chequeamount=getControlInBranch(table.rows[j],'instrumentChequeAmount').value;
@@ -381,14 +381,14 @@ function onBodyLoad()
 {
 	<s:if test='%{model.id!=null && model.status.code=="PENDING" && model.challan.status.code=="VALIDATED"}'>
 		loadDropDownCodesBank();
-	
+
 		// To hide delete button in cheque grid on page load
 		var chequetable=document.getElementById('chequegrid');
 		if(getControlInBranch(chequetable.rows[3],'addchequerow')!=null)
 			getControlInBranch(chequetable.rows[3],'addchequerow').style.display="block";
 		if(getControlInBranch(chequetable.rows[3],'deletechequerow')!=null)
 			getControlInBranch(chequetable.rows[3],'deletechequerow').style.display="none";
-		
+
 		if(document.getElementById('instrHeaderCash.instrumentAmount').value==""){
 			document.getElementById('instrHeaderCash.instrumentAmount').value="";
 		}
@@ -414,7 +414,7 @@ function checkreset()
 	dom.get("invaliddateformat").style.display="none";
 	dom.get("challan_dateerror_area").style.display="none";
 	dom.get("challan_error_area").style.display="none";
-	
+
 	clearCashDetails();
 	clearCardDetails();
 	clearChequeDDDetails();
@@ -422,7 +422,7 @@ function checkreset()
 	var paidby =  '<s:property value="%{payeeName}" escapeJavaScript="true"/>';
 	paidby = paidby.replace('&amp;','&');
 	document.getElementById('paidBy').value=paidby;
-	<s:if test="%{isBillSourcemisc()}"> 
+	<s:if test="%{isBillSourcemisc()}">
 		//To load the account codes if only a misc receipt request
 		if(resetMisc){
 			resetMisc();
@@ -434,22 +434,22 @@ function validate()
 {
     document.getElementById("challan_error_area").innerHTML="";
     dom.get("challan_error_area").style.display="none";
-    
+
 	// dom.get("amountoverrideerror").style.display="none";
 	dom.get("invaliddateformat").style.display="none";
 	dom.get("challan_dateerror_area").style.display="none";
     var	validation = true;
-	
+
 
 	var collectiontotal=0,cashamount=0,chequeamount=0,cardamount=0,billingtotal=0;
- 	billingtotal=dom.get("totalamounttobepaid").value; 
- 	
+ 	billingtotal=dom.get("totalamounttobepaid").value;
+
 	var instrTypeCash = dom.get("cashradiobutton").checked;
 	var instrTypeCheque = dom.get("chequeradiobutton").checked;
 	var instrTypeCard = dom.get("cardradiobutton").checked;
 	var chequetable=document.getElementById('chequegrid')
 	var chequetablelen1 =chequetable.rows.length;
-	
+
 	//if mode of payment is cash
 	if(instrTypeCash){
 		if(dom.get("instrHeaderCash.instrumentAmount")!=null)
@@ -521,7 +521,7 @@ function validate()
 			}//end of for loop
 		}//end of else
 	}
-	
+
 	if(collectiontotal!=0){
 		if(collectiontotal!=billingtotal)
 		{
@@ -533,7 +533,7 @@ function validate()
 		document.getElementById("challan_error_area").innerHTML+='<s:text name="challan.error.receiptdate" />' + '<br>';
 		validation=false;
 	}
-    
+
 	if(validation==false){
 		dom.get("challan_error_area").style.display="block";
 		window.scroll(0,0);
@@ -600,7 +600,7 @@ function validate()
 			<s:hidden label="ddAllowed" id="ddAllowed" value="%{ddAllowed}"
 				name="ddAllowed" />
 			<s:hidden label="onlineAllowed" id="onlineAllowed" value="%{onlineAllowed}" name="onlineAllowed"/>
-				
+
 			<s:hidden id="receiptId" name="receiptId" value='%{model.id}' />
 
 			<div class="subheadnew">

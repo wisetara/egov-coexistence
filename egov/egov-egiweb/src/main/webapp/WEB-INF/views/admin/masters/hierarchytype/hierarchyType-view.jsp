@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -62,14 +62,14 @@
 					<div class="panel-title">
 						<strong><spring:message code="lbl.hdr.viewHierarchyType"/></strong>
 					</div>
-				</div> 
-				
+				</div>
+
 				<div class="panel-body custom-form">
 					<div class="form-group">
 						<label class="col-sm-3 control-label"><spring:message code="lbl.hierarchyType.name"/></label>
 						<div class="col-sm-6" style="padding-top: 7px">
-							<strong><c:out value="${hierarchyType.name}" /> </strong>                 
-							<input id="htName" type="hidden" value="<c:out value="${hierarchyType.name}" />" />     
+							<strong><c:out value="${hierarchyType.name}" /> </strong>
+							<input id="htName" type="hidden" value="<c:out value="${hierarchyType.name}" />" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -77,7 +77,7 @@
 							<spring:message code="lbl.hierarchyType.code"/>
 						</label>
 						<div class="col-sm-6" style="padding-top: 7px">
-							<strong><c:out value="${hierarchyType.code}" /> </strong>   
+							<strong><c:out value="${hierarchyType.code}" /> </strong>
 						</div>
 					</div>
 					<div class="form-group">
@@ -85,7 +85,7 @@
 							<spring:message code="lbl.hierarchyType.localName"/>
 						</label>
 						<div class="col-sm-6" style="padding-top: 7px">
-							<strong><c:out value="${hierarchyType.localName}" default="NA"/> </strong>   
+							<strong><c:out value="${hierarchyType.localName}" default="NA"/> </strong>
 						</div>
 					</div>
 				</div>

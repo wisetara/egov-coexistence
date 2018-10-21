@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -216,9 +216,9 @@ function setTotalAmount()
 							<td style="text-align: center" class="blueborderfortdnew">&nbsp</td>
 							<td align="left" style="text-align: center"
 								class="blueborderfortdnew" /> &nbsp
-							</td>  
-					  	  <td align="left"   style="text-align:center" class="blueborderfortdnew"/> &nbsp </td>  
-					  	  <td align="left"   style="text-align:center" class="blueborderfortdnew"/> &nbsp </td>  
+							</td>
+					  	  <td align="left"   style="text-align:center" class="blueborderfortdnew"/> &nbsp </td>
+					  	  <td align="left"   style="text-align:center" class="blueborderfortdnew"/> &nbsp </td>
 		      			  <td style="text-align:center" class="blueborderfortdnew">Total Amount - </td>
 		      			  <td style="text-align:right" class="blueborderfortdnew"><input type="text" id="totalAmount" readonly="readonly" style="text-align:right" name="totalAmount" /> </td>
 						</tr>
@@ -340,7 +340,7 @@ function setTotalAmount()
 					totalAmount+=parseFloat(document.getElementById("chequeAssignmentList["+index+"].paidAmount").value);
 				}
 				else
-				{	
+				{
 					document.getElementById('selectedRows').value=parseInt(document.getElementById('selectedRows').value)-1;
 					totalAmount-=parseFloat(document.getElementById("chequeAssignmentList["+index+"].paidAmount").value);
 				}
@@ -358,7 +358,7 @@ function setTotalAmount()
 					bootbox.alert('Please enter valid data for the \'In Favour Of\' field');
 					return false;
 				}
-				
+
 				if(document.getElementById('selectedRows').value=='' || document.getElementById('selectedRows').value==0)
 				{
 					bootbox.alert('Please select the payment voucher');
@@ -370,11 +370,11 @@ function setTotalAmount()
 					return false;
 				}
 				<s:if test="%{paymentMode!='cheque'  && paymentMode!='rtgs'}">
-				    return validateChequeDateForNonChequeMode();  
-				</s:if> 
-				<s:if test="%{paymentMode=='rtgs'}">      
-			   		 return validateChequeDateForRtgsMode();  
-				</s:if> 
+				    return validateChequeDateForNonChequeMode();
+				</s:if>
+				<s:if test="%{paymentMode=='rtgs'}">
+			   		 return validateChequeDateForRtgsMode();
+				</s:if>
 				///dom.get('departmentid').disabled=false;
 				return true;
 			}
@@ -404,7 +404,7 @@ function setTotalAmount()
 				var index = obj.id.substring(12,obj.id.length);
 				if(obj.value=='')
 					return true;
-					
+
 				if(dom.get('departmentid') && dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
@@ -418,7 +418,7 @@ function setTotalAmount()
 				var url = '${pageContext.request.contextPath}/voucher/common!ajaxValidateChequeNumber.action?bankaccountId='+document.getElementById('bankaccount').value+'&chequeNumber='+obj.value+'&index='+index+'&departmentId='+dept+"&serialNo="+slNo;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url,callback , null);
 			}
-			
+
 			function validateReassignSurrenderChequeNumber(obj)
 			{
 				if(isNaN(obj.value))
@@ -445,14 +445,14 @@ function setTotalAmount()
 				var index = obj.id.substring(12,obj.id.length);
 				if(obj.value=='')
 					return true;
-					
+
 				if(dom.get('departmentid') && dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
 					obj.value='';
 					return false;
 				}
-				
+
 				var name=obj.name;
 				if(name=='chequeNo')
 				{
@@ -464,8 +464,8 @@ function setTotalAmount()
 				name=name.replace("chequeNumber","serialNo");
 				}
 				var slNo = dom.get(name).options[dom.get(name).selectedIndex].value;
-				
-				
+
+
 				var dept = dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value;
 				var url = '${pageContext.request.contextPath}/voucher/common!ajaxValidateReassignSurrenderChequeNumber.action?bankaccountId='+document.getElementById('bankaccount').value+'&chequeNumber='+obj.value+'&index='+index+'&departmentId='+dept+"&serialNo="+slNo;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackReassign, null);
@@ -490,7 +490,7 @@ function setTotalAmount()
 					res = res.split('~');
 					if(res[1]=='false')
 					{
-						bootbox.alert('This cheque number is not there in the surrendered list');     
+						bootbox.alert('This cheque number is not there in the surrendered list');
 						document.getElementById('chequeNumber'+parseInt(res[0])).value='';
 					}
 			    },
@@ -498,7 +498,7 @@ function setTotalAmount()
 			    	bootbox.alert('failure');
 			    }
 			}
-			function nextChqNo(obj) 
+			function nextChqNo(obj)
 			{
 				var index = obj.id.substring(11,obj.id.length);
 				var sRtn = showModalDialog("../HTML/SearchNextChqNo.html?accntNoId="+document.getElementById('bankaccount').value, "","dialogLeft=300;dialogTop=210;dialogWidth=305pt;dialogHeight=300pt;status=no;");
@@ -513,30 +513,30 @@ function setTotalAmount()
 				var chequeSize='<s:property value ="%{chequeAssignmentList.size()}"/>';
 				var chequeDate=document.getElementById('chequeDt').value;
 				var chequeNo=document.getElementById('chequeNumber0').value;
-				
+
 				if(chequeNo==null || chequeNo==''){
 					bootbox.alert("Please enter a valid cheque Number");
-						return false;   
+						return false;
 				}
-				if(isNaN( Date.parse( chequeDate))) {                
+				if(isNaN( Date.parse( chequeDate))) {
 					bootbox.alert("Please enter a valid cheque date");
 					return false;
 				 }
 				for(var index=0;index<chequeSize;index++){
-					var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value; 
-					
+					var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value;
+
 					if(document.getElementById('isSelected'+index).checked){
 					//bootbox.alert(document.getElementById('isSelected'+index).checked);
-					if( compareDate(paymentDate,chequeDate) == -1){     
-					  //  bootbox.alert(paymentDate+"----"+chequeDate);      
+					if( compareDate(paymentDate,chequeDate) == -1){
+					  //  bootbox.alert(paymentDate+"----"+chequeDate);
 						bootbox.alert('Cheque Date cannot be less than  payment Date');
 						document.getElementById('chequeDt').value='';
 						document.getElementById('chequeDt').focus();
 						return false;
 					 }
 					}
-					
-					
+
+
 				}
 				return true;
 			}
@@ -548,30 +548,30 @@ function setTotalAmount()
 				var isSelected=0;
 				var chequeSize='<s:property value ="%{chequeAssignmentList.size()}"/>';
 				var chequeDate=dom.get('rtgsDate').value;
-				
-				if(isNaN( Date.parse( chequeDate))) {                
+
+				if(isNaN( Date.parse( chequeDate))) {
 					bootbox.alert("Please enter a valid cheque date");
 					return false;
 				 }
 				for(var index=0;index<chequeSize;index++){
-					var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value; 
-					
+					var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value;
+
 					if(document.getElementById('isSelected'+index).checked){
 					//bootbox.alert(document.getElementById('isSelected'+index).checked);
 					chkCount++;
-					if( compareDate(paymentDate,chequeDate) == -1){     
-					  //  bootbox.alert(paymentDate+"----"+chequeDate);      
+					if( compareDate(paymentDate,chequeDate) == -1){
+					  //  bootbox.alert(paymentDate+"----"+chequeDate);
 						bootbox.alert('Cheque Date cannot be less than  payment Date');
 						document.getElementById('rtgsDate').value='';
 						document.getElementById('rtgsDate').focus();
 						return false;
-					 }    
+					 }
 					if(chkCount==noOfSelectedRows){ break;}
-					}  
+					}
 				}
 				return true;
 			}
-			
+
 			function checkAll(obj)
 			{
 				var t = document.getElementById('paymentTable').rows;

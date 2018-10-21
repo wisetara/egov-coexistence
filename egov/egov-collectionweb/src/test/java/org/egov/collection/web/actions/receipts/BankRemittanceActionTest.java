@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -57,20 +57,20 @@ private ReceiptHeaderService receiptService;
 private CommonsManager commonsManager;
 private PersistenceService service;
 private FinancialsUtil financialsUtil;
-private CollectionsUtil collectionsUtil; 
+private CollectionsUtil collectionsUtil;
 private UserManager userManager;
 private EisManager eisManager;
 private @Autowired AppConfigValuesDAO appConfigValuesDAO;
-	
+
 	public BankRemittanceActionTest() {
 		this.type = ReceiptHeader.class;
 	}
-	
+
 	@Before
 	public void setUp() throws Exception {
 		action = new BankRemittanceAction(){
 			protected ReceiptHeader io=new ReceiptHeader();
-			
+
 			@Override
 			protected void setValue(String relationshipName, Object relation) {
 				try {
@@ -98,65 +98,65 @@ private @Autowired AppConfigValuesDAO appConfigValuesDAO;
 		userManager = createMock(UserManager.class);
 		eisManager = createMock(EisManager.class);
 		collectionsUtil=new CollectionsUtil();
-		
+
 		collectionsUtil.setGenericDao(genericDao);
 		collectionsUtil.setEisManager(eisManager);
 		collectionsUtil.setUserManager(userManager);
 		collectionsUtil.setScriptService(genericService);
 		collectionsUtil.setPersistenceService(genericService);
-		
+
 		receiptService = new ReceiptHeaderService();
 		receiptService.setType(ReceiptHeader.class);
 		receiptService.setFinancialsUtil(financialsUtil);
 		receiptService.setCommonsManager(commonsManager);
 		receiptService.setPersistenceService(service);
 		receiptService.setCollectionsUtil(collectionsUtil);
-		
+
 		action.setReceiptHeaderService(receiptService);
 		action.setCollectionsUtil(collectionsUtil);
 		action.setPersistenceService(genericService);
-		
+
 	}
 
 	//@Test
 	public void list()
-	{		
+	{
 		UserImpl user = (UserImpl) genericService.find(
 				"from UserImpl U where U.userName =?",CollectionConstants.SUPER_USER_NAME);
-		
+
 		UserImpl citizenUser = (UserImpl) genericService.find(
 				"from UserImpl U where U.userName =?",CollectionConstants.CITIZEN_USER_NAME);
-		
+
 		userManager.getUserByUserName(CollectionConstants.SUPER_USER_NAME);
 		expectLastCall().andReturn(user);
-		
+
 		userManager.getUserByUserName(CollectionConstants.CITIZEN_USER_NAME);
 		expectLastCall().andReturn(citizenUser);
 		replay(userManager);
-		
+
 		HashMap<String, Object> sessionMap = new HashMap<String, Object>();
 		sessionMap.put("com.egov.user.LoginUserName", user.getUserName());
 		action.setSession(sessionMap);
-		
+
 		assertEquals("new", action.list());
 		verify(userManager);
 	}
-	
+
 	@Test
 	public void newform()
 	{
 		assertEquals("new", action.newform());
 	}
-	
+
 	@Test
 	public void edit()
 	{
 		assertEquals("edit", action.edit());
 	}
-	
+
 	@Test
 	public void create()
-	{ 
+	{
 		action.setServiceNameArray(new String[]{""});
 		action.setTotalCashAmountArray(new String[]{""});
 		action.setTotalChequeAmountArray(new String[]{""});
@@ -167,18 +167,18 @@ private @Autowired AppConfigValuesDAO appConfigValuesDAO;
 		assertEquals("index", action.create());
 		assertEquals(true, action.getVoucherHeaderValues().isEmpty());
 	}
-	
+
 	@Test
 	public void save()
 	{
 		assertEquals("success", action.save());
 	}
-	
+
 	@Test
 	public void prepareAction() {
 		action.prepare();
 		assertEquals(true, action.getDropdownData().get("bankBranchList").isEmpty());
 		assertEquals(true, action.getDropdownData().get("accountNumberList").isEmpty());
-	
+
 	}
 */}

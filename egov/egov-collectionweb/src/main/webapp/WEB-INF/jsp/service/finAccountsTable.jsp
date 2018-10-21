@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -49,32 +49,32 @@
 <%@ taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/autocomplete-debug.js?rnd=${app_release_no}"></script>  
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/autocomplete-debug.js?rnd=${app_release_no}"></script>
 <script>
 
 		path="${pageContext.request.contextPath}";
-		
+
 		var makeAccountsDetailTable = function() {
-		var accountColumns = [ 
+		var accountColumns = [
 			{key:"glcodeid",hidden:true, formatter:createTextFieldFormatter(ACCOUNTDETAILSLIST,".glCodeId.id","hidden")},
 			{key:"accounthead", label:'Account Head <span class="mandatory1">*</span>',formatter:createLongTextFieldFormatter(ACCOUNTDETAILSLIST,".glCodeId.name")},
-			{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatter(ACCOUNTDETAILSLIST,".glCodeId.glcode","text")},				
-			{key:"amount",label:'Amount <span class="mandatory1">*</span>', formatter:createAmountFieldFormatter(ACCOUNTDETAILSLIST,".amount")}, 
+			{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatter(ACCOUNTDETAILSLIST,".glCodeId.glcode","text")},
+			{key:"amount",label:'Amount <span class="mandatory1">*</span>', formatter:createAmountFieldFormatter(ACCOUNTDETAILSLIST,".amount")},
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var accountDataSource = new YAHOO.util.DataSource(); 
+	    var accountDataSource = new YAHOO.util.DataSource();
 		var accountsDetailTable = new YAHOO.widget.DataTable("accountsDetailTable",accountColumns, accountDataSource);
 		accountsDetailTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				accountsDetailTable.addRow({SlNo:accountsDetailTable.getRecordSet().getLength()+1});
 				updateAccountTableIndex();
 			}
-			if (column.key == 'Delete') { 	
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -85,7 +85,7 @@
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}	        
+			}
 		});
 
 		if(jQuery('#isviewmode'))
@@ -96,31 +96,31 @@
 				accountsDetailTable.hideColumn('Delete');
 			}
 		}
-		
+
 		<s:iterator value="accountDetails" status="stat">
 				accountsDetailTable.addRow({SlNo:accountsDetailTable.getRecordSet().getLength()+1,
 					"glcodeid":'<s:property value="glCodeId.id"/>',
 					"glcode":'<s:property value="glCodeId.glcode"/>',
 					"accounthead":'<s:property value="glCodeId.name"/>',
 					"amount":'<s:property value="%{amount}"/>'
-					
+
 				});
 				var index = '<s:property value="#stat.index"/>';
 				updateGridAccounts('glCodeId.id',index,'<s:property value="glCodeId.id"/>');
 				updateGridAccounts('glCodeId.glcode',index,'<s:property value="glCodeId.glcode"/>');
 				updateGridAccounts('glCodeId.name',index,'<s:property value="glCodeId.name"/>');
 				updateGridAccounts('amount',index,'<s:property value="amount"/>');
-				updateAccountTableIndex();	
+				updateAccountTableIndex();
 			</s:iterator>
 
 	}
-	
-	
+
+
 	var glcodeOptions=[{label:"---Select---", value:"0"}];
 	var detailtypeOptions=[{label:"---Select---", value:"0"}];
 	var makeSubLedgerTable = function() {
-		var subledgerColumns = [ 
-	
+		var subledgerColumns = [
+
 			{key:"glcode",hidden:true, formatter:createSLTextFieldFormatter(SUBLEDGERLIST,".serviceAccountDetail.glCodeId.glcode","hidden")},
 			{key:"serviceAccountDetail.glCodeId.id",label:'Account Code', formatter:createDropdownFormatter(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
 			{key:"detailType.name",hidden:true, formatter:createSLTextFieldFormatter(SUBLEDGERLIST,".detailType.name","hidden")},
@@ -132,19 +132,19 @@
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
 		subLedgersTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 				updateSLTableIndex();
 				loadSLAccountCode();
 			}
-			if (column.key == 'Delete') { 			
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -154,9 +154,9 @@
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}        
+			}
 		});
-		
+
 		if(jQuery('#isviewmode'))
 		{
 			if(jQuery('#isviewmode').val()==="true")
@@ -175,7 +175,7 @@
 					"detailKeyId":'<s:property value="detailKeyId"/>',
 					"detailKey":'<s:property value="detailKey" />',
 					"amount":'<s:property value="%{amount}"/>'
-					
+
 				});
 				var index = '<s:property value="#stat.index"/>';
 				updateSLGrid('serviceAccountDetail.glCodeId.glcode',index,'<s:property value="serviceAccountDetail.glCodeId.glcode"/>');
@@ -190,7 +190,7 @@
 				updateSLGrid('amount',index,'<s:property value="amount"/>');
 				updateSLTableIndex();
 			</s:iterator>
-		
+
 	}
 
 var slAccountCodes = new Array();
@@ -216,7 +216,7 @@ success: function(o) {
 			var d=document.getElementById('subledgerDetails['+j+'].serviceAccountDetail.glCodeId.id');
 			if(null != d && test.length >1 && d.value ==0 )
 			{
-				
+
 				d.options.length=((test.length)/2)+1;
 				for (var i=1; i<((test.length)/2)+1;i++ )
 				{
@@ -224,7 +224,7 @@ success: function(o) {
 					d.options[i].value=test[i*2 -1];
 					slAccountCodes.push(test[i*2 -1]);
 				}
-			} 
+			}
 			if(test.length<2)
 			{
 				var d = document.getElementById('subledgerDetails['+j+'].serviceAccountDetail.glCodeId.id');
@@ -236,7 +236,7 @@ success: function(o) {
 				}
 			}
 		}
-		
+
 			// logic to re-populate the account code in the account code drop down in the subledger table data grid.
 			// basicaly required when validation fails.
 			<s:iterator value="subledgerDetails" status="stat">
@@ -244,7 +244,7 @@ success: function(o) {
 					var index = '<s:property value="#stat.index"/>';
 					updateGridSLDropdownGL('serviceAccountDetail.glCodeId.id',index,'<s:property value="serviceAccountDetail.glCodeId.id"/>');
 				}
-				
+
 			</s:iterator>
     },
     failure: function(o) {
@@ -261,7 +261,7 @@ function updateGridSLDropdownGL(field,index,value){
 	loadDetailType(index);
 }
 
-var loadDetailType = function(index) { 
+var loadDetailType = function(index) {
 		var subledgerid=document.getElementById('subledgerDetails['+index+'].serviceAccountDetail.glCodeId.id');
 		var accountCode = subledgerid.options[subledgerid.selectedIndex].text.trim();
 		document.getElementById('subledgerDetails['+index+'].serviceAccountDetail.glCodeId.glcode').value =accountCode;
@@ -281,15 +281,15 @@ success: function(o) {
 			{
 				obj = document.getElementById('subledgerDetails['+parseInt(eachItem[0])+']'+'.detailType.id');
 				if(obj!=null)
-					obj.options.length=detailRecord.length+1; 	
+					obj.options.length=detailRecord.length+1;
 			}
 			if(obj!=null)
 			{
-				obj.options[i+1].text=eachItem[1];     
+				obj.options[i+1].text=eachItem[1];
 				obj.options[i+1].value=eachItem[2];
 				document.getElementById('subledgerDetails['+parseInt(eachItem[0])+']'+'.detailType.name').value = eachItem[1];
 			}
-			
+
 			if(eachItem.length==1) // for deselect the subledger code
 			{
 				var d = document.getElementById('subledgerDetails['+i+'].detailType.id');
@@ -297,7 +297,7 @@ success: function(o) {
 				d.options[0].text='---Select---';
 				d.options[0].value=0;
 			}
-		} 	
+		}
 			<s:iterator value="subledgerDetails" status="stat">
 			if('<s:property value="detailType.id"/>' !="" || '<s:property value="detailType.id"/>' !=0){
 				var index = '<s:property value="#stat.index"/>';

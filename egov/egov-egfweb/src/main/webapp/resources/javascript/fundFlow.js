@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -63,7 +63,7 @@
 			return;
 		}else
 		{
-		obj.value=eval(obj.value).toFixed(2);	
+		obj.value=eval(obj.value).toFixed(2);
 		}
 		}
 		var table = document.getElementById('receiptTable');
@@ -83,7 +83,7 @@
 		}
 		calculateRepFundTotal(obj);
 		calculateClosingBalance(obj);
-		
+
 	}
 	function calculateRepFundTotal(obj){
 		var table = document.getElementById('receiptTable');
@@ -112,7 +112,7 @@
 					.getElementById('receiptList[' + i + '].fundsAvailable').value)
 					- eval(document.getElementById('receiptList[' + i + '].btbPayment').value)
 					+ eval(document.getElementById('receiptList[' + i + '].btbReceipt').value)).toFixed(2);
-			
+
 			}
 			else{
 				document.getElementById('receiptList[' + i + '].closingBalance').value = (eval(document
@@ -123,7 +123,7 @@
 		}
 		claulateColumnTotal();
 	}
-	
+
 	function claulateColumnTotal() {
 		var opTotal = 0;//opening balance total
 		var crTotal = 0;//Current receipt total
@@ -136,7 +136,7 @@
 		{
 			//////////////bootbox.alert(table.rows.length - 3);
 		for (i = 0; i < table.rows.length - 3; i++) {
-			
+
 			if(document.getElementById("receiptList[" + i + "].accountNumber").value!='Total'){
 			opTotal = eval(opTotal)
 					+ eval(document
@@ -150,13 +150,13 @@
 			paymentTotal = eval(paymentTotal)
 					+ eval(document
 							.getElementById('receiptList[' + i + '].btbPayment').value);
-			
+
 			receiptTotal = eval(receiptTotal)+ eval(document.getElementById('receiptList[' + i + '].btbReceipt').value);
 			cbTotal = eval(cbTotal)
 					+ eval(document
 							.getElementById('receiptList[' + i + '].closingBalance').value);
 			}
-			
+
 		}
 		document.getElementById('total[0].openingBalance').value = opTotal.toFixed(2);
 		document.getElementById('total[0].currentReceipt').value = crTotal.toFixed(2);
@@ -166,34 +166,34 @@
 		document.getElementById('total[0].closingBalance').value = cbTotal.toFixed(2);
 		}
 		calculateAplusB();
-		
+
 	}
 	function calculateAplusB()
 	{
-	
+
 	if(document.getElementById('total[0].openingBalance')!=null && document.getElementById('total[1].openingBalance')!=null)
 	{
 		document.getElementById('total[2].openingBalance').value = (eval(document.getElementById('total[0].openingBalance').value)+eval(document.getElementById('total[1].openingBalance').value)).toFixed(2);
-		
+
 		document.getElementById('total[2].closingBalance').value = (eval(document.getElementById('total[0].closingBalance').value)+
 		eval(document.getElementById('total[1].closingBalance').value)).toFixed(2);
 	}
 	else if(document.getElementById('total[0].openingBalance')!=null )
 	{
 	//	document.getElementById('total[2].openingBalance').value = (eval(document.getElementById('total[0].openingBalance').value)).toFixed(2);
-		
+
 		//document.getElementById('total[2].closingBalance').value = (eval(document.getElementById('total[0].closingBalance').value)).toFixed(2);
 	}
 	else if( document.getElementById('total[1].openingBalance')!=null)
 	{
 		document.getElementById('total[2].openingBalance').value = (eval(document.getElementById('total[1].openingBalance').value)).toFixed(2);
-		
+
 		document.getElementById('total[2].closingBalance').value = (eval(document.getElementById('total[1].closingBalance').value)).toFixed(2);
 	}
-		
-		
+
+
 	}
-	
+
 	function calculateFundsForPayment(obj) {
 		if (isNaN(obj.value)) {
 			bootbox.alert("Only Numbers allowed");
@@ -203,7 +203,7 @@
 			{
 			obj.value=eval(obj.value).toFixed(2);
 			if(obj.value.length>10)
-			
+
 		{
 				bootbox.alert("Max number of digits limited to 7 since amounts in LAKH's ");
 			obj.value="0.00";
@@ -211,23 +211,23 @@
 			return;
 		}else
 		{
-		obj.value=eval(obj.value).toFixed(2);  
+		obj.value=eval(obj.value).toFixed(2);
 		}
-			}   
-		
+			}
+
 		var table = document.getElementById('paymentTable');
 		for (i = 0; i < table.rows.length - 4; i++) {
 			if(document.getElementById("paymentList[" + i + "].accountNumber").value!='Total'){
-			document.getElementById("paymentList[" + i + "].fundsAvailable").value = 
+			document.getElementById("paymentList[" + i + "].fundsAvailable").value =
 				(eval(document.getElementById('paymentList[' + i + '].openingBalance').value)
 					+ eval(document.getElementById('paymentList[' + i + '].currentReceipt').value)
 					- eval(document.getElementById('paymentList[' + i + '].btbPayment').value)
 					+ eval(document.getElementById('paymentList[' + i + '].btbReceipt').value)
 					- eval(document.getElementById('paymentList[' + i + '].concurranceBPV').value)).toFixed(2);
-					
+
 		}
 			else{
-				document.getElementById("paymentList[" + i + "].fundsAvailable").value = 
+				document.getElementById("paymentList[" + i + "].fundsAvailable").value =
 					(eval(document.getElementById('paymentList[' + i + '].openingBalance').value)
 						+ eval(document.getElementById('paymentList[' + i + '].currentReceipt').value)
 						- eval(document.getElementById('paymentList[' + i + '].btbPayment').value)
@@ -237,14 +237,14 @@
 		}
 		calculateFundsTotalForPayment();
 		calculateClosingBalanceForPayment(obj);
-		
+
 	}
 function calculateFundsTotalForPayment(){
 	var opTotal1 = 0;//opening balance total
 	var crTotal1 = 0;//Current payment total
 	var faTotal1 = 0;
 	var paymentTotal1 = 0;
-	var receiptTotal1 = 0;		
+	var receiptTotal1 = 0;
 	var cbTotal1 = 0;
 	var bpvTotal1=0;
 	var osTotal1=0;
@@ -262,25 +262,25 @@ function calculateFundsTotalForPayment(){
 		faTotal1 = eval(faTotal1)
 				+ eval(document
 						.getElementById('paymentList[' + i + '].fundsAvailable').value);
-		
+
 		paymentTotal1 = eval(paymentTotal1)
 		+ eval(document
 				.getElementById('paymentList[' + i + '].btbPayment').value);
 
-		
+
 		receiptTotal1 = eval(receiptTotal1)
 				+ eval(document
 						.getElementById('paymentList[' + i + '].btbReceipt').value);
 		bpvTotal1 = eval(bpvTotal1)
 				+ eval(document
-						.getElementById('paymentList[' + i + '].concurranceBPV').value);							
+						.getElementById('paymentList[' + i + '].concurranceBPV').value);
 		osTotal1 = eval(osTotal1)
 		+ eval(document
 				.getElementById('paymentList[' + i + '].outStandingBPV').value);
 		cbTotal1 = eval(cbTotal1)
 				+ eval(document
 						.getElementById('paymentList[' + i + '].closingBalance').value);
-		
+
 	}
 		else{
 			document.getElementById("paymentList[" + i + "].openingBalance").value=eval(opTotal1).toFixed(2);
@@ -291,7 +291,7 @@ function calculateFundsTotalForPayment(){
 			document.getElementById("paymentList[" + i + "].outStandingBPV").value=eval(osTotal1).toFixed(2);
 			document.getElementById("paymentList[" + i + "].closingBalance").value=eval(cbTotal1).toFixed(2);
 			document.getElementById("paymentList[" + i + "].currentReceipt").value=eval(crTotal1).toFixed(2);
-			
+
 			opTotal1=0;cbTotal1=0,faTotal1=0,osTotal1=0,bpvTotal1=0,receiptTotal1=0,paymentTotal1=0,crTotal1=0;
 		}
 	}
@@ -313,13 +313,13 @@ function calculateFundsTotalForPayment(){
 	}
 		claulateColumnTotalForPayment();
 	}
-	
+
 	function claulateColumnTotalForPayment() {
 		var opTotal = 0;//opening balance total
 		var crTotal = 0;//Current payment total
 		var faTotal = 0;
 		var paymentTotal = 0;
-		var receiptTotal = 0;		
+		var receiptTotal = 0;
 		var cbTotal = 0;
 		var bpvTotal=0;
 		var osTotal=0;
@@ -337,25 +337,25 @@ function calculateFundsTotalForPayment(){
 			faTotal = eval(faTotal)
 					+ eval(document
 							.getElementById('paymentList[' + i + '].fundsAvailable').value);
-			
+
 			paymentTotal = eval(paymentTotal)
 			+ eval(document
-					.getElementById('paymentList[' + i + '].btbPayment').value);		
+					.getElementById('paymentList[' + i + '].btbPayment').value);
 			receiptTotal = eval(receiptTotal)
 					+ eval(document
 							.getElementById('paymentList[' + i + '].btbReceipt').value);
 			bpvTotal = eval(bpvTotal)
 					+ eval(document
-							.getElementById('paymentList[' + i + '].concurranceBPV').value);							
+							.getElementById('paymentList[' + i + '].concurranceBPV').value);
 			osTotal = eval(osTotal)
 			+ eval(document
 					.getElementById('paymentList[' + i + '].outStandingBPV').value);
 			cbTotal = eval(cbTotal)
 					+ eval(document
 							.getElementById('paymentList[' + i + '].closingBalance').value);
-			
+
 		}
-			
+
 		}
 		document.getElementById('total[1].openingBalance').value = opTotal.toFixed(2);
 		document.getElementById('total[1].currentReceipt').value = crTotal.toFixed(2);

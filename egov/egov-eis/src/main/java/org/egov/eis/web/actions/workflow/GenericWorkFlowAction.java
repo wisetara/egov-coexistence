@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,7 +63,7 @@ import java.util.List;
 
 /**
  * Generic WorkFlow Action. Can be extended by any action class that intends to provide Work flow functionality.
- * 
+ *
  * @author subhash
  */
 public abstract class GenericWorkFlowAction extends BaseFormAction {
@@ -86,7 +86,7 @@ public abstract class GenericWorkFlowAction extends BaseFormAction {
 
     @Override
     public abstract StateAware getModel();
-    
+
     @Autowired
     protected EgovMasterDataCaching masterDataCache;
 
@@ -100,7 +100,7 @@ public abstract class GenericWorkFlowAction extends BaseFormAction {
 
     /**
      * Implementations must override this method based on their object's value that needs to be used in workflow
-     * 
+     *
      * @return the value that needs to be compared in the Amount rule table against FromAmount and ToAmount
      */
 
@@ -110,7 +110,7 @@ public abstract class GenericWorkFlowAction extends BaseFormAction {
 
     /**
      * Implementations must override this method to get additional rule for workflow.
-     * 
+     *
      * @return the value that needs to be compared in the matrix table against Additional rule
      */
 
@@ -120,7 +120,7 @@ public abstract class GenericWorkFlowAction extends BaseFormAction {
 
     /**
      * Implementations must override this method to achieve department wise workflow.
-     * 
+     *
      * @return the value that needs to be compared in the matrix table against Department.
      */
 
@@ -181,7 +181,7 @@ public abstract class GenericWorkFlowAction extends BaseFormAction {
 
     /**
      * Used to Set actionValue that will be used to call workflow script.
-     * 
+     *
      * @param workFlowAction
      */
 
@@ -191,7 +191,7 @@ public abstract class GenericWorkFlowAction extends BaseFormAction {
 
     /**
      * This parameter is used to get matrix object Implementations must override this method to get pendingActions
-     * 
+     *
      * @return the value needs to be compared against matrix table pendingActions
      */
 

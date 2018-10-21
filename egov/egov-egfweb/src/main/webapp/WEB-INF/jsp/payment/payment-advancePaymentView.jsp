@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -401,7 +401,7 @@ function printVoucher(){
 			document.getElementById('backbtnid').style.display='none';
 			document.getElementById('printPreview').disabled=false;
 		}
-			
+
 		function checkLength(obj)
 		{
 			if(obj.value.length>1024)
@@ -415,7 +415,7 @@ function printVoucher(){
 			if(opener && opener.top && opener.top.document.getElementById('inboxframe'))
 				opener.top.document.getElementById('inboxframe').contentWindow.egovInbox.refresh();
 		}
-		
+
 		if(document.getElementById('actionName').value!='' ||( '<%=request.getParameter("showMode")%>'!=null && '<%=request.getParameter("showMode")%>'=='view'))
 		{
 			document.getElementById('backbtnid').style.display='none';
@@ -426,7 +426,7 @@ function printVoucher(){
 		}
 		function balanceCheck(obj, name, value)
 		{
-			
+
 			if(!validateAppoveUser(name,value))
 				return false;
 			if(obj.id=='wfBtn1') // in case of Reject
@@ -440,10 +440,10 @@ function printVoucher(){
 				}
 			}
 
-	
+
 			return true;
 		}
-		
+
 		function validateAppoveUser(name,value){
 			document.getElementById('lblError').innerHTML ="";
 			document.getElementById("actionName").value= name;
@@ -460,11 +460,11 @@ function printVoucher(){
 					return false;
 				}
 			</s:else>
-			
+
 			return true;
 		}
-		
-		
+
+
 		function validateTab(indexx)
 		{
 			if(indexx==0)
@@ -477,7 +477,7 @@ function printVoucher(){
 			}
 			return true;
 		}
-		
+
 		var temp = window.setInterval(load,1);
 		function load()
 		{

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -88,7 +88,7 @@ $(document).ready(function(){
 			},
 			ajax : {
 				url : "/eis/report/empPositionList",
-				data : {	
+				data : {
 					'department' : department,
 					'designation' : designation,
 					'position'   : position,
@@ -100,7 +100,7 @@ $(document).ready(function(){
 			        	   "sTitle" : "S.no",
 			           },
 			           {
-			        
+
 	                            "data" : function(row, type, set, meta){
 		                     	return { name:row.employeeCode, id:row.id };
 	                         },
@@ -108,7 +108,7 @@ $(document).ready(function(){
 		                         return '<a href="javascript:void(0);" onclick="goToView(this);" data-hiddenele="employeeCode" data-eleval="'
 				                + data.name + '">' + data.name + '</a>';
 	                           },
-	                   
+
 			        	   "sTitle" : "Employee Code"
 			           },
 			           {
@@ -146,7 +146,7 @@ $(document).ready(function(){
 			reportdatatable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
 		            cell.innerHTML = i+1;
 		            console.log(i+1)
-		            reportdatatable.cell(cell).invalidate('dom'); 
+		            reportdatatable.cell(cell).invalidate('dom');
 		        } );
 		    } ).draw();
 	});
@@ -156,14 +156,14 @@ $(document).ready(function(){
 
 function goToView(obj) {
 	jQuery('input[name=' + jQuery(obj).data('hiddenele') + ']')
-	.val(jQuery(obj).data('eleval'));   
+	.val(jQuery(obj).data('eleval'));
 	window.open("/eis/employee/view/"+jQuery(obj).data('eleval'), '', 'scrollbars=yes,width=1000,height=700,status=yes');
-} 
+}
 
 function getPosition() {
 	var department = $('#department').val();
 	var designation = $('#designation').val();
-	
+
 		$.ajax({
 			url: "/eis/report/positions?deptId="
 				+ department + "&desigId=" + designation,
@@ -177,9 +177,9 @@ function getPosition() {
 				$.each(response, function(index, value) {
 					$('#position').append($('<option>').text(value.name).attr('value', value.id));
 				});
-			}, 
+			},
 			error: function (response) {
 				console.log("failed");
 			}
-		});	
+		});
 }

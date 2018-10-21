@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -70,12 +70,12 @@
 	src="/services/EGF/resources/javascript/tabber2.js?rnd=${app_release_no}"></script>
 <title><s:text name="remit.recovery.create.title" /></title>
 <script>
-var vTypeOfAccount="RECEIPTS_PAYMENTS,PAYMENTS"      ;                                 
+var vTypeOfAccount="RECEIPTS_PAYMENTS,PAYMENTS"      ;
 function loadBank(fundId){
-	populatebank({fundId:fundId.options[fundId.selectedIndex].value,typeOfAccount:vTypeOfAccount})	
+	populatebank({fundId:fundId.options[fundId.selectedIndex].value,typeOfAccount:vTypeOfAccount})
 }
 function loadBankForFund(fundId){
-	populatebank({fundId:fundId.options[fundId.selectedIndex].value})	
+	populatebank({fundId:fundId.options[fundId.selectedIndex].value})
 }
 function validateFund(){
 	var fund = document.getElementById('fundId').value;
@@ -86,7 +86,7 @@ function validateFund(){
 	}
 	return true;
 }
-function populateAvailableBalance(accnumObj) 
+function populateAvailableBalance(accnumObj)
 {
 			if (document.getElementById('voucherDate').value == '') {
 				bootbox.alert("Please Select the Voucher Date!!");
@@ -136,11 +136,11 @@ function populateAccNumbers(bankBranch){
 	var fund = document.getElementById('fundId');
 	branchId = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1];
 	bankId = bankBranch.options[bankBranch.selectedIndex].value.split("-")[0];
-	populatebankaccount({branchId:branchId,bankId:bankId,fundId:fund.options[fund.selectedIndex].value+'&date='+new Date(), typeOfAccount:vTypeOfAccount});	
+	populatebankaccount({branchId:branchId,bankId:bankId,fundId:fund.options[fund.selectedIndex].value+'&date='+new Date(), typeOfAccount:vTypeOfAccount});
 }
 function populateAccNumbersForId(bankBranchId){
 	var fund = document.getElementById('fundId');
-	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})
 }
 function onLoadTask(){
 	var fund = document.getElementById('fundId');
@@ -174,7 +174,7 @@ function onLoadTask(){
 }
 
 function populateUser(){
-	
+
 	var desgFuncry = document.getElementById("designationId").value;
 	var array = desgFuncry.split("-");
 	var functionary = array[1];
@@ -184,7 +184,7 @@ function populateUser(){
 	}
 	populateapproverUserId({departmentId:document.getElementById("departmentid").value,
 	designationId:desgId,functionaryName:functionary})
-		
+
 }
 
 	function validate()
@@ -206,8 +206,8 @@ function populateUser(){
 		   {
 		   document.getElementById('lblError').innerHTML='Please select Bank Account';
 		   return false;
-		   } 
-		  
+		   }
+
 			return true;
 		}
 function onLoad(){
@@ -235,8 +235,8 @@ function onSubmit()
 	if(validate()){
 		 var myform = jQuery('#remittanceForm');
 		// re-disabled the set of inputs that you previously
-		var disabled = myform.find(':input:disabled').removeAttr('disabled'); 
-		
+		var disabled = myform.find(':input:disabled').removeAttr('disabled');
+
 		 if(jQuery("#bankBalanceCheck").val()==noBalanceCheck)
 		{
 			disableAll();
@@ -264,11 +264,11 @@ function onSubmit()
 		document.remittanceForm.action='${pageContext.request.contextPath}/deduction/remitRecovery-create.action';
 	 	document.remittanceForm.submit();
 	}
-			
+
 	}
 		return false;
-		
-	
+
+
 }
 function validateCutOff()
 {
@@ -498,9 +498,9 @@ else{
 
 
 			<script type="text/javascript">
-	//bootbox.alert('<s:property value="fund.id"/>');                               
+	//bootbox.alert('<s:property value="fund.id"/>');
 	//populatebank({fundId:<s:property value="fundId.id"/>,typeOfAccount:"PAYMENT,RECEIPTS_PAYMENTS"});
-	populatebank({fundId:<s:property value="fundId.id"/>,typeOfAccount:vTypeOfAccount})	
+	populatebank({fundId:<s:property value="fundId.id"/>,typeOfAccount:vTypeOfAccount})
 	calcTotalForPayment();
 	</script>
 
@@ -525,7 +525,7 @@ else{
 				document.getElementById('balanceText').style.display='block';
 				document.getElementById('balanceAvl').style.display='block';
 			}
-			
+
 		</script>
 			</s:if>
 		</s:push>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -71,13 +71,13 @@ public class SearchPositionService {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param beginsWith
 	 * @param desId
 	 * @param deptId
@@ -86,7 +86,7 @@ public class SearchPositionService {
 	 * @param userDate
 	 * @param maxResults - if -1 all results are returned.
 	 * @return
-	 * @throws NoSuchObjectException 
+	 * @throws NoSuchObjectException
 	 */
 	public  List<EmployeeView> getPositionBySearchParameters(String beginsWith,Integer desId,Integer deptId,Long jurdId,Integer roleId,Date userDate,Integer maxResults) throws NoSuchObjectException{
 		List<EmployeeView> posList = new ArrayList<EmployeeView>() ;
@@ -107,12 +107,12 @@ public class SearchPositionService {
 		{
 
 			searchQuery="Select EV from EmployeeView EV,Position P where " +
-			
+
 			"EV.position.id=P.id  and "+
 			"trim(upper(P.name))  like '"+myBeginsWith.trim().toUpperCase()+"%' and "+
 			" ((EV.toDate IS NULL AND EV.fromDate <= :userDate)OR(EV.fromDate <= :userDate AND EV.toDate >= :userDate))and EV.userActive ='1'";
-		
-			
+
+
 
 			//Jurisdiction J,JurisdictionValues JurVal,
 			if(userListInJur!=null && !userListInJur.isEmpty())
@@ -123,7 +123,7 @@ public class SearchPositionService {
 		"(JurVal.toDate IS NULL and JurVal.fromDate <= :userDate) " +
 		"OR " +
 		"(JurVal.fromDate <= :userDate and JurVal.toDate >= :userDate)))  " ;*/
-				searchQuery+= "and EV.userMaster in (:bndryObjList)    "; 
+				searchQuery+= "and EV.userMaster in (:bndryObjList)    ";
 			}
 			if(desId!= null&& desId.intValue() != 0)
 				searchQuery += " and EV.designation.id = :desId  ";
@@ -141,7 +141,7 @@ public class SearchPositionService {
 
 			Query query =getCurrentSession().createQuery(searchQuery);
 			logger.info("quey >>>"+query.toString());
-			
+
 			if(userListInJur!=null && !userListInJur.isEmpty())
 			{
 				query.setParameterList("bndryObjList",userListInJur);
@@ -167,7 +167,7 @@ public class SearchPositionService {
 		}
 		catch(HibernateException h)
 		{
-			
+
 			throw new ApplicationRuntimeException("Exception:" + h.getMessage(),h);
 		}
 		return  posList;

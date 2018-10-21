@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -84,7 +84,7 @@ function fetchDeptId() {
 function printVoucher(){
 	document.forms[0].action='../report/billPaymentVoucherPrint-print.action?id=<s:property value="paymentheader.id"/>';
 	document.forms[0].submit();
-} 
+}
 function showHistory(stateId)
 {
 var url="../voucher/common-showHistory.action?stateId="+stateId;
@@ -256,7 +256,7 @@ function openVoucher(vid)
 																		name="comments" id="comments" cols="100" rows="3"
 																		onblur="checkLength(this)" value="%{getComments()}" /></td>
 															</tr>
-														</table> 
+														</table>
 
 													</span>
 
@@ -309,10 +309,10 @@ function openVoucher(vid)
 																							<a href="#" onclick="openVoucher('<s:property value='%{billVoucherHeader.id}'/>');">
 																								 <s:property value="%{billVoucherHeader.voucherNumber}" />
 																						    </a>
-																						</td>		 
+																						</td>
 																						<td style="text-align: center"
 																							class="blueborderfortdnew"><s:date
-																								name="%{billVoucherHeader.voucherDate}" format="dd/MM/yyyy" /></td>			
+																								name="%{billVoucherHeader.voucherDate}" format="dd/MM/yyyy" /></td>
 																						<td style="text-align: center"
 																							class="blueborderfortdnew"><s:property
 																								value="%{paidto}" /></td>
@@ -470,7 +470,7 @@ function openVoucher(vid)
 			//document.getElementById('backbtnid').style.display='none';
 			document.getElementById('printPreview').disabled=false;
 		}
-			
+
 		function checkLength(obj)
 		{
 			if(obj.value.length>1024)
@@ -484,7 +484,7 @@ function openVoucher(vid)
 			if(opener && opener.top && opener.top.document.getElementById('inboxframe'))
 				opener.top.document.getElementById('inboxframe').contentWindow.egovInbox.refresh();
 		}
-		
+
 		if(document.getElementById('actionName').value!='' ||( '<%=request.getParameter("showMode")%>'!=null && '<%=request.getParameter("showMode")%>'=='view'))
 		{
 			//document.getElementById('backbtnid').style.display='none';
@@ -495,7 +495,7 @@ function openVoucher(vid)
 		}
 		function balanceCheck(obj, name, value)
 		{
-			
+
 			if(!validateAppoveUser(name,value))
 				return false;
 			if(obj.id=='wfBtn1') // in case of Reject
@@ -509,14 +509,14 @@ function openVoucher(vid)
 				}
 			}
 
-	
+
 			return true;
 		}
 		function onSubmit()
 		{
 					document.forms[0].action='${pageContext.request.contextPath}/payment/payment-sendForApproval.action';
 		    		document.forms[0].submit();
-					
+
 		}
 		function validateAppoveUser(name,value){
 			document.getElementById('lblError').innerHTML ="";
@@ -534,11 +534,11 @@ function openVoucher(vid)
 					return false;
 				}
 			</s:else>
-			
+
 			return true;
 		}
-		
-		
+
+
 		function validateTab(indexx)
 		{
 			if(indexx==0)
@@ -551,7 +551,7 @@ function openVoucher(vid)
 			}
 			return true;
 		}
-		
+
 		var temp = window.setInterval(load,1);
 		function load()
 		{

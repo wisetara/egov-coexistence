@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -60,7 +60,7 @@ public class CategoryMaster implements GenericMaster
 			public java.util.Date fromDate;
 			public java.util.Date toDate;
 			private Long fileId;
-			
+
 			/**
 			 * @return Returns the id.
 			 */
@@ -104,6 +104,6 @@ public class CategoryMaster implements GenericMaster
 				public void setFileId(Long fileId) {
 					this.fileId = fileId;
 				}
-				
+
 
 }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,7 +61,7 @@ import java.util.Set;
 
 
 /**
- * 
+ *
  * @author DivyaShree
  *
  */
@@ -112,7 +112,7 @@ public class PersonalInformation implements java.io.Serializable,EntityType
 	 * deputation date
 	 */
 	private Date dateOfjoin;
-	
+
 	/*
 	 * Retirement date moved from grade
 	 */
@@ -142,22 +142,22 @@ public class PersonalInformation implements java.io.Serializable,EntityType
 	private String location;//Where are we using this?
 
 	private User createdBy;
-	
+
 	private Date createdTime;
 	/*
 	 * New column added for last modified date
 	 */
-	
+
 	private Date lastmodifieddate;
-	
+
 	private String email;
-	
+
 	private String phoneNumber;
-	
+
 	private String permanentAddress;
-	
+
 	private String correspondenceAddress;
-	
+
 	public String getPermanentAddress() {
 		return permanentAddress;
 	}
@@ -214,12 +214,12 @@ public class PersonalInformation implements java.io.Serializable,EntityType
 	{
 		return this.idPersonalInformation;
 	}
-	
+
 	public Integer getId()
 	{
 		return this.idPersonalInformation;
 	}
-	
+
 	public void setIdPersonalInformation(Integer idPersonalInformation)
 	{
 		this.idPersonalInformation = idPersonalInformation;
@@ -388,7 +388,7 @@ public BloodGroupMaster getBloodGroupMstr()
 		this.gpfAcNumber = gpfAcNumber;
 	}
 
-	
+
 
 	public Integer getRetirementAge() {
 		return retirementAge;
@@ -559,24 +559,24 @@ public void setEmployeeTypeMaster(EmployeeType employeeTypeMaster) {
 	public void setDateOfjoin(Date dateOfjoin) {
 		this.dateOfjoin = dateOfjoin;
 	}
-	
+
 	public Date getRetirementDate() {
 		return retirementDate;
 	}
 	public void setRetirementDate(Date retirementDate) {
 		this.retirementDate = retirementDate;
 	}
-	
+
 	public String getBankaccount() {
-		
+
 		return null;
 	}
-	
+
 	public String getBankname() {
-		
+
 		return null;
 	}
-	
+
 	public String getCode() {
 		if(employeeCode!=null)
 		{
@@ -587,27 +587,27 @@ public void setEmployeeTypeMaster(EmployeeType employeeTypeMaster) {
 			return null;
 		}
 	}
-	
+
 	public String getIfsccode() {
-		
+
 		return null;
 	}
-	
+
 	public String getModeofpay() {
 
 		return null;
 	}
-	
+
 	public String getName() {
 
 		return this.employeeName;
 	}
-	
+
 	public String getPanno() {
 
 		return this.panNumber;
 	}
-	
+
 	public String getTinno() {
 
 		return null;
@@ -618,10 +618,10 @@ public void setEmployeeTypeMaster(EmployeeType employeeTypeMaster) {
 	}
 	@Override
 	public String getEntityDescription() {
-		
+
 		return getName();
 	}
-	
+
 	@Override
 	public EgwStatus getEgwStatus() {
 

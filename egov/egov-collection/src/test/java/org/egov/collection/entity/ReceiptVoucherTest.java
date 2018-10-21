@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -50,16 +50,16 @@ package org.egov.collection.entity;
 
 public class ReceiptVoucherTest  { /*extends AbstractPersistenceServiceTest<ReceiptVoucher,Long> {
 	private CollectionObjectFactory factory;
-	
-	public ReceiptVoucherTest() {		
+
+	public ReceiptVoucherTest() {
 		this.type = ReceiptVoucher.class;
 	}
-	
+
 	@Before
 	public void setUp() {
 		factory = new CollectionObjectFactory(session);
 	}
-	
+
 	@Test
 	public void testcreateReceiptMisc()
 	{

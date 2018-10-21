@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -76,7 +76,7 @@
 		<property name="maxAmount">
 			<column name="MAX_AMOUNT" precision="2" scale="20" not-null="true" />
 		</property>
-		
+
 	</class>
 	<query name="getContractorGradeMaxAmountList">
 		<![CDATA[

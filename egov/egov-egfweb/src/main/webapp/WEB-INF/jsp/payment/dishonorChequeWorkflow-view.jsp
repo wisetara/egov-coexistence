@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -128,7 +128,7 @@
 	}
 	function populateActionName(name) {
 		document.getElementById('actionName').value = name;
-		//bootbox.alert("actionanem"+name);        
+		//bootbox.alert("actionanem"+name);
 		<s:if test="%{getNextAction()!='END'}">
 		var value=document.getElementById("approverDepartment").value;
 		if((name=="Forward" || name=="forward") && value=="-1")
@@ -151,7 +151,7 @@
 			return false;
 	    }
     </s:if>
-  
+
 	}
 </script>
 
@@ -276,7 +276,7 @@
 												name="dishonorChequeView.transactionDate"
 												id="dishonorChequeView.transactionDate"
 												onkeyup="DateFormat(this,this.value,event,false,'3')"
-												value="%{tempTransactionDate}" /> <!-- <a tabindex="-1" href="javascript:show_calendar('dishonorChequeWorkflow.dishonorChequeView.transactionDate');"	style="text-decoration: none">&nbsp;<img 
+												value="%{tempTransactionDate}" /> <!-- <a tabindex="-1" href="javascript:show_calendar('dishonorChequeWorkflow.dishonorChequeView.transactionDate');"	style="text-decoration: none">&nbsp;<img
 										src="/services/egi/resources/erp2/images/calendaricon.gif"		border="0" /></a></td>-->
 									</tr>
 									<tr>

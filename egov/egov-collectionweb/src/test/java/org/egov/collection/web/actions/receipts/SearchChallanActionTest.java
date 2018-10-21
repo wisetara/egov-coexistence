@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,7 +52,7 @@ public class SearchChallanActionTest { /*extends AbstractPersistenceServiceTest<
 	private SearchChallanAction action;
 	private CollectionObjectFactory objectFactory;
 	Map<String, String[]> parameters = new HashMap<String, String[]>();
-	
+
 	@Before
 	public void setupAction(){
 		action = new SearchChallanAction();
@@ -60,23 +60,23 @@ public class SearchChallanActionTest { /*extends AbstractPersistenceServiceTest<
 		action.setPersistenceService(genericService);
 		objectFactory = new CollectionObjectFactory(session);
 	}
-	
+
 	@After
 	public void resetPrepare(){
 		action.setParameters(null);
 	}
-	
+
 	@Test
 	public void testPrepareAction(){
 		List<DepartmentImpl> actualDepartmentList = genericService.findAllByNamedQuery(CollectionConstants.QUERY_ALL_DEPARTMENTS);
 		List<ServiceDetails> actualServiceList = genericService.findAllByNamedQuery(CollectionConstants.QUERY_CHALLAN_SERVICES,CollectionConstants.CHALLAN_SERVICE_TYPE);
-	
+
 		action.prepare();
 		assertEquals(actualDepartmentList,action.getDropdownData().get("departmentList"));
 		assertEquals(actualServiceList,action.getDropdownData().get("serviceList"));
-		
+
 	}
-	
+
 	@Test
 	public void searchWithNoParams() {
 		try{
@@ -92,7 +92,7 @@ public class SearchChallanActionTest { /*extends AbstractPersistenceServiceTest<
 			assertEquals(errors.get(0).getMessage(),"More than 500 results found.Please add more search criteria");
 		}
 	}
-	
+
 	@Test
 	public void searchWithAllParams() {
 		try{
@@ -113,7 +113,7 @@ public class SearchChallanActionTest { /*extends AbstractPersistenceServiceTest<
 			assertEquals(errors.get(0).getMessage(),"More than 500 results found.Please add more search criteria");
 		}
 	}
-	
+
 	@Test
 	public void searchWithOnlyChallanNumber() {
 		try{
@@ -129,22 +129,22 @@ public class SearchChallanActionTest { /*extends AbstractPersistenceServiceTest<
 			assertEquals(errors.get(0).getMessage(),"More than 500 results found.Please add more search criteria");
 		}
 	}
-	
+
 	@Test
 	public void testGetChallanStatuses() {
 		List<EgwStatus> actualStatuses=genericService.findAllBy(
 				"from EgwStatus s where moduletype=? order by description",
 				Challan.class.getSimpleName());
-		
+
 		List<EgwStatus> expectedStatuses=action.getChallanStatuses();
 		assertTrue(expectedStatuses.containsAll(actualStatuses));
 	}
-	
+
 	@Test
 	public void testModel(){
 		assertNull(action.getModel());
 	}
-	
+
 	@Test
 	public void testReset(){
 		assertEquals(action.reset(),Action.SUCCESS);

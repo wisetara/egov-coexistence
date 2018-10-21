@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -45,28 +45,71 @@
  *   In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
  *
  */
-package org.egov.commons.repository;
+package org.egov.builder.entities;
 
-import org.egov.commons.RegionalHeirarchy;
-import org.egov.commons.RegionalHeirarchyType;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
+import org.egov.infra.admin.master.entity.HierarchyType;
 
-import java.util.List;
+import java.util.Date;
 
-@Repository
-public interface RegionalHeirarchyRepository extends JpaRepository<RegionalHeirarchy, Long>{
-    
-    public RegionalHeirarchy findByCode(String code);
+public class HierarchyTypeBuilder {
 
-    @Query("from RegionalHeirarchy  where type=:heirarchyType order by name")
-     public List<RegionalHeirarchy> getActiveRegionalHeirarchyByRegion(@Param("heirarchyType") RegionalHeirarchyType heirarchyType);
-    
-    @Query("from RegionalHeirarchy rh where rh.parent.name= :regionName  and type=:heirarchyType order by name")
-     public List<RegionalHeirarchy> getActiveChildRegionHeirarchyByPassingParentNameAndType(@Param("heirarchyType") RegionalHeirarchyType heirarchyType, @Param("regionName") String regionName);
-    
- 
+    private final HierarchyType hierarchyTypeImpl;
 
+    // use this count where unique names,desciptions etc required
+    private static long count;
+
+    public HierarchyTypeBuilder() {
+        hierarchyTypeImpl = new HierarchyType();
+        count++;
+    }
+
+    public HierarchyTypeBuilder withName(final String name) {
+        hierarchyTypeImpl.setName(name);
+        return this;
+    }
+
+    public HierarchyTypeBuilder withId(final Long id) {
+        hierarchyTypeImpl.setId(id);
+        return this;
+    }
+
+    public HierarchyTypeBuilder withUpdatedTime(final Date updatedTime) {
+        hierarchyTypeImpl.setLastModifiedDate(updatedTime);
+        return this;
+    }
+
+    public HierarchyTypeBuilder withCode(final String code) {
+        hierarchyTypeImpl.setCode(code);
+        return this;
+    }
+
+    public HierarchyTypeBuilder withDefaults() {
+        withId(count);
+
+        if (null != hierarchyTypeImpl.getName())
+            withName("Test-Hierrachy" + count);
+
+        if (null != hierarchyTypeImpl.getLastModifiedDate())
+            withUpdatedTime(new Date());
+        if (null != hierarchyTypeImpl.getCode())
+            withCode("Test-" + count);
+        return this;
+    }
+
+    public HierarchyTypeBuilder withDbDefaults() {
+        if (null != hierarchyTypeImpl.getName())
+            withName("Test-Hierrachy" + count);
+
+        if (null != hierarchyTypeImpl.getLastModifiedDate())
+            withUpdatedTime(new Date());
+
+        if (null != hierarchyTypeImpl.getCode())
+            withCode("Test-" + count);
+
+        return this;
+    }
+
+    public HierarchyType build() {
+        return hierarchyTypeImpl;
+    }
 }

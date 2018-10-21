@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -69,9 +69,9 @@ public class ExpenseBillNumberGeneratorImpl implements ExpenseBillNumberGenerato
     private GenericSequenceNumberGenerator genericSequenceNumberGenerator;
 
     /**
-     * 
+     *
      * Format DepartmentCode/EJV/seqnumber/financialyear but sequence is running number for a year
-     * 
+     *
      */
     public String getNextNumber(EgBillregister br)
     {

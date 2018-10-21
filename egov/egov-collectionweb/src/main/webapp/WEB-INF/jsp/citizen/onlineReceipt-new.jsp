@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,7 +61,7 @@
 
 jQuery.noConflict();
 jQuery(document).ready(function() {
-  	 
+
      jQuery(" form ").submit(function( event ) {
     	 doLoadingMask();
     });
@@ -72,7 +72,7 @@ jQuery(window).load(function () {
 	undoLoadingMask();
 });
 
- 
+
 var billscount=0;
 var accountscount=0;
 var initialSetting="true";
@@ -108,12 +108,12 @@ function populateapportioningamountnew(){
 			zeroAccHeads=true;
 		}
 	}
-	if(document.getElementById("callbackForApportioning").value=="false")	
-	{	
+	if(document.getElementById("callbackForApportioning").value=="false")
+	{
 			billingtotal=document.forms[0].totalAmountToBeCollected.value;
 	}
 	else
-	{	
+	{
 			billingtotal=totalCreditAmountToBePaid;
 	}
 	if(collectiontotal > billingtotal && zeroAccHeads==false)
@@ -127,11 +127,11 @@ function populateapportioningamountnew(){
 		if(initialSetting=="true"){
 			initialiseCreditAmount();
 		}
-	
+
 		credittotal=calculateCreditTotal();
 		if(checkpartpaymentvalue=="true" && multiplePayee=="false")
 		{
-			// if overridign accounts is permitted and collected total is same as the 
+			// if overridign accounts is permitted and collected total is same as the
 			// credit total, do not apportion
 		    	if(checkoverridevalue=="true" && collectiontotal==credittotal){
 		   		return;
@@ -155,7 +155,7 @@ function populateapportioningamountnew(){
 						{
 							document.getElementById('receiptDetailList['+j+'].cramount').value=parseFloat(amounttobecollected).toFixed(1);
 							document.getElementById('receiptDetailList['+j+'].cramountDisplay').innerHTML=parseFloat(amounttobecollected).toFixed(1);
-								
+
 							remainingamount=collectiontotal-amounttobecollected;
 							remainingamount=Math.round(remainingamount*100)/100;
 							document.getElementById('receiptDetailList['+j+'].balanceAmount').value="0.0";
@@ -165,7 +165,7 @@ function populateapportioningamountnew(){
 						{
 							document.getElementById('receiptDetailList['+j+'].cramount').value=parseFloat(collectiontotal).toFixed(1);
 							document.getElementById('receiptDetailList['+j+'].cramountDisplay').innerHTML=parseFloat(collectiontotal).toFixed(1);
-								
+
 							var amt1=amounttobecollected-collectiontotal;
 							amt1=Math.round(amt1*100)/100;
 							document.getElementById('receiptDetailList['+j+'].balanceAmount').value=amt1.toFixed(1);
@@ -178,7 +178,7 @@ function populateapportioningamountnew(){
 						{
 							document.getElementById('receiptDetailList['+j+'].cramount').value=parseFloat(amounttobecollected).toFixed(1);
 							document.getElementById('receiptDetailList['+j+'].cramountDisplay').innerHTML=parseFloat(amounttobecollected).toFixed(1);
-						
+
 							remainingamount=remainingamount-amounttobecollected;
 							remainingamount=Math.round(remainingamount*100)/100;
 							document.getElementById('receiptDetailList['+j+'].balanceAmount').value="0.0";
@@ -188,8 +188,8 @@ function populateapportioningamountnew(){
 						{
 							document.getElementById('receiptDetailList['+j+'].cramount').value=remainingamount.toFixed(1);
 								document.getElementById('receiptDetailList['+j+'].cramountDisplay').innerHTML=remainingamount.toFixed(1);
-							
-						
+
+
 							var amt2=amounttobecollected-remainingamount;
 							amt2=Math.round(amt2*100)/100;
 							remainingamount=remainingamount-document.getElementById('receiptDetailList['+j+'].cramount').value;
@@ -201,7 +201,7 @@ function populateapportioningamountnew(){
 					{
 						document.getElementById('receiptDetailList['+j+'].cramount').value="0.0";
 						document.getElementById('receiptDetailList['+j+'].cramountDisplay').innerHTML="0.0";
-						
+
 						document.getElementById('receiptDetailList['+j+'].balanceAmount').value=parseFloat(amounttobecollected).toFixed(1);
 						document.getElementById('receiptDetailList['+j+'].balanceAmtDisplay').innerHTML=parseFloat(amounttobecollected).toFixed(1);
 					}
@@ -216,7 +216,7 @@ function populateapportioningamountnew(){
 				window.scroll(0,0);
 			}
 		}
-			
+
 	}
 	//document.getElementById("button2").disabled = false;
 }
@@ -259,7 +259,7 @@ function validateOnlineReceipt(){
 	var totalCreditAmountToBePaid = 0;
 	for(var j=0;j<noofaccounts; j++)
 	{
-		var advanceRebatePresent=document.getElementById('receiptDetailList['+j+'].isActualDemand').value;			
+		var advanceRebatePresent=document.getElementById('receiptDetailList['+j+'].isActualDemand').value;
 		var amounttobecollected=document.getElementById('receiptDetailList['+j+'].cramountToBePaid').value;
 		totalCreditAmountToBePaid = eval(totalCreditAmountToBePaid)+eval(amounttobecollected);
 		if(advanceRebatePresent==0){
@@ -275,12 +275,12 @@ function validateOnlineReceipt(){
 	}
 	amount=eval(amount);
 
-	if(document.getElementById("callbackForApportioning").value=="false")	
-	{	
+	if(document.getElementById("callbackForApportioning").value=="false")
+	{
 			billingtotal=document.forms[0].totalAmountToBeCollected.value;
 	}
 	else
-	{	
+	{
 			billingtotal=totalCreditAmountToBePaid;
 	}
 
@@ -307,7 +307,7 @@ function validateOnlineReceipt(){
 		validation=false;
 		return false;
 	}
-	
+
 	if(!dom.get("checkbox").checked){
 		document.getElementById("receipt_error_area").innerHTML+='<s:text name="onlineReceipts.acceptterms" />' + '<br>';
 		dom.get("receipt_error_area").style.display="block";
@@ -324,10 +324,10 @@ function validateOnlineReceipt(){
 }
 
 function openTerms(serviceCode){
-	newwindow=window.open ("../termsandconditons/"+serviceCode+"_terms_conditions.html","Terms and Conditions",'height=300,width=1000'); 
+	newwindow=window.open ("../termsandconditons/"+serviceCode+"_terms_conditions.html","Terms and Conditions",'height=300,width=1000');
 }
 
-function initiateRequest() 
+function initiateRequest()
 {
 	if (window.XMLHttpRequest) {
 		return new XMLHttpRequest();
@@ -338,9 +338,9 @@ function initiateRequest()
 	}
 }
 
-function trimResponse(responseTxt) 
+function trimResponse(responseTxt)
 {
-	var responseTxt =responseTxt.replace(/^\s+|\s+$/g,"");	
+	var responseTxt =responseTxt.replace(/^\s+|\s+$/g,"");
 	return responseTxt;
 }
 
@@ -359,7 +359,7 @@ function callAjax(paymentServiceId){
 
 	var url = "../termsandconditons/getServiceByID.jsp?serviceid=" + paymentServiceId ;
 	var req = initiateRequest();
-	
+
 	req.onreadystatechange = function()
 	{
 		if (req.readyState == 4)
@@ -370,7 +370,7 @@ function callAjax(paymentServiceId){
 				serviceMsg=trimResponse(req.responseText);
 			 	dom.get("transactiondiv").innerHTML=serviceMsg;
 			 	document.getElementById('transactiondiv').style.display = 'block';
-		     	}//close If  
+		     	}//close If
 			else
 		     	{
 		        	bootbox.alert("<s:text name='onlineReceipts.transactionmessage.errormessage'/>");
@@ -380,7 +380,7 @@ function callAjax(paymentServiceId){
 	}//close req.onreadystatechange
 	req.open("GET", url, true);
 	req.send(null);
-	
+
 }
 
 function onLoad(){
@@ -407,7 +407,7 @@ function onLoad(){
     <div class="errorstyle">
       <s:actionmessage/>
     </div>
-</s:if>  
+</s:if>
 
 	<div class="maincontainer">
 		<s:form theme="simple" name="collDetails"
@@ -466,7 +466,7 @@ function onLoad(){
 									<s:hidden id="paymentServiceId" value="%{paymentServiceId}"
 										name="paymentServiceId" />
 									<s:hidden id="refNumber" value="%{refNumber}" name="refNumber" />
-									<s:hidden id="isTransactionPending" value="%{isTransactionPending}" 
+									<s:hidden id="isTransactionPending" value="%{isTransactionPending}"
 									name="isTransactionPending"/>
 									<%
 									    int i = 1;

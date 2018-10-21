@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -56,7 +56,7 @@ public class Role implements Serializable {
     private String name;
     private String code;
     private String tenantId;
-    
+
     public Role(){}
 
 	public Role(Long id, String name, String code, String tenantId) {
@@ -98,13 +98,13 @@ public class Role implements Serializable {
 		this.tenantId = tenantId;
 	}
 
-	
+
 
 	@Override
 	public String toString() {
 		return "Role [id=" + id + ", name=" + name + ", code=" + code + ", tenantId=" + tenantId + "]";
 	}
-    
+
 
 
 }

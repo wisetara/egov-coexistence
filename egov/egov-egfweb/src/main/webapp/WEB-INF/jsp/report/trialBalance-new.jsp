@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -64,7 +64,7 @@ var toDateStr="";
 		document.getElementById('error').innerHTML="";
 		var fromDate=document.getElementById('fromDate').value;
 		var toDate=document.getElementById('toDate').value;
-		
+
 		var reportType = document.getElementById('reportType').value;
 		//bootbox.alert(reportType);
 		var today = new Date();
@@ -84,8 +84,8 @@ today = dd+'/'+mm+'/'+yyyy;
 			}  if (document.getElementById('fundId').value == '') {
 				bootbox.alert('Please select Fund');
 				return false;
-			}  
- 
+			}
+
 			 if( compareDate(formatDate6(document.getElementById('fromDate').value),formatDate6(document.getElementById('toDate').value)) == -1 ){
 				bootbox.alert('Start Date cannot be greater than End Date');
 				document.getElementById('fromDate').value='';
@@ -99,23 +99,23 @@ today = dd+'/'+mm+'/'+yyyy;
 				return false;
 			}
 			document.getElementById('fromDate').value='';
-			      
+
 		}
 		 if(exportValue=='html'){
 				//doAfterSubmit();
-		} 
+		}
 
 		//doAfterSubmit();
 		document.forms[0].action='${pageContext.request.contextPath}/report/trialBalance-search.action';
 		document.forms[0].submit();
-		
+
    return true;
 	}
 	function doAfterSubmit(){
 		document.getElementById('loading').style.display ='block';
 	}
-	
-	
+
+
 	function changeLable() {
 			if(toDateStr=="")
 			{
@@ -130,7 +130,7 @@ today = dd+'/'+mm+'/'+yyyy;
 			}else
 			{
 			document.getElementById('fundStar').style.display="block";
-			document.getElementById('fromDate').disabled=false;   
+			document.getElementById('fromDate').disabled=false;
 			if(toDateStr!="")
 			{
 			document.getElementById('toDatelbl').innerHTML=toDateStr;
@@ -143,25 +143,25 @@ today = dd+'/'+mm+'/'+yyyy;
 
 		}
 	function onLoad(){
-		document.getElementById('loading').style.display ='none';                             
+		document.getElementById('loading').style.display ='none';
 	}
-	function showDetails(glcode,startDate,endDate){           
+	function showDetails(glcode,startDate,endDate){
 		var deptCode = '<s:property value="departmentCode"/>';
 		var functionaryId = '<s:property value="functionaryId"/>';
 		var functionName = '<s:property value="functionName"/>';
 		var functionId = '<s:property value="functionId"/>';
-		var fieldId = '<s:property value="divisionId"/>';	   
+		var fieldId = '<s:property value="divisionId"/>';
 		var fundId='<s:property value="fundId"/>';
-                                             
-		
+
+
 		 var functionCode1=functionName+"~"+functionId;
 
 		// bootbox.alert(functionCode1);
 		if(functionId==0){
 			functionCode1="";
 			functionId="";
-			}                   
-		
+			}
+
 		window.open('/services/EGF/report/generalLedgerReport-searchDrilldown.action?fromBean=1&glCode1='+glcode+'&fund_id='+fundId+'&startDate='+startDate+'&endDate='+endDate+'&departmentCode='+deptCode+'&functionaryId='+functionaryId+'&functionCodeId='+functionId+'&functionCode='+functionCode1+'&fieldId='+fieldId,'','resizable=yes,height=650,width=900,scrollbars=yes,left=30,top=30,status=no');
 	}
 </script>

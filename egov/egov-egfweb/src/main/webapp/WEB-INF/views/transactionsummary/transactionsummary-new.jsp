@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -152,9 +152,9 @@
 <body class="page-body" oncontextmenu="return false;" onload="loadDropDownCodesFunction();">
 	<jsp:include page="../template/header.jsp" />
 	<form:form role="form" action="create" modelAttribute="transactionSummaryDto" id="transactionSummaryform" cssClass="form-horizontal form-groups-bordered" enctype="multipart/form-data">
-	
+
 	<jsp:include page="transactionsummary-form.jsp" />
-	
+
 	<table class="table table-bordered display-hide" id="result">
 		<thead>
 			<tr>
@@ -171,7 +171,7 @@
 		<tbody>
 			<tr id="resultrow0">
 				<form:input type="hidden" path="transactionSummaryList[0].id" id="transactionSummaryList[0].id" />
-				<form:input type="hidden" path="transactionSummaryList[0].glcodeid.id" id="transactionSummaryList[0].glcodeid.id"  /> 
+				<form:input type="hidden" path="transactionSummaryList[0].glcodeid.id" id="transactionSummaryList[0].glcodeid.id"  />
 				<td>
 					<input id="transactionSummaryList[0].glcodeDetail" name="transactionSummaryList[0].glcodeDetail" type="text" class="form-control accountcode mandatory" autocomplete="off" onkeyup="autocompletecode(this,event)" onblur="fillNeibrAfterSplitGlcode(this);" />
 					<div id="codescontainer"></div>
@@ -184,7 +184,7 @@
 					</form:select>
 				</td>
 				<td>
-					<form:input type="hidden" path="transactionSummaryList[0].accountdetailkey" id="transactionSummaryList[0].accountdetailkey"  /> 
+					<form:input type="hidden" path="transactionSummaryList[0].accountdetailkey" id="transactionSummaryList[0].accountdetailkey"  />
 					<input name="transactionSummaryList[0].accountdetailkeyValue" id="transactionSummaryList[0].accountdetailkeyValue" type="text" readonly="true" autocomplete="off" class="form-control yui-ac-input " onfocus="onFocusDetailCode(this);autocompleteEntities(this);" onblur="splitEntitiesDetailCode(this)" />
 					<img src="/services/egi/resources/erp2/images/plus1.gif" id="transactionSummaryList[0].search" name="transactionSummaryList[0].search" style="width:15px;" onclick="openSearchWindowFromOB(this)">
 				</td>

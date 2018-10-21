@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -154,36 +154,36 @@ var url="../voucher/common-showHistory.action?stateId="+stateId;
 
 	path="${pageContext.request.contextPath}";
 		var totaldbamt=0,totalcramt=0;
-		var makeVoucherDetailTable = function() {  
-		<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>                
-		var voucherDetailColumns = [        
+		var makeVoucherDetailTable = function() {
+		<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
+		var voucherDetailColumns = [
 			{key:"functionid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
 			{key:"function",hidden:true,label:'Function Name', formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","hidden")},
 			{key:"glcodeid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
 			{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
-			{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+			{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
 			{key:"creditamount",label:'Credit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}","addYUIRow_billDetailTable(this)")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow(this)")}
-		];	
+		];
 		</s:if>
 		<s:else>
-		var voucherDetailColumns = [ 
+		var voucherDetailColumns = [
    			{key:"functionid",hidden:true,  formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
-   			{key:"function",label:'Function Name', formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","text")},         
+   			{key:"function",label:'Function Name', formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","text")},
    			{key:"glcodeid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
    			{key:"glcode",label:'Account Code <span class="mandatory1">*</span>',   formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-   			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
-   			{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+   			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+   			{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
    			{key:"creditamount",label:'Credit Amount',formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
    			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
    			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
    		];
-	</s:else>   
-	    var voucherDetailDS = new YAHOO.util.DataSource(); 
+	</s:else>
+	    var voucherDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
-		
+
 		<s:iterator value="billDetailslist" status="stat">
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
 					"functionid":'<s:property value="functionIdDetail"/>',
@@ -204,9 +204,9 @@ var url="../voucher/common-showHistory.action?stateId="+stateId;
 				updateGridPJV('creditAmountDetail',index,'<s:property value="creditAmountDetail"/>');
 				totaldbamt = totaldbamt+parseFloat('<s:property value="debitAmountDetail"/>');
 				totalcramt = totalcramt+parseFloat('<s:property value="creditAmountDetail"/>');
-				updateAccountTableIndex();	
+				updateAccountTableIndex();
 			</s:iterator>
-				
+
 
 		var tfoot = billDetailsTable.getTbodyEl().parentNode.createTFoot();
 		var tr = tfoot.insertRow(-1);
@@ -232,12 +232,12 @@ glcodeOptions.push({label: '<s:property value="glcode"/>', value: '<s:property v
 	<s:iterator value="dropdownData.detailTypeList">
 detailtypeOptions.push({label: '<s:property value="name"/>', value: '<s:property value="id"/>'});
 	</s:iterator>
-	
-	
-	
-		
+
+
+
+
 	var makeSubLedgerTable = function() {
-		var subledgerColumns = [ 
+		var subledgerColumns = [
 			{key:"glcode",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".subledgerCode","hidden")},
 			{key:"glcode.id",label:'Account Code <span class="mandatory1">*</span>', formatter:createDropdownFormatterJV(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
 			{key:"detailTypeName",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".detailTypeName","hidden")},
@@ -249,10 +249,10 @@ detailtypeOptions.push({label: '<s:property value="name"/>', value: '<s:property
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}","addYUIRow_subLedgersTable(this)")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow(this)")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
-		
-	
+
+
 		<s:iterator value="subLedgerlist" status="stat">
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
 					"glcode":'<s:property value="subledgerCode"/>',
@@ -293,7 +293,7 @@ detailtypeOptions.push({label: '<s:property value="name"/>', value: '<s:property
 		 return;
 		}
 		if(this.getRecordSet().getLength()>1)
-		{			
+		{
 			this.deleteRow(record);
 			allRecords=this.getRecordSet();
 			for(var i=0;i<allRecords.getLength();i++){
@@ -303,8 +303,8 @@ detailtypeOptions.push({label: '<s:property value="name"/>', value: '<s:property
 		else{
 			bootbox.alert("This row can not be deleted");
 		}
-		}	
-		
+		}
+
 function addYUIRow_billDetailTable(obj)
 	{
 	if(obj.disabled==true)
@@ -314,15 +314,15 @@ function addYUIRow_billDetailTable(obj)
 		billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 		updateAccountTableIndex();
 	}
-		
-		
+
+
 	var insuffiecientBankBalance ='<s:text name="insuffiecientBankBalance"/>';
-	
-	
+
+
 		function validateAppoveUser(name,value){
 			document.getElementById('lblError').innerHTML ="";
 			document.getElementById("actionName").value= name;
-			
+
 			<s:if test="%{wfitemstate =='END'}">
 				if(value == 'Approve' || value == 'Reject') {
 					document.getElementById("approverUserId").value=-1;
@@ -335,12 +335,12 @@ function addYUIRow_billDetailTable(obj)
 					return false;
 				}
 			</s:else>
-			
+
 			return true;
-		
+
 		}
 function printVoucher(){
-	
+
 	document.forms[0].action='../report/billPaymentVoucherPrint-print.action?id=<s:property value="paymentheader.id"/>';
 	document.forms[0].submit();
 }
@@ -539,14 +539,14 @@ function printVoucher(){
 		if(document.getElementById("actionName"))
 			document.getElementById("actionName").disabled=false;
 		if(null != document.getElementById("departmentid") ){
-			document.getElementById("departmentid").disabled=false;    
+			document.getElementById("departmentid").disabled=false;
 			document.getElementById("designationId").disabled=false;
 			document.getElementById("approverUserId").disabled=false;
 		}
-				
-		
-	
-		
+
+
+
+
 		if(document.getElementById("wfBtn0"))
 		{
 		document.getElementById("wfBtn0").disabled=false;
@@ -559,21 +559,21 @@ function printVoucher(){
 		{
 		document.getElementById("wfBtn3").disabled=false;
 		}
-		
+
 	<s:if test="%{showMode!='view'}" >
-		
+
 		<s:if test="%{balance=='-1'}">
 			for(var i=0;i<document.forms[0].length;i++)
 			{
 				if(document.forms[0].elements[i].id!='closeButtonNew' || document.forms[0].elements[i].id!='comments')
 				document.forms[0].elements[i].disabled =true;
-				
+
 			}
 				bootbox.alert("FundFlow Report not Generated to check Bank Balance. Please generate Report First");
-	
-		</s:if>	
-	</s:if>	
-	
+
+		</s:if>
+	</s:if>
+
 </script>
 
 				<s:if test="%{showApprove}">
@@ -608,14 +608,14 @@ if(document.getElementById('actionName').value!='')
 			if(opener && opener.top && opener.top.document.getElementById('inboxframe'))
 				opener.top.document.getElementById('inboxframe').contentWindow.egovInbox.refresh();
 		}
-		
+
 		 <s:if test="%{canCheckBalance==true}">
 			if(document.getElementById('balanceText'))
 			{
 				document.getElementById('balanceText').style.display='block';
 				document.getElementById('balanceAvl').style.display='block';
 			}
-	    </s:if>	    
+	    </s:if>
 	    function onSubmit()
 	    {
 	    	document.forms[0].action='${pageContext.request.contextPath}/payment/directBankPayment-sendForApproval.action';

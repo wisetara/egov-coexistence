@@ -1,7 +1,7 @@
 <%@ include file="/includes/taglibs.jsp"%>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,9 +52,9 @@
 		document.getElementById("workFlowAction").value=name;
 	    var approverPosId = document.getElementById("approverPositionId");
 	    if(approverPosId) {
-			var approver = approverPosId.options[approverPosId.selectedIndex].text; 
+			var approver = approverPosId.options[approverPosId.selectedIndex].text;
 			document.getElementById("approverName").value= approver.split('~')[0];
-		}     
+		}
 	   return  onSubmit();
 	}
 
@@ -62,9 +62,9 @@
 	    document.getElementById("workFlowAction").value=name;
 	    var approverPosId = document.getElementById("approverPositionId");
 	    if(approverPosId && approverPosId.value != -1 && approverPosId.value != "") {
-			var approver = approverPosId.options[approverPosId.selectedIndex].text; 
+			var approver = approverPosId.options[approverPosId.selectedIndex].text;
 			document.getElementById("approverName").value= approver.split('~')[0];
-		}   
+		}
 	    if ((name=="Reject" || name=="reject")) {
 	    	var approverComments = document.getElementById("approverComments").value;
 	    	if (approverComments == null || approverComments == "") {
@@ -90,7 +90,7 @@
 		    if(!validateCutOff())
 	    		return false;
 	    }
-	   
+
 	    </s:if>
 	    return  onSubmit();
 	}

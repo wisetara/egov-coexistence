@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -152,55 +152,20 @@
 </style>
 </head>
 <script>
-   
-		
+
+
 var remitCallBack = {
-		success: function(o){    
+		success: function(o){
 			document.getElementById('resultGrid').innerHTML=o.responseText;
-			undoLoadingMask();  
+			undoLoadingMask();
 			},
 			failure: function(o) {
 				undoLoadingMask();
 		    }
-		}  	
-   
+		}
 
-function getData(){    
-	isValid = validateData();    
-	if(isValid == false)
-		return false;
-	var level =document.getElementById('level').value;
-	var paymentVoucherFromDate =   document.getElementById('paymentVoucherFromDate').value;
-	var paymentVoucherToDate =   document.getElementById('paymentVoucherToDate').value;
-	var department =  document.getElementById('department').value;
-	var recovery =  document.getElementById('recovery').value;
-	var drawingOfficer =  document.getElementById('drawingOfficerId').value;
-	var contractorCode =  document.getElementById('contractorCode').value;
-	var supplierCode =  document.getElementById('supplierCode').value;
-	var fund =  document.getElementById('fund').value;
-	var rtgsAssignedFromDate =  document.getElementById('rtgsAssignedFromDate').value;
-	var rtgsAssignedToDate =  document.getElementById('rtgsAssignedToDate').value;
-	var bank =  document.getElementById('bank').value;    
-	var bankbranch =  document.getElementById('bankbranch').value;
-	var bankaccount =  document.getElementById('bankaccount').value;
-	
-	var instrumentnumber =  document.getElementById('instrumentnumber').value;
-	if(detailKey == 'undefined' && document.getElementById('partyName').value!='')
-		detailKey = 0;
-	if(detailKey == 'undefined' && document.getElementById('partyName').value=='')
-		detailKey = 0;
-	
-	doLoadingMask();
-	var url ='/EGF/report/autoRemittanceReport!ajaxLoadData.action?level='+level+'&department.id='+department+'&paymentVoucherFromDate='+
-				paymentVoucherFromDate+'&paymentVoucherToDate='+paymentVoucherToDate+'&recovery.id='+recovery+'&drawingOfficer.id='+drawingOfficer+
-				'&contractorCode='+contractorCode+'&supplierCode='+supplierCode+'&fund.id='+fund+'&bank.id='+bank+'&bankbranch.id='+bankbranch+'&bankaccount.id='+bankaccount;
-	YAHOO.util.Connect.asyncRequest('POST', url, remitCallBack, null);
-	        
-	        
-}    
-   
 
-function exportPdf(){ 
+function getData(){
 	isValid = validateData();
 	if(isValid == false)
 		return false;
@@ -215,11 +180,46 @@ function exportPdf(){
 	var fund =  document.getElementById('fund').value;
 	var rtgsAssignedFromDate =  document.getElementById('rtgsAssignedFromDate').value;
 	var rtgsAssignedToDate =  document.getElementById('rtgsAssignedToDate').value;
-	var bank =  document.getElementById('bank').value;    
+	var bank =  document.getElementById('bank').value;
 	var bankbranch =  document.getElementById('bankbranch').value;
-	var bankaccount =  document.getElementById('bankaccount').value; 
+	var bankaccount =  document.getElementById('bankaccount').value;
+
 	var instrumentnumber =  document.getElementById('instrumentnumber').value;
-	
+	if(detailKey == 'undefined' && document.getElementById('partyName').value!='')
+		detailKey = 0;
+	if(detailKey == 'undefined' && document.getElementById('partyName').value=='')
+		detailKey = 0;
+
+	doLoadingMask();
+	var url ='/EGF/report/autoRemittanceReport!ajaxLoadData.action?level='+level+'&department.id='+department+'&paymentVoucherFromDate='+
+				paymentVoucherFromDate+'&paymentVoucherToDate='+paymentVoucherToDate+'&recovery.id='+recovery+'&drawingOfficer.id='+drawingOfficer+
+				'&contractorCode='+contractorCode+'&supplierCode='+supplierCode+'&fund.id='+fund+'&bank.id='+bank+'&bankbranch.id='+bankbranch+'&bankaccount.id='+bankaccount;
+	YAHOO.util.Connect.asyncRequest('POST', url, remitCallBack, null);
+
+
+}
+
+
+function exportPdf(){
+	isValid = validateData();
+	if(isValid == false)
+		return false;
+	var level =document.getElementById('level').value;
+	var paymentVoucherFromDate =   document.getElementById('paymentVoucherFromDate').value;
+	var paymentVoucherToDate =   document.getElementById('paymentVoucherToDate').value;
+	var department =  document.getElementById('department').value;
+	var recovery =  document.getElementById('recovery').value;
+	var drawingOfficer =  document.getElementById('drawingOfficerId').value;
+	var contractorCode =  document.getElementById('contractorCode').value;
+	var supplierCode =  document.getElementById('supplierCode').value;
+	var fund =  document.getElementById('fund').value;
+	var rtgsAssignedFromDate =  document.getElementById('rtgsAssignedFromDate').value;
+	var rtgsAssignedToDate =  document.getElementById('rtgsAssignedToDate').value;
+	var bank =  document.getElementById('bank').value;
+	var bankbranch =  document.getElementById('bankbranch').value;
+	var bankaccount =  document.getElementById('bankaccount').value;
+	var instrumentnumber =  document.getElementById('instrumentnumber').value;
+
 
 	window.open('/EGF/report/autoRemittanceReport!exportPdf.action?level='+level+'&department.id='+department+'&paymentVoucherFromDate='+
 			paymentVoucherFromDate+'&paymentVoucherToDate='+paymentVoucherToDate+'&recovery.id='+recovery+'&drawingOfficer.id='+drawingOfficer+
@@ -240,9 +240,9 @@ function exportXls(){
 	var fund =  document.getElementById('fund').value;
 	var rtgsAssignedFromDate =  document.getElementById('rtgsAssignedFromDate').value;
 	var rtgsAssignedToDate =  document.getElementById('rtgsAssignedToDate').value;
-	var bank =  document.getElementById('bank').value;    
+	var bank =  document.getElementById('bank').value;
 	var bankbranch =  document.getElementById('bankbranch').value;
-	var bankaccount =  document.getElementById('bankaccount').value; 
+	var bankaccount =  document.getElementById('bankaccount').value;
 	var instrumentnumber =  document.getElementById('instrumentnumber').value;
 	window.open('/EGF/report/autoRemittanceReport!exportXls.action?level='+level+'&department.id='+department+'&paymentVoucherFromDate='+
 			paymentVoucherFromDate+'&paymentVoucherToDate='+paymentVoucherToDate+'&recovery.id='+recovery+'&drawingOfficer.id='+drawingOfficer+
@@ -253,10 +253,10 @@ function viewVoucher(vid){
 	window.open(url,'Search','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 }
 function viewBill(billRegisterId){
-	var url = '../bill/contingentBill!beforeView.action?billRegisterId='+ billRegisterId;   
+	var url = '../bill/contingentBill!beforeView.action?billRegisterId='+ billRegisterId;
 	window.open(url,'Search','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 }
-	
+
 </script>
 <body onload="loadEntities();">
 

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -49,31 +49,31 @@ package org.egov.collection.web.actions.receipts;
 
 
 public class AjaxBankRemittanceActionTest { /*extends AbstractPersistenceServiceTest<ReceiptPayeeDetails,Long>{
-	
+
 	private AjaxBankRemittanceAction action;
 	private CollectionObjectFactory objectFactory;
-	
+
 	@Before
 	public void setupAction(){
 		service = createMock(PersistenceService.class);
 		action = new AjaxBankRemittanceAction();
 		action.setPersistenceService(genericService);
 		objectFactory = new CollectionObjectFactory(session);
-		
+
 	}
-	
+
 	@Test(expected = ValidationException.class)
 	public void getBankBranchListWithErrors(){
 		action.setFundId(0);
 		action.bankBranchList();
 	}
-	
+
 	@Test(expected = ValidationException.class)
 	public void getAccountListWithErrors(){
 		action.setFundId(0);
 		action.accountList();
 	}
-	
+
 	@Test
 	public void getBankBranchList() throws Exception{
 		ServiceDetails serviceDetails=objectFactory.createServiceDetails();
@@ -83,7 +83,7 @@ public class AjaxBankRemittanceActionTest { /*extends AbstractPersistenceService
 		"EG_BANKACCOUNTSERVICEMAPPING asm,EGCL_SERVICEDETAILS sd where asm.bankaccount=ba.ID and asm.servicedetails=sd.ID and " +
 		"ba.BRANCHID=bb.ID and bb.BANKID=b.ID and sd.SERVICENAME=:serviceName");
 		qry.setString("serviceName", serviceDetails.getServiceName());
-		
+
 		String result = action.bankBranchList();
 		assertNotNull(qry.list());
 		assertNotNull(action.getServiceName());
@@ -95,22 +95,22 @@ public class AjaxBankRemittanceActionTest { /*extends AbstractPersistenceService
 		ServiceDetails serviceDetails=objectFactory.createServiceDetails();
 		action.setServiceName(serviceDetails.getServiceName());
 		action.setFundId(serviceDetails.getServiceBankAccount().iterator().next().getFund().getId());
-		
+
 		Bankaccount bankaccount=objectFactory.createBankAccount("123456");
 		action.setBranchId(bankaccount.getId());
-		
+
 		Query qry=session.createSQLQuery("select ba.id as accountid,ba.accountnumber as accountnumber from bankaccount ba," +
 		"EG_BANKACCOUNTSERVICEMAPPING asm,EGCL_SERVICEDETAILS sd where asm.bankaccount=ba.ID and asm.servicedetails=sd.ID and " +
 		"ba.BRANCHID=:branchId and sd.SERVICENAME=:serviceName");
 		qry.setString("serviceName", serviceDetails.getServiceName());
 		qry.setInteger("branchId", bankaccount.getId());
-		
+
 		String result = action.accountList();
 		assertNotNull(qry.list());
 		assertNotNull(action.getServiceName());
 		assertEquals("accountList",result);
 	}
-	
+
 	@Test
 	public void testGetModel() {
 		assertNull(action.getModel());

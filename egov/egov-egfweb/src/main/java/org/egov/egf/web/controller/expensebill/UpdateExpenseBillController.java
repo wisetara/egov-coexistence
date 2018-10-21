@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -110,7 +110,7 @@ public class UpdateExpenseBillController extends BaseBillController {
     private CheckListService checkListService;
     @Autowired
     private MicroserviceUtils microServiceUtil;
-    
+
     public UpdateExpenseBillController(final AppConfigValueService appConfigValuesService) {
         super(appConfigValuesService);
     }
@@ -151,9 +151,9 @@ public class UpdateExpenseBillController extends BaseBillController {
                 model.addAttribute(NET_PAYABLE_AMOUNT, details.getCreditamount());
             }
         prepareCheckListForEdit(egBillregister, model);
-        
+
         String department= this.getDepartmentName(egBillregister.getEgBillregistermis().getDepartmentcode());
-       
+
        if(department!=null)
            egBillregister.getEgBillregistermis().setDepartmentName(department);
         model.addAttribute(EG_BILLREGISTER, egBillregister);
@@ -167,7 +167,7 @@ public class UpdateExpenseBillController extends BaseBillController {
             if (egBillregister.getEgBillregistermis().getBudgetaryAppnumber() != null && !egBillregister.getEgBillregistermis().getBudgetaryAppnumber().isEmpty()) {
                 budgetDetails = expenseBillService.getBudgetDetailsForBill(egBillregister);
             }
-            
+
             model.addAttribute("budgetDetails", budgetDetails);
             return EXPENSEBILL_VIEW;
         }
@@ -260,7 +260,7 @@ public class UpdateExpenseBillController extends BaseBillController {
             if (approvalPosition == null || approvalPosition.equals(Long.valueOf(0)))
                 approvalPosition = expenseBillService.getApprovalPositionByMatrixDesignation(
                         egBillregister, null, mode, workFlowAction);
-            
+
             final String approverName = String.valueOf(request.getParameter("approverName"));
             final String approverDetails = financialUtils.getApproverDetails(workFlowAction,
                     updatedEgBillregister.getState(), updatedEgBillregister.getId(), approvalPosition,approverName);
@@ -316,27 +316,27 @@ public class UpdateExpenseBillController extends BaseBillController {
     protected void setDropDownValues(final Model model) {
         super.setDropDownValues(model);
     }
-    
+
     private String getDepartmentName(String departmentCode){
-        
+
         List<Department> deptlist = this.masterDataCache.get("egi-department");
         String departmentName = null;
-        
+
         if(null!=deptlist && !deptlist.isEmpty()){
-           
+
         List<Department> dept =    deptlist.stream()
                                 .filter(department->departmentCode.equalsIgnoreCase(department.getCode()))
-                                .collect(Collectors.toList());     
+                                .collect(Collectors.toList());
         if(null!=dept && dept.size()>0)
             departmentName = dept.get(0).getName();
         }
-        
+
         if(null==departmentName){
             Department dept = this.microServiceUtil.getDepartmentByCode(departmentCode);
             if(null!= dept)
                 departmentName= dept.getName();
         }
-        
+
         return departmentName;
     }
 

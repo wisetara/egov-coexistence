@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -45,8 +45,8 @@
  *   In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
  *
  */
-var wardDataTable; 
-var slDetailTableIndex = 0;  
+var wardDataTable;
+var slDetailTableIndex = 0;
 var TARGETWARDLIST = "targetAreaMappingsResultList";
 
 function checkAlpaNumeric(obj){
@@ -54,34 +54,34 @@ function checkAlpaNumeric(obj){
 		var num = obj.value;
 		var objRegExp  = /^([a-zA-Z0-9]+)$/i;
 	if(!objRegExp.test(num)){
-		bootbox.alert('Please enter valid code for target area');  
+		bootbox.alert('Please enter valid code for target area');
 		obj.value = "";
 		obj.focus();
 	}
 }
-} 
+}
 function validate(){
-	if(!validateForm_targetArea()){ 
+	if(!validateForm_targetArea()){
 		undoLoadingMask();
 		return false;
 		}
-	
-	  document.getElementById("code").disabled = false;    
+
+	  document.getElementById("code").disabled = false;
 	  return true;
 	}
 
-function checkCodeUnique(){ 
-	var code = document.getElementById("code").value.trim();  
+function checkCodeUnique(){
+	var code = document.getElementById("code").value.trim();
     var mode = document.getElementById("mode").value;
     if (mode == "new") {
-	populatecodeUniqueCheck({code:code}); 
+	populatecodeUniqueCheck({code:code});
     }
     else {
     var id = document.getElementById("id").value;
-    populatecodeUniqueCheck({code:code,id:id}); 
+    populatecodeUniqueCheck({code:code,id:id});
     }
-    	
-	
+
+
 }
 
 function getData(){
@@ -95,10 +95,10 @@ function getData(){
         data:  formData,
         type : 'POST',
 		async : false,
-		datatype : 'text',  
-		processData: false, 
+		datatype : 'text',
+		processData: false,
 		contentType: false,
-    	
+
     success: function(data)
     {
         document.getElementById("resultDiv").innerHTML=data;
@@ -108,15 +108,15 @@ function getData(){
      error: function(jqXHR, textStatus, errorThrown)
      {
     	 undoLoadingMask();
-     }         
+     }
     });
 }
 
 function urlLoad(id,showMode) {
 	if(showMode=='edit')
 		 url = "../master/targetArea!beforeEdit.action?id="+id;
-	else          
-		 url = "../master/targetArea!beforeView.action?id="+id; 
+	else
+		 url = "../master/targetArea!beforeView.action?id="+id;
 	window.open(url,'targetAreaView','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 }
 
@@ -129,12 +129,12 @@ function autocompleteCode(obj)
 	   oACDS.scriptQueryParam = "startsWith";
 	   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 	   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&targetAreaCode="+document.getElementById("code").value;
-	   } 
+	   }
 	   oAutoCompEntityForJV.queryDelay = 0.5;
 	   oAutoCompEntityForJV.minQueryLength = 3;
-	   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight"; 
+	   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight";
 	   oAutoCompEntityForJV.useShadow = true;
 	   oAutoCompEntityForJV.forceSelection = true;
 	   oAutoCompEntityForJV.maxResultsDisplayed = 20;
@@ -148,17 +148,17 @@ function autocompleteCode(obj)
 	           return true;
 	   }
 }
-function splitCode(obj) 
-{	
+function splitCode(obj)
+{
 	var entity = obj.value;
 	if (entity.trim() != "")
-	{ 
-		var entityValue = entity.trim(); 
-		var entityArray = entityValue.split("~");   
-		if (entityArray.length != 0)   
+	{
+		var entityValue = entity.trim();
+		var entityArray = entityValue.split("~");
+		if (entityArray.length != 0)
 		{
-			document.getElementById("code").value = entityArray[0].split("~");  
-			document.getElementById("name").value = entityArray[1].trim();      
+			document.getElementById("code").value = entityArray[0].split("~");
+			document.getElementById("name").value = entityArray[1].trim();
 		}
 	}
 
@@ -167,5 +167,5 @@ function splitCode(obj)
 function updateGridTargetArea(tableName,field,index,value){
 	document.getElementById(tableName+'['+index+'].'+field).value=value;
 }
-    
+
 

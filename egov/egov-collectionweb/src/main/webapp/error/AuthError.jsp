@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -47,11 +47,11 @@
   --%>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<html> 
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     	 <link rel="stylesheet" type="text/css" media="all" href="/egi/css/egov.css?rnd=${app_release_no}" />
- 	<title>Authorization Error Page</title> 
+ 	<title>Authorization Error Page</title>
 </head>
 
 <body>
@@ -67,8 +67,8 @@
 			<p align="center"><b><font="blue"><bean:message key="${AuthRuleErrMsgKey}"/></font></b></p>
 		</td>
 	</tr>
-     </tbody> 
-     </div></div></div></td></tr> 
+     </tbody>
+     </div></div></div></td></tr>
     </table>
 </form>
 </body>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,10 +47,10 @@
  */
 
 jQuery('#btnsearch').click(function(e) {
-		
+
 		callAjaxSearch();
 	});
-	
+
 	function getFormData($form){
     var unindexed_array = $form.serializeArray();
     var indexed_array = {};
@@ -61,14 +61,14 @@ jQuery('#btnsearch').click(function(e) {
 
     return indexed_array;
 }
- 
+
 function callAjaxSearch() {
-	drillDowntableContainer = jQuery("#resultTable");		
+	drillDowntableContainer = jQuery("#resultTable");
 	jQuery('.report-section').removeClass('display-hide');
 		reportdatatable = drillDowntableContainer
 			.dataTable({
 				ajax : {
-					url : "/services/EGF/accountentity/ajaxsearch/"+$('#mode').val(),      
+					url : "/services/EGF/accountentity/ajaxsearch/"+$('#mode').val(),
 					type: "POST",
 					"data":  getFormData(jQuery('form'))
 				},
@@ -85,11 +85,11 @@ function callAjaxSearch() {
 					"sSwfPath" : "../../../../../../egi/resources/global/swf/copy_csv_xls_pdf.swf",
 					"aButtons" : [ "xls", "pdf", "print" ]
 				},
-				aaSorting: [],				
-				columns : [ { 
-"data" : "accountdetailtype", "sClass" : "text-left"} ,{ 
-"data" : "name", "sClass" : "text-left"} ,{ 
-"data" : "code", "sClass" : "text-left"} ,{ 
-"data" : "isactive", "sClass" : "text-left"}]				
+				aaSorting: [],
+				columns : [ {
+"data" : "accountdetailtype", "sClass" : "text-left"} ,{
+"data" : "name", "sClass" : "text-left"} ,{
+"data" : "code", "sClass" : "text-left"} ,{
+"data" : "isactive", "sClass" : "text-left"}]
 			});
 			}

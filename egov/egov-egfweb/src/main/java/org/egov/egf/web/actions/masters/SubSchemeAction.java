@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -145,7 +145,7 @@ public class SubSchemeAction extends BaseFormAction {
         subScheme.setCreatedDate(new Date());
         subScheme.setCreatedBy(ApplicationThreadLocals.getUserId());
         subScheme.setLastmodifieddate(new Date());
-       
+
         try {
             subSchemeService.persist(subScheme);
             subSchemeService.getSession().flush();
@@ -271,13 +271,13 @@ public class SubSchemeAction extends BaseFormAction {
             dropdownData.put("subSchemeList", Collections.emptyList());
 
     }
-    
-    
+
+
     @SkipValidation
     public boolean getCheckField() {
     	SubScheme subScheme_validate = null;
         boolean isDuplicate = false;
-        
+
         if (uniqueCode) {
             if (!subScheme.getCode().equals("") && subScheme.getId() != null)
             	subScheme_validate = (SubScheme) persistenceService.find("from SubScheme where code=? and id!=?",
@@ -292,14 +292,14 @@ public class SubSchemeAction extends BaseFormAction {
         	subScheme_validate = (SubScheme) persistenceService.find("from SubScheme where name=?", subScheme.getName().toLowerCase());
         if (subScheme_validate != null)
             isDuplicate = true;
-        
+
         return isDuplicate;
     }
-    
+
     @SkipValidation
     @Action(value = "/masters/subScheme-codeUniqueCheck")
     public String codeUniqueCheck() {
-        
+
         uniqueCode = true;
         return UNIQUECHECKFIELD;
     }
@@ -307,7 +307,7 @@ public class SubSchemeAction extends BaseFormAction {
     @SkipValidation
     @Action(value = "/masters/subScheme-nameUniqueCheck")
     public String nameUniqueCheck() {
-        
+
         return UNIQUECHECKFIELD;
     }
 

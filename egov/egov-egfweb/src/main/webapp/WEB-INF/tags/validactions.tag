@@ -1,11 +1,11 @@
 <%@ tag dynamic-attributes="true" isELIgnored="false"%>
-<%@ taglib prefix="s" uri="/WEB-INF/tags/struts-tags.tld" %>  
+<%@ taglib prefix="s" uri="/WEB-INF/tags/struts-tags.tld" %>
 
 <%@ attribute name="formName" required="true" %>
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,7 +52,7 @@
   --%>
 
 <div class="buttonholderwk">
-<input type="hidden" name="actionName" id="actionName"/>	
+<input type="hidden" name="actionName" id="actionName"/>
 <s:iterator value="%{validActions}">
   <s:submit type="submit" cssClass="buttonfinal" value="%{description}" id="%{name}" name="%{name}" method="moveEstimate" onclick="document.${formName}.actionName.value='%{name}'"/>
 </s:iterator>

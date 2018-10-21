@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,7 +50,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="org.egov.egf.masters.model.LoanGrantHeader" table="EGF_LOANGRANTHEADER"> 
+	<class name="org.egov.egf.masters.model.LoanGrantHeader" table="EGF_LOANGRANTHEADER">
 		<!-- A sequence pk generator -->
 		<id name="id" type="long" unsaved-value="null" >
 			<column name="ID" not-null="true"/>
@@ -58,7 +58,7 @@
 				<param name="sequence_name">SEQ_EGF_LOANGRANTHEADER</param>
 			</generator>
 		</id>
-	
+
       <many-to-one name="subScheme"  class="org.egov.commons.SubScheme" column="SUBSCHEMEID"/>
 	  <property name="projectCost" column="PROJECTCOST" type="big_decimal"/>
       <property name="sanctionedCost" column="SANCTIONEDCOST" type="big_decimal"/>
@@ -87,4 +87,4 @@
         </bag>
 	</class>
 </hibernate-mapping>
-		
+

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,7 +61,7 @@
 	{
 		var showMode='<s:property value="showMode" />';
 		if(showMode=='edit' )
-			{ 
+			{
 			document.getElementById("type").disabled=true;
 			}
 		if(document.getElementById('type').value!=-1)
@@ -117,7 +117,7 @@
 					<s:date name="fromDate" format="dd/MM/yyyy" var="tempFromDate" />
 					<td class="greybox">
 							<s:textfield id="fromDate" name="fromDate"
-							value="%{tempFromDate}"  data-date-end-date="0d" 
+							value="%{tempFromDate}"  data-date-end-date="0d"
 							onkeyup="DateFormat(this,this.value,event,false,'3')"
 							placeholder="DD/MM/YYYY" cssClass="form-control datepicker"
 							data-inputmask="'mask': 'd/m/y'" />
@@ -127,11 +127,11 @@
 						class="mandatory1" id="disableToDateCheck">*</span></td>
 					<td class="greybox">
 							<s:textfield id="toDate" name="toDate"
-							value="%{tempToDate}"  data-date-end-date="0d" 
+							value="%{tempToDate}"  data-date-end-date="0d"
 							onkeyup="DateFormat(this,this.value,event,false,'3')"
 							placeholder="DD/MM/YYYY" cssClass="form-control datepicker"
 							data-inputmask="'mask': 'd/m/y'" />
-							
+
 							</td>
 				</tr>
 				<tr>
@@ -149,7 +149,7 @@
 			<div class="subheadsmallnew"></div>
 			<div align="left" class="mandatory1">Either Voucher Number Or Mandatory Fields(*) Are Required</div>
 		</div>
-	
+
 		<div align="center" class="buttonbottom">
 			<s:submit value="Search" onclick="return validateAndSubmit()"
 				cssClass="buttonsubmit" />
@@ -271,10 +271,10 @@
 	</s:form>
 
 	<script>
-		
+
 		function loadVoucherNames(selected)
 		{
-			var s="";  
+			var s="";
 			if(selected==-1)
 				{
 				document.getElementById('name').options.length=0;
@@ -289,16 +289,16 @@
 
 		 <s:iterator value="voucherNames[#obj]" status="stat" var="names">
 		 document.getElementById('name').options[<s:property value="#stat.index+1"/>]= new Option('<s:property value="#names"/>','<s:property value="#names"/>');
-		 </s:iterator>   
+		 </s:iterator>
 		 }
 		 </s:iterator>
-		 document.getElementById('name').value='<s:property value="name"/>' ;   
-			
+		 document.getElementById('name').value='<s:property value="name"/>' ;
+
 		}
 		function openVoucher(vid,url,voucherNumber,voucherDate){
-		
+
 		var showMode = document.getElementById('showMode').value ;
-		
+
 		if(showMode=='nonbillPayment')
 		{
 		url="../payment/directBankPayment-nonBillPayment.action?showMode="+showMode+"&voucherHeader.id="+vid;
@@ -345,7 +345,7 @@
 				}
 			}
 		}
-		
+
 		function validate()
 		{
 			var fromDate=document.getElementById('fromDate').value;
@@ -358,7 +358,7 @@
 				bootbox.alert("Please select from date");
 				return false;
 				}
-			
+
 			if(toDate == "" && voucherNumber!=""){
 				bootbox.alert("Please select to date");
 				return false;
@@ -368,15 +368,15 @@
 				bootbox.alert("Please select fund");
 				return false;
 				}
-			
+
 			if(!DateValidation(fromDate,toDate))
 				return false;
-			
+
 		document.getElementById('type').disabled=false;
 		return true;
 		}
-		
-			
+
+
 		var showMode = document.getElementById('showMode').value ;
 		if(showMode=='nonbillPayment')
 		{
@@ -386,7 +386,7 @@
 			}
 			document.title="Non Bill Payment Search";
 		}
-		
+
 		function changeField()
 		{
 			if(document.getElementById('voucherNumber')!=null && document.getElementById('voucherNumber').value!="")
@@ -401,7 +401,7 @@
 				document.getElementById("disableToDateCheck").innerHTML="*";
 				document.getElementById("disableFundCheck").innerHTML="*";
 				}
-			
+
 		}
 		</script>
 </body>

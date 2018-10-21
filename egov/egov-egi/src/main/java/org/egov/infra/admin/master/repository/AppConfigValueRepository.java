@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,11 +61,11 @@ import java.util.List;
 public interface AppConfigValueRepository extends JpaRepository<AppConfigValues, Long> {
 
     List<AppConfigValues> findByConfig_KeyNameAndConfig_Module_Name(String keyName, String moduleName);
-    
+
     List<AppConfigValues> findByConfig_KeyNameLikeAndConfig_Module_Name(String keyName, String moduleName);
-    
+
     List<AppConfigValues> findByConfig_KeyNameAndConfig_Module_NameOrderByValueAsc(String keyName, String moduleName);
-    
+
     @Query("select a from AppConfigValues  a where a.config.keyName =:keyName and a.config.module.name =:moduleName and (a.effectiveFrom < :effectiveFrom or a.effectiveFrom between :dateFrom and :dateTo) order by effectiveFrom asc")
     List<AppConfigValues> getAppConfigValueByModuleAndKeyAndDate(@Param("moduleName") String moduleName, @Param("keyName") String keyName,
             @Param("effectiveFrom") Date effectiveFrom, @Param("dateFrom") Date fromDate, @Param("dateTo") Date toDate);

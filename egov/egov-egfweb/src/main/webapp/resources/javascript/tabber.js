@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -190,13 +190,13 @@ tabberObj.prototype.init = function(e)
     /* Find the nodes where class="tabbertab" */
     if(childNodes[i].className &&
        childNodes[i].className.match(this.REclassTab)) {
-      
+
       /* Create a new object to save info about this tab */
       t = new Object();
-      
+
       /* Save a pointer to the div for this tab */
       t.div = childNodes[i];
-      
+
       /* Add the new object to the array of tabs */
       this.tabs[this.tabs.length] = t;
 
@@ -212,7 +212,7 @@ tabberObj.prototype.init = function(e)
   /* Create a new UL list to hold the tab headings */
   DOM_ul = document.createElement("ul");
   DOM_ul.className = this.classNav;
-  
+
   /* Loop through each tab we found */
   for (i=0; i < this.tabs.length; i++) {
 
@@ -483,17 +483,17 @@ function tabberAutomatic(tabberArgs)
   /* First get an array of all DIV elements and loop through them */
   divs = document.getElementsByTagName("div");
   for (i=0; i < divs.length; i++) {
-    
+
     /* Is this DIV the correct class? */
     if (divs[i].className &&
 	divs[i].className.match(tempObj.REclassMain)) {
-      
+
       /* Now tabify the DIV */
       tabberArgs.div = divs[i];
       divs[i].tabber = new tabberObj(tabberArgs);
     }
   }
-  
+
   return this;
 }
 

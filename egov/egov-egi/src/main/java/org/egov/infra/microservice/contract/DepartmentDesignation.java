@@ -1,6 +1,6 @@
 /*
- * eGov suite of products aim to improve the internal efficiency,transparency,
- * accountability and the service delivery of the government  organizations.
+ * eGov suite of products aim to improve the internal efficiency, transparency,
+ * accountability and the service delivery of the government organizations.
  *
  *  Copyright (C) 2016  eGovernments Foundation
  *
@@ -61,14 +61,14 @@ public class DepartmentDesignation {
 
 	@NotNull
 	private String tenantId;
-	
+
 	public DepartmentDesignation(Long id, Long departmentId, Designation designation, String tenantId) {
 		this.id = id;
 		this.departmentId = departmentId;
 		this.designation = designation;
 		this.tenantId = tenantId;
 	}
-	
+
 	public DepartmentDesignation(){}
 
 	public Long getId() {

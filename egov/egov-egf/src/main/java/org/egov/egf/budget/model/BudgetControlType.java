@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -60,11 +60,11 @@ import javax.persistence.Table;
 @Table(name="EGF_BudgetControlType")
 @SequenceGenerator(name = BudgetControlType.SEQ, sequenceName = BudgetControlType.SEQ, allocationSize = 1)
 public class BudgetControlType extends AbstractAuditable{
- 
-	
+
+
 	private static final long serialVersionUID = -1663676230513314512L;
 	public static final String SEQ = "seq_EGF_BudgetControlType";
-	public enum BudgetCheckOption 
+	public enum BudgetCheckOption
 	{
 		NONE,ANTICIPATORY,MANDATORY
 	}
@@ -72,7 +72,7 @@ public class BudgetControlType extends AbstractAuditable{
 	@GeneratedValue(generator = BudgetControlType.SEQ, strategy = GenerationType.SEQUENCE)
 	private Long id;
 	//@Audited
-	private String value;  
+	private String value;
 	public Long getId() {
 		return id;
 	}

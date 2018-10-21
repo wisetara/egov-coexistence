@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,7 +51,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Mar 10, 2008 12:54:43 PM by Hibernate Tools 3.2.0.b9 -->
 <hibernate-mapping>
-    <class name="org.egov.model.payment.Paymentheader" table="PAYMENTHEADER">        
+    <class name="org.egov.model.payment.Paymentheader" table="PAYMENTHEADER">
         <id name="id" type="long">
             <column name="ID" precision="10" scale="0" />
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
@@ -70,7 +70,7 @@
          <property name="concurrenceDate" type="date">
             <column name="concurrenceDate"  />
         </property>
-        
+
         <many-to-one name="state" class="org.egov.infra.workflow.entity.State" cascade="all">
             <column name="STATE_ID"/>
         </many-to-one>
@@ -78,7 +78,7 @@
         <property name="lastModifiedBy" type="long" column="LASTMODIFIEDBY"/>
         <property name="paymentAmount">
 			<column name="PAYMENTAMOUNT"/>
-		</property>	
+		</property>
 	   <many-to-one name="drawingOfficer" class="org.egov.eis.entity.DrawingOfficer" fetch="select">
           <column name="DRAWINGOFFICER_ID" precision="22" scale="0" />
        </many-to-one>

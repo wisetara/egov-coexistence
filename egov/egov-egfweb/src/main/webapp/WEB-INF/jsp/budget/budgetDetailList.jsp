@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -148,7 +148,7 @@
 </div>
 <script>
 		var anticipatoryAmounthead=document.getElementById("anticipatoryAmountheading").innerHTML;
-		var currentYearRange = '<s:property value="currentYearRange"/>(Rs)'; 
+		var currentYearRange = '<s:property value="currentYearRange"/>(Rs)';
 		var currentFullYear=curentYearRangeWithoutRs.substr(0,2)+curentYearRangeWithoutRs.substr(5,7);
 		anticipatoryAmounthead=anticipatoryAmounthead+currentFullYear+'(Rs)';
 		document.getElementById("anticipatoryAmountheading").innerHTML=anticipatoryAmounthead;

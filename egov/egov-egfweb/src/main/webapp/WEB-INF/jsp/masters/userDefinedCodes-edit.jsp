@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -57,13 +57,13 @@
 		<s:text name="userDefCode.view" />
 	</s:if></title>
 <script type="text/javascript">
-						
+
 	function disableControls(isDisable) {
 		for ( var i = 0; i < document.userDefCodeForm.length; i++)
 			document.userDefCodeForm.elements[i].disabled = isDisable;
 		document.getElementById('Close').disabled = false;
-	}	
-	
+	}
+
 	function onLoadTask() {
 		var close = '<s:property value="close"/>';
 		var isactive = '<s:property value="isactive"/>';
@@ -76,21 +76,21 @@
 			} else if((success == 'no')){
 				bootbox.alert("UserDefinedCodes Could Not be Modified");
 				}
-		
+
 		if (close == 'true') {
 			window.close();
 		}
-		
+
 		if (isactive == 'true') {
 			document.getElementById("isactive").checked="checked";
 		}
-		
+
 		if (showMode == 'edit') {
 			disableControls(false);
 		} else {
 			disableControls(true);
 		}
-		
+
 		if (clearVal == 'true') {
 			document.getElementById('code').value = "";
 			document.getElementById('name').value = "";
@@ -99,9 +99,9 @@
 			document.forms[0].isactive.checked=false;
 		}
 	}
-	
+
 	function validate(){
-		if(document.getElementById('accEntity.accountdetailtype.id').value == "" 
+		if(document.getElementById('accEntity.accountdetailtype.id').value == ""
 				|| document.getElementById('accEntity.accountdetailtype.id').value=='---- Choose ----'){
 			bootbox.alert("Please Select Sub Code For");
 			return false;
@@ -118,7 +118,7 @@
 	}
 
 	function setClose() {
-		var close = document.getElementById('close');    
+		var close = document.getElementById('close');
 		   close.value = true;
 		   return true;
 		}

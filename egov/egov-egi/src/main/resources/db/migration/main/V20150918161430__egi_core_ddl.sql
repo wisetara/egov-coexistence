@@ -249,9 +249,9 @@ CREATE SEQUENCE seq_eg_hierarchy_type
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER TABLE ONLY eg_hierarchy_type ADD CONSTRAINT eg_heirarchy_type_pkey PRIMARY KEY (id);
-ALTER TABLE ONLY eg_hierarchy_type ADD CONSTRAINT eg_heirarchy_type_type_code_key UNIQUE (code);
-ALTER TABLE ONLY eg_hierarchy_type ADD CONSTRAINT eg_heirarchy_type_type_name_key UNIQUE (name);
+ALTER TABLE ONLY eg_hierarchy_type ADD CONSTRAINT eg_hierarchy_type_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY eg_hierarchy_type ADD CONSTRAINT eg_hierarchy_type_type_code_key UNIQUE (code);
+ALTER TABLE ONLY eg_hierarchy_type ADD CONSTRAINT eg_hierarchy_type_type_name_key UNIQUE (name);
 -------------------END-------------------
 
 ------------------START------------------
@@ -275,7 +275,7 @@ CREATE SEQUENCE seq_eg_boundary_type
     NO MAXVALUE
     CACHE 1;
 ALTER TABLE ONLY eg_boundary_type ADD CONSTRAINT eg_boundary_type_pkey PRIMARY KEY (id);
-ALTER TABLE ONLY eg_boundary_type ADD CONSTRAINT bndry_type_heirarchy_fk FOREIGN KEY (hierarchytype) REFERENCES eg_hierarchy_type(id); 
+ALTER TABLE ONLY eg_boundary_type ADD CONSTRAINT bndry_type_hierarchy_fk FOREIGN KEY (hierarchytype) REFERENCES eg_hierarchy_type(id);
 ALTER TABLE ONLY eg_boundary_type ADD CONSTRAINT bndry_type_parent FOREIGN KEY (parent) REFERENCES eg_boundary_type(id);
 -------------------END-------------------
 
@@ -309,24 +309,24 @@ CREATE SEQUENCE seq_eg_boundary
     NO MAXVALUE
     CACHE 1;
 ALTER TABLE ONLY eg_boundary ADD CONSTRAINT eg_boundary_pkey PRIMARY KEY (id);
-ALTER TABLE ONLY eg_boundary ADD CONSTRAINT bndry_type_fk FOREIGN KEY (boundarytype) REFERENCES eg_boundary_type(id); 
+ALTER TABLE ONLY eg_boundary ADD CONSTRAINT bndry_type_fk FOREIGN KEY (boundarytype) REFERENCES eg_boundary_type(id);
 CREATE INDEX indx_eb_bndrytypeid ON eg_boundary USING btree (boundarytype);
 -------------------END-------------------
 ------------------START------------------
-CREATE TABLE eg_crossheirarchy (
+CREATE TABLE eg_crosshierarchy (
     id bigint NOT NULL,
     parent bigint NOT NULL,
     child bigint NOT NULL,
     version bigint
 );
-CREATE SEQUENCE seq_eg_crossheirarchy
+CREATE SEQUENCE seq_eg_crosshierarchy
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER TABLE ONLY eg_crossheirarchy
-    ADD CONSTRAINT eg_crossheirarchy_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY eg_crosshierarchy
+    ADD CONSTRAINT eg_crosshierarchy_pkey PRIMARY KEY (id);
 -------------------END-------------------
 ------------------START------------------
 CREATE TABLE eg_citypreferences (
@@ -354,7 +354,7 @@ CREATE SEQUENCE seq_eg_citypreferences
     NO MAXVALUE
     CACHE 1;
 ALTER TABLE ONLY eg_citypreferences ADD CONSTRAINT eg_citypreferences_pkey PRIMARY KEY (id);
-ALTER TABLE ONLY eg_citypreferences ADD CONSTRAINT eg_citypreferences_giskml_fkey FOREIGN KEY (giskml) REFERENCES eg_filestoremap(id); 
+ALTER TABLE ONLY eg_citypreferences ADD CONSTRAINT eg_citypreferences_giskml_fkey FOREIGN KEY (giskml) REFERENCES eg_filestoremap(id);
 ALTER TABLE ONLY eg_citypreferences ADD CONSTRAINT eg_citypreferences_logo_fkey FOREIGN KEY (municipalitylogo) REFERENCES eg_filestoremap(id);
 -------------------END-------------------
 
@@ -433,8 +433,8 @@ CREATE SEQUENCE seq_eg_crosshierarchy
     NO MAXVALUE
     CACHE 1;
 ALTER TABLE ONLY eg_crosshierarchy ADD CONSTRAINT eg_crosshierarchy_pkey PRIMARY KEY (id);
-alter table eg_crosshierarchy add constraint fk_crossheirarchy_parenttype foreign key (parenttype) references eg_boundary_type (id);
-alter table eg_crosshierarchy add constraint fk_crossheirarchy_childtype foreign key (childtype) references eg_boundary_type (id);
+alter table eg_crosshierarchy add constraint fk_crosshierarchy_parenttype foreign key (parenttype) references eg_boundary_type (id);
+alter table eg_crosshierarchy add constraint fk_crosshierarchy_childtype foreign key (childtype) references eg_boundary_type (id);
 -------------------END-------------------
 
 ------------------START------------------
@@ -605,7 +605,7 @@ CREATE TABLE eg_roleaction (
 );
 CREATE INDEX indx_eram_actionid ON eg_roleaction USING btree (actionid);
 CREATE INDEX indx_eram_roleid ON eg_roleaction USING btree (roleid);
-ALTER TABLE ONLY eg_roleaction ADD CONSTRAINT fk_action_id FOREIGN KEY (actionid) REFERENCES eg_action(id); 
+ALTER TABLE ONLY eg_roleaction ADD CONSTRAINT fk_action_id FOREIGN KEY (actionid) REFERENCES eg_action(id);
 ALTER TABLE ONLY eg_roleaction ADD CONSTRAINT fk_role_id FOREIGN KEY (roleid) REFERENCES eg_role(id);
 -------------------END-------------------
 
@@ -816,7 +816,7 @@ CREATE SEQUENCE seq_eg_wf_types
     CACHE 1;
 ALTER TABLE ONLY eg_wf_types ADD CONSTRAINT eg_wf_types_pkey PRIMARY KEY (id);
 ALTER TABLE ONLY eg_wf_types ADD CONSTRAINT eg_wf_types_wf_type_key UNIQUE (type);
-ALTER TABLE ONLY eg_wf_types ADD CONSTRAINT sys_c0010396 FOREIGN KEY (module) REFERENCES eg_module(id); 
+ALTER TABLE ONLY eg_wf_types ADD CONSTRAINT sys_c0010396 FOREIGN KEY (module) REFERENCES eg_module(id);
 -------------------END-------------------
 
 ------------------START------------------
@@ -936,7 +936,7 @@ CREATE TABLE qrtz_cron_triggers (
     time_zone_id character varying(80)
 );
 ALTER TABLE ONLY qrtz_cron_triggers ADD CONSTRAINT qrtz_cron_triggers_pkey PRIMARY KEY (sched_name, trigger_name, trigger_group);
-ALTER TABLE ONLY qrtz_cron_triggers ADD CONSTRAINT qrtz_cron_triggers_sched_name_fkey FOREIGN KEY (sched_name, trigger_name, trigger_group) REFERENCES qrtz_triggers(sched_name, trigger_name, trigger_group); 
+ALTER TABLE ONLY qrtz_cron_triggers ADD CONSTRAINT qrtz_cron_triggers_sched_name_fkey FOREIGN KEY (sched_name, trigger_name, trigger_group) REFERENCES qrtz_triggers(sched_name, trigger_name, trigger_group);
 
 CREATE TABLE qrtz_simple_triggers (
     sched_name character varying(120) NOT NULL,
@@ -966,7 +966,7 @@ CREATE TABLE qrtz_simprop_triggers (
     bool_prop_2 boolean
 );
 ALTER TABLE ONLY qrtz_simprop_triggers ADD CONSTRAINT qrtz_simprop_triggers_pkey PRIMARY KEY (sched_name, trigger_name, trigger_group);
-ALTER TABLE ONLY qrtz_simprop_triggers ADD CONSTRAINT qrtz_simprop_triggers_sched_name_fkey FOREIGN KEY (sched_name, trigger_name, trigger_group) REFERENCES qrtz_triggers(sched_name, trigger_name, trigger_group); 
+ALTER TABLE ONLY qrtz_simprop_triggers ADD CONSTRAINT qrtz_simprop_triggers_sched_name_fkey FOREIGN KEY (sched_name, trigger_name, trigger_group) REFERENCES qrtz_triggers(sched_name, trigger_name, trigger_group);
 -------------------END-------------------
 
 ------------------START------------------

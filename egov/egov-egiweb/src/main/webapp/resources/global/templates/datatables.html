@@ -1,6 +1,6 @@
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,13 +50,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Neon Admin Panel" />
 		<meta name="author" content="" />
-		
+
 		<title>eGov Urban Portal</title>
-		
+
 		<link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 		<link rel="stylesheet" href="../css/egov/custom.css">
 		<link rel="stylesheet" href="../css/font-icons/font-awesome/css/font-awesome.min.css">
@@ -70,35 +70,35 @@
     	<link href="../css/jquery/plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet"/>
     	<!--jQuery-->
 		<script src="../js/jquery/jquery.js"></script>
-		
+
 		<!--[if lt IE 9]><script src="resources/js/ie8-responsive-file-warning.js"></script><![endif]-->
-		
+
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		
+
 	</head>
-	
+
 	<body class="page-body">
-		
+
 		<div class="page-container" id="page-container">
-			
+
 			<header class="navbar navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
-				
+
 				<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 					<div class="container-fluid">
 						<div class="navbar-header col-md-10 col-xs-10">
 							<a class="navbar-brand" href="javascript:void(0);">
 								<img src="" height="60">
 								<div>
-									
+
 									<span class="title2">Datatables</span>
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="nav-right-menu col-md-2 col-xs-2">
 							<ul class="hr-menu text-right">
 								<li class="ico-menu">
@@ -106,21 +106,21 @@
 										<img src="../images/logo@2x.png" title="Powered by eGovernments" height="20px">
 									</a>
 								</li>
-								
+
 							</ul>
 						</div>
-						
+
 					</div>
 				</nav>
-				
+
 			</header>
-			
+
 			<div class="main-content">
-				
+
 				<!-- <div class="main-before-footer"> -->
 				<div class="row">
 					<div class="col-md-12">
-						
+
 						<table id="example" class="table table-bordered nowrap" cellspacing="0" width="100%">
 					        <thead>
 					            <tr>
@@ -463,21 +463,21 @@
 					            </tr>
 					        </tbody>
 					    </table>
-						
+
 					</div>
 				</div>
-                
+
 			</div>
-			
+
 			<footer class="main">
-				
+
 				Powered by <a href="http://eGovernments.org" target="_blank">eGovernments Foundation</a>
-				
+
 			</footer>
-			
+
 		</div>
-		
-	
+
+
 	<script src="../js/bootstrap/bootstrap.js"></script>
 	<script src="../js/egov/custom.js"></script>
 
@@ -503,7 +503,7 @@
 		$(document).ready(function() {
 		    var table = $('#example').DataTable( {
 				dom: "<'row'<'col-xs-12 pull-right'f>r>t<'row buttons-margin'<'col-md-3 col-xs-6'i><'col-md-3  col-xs-6'l><'col-md-3 col-xs-6'B><'col-md-3 col-xs-6 text-right'p>>",
-				//Export Buttons(If Required) 
+				//Export Buttons(If Required)
 				buttons: [
 				      'excel', 'pdf', 'print'
 				],
@@ -550,7 +550,7 @@
 				scrollX: true,
 		        fixedColumns:   {
 		            leftColumns: 2 // no.of columns fixed in the datatable
-		        } 
+		        }
 		    } );
 
 
@@ -558,7 +558,7 @@
 		    table.on( 'order.dt search.dt', function () {
 		        table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
 		            cell.innerHTML = i+1;
-		            table.cell(cell).invalidate('dom'); 
+		            table.cell(cell).invalidate('dom');
 		        } );
 		    } ).draw();
 

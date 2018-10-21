@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -95,7 +95,7 @@ var scheduleNo = '<s:property value="scheduleNo"/>';
 var functionaryId = '<s:property value="model.functionary.id"/>';
 var functionName = '<s:property value="model.function.name"/>';
 var functionId = '<s:property value="model.function.id"/>';
-var fieldId = '<s:property value="model.field.id"/>';	
+var fieldId = '<s:property value="model.field.id"/>';
 var functionCode1=functionName+"~"+functionId;
 	if(deptId == ""){
 		deptId = "";
@@ -112,8 +112,8 @@ functionId="";
 if(fieldId==0){
 fieldId="";
 }
-var endDate=formatDateToDDMMYYYY4(toDate); 
-var startDate=formatDateToDDMMYYYY4(stDate); 
+var endDate=formatDateToDDMMYYYY4(toDate);
+var startDate=formatDateToDDMMYYYY4(stDate);
 var chkd1=endDate.split('/');
 var chkd2=todaysDate.split('/');
 var end1=new Date(chkd1[2],chkd1[1],chkd1[0]);
@@ -121,12 +121,12 @@ var today1=new Date(chkd2[2],chkd2[1],chkd2[0]);
 
 
 if(end1>=today1){
-	endDate=todaysDate;                
-	}    
-	
-	
-	
-	
+	endDate=todaysDate;
+	}
+
+
+
+
 window.open('/EGF/report/generalLedgerReport-searchDrilldown.action?fromBean=1&glCode1='+glcode1+'&fund_id='+fundId+'&fundSource_id=&startDate='+startDate+'&endDate='+endDate+'&departmentId='+deptId+'&functionaryId='+functionaryId+'&functionCodeId='+functionId+'&functionCode='+functionCode1+'&fieldId='+fieldId,'','resizable=yes,height=650,width=900,scrollbars=yes,left=30,top=30,status=no');
 }
 

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -52,7 +52,7 @@ var lasttabidx=$('a[data-tabidx]').length-1;
 
 document.body.addEventListener('keydown', function (e) {
 	if(document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA' || document.activeElement.tagName == 'SELECT'){
-		
+
 	}else if(document.activeElement.tagName == 'BODY' || document.activeElement.tagName == 'A'){
 		if((e.which === 37 || e.which === 39))
 	    {
@@ -67,8 +67,8 @@ document.body.addEventListener('keydown', function (e) {
 	      {
 	    	  if(e.which === 37)
 	    	  {
-	    		 
-	    		  currenttabidx = (currenttabidx === 0 ? lasttabidx : (currenttabidx-1));    		  
+
+	    		  currenttabidx = (currenttabidx === 0 ? lasttabidx : (currenttabidx-1));
 	    		  $('a[data-tabidx="'+ currenttabidx +'"]').tab('show');
 	    	  }
 	    	  else{
@@ -80,9 +80,9 @@ document.body.addEventListener('keydown', function (e) {
 });
 
 $(document).ready(function(){
-	
+
 	$('#code').attr('disabled',true);
-	
+
    //file chooser filter validation
    $("input:file").change(
 			function(e) {
@@ -112,16 +112,16 @@ $(document).ready(function(){
 						$('#imglogo').attr('src', '');
 					}
 				}
-			
+
 	});
-	
+
 	//popup initialize
 	$('[data-toggle="popover"]').popover({ html : true });
 
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 		  currenttabidx=$(this).data('tabidx');
 	});
-	
+
 	jQuery('form').validate({
         ignore: ".ignore",
         invalidHandler: function(e, validator){
@@ -129,14 +129,14 @@ $(document).ready(function(){
             	$('#settingstab a[href="#' + jQuery(validator.errorList[0].element).closest(".tab-pane").attr('id') + '"]').tab('show');
         }
     });
-	
+
 	$('#submitform').click(function(e){
 		if($('form').valid()){
-			
+
 		}else{
 			e.preventDefault();
 		}
 	});
-	
+
 });
 

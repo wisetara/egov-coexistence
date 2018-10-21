@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,7 +63,7 @@
 				</form:select>
 				<form:errors path="voucherSubType" cssClass="add-margin error-msg" />
 			</div>
-			<label class="col-sm-2 control-label text-right"> 	
+			<label class="col-sm-2 control-label text-right">
 				<spring:message code="lbl.party.name" /> <span class="mandatory hide" id ="partyNameLabelId" ></span>
 			</label>
 			<div class="col-sm-3 add-margin">
@@ -71,16 +71,16 @@
 				<form:errors path="partyName" cssClass="add-margin error-msg" />
 			</div>
 		</div>
-		
+
 		<div class="form-group">
 			<label class="col-sm-3 control-label text-right">
 				<spring:message code="lbl.party.billnumber" />
 			</label>
 			<div class="col-sm-3 add-margin">
 				<form:input path="partyBillNumber" id="partyBillNumber" class="form-control patternvalidation" data-pattern="alphanumerichyphenbackslash" maxlength="32" />
-				<form:errors path="partyBillNumber" cssClass="add-margin error-msg" />		
+				<form:errors path="partyBillNumber" cssClass="add-margin error-msg" />
 			</div>
-			
+
 			<label class="col-sm-2 control-label text-right">
 				<spring:message code="lbl.party.billdate" />
 			</label>
@@ -89,16 +89,16 @@
 				<form:errors path="partyBillDate" cssClass="add-margin error-msg" />
 			</div>
 		</div>
-	
+
 		<div class="form-group">
 			<label class="col-sm-3 control-label text-right">
 				<spring:message code="lbl.billnumber" />
 			</label>
 			<div class="col-sm-3 add-margin">
 				<form:input path="billNumber" id="billNumber" class="form-control patternvalidation" data-pattern="alphanumerichyphenbackslash" maxlength="32" />
-				<form:errors path="billNumber" cssClass="add-margin error-msg" />		
+				<form:errors path="billNumber" cssClass="add-margin error-msg" />
 			</div>
-			
+
 			<label class="col-sm-2 control-label text-right">
 				<spring:message code="lbl.billdate" />
 			</label>

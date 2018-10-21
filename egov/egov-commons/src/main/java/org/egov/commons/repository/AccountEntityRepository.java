@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,7 +61,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-@Repository 
+@Repository
 public interface AccountEntityRepository extends JpaRepository<AccountEntity,Integer> {
 	AccountEntity findByName(String name);
 	AccountEntity findByCode(String Code);

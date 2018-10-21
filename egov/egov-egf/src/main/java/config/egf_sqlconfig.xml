@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" ?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,7 +54,7 @@
 <egf-budgetGroup>
 	<type>hql</type>
 	<query>from BudgetGroup BG where isactive = '1' order by BG.id</query>
-</egf-budgetGroup> 
+</egf-budgetGroup>
 </sql>
 </properties>
 

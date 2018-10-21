@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -49,21 +49,21 @@ package org.egov.collection.web.actions.receipts;
 
 
 public class BankSearchActionTest {/* extends AbstractPersistenceServiceTest<Bank,Integer>{
-	
+
 	private BankSearchAction action;
 	private CollectionObjectFactory objectFactory;
-	
+
 	public BankSearchActionTest() {
 		this.type = Bank.class;
 	}
-	
+
 	@Before
 	public void setUp() throws Exception {
 		action = new BankSearchAction();
 		action.setBankService(service);
 		objectFactory = new CollectionObjectFactory(session);
 	}
-	
+
 	@Test
 	public void getBankList() throws Exception{
 		objectFactory.createBank();
@@ -71,7 +71,7 @@ public class BankSearchActionTest {/* extends AbstractPersistenceServiceTest<Ban
 		Collection<Bank> result = action.getBankList();
 		assertEquals(false,result.isEmpty());
 	}
-	
+
 	@Test
 	public void testSearchAjax() throws Exception{
 		assertEquals("searchResults",action.searchAjax());

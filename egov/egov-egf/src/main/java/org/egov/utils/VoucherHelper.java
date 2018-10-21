@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -346,7 +346,7 @@ public class VoucherHelper {
 
 	/**
 	 * return the glcodes that are repeated. e.g [1,2,2,2,3,3] returns [2,3]
-	 * 
+	 *
 	 * @param billDetailslist
 	 * @return
 	 */

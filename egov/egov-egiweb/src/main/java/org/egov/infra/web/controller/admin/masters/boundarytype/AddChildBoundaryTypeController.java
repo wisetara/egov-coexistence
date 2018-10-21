@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -66,12 +66,12 @@ import javax.validation.Valid;
 public class AddChildBoundaryTypeController {
 
     private BoundaryTypeService boundaryTypeService;
-    
+
     @Autowired
     public AddChildBoundaryTypeController(BoundaryTypeService boundaryTypeService){
         this.boundaryTypeService = boundaryTypeService;
     }
-    
+
     @ModelAttribute
     public BoundaryType boundaryTypeModel(@PathVariable Long id){
         BoundaryType child = new BoundaryType();
@@ -80,17 +80,17 @@ public class AddChildBoundaryTypeController {
         child.setParent(parent);
         return child;
     }
-    
+
     @RequestMapping(method = RequestMethod.GET)
     public String addChildForm(){
         return "boundaryType-addChild";
     }
-    
+
     @RequestMapping(method =RequestMethod.POST)
     public String addChildBoundaryType(@Valid @ModelAttribute BoundaryType boundaryType,final BindingResult errors, RedirectAttributes redirectAttrs){
             if (errors.hasErrors())
                 return "boundaryType-addChild";
-            
+
             final Long parentBoundaryTypeId = boundaryType.getParent().getId();
             //If child already exists for the boundary type, then show message and do not allow to add
             BoundaryType boundaryType1 = boundaryTypeService.getBoundaryTypeByParent(parentBoundaryTypeId);

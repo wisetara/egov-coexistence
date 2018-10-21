@@ -1,7 +1,7 @@
 
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -51,8 +51,8 @@ $(document).ready(function(){
 });
 
 
-function addRow(tableName,rowName) { 
-	
+function addRow(tableName,rowName) {
+
 	var rowcount = $("#"+tableName+" tbody tr").length;
 	if (rowcount < 30) {
 		if (document.getElementById(rowName) != null) {
@@ -66,7 +66,7 @@ function addRow(tableName,rowName) {
 			$("#"+tableName+" tbody tr").find('input,select').each(
 					function() {
 						if (($(this).data('optional') === 0)
-								&& (!$(this).val()) && !($(this).attr('name')===undefined)) { 
+								&& (!$(this).val()) && !($(this).attr('name')===undefined)) {
 							$(this).focus();
 							bootbox.alert($(this).data('errormsg'));
 							isValid = 0;// set validation failure
@@ -76,41 +76,41 @@ function addRow(tableName,rowName) {
 			if (isValid === 0) {
 				return false;
 			}
-			
+
 			// Generate all textboxes Id and name with new index
 			$("#"+rowName+"").clone().find("input,select,errors,span").each(
-			function() {	
+			function() {
 				if ($(this).data('server')) {
 					$(this).removeAttr('data-server');
 				}
-				
+
 				$(this).attr(
 						{
 							'name' : function(_, name) {
 								if(!($(this).attr('name')===undefined))
-									return name.replace(/\d+/, nextIdx); 
+									return name.replace(/\d+/, nextIdx);
 							},
 							'class' : function(_, name) {
 								if(!($(this).attr('class')===undefined))
-									return name.replace(/\d+/, nextIdx); 
+									return name.replace(/\d+/, nextIdx);
 							},
 							'id' : function(_, id) {
 								if(!($(this).attr('id')===undefined))
-									return id.replace(/\d+/, nextIdx); 
+									return id.replace(/\d+/, nextIdx);
 							},
 							'data-idx' : function(_,dataIdx)
 							{
 								return nextIdx;
 							}
 						});
-	
+
 					// if element is static attribute hold values for next row, otherwise it will be reset
 					if (!$(this).data('static')) {
 						$(this).val('');
 					}
-	
-			}).end().appendTo("#"+tableName+" tbody");		
-			
+
+			}).end().appendTo("#"+tableName+" tbody");
+
 		}
 	} else {
 		  bootbox.alert('limit reached!');
@@ -120,11 +120,11 @@ function addRow(tableName,rowName) {
 
 function deleteRow(obj,tableName) {
     var rIndex = getRow(obj).rowIndex;
-    
+
     var id = $(getRow(obj)).children('td:first').children('input:first').val();
     //To get all the deleted rows id
     var aIndex = rIndex - 1;
-	var tbl=document.getElementById(tableName);	
+	var tbl=document.getElementById(tableName);
 	var rowcount=$("#"+tableName+" tbody tr").length;
     if(rowcount<=1 && tableName!='tblsubledgerdetails') {
 		bootbox.alert("This row can not be deleted");
@@ -141,19 +141,19 @@ function deleteRow(obj,tableName) {
 				      'name': function(_, name) {
 				    	  if(!($(this).attr('name')===undefined)){
 				    		  name= name.replace(/\_./g, '_'+ idx )
-				    		  return name.replace(/\[.\]/g, '['+ idx +']'); 
+				    		  return name.replace(/\[.\]/g, '['+ idx +']');
 				    	  }
 				      },
 				      'id': function(_, id) {
 				    	  if(!($(this).attr('id')===undefined)){
 				    		  id= id.replace(/\_./g, '_'+ idx )
-				    		  return id.replace(/\[.\]/g, '['+ idx +']'); 
+				    		  return id.replace(/\[.\]/g, '['+ idx +']');
 				    	  }
 				      },
 				      'class': function(_, id) {
 				    	  if(!($(this).attr('class')===undefined)){
 				    		  id= id.replace(/\_./g, '_'+ idx )
-				    		  return id.replace(/\[.\]/g, '['+ idx +']'); 
+				    		  return id.replace(/\[.\]/g, '['+ idx +']');
 				    	  }
 				      },
 					  'data-idx' : function(_,dataIdx)
@@ -163,16 +163,16 @@ function deleteRow(obj,tableName) {
 				   });
 		    });
 			idx++;
-		
+
 			//hiddenElem=$(this).find("input:hidden");
-			
+
 			/*if(!$(hiddenElem).val())
 			{*/
-				
+
 			//}
 		});
 		return true;
-	}	
+	}
 }
 
 function getRow(obj) {

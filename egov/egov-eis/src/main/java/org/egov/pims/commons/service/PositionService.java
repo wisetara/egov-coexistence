@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,8 +62,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
 
-public class PositionService extends PersistenceService<Position, Integer> {  
-	
+public class PositionService extends PersistenceService<Position, Integer> {
+
     @PersistenceContext
 	private EntityManager entityManager;
 
@@ -74,12 +74,12 @@ public class PositionService extends PersistenceService<Position, Integer> {
     public PositionService(Class<Position> type) {
         super(type);
     }
-	    
+
     public Session  getCurrentSession() {
 			return entityManager.unwrap(Session.class);
 		}
 	/**
-	 * gives vacant positions for given date range and designation 
+	 * gives vacant positions for given date range and designation
 	 * @param fromDate
 	 * @param toDate
 	 * @param designationMasterId
@@ -91,23 +91,23 @@ public class PositionService extends PersistenceService<Position, Integer> {
 		detachAssignmentPrd.add(Restrictions.and(Restrictions.le("assignment.fromDate", fromDate),
 				Restrictions.or(Restrictions.ge("assignment.toDate", toDate), Restrictions.isNull("assignment.toDate")))).
 				setProjection(Projections.property("assignment.id"));
-		
+
 		DetachedCriteria detachAssignment=DetachedCriteria.forClass(Assignment.class, "assignment");
 		detachAssignment.add(Subqueries.propertyIn("assignment.id", detachAssignmentPrd));
 		detachAssignment.add(Restrictions.eq("assignment.isPrimary", 'Y'));
 		detachAssignment.setProjection(Projections.distinct(Projections.property("assignment.position.id")));
-		
+
 		Criteria criteria=getCurrentSession().createCriteria(Position.class, "position");
-		if(designationMasterId!=null && !designationMasterId.equals("0")) 
+		if(designationMasterId!=null && !designationMasterId.equals("0"))
 		{
 			criteria.add(Restrictions.eq("position.deptDesig.designation.id", designationMasterId));
 		}
-			
+
 		criteria.add(Subqueries.propertyNotIn("position.id", detachAssignment));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.addOrder(Order.asc("position.name"));
 		return criteria;
 	}
-	
+
 
 }

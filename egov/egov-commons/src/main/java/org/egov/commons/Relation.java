@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -69,11 +69,11 @@ import java.util.Date;
 @SequenceGenerator(name = Relation.SEQ, sequenceName = Relation.SEQ,allocationSize = 1)
 @Unique(id = "id", tableName = "Supplier", fields = { "code"}, columnName = { "code" }, enableDfltMsg = true)
 public class Relation extends AbstractPersistable<Integer> implements java.io.Serializable, EntityType {
-    
-    
+
+
     private static final long serialVersionUID = -9041193691552971915L;
 
-    public static final String SEQ = "SEQ_SUPPLIER"; 
+    public static final String SEQ = "SEQ_SUPPLIER";
 
     @Id
     @GeneratedValue(generator = SEQ, strategy = GenerationType.SEQUENCE)

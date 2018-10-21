@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -64,7 +64,7 @@ public class GeoLocation {
 
 	private String info4;
 	// contains key=values seperated by INFO5SEPERATOR[ tilde(~)]
-	//eg: "Contractor Name=Ramaswamy,Address=123 street,Total Amount=250000" 
+	//eg: "Contractor Name=Ramaswamy,Address=123 street,Total Amount=250000"
 	private String info5;
 	private String urlRedirect;
 
@@ -75,7 +75,7 @@ public class GeoLocation {
 
 	private Boolean useNiceInfoWindow=false;
     private String styleClass;
-	
+
 	public String getStyleClass() {
 		return styleClass;
 	}
@@ -89,12 +89,12 @@ public class GeoLocation {
 	 * use appendToInfor5(String strToAppend) method to avoid errors
 	 * @param info5
 	 */
-	@Deprecated 
+	@Deprecated
 	public void setInfo5(String info5) {
 		this.info5 = info5;
 	}
 
-	
+
 	public void setUseNiceInfoWindow(Boolean useNiceInfoWindow) {
 		this.useNiceInfoWindow = useNiceInfoWindow;
 	}
@@ -162,7 +162,7 @@ public class GeoLocation {
 	public void setMarkerOptionData(Map<String, Object> markerOptionData) {
 		this.markerOptionData = markerOptionData;
 	}
-	//use atleast a char on right side of = 
+	//use atleast a char on right side of =
 	public void appendToInfo5(String strToAppend)
 	{
 		if(null==this.info5||this.info5.isEmpty())
@@ -173,11 +173,11 @@ public class GeoLocation {
 			this.info5=this.info5+INFO5SEPERATOR+strToAppend;
 		}
 	}
-	
+
 
 	public Boolean getUseNiceInfoWindow() {
-		
+
 		return useNiceInfoWindow;
-	}	
+	}
 
 }

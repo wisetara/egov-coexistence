@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -83,7 +83,7 @@ function refreshInbox() {
 		id="buttonClose" value="Close" onclick="window.close()" />
 
 	<s:if test="%{isSubmitAction == true}">	&nbsp;
-		
+
 	<input type="button" class="buttonsubmit" id="buttonCashReport"
 			value="<s:text name='collectionsWorkflow.submit.report.cash'/>"
 			onclick="window.open('${pageContext.request.contextPath}/receipts/collectionsWorkflow-submissionReportCash.action?receiptDate=<s:property value="%{receiptDate}" />', '_blank', 'height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');"/> &nbsp;

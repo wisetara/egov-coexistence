@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -68,7 +68,7 @@
 			}
 			document.chartOfAccountsForm.action = '${pageContext.request.contextPath}/masters/chartOfAccounts-create.action';
 			document.chartOfAccountsForm.submit();
-				
+
 			return true;
 		}
 
@@ -78,12 +78,12 @@
 			        },
 			     failure: function(o) {
 			     }
-		} 
+		}
 
 		function generateGlCode(){
 			value = document.getElementById('glCode').value;
 			if(value.split("-").length>1){
-			document.getElementById('generatedGlcode').value = value.split("-")[0]; 
+			document.getElementById('generatedGlcode').value = value.split("-")[0];
 			var transaction = YAHOO.util.Connect.asyncRequest('GET', 'chartOfAccounts-ajaxNextGlCode.action?parentGlcode='+value.split("-")[0], callback, null);
 			document.getElementById('glCode').readOnly = true
 			}
@@ -184,23 +184,23 @@
 	<s:iterator value="allChartOfAccounts">
 		allGlcodes.push("<s:property value="glcode"/>-<s:property value="name.replaceAll('\n',' ')"/>")
 	</s:iterator>
-	YAHOO.example.BasicLocal = function() { 
-		    var oDS = new YAHOO.util.LocalDataSource(allGlcodes); 
-		    // Optional to define fields for single-dimensional array 
-		    oDS.responseSchema = {fields : ["state"]}; 
-		 
-		    var oAC = new YAHOO.widget.AutoComplete("glCode", "myContainer", oDS); 
-		    oAC.prehighlightClassName = "yui-ac-prehighlight"; 
+	YAHOO.example.BasicLocal = function() {
+		    var oDS = new YAHOO.util.LocalDataSource(allGlcodes);
+		    // Optional to define fields for single-dimensional array
+		    oDS.responseSchema = {fields : ["state"]};
+
+		    var oAC = new YAHOO.widget.AutoComplete("glCode", "myContainer", oDS);
+		    oAC.prehighlightClassName = "yui-ac-prehighlight";
 			oAC.queryDelay = 0;
 		    oAC.useShadow = true;
-			oAC.useIFrame = true; 
+			oAC.useIFrame = true;
 			oAC.maxResultsDisplayed = 10;
-		     
-		    return { 
-		        oDS: oDS, 
-		        oAC: oAC 
-		    }; 
-		}(); 
+
+		    return {
+		        oDS: oDS,
+		        oAC: oAC
+		    };
+		}();
 </script>
 	</div>
 </body>

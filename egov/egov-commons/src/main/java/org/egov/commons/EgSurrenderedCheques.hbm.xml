@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -69,7 +69,7 @@
         </property>
         <property name="chequedate" type="date">
             <column name="CHEQUEDATE" length="7" not-null="true" />
-        </property>      
+        </property>
         <property name="lastmodifieddate" type="date">
             <column name="LASTMODIFIEDDATE" length="7" not-null="true" />
         </property>

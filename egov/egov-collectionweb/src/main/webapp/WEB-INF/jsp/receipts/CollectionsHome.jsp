@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -87,7 +87,7 @@
   <tr>
     <td>&nbsp;</td>
     <td>
-        <input name="Submit" type="submit" onclick="MM_goToURL('parent','CreateCase.html');return document.MM_returnValue" value="Submit" class="buttongeneral" /> 
+        <input name="Submit" type="submit" onclick="MM_goToURL('parent','CreateCase.html');return document.MM_returnValue" value="Submit" class="buttongeneral" />
         <input type="submit" name="Submit2" value="Close" class="buttongeneral" /></td>
   </tr>
 </table></div></td>

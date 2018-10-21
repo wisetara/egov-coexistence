@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,10 +52,10 @@ import org.egov.pims.commons.Position;
 /**
  * this interface is the central location for the apis used from other dependent projects Like Egi,Egf
  * and used for workflow
- * @author DivyaShree 
+ * @author DivyaShree
  *
  */
-public interface EisExternalInterface 
+public interface EisExternalInterface
 {
 	 public  Position getSuperiorPositionByObjType(Position position,String obType);
 }

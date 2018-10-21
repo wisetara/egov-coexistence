@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -58,23 +58,23 @@ public class CityIndexService {
 
 	@Autowired
 	private CityIndexRepository cityIndexRepository;
-	
+
 //	public CityIndex findOne(String id){
 //		return cityIndexRepository.findOne(id);
 //	}
-//	
-//	public Iterable<CityIndex> findAll(){		
+//
+//	public Iterable<CityIndex> findAll(){
 //		return cityIndexRepository.findAll();
 //	}
-	
+
 	public CityIndex findByCitycode(String cityCode){
 		return cityIndexRepository.findOneByCityCode(cityCode);
 	}
-	
+
 	public CityIndex findByDistrictCode(String districtCode){
 		return cityIndexRepository.findOneByDistrictCode(districtCode);
 	}
-	
+
 	public Iterable<CityIndex> findByRegionName(String regionName){
 	    return cityIndexRepository.findByRegionname(regionName);
 	}

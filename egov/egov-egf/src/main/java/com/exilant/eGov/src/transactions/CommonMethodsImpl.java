@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -651,7 +651,7 @@ public class CommonMethodsImpl implements CommonMethodsI {
 			retVal = txnType + runningNumber.toString() + "/" + month[1] + "/" + year;
 			if (LOGGER.isInfoEnabled())
 				LOGGER.info("Return value is :" + retVal);
-		
+
 		} catch (final Exception e)
 		{
 			LOGGER.error("Exp=" + e.getMessage(), e);
@@ -736,7 +736,7 @@ public class CommonMethodsImpl implements CommonMethodsI {
 			retVal = txnType + "/" + runningNumber.toString() + "/" + month[1] + "/" + year;
 			if (LOGGER.isInfoEnabled())
 				LOGGER.info("Return value is :" + retVal);
-		
+
 		} catch (final Exception e)
 		{
 			LOGGER.error("Exp=" + e.getMessage(), e);
@@ -811,7 +811,7 @@ public class CommonMethodsImpl implements CommonMethodsI {
 			retVal = runningNumber.toString();
 			if (LOGGER.isInfoEnabled())
 				LOGGER.info("Return value is in getTransRunningNumber() :" + retVal);
-		
+
 		} catch (final Exception e) {
 			LOGGER.error("Exp occured in getTransRunningNumber() :" + e.getMessage(), e);
 			throw new Exception(e.toString());

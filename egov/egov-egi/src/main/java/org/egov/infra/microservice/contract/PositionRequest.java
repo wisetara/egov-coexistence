@@ -1,6 +1,6 @@
 /*
- * eGov suite of products aim to improve the internal efficiency,transparency,
- * accountability and the service delivery of the government  organizations.
+ * eGov suite of products aim to improve the internal efficiency, transparency,
+ * accountability and the service delivery of the government organizations.
  *
  *  Copyright (C) 2016  eGovernments Foundation
  *
@@ -67,9 +67,9 @@ public class PositionRequest {
 		this.requestInfo = requestInfo;
 		this.position = position;
 	}
-	
+
 	public PositionRequest(){}
-	
+
 	public RequestInfo getRequestInfo() {
 		return requestInfo;
 	}
@@ -86,8 +86,8 @@ public class PositionRequest {
 		this.position = position;
 	}
 
-	
-	
-	
+
+
+
 
 }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -71,18 +71,18 @@ public class UpdateDesignationController {
 	public UpdateDesignationController(DesignationService designationService) {
 		this.designationService = designationService;
 	}
-	
+
 	@ModelAttribute
     public Designation designationModel(@PathVariable String name) {
         return designationService.getDesignationByName(name);
     }
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String updateForm(Model model) {
 	    model.addAttribute("mode", "update");
 		return "designation-form";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String updateDesignation(@Valid @ModelAttribute Designation designation, BindingResult errors,
 			RedirectAttributes redirectAttrs, Model model) {

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -60,26 +60,26 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 public class PersonalInformationService {
-	
+
 	private final PersonalInformationRepository repository;
-	
+
 	@Autowired
 	public PersonalInformationService(final PersonalInformationRepository repository) {
 		this.repository = repository;
 	}
-	
+
 	public PersonalInformation getEmployeeByUserId(Long userId) {
 		return repository.getPersonalInformationByUserId(userId);
 	}
-	
+
 	public PersonalInformation getEmployeeById(Integer empId) {
 		return repository.findByIdPersonalInformation(empId);
 	}
-	
+
 	public void createEmployee(PersonalInformation personalInformation) {
-	    repository.saveAndFlush(personalInformation); 
+	    repository.saveAndFlush(personalInformation);
 	}
-	
-	
+
+
 
 }

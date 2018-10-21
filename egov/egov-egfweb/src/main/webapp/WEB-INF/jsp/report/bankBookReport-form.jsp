@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -59,7 +59,7 @@
 </head>
 <script>
 var callback = {
-		
+
 		success: function(o){
 			document.getElementById('results').innerHTML=o.responseText;
 			undoLoadingMask();
@@ -67,15 +67,15 @@ var callback = {
 			failure: function(o) {
 				undoLoadingMask();
 		    }
-		    
-			
+
+
 		}
 function getData(){
 	var startDate =  document.getElementById('startDate').value;
 	var endDate =  document.getElementById('endDate').value;
 	var bankAccount = document.getElementById('accountNumber').value;
-	
-    
+
+
 
 	//var isDateValid =validateFromAndToDate(startDate,endDate);
 	isValid = validateDataa();
@@ -83,7 +83,7 @@ function getData(){
 		{
 		return false;
 		}
-	
+
 	//doLoadingMask();
 	var url = '/services/EGF/report/bankBookReport-ajaxLoadBankBook.action?skipPrepare=true&bankAccount.id='+bankAccount+'&startDate='+startDate+'&endDate='+endDate+getMiscData();
 	YAHOO.util.Connect.asyncRequest('POST', url, callback, null);
@@ -94,13 +94,13 @@ function getMiscData(){
 	var fund,department,functionary,field,scheme,subscheme,data,function1="";
 	fund = document.getElementById('fundId').value;
 	//fund1 = document.getElementById('fund').value;
-	
+
 	department = document.getElementById('vouchermis.departmentid').value;
-	
+
 	function1=document.getElementById('vouchermis.function').value;
 	if(fund != undefined)
 		data = data+"&fundId.id="+fund;
-	
+
 	if(department != undefined)
 		data = data+"&vouchermis.departmentcode="+department;
 	if(functionary != undefined)
@@ -113,21 +113,21 @@ function getMiscData(){
 		data = data+"&vouchermis.subschemeid.id="+subscheme;
 	if(function1 != undefined)
 		data = data+"&vouchermis.function.id="+function1;
-	
+
 	return data;
 }
 
 function loadBank(fund){
 	if(fund.value!=-1){
-		populatebank({fundId:fund.options[fund.selectedIndex].value})   
-	}else{       
-		populatebank()       
-	} 
+		populatebank({fundId:fund.options[fund.selectedIndex].value})
+	}else{
+		populatebank()
+	}
 }
 function populateAccNumbers(bankBranch){
 	var fund = document.getElementById('fundId');
 	id = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1]
-	populateaccountNumber({branchId:id,fundId:fund.options[fund.selectedIndex].value})	
+	populateaccountNumber({branchId:id,fundId:fund.options[fund.selectedIndex].value})
 }
 
 var exportCallback = {
@@ -163,18 +163,18 @@ function validateDataa(){
 		bootbox.alert("Please select a Bank Account")
 		return false;
 	}
-	
+
 	var startDate = document.getElementById('startDate').value;
 	if(startDate=='')
-		{ 
+		{
 		bootbox.alert("Please enter start date")
 		return false;
 		}
-	
+
 	var endDate = document.getElementById('endDate').value;
-	
+
 	if(endDate=='')
-		{ 
+		{
 		bootbox.alert("Please enter end date")
 		return false;
 		}
@@ -183,10 +183,10 @@ function validateDataa(){
 	startDate=new Date(fromdate[2],fromdate[1]-1,fromdate[0]);
     var todate = endDate.split('/');
     endDate=new Date(todate[2],todate[1]-1,todate[0]);
-	
+
 
 	if(startDate > endDate)
-	{ 
+	{
 		bootbox.alert("Start date should be less than end date.")
 		return false;
 		}
@@ -225,8 +225,8 @@ function showChequeDetails(voucherId){
 </script>
 <body>
 
- 
- 
+
+
 	<div class="formmainbox">
 		<div class="formheading"></div>
 		<div class="subheadnew">Bank Book Report</div>
@@ -234,11 +234,11 @@ function showChequeDetails(voucherId){
 
 		<s:form action="bankBookReport" theme="simple" name="bankBookReport">
 			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			
+
 			<tr>
 					<jsp:include page="../voucher/vouchertrans-filter.jsp" />
 				</tr>
-				
+
 				<tr>
 					<egov:ajaxdropdown id="bank" fields="['Text','Value']"
 						dropdownId="bank" url="voucher/common-ajaxLoadAllBanks.action" />

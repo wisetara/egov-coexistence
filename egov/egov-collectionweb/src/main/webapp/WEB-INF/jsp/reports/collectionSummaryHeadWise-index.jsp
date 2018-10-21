@@ -1,6 +1,6 @@
  <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -147,8 +147,8 @@ function validate()
 			<td class="bluebox">
 				<s:text name="collectionReport.criteria.payment.mode"/></td>
 	        <td class="bluebox"><s:select headerKey="ALL"
-				headerValue="%{getText('collectionReport.payment.mode.all')}" 
-				name="paymentMode" id="paymentMode" cssClass="selectwk" 
+				headerValue="%{getText('collectionReport.payment.mode.all')}"
+				name="paymentMode" id="paymentMode" cssClass="selectwk"
 				list="paymentModes" value="%{paymentMode}" /> </td>
 				<td class="bluebox"><s:text
 							name="collectionReport.criteria.source" /></td>
@@ -178,7 +178,7 @@ function validate()
 					<td>
 						<div class="subheadsmallnew"><span class="subheadnew">
 											<s:text name="bankcollection.title" />
-						</span>		
+						</span>
 						</div>
 					</td>
 				</tr>
@@ -193,7 +193,7 @@ function validate()
 								value="%{branchId}" /> </td>   </td>
 				<td class="bluebox">&nbsp;</td>
 					<td class="bluebox">&nbsp;</td>
-				</tr>	
+				</tr>
 	</table>
 		       <div align="left" class="mandatory1">
 		              <s:text name="report.bankbranch.note"/>
@@ -201,7 +201,7 @@ function validate()
 <div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
     <br/>
 	</div>
-	
+
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -93,7 +93,7 @@
 						value="%{getMasterName('subscheme')}" /></td>
 			</s:if>
 			<s:if test="%{shouldShowHeaderField('fundsource')}">
-				<td width="10%" class="<c:out value='${tdclass}' />">Financing 
+				<td width="10%" class="<c:out value='${tdclass}' />">Financing
 					Source : &nbsp;</td>
 				<td width="25%" class="<c:out value='${tdclass}' />"><s:property
 						value="%{getMasterName('fundsource')}" /></td>

@@ -1,6 +1,6 @@
 /*
- * eGov suite of products aim to improve the internal efficiency,transparency,
- * accountability and the service delivery of the government  organizations.
+ * eGov suite of products aim to improve the internal efficiency, transparency,
+ * accountability and the service delivery of the government organizations.
  *
  *  Copyright (C) 2016  eGovernments Foundation
  *
@@ -44,20 +44,20 @@ import javax.validation.constraints.NotNull;
 
 public class HODDepartment {
 
-	
+
 	private Long id;
 
 	@NotNull
 	private Long department;
 
 	private String tenantId;
-	
+
 	public HODDepartment(Long id, Long department, String tenantId) {
 		this.id = id;
 		this.department = department;
 		this.tenantId = tenantId;
 	}
-	
+
 	public HODDepartment(){}
 
 	public Long getId() {
@@ -83,8 +83,8 @@ public class HODDepartment {
 	public void setTenantId(String tenantId) {
 		this.tenantId = tenantId;
 	};
-	
-	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -127,6 +127,6 @@ public class HODDepartment {
 		return "HODDepartment [id=" + id + ", department=" + department + ", tenantId=" + tenantId + "]";
 	}
 
-	
+
 
 }

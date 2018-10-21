@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,49 +54,49 @@
 
 		path="${pageContext.request.contextPath}";
 		var totaldbamt=0,totalcramt=0;
-		
-		   
-		
+
+
+
 		var makeVoucherDetailTable = function() {
-			var OneFunctionCenter= <s:property value="isRestrictedtoOneFunctionCenter"/>; 
-		//	bootbox.alert("HHiii"+OneFunctionCenter+"<<<>>>>>") ;                             
-				<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>                                                   
-				//bootbox.alert(OneFunctionCenter);                  
-				var voucherDetailColumns = [                                       
-				{key:"functionid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},         
-				{key:"function",label:'Function Name',hidden:true, formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","hidden")},                            
+			var OneFunctionCenter= <s:property value="isRestrictedtoOneFunctionCenter"/>;
+		//	bootbox.alert("HHiii"+OneFunctionCenter+"<<<>>>>>") ;
+				<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
+				//bootbox.alert(OneFunctionCenter);
+				var voucherDetailColumns = [
+				{key:"functionid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
+				{key:"function",label:'Function Name',hidden:true, formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","hidden")},
 				{key:"glcodeid",hidden:true,formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
 				{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-				{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
-				{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+				{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+				{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
 				{key:"creditamount",label:'Credit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
 				{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 				{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 			];
 				</s:if>
 				<s:else>
-			var voucherDetailColumns = [   
+			var voucherDetailColumns = [
  				{key:"glcodeid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
  				{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
- 				{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
- 				{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+ 				{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+ 				{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
  				{key:"creditamount",label:'Credit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
  				{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
  				{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
- 			];	</s:else>			
-		        
-	    var voucherDetailDS = new YAHOO.util.DataSource(); 
+ 			];	</s:else>
+
+	    var voucherDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
 		billDetailsTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 				updateAccountTableIndex();
 			}
-			if (column.key == 'Delete') { 	
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -110,8 +110,8 @@
 					bootbox.alert("This row can not be deleted");
 				}
 			}
-			
-			        
+
+
 		});
 		<s:iterator value="billDetailslist" status="stat">
 			<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
@@ -146,10 +146,10 @@
 				updateGridPJV('creditAmountDetail',index,'<s:property value="creditAmountDetail"/>');
 				totaldbamt = totaldbamt+parseFloat('<s:property value="debitAmountDetail"/>');
 				totalcramt = totalcramt+parseFloat('<s:property value="creditAmountDetail"/>');
-				updateAccountTableIndex();	
+				updateAccountTableIndex();
 			</s:iterator>
-				
-	
+
+
 		var tfoot = billDetailsTable.getTbodyEl().parentNode.createTFoot();
 		var tr = tfoot.insertRow(-1);
 		var th = tr.appendChild(document.createElement('th'));
@@ -159,7 +159,7 @@
 		<s:else>
 		th.colSpan = 4;
 		</s:else>
-		
+
 		th.innerHTML = 'Total&nbsp;&nbsp;&nbsp;';
 		th.align='right';
 		th.style.borderTop = "1px solid #84B1AD";
@@ -176,7 +176,7 @@
 		td.style.borderTop = "1px solid #84B1AD";
 		var td = tr.insertCell(-1);
 		td.style.borderTop = "1px solid #84B1AD";
-	}         
+	}
 	var glcodeOptions=[{label:"---Select---", value:"0"}];
 	<s:iterator value="dropdownData.glcodeList">
 	    glcodeOptions.push({label:'<s:property value="glcode"/>', value:'<s:property value="id"/>'})
@@ -186,12 +186,12 @@
 	    detailtypeOptions.push({label:'<s:property value="name"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
 	var funcOptions=[{label:"---Select---", value:"0"}];
-	var OneFunctionCenter= <s:property value="isRestrictedtoOneFunctionCenter"/>;       
+	var OneFunctionCenter= <s:property value="isRestrictedtoOneFunctionCenter"/>;
 	var makeSubLedgerTable = function() {
-		//var OneFunctionCenter= <s:property value="isRestrictedtoOneFunctionCenter"/>;  
-		//bootbox.alert("OneFunctionCenter"+OneFunctionCenter);        
-		<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>                                    
-		var subledgerColumns = [                         
+		//var OneFunctionCenter= <s:property value="isRestrictedtoOneFunctionCenter"/>;
+		//bootbox.alert("OneFunctionCenter"+OneFunctionCenter);
+		<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
+		var subledgerColumns = [
 		    {key:"functionDetail",label:'Function Name',hidden:true, formatter:createSLDropdownFormatterFuncJV(SUBLEDGERLIST,".functionDetail"),dropdownOptions:funcOptions},
 			{key:"glcode",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".subledgerCode","hidden")},
 			{key:"glcode.id",label:'Account Code <span class="mandatory1">*</span>', formatter:createDropdownFormatterJV(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
@@ -203,10 +203,10 @@
 			{key:"amount",label:'Amount', formatter:createSLAmountFieldFormatterJV(SUBLEDGERLIST,".amount")},
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
-		];   
+		];
 		</s:if>
-		<s:else>    
-		var subledgerColumns = [      
+		<s:else>
+		var subledgerColumns = [
 		{key:"glcode",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".subledgerCode","hidden")},
 		{key:"glcode.id",label:'Account Code <span class="mandatory1">*</span>', formatter:createDropdownFormatterJV(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
 		{key:"detailTypeName",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".detailTypeName","hidden")},
@@ -217,23 +217,23 @@
 		{key:"amount",label:'Amount', formatter:createSLAmountFieldFormatterJV(SUBLEDGERLIST,".amount")},
 		{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 		{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
-		];              
-	</s:else>            
-		
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+		];
+	</s:else>
+
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
 		subLedgersTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 				updateSLTableIndex();
 				check();
 				loadSlFunction();
 			}
-			if (column.key == 'Delete') { 			
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -243,10 +243,10 @@
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}        
+			}
 		});
 		<s:iterator value="subLedgerlist" status="stat">
-			<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>  
+			<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
 					"functionDetail":'<s:property value="functionDetail"/>',
 					"glcode":'<s:property value="subledgerCode"/>',
@@ -260,7 +260,7 @@
 					"creditAmount":'<s:property value="%{creditAmount}"/>'
 				});
 			</s:if>
-			<s:else>    
+			<s:else>
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
 					"glcode":'<s:property value="subledgerCode"/>',
 					"glcode.id":'<s:property value="glcode.id"/>',
@@ -272,9 +272,9 @@
 					"debitAmount":'<s:property value="%{debitAmount}"/>',
 					"creditAmount":'<s:property value="%{creditAmount}"/>'
 				});
-			</s:else>    
+			</s:else>
 				var index = '<s:property value="#stat.index"/>';
-				<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>  
+				<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
 				updateGridSLDropdownPJV('functionDetail',index,'<s:property value="functionDetail"/>');
 				</s:if>
 				updateSLGridPJV('subledgerCode',index,'<s:property value="subledgerCode"/>');
@@ -285,9 +285,9 @@
 				updateSLGridPJV('amount',index,'<s:property value="amount"/>');
 				updateSLTableIndex();
 			</s:iterator>
-		
+
 	}
-	
+
 
 
 
@@ -313,7 +313,7 @@ success: function(o) {
 			var d=document.getElementById('subLedgerlist['+j+'].glcode.id');
 			if(null != d && test.length >1 && d.value ==0 )
 			{
-				
+
 				d.options.length=((test.length)/2)+1;
 				for (var i=1; i<((test.length)/2)+1;i++ )
 				{
@@ -321,7 +321,7 @@ success: function(o) {
 					d.options[i].value=test[i*2 -1];
 					slAccountCodes.push(test[i*2 -1]);
 				}
-			} 
+			}
 			if(test.length<2)
 			{
 				var d = document.getElementById('subLedgerlist['+j+'].glcode.id');
@@ -333,7 +333,7 @@ success: function(o) {
 				}
 			}
 		}
-		
+
 			// logic to re-populate the account code in the account code drop down in the subledger table data grid.
 			// basicaly required when validation fails.
 			<s:iterator value="subLedgerlist" status="stat">
@@ -341,7 +341,7 @@ success: function(o) {
 					var index = '<s:property value="#stat.index"/>';
 					updateGridSLDropdownGL('glcode.id',index,'<s:property value="glcode.id"/>');
 				}
-				
+
 			</s:iterator>
 	loadSlFunction();// load the functions in the SL grid after validation fails.
     },
@@ -355,7 +355,7 @@ function updateGridSLDropdownGL(field,index,value){
 	loadDetailType(index);
 }
 
-var loadDetailType = function(index) { 
+var loadDetailType = function(index) {
 		var subledgerid=document.getElementById('subLedgerlist['+index+'].glcode.id');
 		var accountCode = subledgerid.options[subledgerid.selectedIndex].text;
 		document.getElementById('subLedgerlist['+index+'].subledgerCode').value =accountCode;
@@ -383,7 +383,7 @@ success: function(o) {
 				obj.options[i+1].value=eachItem[2];
 				document.getElementById('subLedgerlist['+parseInt(eachItem[0])+']'+'.detailTypeName').value = eachItem[1];
 			}
-			
+
 			if(eachItem.length==1) // for deselect the subledger code
 			{
 				var d = document.getElementById('subLedgerlist['+i+'].detailType.id');
@@ -391,19 +391,19 @@ success: function(o) {
 				d.options[0].text='---Select---';
 				d.options[0].value=0;
 			}
-		} 
+		}
 			<s:iterator value="subLedgerlist" status="stat">
 			if('<s:property value="detailType.id"/>' !="" || '<s:property value="detailType.id"/>' !=0){
 				var index = '<s:property value="#stat.index"/>';
 				updateSLDetailDropdown('detailType.id',index,'<s:property value="detailType.id"/>');
-				<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>  
+				<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
 				updateGridSLDropdownPJV('functionDetail',index,'<s:property value="functionDetail"/>');
 				</s:if>
 			}
-				
+
 			</s:iterator>
-		
-		
+
+
     },
     failure: function(o) {
     	bootbox.alert('failure');

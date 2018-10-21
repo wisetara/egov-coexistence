@@ -1,7 +1,7 @@
 <%@ include file="/includes/taglibs.jsp"%>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,7 +55,7 @@
 
 <fmt:formatDate var = "currDate" pattern="dd/MM/yyyy" value="${now}" />
 	var currDate = "${currDate}";
-	
+
 	function validate() {
 		var valid = false;
 		if (document.getElementById('fromDate').value != ""
@@ -84,7 +84,7 @@
 		if (!valid) {
 			dom.get("atleastOneCriteria").style.display = "block";
 			valid = false;
-		} 
+		}
 
 		var fromdate=dom.get("fromDate").value;
 		var todate=dom.get("toDate").value;

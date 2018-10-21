@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -149,7 +149,7 @@ import com.exilant.exility.common.TaskFailedException;
 
 /**
  * This Class will create voucher from bill <br>
- * 
+ *
  * @author Manikanta created on 15-sep-2008
  *
  */
@@ -285,7 +285,7 @@ public class CreateVoucher {
 
 	/**
 	 * creates voucher From billId
-	 * 
+	 *
 	 * @param billId
 	 * @param voucherDate
 	 *            TODO
@@ -536,7 +536,7 @@ public class CreateVoucher {
 
 	/**
 	 * creates voucher From billId
-	 * 
+	 *
 	 * @param billId
 	 * @return voucherheaderId long
 	 * @throws ApplicationRuntimeException
@@ -641,7 +641,7 @@ public class CreateVoucher {
 	 * This API is to create a voucher from the list of HashMap values that are
 	 * passed. This will take care of various types of vouchers like -receipt,
 	 * payments and journal vouchers
-	 * 
+	 *
 	 * @param headerdetails
 	 *            <p>
 	 *            HashMap<String, Object> headerdetails will have the data
@@ -772,7 +772,7 @@ public class CreateVoucher {
 	/**
 	 * action name ////// check all junits, EisCommonsManger is added in create
 	 * voucher constructor voucher service need to pass
-	 * 
+	 *
 	 * @param voucherheader
 	 * @throws ValidationException
 	 */
@@ -892,7 +892,7 @@ public class CreateVoucher {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	@Deprecated
 	public void startWorkflow(final ContraJournalVoucher cjv) throws ValidationException {
@@ -940,7 +940,7 @@ public class CreateVoucher {
 
 	/**
 	 * only for contra workflow
-	 * 
+	 *
 	 * @param voucherHeader
 	 * @throws ValidationException
 	 *             Uses VoucherWorkflow since contra and brv workflows are same
@@ -993,7 +993,7 @@ public class CreateVoucher {
 	 * This API is to create a voucher from the list of HashMap values that are
 	 * passed. This will take care of various types of vouchers like -receipt,
 	 * payments and journal vouchers
-	 * 
+	 *
 	 * @param headerdetails
 	 *            <p>
 	 *            HashMap<String, Object> headerdetails will have the data
@@ -1413,7 +1413,7 @@ public class CreateVoucher {
 	 * This method will validate all the master data that are passed. This will
 	 * also check if the data send are correct with respect to the inter master
 	 * dependency.
-	 * 
+	 *
 	 * @param headerdetails
 	 * @throws ApplicationRuntimeException
 	 */
@@ -2402,7 +2402,7 @@ public class CreateVoucher {
 	 * <p>
 	 * Reversal voucher number - String - voucher number of reversal voucher
 	 * Newly created voucher is called reversal voucher
-	 * 
+	 *
 	 * @param paramList
 	 * @return
 	 */

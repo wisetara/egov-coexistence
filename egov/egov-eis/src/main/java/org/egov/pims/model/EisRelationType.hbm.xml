@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -76,10 +76,10 @@
          <property name="eligStatusIfEmployed" type="string">
             <column name="ELIG_STATUS_IF_EMPLOYED" length="1" />
         </property>
-        
+
         <property name="narration" type="string">
             <column name="NARRATION" length="256" />
         </property>
-       
+
     </class>
 </hibernate-mapping>

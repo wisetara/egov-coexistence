@@ -2,8 +2,8 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <%--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -48,30 +48,30 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="description" content="Neon Admin Panel" />
 		<meta name="author" content="" />
-		
+
 		<title>eGov Urban Portal</title>
-		
+
 		<link rel="icon" href="<c:url value='/resources/global/images/favicon.png" sizes="32x32' context='/egi'/>">
 	    <link rel="stylesheet" href="<c:url value='/resources/global/css/bootstrap/bootstrap.css' context='/egi'/>">
 		<link rel="stylesheet" href="<c:url value='/resources/global/css/egov/custom.css?rnd=${symbol_dollar}{app_release_no}' context='/egi'/>">
 		<link rel="stylesheet" href="<c:url value='/resources/global/css/font-icons/font-awesome/css/font-awesome.min.css' context='/egi'/>">
-		
-		
+
+
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="/egi/resources/global/js/ie8/html5shiv.min.js"></script>
 			<script src="/egi/resources/global/js/ie8/respond.min.js"></script>
 		<![endif]-->
-		
-		
+
+
 	</head>
 	<body  class="page-body">
 		<div class="page-container">
-			<tiles:insertAttribute name="header"/>	
+			<tiles:insertAttribute name="header"/>
 			<div class="main-content">
 				<div class="page-error-404">
 					<div class="error-text">

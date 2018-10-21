@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -310,7 +310,7 @@ public class ReceiptAction extends BaseFormAction {
     private ApplicationContext beanProvider;
 
     private String receipt;
-    
+
     @Autowired
     protected EgovMasterDataCaching masterDataCache;
 
@@ -1009,7 +1009,7 @@ public class ReceiptAction extends BaseFormAction {
 
     /**
      * This method create a new receipt header object with details contained in given receipt header object.
-     * 
+     *
      * @param oldReceiptHeader the instance of <code>ReceiptHeader</code> whose data is to be copied
      */
     private void populateReceiptModelWithExistingReceiptInfo(final ReceiptHeader oldReceiptHeader) {

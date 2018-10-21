@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -116,7 +116,7 @@ public class ReportHelper {
     public InputStream exportXls(InputStream inputStream, final String jasperPath, final Map<String, Object> paramMap,
             final List<Object> dataSource)
             throws JRException, IOException {
-    	
+
     	  JasperPrint jasperPrint = setUpAndGetJasperPrint(jasperPath, paramMap, dataSource);
     	 ByteArrayOutputStream xlsReport = new ByteArrayOutputStream();
          JRXlsExporter exporter = new JRXlsExporter();
@@ -133,9 +133,9 @@ public class ReportHelper {
                  Boolean.FALSE);
          exporter.exportReport();
         // return xlsReport;
-         
+
          inputStream = new ByteArrayInputStream(xlsReport.toByteArray());
-    	
+
         //JasperExportManager.exportReportToXmlStream(setUpAndGetJasperPrint(jasperPath, paramMap, dataSource), outputBytes);
        // inputStream = new ByteArrayInputStream(outputBytes.toByteArray());
         closeStream(reportStream);
@@ -145,8 +145,8 @@ public class ReportHelper {
     public InputStream exportXls(InputStream inputStream, final JasperPrint jasperPrint) throws JRException, IOException {
         outputBytes = new ByteArrayOutputStream(1 * MB);
         //JasperExportManager.exportReportToXmlStream(jasperPrint, outputBytes);
-        
-        
+
+
         ByteArrayOutputStream xlsReport = new ByteArrayOutputStream();
         JRXlsExporter exporter = new JRXlsExporter();
         //exporter.setExporterInput(jasperPrint);
@@ -162,7 +162,7 @@ public class ReportHelper {
                 Boolean.FALSE);
         exporter.exportReport();
        // return xlsReport;
-        
+
         inputStream = new ByteArrayInputStream(xlsReport.toByteArray());
         closeStream(reportStream);
         return inputStream;
@@ -1086,15 +1086,15 @@ public class ReportHelper {
                                     .setSubtitleHeight(30).setUseFullPageWidth(true);
              if(expType!=null && expType.equals("xls"))
              drb.setIgnorePagination(true);
-             
+
             dr = drb.build();
-            
+
           // JRXlsExporter exporter = new JRXlsExporter();
             ds = new JRBeanCollectionDataSource(al);
             return DynamicJasperHelper.generateJasperPrint(dr,
                     new ClassicLayoutManager(), ds);
-            
-            
+
+
         } catch (final ColumnBuilderException e) {
             LOGGER.error(e, e);
         } catch (final ClassNotFoundException e) {

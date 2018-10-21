@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -118,7 +118,7 @@
 								<div id="billDetailTable"></div>
 							</div>
 							<script>
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="80%"
 	 </script>
@@ -163,7 +163,7 @@
 	</s:form>
 
 	<script>
-	
+
 function onbodyload(){
 <s:iterator value="iHeaderList" status="stat">
 	document.getElementById("buttonTable").style.display="block";
@@ -171,18 +171,18 @@ function onbodyload(){
 	document.getElementById("billDetailTable").style.display="block";
 </s:iterator>
 	document.getElementById("voucherNumId").style.display="none";
-	document.getElementById("voucherDateId").style.display="none";	
+	document.getElementById("voucherDateId").style.display="none";
 for(var i=0;i<document.forms[0].length;i++)
 	{
-		
+
 				if(document.forms[0].elements[i].value != 'Close' && document.forms[0].elements[i].value != 'Save & Close' && document.forms[0].elements[i].value != 'Save & View' && document.forms[0].elements[i].id != 'reversalVoucherNumber'
 					&& document.forms[0].elements[i].id != 'reversalVoucherDate' ){
 				document.forms[0].elements[i].disabled =true;
-			}	
-		
-				
-								
-		}	
+			}
+
+
+
+		}
 	var saveMode='<s:property value="contraBean.saveMode"/>';
 	var result='<s:property value="contraBean.result"/>';
 	if(result == 'success'){
@@ -196,14 +196,14 @@ for(var i=0;i<document.forms[0].length;i++)
 			}
 	}
 	}
-	
+
 function validateReverse(saveMode){
-	
+
 	document.getElementById('saveMode').value=saveMode;
 
 	document.getElementById('lblError').innerHTML = "";
 
-	<s:if test="%{isFieldMandatory('vouchernumber')}"> 
+	<s:if test="%{isFieldMandatory('vouchernumber')}">
 	if(null != document.getElementById('reversalVoucherNumber') && document.getElementById('reversalVoucherNumber').value.trim().length == 0){
 		document.getElementById('lblError').innerHTML = "Please enter reversal voucher number ";
 		return false;

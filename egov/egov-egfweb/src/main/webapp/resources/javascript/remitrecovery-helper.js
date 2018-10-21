@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -46,7 +46,7 @@
  *
  */
 function populateNarration(accnumObj){
-    
+
 	var accnum =  accnumObj.options[accnumObj.selectedIndex].value;
 	var bankbranchObj=document.getElementById('bankId');
 	var bankbranchId = bankbranchObj.options[bankbranchObj.selectedIndex].value;
@@ -92,8 +92,8 @@ var callback = {
 			},
 			failure: function(o) {
 		    }
-		}                  
-		
+		}
+
 var postTypeFrom = {
 success: function(o) {
 		document.getElementById('accnumnar').value= o.responseText;
@@ -106,7 +106,7 @@ success: function(o) {
 function loadBank(fund)
 {
 	var vTypeOfAccount = document.getElementById('typeOfAccount').value;
-populatebankId({fundId:fund.options[fund.selectedIndex].value, typeOfAccount:vTypeOfAccount})	
+populatebankId({fundId:fund.options[fund.selectedIndex].value, typeOfAccount:vTypeOfAccount})
 }
 
 
@@ -124,12 +124,12 @@ function disableControls(frmIndex, isDisable)
 		document.forms[frmIndex].elements[i].disabled =isDisable;
 }
 
-function balanceCheck(obj, name, value)   
+function balanceCheck(obj, name, value)
 		{
-			
+
 			if(!validateAppoveUser(name,value))
 				return false;
-	
+
 			if(obj.id=='wfBtn1') // in case of Reject
 				return true;
 			if(document.getElementById('balanceAvl') && document.getElementById('balanceAvl').style.display=="block" )
@@ -158,9 +158,9 @@ jQuery(document).ready(function(){
 	if(jQuery('#bank').val()!="")
 		loadBankBranches(jQuery('#bank').val());
 	else
-		loadBankBranches(0);	
+		loadBankBranches(0);
 });
-	
+
 	jQuery('#bankBranch').change(function () {
 		bankBranchId = "";
 		jQuery('#bankAccount').empty();

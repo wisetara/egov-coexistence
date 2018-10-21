@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -53,13 +53,13 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The Class AuthorizationException.
- * For Capturing Authorization Related Exception 
+ * For Capturing Authorization Related Exception
  */
 public class AuthorizationException extends RuntimeException {
-	
+
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = LoggerFactory.getLogger(AuthorizationException.class);
-	
+
 	/**
 	 * Instantiates a new authorization exception.
 	 * @param msg the message
@@ -68,7 +68,7 @@ public class AuthorizationException extends RuntimeException {
 		super(msg);
 		LOG.error(msg);
 	}
-	
+
 	/**
 	 * Instantiates a new authorization exception.
 	 * @param msg the message

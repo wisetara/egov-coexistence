@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -55,8 +55,8 @@ This is just for test
 var g_maxOfNarration=250;
 var gMonthBag=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
 function topmenu(){
-	
-	
+
+
 	document.write("<table bgcolor='#30DAE6' width='100%' height='46'  border='0'>");
 	document.write("<tr><td width='60%' height=52 valign='bottom' nowrap  class='banner'>");
 	document.write("<span class='style5'><div name='title' id='title'></span></td>");
@@ -66,7 +66,7 @@ function topmenu(){
 	document.write("<a class='footerlocallink' href='#'>Help</a>&nbsp; <a class='footerlocallink' onClick='changePassword()' href='#'>ChangePassword</a>&nbsp;<a class='footerlocallink' onClick='logOut()' href='#'>Logout</a>");
 	document.write("<td width='9%'><div align='right'><input name='imageField2' type='image' src='/egi/resources/erp2/images/eGovLogo.jpg' align='top' width='80' height='60' border='0'></div></td></tr>");
 	document.write("</table>");
-	
+
 }
 
 function leftmenu(){
@@ -74,7 +74,7 @@ function leftmenu(){
 	document.write("<tr><td ><a class='tabsback' href='#' class='tablink'>&nbsp;&nbsp;&nbsp;Master</a></td></tr>");
 	document.write("<tr><td><a class='tabsback' href='#' class='tablink'>&nbsp;&nbsp;&nbsp;	Transactions</a></td></tr>");
 	document.write("<tr><td><a class='tabsback' href='#' class='tablink'>&nbsp;&nbsp;&nbsp;Budget </a></td></tr>");
-	document.write("<tr><td><a class='tabsback' href='#' class='tablink'>&nbsp;&nbsp;&nbsp;Report</a></td></tr>");												
+	document.write("<tr><td><a class='tabsback' href='#' class='tablink'>&nbsp;&nbsp;&nbsp;Report</a></td></tr>");
 	document.write("</table>");
 }
 
@@ -90,7 +90,7 @@ function bottommenu()
 	document.write("</table>");
 }
 
-function gotoHomePage(){	
+function gotoHomePage(){
 	window.parent.location = "eGov.htm";
 }
 
@@ -106,34 +106,34 @@ function logOut(){
 	top.location = "../logout.jsp";
 }
 
-function getCookie(NameOfCookie){  
+function getCookie(NameOfCookie){
 	if (document.cookie.length > 0) {
-		begin = document.cookie.indexOf(NameOfCookie+"="); 
+		begin = document.cookie.indexOf(NameOfCookie+"=");
     		if (begin != -1) {
-    			begin += NameOfCookie.length+1; 
+    			begin += NameOfCookie.length+1;
       			end = document.cookie.indexOf(";", begin);
-      		
-      			if (end == -1) 
+
+      			if (end == -1)
       				end = document.cookie.length;
-      			
+
       			return unescape(document.cookie.substring(begin, end));
-      		} 
+      		}
  	}
-	return null; 
+	return null;
 }
 
- 
-function delCookie (NameOfCookie) {  
+
+function delCookie (NameOfCookie) {
 	if (getCookie(NameOfCookie)) {
 		document.cookie = NameOfCookie + "=" +
 		"; expires=Thu, 01-Jan-70 00:00:01 GMT";
 	}
 }
 
-function setCookie(NameOfCookie, value, expiredays) {  
+function setCookie(NameOfCookie, value, expiredays) {
 	var ExpireDate = new Date ();
 	ExpireDate.setTime(ExpireDate.getTime() + (expiredays * 24 * 3600 * 1000));
-  	document.cookie = NameOfCookie + "=" + escape(value) + 
+  	document.cookie = NameOfCookie + "=" + escape(value) +
   		((expiredays == null) ? "" : "; expires=" + ExpireDate.toGMTString());
 }
 
@@ -145,7 +145,7 @@ function delCookies() {
 	if (getCookie('chkFlag') != null) { delCookie('chkFlag'); }
 	if (getCookie('homePage') != null) { delCookie('homePage'); }
 }
- 
+
 function displayMenu()
  {
 	if (getCookie('expChartOfAccounts') == null) {setCookie('expChartOfAccounts',"false",1);}
@@ -155,36 +155,36 @@ function displayMenu()
 	if (getCookie('chkFlag') == null) {setCookie('chkFlag',"0",1);}
  	menuMaster(0,0,0,0);
 }
- 
+
 function navigateMenu(chkFlag) {
 		if ( chkFlag == 1 )	{
 		setCookie('chkFlag',"1",1);
 		window.location.href = 	"118 IP Store.htm";
-		} 
+		}
 		if ( chkFlag == 2 )	{
 		setCookie('chkFlag',"2",1);
-		//window.location.href="101 Project Search.htm";				
-		window.open("jou_vou.htm","mainFrame");	
-		
-		//document.mainFrame.location.href="jou_vou.htm";				
-		
-		} 
+		//window.location.href="101 Project Search.htm";
+		window.open("jou_vou.htm","mainFrame");
+
+		//document.mainFrame.location.href="jou_vou.htm";
+
+		}
 		if ( chkFlag == 3 )	{
 		setCookie('chkFlag',"3",1);
 		window.open("jou_vou.htm","mainFrame");
-		} 
+		}
 		if ( chkFlag == 4 )	{
 		setCookie('chkFlag',"4",1);
 		window.open("jou_vou.htm","mainFrame");
-		} 
+		}
 		if ( chkFlag == 5 )	{
 		setCookie('chkFlag',"5",1);
 		window.open("jou_vou.htm","mainFrame");
-		} 
+		}
 		if ( chkFlag == 6 )	{
 		setCookie('chkFlag',"6",1);
 		window.open("jou_vou.htm","mainFrame");
-		} 
+		}
 		if ( chkFlag == 7 )	{
 		setCookie('chkFlag',"7",1);
 		window.open("jou_vou.htm","mainFrame");
@@ -192,14 +192,14 @@ function navigateMenu(chkFlag) {
 		if ( chkFlag == 8 )	{
 		setCookie('chkFlag',"8",1);
 		window.location.href="#";
-		} 		
+		}
  }
-								
+
  function menuMaster(intFlag1, intFlag2, intFlag3,intFlag4)
  {
 
 	var menuCount = 0;
-	
+
 	var t=document.getElementById('1');
 
 	if (intFlag1 == 1)
@@ -232,38 +232,38 @@ function navigateMenu(chkFlag) {
 	}
 
 		clear();
-	
+
 	   //bootbox.alert(getCookie('expChartOfAccounts'));bootbox.alert(getCookie('expTransaction'));bootbox.alert(getCookie('expUserAccess'));bootbox.alert(getCookie('expMaster'));
-		
+
 //bootbox.alert('1');																	// Master Block
 			x=t.insertRow(menuCount);
-			
+
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
-			
+
 			y.innerHTML='<a onClick="menuMaster(1,0,0,0)" href="#" class="normaltext">&nbsp;&nbsp;&nbsp;Chart Of Accounts</a>';
-			
+
 			y.id = 'menutabsback';
-			
-			
-		
-		
-		
+
+
+
+
+
 //bootbox.alert('2');																	// Transaction Bloack
 			x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.innerHTML='<a onClick="menuMaster(0,1,0,0)" href="#" class="normaltext">&nbsp;&nbsp;&nbsp;Transaction</a>';
 			y.id = 'menutabsback';
-			
+
 		if( getCookie('expTransaction') == "true")
 		{
 			var x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
-			
 
-			if (getCookie('chkFlag') != 2 ) 
+
+			if (getCookie('chkFlag') != 2 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(2);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Journal Voucher</a>';
 				}
@@ -272,14 +272,14 @@ function navigateMenu(chkFlag) {
 					y.innerHTML=y.innerHTML='<a onClick="navigateMenu(2);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Journal Voucher</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="imageField" type="image" src="/egi/resources/erp2/images/check.gif" width="12" height="12" border="0">';
 				}
 				y.id = 'menutabsback';
-			
+
 			var x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.id = 'menutabsback';
-			
-			
-			if (getCookie('chkFlag') != 3 ) 
+
+
+			if (getCookie('chkFlag') != 3 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(3);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Receipt</a>';
 				}
@@ -287,17 +287,17 @@ function navigateMenu(chkFlag) {
 				{
 					y.innerHTML=y.innerHTML='<a onClick="navigateMenu(3);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank Receipt</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="imageField" type="image" src="/egi/resources/erp2/images/check.gif" width="12" height="12" border="0">';
 				}
-			
-			
+
+
 		}
-	
+
 //bootbox.alert('3');																	// Master Block
 			x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.innerHTML='<a onClick="menuMaster(0,0,1,0)" href="#" class="normaltext">&nbsp;&nbsp;&nbsp;Master</a>';
 			y.id = 'menutabsback';
-			
+
 		if( getCookie('expMaster') == "true")
 		{
 			//bootbox.alert('in child master block');
@@ -305,8 +305,8 @@ function navigateMenu(chkFlag) {
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.id = 'menutabsback';
-			
-			if (getCookie('chkFlag') != 4 ) 
+
+			if (getCookie('chkFlag') != 4 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(4);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank</a>';
 				}
@@ -314,14 +314,14 @@ function navigateMenu(chkFlag) {
 				{
 					y.innerHTML=y.innerHTML='<a onClick="navigateMenu(4);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bank</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="imageField" type="image" src="/egi/resources/erp2/images/check.gif" width="12" height="12" border="0">';
 				}
-			
-			
+
+
 			var x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.id = 'menutabsback';
-			
-			if (getCookie('chkFlag') != 5 ) 
+
+			if (getCookie('chkFlag') != 5 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(5);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>';
 				}
@@ -329,14 +329,14 @@ function navigateMenu(chkFlag) {
 				{
 					y.innerHTML=y.innerHTML='<a onClick="navigateMenu(5);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="imageField" type="image" src="/egi/resources/erp2/images/check.gif" width="12" height="12" border="0">';
 				}
-				
-			
+
+
 			var x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.id = 'menutabsback';
-			
-			if (getCookie('chkFlag') != 6 ) 
+
+			if (getCookie('chkFlag') != 6 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(6);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role</a>';
 				}
@@ -344,17 +344,17 @@ function navigateMenu(chkFlag) {
 				{
 					y.innerHTML=y.innerHTML='<a onClick="navigateMenu(6);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role</a>&nbsp;&nbsp;&nbsp;&nbsp;<input name="imageField" type="image" src="/egi/resources/erp2/images/check.gif" width="12" height="12" border="0">';
 				}
-			
 
-		}		
-		
-//bootbox.alert('4');																			// Employee Block	
+
+		}
+
+//bootbox.alert('4');																			// Employee Block
 			x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.innerHTML='<a onClick="menuMaster(0,0,0,1)" href="#" class="normaltext">&nbsp;&nbsp;&nbsp;Employee</a>';
 			y.id = 'menutabsback';
-			
+
 		if( getCookie('expUserAccess') == "true")
 		{
 			//bootbox.alert('in child master block');
@@ -362,8 +362,8 @@ function navigateMenu(chkFlag) {
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.id = 'menutabsback';
-			
-			if (getCookie('chkFlag') != 7 ) 
+
+			if (getCookie('chkFlag') != 7 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(7);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search</a>';
 				}
@@ -371,15 +371,15 @@ function navigateMenu(chkFlag) {
 				{
 					y.innerHTML=y.innerHTML='<a onClick="navigateMenu(7);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="imageField" type="image" src="/egi/resources/erp2/images/check.gif" width="12" height="12" border="0">';
 				}
-			
+
 			//y.innerHTML='<a href="301 Employee Search.htm" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search</a>';
-			
+
 			var x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.id = 'menutabsback';
 
-			if (getCookie('chkFlag') != 8 ) 
+			if (getCookie('chkFlag') != 8 )
 				{
 					y.innerHTML='<a onClick="navigateMenu(8);" href="#" class="tablink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resume Upload</a>';
 				}
@@ -389,14 +389,14 @@ function navigateMenu(chkFlag) {
 				}
 
 
-}		
-		
+}
+
 //bootbox.alert('5');																		// Report Block
 			x=t.insertRow(menuCount);
 			menuCount = menuCount + 1;
 			var y=x.insertCell(0);
 			y.innerHTML='<a onClick="menuMaster(0,0,0,0)" href="#" class="normaltext">&nbsp;&nbsp;&nbsp;Report</a>';
-			y.id = 'menutabsback';			
+			y.id = 'menutabsback';
  }
 
  function clear()
@@ -410,7 +410,7 @@ function navigateMenu(chkFlag) {
 		catch(nn){}
    }
  }
- 
+
  function navigateTo(destPage)
  {
 	 if ( destPage == 'Project New' )
@@ -439,7 +439,7 @@ function insertDates(id)
 				for(var i=0;i<control.length;i++)
 					control[i].value=DataTrim(dat)+"-"+DataTrim(mon)+"-"+DataTrim(year);
 		 }
-		 
+
 		 function insertDates1(id)
 		 {
 				var d=new Date();
@@ -452,19 +452,19 @@ function insertDates(id)
 					control[i].value=DataTrim(dat)+"/"+DataTrim(mon)+"/"+DataTrim(year);
 		 }
 /**Pushpendra Singh 06-Jan-2005
-* arguments 
+* arguments
 * table ID containing Grid
 * and field names of table to be checked for non empty as array of string*/
 function addNewRow(TableID, checkFields1)
-{	
-	var e = window.event;	
-	if(e.keyCode == 113 ) 
+{
+	var e = window.event;
+	if(e.keyCode == 113 )
 	{
 		var index, inIndex, rowLength;
 		var table = document.getElementById(TableID);
-		if(!table || !table.rows) return false;			
-		
-		var checkFields = checkFields1.split(",");							
+		if(!table || !table.rows) return false;
+
+		var checkFields = checkFields1.split(",");
 		rowLength = table.rows.length;
 		var controlObj;
 		PageManager.DataService.addNewRow(TableID);
@@ -473,28 +473,28 @@ function addNewRow(TableID, checkFields1)
 	}
 	return false;
 }
-		
-//This function is to add new row 
+
+//This function is to add new row
 function addNewRowFromButton(TableID, checkFields1)
 {
-	var e = window.event;	
+	var e = window.event;
 	var index, inIndex, rowLength;
 	var table = document.getElementById(TableID);
-	
-	if(!table || !table.rows) return false;			
 
-	var checkFields = checkFields1.split(",");							
+	if(!table || !table.rows) return false;
+
+	var checkFields = checkFields1.split(",");
 	rowLength = table.rows.length;
 	var controlObj;
 	PageManager.DataService.addNewRow(TableID);
 	PageManager.DataService.getControlInBranch(table.rows[rowLength],checkFields[0]).focus();
 	return true;
-	
+
 }
 
-//This function will recalculate the debit and credit amount on Deleting a row  
+//This function will recalculate the debit and credit amount on Deleting a row
 function colAllTotalTwoCol(objname1,objname2,target1,target2)
-{	
+{
 	var a = document.getElementsByName(objname1);
 	count = 0;
 	for(var i = 0; i<=a.length -1;i++) if(a[i].value)
@@ -509,15 +509,15 @@ function colAllTotalTwoCol(objname1,objname2,target1,target2)
 		count=Math.round(count*100)/100 ;
 		document.getElementById(target2).value = count;
  }
- 
+
  function colAllTotal(objname1,objname2,target1,target2)
 {
 colAllTotalTwoCol(objname1,objname2,target1,target2);
 }
 
- //This function will recalculate the debit or credit amount on Deleting a row  
+ //This function will recalculate the debit or credit amount on Deleting a row
  function colAllTotalSingleCol(objname1,target1)
- {	
+ {
  	var a = document.getElementsByName(objname1);
  	count = 0;
  	for(var i = 0; i<=a.length -1;i++) if(a[i].value)
@@ -525,11 +525,11 @@ colAllTotalTwoCol(objname1,objname2,target1,target2);
  		count=Math.round(count*100)/100 ;
  		document.getElementById(target1).value = count;
  }
-  
+
 //This function will delete the row on Click of Delete Row
 function deleteRowTable(obj)
 {
-	var tbl= document.getElementById(obj); 
+	var tbl= document.getElementById(obj);
 	var isSelected=false;
 	for(var i=1;i<tbl.rows.length;i++)
 	{
@@ -542,25 +542,25 @@ function deleteRowTable(obj)
 			  //colAllTotal('voucherDetail_debitAmount','voucherDetail_creditAmount','debitTotal','creditTotal');
 			}
 			else
-			{			 
-				bootbox.alert("You cannot delete this row"); 
+			{
+				bootbox.alert("You cannot delete this row");
 			 return false;
 			}
 		}
-	 } 
+	 }
 	 if(!isSelected)
 	 {
 		 bootbox.alert("Select the row to be deleted.");
 	 return;
 	 }
-   
+
 }
 
 //This function is to highlight the row thats to be deleted.
 function changeColor(currObj,obj)
 {
 	var table=document.getElementById(obj);
-	
+
 	for(var i=1;i<table.rows.length;i++)
 	{
 		rowSel=true;
@@ -572,21 +572,21 @@ function changeColor(currObj,obj)
 }
 
 /**Pushpendra Singh 15-Feb-2005
-* arguments 
+* arguments
 * formId, id of the form to Reset
 * and focusToId, id of control to be focused onto after reset */
 function ResetForm(formId, focusToId){
 	var pass=true
-	var first=-1	
-	
+	var first=-1
+
 	var frm = document.getElementById(formId);
 	if (frm == null) return false;
 		for (i=0;i<frm.length;i++){
-		
-			var tempobj=frm.elements[i]			
-			
-			if(tempobj.name == "voucherHeader_cgn"){/* do nothing */}			
-			else if (tempobj.type=="text"){				
+
+			var tempobj=frm.elements[i]
+
+			if(tempobj.name == "voucherHeader_cgn"){/* do nothing */}
+			else if (tempobj.type=="text"){
 				eval(tempobj.value="")
 				if (first==-1) {first=i}
 			}
@@ -598,25 +598,25 @@ function ResetForm(formId, focusToId){
 				eval(tempobj.value="")
 				if (first==-1) {first=i}
 			}
-		}	
-	
+		}
+
 	var focusTo = document.getElementById(focusToId);
-	
+
 	if(focusTo == null){
 		if(frm.length > 0)
 			frm.elemets[0].focus();
 	}
 	else
 		focusTo.focus();
-		
+
 	return false
 }
 
  function addSlNo(id)
 		{
-			
+
 			//bootbox.alert('sdfkj')
-			
+
 			var tab=document.getElementById(id);
 			var lastRow=tab.rows.length;
 			var last;
@@ -625,7 +625,7 @@ function ResetForm(formId, focusToId){
 			var lastData=control.value;
 			control.disabled=true;
 			if(isNaN(lastData))
-			   last=1;	
+			   last=1;
 			else
 		  	   last=parseInt(lastData)+1;
 
@@ -634,7 +634,7 @@ function ResetForm(formId, focusToId){
 
 
 function getSelectedRadioObject(buttonGroup) {
-   
+
    if (buttonGroup[0]) { // if the button group is an array (one button is not an array)
       for (var i=0; i<buttonGroup.length; i++) {
          if (buttonGroup[i].checked) {
@@ -644,7 +644,7 @@ function getSelectedRadioObject(buttonGroup) {
    } else {
       if (buttonGroup.checked) { return buttonGroup; } // if the one button is checked, return zero
    }
-   
+
    return null;
 }
 
@@ -684,8 +684,8 @@ function getSelectedRadioValue(buttonGroup) {
 				  narration.focus();
 				  return false;
 				}
-				return true;							
-		 }	
+				return true;
+		 }
 
 function chkNarration(ctrlName)
 {
@@ -697,16 +697,16 @@ function chkNarration(ctrlName)
 		 event.returnValue=false;
 		}
 	}
-return true;	
+return true;
 }
 function redirectHTML(type, qString)
 {
 	switch(type.toLowerCase()) {
 		case "property tax feild":window.location="PT_Field.htm"+qString;break;
 		case "property tax office":window.location="PT_Office.htm"+qString;break;
-		case "property tax bank":window.location="PT_Bank.htm"+qString;break;		
+		case "property tax bank":window.location="PT_Bank.htm"+qString;break;
 		case "other tax field":window.location="OT_Field.htm"+qString;break;
-		case "other tax office":window.location="OT_Office.htm"+qString;break;			
+		case "other tax office":window.location="OT_Office.htm"+qString;break;
 		case "miscellaneous":window.location="MiscReceipt.htm"+qString;break;
 		case "bank payment":window.location="DirectBankPayment.htm"+qString;break;
 		case "cash payment":window.location="DirectCashPayment.htm"+qString;break;
@@ -714,8 +714,8 @@ function redirectHTML(type, qString)
 		case "contractor journal":window.location="ContractorJournal.htm"+qString;break;
 		case "salary journal":window.location="JV_Salary.htm"+qString;break;
 		case "advance payment":window.location="AdvanceJournal.htm"+qString;break;
-		case "supplier/contractor payment":window.location="SubLedgerPayment.htm"+qString;break;	
-		case "salary payment":window.location="SubledgerSalaryPayment.htm"+qString;break;			
+		case "supplier/contractor payment":window.location="SubLedgerPayment.htm"+qString;break;
+		case "salary payment":window.location="SubledgerSalaryPayment.htm"+qString;break;
 		case "general journal voucher":window.location="JV_General.htm"+qString;break;
 		case "bank to bank":window.location="JV_Contra_BToB.htm"+qString;break;
 		case "cash withdrawal":window.location="JV_Contra_BToC.htm"+qString;break;
@@ -758,7 +758,7 @@ return true;
 }
 function checkBackDate(eleObj,currentDate,msgText)
 {
-	      //checks whether the data  contained is past date .i.e date less than current date 
+	      //checks whether the data  contained is past date .i.e date less than current date
           var nDate=eleObj.value;
 		  var chqArr=nDate.split("-");
 		  var nMonth=0;
@@ -778,7 +778,7 @@ function checkBackDate(eleObj,currentDate,msgText)
         	  bootbox.alert("Not a valid  "+msgText+" date");
 			  eleObj.focus();
               return false;
-          }    
+          }
           else if(parseInt(testDateAry[5]) == parseInt(curDateAry[5]))
           {
                 if(vDate.getMonth()> currentDate.getMonth())
@@ -795,14 +795,14 @@ function checkBackDate(eleObj,currentDate,msgText)
 							  eleObj.focus();
                               return false;
                         }
-                }  
-          }           
-          return true;                    
+                }
+          }
+          return true;
 }
 function checkFrontDate(eleObj,currentDate,msgText)
 {
-  	      //checks whether the data  contained is future date .i.e date greater than current date 
-  		 
+  	      //checks whether the data  contained is future date .i.e date greater than current date
+
 		  var nDate=eleObj.value;
 		  var chqArr=nDate.split("-");
 		  var nMonth=0;
@@ -822,7 +822,7 @@ function checkFrontDate(eleObj,currentDate,msgText)
 			  bootbox.alert("Not a valid "+msgText+" date");
 			  eleObj.focus();
               return false;
-          }    
+          }
           else if(parseInt(testDateAry[5]) == parseInt(curDateAry[5]))
           {
                 if(vDate.getMonth()< currentDate.getMonth())
@@ -839,26 +839,26 @@ function checkFrontDate(eleObj,currentDate,msgText)
 							  eleObj.focus();
                               return false;
                         }
-                }  
-          }           
-          return true;                    
-                     
+                }
+          }
+          return true;
+
 }
 
-function isValidUser(level, role){	
+function isValidUser(level, role){
 	var ret = true;
 	switch(level){
 		case 1:
 			if(role == 'FO') ret = true;
-			break;			
+			break;
 		case 2:
-			if(role == 'FO' || role == 'AM') ret = true;			
-			break;	
+			if(role == 'FO' || role == 'AM') ret = true;
+			break;
 		case 3:
 			if(role == 'FO' || role == 'AM' || role == 'UR') ret = true;
 			break;
 	}
-	
+
 	if (ret == false)
 		bootbox.alert('Permission denied. Contact administrator');
 	return ret;
@@ -866,8 +866,8 @@ function isValidUser(level, role){
 
 
 function formatDateToDDMMYYYY6(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("-");
 		switch(array[1]){
 			case "jan": array[1] = '01';break;
@@ -882,16 +882,16 @@ function formatDateToDDMMYYYY6(dt){
 			case "oct": array[1] = '10';break;
 			case "nov": array[1] = '11';break;
 			case "dec": array[1] = '12';break;
-		}		
-		dt = array[0] + '/' + array[1] + '/' + array[2];			
-	}	
-	return dt;	
+		}
+		dt = array[0] + '/' + array[1] + '/' + array[2];
+	}
+	return dt;
 }
 
 
 function formatDateToDDMMYYYY7(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("-");
 		switch(array[1]){
 			case "jan": array[1] = '01';break;
@@ -906,15 +906,15 @@ function formatDateToDDMMYYYY7(dt){
 			case "oct": array[1] = '10';break;
 			case "nov": array[1] = '11';break;
 			case "dec": array[1] = '12';break;
-		}		
-		dt = array[2] + '/' + array[1] + '/' + array[0];			
-	}	
-	return dt;	
+		}
+		dt = array[2] + '/' + array[1] + '/' + array[0];
+	}
+	return dt;
 }
 
 function formatDateToDDMMYYYY4(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("-");
 		switch(array[1]){
 			case "Jan": array[1] = '01';break;
@@ -929,15 +929,15 @@ function formatDateToDDMMYYYY4(dt){
 			case "Oct": array[1] = '10';break;
 			case "Nov": array[1] = '11';break;
 			case "Dec": array[1] = '12';break;
-		}		
-		dt = array[0] + '/' + array[1] + '/' + array[2];			
-	}	
-	return dt;	
+		}
+		dt = array[0] + '/' + array[1] + '/' + array[2];
+	}
+	return dt;
 }
 
 function formatDateToDDMMYYYY(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("-");
 		switch(array[1]){
 			case "Jan": array[1] = '01';break;
@@ -952,15 +952,15 @@ function formatDateToDDMMYYYY(dt){
 			case "Oct": array[1] = '10';break;
 			case "Nov": array[1] = '11';break;
 			case "Dec": array[1] = '12';break;
-		}		
-		dt = array[0] + '-' + array[1] + '-' + array[2];			
-	}	
-	return dt;	
+		}
+		dt = array[0] + '-' + array[1] + '-' + array[2];
+	}
+	return dt;
 }
 
 function formatDateToDDMMYYYY2(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("/");
 		switch(array[1]){
 			case "Jan": array[1] = '01';break;
@@ -975,15 +975,15 @@ function formatDateToDDMMYYYY2(dt){
 			case "Oct": array[1] = '10';break;
 			case "Nov": array[1] = '11';break;
 			case "Dec": array[1] = '12';break;
-		}		
-		dt = array[1] + '/' + array[0] + '/' + array[2].substring(0,4);			
-	}	
-	return dt;	
+		}
+		dt = array[1] + '/' + array[0] + '/' + array[2].substring(0,4);
+	}
+	return dt;
 }
 
 function formatDateToDDMMYYYY5(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("/");
 		switch(array[1]){
 			case "Jan": array[1] = '01';break;
@@ -998,16 +998,16 @@ function formatDateToDDMMYYYY5(dt){
 			case "Oct": array[1] = '10';break;
 			case "Nov": array[1] = '11';break;
 			case "Dec": array[1] = '12';break;
-		}		
-		dt = array[0] + '/' + array[1] + '/' + array[2].substring(0,4);			
-	}	
-	return dt;	
+		}
+		dt = array[0] + '/' + array[1] + '/' + array[2].substring(0,4);
+	}
+	return dt;
 }
 //ip-dd/mon/yyyy
 //op=dd-mm-yyyy
 function formatDateToDDMMYYYY1(dt){
-	var date = dt.substring(0, 11);			
-	if( !(date == null || date == '') ){			
+	var date = dt.substring(0, 11);
+	if( !(date == null || date == '') ){
 		var array = date.split("/");
 		switch(array[1]){
 			case "Jan": array[1] = '01';break;
@@ -1022,17 +1022,17 @@ function formatDateToDDMMYYYY1(dt){
 			case "Oct": array[1] = '10';break;
 			case "Nov": array[1] = '11';break;
 			case "Dec": array[1] = '12';break;
-		}		
-		dt = array[0] + '/' + array[1] + '/' + array[2].substring(0,4);			
-	}	
-	return dt;	
+		}
+		dt = array[0] + '/' + array[1] + '/' + array[2].substring(0,4);
+	}
+	return dt;
 }
-function compareDate(dt1, dt2){			
+function compareDate(dt1, dt2){
 /*******		Return Values [0 if dt1=dt2], [1 if dt1<dt2],  [-1 if dt1>dt2]     *******/
 	var d1, m1, y1, d2, m2, y2, ret;
 	dt1 = dt1.split('/');
 	dt2 = dt2.split('/');
-	ret = (eval(dt2[2])>eval(dt1[2])) ? 1 : (eval(dt2[2])<eval(dt1[2])) ? -1 : (eval(dt2[1])>eval(dt1[1])) ? 1 : (eval(dt2[1])<eval(dt1[1])) ? -1 : (eval(dt2[0])>eval(dt1[0])) ? 1 : (eval(dt2[0])<eval(dt1[0])) ? -1 : 0 ;										
+	ret = (eval(dt2[2])>eval(dt1[2])) ? 1 : (eval(dt2[2])<eval(dt1[2])) ? -1 : (eval(dt2[1])>eval(dt1[1])) ? 1 : (eval(dt2[1])<eval(dt1[1])) ? -1 : (eval(dt2[0])>eval(dt1[0])) ? 1 : (eval(dt2[0])<eval(dt1[0])) ? -1 : 0 ;
 	return ret;
 }
 
@@ -1045,7 +1045,7 @@ function formatDate(dt){
 	var array = dt.split("/");
 	var mon=array[0];
 	var day=array[1];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "1": mon = 'Jan';break;
 			case "2": mon = 'Feb';break;
@@ -1059,9 +1059,9 @@ function formatDate(dt){
 			case "10": mon = 'Oct';break;
 			case "11": mon = 'Nov';break;
 			case "12": mon = 'Dec';break;
-		}		
-		dt = day+"-"+mon+"-"+year;			
-		return dt;	
+		}
+		dt = day+"-"+mon+"-"+year;
+		return dt;
 }
 /**
 *	Input is dd/mm/yyyy for mon=1,2
@@ -1072,7 +1072,7 @@ function formatDate4(dt){
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "1": mon = 'Jan';break;
 			case "2": mon = 'Feb';break;
@@ -1086,9 +1086,9 @@ function formatDate4(dt){
 			case "10": mon = 'Oct';break;
 			case "11": mon = 'Nov';break;
 			case "12": mon = 'Dec';break;
-		}		
-		dt = day+"-"+mon+"-"+year;			
-		return dt;	
+		}
+		dt = day+"-"+mon+"-"+year;
+		return dt;
 }
 //ip=dd/mm/yyyy for mon-01,02
 //op=dd-Mon-yyyy
@@ -1097,7 +1097,7 @@ function formatDate5(dt){
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "01": mon = 'Jan';break;
 			case "02": mon = 'Feb';break;
@@ -1111,9 +1111,9 @@ function formatDate5(dt){
 			case "10": mon = 'Oct';break;
 			case "11": mon = 'Nov';break;
 			case "12": mon = 'Dec';break;
-		}		
-		dt = day+"-"+mon+"-"+year;			
-		return dt;	
+		}
+		dt = day+"-"+mon+"-"+year;
+		return dt;
 }
 
 
@@ -1126,9 +1126,9 @@ function formatDate6(dt){
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
-	dt = day+"/"+mon+"/"+year;			
-		return dt;	
+	var year=array[2].substring(0,4);
+	dt = day+"/"+mon+"/"+year;
+		return dt;
 }
 
 /**
@@ -1140,16 +1140,16 @@ function formatDate7(dt){
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
-	dt = mon+"-"+day+"-"+year;			
-		return dt;	
+	var year=array[2].substring(0,4);
+	dt = mon+"-"+day+"-"+year;
+		return dt;
 }
 function formatDate8(dt){
 	if(dt==null || dt==''  || dt=="" )return '';
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "1": mon = '01';break;
 			case "2": mon = '02';break;
@@ -1163,9 +1163,9 @@ function formatDate8(dt){
 			case "10": mon = '10';break;
 			case "11": mon = '11';break;
 			case "12": mon = '12';break;
-		}		
-		dt = day+"/"+mon+"/"+year;			
-		return dt;	
+		}
+		dt = day+"/"+mon+"/"+year;
+		return dt;
 }
 /**
 *	Input is dd/mm/yyyy
@@ -1176,7 +1176,7 @@ function formatDate1(dt){
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "01": mon = 'Jan';break;
 			case "02": mon = 'Feb';break;
@@ -1190,9 +1190,9 @@ function formatDate1(dt){
 			case "10": mon = 'Oct';break;
 			case "11": mon = 'Nov';break;
 			case "12": mon = 'Dec';break;
-		}		
-		dt = day+"/"+mon+"/"+year;			
-		return dt;	
+		}
+		dt = day+"/"+mon+"/"+year;
+		return dt;
 }
 //input=mm/dd/yyyy
 //op=dd/mm/yyyy
@@ -1202,7 +1202,7 @@ function formatDate2(dt){
 	var array = dt.split("/");
 	var mon=array[0];
 	var day=array[1];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "1": mon = '01';break;
 			case "2": mon = '02';break;
@@ -1216,9 +1216,9 @@ function formatDate2(dt){
 			case "10": mon = '10';break;
 			case "11": mon = '11';break;
 			case "12": mon = '12';break;
-		}		
-		dt = day+"/"+mon+"/"+year;			
-		return dt;	
+		}
+		dt = day+"/"+mon+"/"+year;
+		return dt;
 }
 
 //ip=mm/dd/yyyy
@@ -1228,7 +1228,7 @@ function formatDate3(dt){
 	var array = dt.split("/");
 	var mon=array[0];
 	var day=array[1];
-	var year=array[2].substring(0,4);			
+	var year=array[2].substring(0,4);
 		switch(mon){
 			case "01": mon = 'Jan';break;
 			case "02": mon = 'Feb';break;
@@ -1242,14 +1242,14 @@ function formatDate3(dt){
 			case "10": mon = 'Oct';break;
 			case "11": mon = 'Nov';break;
 			case "12": mon = 'Dec';break;
-		}		
-		dt = day+"-"+mon+"-"+year;			
-		return dt;	
+		}
+		dt = day+"-"+mon+"-"+year;
+		return dt;
 }
 
-function disableControls(frmIndex, isDisable){		
-			for(var i=0;i<document.forms[frmIndex].length;i++)			
-				document.forms[frmIndex].elements[i].disabled =isDisable;														
+function disableControls(frmIndex, isDisable){
+			for(var i=0;i<document.forms[frmIndex].length;i++)
+				document.forms[frmIndex].elements[i].disabled =isDisable;
 }
 
 function back(obj){
@@ -1261,7 +1261,7 @@ function closeChilds(obj,count){
 	for(i=1;i<count;i++){
 		var cWind=obj[i];
 		cWind.close();
-	} 
+	}
 }
 function ButtonPress(name)
 {
@@ -1342,7 +1342,7 @@ function callme(val,val1)
 	var mode="view";
 	switch(val1)
 	{
-		
+
 		case 'JVG':
 		//window.open("../HTML/JV_General.htm?cgNumber="+val+"&showMode="+mode,"","height=650,width=900,scrollbars=yes,left=30,top=30,status=yes");
 		  window.open("../HTML/VMC/JV_General_VMC.jsp?cgNumber="+val+"&showMode="+mode,"","height=650,width=900,scrollbars=yes,left=30,top=30,status=yes");
@@ -1415,11 +1415,11 @@ function callmeAP(val,val1)
 {
  var mode="view";
  window.open("/services/EGF/voucher/preApprovedVoucher!loadvoucherviewByCGN.action?cgn="+val+"&showMode="+mode,"","height=650,width=900,scrollbars=yes,left=30,top=30,status=yes");
- 
+
  /*
  switch(val1)
  {
- 
+
   case 'JVG':
   window.open("../HTML/VMC/JV_General_VMC.jsp?cgNumber="+val+"&showMode="+mode,"","height=650,width=900,scrollbars=yes,left=30,top=30,status=yes");
   break;
@@ -1485,22 +1485,22 @@ function callmeAP(val,val1)
 * This function will open the respective windows on shotcutkeys.
 * We are using Alt-1,Atl-2,.....Alt-0.
 * Alt-X will close the window
-*/	
+*/
 function CloseWindow(obj){
 
-	if(!obj) 
+	if(!obj)
 	   var obj = window.event;
 	var code;
-	if (obj.keyCode) 
+	if (obj.keyCode)
 	   code = obj.keyCode;
-	else if (obj.which) 
+	else if (obj.which)
 	   code = obj.which;
 
 	if(obj.altKey){
 		//var code=window.event.keyCode;
 		switch(code){
 		case 88:
-		//var aa=obj.opener.focus();		
+		//var aa=obj.opener.focus();
 		this.close();
 		break;
 		case 49:window.open("PT_Field.htm?showMode=new","","height=650,width=900,scrollbars=yes,left=0,top=0,status=yes");break;
@@ -1521,7 +1521,7 @@ function CloseWindow(obj){
 		}
 	}
 }
-	
+
 function newWindow(url)
 {
    newwindow=window.open(url,'name',"height=600,width=900,scrollbars=yes,left=100,top=100,status=no,toolbar=no");
@@ -1530,7 +1530,7 @@ function newWindow(url)
 
 }
 // *************  Ajax Related Functions ************* //
-// *************       	Start            ************* // 
+// *************       	Start            ************* //
 
 //XMLHttpRequest is a request object used in Ajax. We create a Request Object here.
 
@@ -1543,7 +1543,7 @@ function initiateRequest() {
            return new ActiveXObject("Microsoft.XMLHTTP");
        }
    }
-   
+
 //We clear the table whenever we get a new set of values.
 
 function clearTable(completeTable) {
@@ -1553,8 +1553,8 @@ function clearTable(completeTable) {
       completeTable.style.visible = false;
       for (loop = completeTable.childNodes.length-1;loop >=0 ;loop--) {
        completeTable.removeChild(completeTable.childNodes[loop]);
-       
-       
+
+
       }
     }
 }
@@ -1568,23 +1568,23 @@ function paintCodes(responseText,autorow,menu,completeTable)
 	var codes = a[0];
 	codeArray=codes.split("+");
 	var accCodes=codeArray[0];
-		
+
 	if (accCodes != null)
 	{
     //	var autorow = document.getElementById("auto-row");
     //	var menu = document.getElementById("menu-popup");
-         
+
     	menu.style.top = getElementY(autorow) + "px";
-    	  	
+
       //completeTable = document.getElementById("completeTable");
     	completeTable.setAttribute("bordercolor", "white");
         completeTable.setAttribute("bordercolor", "black");
         completeTable.setAttribute("border", "1");
        }//if
-    else 
+    else
     {
         clearTable(completeTable);
-        
+
     }
 	var i=0;
 	while(codeArray[i] != null)
@@ -1592,9 +1592,9 @@ function paintCodes(responseText,autorow,menu,completeTable)
 	var accountcodes = codeArray[i];
 	appendCodes(accountcodes,completeTable);
 	i++;
-	
+
 	}
-	
+
 }//paintCodes
 
 
@@ -1635,10 +1635,10 @@ function appendCodes(accountcodes,completeTable) {
 }
 
 
-// *************       	End            ************* // 
+// *************       	End            ************* //
 
 function getControlInBranch(obj,controlName)
-{			
+{
 	if (!obj || !(obj.getAttribute)) return null;
 	// check if the object itself has the name
 	if (obj.getAttribute('name') == controlName) return obj;
@@ -1646,7 +1646,7 @@ function getControlInBranch(obj,controlName)
 	// try its children
 	var children = obj.childNodes;
 	var child;
-	if (children && children.length > 0){ 
+	if (children && children.length > 0){
 		for(var i=0; i<children.length; i++){
 			child=this.getControlInBranch(children[i],controlName);
 			if(child) return child;
@@ -1681,7 +1681,7 @@ function validateDate(val)
 	{
 		switch(mm+1)
 		{
-			case 1: maxdd = 31; break;  
+			case 1: maxdd = 31; break;
 			case 2: maxdd = 29; break;
 			case 3: maxdd = 31; break;
 			case 4: maxdd = 30; break;
@@ -1695,14 +1695,14 @@ function validateDate(val)
 			case 12: maxdd = 31; break;
 
 		 }
-		 if(dd > maxdd) return null;					 
+		 if(dd > maxdd) return null;
 
 	}
-	else 
+	else
 	{
 		switch(mm+1)
 		{
-			case 1: maxdd = 31; break;  
+			case 1: maxdd = 31; break;
 			case 2: maxdd = 28; break;
 			case 3: maxdd = 31; break;
 			case 4: maxdd = 30; break;
@@ -1724,7 +1724,7 @@ function validateDate(val)
 function checkDate(obj)
 {
 	var dat=validateDate(obj.value);
-	if (!dat) 
+	if (!dat)
 	{
 		bootbox.alert('Invalid date format : Enter Date as dd/mm/yyyy');
 		obj.focus();
@@ -1746,33 +1746,33 @@ function getRow(obj)
 /*
  * This function will check whether the entered field is unique or not
  */
- 
+
  function checkUnique(tablename,fieldname,fieldvalue)
  {
 	var type = "checkUniqueness";
 	var link = "/services/EGF/inventory/commons/uniqueChecking.jsp?type=" + type+"&tablename=" + tablename+"&fieldname=" + fieldname+ "&fieldvalue=" + fieldvalue+ " ";
-		
+
 	var request = initiateRequest();
 	var isUnique;
 	request.open("GET", link , false);
 	request.send(null);
-	if (request.status == 200) 
-	{	
+	if (request.status == 200)
+	{
 
  	    var response=request.responseText;
-  	    var result = response.split("/");  	    
+  	    var result = response.split("/");
 	    if(result[0]=="true")
 	    {
 		isUnique="true";
-	    }	
+	    }
 	    else if(result[0]=="false")
 	    {
-	    	bootbox.alert("Entered "+fieldname+" already exists");	
+	    	bootbox.alert("Entered "+fieldname+" already exists");
 		isUnique="false";
-	    }		
+	    }
 
 	}
-	
+
 	return isUnique;
 }
 
@@ -1782,14 +1782,14 @@ function getRow(obj)
 /*
  * This function returns absolue left and top position of the object
  */
-		function findPos(obj) 
+		function findPos(obj)
 		{
 			var curleft = curtop = 0;
-			if (obj.offsetParent) 
+			if (obj.offsetParent)
 			{
 				curleft = obj.offsetLeft;
 				curtop = obj.offsetTop;
-				while (obj = obj.offsetParent) 
+				while (obj = obj.offsetParent)
 				{	//bootbox.alert(obj.nodeName);
 					curleft =curleft + obj.offsetLeft;
 					curtop =curtop + obj.offsetTop; //bootbox.alert(curtop);
@@ -1804,10 +1804,10 @@ function IsNumeric(sText)
 	var IsNumber=true;
 	var Char;
 
-	for (i = 0; i < sText.length && IsNumber == true; i++) 
-	{ 
-	    Char = sText.charAt(i); 
-	    if (ValidChars.indexOf(Char) == -1) 
+	for (i = 0; i < sText.length && IsNumber == true; i++)
+	{
+	    Char = sText.charAt(i);
+	    if (ValidChars.indexOf(Char) == -1)
 	    {
 	       IsNumber = false;
 	    }
@@ -1820,13 +1820,13 @@ function IsNumeric(sText)
  		//bootbox.alert("formatAmount");
 
  		var i = parseFloat(amount);
- 		
- 		if(isNaN(i)) 
+
+ 		if(isNaN(i))
  		{
  		//bootbox.alert('isNaN');
- 		 i = 0.00; 
+ 		 i = 0.00;
  		}
-		
+
 		 var minus = '';
  			if(i < 0) { minus = '-'; }
  				i = Math.abs(i);
@@ -1845,16 +1845,16 @@ function checkForFunction_AccountCode(table,funId,glCode){ //,checkEntityDuplica
 	var funcIdtemp1,glcodeTemp1,funcIdtemp2,glcodeTemp2;
 	var tableObj = document.getElementById(table);
 	//bootbox.alert("length:"+tableObj.rows.length);
-	
 
-	for(i=1; i<tableObj.rows.length && tableObj.rows.length>2; i++){ 
+
+	for(i=1; i<tableObj.rows.length && tableObj.rows.length>2; i++){
 		funcIdtemp1=getControlInBranch(tableObj.rows[i],funId);
 		glcodeTemp1=getControlInBranch(tableObj.rows[i],glCode);
 		if(funcIdtemp1!="" && glcodeTemp1!="")continue;
 		//bootbox.alert('glcodeTemp1.getAttribute(id):'+ glcodeTemp1.getAttribute('id'));
 		if(glcodeTemp1.value == '') { bootbox.alert("delete empty row :"+i); return false;}
-		
-		for(j=i+1; j<tableObj.rows.length; j++){ 
+
+		for(j=i+1; j<tableObj.rows.length; j++){
 			funcIdtemp2=getControlInBranch(tableObj.rows[j],funId);
 			//bootbox.alert("funcIdtemp1:"+funcIdtemp1.value+";;;"+"funcIdtemp2:"+funcIdtemp2.value);
 			glcodeTemp2=getControlInBranch(tableObj.rows[j],glCode);
@@ -1865,7 +1865,7 @@ function checkForFunction_AccountCode(table,funId,glCode){ //,checkEntityDuplica
 	 	}
 	}
 	return true;
-	
+
 
 }
 /* checking for duplicate account code and Function Code and tdsCode Combination */
@@ -1874,17 +1874,17 @@ function checkForFunction_AccountCode_dedGrid(table,funId,glCode,tdsCode){ //,ch
 	var funcIdtemp1,glcodeTemp1,funcIdtemp2,glcodeTemp2,tds1,tds2;
 	var tableObj = document.getElementById(table);
 	//bootbox.alert("length:"+tableObj.rows.length);
-	
 
-	for(i=1; i<tableObj.rows.length && tableObj.rows.length>2; i++){ 
+
+	for(i=1; i<tableObj.rows.length && tableObj.rows.length>2; i++){
 		funcIdtemp1=getControlInBranch(tableObj.rows[i],funId);
 		glcodeTemp1=getControlInBranch(tableObj.rows[i],glCode);
 		if(funcIdtemp1!="" && glcodeTemp1!="")continue;
 		tds1=getControlInBranch(tableObj.rows[i],tdsCode);
 		//bootbox.alert('glcodeTemp1.getAttribute(id):'+ glcodeTemp1.getAttribute('id'));
 		//if(glcodeTemp1.value == '') { bootbox.alert("delete empty row: "+i); return false;}
-		
-		for(j=i+1; j<tableObj.rows.length; j++){ 
+
+		for(j=i+1; j<tableObj.rows.length; j++){
 			funcIdtemp2=getControlInBranch(tableObj.rows[j],funId);
 			//bootbox.alert("funcIdtemp1:"+funcIdtemp1.value+";;;"+"funcIdtemp2:"+funcIdtemp2.value);
 			glcodeTemp2=getControlInBranch(tableObj.rows[j],glCode);
@@ -1903,14 +1903,14 @@ function checkForFunction_AccountCode_dedGrid(table,funId,glCode,tdsCode){ //,ch
 	 	}
 	}
 	return true;
-	
+
 
 }
 function CheckVoucherNumberType(vNumnew,bNumnew,Type)
 {
 
 if(Type=='Auto')
-	{	
+	{
 	var mode=PageManager.DataService.getQueryField("showMode");
 	if(mode=='new')
 	document.getElementById(vNumnew).value=document.getElementById(bNumnew).value;
@@ -1932,7 +1932,7 @@ function validateNames(obj)
 			return;
 			}
 			}
-		
+
 
 
 		}
@@ -1961,7 +1961,7 @@ function convertDate(obj)
 	{
 		bootbox.alert('Invalid date');
 		return;
-	}	
+	}
 }
 //returns contextpath text
  function getContext() {
@@ -1982,10 +1982,10 @@ function convertDate(obj)
 			obj.value = fieldValue.substring(0,fieldValue.length-1) ;
 		}
 }
- 
+
  // validate the text field to not accept numbers.
  function validateIgnoreNumber(obj){
-	
+
 		var fieldValue = obj.value;
 		if(null != fieldValue.match(/\d/)){
 			obj.value = fieldValue.substring(0,fieldValue.length-1) ;
@@ -2009,11 +2009,11 @@ function validateDigitsAndDecimal(obj)
 		}
 		else
 		{
-			obj.value=obj.value.replace("+","");	
+			obj.value=obj.value.replace("+","");
 			obj.value=obj.value.trim();
 			if(isNaN(parseFloat(obj.value)))
 			{
-				obj.value=0;	
+				obj.value=0;
 			}
 			else
 			{
@@ -2029,7 +2029,7 @@ function validateDigitsAndDecimal(obj)
 		if(null == fieldValue.match(/(^-*\d+$)|(^-*\d+\.\$)|(^-*\d+\.\d+$)/)){
 			obj.value = fieldValue.substring(0,fieldValue.length-1) ;
 		}
-		
+
 }
 function amountConverter(amt) {
 	var formattedAmt = amt.toFixed(2);

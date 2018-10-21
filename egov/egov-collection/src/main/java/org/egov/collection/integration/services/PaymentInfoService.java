@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -51,7 +51,7 @@ import org.egov.collection.entity.ReceiptHeader;
 import org.egov.collection.integration.models.RestReceiptInfo;
 
 public interface PaymentInfoService {
-    
+
     /**
      * API gives information regarding the payment period and payment type
      * (Partially/Fully/Advance)

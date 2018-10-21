@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -126,7 +126,7 @@ public class CVoucherHeader extends StateAware implements java.io.Serializable{
 
     @Transient
     private String billNumber;
-    
+
     @Transient
     private String departmentName;
 
@@ -141,7 +141,7 @@ public class CVoucherHeader extends StateAware implements java.io.Serializable{
 
     @Transient
     private String voucherNumType;
-    
+
 
     public String getDepartmentName() {
 		return departmentName;

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,7 +61,7 @@
 			</div>
 		</s:if>
 		<s:if test="%{hasActionMessages()}">
-			<font  style='color: green ; font-weight:bold '> 
+			<font  style='color: green ; font-weight:bold '>
      					<s:actionmessage/>
    				</font>
 		</s:if>

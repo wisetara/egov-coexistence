@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,30 +61,30 @@
 		<many-to-one name="depositedInBank" class="org.egov.commons.Bank" fetch="select">
             <column name="depositedinbank" precision="22" scale="0" />
         </many-to-one>
-		
+
 		<many-to-one name="service" class="org.egov.infstr.models.ServiceDetails" fetch="select">
 			<column name="servicedetails" precision="22" scale="0" />
 		</many-to-one>
-		
+
 		<many-to-one name="bankAccounttoRemit" class="org.egov.commons.Bankaccount" fetch="select">
             <column name="bankaccounttoremit" precision="22" scale="0" />
         </many-to-one>
-		
+
 		<many-to-one name="createdBy" class="org.egov.infra.admin.master.entity.User"
 			fetch="select">
 			<column name="CREATEDBY" precision="22" scale="0" />
 		</many-to-one>
-		
+
 		<many-to-one name="modifiedBy" class="org.egov.infra.admin.master.entity.User"
 			fetch="select">
 			<column name="LASTMODIFIEDBY" precision="22" scale="0" />
 		</many-to-one>
-		
+
 		<property name="createdDate" column="CREATEDDATE" type="timestamp" />
 		<property name="modifiedDate" column="LASTMODIFIEDDATE" type="timestamp" />
 	</class>
 
 	    <query name="COLLECTION_BANKACCOUNT_BY_SERVICE_AND_BANK">
     <![CDATA[select cb.bankAccounttoRemit from org.egov.collection.entity.CollectionBankRemittance cb where cb.depositedInBank.code=? and cb.service.id=?]]></query>
-    
+
 </hibernate-mapping>

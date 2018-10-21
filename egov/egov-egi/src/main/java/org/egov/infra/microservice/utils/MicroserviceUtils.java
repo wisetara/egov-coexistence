@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -226,7 +226,7 @@ public class MicroserviceUtils {
 
     @Value("${egov.services.collection.service.receipts.search}")
     private String receiptSearchUrl;
-    
+
     @Value("${egov.services.collection.service.basm.search}")
     private String bankAccountServiceMappingSearchUrl;
 
@@ -647,7 +647,7 @@ public class MicroserviceUtils {
     }
 
     public List<BusinessDetails> getBusinessDetailsByType(String type){
-    
+
         final RestTemplate restTemplate = createRestTemplate();
 
         final String bd_url = hostUrl + businessDetailsServiceUrl + "?tenantId=" + getTenentId() + "&businessType=" + type;
@@ -881,40 +881,40 @@ public class MicroserviceUtils {
     }
 
     public List<Receipt> searchReciepts(String classification,Date fromDate,Date toDate,String businessCode,String receiptNo){
-       
+
         final StringBuilder url = new StringBuilder(hostUrl + receiptSearchUrl);
         final RequestInfoWrapper request = new RequestInfoWrapper();
         final RequestInfo requestinfo = new RequestInfo();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         String tenantId = getTenentId();
         requestinfo.setAuthToken(getUserToken());
-        
+
         request.setRequestInfo(requestinfo);
-        
+
         url.append("?tenantId="+tenantId);
         url.append("&classification="+classification);
-       
+
         if(null!=fromDate)
             url.append("&fromDate="+fromDate.getTime());
-        
+
         if(null!=toDate)
             url.append("&toDate="+toDate.getTime());
-        
+
         url.append("&businessCode="+businessCode);
-        
+
         if(null!=receiptNo&&!receiptNo.isEmpty()){
             url.append("&receiptNumbers=["+receiptNo+"]");
         }
-        
+
         ReceiptResponse response = restTemplate.postForObject(url.toString(), request, ReceiptResponse.class);
-        
+
         return response.getReceipts();
-        
-         
+
+
     }
-    
-    
+
+
     public List<Task> getTasks() {
 
         List<Task> tasks = new ArrayList<>();

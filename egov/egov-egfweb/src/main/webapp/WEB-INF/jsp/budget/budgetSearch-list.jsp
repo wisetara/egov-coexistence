@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -71,7 +71,7 @@
 				document.forms[0].action='/EGF/budget/budgetSearch-groupedBudgets.action';
 				document.forms[0].submit();
 				}
-			
+
 		</script>
 	<jsp:include page="budgetHeader.jsp" />
 	<s:form action="budgetSearch" theme="simple">
@@ -83,7 +83,7 @@
 			<div class="buttonbottom" style="padding-bottom: 10px;">
 				<input type="button" value="Search" class="buttonsubmit"
 					  onclick="return validateAndSubmit()" />
-				<s:reset value="Reset" cssClass="button" /> 
+				<s:reset value="Reset" cssClass="button" />
 				<input type="button" value="Close"
 					onclick="javascript:window.close()" class="button" />
 			</div>
@@ -127,6 +127,6 @@
 			</table>
 		</div>
 	</s:if>
-	
+
 </body>
 </html>

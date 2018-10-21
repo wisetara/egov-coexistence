@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2018  eGovernments Foundation
   ~
@@ -229,7 +229,7 @@
 		</div>
 		<div class="buttonbottom">
 			<input type="hidden" name="model.id" value='<s:property value="model.id"/>' />
-		    <input type="button" class="buttonsubmit" value="Save" id="Search" name="Search" onclick="return validateAndSubmit();" /> 
+		    <input type="button" class="buttonsubmit" value="Save" id="Search" name="Search" onclick="return validateAndSubmit();" />
 			<input type="button" value="Close" onclick="javascript:window.parent.postMessage('close','*');window.close();" class="button" />
 		</div>
 		<s:token />

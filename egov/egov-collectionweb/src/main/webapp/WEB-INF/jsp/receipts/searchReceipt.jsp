@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -48,7 +48,7 @@
   --%>
 
 <%@ include file="/includes/taglibs.jsp" %>
-<%@ taglib prefix="egov-authz" uri="/WEB-INF/taglib/egov-authz.tld" %> 
+<%@ taglib prefix="egov-authz" uri="/WEB-INF/taglib/egov-authz.tld" %>
 <link rel="stylesheet" type="text/css" href="<egov:url path='/yui/assets/skins/sam/autocomplete.css'/>" />
 <head>
 	<title><s:text name="searchreceipts.title"/></title>
@@ -56,7 +56,7 @@
 
 jQuery.noConflict();
 jQuery(document).ready(function() {
-  	 
+
      jQuery(" form ").submit(function( event ) {
     	 doLoadingMask();
     });
@@ -71,7 +71,7 @@ function isChecked(chk) {
 	if (chk.length == undefined) {
  	if (chk.checked == true)
   	return true;
- 	else return false;	
+ 	else return false;
  } else {
  	for (i = 0; i < chk.length; i++)
 		{
@@ -90,7 +90,7 @@ function checkselectedreceiptcount(obj)
 	{
 		if (cnt[i].checked == true )
 		{
-			j++; 
+			j++;
 			if(obj=='cancel' && receiptstatus[i].value=="Cancelled")
 			{
 				dom.get("selectedcancelledreceiptserror").style.display="block";
@@ -110,7 +110,7 @@ function checkselectedreceiptcount(obj)
 		return 0;
 	else if(j>1)
 		return 2;
-	else 
+	else
 		return 1;
 }
 
@@ -183,13 +183,13 @@ function checkcancelforselectedrecord()
 					window.scroll(0,0);
 					return false;
 				}
-				
+
 			}
 		}
 		dom.get("selectcancelerror").style.display="none";
 		var receipttype=document.getElementsByName('receipttype');
 		var cnt=document.getElementsByName('selectedReceipts');
-		
+
 		for (m = 0; m < cnt.length; m++)
 		{
 			if (cnt[m].checked == true )
@@ -202,10 +202,10 @@ function checkcancelforselectedrecord()
 				{
 					document.searchReceiptForm.action="challan-cancelReceipt.action";
 				}
-				
+
 			}
 		}
-		
+
 		document.searchReceiptForm.submit();
 	}
 }
@@ -261,11 +261,11 @@ function validate()
 		window.scroll(0,0);
 		return false;
 	}
-	
+
 	if(fromdate!="" && todate!="" && fromdate!=todate)
 	{
 		if(!checkFdateTdate(fromdate,todate))
-		{ 
+		{
 			dom.get("comparedatemessage").style.display="block";
 			window.scroll(0,0);
 			valSuccess= false;
@@ -273,26 +273,26 @@ function validate()
 		}
 	}
 	else
-	{		
+	{
 		dom.get("comparedatemessage").style.display="none";
 		doLoadingMask('#loadingMask');
 		valSuccess= true;
 		return true;
 	}
 	return valSuccess;
-	
+
 }
 
 /* var receiptNumberSelectionEnforceHandler = function(sType, arguments) {
       		warn('improperreceiptNumberSelection');
 }
-var receiptNumberSearchSelectionHandler = function(sType, arguments) { 
+var receiptNumberSearchSelectionHandler = function(sType, arguments) {
 			var oData = arguments[2];
 			dom.get("receiptNumberSearch").value=oData[0];
 }
 
 
-var manualReceiptNumberSearchSelectionHandler = function(sType, arguments) { 
+var manualReceiptNumberSearchSelectionHandler = function(sType, arguments) {
 	var oData = arguments[2];
 	dom.get("manualReceiptNumberSearch").value=oData[0];
 }
@@ -311,7 +311,7 @@ function checkviewforselectedrecord()
 	{
 		if (cnt[i].checked == true )
 		{
-			j++; 
+			j++;
 		}
 	}
 	//no records have been selected for view
@@ -323,11 +323,11 @@ function checkviewforselectedrecord()
 	}
 	// multiple records have been chosen . Viewing is allowed
 	else
-	{	
+	{
 		doLoadingMask('#loadingMask');
 		document.searchReceiptForm.action="receipt-viewReceipts.action";
 		document.searchReceiptForm.submit();
-	}	
+	}
 
 }
 
@@ -337,7 +337,7 @@ function onChangeServiceClass(obj)
     	populateserviceType({serviceClass:obj.value});
     }
 }
-</script> 
+</script>
 </head>
 <body>
 <div class="errorstyle" id="error_area" style="display:none;"></div>
@@ -405,7 +405,7 @@ function onChangeServiceClass(obj)
 	    <tr>
 	      <td width="4%" class="bluebox">&nbsp;</td>
 	      <td class="bluebox"><s:text name="service.master.classification"/> <span class="mandatory"></td>
-			<td class="bluebox"> 
+			<td class="bluebox">
 				<%-- <s:select list="serviceClassMap" headerKey="-1" headerValue="%{getText('miscreceipt.select')}"
 				name="serviceClass" id="serviceClass" onchange="onChangeServiceClass(this);"></s:select> --%>
 				<s:select name='type' list="#{'type':'MISCELLANEOUS' }"></s:select>
@@ -414,7 +414,7 @@ function onChangeServiceClass(obj)
                 url='receipts/ajaxReceiptCreate-ajaxLoadServiceByClassification.action' /> --%>
 	      <td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.servicetype"/> <span class="mandatory"></td>
 	      <td width="24%" class="bluebox"><s:select headerKey="-1"  headerValue="%{getText('searchreceipts.servicetype.select')}"  name="serviceTypeId" id="serviceType" cssClass="selectwk" list="dropdownData.serviceTypeList" listKey="code" listValue="name" value="%{serviceTypeId}" /> </td>
-	      
+
 	      <%-- <td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.counter"/></td>
 	      <td width="30%" class="bluebox"><s:select headerKey="-1" headerValue="%{getText('searchreceipts.counter.select')}" name="counterId" id="counter" cssClass="selectwk" list="dropdownData.counterList" listKey="id" listValue="name" value="%{counterId}" /> </td> --%>
 	    </tr>
@@ -435,27 +435,27 @@ function onChangeServiceClass(obj)
 	     <%--  <td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.user"/></td>
 	      <td width="30%" class="bluebox"><s:select headerKey="-1" headerValue="%{getText('searchreceipts.user.select')}" name="userId" id="user" cssClass="selectwk" list="dropdownData.userList" listKey="id" listValue="name" value="%{userId}" /> </td>
 	    --%>
-	    </tr>	    
+	    </tr>
 	 <%--    <tr>
 	      <td width="4%" class="bluebox">&nbsp;</td>
 	      <td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.status"/></td>
 	      <td width="24%" class="bluebox"><s:select id="searchStatus" name="searchStatus" headerKey="-1" headerValue="%{getText('searchreceipts.status.select')}" cssClass="selectwk" list="%{receiptStatuses}" value="%{searchStatus}" listKey="id" listValue="description" /> </td>
 	      <td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.paymenttype"/></td>
-	      <td width="30%" class="bluebox"><s:select headerKey="" headerValue="%{getText('searchreceipts.paymenttype.select')}" name="instrumentType" id="instrumentType" cssClass="selectwk" list="dropdownData.instrumentTypeList" listKey="type" listValue="type" value="%{instrumentType}" /> </td>	
+	      <td width="30%" class="bluebox"><s:select headerKey="" headerValue="%{getText('searchreceipts.paymenttype.select')}" name="instrumentType" id="instrumentType" cssClass="selectwk" list="dropdownData.instrumentTypeList" listKey="type" listValue="type" value="%{instrumentType}" /> </td>
 	    </tr>
 	    <tr>
 	      <td width="4%" class="bluebox">&nbsp;</td>
 	      <td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.manual.receiptno"/></td>
 	      <td width="24%" class="bluebox"><s:textfield id="manualReceiptNumber" type="text" name="manualReceiptNumber"/></td>
 	      <td width="21%" class="bluebox"> &nbsp; </td>
-	      <td width="30%" class="bluebox"> &nbsp; </td>   
+	      <td width="30%" class="bluebox"> &nbsp; </td>
 	    </tr> --%>
-	   <%--  
+	   <%--
 	    <tr>
 					<td>
 						<div class="subheadsmallnew"><span class="subheadnew">
 											<s:text name="bankcollection.title" />
-						</span>		
+						</span>
 						</div>
 					</td>
 		</tr>
@@ -482,11 +482,11 @@ function onChangeServiceClass(obj)
       <s:if test="%{results.isEmpty()}">
       	<input name="closebutton" type="button" class="button" id="closebutton" value="Close" onclick="window.close();"/>
       </s:if>
-      
+
 </div>
 <s:if test='%{resultList.isEmpty()}'>
 		<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablebottom">
-		<tr> 
+		<tr>
 			<div>&nbsp;</div>
 			<div class="subheadnew"><s:text name="searchresult.norecord"/></div>
 		</tr>
@@ -494,7 +494,7 @@ function onChangeServiceClass(obj)
 </s:if>
 <s:if test='%{!resultList.isEmpty()}'>
 
-<div align="center">		
+<div align="center">
 <display:table name="searchResult" uid="currentRow" pagesize = "20" style="width:100%;border-left: 1px solid #DFDFDF;" cellpadding="0" cellspacing="0" export="false" requestURI="">
 <display:caption media="pdf">&nbsp;</display:caption>
 <display:column headerClass="bluebgheadtd"  class="blueborderfortd" style="width:3%">
@@ -526,7 +526,7 @@ function onChangeServiceClass(obj)
 </display:column> --%>
 <display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Status" style="width:8%;text-align:center" property="curretnStatus"></display:column>
 <%-- <display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Owner" style="width:8%;text-align:center" property="workflowUserName"></display:column> --%>
-</display:table>	 
+</display:table>
 </div>
 <br/>
 <div class="buttonbottom">
@@ -541,4 +541,4 @@ function onChangeServiceClass(obj)
 </s:form>
 </body>
 
-	
+

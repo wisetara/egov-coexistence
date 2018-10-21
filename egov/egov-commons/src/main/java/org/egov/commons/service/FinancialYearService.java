@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -95,9 +95,9 @@ public class FinancialYearService extends PersistenceService<CFinancialYear, Lon
             throw new ApplicationRuntimeException("Financial Year is not active For Posting.");
         return cFinancialYear;
     }
-    
+
    public List<CFinancialYear> Search(CFinancialYear finYear,List<Integer> ids,String sortBy,int pageSize,int offset){
-	   
+
 	   Criteria criteria = getSession().createCriteria(CFinancialYear.class);
 	   criteria.add(Restrictions.eq("financialyear", finYear.getFinYearRange()));
 	   criteria.add(Restrictions.eq("startingDate", finYear.getStartingDate()));
@@ -106,7 +106,7 @@ public class FinancialYearService extends PersistenceService<CFinancialYear, Lon
 	   criteria.add(Restrictions.eq("isACtiveForPosting",finYear.getIsActiveForPosting()));
 	   if(ids.size()>0)
 	   criteria.add(Restrictions.in("id", ids));
-	   
+
 	   criteria.setFirstResult(offset);
 	   criteria.setMaxResults(pageSize);
 	   criteria.addOrder(Order.asc(sortBy));

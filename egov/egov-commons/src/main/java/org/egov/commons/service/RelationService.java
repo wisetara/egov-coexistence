@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -58,7 +58,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ *
  * @author mani
  * Service class for Relation Object
  */
@@ -100,14 +100,14 @@ public class RelationService extends PersistenceService<Relation, Integer> imple
 
 		return null;
 	}
-	
+
 	public List<EntityType> getAllActiveEntities() {
 	      List<EntityType> entities=new ArrayList<EntityType>();
 			entities.addAll(findAllBy("from Relation r where r.isactive=?",true));
 	       return entities;
 		}
 	public List<Relation> validateEntityForRTGS(List<Long> idsList) throws ValidationException {
-		 
+
 		List<Integer> ids=new ArrayList<Integer>();
 		if(idsList!=null)
 		{
@@ -116,15 +116,15 @@ public class RelationService extends PersistenceService<Relation, Integer> imple
 				ids.add(id.intValue());
 			}
 		}
-	 
+
 	 List<Relation> entities=null;
 	 Query entitysQuery = getSession().createQuery(" from Relation where tinno is null or bankname is null or bankaccount is null and id in ( :IDS )");
 	 entitysQuery.setParameterList("IDS", ids);
 	 entities = entitysQuery.list();
 	return entities;
-		 
+
 	 }
-	
+
 	 public List<Relation> getEntitiesById(List<Long> idsList) throws ValidationException {
 		 List<Integer> ids=new ArrayList<Integer>();
 			if(idsList!=null)
@@ -134,12 +134,12 @@ public class RelationService extends PersistenceService<Relation, Integer> imple
 					ids.add(id.intValue());
 				}
 			}
-		 
+
 		 List<Relation> entities=null;
 		 Query entitysQuery = getSession().createQuery(" from Relation where id in ( :IDS )");
 		 entitysQuery.setParameterList("IDS", ids);
 		 entities = entitysQuery.list();
 		return entities;
-		 
+
 	 }
 }

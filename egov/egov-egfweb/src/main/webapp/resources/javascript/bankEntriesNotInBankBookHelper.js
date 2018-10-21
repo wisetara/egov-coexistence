@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -286,35 +286,35 @@ function enableAll() {
 function disableAll() {
 	if(document.getElementById('fundId'))
 		document.getElementById('fundId').disabled = true;
-	
+
 	if(document.getElementById('vouchermis.function'))
 		document.getElementById('vouchermis.function').disabled = true;
-	
+
 	if(document.getElementById('vouchermis.departmentid'))
 		document.getElementById('vouchermis.departmentid').disabled = true;
-	
+
 	if(document.getElementById('schemeid'))
 		document.getElementById('schemeid').disabled = true;
-	
+
 	if(document.getElementById('subschemeid'))
 		document.getElementById('subschemeid').disabled = true;
-	
+
 	if(document.getElementById('vouchermis.functionary'))
 		document.getElementById('vouchermis.functionary').disabled = true;
-	
+
 	if(document.getElementById('fundsourceId'))
 		document.getElementById('fundsourceId').disabled = true;
-	
+
 	if(document.getElementById('vouchermis.divisionid'))
 		document.getElementById('vouchermis.divisionid').disabled = true;
-	
+
 	if(document.getElementById('bank'))
 		document.getElementById('bank').disabled = true;
-	
+
 	if(document.getElementById('bank_branch'))
 		document.getElementById('bank_branch').disabled = true;
-	
+
 	if(document.getElementById('bankaccount'))
 		document.getElementById('bankaccount').disabled = true;
-	
+
 }

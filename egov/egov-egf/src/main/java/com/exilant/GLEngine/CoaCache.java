@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -72,7 +72,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
- 
+
 
 @Component
 public class CoaCache implements Serializable {
@@ -149,15 +149,15 @@ public class CoaCache implements Serializable {
             final HashMap<String, HashMap> hm = new HashMap<String, HashMap>();
             hm.put(ACCOUNTDETAILTYPENODE, accountDetailType);
             hm.put(GLACCCODENODE, glAccountCodes);
-            if (LOGGER.isDebugEnabled()) 
+            if (LOGGER.isDebugEnabled())
             	LOGGER.debug("Loading size:" + glAccountCodes.size());
             hm.put(GLACCIDNODE, glAccountIds);
             applicationCacheManager.put(ROOTNODE, hm);
         } catch (final Exception e) {
             throw e;
         }
-        
-        
+
+
     }
 
     private synchronized void loadParameters(final HashMap glAccountCodes, final HashMap glAccountIds)

@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -80,7 +80,7 @@ function warningInfo()
 <s:push value="model">
 <div class="formmainbox">
 	<div class="subheadnew"><s:text name="cancelreceipt.title"/></div>
-	
+
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<s:hidden label="receiptId" id="receiptId" name="receiptId" value="%{model.id}"/>
 			<tr>
@@ -145,7 +145,7 @@ function warningInfo()
 							</s:if>
 							</td>
 						</tr>
-						
+
 						</s:iterator>
 
 						<s:iterator value='%{getInstruments("card")}' >
@@ -156,16 +156,16 @@ function warningInfo()
 						</tr>
 						</s:iterator>
 
-						
+
 						<tr>
 							<td width="4%" class="bluebox2">&nbsp;</td>
 							<td width="21%" class="bluebox2"><s:text name="billreceipt.reasonforcancellation"/><span class="mandatory"></span></td>
 							<td width="24%" class="bluebox2" colspan="7"><s:textarea id="reasonForCancellation" label="reasonForCancellation" cols="90" rows="8" name="reasonForCancellation" value="%{reasonForCancellation}" /></td>
 						</tr>
 					</table>
-			</tr>	
-			
-			
+			</tr>
+
+
 		</table>
 
 		<br/>
@@ -173,7 +173,7 @@ function warningInfo()
 		<div class="buttonbottom">
 		<input name="button32" type="button" class="buttonsubmit" id="button32"  value="Cancel Receipt" onclick="return warningInfo();"/>
 		<input name="button2" type="button" class="button" id="button" onclick="window.close()" value="Close"/>
-		<input name="buttonBack" type="button" class="button" id="buttonBack" value="Back" onclick="window.location='${pageContext.request.contextPath}/receipts/searchReceipt.action';"  /> 
+		<input name="buttonBack" type="button" class="button" id="buttonBack" value="Back" onclick="window.location='${pageContext.request.contextPath}/receipts/searchReceipt.action';"  />
 		</div>
 </div>
 </s:push>

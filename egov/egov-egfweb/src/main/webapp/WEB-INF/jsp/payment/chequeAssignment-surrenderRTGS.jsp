@@ -1,6 +1,6 @@
  <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,7 +51,7 @@
 <%@ taglib prefix="egov" tagdir="/WEB-INF/tags"%>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" 
+<link rel="stylesheet" type="text/css"
 href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 <title><s:text name="surrender.rtgs" /></title>
 </head>
@@ -62,7 +62,7 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 		<jsp:include page="../budget/budgetHeader.jsp">
 			<jsp:param name="heading" value="Surrender RTGS" />
 		</jsp:include>
-		<span class="mandatory1"> <s:actionerror /> <s:fielderror /> 
+		<span class="mandatory1"> <s:actionerror /> <s:fielderror />
 		<s:actionmessage />
 		</span>
 			<div class="subheadnew"></div>
@@ -100,27 +100,27 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 								<s:hidden name="instrumentHeaderId" value="%{id}" />
 								<s:hidden name="paymentVoucherNumber"
 									value="%{voucherHeaderId.id}" />
-									
-									
+
+
 								<td style="text-align: center" class="blueborderfortdnew" />
 								<s:property value="#stat.index+1" />
 								</td>
 								<td style="text-align: center" class="blueborderfortdnew"><s:property
 										value="%{transactionNumber}" /><s:hidden name="transactionNumber"
 								value="%{transactionNumber}" /></td>
-										
-										
+
+
 								<td style="text-align: right" class="blueborderfortdnew"><s:text
 										name="format.number">
 										<s:param value="%{instrumentAmount}" />
 									</s:text></td>
-							
-									
+
+
 								<td style="text-align: center" class="blueborderfortdnew"><s:date
 										name="%{transactionDate}" format="dd/MM/yyyy" /> <s:hidden name="transactionDate"
 								value="%{transactionDate}" />
 								</td>
-								
+
 								<td style="text-align: center" class="blueborderfortdnew">
 									<s:iterator var="v" value="instrumentVouchers" status="st">
 										<A href="#"
@@ -157,18 +157,18 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 				<s:if test="%{instrumentHeaderList.size()>0}">
 					<div class="buttonbottom">
 						<s:hidden name="button" id="button" />
-						
-					
+
+
 					 <s:hidden name="selectedRowsId" id="selectedRowsId"
 						value="%{selectedRowsId}" />
-						 
-					
+
+
 						<input type="button" Class="buttonsubmit" name="Surrender"
 							value="Surrender" onclick="return surrenderChq();" method="save" />
-							
-						
-					
-					
+
+
+
+
 						<input type="button" value="Close"
 							onclick="javascript:window.close()" class="button" />
 					</div>
@@ -194,7 +194,7 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 				var index = obj.id.substring(19,obj.id.length);
 				if(obj.value=='')
 					return true;
-				//bootbox.alert(index);		
+				//bootbox.alert(index);
 				if(document.getElementById('department') && document.getElementById('department').options[document.getElementById('department').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
@@ -209,8 +209,8 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 				var url = '${pageContext.request.contextPath}/voucher/common-ajaxValidateChequeNumber.action?bankaccountId='+document.getElementById('bankaccount').value+'&chequeNumber='+obj.value+'&index='+index+'&departmentId='+dept+"&serialNo="+slNo;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url,callback , null);
 			}
-			
-			
+
+
 			var callback = {
 				success: function(o) {
 					var res=o.responseText;
@@ -225,8 +225,8 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 			    	bootbox.alert('failure');
 			    }
 			}
-			
-		
+
+
 	function openDetails(val)
 	{
 	var mode="view";
@@ -271,7 +271,7 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 					bootbox.alert(alertOnlyNumber);
 					}
 					}
-					
+
 					if(newChqDateObj[i].value=="" || newChqDateObj[i].value==undefined)
 					{
 					bootbox.alert(alertDate);
@@ -279,18 +279,18 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 					return false;
 	 				}
 	 			}
-	  	
+
 	 		}
-	 	
+
  		}
 	 	disableAll();
 	 	document.chequeAssignment.action = '/services/EGF/payment/chequeAssignment-save.action?containsRTGS='+document.getElementById('containsRTGS').value;
 		document.chequeAssignment.submit();
-		
+
  	}
  	var selectedRowsId = new Array();
   	function resetSelectedRowsId(){
-  		
+
   		var newSurrendarReasonsObj=document.getElementsByName('surrendarReasons');
  		//var newSerialNoObj=document.getElementsByName('newSerialNo');
  		var newChqNoObj=document.getElementsByName('transactionNumber');
@@ -304,15 +304,15 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 							newChqNoObj[index].value+"~"+
 							newChqDateObj[index].value+"~"+"~"+
 							//newSerialNoObj[index].value+";"+
-							newSurrendarReasonsObj[index].value+";"				
+							newSurrendarReasonsObj[index].value+";"
 							);
-					
-					
+
+
 				}
 			}
 			document.getElementById('selectedRowsId').value = selectedRowsId;
 	}
-	
+
   	function disableAll()
 	{
 		var frmIndex=0;
@@ -325,18 +325,18 @@ href="/services/EGF/resources/css/ccMenu.css?rnd=${app_release_no}" />
 							document.forms[0].elements[i].name != 'button' && document.forms[0].elements[i].name != 'selectedRowsId'
 							&& document.forms[0].elements[i].name != 'containsRTGS' && document.forms[0].elements[i].name != 'voucherNumber'
 							&& document.forms[0].elements[i].name != 'instrumentNumber' && document.forms[0].elements[i].name != 'surrender'
-							&& document.forms[0].elements[i].name != 'department' && document.forms[0].elements[i].name != 'newInstrumentNumber' 
-							&& document.forms[0].elements[i].name != 'newInstrumentDate' && document.forms[0].elements[i].name != 'surrendarReasons' 
+							&& document.forms[0].elements[i].name != 'department' && document.forms[0].elements[i].name != 'newInstrumentNumber'
+							&& document.forms[0].elements[i].name != 'newInstrumentDate' && document.forms[0].elements[i].name != 'surrendarReasons'
 							&& document.forms[0].elements[i].name != 'newInstrumentDate'){
 							document.forms[frmIndex].elements[i].disabled =true;
-						}						
-					}	
+						}
+					}
 			}
 	}
- 	
- 		
+
+
 	</script>
 </body>
 
 </html>
- 
+

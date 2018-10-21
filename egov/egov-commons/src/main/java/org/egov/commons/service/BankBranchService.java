@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -97,22 +97,22 @@ public class BankBranchService extends PersistenceService<Bankbranch, Integer> {
         }
         return bankBranchList;
     }
-    
+
     public List<Bankbranch> search(Bankbranch bb,List<Long> ids,Long bankId,String sortBy,Integer offset,Integer pageSize){
-    	
-    	
+
+
     	Criteria bankCriteria = getSession().createCriteria(Bank.class);
-    	
+
     	Criteria bbCriteria = bankCriteria.createCriteria("bankbranch");
-    	
+
     	bbCriteria.add(Restrictions.eq("bankid", bankId));
-    	
+
     	bbCriteria.add(Restrictions.eq("code", bb.getBranchcode()));
     	bbCriteria.add(Restrictions.eq("name", bb.getBranchname()));
     	bbCriteria.add(Restrictions.eq("isactive", bb.getIsactive()));
-    	
+
     	bbCriteria.add(Restrictions.in("id", ids));
-    	
+
     	bbCriteria.setFirstResult(offset);
     	bbCriteria.setMaxResults(pageSize);
     	bbCriteria.addOrder(Order.asc(sortBy));

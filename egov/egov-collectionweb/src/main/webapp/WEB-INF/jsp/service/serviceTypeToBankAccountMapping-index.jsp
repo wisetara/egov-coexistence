@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -132,7 +132,7 @@
 								name="service.master.accountnumber" /> </td>
 						<td class="bluebox"><s:select headerKey="-1"
 								headerValue="----Choose----" name="bankAccountId"
-								id="bankAccountId" cssClass="selectwk" 
+								id="bankAccountId" cssClass="selectwk"
 								list="dropdownData.bankAccountIdList" listKey="id"
 								listValue="accountnumber" value="%{bankAccountId.id}" /></td>
 					</tr>

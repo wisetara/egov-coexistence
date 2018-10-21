@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -169,7 +169,7 @@ public class EgBilldetailsHibernateDAO implements EgBilldetailsDAO {
 
     @Override
     public EgBilldetails getBillDetails(final Long billId, final List glcodeIdList) throws Exception {
-        
+
         try {
             StringBuilder qryStr = new StringBuilder();
             qryStr.append("from EgBilldetails bd where bd.creditamount>0 AND bd.glcodeid IN (:glcodeIds) AND billid=:billId ");

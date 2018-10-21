@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -85,7 +85,7 @@ public class VouchermisHibernateDAO  {
     @PersistenceContext
     private EntityManager entityManager;
 
-    
+
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }

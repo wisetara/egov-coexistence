@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -60,13 +60,13 @@
 function loadBank(fund){
 	//bootbox.alert(fund.value);
 	if(fund.value!=-1){
-		populatebank({fundId:fund.options[fund.selectedIndex].value})   
+		populatebank({fundId:fund.options[fund.selectedIndex].value})
 	}
 }
 function populateAccNumbers(bankBranch){
 	var fund = document.getElementById('fund');
 	id = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1]
-	populateaccountNumber({branchId:id,fundId:fund.options[fund.selectedIndex].value})	
+	populateaccountNumber({branchId:id,fundId:fund.options[fund.selectedIndex].value})
 }
 function validateFund(){
 	var fund = document.getElementById('fund').value;
@@ -91,7 +91,7 @@ function validateMandatoryFields(){
 		var bankAccount = document.getElementById('accountNumber').value;
 		var bank = document.getElementById('bank').value;
 		var accountNo="";
-		
+
 		if(fund == -1){
 			bootbox.alert("Please select a Fund")
 			return false;
@@ -117,7 +117,7 @@ function validateMandatoryFields(){
 			bootbox.alert("Please enter a valid end date")
 			return false;
 		}
-		return true;	
+		return true;
 }
 function doAfterSubmit(){
 	document.getElementById('loading').style.display ='block';
@@ -227,8 +227,8 @@ function loadSearch(){
 				</td>
 
 				<s:if test="%{manualEntryReportList.size!=0}">
-					<script>             
-				document.getElementById('loading').style.display ='none';	
+					<script>
+				document.getElementById('loading').style.display ='none';
 				</script>
 			</tr>
 			<td style="text-align: right" class="bluebox" colspan="3"><strong>Amounts

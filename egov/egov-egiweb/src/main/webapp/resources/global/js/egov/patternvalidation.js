@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -48,8 +48,8 @@
 
 jQuery(document).ready(function(){
 
-	patternvalidation(); 
-	
+	patternvalidation();
+
 });
 
 //Add class to input field "patternvalidation" and add custom data attribute(eg: data-pattern="alphabets")
@@ -57,12 +57,12 @@ jQuery(document).ready(function(){
 //This will allow you to enter only alphabets with or without space. (eg: data-pattern="alphabets")
 var regexp_alphabets = /[^a-zA-Z]/g;
 
-//Add class to input field "patternvalidation" and add custom data attribute(eg: data-pattern="alphabetwithspace") 
+//Add class to input field "patternvalidation" and add custom data attribute(eg: data-pattern="alphabetwithspace")
 
 //This will allow you to enter only alphabets with or without space. (eg: data-pattern="alphabetwithspace")
-var regexp_alphabet = /[^a-zA-Z ]/g ; 
+var regexp_alphabet = /[^a-zA-Z ]/g ;
 
-//This will allow you to enter only alphabets with specified special characters like dot(.), slash(/), hash(#), ampersand(&), plus(+), minus(-). If you need some additional special characters, add those characters to the corresponding regular expression. 
+//This will allow you to enter only alphabets with specified special characters like dot(.), slash(/), hash(#), ampersand(&), plus(+), minus(-). If you need some additional special characters, add those characters to the corresponding regular expression.
 //(eg: data-pattern="alphabetwithspecialcharacters")
 var regexp_alphabetspecialcharacters = /[^a-zA-Z_@./#&+-]/g ;
 
@@ -112,16 +112,16 @@ var regexp_special_name = /[^a-zA-Z0-9 ()/-]/g ;
 var regexp_code = /[^a-zA-Z0-9_-]/g ;
 
 function patternvalidation(){
-	
+
 	jQuery('.patternvalidation').on("input", function(){
-		
+
 		var fn = window[jQuery(this).data('pattern')];
-		if(typeof fn === "function") {	
+		if(typeof fn === "function") {
 			fn(this);
 		}
 
 	});
-	
+
 }
 
 function masterCode(obj){
@@ -195,7 +195,7 @@ function alphanumerichyphenbackslash(obj){
 function address(obj){
 	if(jQuery(obj).val().match(regexp_address)){
 		jQuery(obj).val( jQuery(obj).val().replace(regexp_address,'') );
-	}	
+	}
 }
 function username(obj){
 	if(jQuery(obj).val().match(regexp_username)){

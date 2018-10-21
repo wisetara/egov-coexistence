@@ -1,5 +1,5 @@
 
-create table EG_REGIONALHEIRARCHY (
+create table EG_REGIONALHIERARCHY (
 id bigint NOT NULL,
     code bigint not null,
     parent bigint,
@@ -12,5 +12,5 @@ id bigint NOT NULL,
     lastmodifiedby bigint,
     version bigint
 );
-CREATE SEQUENCE seq_eg_regionlaHeirarchy;
-ALTER TABLE ONLY EG_REGIONALHEIRARCHY ADD CONSTRAINT pk_eg_REGIONALHEIRARCHY  PRIMARY KEY (id);
+CREATE SEQUENCE seq_eg_regionlaHierarchy;
+ALTER TABLE ONLY EG_REGIONALHIERARCHY ADD CONSTRAINT pk_eg_REGIONALHIERARCHY  PRIMARY KEY (id);

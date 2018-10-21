@@ -4,8 +4,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
         <put-attribute name="body" value=""/>
         <put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
    </definition>
-    
+
     <definition name="error" template="/WEB-INF/views/template/error.jsp">
 		<put-attribute name="page-title" value="title.error.page" cascade="true"/>
         <put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -47,7 +47,7 @@
   ~   In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
   ~
   -->
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="org.egov.model.instrument.InstrumentHeader" table="EGF_INSTRUMENTHEADER">
@@ -69,7 +69,7 @@
         </many-to-one>
          <property name="createdBy" type="long"><column name="CREATEDBY"></column></property>
 		<property name="modifiedBy" type="long"><column name="LASTMODIFIEDBY"></column></property>
-       
+
 		<many-to-one name="statusId" class="org.egov.commons.EgwStatus" fetch="select">
             <column name="ID_STATUS" precision="22" scale="0" not-null="true" />
         </many-to-one>
@@ -82,11 +82,11 @@
         <property name="instrumentDate" type="java.util.Date">
             <column name="INSTRUMENTDATE"  />
         </property>
-       
+
         <property name="instrumentAmount" type="java.math.BigDecimal">
             <column name="INSTRUMENTAMOUNT" precision="20" not-null="true" />
         </property>
-       
+
         <property name="payTo" type="java.lang.String">
             <column name="PAYTO" length="50" />
         </property>
@@ -96,7 +96,7 @@
         <property name="bankBranchName" type="java.lang.String">
             <column name="bankBranchName" length="50" />
         </property>
-        
+
         <property name="isPayCheque" type="java.lang.String">
             <column name="ISPAYCHEQUE" length="1" />
         </property>
@@ -117,22 +117,22 @@
         </property>
              <property name="surrendarReason" type="java.lang.String">
             <column name="SURRENDARREASON" length="100" />
-            
+
         </property>
         <many-to-one name="serialNo" class="org.egov.commons.CFinancialYear" fetch="select">
             <column name="serialNo" precision="22" scale="0"  />
         </many-to-one>
-         
+
         <many-to-one name="ECSType" class="org.egov.infstr.models.ECSType" fetch="select">
 			 <column name="ECSTYPE" precision="22" scale="0" />
 		</many-to-one>
-		 
+
       <set name="instrumentVouchers" cascade="save-update,delete,delete-orphan" inverse="true">
             <key>
                 <column name="instrumentHeaderId" precision="22" scale="0"/>
             </key>
             <one-to-many class="org.egov.model.instrument.InstrumentVoucher" />
-        </set>         
+        </set>
     </class>
     <query name="INSTRUMENTHEADERBYID">from org.egov.model.instrument.InstrumentHeader where id=?</query>
     <query name="INSTRUMENT_STATUS_FOR_DISHONOR">from EgwStatus where moduletype = 'Instrument' and description in('Dishonored','dishonour cheque in workflow')</query>

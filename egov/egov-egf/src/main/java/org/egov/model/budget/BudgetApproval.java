@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,17 +52,17 @@ import java.math.BigDecimal;
 public class BudgetApproval {
 
     private Long id;
-    
+
     private String department;
-    
+
     private String parent;
-    
+
     private String referenceBudget;
-    
+
     private Long count;
-    
+
     private BigDecimal reAmount;
-    
+
     private BigDecimal beAmount;
 
     public Long getId() {
@@ -121,5 +121,5 @@ public class BudgetApproval {
         this.beAmount = beAmount;
     }
 
-    
+
 }

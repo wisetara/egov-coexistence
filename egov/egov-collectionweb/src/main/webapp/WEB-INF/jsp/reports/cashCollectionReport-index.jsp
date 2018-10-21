@@ -1,6 +1,6 @@
  <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -177,7 +177,7 @@ function validate()
 <div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
   <br/>
 	</div>
-	
+
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"
@@ -193,7 +193,7 @@ function validate()
 				<input type="button" class="button" id="buttonClose"
 					value="<s:text name='common.buttons.close'/>"
 					onclick="window.close()" />
-			</label>			
+			</label>
 		</div>
 
 </s:form>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -113,7 +113,7 @@
 							src="/services/egi/resources/erp2/images/calendaricon.gif" border="0" /></a></td>
 					<td class="greybox"><s:text name="voucher.todate" /><span
 						class="mandatory1">*</span></td>
-					 <s:date name="toDate" format="dd/MM/yyyy" var="tempToDate" />  
+					 <s:date name="toDate" format="dd/MM/yyyy" var="tempToDate" />
 					<td class="greybox"><s:textfield name="toDate" id="toDate"
 							maxlength="20"
 							onkeyup="DateFormat(this,this.value,event,false,'3')"
@@ -210,10 +210,10 @@
 
 			<script>
 
-	
+
 		function loadVoucherNames(selected)
 		{
-			var s="";  
+			var s="";
 			if(selected==-1)
 				{
 				document.getElementById('name').options.length=0;
@@ -225,14 +225,14 @@
 		 {
 		document.getElementById('name').options.length=0;
 		document.getElementById('name').options[0]= new Option('--------Choose--------','0');
-		
+
 		 <s:iterator value="voucherNames[#obj]" status="stat" var="names">
 		 document.getElementById('name').options[<s:property value="#stat.index+1"/>]= new Option('<s:property value="#names"/>','<s:property value="#names"/>');
-		 </s:iterator>   
+		 </s:iterator>
 		 }
 		 </s:iterator>
-			  
-			
+
+
 		}
 		function activeModeOfPayment()
 		{
@@ -245,7 +245,7 @@
 			document.getElementById('modeofpayment').style.display = "none";
 			}
 		}
-		
+
 		function validateSearch()
 		{
 			var startDate=document.getElementById('fromDate').value;
@@ -255,11 +255,11 @@
 		    var todate = endDate.split('/');
 		    endDate=new Date(todate[2],todate[1]-1,todate[0]);
 		    if(startDate > endDate)
-			{ 
+			{
 				bootbox.alert("Start date should be less than end date.")
 				return false;
-				} 
-			
+				}
+
  			document.forms[0].action='/services/EGF/report/voucherStatusReport-search.action';
 			document.forms[0].submit();
 			return true;

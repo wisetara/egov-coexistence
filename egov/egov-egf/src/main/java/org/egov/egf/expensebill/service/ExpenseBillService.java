@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -164,7 +164,7 @@ public class ExpenseBillService {
     private BudgetDetailsHibernateDAO budgetDetailsHibernateDAO;
     @Autowired
     private CFinancialYearService cFinancialYearService;
-    
+
     @Autowired
     private MicroserviceUtils microServiceUtil;
 
@@ -321,7 +321,7 @@ public class ExpenseBillService {
             deleteCheckList(updatedegBillregister);
             createCheckList(updatedegBillregister, checkLists);
             egBillregister.getEgBillregistermis().setBudgetaryAppnumber(null);
-      
+
 //            commented as budget check was disabled
 //            try {
 //                checkBudgetAndGenerateBANumber(egBillregister);
@@ -665,7 +665,7 @@ public class ExpenseBillService {
     public List<DocumentUpload> findByObjectIdAndObjectType(final Long objectId, final String objectType) {
         return documentUploadRepository.findByObjectIdAndObjectType(objectId, objectType);
     }
-    
+
     private Assignment getCurrentUserAssignmet(Long userId){
 //    	Long userId = ApplicationThreadLocals.getUserId();
     	List<EmployeeInfo> emplist = microServiceUtil.getEmployee(userId, new Date(), null, null);
@@ -674,34 +674,34 @@ public class ExpenseBillService {
     		Position position = new Position();
     		position.setId(emplist.get(0).getAssignments().get(0).getPosition());
     		assignment.setPosition(position);
-            
+
     		org.egov.pims.commons.Designation designation = new org.egov.pims.commons.Designation();
             Designation _desg = this.getDesignationDetails(emplist.get(0).getAssignments().get(0).getDesignation());
             designation.setCode(_desg.getCode());
             designation.setName(_desg.getName());
             assignment.setDesignation(designation);
-            
+
             org.egov.infra.admin.master.entity.Department department = new org.egov.infra.admin.master.entity.Department();
             Department _dept = this.getDepartmentDetails(emplist.get(0).getAssignments().get(0).getDepartment());
             department.setCode(_dept.getCode());
             department.setName(_dept.getName());
-            
+
             return assignment;
     	}
     	return null;
     }
     private Assignment getPrimaryUserAssignment(){
-    	
+
     	return null;
     }
-    
+
     private Department getDepartmentDetails(String deptCode){
-    	
+
     	Department dept = microServiceUtil.getDepartmentByCode(deptCode);
     	return dept;
-    	
+
     }
-    
+
     private Designation getDesignationDetails(String desgnCode){
     	List<Designation> desgnList = microServiceUtil.getDesignation(desgnCode);
     	return desgnList.get(0);

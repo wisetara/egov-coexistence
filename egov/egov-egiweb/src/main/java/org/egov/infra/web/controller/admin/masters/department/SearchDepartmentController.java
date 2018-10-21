@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -65,7 +65,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SearchDepartmentController {
 
     private static final String UPDATE = "update";
-    private static final String VIEW = "view"; 
+    private static final String VIEW = "view";
     private final DepartmentService departmentService;
 
     @Autowired

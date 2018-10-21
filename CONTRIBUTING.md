@@ -81,8 +81,8 @@ present in the framework.
 
 ```java
 /*
- * eGov suite of products aim to improve the internal efficiency,transparency,
- * accountability and the service delivery of the government  organizations.
+ * eGov suite of products aim to improve the internal efficiency, transparency,
+ * accountability and the service delivery of the government organizations.
  *
  *  Copyright (C) 2016  eGovernments Foundation
  *
@@ -238,7 +238,7 @@ Most importantly, please format your commit messages in the following way
 
      - Typically a hyphen or asterisk is used for the bullet, preceded by a
        single space, with blank lines in between, but conventions vary here
-    
+
 
 
 1. Use imperative statements in the subject line, e.g. "Fix broken Javadoc link".
@@ -301,7 +301,7 @@ and to keep complexity at a minimum. Your changes, if accepted, may be heavily
 modified prior to merging. You will retain "Author:" attribution for your Git
 commits granted that the bulk of your changes remain intact. You may be asked to
 rework the submission for style (as explained above) and/or substance. Again, we
-strongly recommend discussing any serious submissions with the eGov ERP 
+strongly recommend discussing any serious submissions with the eGov ERP
 team _prior_ to engaging in serious development work.
 
 Note that you can always force push (`git push -f`) reworked / rebased commits

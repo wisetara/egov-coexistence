@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -64,18 +64,18 @@ public class PersonalInformationServiceTest extends EISAbstractSpringIntegration
 
 	@Autowired
 	private PersonalInformationService personalInformationService;
-	
+
 	@Test
-	public void getEmployeeByUserId() {		
-		PersonalInformation emp = personalInformationService.getEmployeeByUserId(1l);		
-		
+	public void getEmployeeByUserId() {
+		PersonalInformation emp = personalInformationService.getEmployeeByUserId(1l);
+
 		assertNotNull(emp);
 	}
-	
+
 	@Test
 	public void getEmployeeByEmpId() {
 		PersonalInformation emp = personalInformationService.getEmployeeById(1);
-		
+
 		assertNotNull(emp);
 	}
 }

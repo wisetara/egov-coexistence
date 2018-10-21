@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -58,7 +58,7 @@ import java.lang.reflect.Type;
   public class AccountEntityJsonAdaptor implements JsonSerializer<AccountEntity>
  {
 @Override
- public JsonElement serialize(final AccountEntity accountEntity, final Type type,final JsonSerializationContext jsc) 
+ public JsonElement serialize(final AccountEntity accountEntity, final Type type,final JsonSerializationContext jsc)
 {
   final JsonObject jsonObject = new JsonObject();
  if (accountEntity != null)
@@ -68,6 +68,6 @@ import java.lang.reflect.Type;
  jsonObject.addProperty("code", accountEntity.getCode());
  jsonObject.addProperty("isactive", accountEntity.getIsactive());
  jsonObject.addProperty("id", accountEntity.getId());
-     } 
+     }
  return jsonObject;  }
  }

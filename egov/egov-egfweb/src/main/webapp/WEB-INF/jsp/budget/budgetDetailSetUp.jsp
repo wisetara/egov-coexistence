@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -105,73 +105,73 @@ function createAmountFieldFormatter(values,prefix,suffix){
 	<s:iterator value="dropdownData.budgetGroupList">
 	    budgetGroupOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 	</s:iterator>
-	<s:if test="%{shouldShowField('executingDepartment')}">		
+	<s:if test="%{shouldShowField('executingDepartment')}">
 	   	var executingDepartmentOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.executingDepartmentList">
 			executingDepartmentOptions.push({label:"<s:property value="deptName.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
 	</s:if>
-	<s:if test="%{shouldShowField('function')}">		
+	<s:if test="%{shouldShowField('function')}">
 		var functionOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.functionList">
 	    	functionOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
   	</s:if>
-   	<s:if test="%{shouldShowField('functionary')}">		
+   	<s:if test="%{shouldShowField('functionary')}">
 		var functionaryOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.functionaryList">
 	    	functionaryOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
    	</s:if>
-   	<s:if test="%{shouldShowField('scheme')}">		
+   	<s:if test="%{shouldShowField('scheme')}">
 		var schemeOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.schemeList">
 	    	schemeOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
    	</s:if>
-   	<s:if test="%{shouldShowField('subScheme')}">		
+   	<s:if test="%{shouldShowField('subScheme')}">
 		var subSchemeOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.subSchemeList">
 	    	subSchemeOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
    	</s:if>
-   	<s:if test="%{shouldShowField('fund')}">		
+   	<s:if test="%{shouldShowField('fund')}">
 		var fundOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.fundList">
 	    	fundOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
    	</s:if>
-   	<s:if test="%{shouldShowField('boundary')}">		
-		var boundaryOptions=[{label:"--- Select ---", value:"0"}];		
+   	<s:if test="%{shouldShowField('boundary')}">
+		var boundaryOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.boundaryList">
 			boundaryOptions.push({label:"<s:property value="name.replaceAll('\n',' ')"/>", value:'<s:property value="id"/>'})
 		</s:iterator>
 	</s:if>
-		
+
 		function addGridRows(){
 			<s:iterator value="budgetDetailList" status="stat">
 				budgetDetailsTable.addRow({SlNo:budgetDetailsTable.getRecordSet().getLength()+1,
 					"budget.id":'<s:property value="budget.id"/>',
 					"budgetGroup.id":'<s:property value="budgetGroup.id"/>',
-					<s:if test="%{shouldShowField('executingDepartment')}">				
+					<s:if test="%{shouldShowField('executingDepartment')}">
 						"executingDepartment.id":'<s:property value="executingDepartment.id"/>',
 					</s:if>
-					<s:if test="%{shouldShowField('functionary')}">				
+					<s:if test="%{shouldShowField('functionary')}">
 						"functionary.id":'<s:property value="functionary.id"/>',
 					</s:if>
-					<s:if test="%{shouldShowField('function')}">				
+					<s:if test="%{shouldShowField('function')}">
 						"function.id":'<s:property value="function.id"/>',
 					</s:if>
-					<s:if test="%{shouldShowField('scheme')}">				
+					<s:if test="%{shouldShowField('scheme')}">
 						"scheme.id":'<s:property value="scheme.id"/>',
 					</s:if>
-					<s:if test="%{shouldShowField('subScheme')}">				
+					<s:if test="%{shouldShowField('subScheme')}">
 						"subScheme.id":'<s:property value="subScheme.id"/>',
 					</s:if>
-					<s:if test="%{shouldShowField('fund')}">				
+					<s:if test="%{shouldShowField('fund')}">
 						"fund.id":'<s:property value="fund.id"/>',
 					</s:if>
-					<s:if test="%{shouldShowField('boundary')}">				
+					<s:if test="%{shouldShowField('boundary')}">
 						"boundary.id":'<s:property value="boundary.id"/>',
 					</s:if>
 					"old_actuals":'<s:property value="budgetAmountView[#stat.index].oldActuals"/>',
@@ -198,8 +198,8 @@ function createAmountFieldFormatter(values,prefix,suffix){
 			mandatoryFields.fund = <s:if test="%{isFieldMandatory('fund')}">true</s:if><s:else>false</s:else>;
 			if(mandatoryFields[field] == true)
 				return '<span class="mandatory">*</span>';
-			else 
-				return ''; 
+			else
+				return '';
 		}
 
 	var currentYear = 'Actuals<br/>(<s:property value="currentYearRange"/>)';
@@ -207,28 +207,28 @@ function createAmountFieldFormatter(values,prefix,suffix){
 	var lastButOneYear = 'Actuals<br/>(<s:property value="lastButOneYearRange"/>)';
 	var currentYearApproved = 'Approved<br/>(<s:property value="currentYearRange"/>)';
 	var makeBudgetDetailTable = function() {
-		var budgetDetailColumns = [ 
+		var budgetDetailColumns = [
 			{key:"budget.id",label:'<s:text name="budget.budget"/>',width:90, formatter:createHiddenTextFieldFormatter("budgetDetailList",".budget.id")},
 			{key:"budgetGroup.id",label:'Budget Group <span class="mandatory">*</span>',width:90, formatter:createDropdownFormatter(BUDGETDETAILLIST),dropdownOptions:budgetGroupOptions},
-			<s:if test="%{shouldShowField('executingDepartment')}">				
-				{key:"executingDepartment.id", label:'Executing Department'+mandatorySign('executingDepartment'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST), dropdownOptions:executingDepartmentOptions},				
+			<s:if test="%{shouldShowField('executingDepartment')}">
+				{key:"executingDepartment.id", label:'Executing Department'+mandatorySign('executingDepartment'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST), dropdownOptions:executingDepartmentOptions},
 			</s:if>
-			<s:if test="%{shouldShowField('functionary')}">				
+			<s:if test="%{shouldShowField('functionary')}">
 				{key:"functionary.id",label:'<s:text name="functionary"/>'+mandatorySign('functionary'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST),  dropdownOptions:functionaryOptions} ,
 			</s:if>
-			<s:if test="%{shouldShowField('function')}">				
+			<s:if test="%{shouldShowField('function')}">
 				{key:"function.id",label:'<s:text name="function"/>'+mandatorySign('Function'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST),  dropdownOptions:functionOptions} ,
 			</s:if>
-			<s:if test="%{shouldShowField('scheme')}">				
+			<s:if test="%{shouldShowField('scheme')}">
 				{key:"scheme.id",label:'<s:text name="scheme"/>'+mandatorySign('scheme'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST),  dropdownOptions:schemeOptions} ,
 			</s:if>
-			<s:if test="%{shouldShowField('subScheme')}">				
+			<s:if test="%{shouldShowField('subScheme')}">
 				{key:"subScheme.id",label:'<s:text name="subscheme"/>'+mandatorySign('subScheme'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST),  dropdownOptions:subSchemeOptions} ,
 			</s:if>
-			<s:if test="%{shouldShowField('fund')}">				
+			<s:if test="%{shouldShowField('fund')}">
 				{key:"fund.id",label:'<s:text name="fund"/>'+mandatorySign('fund'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST),  dropdownOptions:fundOptions} ,
 			</s:if>
-			<s:if test="%{shouldShowField('boundary')}">				
+			<s:if test="%{shouldShowField('boundary')}">
 				{key:"boundary.id",label:'<s:text name="field"/>'+mandatorySign('boundary'),width:90,formatter:createDropdownFormatter(BUDGETDETAILLIST),  dropdownOptions:boundaryOptions} ,
 			</s:if>
 			{key:"old_actuals",label:lastButOneYear,width:90, formatter:createAmountFieldFormatter(gridOldActuals,"budgetAmountView",".oldActuals")},
@@ -243,18 +243,18 @@ function createAmountFieldFormatter(values,prefix,suffix){
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var budgetDetailDS = new YAHOO.util.DataSource(); 
-		budgetDetailsTable = new YAHOO.widget.DataTable("budgetDetailTable",budgetDetailColumns, budgetDetailDS);	
+	    var budgetDetailDS = new YAHOO.util.DataSource();
+		budgetDetailsTable = new YAHOO.widget.DataTable("budgetDetailTable",budgetDetailColumns, budgetDetailDS);
 		budgetDetailsTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				budgetDetailsTable.addRow({SlNo:budgetDetailsTable.getRecordSet().getLength()+1});
 				updateAllGridValues();
 			}
-			if (column.key == 'Delete') { 			
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(i=0;i<allRecords.getLength();i++){
@@ -264,7 +264,7 @@ function createAmountFieldFormatter(values,prefix,suffix){
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}        
+			}
 		});
 		<s:if test="%{budgetDetailList.size() == 0 && getActionErrors().size()==0 && getFieldErrors().size()==0}">
 			budgetDetailsTable.addRow({SlNo:budgetDetailsTable.getRecordSet().getLength()+1});
@@ -275,29 +275,29 @@ function createAmountFieldFormatter(values,prefix,suffix){
 
 	var listValues = new Array(<s:property value="budgetDetailList.size"/>);
 	<s:iterator value="budgetDetailList" status="stat">
-		<s:if test="budget.id"> 
+		<s:if test="budget.id">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].budget.id"] = <s:property value="budget.id"/>;
 		</s:if>
 		listValues["budgetDetailList[<s:property value='#stat.index'/>].budgetGroup.id"] = <s:if test="budgetGroup.id"><s:property value="budgetGroup.id"/></s:if><s:else>0</s:else>;
-		<s:if test="%{shouldShowField('executingDepartment')}">				
+		<s:if test="%{shouldShowField('executingDepartment')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].executingDepartment.id"] = <s:if test="executingDepartment.id"><s:property value="executingDepartment.id"/></s:if><s:else>0</s:else>;
 		</s:if>
-		<s:if test="%{shouldShowField('function')}">				
+		<s:if test="%{shouldShowField('function')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].function.id"] = <s:if test="function.id"><s:property value="function.id"/></s:if><s:else>0</s:else>;
 		</s:if>
-		<s:if test="%{shouldShowField('functionary')}">				
+		<s:if test="%{shouldShowField('functionary')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].functionary.id"] = <s:if test="functionary.id"><s:property value="functionary.id"/></s:if><s:else>0</s:else>;
 		</s:if>
-		<s:if test="%{shouldShowField('scheme')}">				
+		<s:if test="%{shouldShowField('scheme')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].scheme.id"] = <s:if test="scheme.id"><s:property value="scheme.id"/></s:if><s:else>0</s:else>;
 		</s:if>
-		<s:if test="%{shouldShowField('subScheme')}">				
+		<s:if test="%{shouldShowField('subScheme')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].subScheme.id"] = <s:if test="subScheme.id"><s:property value="subScheme.id"/></s:if><s:else>0</s:else>;
 		</s:if>
-		<s:if test="%{shouldShowField('fund')}">				
+		<s:if test="%{shouldShowField('fund')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].fund.id"] = <s:if test="fund.id"><s:property value="fund.id"/></s:if><s:else>0</s:else>;
 		</s:if>
-		<s:if test="%{shouldShowField('boundary')}">				
+		<s:if test="%{shouldShowField('boundary')}">
 			listValues["budgetDetailList[<s:property value='#stat.index'/>].boundary.id"] = <s:if test="boundary.id"><s:property value="boundary.id"/></s:if><s:else>0</s:else>;
 		</s:if>
 	</s:iterator>
@@ -305,7 +305,7 @@ function createAmountFieldFormatter(values,prefix,suffix){
 	function setValues(){
 		for (key in listValues){
 			setSelectedIndex(key)
-		} 
+		}
 	}
 
 	function hideColumns(){
@@ -364,5 +364,5 @@ function createAmountFieldFormatter(values,prefix,suffix){
 		   }
 		   if(query.lastIndexOf('&')==query.length-1) query=query.substring(0,query.length-1);
 		   return query;
-		}	
+		}
 </SCRIPT>

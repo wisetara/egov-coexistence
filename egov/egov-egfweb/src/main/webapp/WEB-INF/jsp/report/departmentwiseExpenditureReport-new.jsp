@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -59,17 +59,17 @@
 
 <script>
 function onLoadTask(){
-	//bootbox.alert("asdas");    
-	document.getElementById('asset').style.display ='none';      
+	//bootbox.alert("asdas");
+	document.getElementById('asset').style.display ='none';
 	//bootbox.alert("aaaa");
 	document.getElementById('monthRow').style.display='none';
 	document.getElementById('dateran').style.display='none';
-	
+
 	document.getElementById('fromDate').value="";
-	document.getElementById('toDate').value="";	 
+	document.getElementById('toDate').value="";
 	document.getElementById('assetCode').value="0";
-	//bootbox.alert("hiiii");  
-}   
+	//bootbox.alert("hiiii");
+}
 
 function changeType(obj){
 	var type = obj.value;
@@ -98,7 +98,7 @@ function validate(exportValue){
 	//bootbox.alert("fundid"+fund);
 	//bootbox.alert("exportValue"+exportValue);
 	document.getElementById('exportType').value=exportValue;
-	
+
 	if(fund==''||fund=='0'){
 		bootbox.alert("Please select a fund");
 		return false;
@@ -107,7 +107,7 @@ function validate(exportValue){
 		bootbox.alert("Please select report generation type");
 		return false;
 	}
-	
+
 	if (rpType == 'Month'){
 		//bootbox.alert("Hi you have selected reporttype month");
 		document.getElementById('fromDate').value="";
@@ -120,7 +120,7 @@ function validate(exportValue){
 			bootbox.alert("Please select month");
 			return false;
 		}
-		
+
 	}
 	else if(rpType == 'daterange'){
  		var fromDate =  Date.parse(document.getElementById('fromDate').value);
@@ -142,10 +142,10 @@ function validate(exportValue){
 		document.getElementById('toDate').value='';
 	}
 	return true;
-		
+
 }
 function populateAssetCode(obj){
-	//bootbox.alert()   
+	//bootbox.alert()
 	var fund=document.getElementById("fundId").value;
 	if(fund=='23'){
 		document.getElementById('asset').style.display ="inline";

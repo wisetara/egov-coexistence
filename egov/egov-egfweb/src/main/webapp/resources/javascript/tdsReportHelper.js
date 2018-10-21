@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -65,7 +65,7 @@ function validateData(){
 		bootbox.alert("Please select a Fund")
 		return false;
 	}
-	return true;	
+	return true;
 }
 var entitiesArray;
 var entities;
@@ -91,12 +91,12 @@ function loadEntities(){
 }
 var oAutoCompEntity;
 function autocompleteEntities(obj,myEvent){
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	target.style.width="600px";	
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+	target.style.width="600px";
 	var coaCodeObj=obj;
-	var key = window.event ? window.event.keyCode : myEvent.charCode;  
+	var key = window.event ? window.event.keyCode : myEvent.charCode;
 	if(key != 40 ){
 		if(key != 38 ){
 			oAutoCompEntity = new YAHOO.widget.AutoComplete(coaCodeObj,'codescontainer', entities);

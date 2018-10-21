@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -69,26 +69,26 @@ public class DrawingOfficerService implements EntityTypeService {
     public DrawingOfficerService(final DrawingOfficerRepository drawingOfficerRepository) {
         this.drawingOfficerRepository = drawingOfficerRepository;
     }
-    
-    
+
+
     public List<DrawingOfficer> getAllDrawingOfficers() {
         return drawingOfficerRepository.findAll();
     }
-    
-    
+
+
     /**
      * Get drawing officer object by id
-     * 
+     *
      * @param id
      * @return Drawing officer object
      */
     public DrawingOfficer findById(Long id) {
         return drawingOfficerRepository.findOne(id);
     }
-    
+
     /**
      * Get drawing officer object by drawing officer name
-     * 
+     *
      * @param name
      * @return Drawing officer object
      */
@@ -98,44 +98,44 @@ public class DrawingOfficerService implements EntityTypeService {
 
     /**
      * Get drawing officer by drawing officer code
-     * 
+     *
      * @param code
      * @return Drawing officer object
      */
     public DrawingOfficer getDrawingOfficerByCode(final String code) {
         return drawingOfficerRepository.findByCode(code);
     }
-    
+
     /**
      * Get drawing officer associated with a particular position
-     * 
+     *
      * @param posId
      * @return Drawing officer object
      */
     public DrawingOfficer getDrawingOfficerByPosition(final Long posId) {
         return drawingOfficerRepository.findByPosition_Id(posId);
     }
-    
+
     /**
      * Get List of drawing officer objects containing given name string
-     * 
+     *
      * @param name
      * @return List of drawing officer objects
      */
     public List<DrawingOfficer> getListOfDrawingOfficersByNameLike(final String name) {
         return drawingOfficerRepository.findByNameContainingIgnoreCase(name);
     }
-    
+
     /**
      * Get List of drawing officer objects containing given code string
-     * 
+     *
      * @param code
      * @return List of drawing officer objects
      */
     public List<DrawingOfficer> getListOfDrawingOfficerByCodeLike(final String code) {
         return drawingOfficerRepository.findByCodeContainingIgnoreCase(code);
     }
-    
+
     @Transactional
     public void create(final DrawingOfficer officer) {
         drawingOfficerRepository.save(officer);
@@ -145,7 +145,7 @@ public class DrawingOfficerService implements EntityTypeService {
     public void update(final DrawingOfficer officer) {
         drawingOfficerRepository.save(officer);
     }
-    
+
     @Transactional
     public void delete(final DrawingOfficer officer) {
         drawingOfficerRepository.delete(officer);

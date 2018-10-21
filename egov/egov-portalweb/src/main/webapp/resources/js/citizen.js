@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -60,7 +60,7 @@ $(document).ready(function(){
 		$('#servicesUnderScrutinyDiv').attr('style', 'opacity: 0.7;cursor: pointer');
 		$('#servicesCmpletedDiv').attr('style', 'opacity: 0.7;cursor: pointer');
 	});
-	
+
 	$('#servicesUnderScrutinyDiv').click(function() {
 		$('.totalServicesAppliedHide').hide();
 		$('.totalServicesCompletedHide').hide();
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		$('#servicesCmpletedDiv').attr('style', 'opacity: 0.7;cursor: pointer');
 		$('#totalServicesAppliedDiv').attr('style', 'opacity: 0.7;cursor: pointer');
 	});
-	
+
 	$('#servicesCmpletedDiv').click(function() {
 		$('.totalServicesAppliedHide').hide();
 		$('.servicesUnderScrutinyHide').hide();
@@ -79,11 +79,11 @@ $(document).ready(function(){
 		$('#servicesUnderScrutinyDiv').attr('style', 'opacity: 0.7;cursor: pointer');
 
 	});
-	
+
   var module;
 
   $('.services .content').matchHeight();
-  
+
   leftmenuheight();
   rightcontentheight();
 
@@ -120,7 +120,7 @@ $(document).ready(function(){
     else if(module == 'My Services'){
         $('.inbox-modules').hide();
         $('[data-services="'+module+'"], .action-bar, .linkedApplications').show();
-    }	
+    }
     else{
       $('.inbox-modules, .linkedApplications').hide();
       $('[data-services="'+module+'"], .action-bar').show();
@@ -135,13 +135,13 @@ $(document).ready(function(){
   $('table tbody tr').click(function(){
     $('#myModal').modal('show');
   });
-  
+
 
   $('.checkpassword').blur(function(){
   	if(($('#new-pass').val()!="") && ($('#retype-pass').val()!=""))
   	{
   		if ($('#new-pass').val() === $('#retype-pass').val()) {
-  			
+
   			}else{
   			$('.password-error').show();
   			$('#retype-pass').addClass('error');
@@ -174,9 +174,9 @@ $(document).ready(function(){
              	$('.change-password, .loader-class').modal('hide');
              	resetValues();
              }
-     }); 
+     });
   });
-  
+
   $('#serviceGroup').change(function(){
 	  var selected = $(this).val();
 	  var total = $( "#totalServicesAppliedSize" ).html().trim();
@@ -195,7 +195,7 @@ $(document).ready(function(){
 		  $( "#totalServicesAppliedSize" ).html($( "#tabelPortal tbody.totalServicesAppliedHide tr."+$(this).val() ).length);
 		  $( "#totalServicesCompletedSize" ).html($( "#tabelPortal tbody.totalServicesCompletedHide tr."+$(this).val() ).length);
 		  $( "#totalServicesPendingSize" ).html($( "#tabelPortal tbody.servicesUnderScrutinyHide tr."+$(this).val() ).length);
-		  
+
 		  var servicesUnderScrutinyHideClass ="#tabelPortal tbody.servicesUnderScrutinyHide tr."+ selected + " td:first-child";
 		  var totalServicesAppliedHideClass="#tabelPortal tbody.totalServicesAppliedHide tr."+ selected + " td:first-child";
 		  var totalServicesCompletedHideClass="#tabelPortal tbody.totalServicesCompletedHide tr."+ selected + " td:first-child";
@@ -204,9 +204,9 @@ $(document).ready(function(){
 		  generateSno(totalServicesCompletedHideClass);
 	  }
   });
-  
+
   $('.linkedApplications, .action-bar').hide();
-  
+
 
 });
 

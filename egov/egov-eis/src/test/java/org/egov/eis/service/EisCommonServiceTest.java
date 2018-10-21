@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -65,28 +65,28 @@ import static org.junit.Assert.assertNotNull;
  */
 @Ignore
 public class EisCommonServiceTest extends EISAbstractSpringIntegrationTest{
-    
+
     @Autowired
     private EisCommonService eisCommonService;
-    
+
     @Test
     public void getSuperiorPosByObjectAndPos() {
         Position pos = eisCommonService.getSuperiorPositionByObjectTypeAndPositionFrom(7, 22l);
         assertNotNull(pos);
-        
+
     }
-    
+
     @Test
     public void getUserForPosition() {
         User usr = eisCommonService.getUserForPosition(1l, new Date());
            assertEquals("egovernments",usr.getUsername());
     }
-    
+
     @Test
     public void getPositionByUser() {
         Position pos = eisCommonService.getPositionByUserId(1l);
         assertNotNull(pos);
-        
+
     }
 
 }

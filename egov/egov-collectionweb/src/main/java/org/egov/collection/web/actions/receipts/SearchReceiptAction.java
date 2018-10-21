@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -100,11 +100,11 @@ public class SearchReceiptAction extends SearchFormAction {
 
     @Autowired
     private AssignmentService assignmentService;
-    
-    
+
+
     @Autowired
     protected EgovMasterDataCaching masterDataCache;
-    
+
     @Autowired
     private MicroserviceUtils microserviceUtils;
 
@@ -174,19 +174,19 @@ public class SearchReceiptAction extends SearchFormAction {
         super.prepare();
 //        if(searchResult==null)
 //            searchResult = new EgovPaginatedList();
-        
+
         setupDropdownDataExcluding();
 //        addDropdownData("instrumentTypeList",
 //                getPersistenceService().findAllBy("from InstrumentType i where i.isActive = true order by type"));
 //        addDropdownData("userList",
 //                getPersistenceService().findAllByNamedQuery(CollectionConstants.QUERY_CREATEDBYUSERS_OF_RECEIPTS));
-      
+
 //        serviceClassMap.putAll(CollectionConstants.SERVICE_TYPE_CLASSIFICATION);
 //        serviceClassMap.remove(CollectionConstants.SERVICE_TYPE_PAYMENT);
 //        addDropdownData("serviceTypeList", Collections.EMPTY_LIST);
         addDropdownData("businessCategorylist",microserviceUtils.getBusinessCategories());
         addDropdownData("serviceTypeList", microserviceUtils.getBusinessDetailsByType("MISCELLANEOUS"));
-        
+
 //        addDropdownData("bankBranchList", collectionsUtil.getBankCollectionBankBranchList());
     }
 
@@ -206,18 +206,18 @@ public class SearchReceiptAction extends SearchFormAction {
     @Action(value = "/receipts/searchReceipt-search")
     public String search() {
         target = "searchresult";
-        
+
         List<ReceiptHeader> receiptList =new ArrayList<>();
         List<Receipt>  receipts = microserviceUtils.searchReciepts("MISCELLANEOUS",getFromDate(), getToDate(), getServiceTypeId(),getReceiptNumber());
-        
-        
-        
+
+
+
         for(Receipt receipt:receipts){
-        
+
                 for(org.egov.infra.microservice.models.Bill bill:receipt.getBill()){
-                    
+
                     for(BillDetail billDetail:bill.getBillDetails()){
-                        
+
                         ReceiptHeader receiptHeader = new ReceiptHeader();
                         receiptHeader.setReceiptnumber(billDetail.getReceiptNumber());
                         receiptHeader.setReceiptdate(new Date(billDetail.getReceiptDate()));
@@ -231,14 +231,14 @@ public class SearchReceiptAction extends SearchFormAction {
                         receiptHeader.setManualreceiptnumber(billDetail.getManualReceiptNumber());
                         receiptHeader.setModOfPayment(receipt.getInstrument().getInstrumentType().getName());
                         receiptList.add(receiptHeader);
-                        
+
                     }
                 }
-            
-           
-            
+
+
+
         }
-        
+
         if(searchResult==null)
         {
             Page page = new Page<ReceiptHeader>(1, receiptList.size(), receiptList);
@@ -249,11 +249,11 @@ public class SearchReceiptAction extends SearchFormAction {
             searchResult.getList().clear();
             searchResult.getList().addAll(receiptList);
         }
-        
-        resultList = searchResult.getList(); 
-        
-        
-        
+
+        resultList = searchResult.getList();
+
+
+
 //        super.search();
 //        ArrayList<ReceiptHeader> receiptList = new ArrayList<ReceiptHeader>(0);
 //        receiptList.addAll(searchResult.getList());

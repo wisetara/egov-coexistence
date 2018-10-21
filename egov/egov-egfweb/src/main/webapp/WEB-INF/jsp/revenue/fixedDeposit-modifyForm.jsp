@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,8 +55,8 @@
 		var childName;
 		var extendCount=0;
 		var res;
-		var makeFDTable = function(objTable) {                   
-    	var fixedDepositTableColumns = [ 
+		var makeFDTable = function(objTable) {
+    	var fixedDepositTableColumns = [
 			{key:"SlNo",label:'Sl No',width:30},
 			{key:"id",label:'id',width:100,hidden:true, formatter:createTextFieldFormatter('FDtable',FDLIST,".id","hidden")},
 			{key:"fileNo",label:'File Number',width:100, formatter:createTextFieldFormatter('FDtable',FDLIST,".fileNo","text")},
@@ -98,12 +98,12 @@
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			fdTableDT.addRow({SlNo:fdTableDT.getRecordSet().getLength()+1});
 			updateFDTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -131,7 +131,7 @@
 				"GJVvhid":'<s:property value="outFlowVoucher.id"/>',
 				"generalVoucher":'<s:property value="outFlowVoucher.voucherNumber"/>',
 				"GJVDate":'<s:property value="outFlowVoucher.voucherDate"/>',
-				"gjvAmount":'<s:property value="gjvAmount"/>',		
+				"gjvAmount":'<s:property value="gjvAmount"/>',
 				"maturityAmount":'<s:property value="maturityAmount"/>',
 				"maturityDate":'<s:property value="maturityDate"/>',
 				"WithdrawalDate":'<s:property value="withdrawalDate"/>',
@@ -149,7 +149,7 @@
 				"parentId":'<s:property value="parentId"/>',
 				"extend":'<s:property value="extend"/>'
 		});
-		
+
 			var index = '<s:property value="#stat.index"/>';
 			updateYUIGrid(FDLIST,'id',index,'<s:property value="id"/>');
 			updateYUIGrid(FDLIST,'fileNo',index,'<s:property value="fileNo"/>');
@@ -182,15 +182,15 @@
 			updateYUIGrid(FDLIST,'remarks',index,'<s:property value="remarks"/>');
 			updateYUIGrid(FDLIST,'parentId',index,'<s:property value="parentId.id"/>');
 			updateYUIGrid(FDLIST,'extend',index,'<s:property value="extend"/>');
-			updateFDTableIndex();	                          
+			updateFDTableIndex();
 			</s:iterator>
-		
-				         
-			
+
+
+
     }
-        
-                                  
-    
+
+
+
     var FDLIST='fixedDepositList';
     var fdTableIndex=0;
   //  var childTableIndex=0;
@@ -201,7 +201,7 @@
 	var value = (YAHOO.lang.isValue(oData))?oData:"";
 		var element=" <select  id='"+prefix+"["+index+"]"+suffix+"' name='"+prefix+"["+index+"]"+suffix+"'  style=width:90px  onchange=getbranchAccountId(this);return false;' >";
 		element=element+"<option value=-1 selected='selected' > --- Choose --- </option>  ";
-		
+
 		<s:iterator value="bankBranchList" status="stat">
 			var name='<s:property value="bank.name"/>'+"-"+'<s:property value="branchname"/>';
 			var id='<s:property value="id" />';
@@ -210,26 +210,26 @@
 		element=element+" </select>";
 		el.innerHTML =element ;
 		}
-	}                                        
+	}
 	function createBankAccountDropDownFormatter(tableType,prefix,suffix){
 	  return function(el, oRecord, oColumn, oData) {
 	    var index=getIndexForTableType(tableType);
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
-		
+
 		var accountOptions=[{label:"--- Select ---", value:"0"}];
-		
+
 		var element=" <select  id='"+prefix+"["+index+"]"+suffix+"' name='"+prefix+"["+index+"]"+suffix+"' >";
 		element=element+" </select>";
 		el.innerHTML =element ;
-		}   
-	}            
+		}
+	}
 	function createTextFieldFormatterImg(tableType,prefix,suffix,type){
 	   return function(el, oRecord, oColumn, oData) {
 		var tableIndex=getIndexForTableType(tableType);
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		var imgsuffix=suffix+"img";
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style='width:90px;' /><img src='/services/egi/resources/erp2/images/searchicon.gif' id='"+prefix+"["+tableIndex+"]"+imgsuffix+"' name='"+prefix+"["+tableIndex+"]"+imgsuffix+"' onclick='openViewVouchers(this)'/>";
-		}    
+		}
 	}
 	function createTextFieldFormatterWithStyle(tableType,prefix,suffix,style){
 		return function(el, oRecord, oColumn, oData) {
@@ -238,10 +238,10 @@
 		el.innerHTML = " <input type='text' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style='"+style+"' />";
 		}
 	}
-	
-	
+
+
 	function createDateFieldFormatter(tableType,prefix,suffix)
-	{	
+	{
 		return function(el, oRecord, oColumn, oData) {
 			var value = (YAHOO.lang.isValue(oData))?oData:"";
 			var index=getIndexForTableType(tableType);
@@ -254,13 +254,13 @@
 			markup="<input type='text' id='"+id+"' name='"+fieldName+"' value='"+value+"'    maxlength='10' style=\"width:70px\" onkeyup='DateFormat(this,this.value,event,false,3);' onblur='checkDateLG(this);' /><a href='#' style='text-decoration:none' onclick='"+HREF+"'><img src='"+CALENDERURL+"' border='0'  /></a>";
 	 		el.innerHTML = markup;
 		}
-	}    
-	  
+	}
+
 	function createTextFieldFormatter(tableType,prefix,suffix,type){
 	return function(el, oRecord, oColumn, oData) {
 		var tableIndex=getIndexForTableType(tableType);
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
-		
+
 			el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"'  style='width:90px;' />";
 
 	}
@@ -270,15 +270,15 @@ function createCheckboxFieldFormatter(tableType,prefix,suffix,type){
 		var tableIndex=getIndexForTableType(tableType);
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style=width:90px  onclick=extendFixedDeposit(this);return false;' />";
-	}                          
-}      
+	}
+}
 
- 
+
 	function loadChequeNoAndDate(billVhId,name){
 		var url = '../voucher/common!ajaxLoadChequeNoAndDate.action?billVhId='+billVhId;
 		YAHOO.util.Connect.asyncRequest('POST', url, chequeNoAndDate, null);
 	}
-	
+
 	var chequeNoAndDate={
 		success: function(o) {
 			if(o.responseText!="")
@@ -288,27 +288,27 @@ function createCheckboxFieldFormatter(tableType,prefix,suffix,type){
 				document.getElementById(onlyName+".instrumentHeader.instrumentNumber" ).value= ((docs[1]=='0')?"":docs[1]);
 				document.getElementById(onlyName+".instrumentHeader.instrumentDate" ).value= ((docs[2]=='-')?"":docs[2]);
 				//document.getElementById(onlyName+".instrumentHeader.instrumentAmount" ).value= ((docs[3]=='0')?"":docs[3]);
-				
+
 			}
 		},
 		failure: function(o) {
 			bootbox.alert('Cannot fetch instrument and account details');
 		}
-	                  
+
 }
 	function getbranchAccountId(obj){
 		var branchId=obj.value;
 		selectedname=obj.name;
-		
+
 		//bootbox.alert("object in get branch>>"+selectedname);
 		var url = '../voucher/common!ajaxLoadBranchAccountNumbers.action?branchId='+branchId;
 		YAHOO.util.Connect.asyncRequest('POST', url, bankAccountList, null);
-	
+
 	}
 	function getAccountId(obj){
 		var branchId=obj.value;
 		selectedname=obj.name;
-		
+
 		var indexobj=selectedname.split("]");
 		var test=true;
 		var i=0;
@@ -317,54 +317,54 @@ function createCheckboxFieldFormatter(tableType,prefix,suffix,type){
 		var listSize='<s:property value="fixedDepositList.size()"/>';
 		var res1=new Array(listSize);
 		var resId=new Array(listSize);
-	
-		
+
+
 		<s:iterator var="p" value="fixedDepositList" status="fixedDep_staus">
 		//bootbox.alert('<s:property value="#fixedDep_staus.index"/>'+"   "+ind);
-		
+
 		if('<s:property value="#fixedDep_staus.index"/>'==ind){
-		
+
 		<s:iterator value="#p.bankAccountList" status="bankAccount_status">
-	
+
 			var accSize='<s:property value="#p.bankAccountList.size()"/>';
 			if(i<listSize)
 			 {
 				res1[i]=new Array(accSize);
 				resId[i]=new Array(accSize);
 				///bootbox.alert(accSize);
-				
+
 				if(j<accSize){
 					res1[i][j]='<s:property value="accountnumber"/>'+"-"+'<s:property value="%{chartofaccounts.glcode}"/>';
 			 		resId[i][j]='<s:property value="id" />';
-			 		
+
 			 		j++;
 			}i++;
 		}
 		</s:iterator>
-		
+
 		}
-		</s:iterator>    
+		</s:iterator>
 		//bootbox.alert(res1.length);
 		var accNumid1=selectedname;
 		accNumid1=accNumid1.replace('Branch','Account');
 		//bootbox.alert("accnum "+accNumid);
 		var x=document.getElementById(accNumid1);
 				x.length=0;
-				x.options[0]=new Option("----Choose----","-1");  
-				//bootbox.alert(res1);     
-				var k=0;    
+				x.options[0]=new Option("----Choose----","-1");
+				//bootbox.alert(res1);
+				var k=0;
  							for(var i=0;i<res1.length;i++)
- 							{ 
+ 							{
  								for(var j=0;j<res1[i].length;j++){
  							   		x.options[i]=new Option(res1[i][j],resId[i][j]);
- 						   		 }  
+ 						   		 }
 						   }
 	}
 	var bankAccountList={
 		success: function(o) {
 			if(o.responseText!="")
 			{
-				var docs=o.responseText;               
+				var docs=o.responseText;
 				res=docs.split("$");
 				var accNumid=selectedname;
 				//bootbox.alert("docs "+docs);
@@ -372,23 +372,23 @@ function createCheckboxFieldFormatter(tableType,prefix,suffix,type){
 				//bootbox.alert("accnum "+accNumid);
 				var x=document.getElementById(accNumid);
 				x.length=0;
-				x.options[0]=new Option("----Choose----","-1");  
+				x.options[0]=new Option("----Choose----","-1");
 				x.options[0].text='---Select---';
-				x.options[0].value=0;          
+				x.options[0].value=0;
  							for(var i=0;i<res.length-1;i++)
  							{
- 							      
+
 	 							var idandnum=res[i].split('~');
 	 							x.options[i]=new Option(idandnum[0],idandnum[1]);
- 						    }                     
+ 						    }
 			}
-		},                                         
+		},
 		failure: function(o) {
 			bootbox.alert('Cannot fetch instrument and account details');
 		}
 	}
-	            
-	           
+
+
 	function openViewVouchers(obj)
 	{
 		var url = '../voucher/voucherSearch!beforesearch.action?showMode=sourceLink';
@@ -405,11 +405,11 @@ function createCheckboxFieldFormatter(tableType,prefix,suffix,type){
 		document.getElementById(id).value=data[2];   // vouchderid
 		patt1 = name.match("outFlowVoucher.voucherNumber");
 		patt2 = name.match("inFlowVoucher.voucherNumber");
-		//bootbox.alert(name+" >>> hi name");                     
-		              
+		//bootbox.alert(name+" >>> hi name");
+
 		if(patt1=="outFlowVoucher.voucherNumber"){
 			onlyName=name.replace(".outFlowVoucher.voucherNumber","")
-		}        
+		}
 		else if(patt2=="inFlowVoucher.voucherNumber"){
 			onlyName=name.replace(".inFlowVoucher.voucherNumber","")
 		}
@@ -417,19 +417,19 @@ function createCheckboxFieldFormatter(tableType,prefix,suffix,type){
 			bootbox.alert("inside Challan reciept voucher");
 			onlyName=name.replace(".challanReceiptVoucher.voucherNumber","")
 			loadChequeNoAndDate(data[2],onlyName);
-			
+
 		}
 		}
-			
+
 	}
 function getIndexForTableType(tableType)
-{	               
+{
 		if(tableType=='FDtable'){
  			return fdTableIndex;
 		}
 }
 
-	
+
 function updateYUIGrid(fdlist, field,index,value){
 	  var obj="";
 	  if(value==null)
@@ -443,9 +443,9 @@ function updateYUIGrid(fdlist, field,index,value){
 	 }else {
 		 	document.getElementById(fdlist+'['+index+'].'+field).value=value;
 	}
-	          
-}	
- 
+
+}
+
 function updateFDTableIndex()
 {
 	fdTableIndex++;
@@ -477,5 +477,5 @@ function updateFDTableIndex()
 <script type="text/javascript">
      		makeFDTable('fdTablediv');
      		document.getElementById('fdTablediv').getElementsByTagName('table')[0].width="80%";
-     		 
+
      	</script>

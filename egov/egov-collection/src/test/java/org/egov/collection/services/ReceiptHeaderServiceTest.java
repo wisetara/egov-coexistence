@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,7 +47,7 @@
  */
 
 /**
- * 
+ *
  */
 package org.egov.collection.services;
 
@@ -65,7 +65,7 @@ public class ReceiptHeaderServiceTest { /* extends
 	@Autowired AppConfigValuesDAO appConfigValuesDAO;
 	private EisCommonsManager eisCommonsManagerMock;
 	private CreateVoucher voucherCreatorMock;
-	
+
 	private static final String functionName = "SUBMIT-COLLECTION-FUNC";
 	private static final String glCode = "99";
 	private final Double instrumentAmount = Double.valueOf("1000");
@@ -121,14 +121,14 @@ public class ReceiptHeaderServiceTest { /* extends
 		voucherCreatorMock = org.easymock.classextension.EasyMock
 				.createMock(CreateVoucher.class);
 		financialsUtil.setVoucherCreator(voucherCreatorMock);
-		
+
 		CollectionsNumberGenerator numberGenerator = (CollectionsNumberGenerator) context
 				.getBean("collectionsNumberGenerator");
 
 		eisCommonsManagerMock = org.easymock.EasyMock
 				.createMock(EisCommonsManager.class);
 		collectionsUtil.setEisCommonsManager(eisCommonsManagerMock);
-		
+
 		genericHibDao = new GenericHibernateDaoFactory(){
 			protected Session getCurrentSession(){
 				return session;
@@ -138,7 +138,7 @@ public class ReceiptHeaderServiceTest { /* extends
 				return new AppDataHibernateDAO(AppData.class,session);
 			}
 		};
-		
+
 		collectionsUtil.setGenericDao(genericHibDao);
 
 		receiptHeaderService = new ReceiptHeaderService();
@@ -306,18 +306,18 @@ public class ReceiptHeaderServiceTest { /* extends
 		assertNotNull(receiptToBeSubmitted.getState());
 		assertTrue(receiptToBeSubmitted.getState().getValue().equals(CollectionConstants.WF_STATE_VOUCHER_CREATED));
 	}
-	
+
 	@Test
 	public void testcheckIfMapObjectExist(){
 		List<HashMap<String, Object>> paramList=new ArrayList<HashMap<String,Object>>();
 		HashMap<String, Object> objHashMap=new HashMap<String, Object>();
-		
+
 		objHashMap.put(CollectionConstants.BANKREMITTANCE_VOUCHERDATE, "12/12/2009");
 		objHashMap.put(CollectionConstants.BANKREMITTANCE_SERVICENAME, "Test Service 1");
 		objHashMap.put(CollectionConstants.BANKREMITTANCE_FUNDCODE, "TestFund");
 		objHashMap.put(CollectionConstants.BANKREMITTANCE_DEPARTMENTCODE, "TestDept");
 		paramList.add(objHashMap);
-		
+
 		Object[] arrayObjectInitialIndex=new Object[8];
 		arrayObjectInitialIndex[0]="1000";
 		arrayObjectInitialIndex[1]="12/12/2009";
@@ -327,59 +327,59 @@ public class ReceiptHeaderServiceTest { /* extends
 		arrayObjectInitialIndex[5]="";
 		arrayObjectInitialIndex[6]="TestFund";
 		arrayObjectInitialIndex[7]="TestDept";
-		
+
 		assertEquals(0, receiptHeaderService.checkIfMapObjectExist(paramList, arrayObjectInitialIndex));
-		
+
 	}
-	
+
 	@Test
 	public void testcheckIfMapObjectNotExist(){
 		List<HashMap<String, Object>> paramList=new ArrayList<HashMap<String,Object>>();
 		HashMap<String, Object> objHashMap=new HashMap<String, Object>();
-		
+
 		objHashMap.put("VOUCHERDATE", "12/12/2009");
 		objHashMap.put("SERVICENAME", "Test Service 1");
 		paramList.add(objHashMap);
-		
+
 		Object[] arrayObjectInitialIndex=new Object[3];
 		arrayObjectInitialIndex[0]="1000";
 		arrayObjectInitialIndex[1]="13/12/2009";
 		arrayObjectInitialIndex[2]="Test Service 2";
-		
+
 		assertEquals(-1, receiptHeaderService.checkIfMapObjectExist(paramList, arrayObjectInitialIndex));
 	}
-	
+
 	@Test
 	public void testReceiptDetailObjectExist(){
 		List<ReceiptDetail> newReceiptDetailList=new ArrayList<ReceiptDetail>();
 		ReceiptDetail receiptDetailObj= objectFactory.createReceiptDetailWithoutHeader();
-		
+
 		newReceiptDetailList.add(receiptDetailObj);
 		assertEquals(0,receiptHeaderService.checkIfReceiptDetailObjectExist(newReceiptDetailList, receiptDetailObj));
 	}
-	
+
 	@Test
 	public void testaggregateDuplicateReceiptDetailObject(){
 		List<ReceiptDetail> newReceiptDetailListDiffCOA=new ArrayList<ReceiptDetail>();
 		List<ReceiptDetail> newReceiptDetailListSameCOA=new ArrayList<ReceiptDetail>();
-		
+
 		ReceiptDetail receiptDetailObj1= objectFactory.createReceiptDetailWithoutHeader();
 		ReceiptDetail receiptDetailObj2= objectFactory.createReceiptDetailWithoutHeader();
-		
+
 		ReceiptDetail receiptDetailObj3= objectFactory.createReceiptDetailWithoutHeader();
 		ReceiptDetail receiptDetailObj4= objectFactory.createReceiptDetailWithoutHeader();
-		
+
 		newReceiptDetailListDiffCOA.add(receiptDetailObj1);
 		newReceiptDetailListDiffCOA.add(receiptDetailObj2);
-		
+
 		CChartOfAccounts account1=objectFactory.createCOA("testGLCode1");
-		
+
 		receiptDetailObj3.setAccounthead(account1);
 		receiptDetailObj4.setAccounthead(account1);
-		
+
 		newReceiptDetailListSameCOA.add(receiptDetailObj3);
 		newReceiptDetailListSameCOA.add(receiptDetailObj4);
-		
+
 		assertEquals(1,receiptHeaderService.aggregateDuplicateReceiptDetailObject(newReceiptDetailListSameCOA).size());
 		assertEquals(2,receiptHeaderService.aggregateDuplicateReceiptDetailObject(newReceiptDetailListDiffCOA).size());
 	}

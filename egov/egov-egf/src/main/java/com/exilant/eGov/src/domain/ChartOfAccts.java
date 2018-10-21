@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -102,18 +102,18 @@ public class ChartOfAccts {
     private String budgetCheckReqd = null;
     private boolean isId = false, isField = false;
     private static final Logger LOGGER = Logger.getLogger(ChartOfAccts.class);
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
  @Autowired
     private AppConfigValueService appConfigValuesService;
-    
+
     @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     private @Autowired EGovernCommon eGovernCommon;
-    
+
     private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale
             .getDefault());
     private final SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy",

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -71,10 +71,10 @@
 	</class>
 	<query name="INSTALLMENTLISTBY_MODULE_AND_STARTYEAR">
         <![CDATA[select it from org.egov.commons.Installment it where (it.fromDate>=? or ? between it.fromDate and it.toDate) and it.fromDate<=current_date and it.module.name=? order by it.fromDate]]></query>
-        
+
 	<query name="INSTALLMENTLISTBY_MODULE_AND_FINANCIALYYEAR">
         <![CDATA[select inst from Installment inst,CFinancialYear finYear where inst.module.name=? and inst.fromDate >= (select fromDate from Installment where module.name=? and (? between fromDate and toDate)) and cast(inst.toDate as date) <= cast(finYear.endingDate as date) and now() between finYear.startingDate and finYear.endingDate order by inst.fromDate]]></query>
-        
+
 	<query name="INSTALLMENTLISTBY_MODULE_AND_FINANCIALYYEAR_DESC">
         <![CDATA[select inst from Installment inst,CFinancialYear finYear where inst.module.name=? and inst.fromDate >= (select fromDate from Installment where module.name=? and (? between fromDate and toDate)) and cast(inst.toDate as date) <= cast(finYear.endingDate as date) and now() between finYear.startingDate and finYear.endingDate order by inst.fromDate desc]]></query>
 </hibernate-mapping>

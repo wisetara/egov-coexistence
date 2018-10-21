@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -90,13 +90,13 @@ public class PartyTypeAction extends BaseFormAction {
     private String success = "";
     protected static final Logger LOGGER = Logger.getLogger(PartyTypeAction.class);
 
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
  @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     @Override
     @SkipValidation
     public Object getModel() {

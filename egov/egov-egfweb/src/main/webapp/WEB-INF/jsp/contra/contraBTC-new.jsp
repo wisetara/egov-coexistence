@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -139,37 +139,37 @@
 			document.getElementById('fundId').enabled =true;
 			document.getElementById('lblError').innerHTML = "";
 			document.getElementById('errors').innerHTML = "";
-			
+
 			if(document.getElementById('bankId').value == -1){
 			document.getElementById('lblError').innerHTML = "Please select a bank ";
 			return false;
 			}
-			
+
 			if(document.getElementById('voucherDate').value.trim().length == 0){
 			document.getElementById('lblError').innerHTML = "Please enter  voucher date ";
 			return false;
 			}
-			
+
 			if(document.getElementById('accountNumber').value == -1 ){
 			document.getElementById('lblError').innerHTML = "Please select an account number ";
 			return false;
 			}
-			
+
 			if(document.getElementById('amount').value.trim().length == 0 || document.getElementById('amount').value.trim() == 0){
 			document.getElementById('lblError').innerHTML = "Please enter an amount greater than zero";
 			return false;
 			}
-	
+
 			if(document.getElementById('chequeNumber') != undefined && document.getElementById('chequeNumber').value == ''){
 				document.getElementById('lblError').innerHTML = "Please enter cheque number";
 				return false;
 			}
-	
+
 			if(document.getElementById('chequeDate').value == ''){
 			document.getElementById('lblError').innerHTML = "Please enter cheque date";
 			return false;
 			}
-	
+
 			var validMis = validateMIS();
 			if(validMis == true){
 				document.getElementById('fundId').disabled =false;
@@ -180,12 +180,12 @@
 			}
 			var 	insuffientAlert='There is no sufficient bank balance. ';
 			var 	continueAlert='Do you want to continue ? ';
-			var 	fundFlowNotGeneratedAlert='';				
+			var 	fundFlowNotGeneratedAlert='';
 				if(parseFloat(document.getElementById('availableBalance').value)==-1)
 				{
 					fundFlowNotGeneratedAlert="FundFlowReport is not generated for the for the day. ";
 				}
-			
+
 			if(parseFloat(document.getElementById('amount').value)>parseFloat(document.getElementById('availableBalance').value))
 			{
 				if(document.getElementById('bankBalanceMandatory').value=='true')
@@ -210,7 +210,7 @@
 	function validateAmountFormat(){
 		var amount = document.getElementById('amount').value.trim();
 	}
-	
+
 	if('<s:text name="%{isBankBalanceMandatory()}"/>'=='')
 		document.getElementById('lblError').innerHTML = "bank_balance_mandatory parameter is not defined";
 </script>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -56,18 +56,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 	<title>Create Voucher From Bill</title>
 	<script type="text/javascript">
-		function onloadtask() 
+		function onloadtask()
 		{
 			<s:iterator value="getActionErrors()" >
 			  document.getElementById("search").style.display="none";
 			  document.getElementById("Reset").style.display="none";
 			</s:iterator>
-			<s:if test="%{isFieldMandatory('department')}"> 
+			<s:if test="%{isFieldMandatory('department')}">
 				// document.getElementById("departmentid").disabled=true;
 			</s:if>
 		}
-	
-	
+
+
 		function validate()
 		{
 			var expType=document.getElementById('expType').value;
@@ -76,15 +76,15 @@
 				bootbox.alert("Please select Bill Type");
 				return false;
 			}
-			
+
 			 document.billVoucher.action='${pageContext.request.contextPath}/voucher/billVoucher-lists.action';
 			 document.billVoucher.submit();
-		
-		   
+
+
 			document.getElementById('expType').disabled=false;
 			return true;
 		}
-	
+
 		function resetForm()
 		{
 			document.getElementById("expType").value=-1;

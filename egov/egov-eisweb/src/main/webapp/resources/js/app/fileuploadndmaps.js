@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -46,15 +46,15 @@
  *
  */
 $(document).ready(function(){
-	
+
 	var fileformats = ['jpg', 'jpeg', 'gif', 'png' ];
 	var myCenter;
-	
+
 	var fileinputid = ['file1'];//assigning file id
 	var filefilled = {};//image fullfilled array
 	var removedarray = [];
 	var fileid;
-	
+
 	$('#triggerFile').click(function(){
 		console.log(removedarray.length);
 		if(removedarray.length == 0 || removedarray.length == 3)
@@ -66,23 +66,23 @@ $(document).ready(function(){
 			fileid = removedarray[0];
 			console.log("File ID removal:"+fileid);
 		}
-	    
-		
+
+
 		$('#'+fileid).trigger("click");
 	});
-	
+
 	$('.remove-img').click(function(){
 		console.log("Removal");
 		delete filefilled[$(this).attr('data-file-id')];
 		if ($.inArray($(this).attr('data-file-id'), removedarray) !== -1)//check removed file id already exists, if exists leave as such or push it
 		{
-			
+
 			}else{
 			removedarray.push($(this).attr('data-file-id'));
 			removedarray.sort();
 			console.log("sorted removed array"+removedarray);
 		}
-		
+
 		console.log("File filled array:"+JSON.stringify(filefilled));
 		$('#'+$(this).attr('data-file-id')).val('');
 		$('#triggerFile').removeAttr('disabled');
@@ -92,23 +92,23 @@ $(document).ready(function(){
 			$('#preview1').removeAttr("src");
 			$('#filename1').html('');
 		}
-		
+
 	});
-	
+
 	$('#file1, #file2, #file3').on('change.bs.fileinput',function(e)
 	{
 		/*validation for file upload*/
 		myfile= $( this ).val();
 		var ext = myfile.split('.').pop();
 		if($.inArray(ext, fileformats) > -1){
-			//do something    
+			//do something
 			}else{
 				bootbox.alert(ext+" file format is not allowed");
 			return;
 		}
-		
+
 		//bootbox.alert('ext'+ext);
-		
+
 		if(e.target.files.length>0)
 		{
 			//filefilled[$(this).attr('id')]=this.files[0].name;
@@ -118,7 +118,7 @@ $(document).ready(function(){
 			//var index = removedarray.indexOf(fileid);
 		}
 	});
-	
+
 	function readURL(input, filename) {
 		//console.log("Key:"+fileid);
 		//console.log("Key value is:"+filefilled[fileid]);
@@ -134,9 +134,9 @@ $(document).ready(function(){
 					$('#filename1').html(filename);
 				}
 			}
-			
+
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
-	
+
 });

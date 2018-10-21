@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -69,7 +69,7 @@ jQuery.noConflict();
 
 var isDatepickerOpened=false;
 jQuery(document).ready(function() {
-  	 
+
      jQuery(" form ").submit(function( event ) {
     	 doLoadingMask();
     });
@@ -78,8 +78,8 @@ jQuery(document).ready(function() {
 
      var nowTemp = new Date();
      var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-     
-     jQuery( "#instrumentDate" ).datepicker({ 
+
+     jQuery( "#instrumentDate" ).datepicker({
     	 format: 'dd/mm/yyyy',
     	 autoclose:true,
          onRender: function(date) {
@@ -88,13 +88,13 @@ jQuery(document).ready(function() {
 	  }).on('changeDate', function(ev) {
 		  var string=jQuery(this).val();
 		  if(!(string.indexOf("_") > -1)){
-			  isDatepickerOpened=false; 
+			  isDatepickerOpened=false;
 	       	  checkForCurrentDate(this);
 		  }
-		  
+
 	  }).data('datepicker');
 
-     jQuery( "#manualReceiptDate" ).datepicker({ 
+     jQuery( "#manualReceiptDate" ).datepicker({
     	 format: 'dd/mm/yyyy',
     	 autoclose:true,
     	 onRender: function(date) {
@@ -103,13 +103,13 @@ jQuery(document).ready(function() {
 	  }).on('changeDate', function(ev) {
 		  var string=jQuery(this).val();
 		  if(!(string.indexOf("_") > -1)){
-			  isDatepickerOpened=false; 
+			  isDatepickerOpened=false;
 	       	  checkForCurrentDate(this);
 			  validateManualReceiptDate(this);
 		  }
 	  }).data('datepicker');
 
-     
+
  });
 
 jQuery(window).load(function () {
@@ -145,14 +145,14 @@ var initialSetting="true";
 
 <fmt:formatDate var = "currDate" pattern="dd/MM/yyyy" value="${now}" />
 	var currDate = "${currDate}";
-	
-	
+
+
 
 function calculateCollectionTotal(){
 		var collectiontotal=0
 		var chequetable=document.getElementById('chequegrid');
 		var chequetablelen =chequetable.rows.length;
-		
+
 		for(var m=0;m<chequetablelen;m++){
 			if(getControlInBranch(chequetable.rows[m],'instrumentChequeAmount')!=null){
 				chequeamount=eval(getControlInBranch(chequetable.rows[m],'instrumentChequeAmount').value);
@@ -164,11 +164,11 @@ function calculateCollectionTotal(){
 		cashamount=eval(document.getElementById("instrHeaderCash.instrumentAmount").value);
 		cashamount = isNaN(cashamount)?0:cashamount;
 		collectiontotal=collectiontotal+cashamount;
-		
+
 		cardamount=eval(document.getElementById("instrHeaderCard.instrumentAmount").value);
 		cardamount = isNaN(cardamount)?0:cardamount;
 		collectiontotal=collectiontotal+cardamount;
-		
+
 		bankamount=eval(document.getElementById("instrHeaderBank.instrumentAmount").value);
 		bankamount = isNaN(bankamount)?0:bankamount;
 		collectiontotal=collectiontotal+bankamount;
@@ -205,7 +205,7 @@ function calculateCreditTotal(){
 
 function validate()
 {
-	callpopulateapportioningamountforbills();	
+	callpopulateapportioningamountforbills();
 	if (document.getElementById("bankChallanDate").value=='DD/MM/YYYY')	{
 		document.getElementById("bankChallanDate").value="";
 	}
@@ -215,22 +215,22 @@ function validate()
 	document.getElementById("invaliddateformat").style.display="none";
 	document.getElementById("receipt_dateerror_area").style.display="none";
 	var validation = true;
-		<s:if test="%{manualReceiptNumberAndDateReq}"> 
+		<s:if test="%{manualReceiptNumberAndDateReq}">
 		if(document.getElementById('manualreceiptinfo').checked==true){
 				if(document.getElementById("manualReceiptDate").value=="" ){
 							document.getElementById("receipt_error_area").innerHTML+=
 									'<s:text name="billreceipt.manualreceiptdatemissing.error" />'+ '<br>';
-						validation = false;		
+						validation = false;
 				}
 				if(document.getElementById("manualReceiptNumber").value==""){
 								document.getElementById("receipt_error_area").innerHTML+=
 									'<s:text name="billreceipt.manualreceiptnumbermissing.error" />'+ '<br>';
-						validation = false;			
+						validation = false;
 				}
 		}
 		</s:if>
-				
-	<s:if test="%{isBillSourcemisc()}"> 
+
+	<s:if test="%{isBillSourcemisc()}">
 		if(validateMiscReceipt){
 			if(!validateMiscReceipt()){
 				return false;
@@ -240,7 +240,7 @@ function validate()
 	var checkpartpaymentvalue=document.getElementById("partPaymentAllowed").value;
 	var collectiontotal=0,cashamount=0,chequeamount=0,cardamount=0,bankamount=0,billingtotal=0;
 	var zeroAccHeads=false;
-	<s:if test="%{isBillSourcemisc()}"> 
+	<s:if test="%{isBillSourcemisc()}">
 		billingtotal=document.forms[0].misctotalAmount.value;
  	</s:if>
  	<s:else>
@@ -248,24 +248,24 @@ function validate()
 		var totalCreditAmountToBePaid = 0;
 		for(var j=0;j<noofaccounts; j++)
 		{
-			var advanceRebatePresent=document.getElementById('receiptDetailList['+j+'].isActualDemand').value;			
+			var advanceRebatePresent=document.getElementById('receiptDetailList['+j+'].isActualDemand').value;
 			var amounttobecollected=document.getElementById('receiptDetailList['+j+'].cramountToBePaid').value;
 			totalCreditAmountToBePaid = eval(totalCreditAmountToBePaid)+eval(amounttobecollected);
 			if(advanceRebatePresent==0){
 				zeroAccHeads=true;
 			}
 		}
-		if(document.getElementById("callbackForApportioning").value=="false")	
-		{	
+		if(document.getElementById("callbackForApportioning").value=="false")
+		{
  			billingtotal=document.forms[0].totalAmntToBeCollected.value;
 		}
 		else
-		{	
+		{
  			billingtotal=totalCreditAmountToBePaid;
 		}
 
 
-		
+
  	</s:else>
 	var instrTypeCash = document.getElementById("cashradiobutton").checked;
 	var instrTypeCheque = document.getElementById("chequeradiobutton").checked;
@@ -345,7 +345,7 @@ function validate()
 		}
 		document.getElementById('instrumentTypeCashOrCard').value="card";
 	}
-	
+
 	//if mode of payment is bank
 	if(instrTypeBank){
 		if(document.getElementById("instrHeaderBank.transactionNumber")!=null){
@@ -381,7 +381,7 @@ function validate()
 				</s:else>
 				if(receiptDate!=null && process(bankChallanDate) > process(receiptDate)){
  	 	    		document.getElementById("receipt_error_area").innerHTML+=
- 	 					'<s:text name="miscreceipt.error.transactiondate.greaterthan.receiptdate" />'+ '<br>';   	
+ 	 					'<s:text name="miscreceipt.error.transactiondate.greaterthan.receiptdate" />'+ '<br>';
  	 				window.scroll(0,0);
  	 				validation=false;
  		 	   	}
@@ -495,7 +495,7 @@ function validate()
 			document.getElementById("receipt_error_area").innerHTML+='<s:text name="billreceipt.total.errormessage" />' + '<br>';
 			validation=false;
 		}
-		// display error if actual payt amt < original billed amt after system has done apportioning 
+		// display error if actual payt amt < original billed amt after system has done apportioning
 		// (citizen might have manually changed credit amounts after system apportioning of account head amounts
 		else if(collectiontotal < billingTotalNumberFormat && checkpartpaymentvalue=='true'){
 		        if(collectiontotal < minimumAmt){
@@ -517,8 +517,8 @@ function validate()
    		document.getElementById("receipt_error_area").innerHTML+='<s:text name="billreceipt.missingpayeename.errormessage" /> ' + '<br>';
 		validation = false;
    	}
-	
-   	<s:if test="%{!isBillSourcemisc()}"> 
+
+   	<s:if test="%{!isBillSourcemisc()}">
 	 if(eval(document.getElementById("totalamountdisplay").value)>eval(document.getElementById("totalamounttobepaid").value)){
 		 var r = confirm('Collected amount is more than the amount to be paid. Do you want to collect advance amount?');
 		 if(r !=true)
@@ -563,7 +563,7 @@ function verifyChequeDetails(table,len1)
 	var instrAmountErrMsg = "";
 	var instrAmountInvalidErrMsg ="";
 
-   
+
 	for(var j=0;j<len1;j++)
 	{
 	    //validate if one of the instrument types - cheque/DD has been ticked
@@ -613,14 +613,14 @@ function verifyChequeDetails(table,len1)
 	    			document.getElementById("receipt_error_area").innerHTML+=instrDateErrMsg;
 	    		}
 	    		check=false;
-	    		
-	    	} 
+
+	    	}
 	    	else if (document.getElementById('manualreceiptinfo').checked==true){
 	    		var receiptDate = document.getElementById("manualReceiptDate").value;
 		    	 if(receiptDate !=null && receiptDate != '' && instrDate.value != null && instrDate.value!= '' && check==true ){
 	    			if(process(instrDate.value) > process(receiptDate)){
 	 	 	    		document.getElementById("receipt_error_area").innerHTML+=
-	 	 					'<s:text name="miscreceipt.error.instrumentdate.greaterthan.receiptdate" />'+ '<br>';   	
+	 	 					'<s:text name="miscreceipt.error.instrumentdate.greaterthan.receiptdate" />'+ '<br>';
 	 	 				window.scroll(0,0);
 	 	 				check=false;
 	 		 	   	}
@@ -641,16 +641,16 @@ function verifyChequeDetails(table,len1)
 	    		 	if(document.getElementById("voucherDate"))
 	 					receiptDate = document.getElementById("voucherDate").value;
 	 				else
-	 					receiptDate ="${currDate}"; 
-	 				
+	 					receiptDate ="${currDate}";
+
 	 	 	    	if(instrDate.value != null && instrDate.value!= '' && check==true && process(instrDate.value) > process(receiptDate)){
 	 	 	    		document.getElementById("receipt_error_area").innerHTML+=
-	 	 					'<s:text name="miscreceipt.error.instrumentdate.greaterthan.receiptdate" />'+ '<br>';   	
+	 	 					'<s:text name="miscreceipt.error.instrumentdate.greaterthan.receiptdate" />'+ '<br>';
 	 	 				window.scroll(0,0);
 	 	 				check=false;
 	 		 	   	}
 	    		     checkForCurrentDate(instrDate);
-	    		   } 	               
+	    		   }
 	    </s:else>
 	    }
 
@@ -680,14 +680,14 @@ function verifyChequeDetails(table,len1)
 } // end of function verifychecqueDetails
 
 
-	
-	
+
+
 
 function checkaccountheaderwiseamount()
-{	
-    var zeroAccHeads=false; 	
+{
+    var zeroAccHeads=false;
     var checkoverridevalue=document.getElementById("overrideAccountHeads").value;
-    
+
 
 	var noofaccounts=document.getElementById("totalNoOfAccounts").value;
 	for(var j=0;j<noofaccounts; j++)
@@ -703,7 +703,7 @@ function checkaccountheaderwiseamount()
 	if(zeroAccHeads==true){
 	    advancePaymentAllowed=true;
 	}
-	
+
 	for(var j=0;j<accountscount; j++)
 	{
 		var tobecollectedamount=eval(document.getElementById('receiptDetailList['+j+'].cramountToBePaid').value);
@@ -716,7 +716,7 @@ function checkaccountheaderwiseamount()
 			document.getElementById("amountoverrideerror").style.display="block";
 			return false;
 		}
-		else if(advancePaymentAllowed==false && tobecollectedamount>0 && amountreceived>tobecollectedamount) // advance payt is false  
+		else if(advancePaymentAllowed==false && tobecollectedamount>0 && amountreceived>tobecollectedamount) // advance payt is false
 		{
 			document.getElementById("amountoverrideerror").style.display="block";
 			return false;
@@ -752,7 +752,7 @@ function onBodyLoad()
 		document.getElementById('manualReceiptDate').disabled=true;
 	}
 
-	<s:if test="%{isBillSourcemisc()}"> 
+	<s:if test="%{isBillSourcemisc()}">
 	 document.getElementById("totalNoOfAccounts").value = 0;
 	 accountscount=document.getElementById("totalNoOfAccounts").value;
 	</s:if>
@@ -760,7 +760,7 @@ function onBodyLoad()
 	accountscount=document.getElementById("totalNoOfAccounts").value;
 	</s:else>
 
-	<s:if test="%{isBillSourcemisc()}"> 
+	<s:if test="%{isBillSourcemisc()}">
 	//To load the account codes if only a misc receipt request
 	if(onBodyLoadMiscReceipt){
 		onBodyLoadMiscReceipt();
@@ -778,16 +778,16 @@ function onBodyLoad()
 		}
 	}
 	</s:else>
-	
+
 	loadDropDownCodesBank();
-	
+
 	// To hide delete button in cheque grid on page load
 	var chequetable=document.getElementById('chequegrid');
 	if(getControlInBranch(chequetable.rows[3],'addchequerow')!=null)
 		getControlInBranch(chequetable.rows[3],'addchequerow').style.display="block";
 	if(getControlInBranch(chequetable.rows[3],'deletechequerow')!=null)
 		getControlInBranch(chequetable.rows[3],'deletechequerow').style.display="none";
-	
+
 	if(document.getElementById('instrHeaderCash.instrumentAmount').value==""){
 		document.getElementById('instrHeaderCash.instrumentAmount').value="";
 	}
@@ -807,11 +807,11 @@ function onBodyLoad()
 	}
 	if(document.getElementById('instrumentDate').value==""){
 		waterMarkInitialize('instrumentDate','DD/MM/YYYY');
-		
+
 	}
 	if(document.getElementById('bankChallanDate').value==""){
 		waterMarkInitialize('bankChallanDate','DD/MM/YYYY');
-		
+
 	}
 	displayPaytModes();
 	displayPaymentDetails();
@@ -822,14 +822,14 @@ function onBodyLoad()
 function checkandcalculatecredittotal(index,elem){
 	var credittotal=0,creditamount=0,debitamount=0;
 	var collectiontotal=0;
-	
+
 	document.getElementById("receipt_error_area").innerHTML="";
 	document.getElementById("receipt_error_area").style.display="none";
 	for(var j=0;j<accountscount;j++)
 	{
 		var tobecollectedamount=eval(document.getElementById('receiptDetailList['+j+'].cramountToBePaid').value);
 		var receivedAmount=eval(document.getElementById('receiptDetailList['+j+'].cramount').value);
-		var rebateamount=eval(document.getElementById('receiptDetailList['+j+'].dramount').value);		
+		var rebateamount=eval(document.getElementById('receiptDetailList['+j+'].dramount').value);
 
 		if(receivedAmount>tobecollectedamount && tobecollectedamount>0)
 		{
@@ -888,7 +888,7 @@ function validateChallanDate(obj)
 
 function scrolltop()
 {
-	 setTimeout(function(){ 
+	 setTimeout(function(){
 		  jQuery("html, body").animate({ scrollTop: 0 }, "fast");
 	  }, 50);
 }
@@ -914,9 +914,9 @@ function validateManualReceiptDate(obj)
 				  return false;
 			  }
 		  }
-		 
+
 	  }
-	
+
 		/*trim(obj,obj.value);
 		document.getElementById("receipt_dateerror_area").style.display="none";
 		document.getElementById("receipt_dateerror_area").innerHTML="";
@@ -936,10 +936,10 @@ function validateManualReceiptDate(obj)
 	       return false;
 		}*/
 
-		
+
 	  return true;
-	
-	
+
+
 }
 
 
@@ -957,7 +957,7 @@ function checkForCurrentDate(obj)
 				}
 		   }
 		   else {
-			   receiptDate = "${currDate}"; 
+			   receiptDate = "${currDate}";
 			}
 		</s:if>
 		<s:else>
@@ -1014,7 +1014,7 @@ function checkreset()
 	document.getElementById("invaliddateformat").style.display="none";
 	document.getElementById("receipt_dateerror_area").style.display="none";
 	document.getElementById("receipt_error_area").style.display="none";
-	
+
 	clearCashDetails();
 	clearCardDetails();
 	clearBankDetails();
@@ -1022,7 +1022,7 @@ function checkreset()
 	displayPaytModes();
 	clearManualReceiptData();
 	document.getElementById('paidBy').value='<s:property value="%{payeeName}" escapeJavaScript="true"/>';
-	<s:if test="%{isBillSourcemisc()}"> 
+	<s:if test="%{isBillSourcemisc()}">
 		//To load the account codes if only a misc receipt request
 		if(resetMisc){
 			resetMisc();
@@ -1031,25 +1031,25 @@ function checkreset()
 }
 
 function showHideMandataryMark(obj){
-	
+
 	if(obj.checked)
 	{
 		document.getElementById('asteriskId').style.display="";
 		document.getElementById('manualReceiptNumber').disabled=false;
 		document.getElementById('manualReceiptDate').disabled=false;
 		document.getElementById('manualreceiptinfo').value=true;
-		
+
 	}
 	else
 	{
-		
+
 		document.getElementById('asteriskId').style.display="none";
 		document.getElementById('manualReceiptNumber').value="";
 	    document.getElementById('manualReceiptDate').value="";
 		document.getElementById('manualReceiptNumber').disabled=true;
 		document.getElementById('manualReceiptDate').disabled=true;
 		document.getElementById('manualreceiptinfo').value=false;
-		
+
 	}
 }
 </script>
@@ -1090,14 +1090,14 @@ function showHideMandataryMark(obj){
 	<div align="center">
 	    <div id="actionErrorMessages" class="alert alert-danger">
 	      <s:actionerror/>
-	      <s:fielderror/>	      
+	      <s:fielderror/>
 	    </div>
 	    <input name="button" type="button" class="button" id="buttonclose" value="Close" onclick="window.close();" />
 	</div>
 	</s:if>
 	<s:else>
 <div class="formmainbox" style="width:100%;max-width:960px;">
-	
+
 	<s:if test="%{hasActionMessages()}">
 	    <div id="actionMessages" class="messagestyle">
 	    	<s:actionmessage theme="simple"/>
@@ -1108,13 +1108,13 @@ function showHideMandataryMark(obj){
 	<s:token />
 	<s:push value="model">
 
-	<s:if test="%{!isBillSourcemisc()}"> 
+	<s:if test="%{!isBillSourcemisc()}">
 		<div class="subheadnew"><s:property value="%{serviceName}" /></div>
 	</s:if>
-	<s:if test="%{isBillSourcemisc()}"> 
+	<s:if test="%{isBillSourcemisc()}">
 		<div class="subheadnew"><s:text name="miscreceipt.title"/></div>
 	</s:if>
-	<s:if test="%{!isBillSourcemisc()}"> 
+	<s:if test="%{!isBillSourcemisc()}">
 		<div class="subheadsmallnew">
 		<span class="subheadnew"><s:text name="billreceipt.billdetails"/></span>
 		</div>
@@ -1143,11 +1143,11 @@ function showHideMandataryMark(obj){
 		<s:hidden label="manualReceiptNumberAndDateReq" id="manualReceiptNumberAndDateReq" name="manualReceiptNumberAndDateReq" value="%{manualReceiptNumberAndDateReq}"/>
 		<s:if test="%{!isBillSourcemisc()}">
 		      	<%@ include file='collection-billdetails.jsp'%>
-		</s:if> 
+		</s:if>
 		</table>
 		</td></tr>
 
-		<s:if test="%{isBillSourcemisc()}"> 
+		<s:if test="%{isBillSourcemisc()}">
 		<tr><td>
 		<%@ include file="miscReceipts-new.jsp" %>
 		</td></tr>
@@ -1158,12 +1158,12 @@ function showHideMandataryMark(obj){
 	  	  <div class="subheadsmallnew"><s:text name="billreceipt.paymentdetails"/></div>
 	  	</td></tr>
 	  	<tr><td>
-    	
+
     		<div class="billhead2">
 	    		<s:if test="%{!isBillSourcemisc()}">
 	    			<s:text name="billreceipt.payment.totalamt.tobereceived"/>
 	   				<span class="bold">
-	    			
+
 	   				<input style="border:0px;background-color:#FFFFCC;font-weight:bold;" type="text" name="totalamounttobepaid" id="totalamounttobepaid" readonly="readonly" value='<s:property value="%{totalAmntToBeCollected}" />' >
 	   				</span>
 	   			</s:if>
@@ -1171,7 +1171,7 @@ function showHideMandataryMark(obj){
    			</div>
    			<s:hidden label="totalAmntToBeCollected" name="totalAmntToBeCollected" value="%{totalAmntToBeCollected}"/>
     	</td></tr>
-  	
+
 	  	<tr><td>
 			    	<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td></td></tr>
 			  		</table>
@@ -1188,8 +1188,8 @@ function showHideMandataryMark(obj){
 		   <td class="bluebox"><s:textfield label="paidBy" id="paidBy" maxlength="150" name="paidBy" value="%{payeeName}" /></td>
 	    </tr>
 	    </s:if>
-		<table id="manualreceipt" >    
-		
+		<table id="manualreceipt" >
+
 			<s:if test="%{manualReceiptNumberAndDateReq}">
 				<tr>
 					<td class="bluebox" width="3%" ></td>
@@ -1197,7 +1197,7 @@ function showHideMandataryMark(obj){
 					 <td class="bluebox"><s:checkbox label="manualreceiptinfo" id="manualreceiptinfo" name="receiptInfo" onChange="showHideMandataryMark(this)"/></td>
 				</tr>
 			 </s:if>
-			 
+
 			 <s:if test="%{manualReceiptNumberAndDateReq}">
 				<tr>
 				    <td class="bluebox" width="3%" ></td>
@@ -1207,21 +1207,21 @@ function showHideMandataryMark(obj){
 					<td class="bluebox"><s:textfield id="manualReceiptDate" name="manualReceiptDate" cssClass="datepicker"  styleId="manualReceiptDate" onblur="validateManualReceiptDate(this);" data-inputmask="'mask': 'd/m/y'"/><div>(DD/MM/YYYY)</div></td>
 				</tr>
 			 </s:if>
-		
+
 		</table>
-		
+
 		</table>
-			
+
 
 			<table border="0" width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="padding:0px;margin:0px;">
 				<tr>
 			        	<td class="bluebox2new" width="21%"></td>
 			            	<td class="bluebox2"></td>
 					<td class="bluebox2">&nbsp;</td>
-					<td class="bluebox2">&nbsp;</td>	
-			     	</tr>				
+					<td class="bluebox2">&nbsp;</td>
+			     	</tr>
 			</table>
-			 
+
 			 <div id="loadingMask" style="display:none;overflow:hidden;text-align: center"><img src="/services/collection/resources/images/bar_loader.gif"/> <span style="color: red">Please wait....</span></div>
 			<div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
 			<div class="buttonbottom" align="center">
@@ -1234,7 +1234,7 @@ function showHideMandataryMark(obj){
 
 <table width="100%" >
 
-     <tr> 
+     <tr>
        <td colspan="5">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>

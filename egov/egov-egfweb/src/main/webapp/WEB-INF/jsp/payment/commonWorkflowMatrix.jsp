@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -182,7 +182,7 @@
 					list="dropdownData.designationList" listKey="designationId"
 					headerKey="-1" listValue="designationName"
 					headerValue="----Choose----" onchange="populateApprover();"
-					onfocus="callAlertForDepartment();" cssClass="dropDownCss" /> 
+					onfocus="callAlertForDepartment();" cssClass="dropDownCss" />
 					<egov:ajaxdropdown id="approverPositionId" fields="['Text','Value']"
 					dropdownId="approverPositionId"
 					url="workflow/ajaxWorkFlow-getPositionByPassingDesigId.action"

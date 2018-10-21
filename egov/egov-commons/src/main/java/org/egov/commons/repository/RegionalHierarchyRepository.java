@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -45,8 +45,28 @@
  *   In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
  *
  */
-package org.egov.commons;
+package org.egov.commons.repository;
 
-public enum RegionalHeirarchyType {
-    REGION, DISTRICT,CITY;
+import org.egov.commons.RegionalHierarchy;
+import org.egov.commons.RegionalHierarchyType;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface RegionalHierarchyRepository extends JpaRepository<RegionalHierarchy, Long>{
+
+    public RegionalHierarchy findByCode(String code);
+
+    @Query("from RegionalHierarchy  where type=:hierarchyType order by name")
+     public List<RegionalHierarchy> getActiveRegionalHierarchyByRegion(@Param("hierarchyType") RegionalHierarchyType hierarchyType);
+
+    @Query("from RegionalHierarchy rh where rh.parent.name= :regionName  and type=:hierarchyType order by name")
+     public List<RegionalHierarchy> getActiveChildRegionHierarchyByPassingParentNameAndType(@Param("hierarchyType") RegionalHierarchyType hierarchyType, @Param("regionName") String regionName);
+
+
+
 }

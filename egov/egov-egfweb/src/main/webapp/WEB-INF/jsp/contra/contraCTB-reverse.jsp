@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -177,8 +177,8 @@ var postType = {
 success: function(o) {
 		var narrationfund= o.responseText;
 		var index=narrationfund.indexOf("-");
-		document.getElementById('accnumnar').value=narrationfund.substring(o,index);	
-		var fundid = narrationfund.substring(index+1,narrationfund.length);	
+		document.getElementById('accnumnar').value=narrationfund.substring(o,index);
+		var fundid = narrationfund.substring(index+1,narrationfund.length);
 		document.getElementById('fundId').value = fundid;
 		document.getElementById('fundId').disabled =true;
 		populateschemeid({fundId:fundid})
@@ -203,12 +203,12 @@ function onloadtask(){
 			if(document.getElementById('mode').value == "view")
 			{
 					document.forms[0].elements[i].disabled =true;
-				}					
-			}	
+				}
+			}
 }
 function validateReverseInput(){
 	document.getElementById('lblError').innerHTML = "";
-	
+
 	if(document.getElementById('reversalVoucherNumber') && document.getElementById('reversalVoucherNumber').value.trim().length == 0){
 		document.getElementById('lblError').innerHTML = "Please enter Reverse Voucher number";
 		return false;

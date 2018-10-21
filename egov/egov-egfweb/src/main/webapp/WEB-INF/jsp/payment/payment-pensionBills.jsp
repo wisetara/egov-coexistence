@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -104,7 +104,7 @@ function checkMiscAttributes(obj)
 			mis = mis+'#'+document.getElementById('subschemeName'+id).value;
 		if(document.getElementById('fieldName'+id))
 			mis = mis+'#'+document.getElementById('fieldName'+id).value;
-		*/	
+		*/
 		var id = obj.id.substring(10,obj.id.length);
 		var prefix = obj.name.substring(0, obj.name.indexOf("["));
 		var fundName = prefix+"["+id+"].fundName";
@@ -124,9 +124,9 @@ function checkMiscAttributes(obj)
 		if(document.getElementsByName(functionName) && document.getElementsByName(functionName).item(0) != null )
 			mis = ( document.getElementsByName(functionName).item(0)).value;
 		if(document.getElementsByName(functionaryName) && document.getElementsByName(functionaryName).item(0) != null)
-			mis = mis+'#'+( document.getElementsByName(functionaryName).item(0)).value;	
+			mis = mis+'#'+( document.getElementsByName(functionaryName).item(0)).value;
 		if(document.getElementsByName(fundsourceName) && document.getElementsByName(fundsourceName).item(0) != null)
-			mis = mis+'#'+( document.getElementsByName(fundsourceName).item(0)).value;	
+			mis = mis+'#'+( document.getElementsByName(fundsourceName).item(0)).value;
 		if(document.getElementsByName(schemeName) && document.getElementsByName(schemeName).item(0) != null)
 			mis = mis+'#'+( document.getElementsByName(schemeName).item(0)).value;
 		if(document.getElementsByName(subschemeName) && document.getElementsByName(subschemeName).item(0) != null)
@@ -136,15 +136,15 @@ function checkMiscAttributes(obj)
 
 		if(document.getElementById('miscattributes').value=='')
 			document.getElementById('miscattributes').value = mis;
-		
+
 		if(mis!=document.getElementById('miscattributes').value)
 		{
 			bootbox.alert('Selected bills do not have same attributes. Please select bills with same attributes');
 			obj.checked =false;
 			return;
-			
+
 		}
-		document.getElementById('miscount').value=parseInt(document.getElementById('miscount').value)+1;		
+		document.getElementById('miscount').value=parseInt(document.getElementById('miscount').value)+1;
 	}
 	else
 	{
@@ -201,7 +201,7 @@ function selectAllPension(element){
 	<s:if test="%{pensionList!=null}">
 		length = <s:property value="%{pensionList.size()}"/>;
 	</s:if>
-	
+
 	if(element.checked == true)	{
 		var salcnt=checkpensionForSameMisAttribs('pensionList',length);
 		if(salcnt!=0){
@@ -209,7 +209,7 @@ function selectAllPension(element){
 		  document.getElementById('salSelectAll').checked =false; }
 		else
 		checkAll('pensionList',length);
-		
+
 	}
 	else
 		uncheckAll('pensionList',length);
@@ -234,55 +234,55 @@ function checkpensionForSameMisAttribs(obj,len)
 		   	document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		  	salcount++; break;}}
 		  	</s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('department')}"> 
-		   if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){  	
+
+		   <s:if test="%{shouldShowHeaderField('department')}">
+		   if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){
 		   if(dept1[0].value != null &&  dept1[0].value !=(document.getElementsByName(obj+"["+i+"].deptName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   salcount++; break;}}
 		   </s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('function')}"> 
-		   if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){  	
+
+		   <s:if test="%{shouldShowHeaderField('function')}">
+		   if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){
 		   if(function1[0].value != null &&  function1[0].value !=(document.getElementsByName(obj+"["+i+"].functionName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   concount++; break;}}
 		   </s:if>
-		    
+
 		    <s:if test="%{shouldShowHeaderField('functionary')}">
 		    if(document.getElementsByName(obj+"["+i+"].functionaryName")!=null){
 		    if(functionaryName1[0].value != null && functionaryName1[0].value != (document.getElementsByName(obj+"["+i+"].functionaryName").item(0)).value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    salcount++; break;}}
 		    </s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('fundsource')}"> 
+
+		   <s:if test="%{shouldShowHeaderField('fundsource')}">
 		   if((document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value!=null){
 		   if(fundsource1[0].value != null &&  fundsource1[0].value !=(document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   salcount++; break;}}
-		   </s:if>		   
-		   
+		   </s:if>
+
 		   <s:if test="%{shouldShowHeaderField('scheme')}">
 		   if((document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value!=null){
 		   if(scheme1[0].value != null  && scheme1[0].value !=( document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value) {
 		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   salcount++; break;}}
 		   </s:if>
-		 
+
 		   <s:if test="%{shouldShowHeaderField('subscheme')}">
 		   if((document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value!=null){
 		   if(subscheme1[0].value !=  null && subscheme1[0].value!=(document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;  
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   salcount++; break;}}
-		   </s:if>		 
-		   
+		   </s:if>
+
 		    <s:if test="%{shouldShowHeaderField('field')}">
 		    if(document.getElementsByName(obj+"["+i+"].fieldName")!=null){
 		    if(field1[0].value != null && field1[0].value != (document.getElementsByName(obj+"["+i+"].fieldName").item(0)).value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    salcount++; break;}}
-		    </s:if>	  		  
+		    </s:if>
 		   }
 		   return salcount;
 }

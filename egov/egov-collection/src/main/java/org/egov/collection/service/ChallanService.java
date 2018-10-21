@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -161,7 +161,7 @@ public class ChallanService extends PersistenceService<Challan, Long> {
                     .withDateInfo(new Date());
             LOGGER.debug("End of Challan Workflow.");
         }
-        
+
         if (challan.getState() == null &&
                 CollectionConstants.WF_ACTION_NAME_VALIDATE_CHALLAN.equals(actionName)){
             challan.transition().start().end().withComments("End of challan worklow")

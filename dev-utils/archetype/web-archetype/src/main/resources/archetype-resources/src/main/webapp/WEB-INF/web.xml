@@ -4,8 +4,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -64,69 +64,69 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-	
+
 	<filter>
 		<filter-name>applicationCoreFilter</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	
+
 	<filter>
 		<filter-name>mdcLoggingFilter</filter-name>
 		<filter-class>${groupId}.infra.web.filter.MDCLoggingFilter</filter-class>
 	</filter>
-	
+
 	<filter>
 		<filter-name>applicationTenantResolverFilter</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	
+
 	<filter>
 		<filter-name>openEntityManagerInViewFilter</filter-name>
 		<filter-class>
 			org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
 		</filter-class>
 	</filter>
-	
+
 	<filter>
 		<filter-name>securityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	
+
 	<filter>
 	    <filter-name>springSessionRepositoryFilter</filter-name>
 	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	
+
 	<filter-mapping>
 	    <filter-name>springSessionRepositoryFilter</filter-name>
 	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>applicationTenantResolverFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>openEntityManagerInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>securityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>applicationCoreFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>mdcLoggingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
     <!-- Processes application requests -->
     <servlet>
         <servlet-name>sampleweb</servlet-name>
@@ -143,7 +143,7 @@
         <servlet-name>sampleweb</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-	
+
 	<jsp-config>
         <taglib>
             <taglib-uri>http://tiles.apache.org/tags-tiles</taglib-uri>
@@ -172,20 +172,20 @@
         <jsp-property-group>
     		<url-pattern>*.jsp</url-pattern>
     		<page-encoding>UTF-8</page-encoding>
-    	</jsp-property-group> 
+    	</jsp-property-group>
     </jsp-config>
-    
+
     <welcome-file-list>
  		<welcome-file>/index.jsp</welcome-file>
  	</welcome-file-list>
- 	
+
  	<error-page>
  		<location>/error/500</location>
  	</error-page>
- 	
+
  	<error-page>
  		<error-code>404</error-code>
  		<location>/error/404</location>
  	</error-page>
- 	
+
 </web-app>

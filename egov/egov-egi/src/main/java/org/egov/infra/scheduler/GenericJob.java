@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -53,9 +53,9 @@ import org.egov.infra.scheduler.quartz.AbstractQuartzJob;
 import java.io.Serializable;
 
 /**
- * This interface basically servers as a generic Interface for egov scheduler job 
+ * This interface basically servers as a generic Interface for egov scheduler job
  * to wrap any kind of scheduler framework like quartz
- * see {@link AbstractQuartzJob}. 
+ * see {@link AbstractQuartzJob}.
  **/
 public interface GenericJob extends Serializable {
 	void executeJob();

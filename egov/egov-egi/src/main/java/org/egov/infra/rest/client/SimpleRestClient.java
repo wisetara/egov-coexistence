@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -70,7 +70,7 @@ public class SimpleRestClient {
         try {
             return IOUtils.toString(HttpClientBuilder.create().build().execute(new HttpGet(restUrl)).getEntity().getContent(), UTF_8);
         } catch (UnsupportedOperationException | IOException e) {
-            //TODO yet to decide to rethrow 
+            //TODO yet to decide to rethrow
             LOG.error("Error occurred while rest response from url {}", restUrl, e);
             return "500";
         }

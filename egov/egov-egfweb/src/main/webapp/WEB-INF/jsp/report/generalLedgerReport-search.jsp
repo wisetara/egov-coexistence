@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -108,8 +108,8 @@
 <link rel="stylesheet" href="/services/EGF/struts/xhtml/styles.css"
 	type="text/css" />
 	<link rel="stylesheet" type="text/css" href="/services/EGF/resources/css/jquery-ui/css/ui-lightness/jquery-ui-1.8.4.custom.css" type="text/css"/>
-	
-	 <script type="text/javascript" src="/services/EGF/resources/javascript/autocomplete-debug.js"></script> 
+
+	 <script type="text/javascript" src="/services/EGF/resources/javascript/autocomplete-debug.js"></script>
 <div id="loading"
 	style="position: absolute; left: 25%; top: 70%; padding: 2px; z-index: 20001; height: auto; width: 500px; display: none;">
 	<div class="loading-indicator"
@@ -138,7 +138,7 @@
 				<input type="hidden" name="functionCodeId" id="functionCodeId">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<div id="myContainer"></div> 
+						<div id="myContainer"></div>
 						<td class="bluebox"><s:text name="generalLedger.accountCode" /><span
 							class="mandatory1">*</span></td>
 						<td class="bluebox"><s:textfield id="glCode1" name="glCode1"
@@ -158,9 +158,9 @@
 								<td class="greybox"><s:text name="generalLedger.department" /></td>
 						<td class="greybox"><s:select name="departmentCode"
 								id="departmentCode" list="dropdownData.departmentList"
-								listKey="code" listValue="name" headerKey=""   
+								listKey="code" listValue="name" headerKey=""
 								headerValue="----Choose----" /></td>
-						
+
 					</tr>
 					<tr>
 						<td class="bluebox"><s:text name="generalLedger.startDate" /><span
@@ -204,7 +204,7 @@
 								id="fundSource_id" list="dropdownData.fundsourceList"
 								listKey="id" listValue="name" headerKey=""
 								headerValue="----Choose----" /></td> --%>
-						
+
 						<%-- <td class="bluebox"><s:text name="generalLedger.field" /></td>
 						<td class="bluebox"><s:select name="fieldId" id="fieldId"
 								list="dropdownData.fieldList" listKey="id" listValue="name"
@@ -240,23 +240,23 @@
 	<s:iterator value="allChartOfAccounts">
 		allGlcodes.push("<s:property value="glcode"/> "-" <s:property value="name"/>")
 	</s:iterator>
-	YAHOO.example.BasicLocal = function() { 
-		    var oDS = new YAHOO.util.LocalDataSource(allGlcodes); 
-		    // Optional to define fields for single-dimensional array 
-		    oDS.responseSchema = {fields : ["state"]}; 
-		 
-		    var oAC = new YAHOO.widget.AutoComplete("glCode", "myContainer", oDS); 
-		    oAC.prehighlightClassName = "yui-ac-prehighlight"; 
+	YAHOO.example.BasicLocal = function() {
+		    var oDS = new YAHOO.util.LocalDataSource(allGlcodes);
+		    // Optional to define fields for single-dimensional array
+		    oDS.responseSchema = {fields : ["state"]};
+
+		    var oAC = new YAHOO.widget.AutoComplete("glCode", "myContainer", oDS);
+		    oAC.prehighlightClassName = "yui-ac-prehighlight";
 			oAC.queryDelay = 0;
 		    oAC.useShadow = true;
-			oAC.useIFrame = true; 
+			oAC.useIFrame = true;
 			oAC.maxResultsDisplayed = 10;
-		     
-		    return { 
-		        oDS: oDS, 
-		        oAC: oAC 
-		    }; 
-		}(); 
-		</script> 
+
+		    return {
+		        oDS: oDS,
+		        oAC: oAC
+		    };
+		}();
+		</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -75,7 +75,7 @@
 				document.getElementById('departmentid').disabled=false;
 		    }
 		}
-		
+
 		function defaultDept(){
 			var url = '/EGF/voucher/common!ajaxLoadDefaultDepartment.action';
 			YAHOO.util.Connect.asyncRequest('POST', url, dept_callback, null);
@@ -124,10 +124,10 @@
 								        },
 								     failure: function(o) {
 								     }
-							} 
+							}
 							function deleteBudgetDetail(elem){
 								var transaction = YAHOO.util.Connect.asyncRequest('POST', 'budgetSearchAndModify!ajaxDeleteBudgetDetail.action?id='+elem.id+'&action=modify', callback, null);
-							}  
+							}
 						</script> <s:set var="validButtons" value="%{validActions}" /> <jsp:include
 										page="budgetHeader.jsp" />
 									<div align="left" class="extracontent">Amount in

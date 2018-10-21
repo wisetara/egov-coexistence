@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -65,7 +65,7 @@
 			document.getElementById("urlDetails").style.display = "none";
 		}
 	}
-	function disableAll()  
+	function disableAll()
 	{
 		var frmIndex=0;
 		for(var i=0;i<document.forms[frmIndex].length;i++)
@@ -73,30 +73,30 @@
 			for(var i=0;i<document.forms[0].length;i++)
 			{
 				if(document.forms[0].elements[i].value != 'Close'){
-					document.forms[frmIndex].elements[i].disabled =true;   
-				}						
-			}	
-		}  
+					document.forms[frmIndex].elements[i].disabled =true;
+				}
+			}
+		}
 	}
 </script>
 <title> <s:text name="service.master.search.header"></s:text> </title>
 
-</head>  
+</head>
 
 <body onload="onBodyLoad();loadDropDownCodes();loadGridOnValidationFail();disableAll();">
 <s:form theme="simple" name="serviceDetailsForm" action="serviceDetails" method="post">
 <s:token />
 <s:push value="model">
-	
+
 	<input type="hidden" id="isviewmode" value="true"/>
-	
+
 	<jsp:include page="serviceDetails-form.jsp"/>
 	<div class="buttonbottom">
-			
-			
+
+
 			<label>
 				<input type="button" id="closeButton" value="Close" onclick="javascript:window.close()" class="button"/>
-			</label>			
+			</label>
 		</div>
 </s:push>
 </s:form>

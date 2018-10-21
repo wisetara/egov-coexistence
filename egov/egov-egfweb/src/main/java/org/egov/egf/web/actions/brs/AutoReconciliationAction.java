@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -89,7 +89,7 @@ import java.util.Map;
 })
 public class AutoReconciliationAction extends BaseFormAction {
 
-   
+
     private static final long serialVersionUID = -4207341983597707193L;
     private List<Bankbranch> branchList = Collections.EMPTY_LIST;
     private final List<Bankaccount> accountList = Collections.EMPTY_LIST;
@@ -105,15 +105,15 @@ public class AutoReconciliationAction extends BaseFormAction {
     private String failureMessage = "Invalid data in  the  following row(s), please correct and upload again\n";
     private final String successMessage = "BankStatement upload completed Successfully # rows processed";
     private boolean isFailed;
-   
+
 
     private final String jasperpath = "/reports/templates/AutoReconcileReport.jasper";
     private ReportHelper reportHelper;
     private InputStream inputStream;
     private final String BRS_MESSAGE_MORE_THAN_ONE_MATCH = "found more than one match in instruments";
     private final String BRS_MESSAGE_DUPPLICATE_IN_BANKSTATEMENT = "duplicate instrument number within the bankstament";
-   
-  
+
+
     private List<AutoReconcileBean> statementsNotInBankBookList;
     private List<AutoReconcileBean> statementsFoundButNotProcessed;
     private FinancialYearDAO financialYearDAO;
@@ -123,7 +123,7 @@ public class AutoReconciliationAction extends BaseFormAction {
     private BigDecimal notInBooktotalDebit;
     private BigDecimal notInBooktotalCredit;
     private BigDecimal notprocessedCredit;
-    
+
     private BigDecimal notprocessedDebit;
     private BigDecimal notprocessedNet;
     private BigDecimal notInBookNet;
@@ -134,11 +134,11 @@ public class AutoReconciliationAction extends BaseFormAction {
     private BigDecimal bankBookBalance;
     @Autowired
     private AutoReconcileHelper autoReconcileHelper;
-    
+
     @Autowired
     private BankHibernateDAO bankHibernateDAO;
-    
-    
+
+
 
     public BigDecimal getBankBookBalance() {
         return autoReconcileHelper.getBankBookBalance();
@@ -177,8 +177,8 @@ public class AutoReconciliationAction extends BaseFormAction {
     @SuppressWarnings("unchecked")
     public void prepare()
     {
-    	List<Bank> allBankHavingAccounts = bankHibernateDAO.getAllBankHavingBranchAndAccounts(); 
-        dropdownData.put("bankList", allBankHavingAccounts);  
+    	List<Bank> allBankHavingAccounts = bankHibernateDAO.getAllBankHavingBranchAndAccounts();
+        dropdownData.put("bankList", allBankHavingAccounts);
         dropdownData.put("branchList", branchList);
         dropdownData.put("accountList", accountList);
         if (branchId != null)
@@ -196,7 +196,7 @@ public class AutoReconciliationAction extends BaseFormAction {
                     "from Bankaccount ba where ba.bankbranch.id=? and isactive=true order by ba.chartofaccounts.glcode", branchId);
             dropdownData.put("accountList", accountList);
         }
-      
+
     }
 
     private void setup() {
@@ -206,8 +206,8 @@ public class AutoReconciliationAction extends BaseFormAction {
 		autoReconcileHelper.setToDate(toDate);
 		autoReconcileHelper.setBankStatmentInXls(bankStatmentInXls);
 		autoReconcileHelper.setBankStatmentInXlsFileName(bankStatmentInXlsFileName);
-		 
-		
+
+
 	}
 
 	@Action(value = "/brs/autoReconciliation-newForm")
@@ -219,7 +219,7 @@ public class AutoReconciliationAction extends BaseFormAction {
     @Action(value = "/brs/autoReconciliation-beforeUpload")
     public String beforeUpload()
     {
-    	
+
         return "upload";
     }
 
@@ -232,7 +232,7 @@ public class AutoReconciliationAction extends BaseFormAction {
          return "upload";
     }
 
-   
+
 
     @Override
     public void validate()
@@ -244,15 +244,15 @@ public class AutoReconciliationAction extends BaseFormAction {
         return autoReconcileHelper.getMessage();
     }
 
-   
+
 
     public String getFailureMessage() {
         return autoReconcileHelper.getFailureMessage();
     }
 
-    
 
-   
+
+
 
     /**
      * Step1: mark which are all we are going to process step2 :find duplicate and mark to be processed manually step3: process
@@ -266,23 +266,23 @@ public class AutoReconciliationAction extends BaseFormAction {
     public String schedule()
     {
     	setup() ;
-    	autoReconcileHelper.schedule();  
+    	autoReconcileHelper.schedule();
         return "result";
     }
 
-     
+
     public int getRowCount() {
         return autoReconcileHelper.getRowCount();
     }
-    
+
     public int getCount() {
         return autoReconcileHelper.getCount();
     }
-   
 
-     
 
-    
+
+
+
     @Action(value = "/brs/autoReconciliation-generateReport")
     @SuppressWarnings({ "unchecked", "deprecation" })
     public String generateReport() {
@@ -296,7 +296,7 @@ public class AutoReconciliationAction extends BaseFormAction {
         return autoReconcileHelper.getTotalNotReconciledAmount();
     }
 
-    
+
 
     public BigDecimal getNotInBooktotalDebit() {
         return autoReconcileHelper.getNotInBooktotalDebit();
@@ -322,13 +322,13 @@ public class AutoReconciliationAction extends BaseFormAction {
         return autoReconcileHelper.getNotInStatementNet();
     }
 
-    
 
-    
 
-     
 
-    
+
+
+
+
 
     public Date getReconciliationDate() {
         return reconciliationDate;
@@ -401,7 +401,7 @@ public class AutoReconciliationAction extends BaseFormAction {
         this.branchId = branchId;
     }
 
-     
+
 
     public List<AutoReconcileBean> getStatementsNotInBankBookList() {
         return autoReconcileHelper.getStatementsNotInBankBookList();
@@ -438,7 +438,7 @@ public class AutoReconciliationAction extends BaseFormAction {
     public void setNotprocessedNet(final BigDecimal notprocessedNet) {
         this.notprocessedNet = notprocessedNet;
     }
-    
+
     @Action(value = "/brs/autoReconciliation-generatePDF")
     public String generatePDF() throws Exception {
         final List<Object> dataSource = new ArrayList<Object>();

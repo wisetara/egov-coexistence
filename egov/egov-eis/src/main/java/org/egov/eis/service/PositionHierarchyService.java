@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -92,24 +92,24 @@ public class PositionHierarchyService {
 
     }
 
-    public List<PositionHierarchy> getPositionHeirarchyByFromPositionAndObjectType(Long fromPositionId, Integer objectId) {
-        return positionHierarchyRepository.getListOfPositionHeirarchyByFromPositionAndObjectType(fromPositionId, objectId);
+    public List<PositionHierarchy> getPositionHierarchyByFromPositionAndObjectType(Long fromPositionId, Integer objectId) {
+        return positionHierarchyRepository.getListOfPositionHierarchyByFromPositionAndObjectType(fromPositionId, objectId);
     }
 
-    public List<PositionHierarchy> getListOfPositionHeirarchyByFromPositionAndObjectTypeAndSubType(Long fromPositionId, Integer objectId, final String objectSubType) {
+    public List<PositionHierarchy> getListOfPositionHierarchyByFromPositionAndObjectTypeAndSubType(Long fromPositionId, Integer objectId, final String objectSubType) {
 
         if (fromPositionId != 0 && objectId != 0 && objectSubType != null)
-            return positionHierarchyRepository.getListOfPositionHeirarchyByFromPositionAndObjectTypeAndSubType(fromPositionId, objectId, objectSubType);
+            return positionHierarchyRepository.getListOfPositionHierarchyByFromPositionAndObjectTypeAndSubType(fromPositionId, objectId, objectSubType);
         else if (fromPositionId == 0 && objectId != 0 && objectSubType != null)
             return positionHierarchyRepository.getPosHirByObjectTypeAndObjectSubType(objectId, objectSubType);
         else if (fromPositionId != 0 && objectId != 0 && objectSubType == null)
-            return positionHierarchyRepository.getListOfPositionHeirarchyByFromPositionAndObjectType(fromPositionId, objectId);
+            return positionHierarchyRepository.getListOfPositionHierarchyByFromPositionAndObjectType(fromPositionId, objectId);
         else if (fromPositionId == 0 && objectId != 0 && objectSubType == null)
-            return positionHierarchyRepository.getListOfPositionHeirarchyByObjectType(objectId);
+            return positionHierarchyRepository.getListOfPositionHierarchyByObjectType(objectId);
         else return Collections.emptyList();
     }
 
-    public List<PositionHierarchy> getListOfPositionHeirarchyByPositionObjectTypeSubType(final Integer objectType,
+    public List<PositionHierarchy> getListOfPositionHierarchyByPositionObjectTypeSubType(final Integer objectType,
                                                                                          final List<String> objectSubTypes,
                                                                                          final Position fromPositionId) {
         return positionHierarchyRepository.findPositionHierarchyByObjectSubTypeAndFromPosition(objectType, objectSubTypes,

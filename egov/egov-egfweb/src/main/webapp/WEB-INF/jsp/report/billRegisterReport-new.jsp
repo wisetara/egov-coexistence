@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -178,9 +178,9 @@
 							<display:caption media="pdf">
 						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bill Register Report  
-						   
-						   
+						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bill Register Report
+
+
 				   </display:caption>
 
 							<display:setProperty name="export.pdf" value="true" />
@@ -208,51 +208,51 @@
 
 	<script>
 		function validate(){
-	
-			
-		 <s:if test="%{isFieldMandatory('fund')}"> 
+
+
+		 <s:if test="%{isFieldMandatory('fund')}">
 				 if(null != document.getElementById('fundId') && document.getElementById('fundId').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please Select a fund";
 					return false;
 				 }
 			 </s:if>
-			<s:if test="%{isFieldMandatory('department')}"> 
+			<s:if test="%{isFieldMandatory('department')}">
 				 if(null!= document.getElementById('vouchermis.departmentid') && document.getElementById('vouchermis.departmentid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a department";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('scheme')}"> 
+			<s:if test="%{isFieldMandatory('scheme')}">
 				 if(null!=document.getElementById('schemeid') &&  document.getElementById('schemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a scheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('subscheme')}"> 
+			<s:if test="%{isFieldMandatory('subscheme')}">
 				 if(null!= document.getElementById('subschemeid') && document.getElementById('subschemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a subscheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('functionary')}"> 
+			<s:if test="%{isFieldMandatory('functionary')}">
 				 if(null!=document.getElementById('vouchermis.functionary') &&  document.getElementById('vouchermis.functionary').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a functionary";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('fundsource')}"> 
+			<s:if test="%{isFieldMandatory('fundsource')}">
 				 if(null !=document.getElementById('fundsourceId') &&  document.getElementById('fundsourceId').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a fundsource";
 					return false;
 				}
 			</s:if>
-			<s:if test="%{isFieldMandatory('field')}"> 
+			<s:if test="%{isFieldMandatory('field')}">
 				 if(null!= document.getElementById('vouchermis.divisionid') && document.getElementById('vouchermis.divisionid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a field";

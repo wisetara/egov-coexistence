@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -73,7 +73,7 @@
                   maxlength="50" />
                 <form:errors path="code" cssClass="error-msg" />
               </div>
-              
+
             </div>
             <div class="form-group">
               <%-- <label class="col-sm-3 control-label text-right"><spring:message code="lbl.isnotleaf" /> </label>
@@ -97,7 +97,7 @@
                 <form:checkbox path="isactive" />
                 <form:errors path="isactive" cssClass="error-msg" />
               </div>
-              
+
             </div>
             <input type="hidden" id="mode" name="mode" value="${mode}" />
             <div class="form-group">

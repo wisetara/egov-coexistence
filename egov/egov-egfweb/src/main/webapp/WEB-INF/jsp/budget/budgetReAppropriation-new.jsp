@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -69,11 +69,11 @@
 	<%@ include file='budgetReAppropriationSetUp.jsp'%>
 	<%@ include file='addReAppropriationSetUp.jsp'%>
 	<script>
-					
+
 	function populateSubSchemes(scheme){
 		populatebudgetReAppropriation_subScheme({schemeId:scheme.options[scheme.selectedIndex].value})
 	}
-	
+
 	function onHeaderSubSchemePopulation(req,res){
 		if(budgetDetailsTable != null){
 			headerSubScheme=dom.get('budgetReAppropriation_subScheme');
@@ -84,7 +84,7 @@
 		}
 		if(typeof preselectSubScheme=='function') preselectSubScheme()
     }
-    
+
     <s:if test="%{shouldShowHeaderField('scheme') and shouldShowHeaderField('subScheme')}">
 	populateSubSchemes(document.getElementById('budgetReAppropriation_scheme'))
 	function preselectSubScheme(){
@@ -107,7 +107,7 @@
 			if(opener != null && opener.top != null && opener.top.document.getElementById('inboxframe')!=null){
 				opener.top.document.getElementById('inboxframe').contentWindow.egovInbox.refresh();
 			}
-		
+
 			function validate(checkUser,method){
 				if(validateMandatoryFields() == false)
 					return false;
@@ -117,19 +117,19 @@
 				for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
 					if(isNaN(document.getElementById('budgetReAppropriationList['+i+'].anticipatoryAmount').value) )
 						anticipatory = true;
-				}				
+				}
 				for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
 					if(isNaN(document.getElementById('budgetReAppropriationList['+i+'].deltaAmount').value) )
 						estimate = true;
 				}
 				if(alertMessage(estimate,anticipatory) ==false)
-					return false;	
+					return false;
 				anticipatory = false;
 				estimate = false;
 				for(i=0;i<budgetReAppropriationTable.getRecordSet().getLength();i++){
 					if(isNaN(document.getElementById('newBudgetReAppropriationList['+i+'].deltaAmount').value) )
 						estimate = true;
-				}		
+				}
 				if(alertMessage(estimate,anticipatory) ==false)
 					return false;
 				for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
@@ -147,7 +147,7 @@
 						invalidNumber = "Planning Budget Percentage should be greater than 0";
 					if(document.getElementById('newBudgetReAppropriationList['+i+'].budgetDetail.budget.id').value != 0 && document.getElementById('newBudgetReAppropriationList['+i+'].deltaAmount').value < 0)
 						invalidNumber = "Addition amount should be greater than 0";
-				}	
+				}
 				if(invalidNumber != ""){
 					bootbox.alert(invalidNumber);
 					return false;
@@ -198,7 +198,7 @@
 				        },
 				     failure: function(o) {
 				     }
-			} 
+			}
 			function getBeRe(){
 				element = document.getElementById('financialYear')
 				id = element.options[element.selectedIndex].value;

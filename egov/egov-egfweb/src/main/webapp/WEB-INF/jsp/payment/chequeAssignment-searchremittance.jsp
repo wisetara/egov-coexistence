@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -281,7 +281,7 @@
 			}
 			function validate()
 			{
-				
+
 				if(dom.get('departmentid') && dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
@@ -312,34 +312,34 @@
 					}
 				else
 					return false;
-				</s:if> 
+				</s:if>
 				<s:else>
 				resetSelectedRowsId();
 				document.chequeAssignment.action= "/services/EGF/payment/chequeAssignment-create.action";
 				document.chequeAssignment.submit();
 				return true;
 				</s:else>
-				
-			}             
+
+			}
 			function validateChequeDateForNonChequeMode(){
-				   
+
 				var noOfSelectedRows=document.getElementById('selectedRows').value;
 				var chkCount=0;
 				var isSelected=0;
 				var chequeSize='<s:property value ="%{chequeAssignmentList.size()}"/>';
 				var chequeDate=document.getElementById('chequeDt').value;
 				var chequeNo=document.getElementById('chequeNumber0').value;
-				
+
 				if(chequeNo==null || chequeNo==''){
-						bootbox.alert('Please enter a valid cheque Number');  
+						bootbox.alert('Please enter a valid cheque Number');
 							return false;
 				}else{
 				for(var index=0;index<chequeSize;index++){
-					var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value; 
+					var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value;
 					if(document.getElementById('isSelected'+index).checked){
 						chkCount++;
-					
-					if( compareDate(paymentDate,chequeDate) == -1){               
+
+					if( compareDate(paymentDate,chequeDate) == -1){
 						bootbox.alert('Cheque Date cannot be less than payment Date');
 						return false;
 					}
@@ -350,7 +350,7 @@
 				}
 				return true;
 				}
-				
+
 			}
 			function validateChequeNumber(obj)
 			{
@@ -378,7 +378,7 @@
 				var index = obj.id.substring(12,obj.id.length);
 				if(obj.value=='')
 					return true;
-					
+
 				if(dom.get('departmentid') && dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
@@ -392,7 +392,7 @@
 				var url = '${pageContext.request.contextPath}/voucher/common-ajaxValidateChequeNumber.action?bankaccountId='+document.getElementById('bankaccount').value+'&chequeNumber='+obj.value+'&index='+index+'&departmentId='+dept+"&serialNo="+slNo;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url,callback , null);
 			}
-			
+
 			function validateReassignSurrenderChequeNumber(obj)
 			{
 				if(isNaN(obj.value))
@@ -419,7 +419,7 @@
 				var index = obj.id.substring(12,obj.id.length);
 				if(obj.value=='')
 					return true;
-					
+
 				if(dom.get('departmentid') && dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
@@ -437,7 +437,7 @@
 				name=name.replace("chequeNumber","serialNo");
 				}
 				var slNo = dom.get(name).options[dom.get(name).selectedIndex].value;
-				
+
 				var dept = dom.get('departmentid').options[dom.get('departmentid').selectedIndex].value;
 				var url = '${pageContext.request.contextPath}/voucher/common-ajaxValidateReassignSurrenderChequeNumber.action?bankaccountId='+document.getElementById('bankaccount').value+'&chequeNumber='+obj.value+'&index='+index+'&departmentId='+dept+"&serialNo="+slNo;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackReassign, null);
@@ -462,7 +462,7 @@
 					res = res.split('~');
 					if(res[1]=='false')
 					{
-						bootbox.alert('This cheque number is not there in the surrendered list');     
+						bootbox.alert('This cheque number is not there in the surrendered list');
 						document.getElementById('chequeNumber'+parseInt(res[0])).value='';
 					}
 			    },
@@ -472,31 +472,31 @@
 			}
 			function validateChequeDate(obj){
 
-				var index = obj.name.substring(21,22);                
-				var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value; 
-				
+				var index = obj.name.substring(21,22);
+				var paymentDate= document.getElementsByName("chequeAssignmentList["+index+"].tempPaymentDate")[0].value;
+
 				 var chkDate =  Date.parse(obj.value);
-				 if(isNaN(chkDate))  {                
+				 if(isNaN(chkDate))  {
 					bootbox.alert("Please enter a valid cheque date")
 					return false;
 				 }
 				 var chequeDate=obj.value;
-				 if( compareDate(paymentDate,chequeDate) == -1){               
+				 if( compareDate(paymentDate,chequeDate) == -1){
 						bootbox.alert('Cheque Date cannot be less than than payment Date');
 						obj.value='';
 					    obj.focus();
 						return false;
 					}
 			}
-			
-			function nextChqNo(obj) 
+
+			function nextChqNo(obj)
 			{
 				var index = obj.id.substring(11,obj.id.length);
 				var sRtn = showModalDialog("../HTML/SearchNextChqNo.html?accntNoId="+document.getElementById('bankaccount').value, "","dialogLeft=300;dialogTop=210;dialogWidth=305pt;dialogHeight=300pt;status=no;");
 				if (sRtn != undefined)
 					document.getElementById("chequeNumber"+index).value = sRtn;
 			}
-			
+
 			function checkAll(obj)
 			{
 				var t = document.getElementById('paymentTable').rows;
@@ -514,34 +514,34 @@
 				}
 				resetSelectedRowsId();
 			}
-			
+
 			function resetSelectedRowsId(){
 				var chequeSize='<s:property value ="%{chequeAssignmentList.size()}"/>';
 				   selectedRowsId = new Array();
 					for(var index=0;index<chequeSize;index++){
 						var obj = document.getElementById('isSelected'+index);
 						if(obj.checked == false){
-							 
+
 							if(document.getElementsByName("chequeAssignmentList["+index+"].voucherHeaderId")[0])
 								document.getElementsByName("chequeAssignmentList["+index+"].voucherHeaderId")[0].disabled=true;
-							
-							 
+
+
 							if(document.getElementsByName("chequeAssignmentList["+index+"].voucherNumber")[0])
 								 document.getElementsByName("chequeAssignmentList["+index+"].voucherNumber")[0].disabled=true;
-							 
-								 
+
+
 							if(document.getElementsByName("chequeAssignmentList["+index+"].voucherDate")[0])
 								 document.getElementsByName("chequeAssignmentList["+index+"].voucherDate")[0].disabled=true;
-							 
+
 							if(document.getElementsByName("chequeAssignmentList["+index+"].paidAmount")[0])
 								paidAmount = document.getElementsByName("chequeAssignmentList["+index+"].paidAmount")[0].disabled=true;
-							 
-							
+
+
 						}
 					}
 			}
-			
-			 
+
+
 		</script>
 	<s:if test="%{isFieldMandatory('department')}">
 		<script>

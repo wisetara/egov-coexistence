@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -45,71 +45,8 @@
  *   In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
  *
  */
-package org.egov.builder.entities;
+package org.egov.commons;
 
-import org.egov.infra.admin.master.entity.HierarchyType;
-
-import java.util.Date;
-
-public class HeirarchyTypeBuilder {
-
-    private final HierarchyType heirarchyTypeImpl;
-
-    // use this count where unique names,desciptions etc required
-    private static long count;
-
-    public HeirarchyTypeBuilder() {
-        heirarchyTypeImpl = new HierarchyType();
-        count++;
-    }
-
-    public HeirarchyTypeBuilder withName(final String name) {
-        heirarchyTypeImpl.setName(name);
-        return this;
-    }
-
-    public HeirarchyTypeBuilder withId(final Long id) {
-        heirarchyTypeImpl.setId(id);
-        return this;
-    }
-
-    public HeirarchyTypeBuilder withUpdatedTime(final Date updatedTime) {
-        heirarchyTypeImpl.setLastModifiedDate(updatedTime);
-        return this;
-    }
-
-    public HeirarchyTypeBuilder withCode(final String code) {
-        heirarchyTypeImpl.setCode(code);
-        return this;
-    }
-
-    public HeirarchyTypeBuilder withDefaults() {
-        withId(count);
-
-        if (null != heirarchyTypeImpl.getName())
-            withName("Test-Hierrachy" + count);
-
-        if (null != heirarchyTypeImpl.getLastModifiedDate())
-            withUpdatedTime(new Date());
-        if (null != heirarchyTypeImpl.getCode())
-            withCode("Test-" + count);
-        return this;
-    }
-
-    public HeirarchyTypeBuilder withDbDefaults() {
-        if (null != heirarchyTypeImpl.getName())
-            withName("Test-Hierrachy" + count);
-
-        if (null != heirarchyTypeImpl.getLastModifiedDate())
-            withUpdatedTime(new Date());
-
-        if (null != heirarchyTypeImpl.getCode())
-            withCode("Test-" + count);
-
-        return this;
-    }
-
-    public HierarchyType build() {
-        return heirarchyTypeImpl;
-    }
+public enum RegionalHierarchyType {
+    REGION, DISTRICT,CITY;
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -49,12 +49,12 @@
   -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping >
-	<class name="org.egov.egf.masters.model.FundingAgency" table="EGF_FUNDINGAGENCY"> 
+	<class name="org.egov.egf.masters.model.FundingAgency" table="EGF_FUNDINGAGENCY">
 		<id name="id" type="long" column="ID">
 	        <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
 	            <param name="sequence_name">SEQ_EGF_FUNDINGAGENCY</param>
 	        </generator>
-	    </id>	    
+	    </id>
 	    <property name="code" type="string" column="CODE" />
 	    <property name="name" type="string" column="NAME" />
 	    <property name="remarks" type="string" column="REMARKS" />
@@ -63,6 +63,6 @@
 	    <property name="createdDate" type="date" column="CREATEDDATE" />
 	    <property name="modifiedDate" type="date" column="LASTMODIFIEDDATE" />
 	    <property name="createdBy" type="long" column="CREATEDBY"/>
-	    <property name="modifiedBy" type="long"><column name="LASTMODIFIEDBY"></column></property>	   
+	    <property name="modifiedBy" type="long"><column name="LASTMODIFIEDBY"></column></property>
 	 </class>
 </hibernate-mapping>

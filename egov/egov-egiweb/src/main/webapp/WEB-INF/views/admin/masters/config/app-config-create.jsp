@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -128,7 +128,7 @@
                                <form:errors path="confValues[${counter.index}].value" cssClass="add-margin error-msg"/>
                            </td>
                            <td>
-                              <span class="add-padding"><i class="fa fa-trash" aria-hidden="true" id="deleterow"></i></span> 
+                              <span class="add-padding"><i class="fa fa-trash" aria-hidden="true" id="deleterow"></i></span>
                            </td>
                        </tr>
                    </c:forEach>

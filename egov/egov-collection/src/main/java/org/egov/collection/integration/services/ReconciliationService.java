@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -168,11 +168,11 @@ public class ReconciliationService {
         receiptHeader.setStatus(collectionsUtil
                 .getReceiptStatusForCode(CollectionConstants.RECEIPT_STATUS_CODE_FAILED));
         EgwStatus paymentStatus;
-        if (receiptHeader.getOnlinePayment().getService().getCode().equals(CollectionConstants.SERVICECODE_AXIS) 
+        if (receiptHeader.getOnlinePayment().getService().getCode().equals(CollectionConstants.SERVICECODE_AXIS)
                 && CollectionConstants.AXIS_ABORTED_STATUS_CODE.equals(paymentResponse.getAuthStatus()))
             paymentStatus = collectionsUtil.getStatusForModuleAndCode(CollectionConstants.MODULE_NAME_ONLINEPAYMENT,
                     CollectionConstants.ONLINEPAYMENT_STATUS_CODE_ABORTED);
-        else if (receiptHeader.getOnlinePayment().getService().getCode().equals(CollectionConstants.SERVICECODE_ATOM) 
+        else if (receiptHeader.getOnlinePayment().getService().getCode().equals(CollectionConstants.SERVICECODE_ATOM)
                 && CollectionConstants.ATOM_AUTHORISATION_CODE_REFUNDED.equals(paymentResponse.getAuthStatus()))
             paymentStatus = collectionsUtil.getStatusForModuleAndCode(CollectionConstants.MODULE_NAME_ONLINEPAYMENT,
                     CollectionConstants.ONLINEPAYMENT_STATUS_CODE_REFUNDED);

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -81,17 +81,17 @@ function EnableVoucherDetails(obj){
 <s:form theme="simple" name="serviceDetailsForm" action="serviceDetails-create.action" method="post">
 <s:token />
 <s:push value="model">
-	
+
 	<jsp:include page="serviceDetails-form.jsp"/>
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"
 					value="Save" onClick = "return validate();"/>
 			</label>&nbsp;
-			
+
 			<label>
 				<input type="button" id="Close" value="Close" onclick="javascript:window.close()" class="buttonsubmit"/>
-			</label>			
+			</label>
 		</div>
 </s:push>
 </s:form>

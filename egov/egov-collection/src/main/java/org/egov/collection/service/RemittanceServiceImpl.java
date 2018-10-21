@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -473,7 +473,7 @@ public class RemittanceServiceImpl extends RemittanceService {
         for (Receipt r : tempList) {
             amount = amount.add(r.getInstrument().getAmount());
         }
-        
+
         receipt.setReceiptDate(key.split("-")[0]);
         receipt.setService(key.split("-")[1]);
         receipt.setInstrumentType(key.split("-")[2]);

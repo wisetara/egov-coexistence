@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,10 +55,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public class UserDetailService implements UserDetailsService {
-    
+
 	@Autowired
 	public MicroserviceUtils microserviceUtils;
-	
+
 	private UserService userService;
 
     public UserDetailService(UserService userService) {
@@ -74,7 +74,7 @@ public class UserDetailService implements UserDetailsService {
 //         return new CurrentUser(user);
     	return null;
     }
-    
+
 //    private User loadUserFromMS(String accessToken)
 //    {
 //    	System.out.println("*************** User Info microservice - started ****************");
@@ -84,11 +84,11 @@ public class UserDetailService implements UserDetailsService {
 //    	System.out.println("*************** User Info microservice - end ****************");
 //    	return this.parepareCurrentUser(user);
 //    }
-//    
+//
 //    private User parepareCurrentUser(CustomUserDetails userdetails) {
-//    
-//    		
-//    	
+//
+//
+//
 //    	User user =new User(UserType.EMPLOYEE);
 //    //	user.setId(userdetails.getId());
 //    	user.setId(userdetails.getId());
@@ -101,27 +101,27 @@ public class UserDetailService implements UserDetailsService {
 //    	user.setPwdExpiryDate(new Date(2090,01,01));
 //    	user.setLocale(userdetails.getLocale());
 //    	System.out.println("***************** is password expired :  "+user.getPwdExpiryDate().isAfterNow());
-//    	
+//
 ////    	for(Role _role:userdetails.getRoles()){
-////    		
+////
 ////    	}
 ////    	Role role = new Role();
 ////    	role.setId(4L);
 ////    	role.setName("SYSTEM");
 //    	Set<Role> roles = new HashSet<>(userdetails.getRoles());
 //    	//roles.add(role);
-//    	
+//
 //    	user.setRoles(roles);
-//    	
+//
 ////    	user.setRoles(new HashSet<>(userdetails.getRoles()));
-//    	
-//    	
-//    	
+//
+//
+//
 //    	return user;
 ////    	currentUser.setRoles(new Set(userdetails.getRoles()));
-//    	
+//
 //    }
-//    
+//
 //    private User getDummyUser(){
 //    	User user =new User(UserType.EMPLOYEE);
 //        //	user.setId(userdetails.getId());
@@ -135,19 +135,19 @@ public class UserDetailService implements UserDetailsService {
 //        	user.setPwdExpiryDate(new Date(2090,01,01));
 //        	user.setLocale("en_lan");
 //        	System.out.println("***************** is password expired :  "+user.getPwdExpiryDate().isAfterNow());
-//        	
+//
 //        	Role role = new Role();
 //        	role.setId(4L);
 //        	role.setName("SYSTEM");
 //        	Set<Role> roles = new HashSet<>();
 //        	roles.add(role);
-//        	
+//
 //        	user.setRoles(roles);
-//        	
+//
 ////        	user.setRoles(new HashSet<>(userdetails.getRoles()));
-//        	
-//        	
-//        	
+//
+//
+//
 //        	return user;
 //    }
 }

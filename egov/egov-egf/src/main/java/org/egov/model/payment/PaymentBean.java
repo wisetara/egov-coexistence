@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -275,6 +275,6 @@ public class PaymentBean {
     public void setBillVoucherId(Long billVoucherId) {
         this.billVoucherId = billVoucherId;
     }
-    
-    
+
+
 }

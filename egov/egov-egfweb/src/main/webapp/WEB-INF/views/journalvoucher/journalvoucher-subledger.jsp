@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -89,7 +89,7 @@
 							<form:hidden path="subLedgerDetails[0].detailKeyId" name="subLedgerDetails[0].detailKeyId" id="subLedgerDetails[0].detailKeyId"  class="subLedgerDetailDetailKeyId "/>
 							<input type="text" id="subLedgerDetails[0].detailkeyname" name="subLedgerDetails[0].detailkeyname"  class="form-control text-right subLedgerDetailKeyName" placeholder="Type first 3 letters of code or name">
 						</td>
-						
+
 						<td>
 							<input type="text" id="subLedgerDetails[0].name" name="subLedgerDetails[0].name"  class="form-control text-right subLedgerName" disabled>
 						</td>
@@ -104,7 +104,7 @@
 							</span>
 						 	<span class="add-padding subledger-delete-row" onclick="deleteSubLedgerRow(this);">
 						 		<i class="fa fa-trash"  aria-hidden="true" data-toggle="tooltip" title="" data-original-title="Delete!"></i>
-						 	</span> 
+						 	</span>
 						</td>
 					</tr>
 				</c:when>
@@ -132,14 +132,14 @@
 							<td>
 								<input type="text" id="subLedgerDetails[${item.index }].amount" name="subLedgerDetails[${item.index }].amount"  class="form-control text-right subLedgerAmount" onkeyup="decimalvalue(this);" data-pattern="decimalvalue" value="${subLedgerDetail.amount}">
 							</td>
-							
+
 							<td class="text-center">
 								<span style="cursor:pointer;" onclick="addSubLedgerRow();">
 									<i class="fa fa-plus" aria-hidden="true"></i>
 								</span>
 							 	<span class="add-padding subledger-delete-row" onclick="deleteSubLedgerRow(this);">
 							 		<i class="fa fa-trash"  aria-hidden="true" data-toggle="tooltip" title="" data-original-title="Delete!"></i>
-							 	</span> 
+							 	</span>
 							</td>
 
 						</tr>

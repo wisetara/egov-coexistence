@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -49,7 +49,7 @@
 
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- 
+<!--
     Mapping file created by Elzan
 -->
 <hibernate-mapping>
@@ -65,16 +65,16 @@
 			</generator>
 		</id>
 		<property name="type" column="type"  type="string"/>
-        <property name="isActive" column="ISACTIVE" type="string"/>  
-           
+        <property name="isActive" column="ISACTIVE" type="string"/>
+
         </class>
-        
+
         <query name="getallECSTypes">
     <![CDATA[from org.egov.infstr.models.ECSType]]></query>
-    
+
     <query name="getECSTypeById">
     <![CDATA[from org.egov.infstr.models.ECSType where id = ?]]></query>
-    
-    
+
+
 </hibernate-mapping>
 

@@ -1,6 +1,6 @@
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -48,7 +48,7 @@
 
 <decorators defaultdir="/decorators">
     <excludes>
-        <pattern>/40*.jsp</pattern>       	
+        <pattern>/40*.jsp</pattern>
         <pattern>/commonyui/egov/genericScreenWithLeaf.jsp</pattern>
         <pattern>/commonyui/egov/menutree.jsp</pattern>
          <pattern>/commonyui/egov/ChartOfaccountsMenuTree.jsp</pattern>
@@ -58,7 +58,7 @@
          <pattern>/*Process.jsp*</pattern>
         <pattern>/*decorate=false*</pattern>
          <pattern>eGov_COA.jsp</pattern>
-         
+
     </excludes>
     <decorator name="default" page="default.jsp">
       <pattern>/*</pattern>

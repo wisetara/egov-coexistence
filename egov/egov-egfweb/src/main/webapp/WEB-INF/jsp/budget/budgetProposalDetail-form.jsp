@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
 	function populateSubSchemes(scheme){
 		populatebudgetDetail_subScheme({schemeId:scheme.options[scheme.selectedIndex].value});
 	}
-	
+
 	function onHeaderSubSchemePopulation(req,res){
 		if(budgetDetailsTable != null){
 			headerSubScheme=dom.get('budgetDetail_subScheme');
@@ -78,7 +78,7 @@
 		        },
 		     failure: function(o) {
 		     }
-	} 
+	}
 
 	function updateYearHeader(){
 		var newPrevious = '';
@@ -107,13 +107,13 @@
 			document.getElementById('yui-dt0-th-total-liner').innerHTML = '<span class="yui-dt-label">Total<br/>'+newCurrent+'(Rs)</span>';
 		}
 	}
-	
+
 	function updateReference(){
 		if(document.getElementById('referenceBudgetName'))
 			document.getElementById('referenceBudget').innerHTML = document.getElementById('referenceBudgetName').value;
 	}
-	
-		
+
+
 	var budgetsCallback = {
 		     success: function(o) {
 		     		//document.getElementById('budgets').innerHTML = o.responseText;
@@ -121,7 +121,7 @@
 		        },
 		     failure: function(o) {
 		     }
-	} 
+	}
 	 function fetchBudgets(){
 		var financialYear = document.getElementById('financialYear');
 		id = financialYear.value;
@@ -133,8 +133,8 @@
 			}
 		else
 		var transaction = YAHOO.util.Connect.asyncRequest('GET', 'budgetProposalDetail-ajaxLoadBudgets.action?financialYear.id='+id+'&bere='+beRe, budgetsCallback, null);
-	} 
-	
+	}
+
 	<s:if test="%{shouldShowHeaderField('scheme') and shouldShowHeaderField('subScheme')}">
 	populateSubSchemes(document.getElementById('budgetDetail_scheme'))
 	function preselectSubScheme(){
@@ -153,7 +153,7 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/javascript/calenderNew.js"></script>
-		
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td class="bluebox" width="15%">&nbsp;</td>
@@ -168,12 +168,12 @@
 		<td class="bluebox" width="15%"><s:text
 				name="budgetdetail.budget" /><span class="mandatory1">*</span>
 		<td class="bluebox">
-			<div id="budgets"> 
+			<div id="budgets">
 				<s:select list="dropdownData.budgetList" listKey="id"
 					listValue="name" name="budget.id"  headerKey="0"
-					headerValue="--- Select ---" value="budget.id" id="budgetDetail_budget" 
+					headerValue="--- Select ---" value="budget.id" id="budgetDetail_budget"
 					></s:select>
-			 </div> 
+			 </div>
 		</td>
 
 

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -47,12 +47,12 @@
  */
 
 $(document).ready(function(){
-	
+
 	$('#firmname').keyup(function(){
 		var arr = $(this).val();
 	    $(this).val(arr.toUpperCase());
 	});
-	
+
 	$('#pan').blur(function(){
 		var regx = /^[A-Za-z]{5}\d{4}[A-za-z]{1}$/;
 		  if ($("#pan").val() != "" && !regx.test($("#pan").val())) {
@@ -61,12 +61,12 @@ $(document).ready(function(){
 		  }
 		  return true;
 	});
-	
-	
+
+
 });
 
 function validateMobileNumber(obj) {
-	
+
 	$("input[name$='mobileNumber']")
 	.each(
 			function() {
@@ -78,7 +78,7 @@ function validateMobileNumber(obj) {
 					bootbox.alert($('#errorUniqueMobileNumber').val());
 				}
 			});
-	
+
 }
 
 function validateEmailId(obj) {
@@ -93,7 +93,7 @@ function validateEmailId(obj) {
 					bootbox.alert($('#errorUniqueEmailid').val());
 				}
 			});
-	
+
 }
 
 function addFirmUsers() {
@@ -103,7 +103,7 @@ function addFirmUsers() {
 			// get Next Row Index to Generate
 			var nextIdx = 0;
 			nextIdx = $("#tblfirm tbody tr").length;
-			
+
 			// validate status variable for exiting function
 			var isValid = 1;// for default have success value 0
 
@@ -122,7 +122,7 @@ function addFirmUsers() {
 			if (isValid === 0) {
 				return false;
 			}
-			
+
 			// Generate all textboxes Id and name with new index
 			$("#firmRow").clone().find("input, errors, textarea").each(
 					function() {
@@ -130,7 +130,7 @@ function addFirmUsers() {
 						if ($(this).data('server')) {
 							$(this).removeAttr('data-server');
 						}
-						
+
 							$(this).attr(
 									{
 										/*'id' : function(_, id) {
@@ -154,14 +154,14 @@ function addFirmUsers() {
 									$(this).prop('selectedIndex', 0);
 								}
 							}
-							
+
 							$(this).removeAttr('disabled');
 							$(this).prop('checked', false);
 
 					}).end().appendTo("#tblfirm tbody");
-			
+
 			generateSno();
-			
+
 		}
 	} else {
 		  bootbox.alert('limit reached!');
@@ -179,12 +179,12 @@ function generateSno()
 
 function deleteFirmUsers(obj) {
     var rIndex = getRow(obj).rowIndex;
-    
+
     var id = $(getRow(obj)).children('td:first').children('input:first').val();
     //To get all the deleted rows id
     var aIndex = rIndex - 1;
 
-	var tbl=document.getElementById('tblfirm');	
+	var tbl=document.getElementById('tblfirm');
 	var rowcount=$("#tblfirm tbody tr").length;
 
     if(rowcount<=1) {
@@ -197,7 +197,7 @@ function deleteFirmUsers(obj) {
 		var sno = 1;
 		//regenerate index existing inputs in table row
 		jQuery("#tblfirm tbody tr").each(function() {
-		
+
 				jQuery(this).find("input, select, textarea, errors, span, input:hidden").each(function() {
 					var classval = jQuery(this).attr('class');
 					if(classval == 'spansno') {
@@ -207,15 +207,15 @@ function deleteFirmUsers(obj) {
 					jQuery(this).attr({
 					      'name': function(_, name) {
 					    	  if(!(jQuery(this).attr('name')===undefined))
-					    		  return name.replace(/\[.\]/g, '['+ idx +']'); 
+					    		  return name.replace(/\[.\]/g, '['+ idx +']');
 					      },
 					      'id': function(_, id) {
 					    	  if(!(jQuery(this).attr('id')===undefined))
-					    		  return id.replace(/\[.\]/g, '['+ idx +']'); 
+					    		  return id.replace(/\[.\]/g, '['+ idx +']');
 					      },
 					      'class' : function(_, name) {
 								if(!(jQuery(this).attr('class')===undefined))
-									return name.replace(/\[.\]/g, '['+ idx +']'); 
+									return name.replace(/\[.\]/g, '['+ idx +']');
 							},
 						  'data-idx' : function(_,dataIdx)
 						  {
@@ -224,13 +224,13 @@ function deleteFirmUsers(obj) {
 					   });
 					}
 			    });
-				
+
 				idx++;
 		});
-		
+
 		generateSno();
 		return true;
-	}	
+	}
 }
 
 function getRow(obj) {
@@ -245,7 +245,7 @@ function getRow(obj) {
 }
 
 $('#save').click(function() {
-		
+
 		var mobileNumber = $('#tblfirm tbody tr').length - 1;
 		var index;
 		var regxMobile = /\d{10}$/;
@@ -254,19 +254,19 @@ $('#save').click(function() {
 		for (var i = 0; i <= mobileNumber; i++) {
 			index = i;
 			var mobileNumber = document.getElementById('tempFirmUsers' + index + '.mobileNumber').value;
-			var email = document.getElementById('tempFirmUsers' + index + '.emailId').value;	
+			var email = document.getElementById('tempFirmUsers' + index + '.emailId').value;
 			if (mobileNumber != "" && !regxMobile.test(mobileNumber)) {
 				  bootbox.alert('Pleas Enter Valid Mobile Number For Row No. ' +index+1);
 				  return false;
 			}
-			
+
 			if (email != "" && !regxEmail.test(email)) {
 				  bootbox.alert('Pleas Enter Valid Email Id For Row No. ' +index+1);
 				  return false;
 			}
-			
+
 		}
-		
+
 		var regxPan = /^[A-Za-z]{5}\d{4}[A-za-z]{1}$/;
 		  if ($("#pan").val() != "" && !regxPan.test($("#pan").val())) {
 			  bootbox.alert($('#errorPanNumber').val());

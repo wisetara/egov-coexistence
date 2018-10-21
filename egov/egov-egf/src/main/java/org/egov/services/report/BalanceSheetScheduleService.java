@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -78,18 +78,18 @@ public class BalanceSheetScheduleService extends ScheduleService {
     private String removeEntrysWithZeroAmount = "";
     private static final Logger LOGGER = Logger.getLogger(BalanceSheetScheduleService.class);
 
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
  @Autowired
     private  FinancialYearHibernateDAO financialYearDAO;
-    
-   
+
+
     public void setBalanceSheetService(final BalanceSheetService balanceSheetService) {
         this.balanceSheetService = balanceSheetService;
     }
-    
+
     public void populateDataForSchedule(final Statement balanceSheet, final String majorCode) {
         getAppConfigValueForRemoveEntrysWithZeroAmount();
         voucherStatusToExclude = getAppConfigValueFor("EGF", "statusexcludeReport");

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -99,7 +99,7 @@ public class DefaultInboxRenderServiceImpl<T extends StateAware> implements Inbo
 
     @Override
     public List<T> getAssignedWorkflowItems(List<Long> owners) {
-      
+
 //    	List<T> list = this.stateAwarePersistenceService.getSession().createCriteria(this.stateAwareType)
 //                .setFetchMode("state", JOIN).createAlias("state", "state")
 //                .setFlushMode(MANUAL).setReadOnly(true).setCacheable(true)
@@ -108,7 +108,7 @@ public class DefaultInboxRenderServiceImpl<T extends StateAware> implements Inbo
 //                .add(Restrictions.in("state.status", Arrays.asList(INPROGRESS, STARTED)))
 //                .addOrder(Order.desc("state.createdDate"))
 //                .list();
-    	
+
     	Criteria criteria =  this.stateAwarePersistenceService.getSession().createCriteria(this.stateAwareType)
               .setFetchMode("state", JOIN).createAlias("state", "state")
               .setFlushMode(MANUAL).setReadOnly(true).setCacheable(true)
@@ -116,7 +116,7 @@ public class DefaultInboxRenderServiceImpl<T extends StateAware> implements Inbo
               .add(Restrictions.in("state.ownerPosition", owners))
               .add(Restrictions.in("state.status", Arrays.asList(INPROGRESS, STARTED)))
               .addOrder(Order.desc("state.createdDate"));
-    	
+
     	List list = criteria.list();
     	System.out.println("#################### inbox list size"+list.size());
     	return list;

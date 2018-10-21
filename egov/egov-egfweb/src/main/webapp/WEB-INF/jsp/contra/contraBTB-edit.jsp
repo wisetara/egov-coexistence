@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -142,7 +142,7 @@
 		</s:push>
 	</s:form>
 	<SCRIPT type="text/javascript">
-	
+
 			function onLoadTask_edit() {
 			   var tempVoucherNumber='<s:property value="voucherHeader.voucherNumber"/>';
 			   var prefixLength='<s:property value="voucherNumberPrefixLength"/>';
@@ -167,9 +167,9 @@
 				 <s:else>
 				 document.getElementById("chequeGrid").style.visibility="hidden";
 				 </s:else>
-				 
+
 				}
-				
+
 				var button = '<s:property value="button"/>';
 				 if (button != null && button != "") {
 
@@ -188,18 +188,18 @@
 							document.forms[0].submit();
 						}
 					}
-					 
+
 				}
 
 			}
-			
+
 function toggleChequeAndRefNumber(obj) {
 
 		if (obj.value == "other") {
 			document.getElementById("chequeGrid").style.visibility="visible";
 			document.getElementById("mdcNumber").innerHTML = '<s:text name="contra.refNumber" />';
 			document.getElementById("mdcDate").innerHTML = '<s:text name="contra.refDate" />';
-					
+
 		} else {
 		var x='<s:property value="egovCommon.isShowChequeNumber()"/>';
 		<s:if test="egovCommon.isShowChequeNumber()">
@@ -210,14 +210,14 @@ function toggleChequeAndRefNumber(obj) {
 		 </s:else>
 			document.getElementById("mdcNumber").innerHTML = '<s:text name="contra.chequeNumber" />';
 			document.getElementById("mdcDate").innerHTML = '<s:text name="contra.chequeDate" />';
-			
+
 		}
 	}
-	
+
 	if('<s:text name="%{isBankBalanceMandatory()}"/>'=='')
 		document.getElementById('lblError').innerHTML = "bank_balance_mandatory parameter is not defined";
-	
-					
+
+
 </SCRIPT>
 </body>
 </html>

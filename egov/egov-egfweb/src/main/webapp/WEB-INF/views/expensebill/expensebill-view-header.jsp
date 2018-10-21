@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div class="panel panel-primary" data-collapsed="0">
 	<div class="panel-heading">
-		
+
 	</div>
 	<div class="panel-body">
 		<div class="row add-border">
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<jsp:include page="expense-view-trans-filter.jsp"/>
-		
+
 		<div class="row add-border">
 			<div class="col-md-3 col-xs-6 add-margin">
 				<spring:message code="lbl.function" />
@@ -86,7 +86,7 @@
 				<c:out default="N/A" value="${egBillregister.egBillregistermis.narration }" />
 			</div>
 		</div>
-		
+
 		<div class="row add-border">
 			<div class="col-md-3 col-xs-6 add-margin">
 				<spring:message code="lbl.party.billnumber" />
@@ -101,8 +101,8 @@
 				<fmt:formatDate value="${egBillregister.egBillregistermis.partyBillDate}" pattern="dd/MM/yyyy" />
 			</div>
 		</div>
-		
-		
+
+
 		<div class="row add-border">
 			<div class="col-md-3 col-xs-6 add-margin">
 				<spring:message code="lbl.billsubtype" />
@@ -117,7 +117,7 @@
 				<c:out default="N/A" value="${egBillregister.egBillregistermis.budgetaryAppnumber }" />
 			</div> --%>
 		</div>
-		
+
 	</div>
-	
+
 </div>

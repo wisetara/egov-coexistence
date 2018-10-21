@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -71,16 +71,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/reports")
 public class AjaxEmployeeAssignmentReportController {
-    
+
     @Autowired
     private EmployeeService employeeService;
-    
+
     @Autowired
     private DesignationService designationService;
-    
+
     @Autowired
     private AssignmentService assignmentService;
-    
+
     @RequestMapping(value = "/searchemployeecodes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<String> getEmployeeCodes(@RequestParam final String code) {
         List<Employee> employees = employeeService.findEmployeeByCodeLike(code);
@@ -90,22 +90,22 @@ public class AjaxEmployeeAssignmentReportController {
         }
         return employeeCodes;
     }
-    
+
     @RequestMapping(value = "/searchdesignations", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<Designation> getDesignation(@RequestParam final String name) {
         return designationService.getDesignationsByName(name);
     }
-    
+
     @RequestMapping(value = "/searchpositions", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<Position> getPositions(@RequestParam final String name) {
         return assignmentService.findPositionsForEmployees(name);
-    } 
-    
+    }
+
     @RequestMapping(value = "/employeeassignments/search", method = RequestMethod.POST, produces = MediaType.TEXT_PLAIN_VALUE)
     public @ResponseBody String searchEmployeeAssignments(@ModelAttribute final EmployeeAssignmentSearch employeeAssignmentSearch) {
         List<Employee> employeeList = assignmentService.searchEmployeeAssignments(employeeAssignmentSearch);
         final String result = new StringBuilder("{ \"data\":").append(JsonUtils.toJSON(employeeList, Employee.class, EmployeeAssignmentSearchJson.class)).append("}").toString();
         return result;
-    } 
-    
+    }
+
 }

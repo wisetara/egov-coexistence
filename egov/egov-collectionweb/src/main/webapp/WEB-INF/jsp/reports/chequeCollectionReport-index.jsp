@@ -1,6 +1,6 @@
  <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -109,7 +109,7 @@ function validate()
 <div class="subheadsmallnew"><span class="subheadnew"><s:text name="collectionReport.criteria"/></span></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
-	   
+
 	     <tr>
 	      <td class="bluebox">&nbsp;</td>
 	      <td class="bluebox"><s:text name="collectionReport.criteria.fromdate"/><span class="mandatory1">*</span></td>
@@ -133,7 +133,7 @@ function validate()
 		  <td class="bluebox">&nbsp;</td>
 	      <td class="bluebox">&nbsp;</td>
 	    </tr>
-	   
+
 	    </table>
 <div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
 <br/>
@@ -160,7 +160,7 @@ function validate()
 <s:if test="%{results.isEmpty()}">
 	<s:if test="target=='searchresult'">
 		<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablebottom">
-		<tr> 
+		<tr>
 			<div>&nbsp;</div>
 			<div class="subheadnew"><s:text name="searchresult.norecord"/></div>
 		</tr>
@@ -170,4 +170,4 @@ function validate()
 </s:form>
 </body>
 </html>
-	
+

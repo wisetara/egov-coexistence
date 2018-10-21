@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -134,7 +134,7 @@ public class PendingTDSReportAction extends BaseFormAction {
     private Recovery recovery = new Recovery();
     private Fund fund = new Fund();
     private Department department = new Department();
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -146,7 +146,7 @@ public class PendingTDSReportAction extends BaseFormAction {
     private String message = "";
     private String mode = "";
     private static Logger LOGGER = Logger.getLogger(PendingTDSReportAction.class);
-    
+
     public void setFinancialYearDAO(final FinancialYearHibernateDAO financialYearDAO) {
         this.financialYearDAO = financialYearDAO;
     }
@@ -172,7 +172,7 @@ public class PendingTDSReportAction extends BaseFormAction {
         persistenceService.getSession().setFlushMode(FlushMode.MANUAL);
         super.prepare();
         addDropdownData("departmentList", persistenceService.findAllBy("from Department order by name"));
-        addDropdownData("fundList", persistenceService.findAllBy(" from Fund where isactive=true and isnotleaf=false order by name"));  
+        addDropdownData("fundList", persistenceService.findAllBy(" from Fund where isactive=true and isnotleaf=false order by name"));
 
         addDropdownData("recoveryList",
                 persistenceService.findAllBy(" from Recovery where isactive=true order by chartofaccounts.glcode"));
@@ -338,7 +338,7 @@ public class PendingTDSReportAction extends BaseFormAction {
             if (detailKey != null && detailKey != -1)
                 partyNameQuery = " and egRemittanceGldtl.generalledgerdetail.detailkeyid=" + detailKey;
             final StringBuffer query = new StringBuffer(1000);
-           
+
             List<EgRemittanceDetail> result = new ArrayList<EgRemittanceDetail>();
             query.append("from EgRemittanceDetail where  egRemittanceGldtl.generalledgerdetail.generalLedgerId.glcodeId.id=? "
                     +
@@ -355,7 +355,7 @@ public class PendingTDSReportAction extends BaseFormAction {
             else
                 result = persistenceService.findAllBy(query.toString(), recovery.getChartofaccounts().getId(), fund.getId(),
                         asOnDate);
-            
+
             Boolean createPartialRow = false;
             for (final EgRemittanceDetail entry : result) {
                 createPartialRow = false;
@@ -389,7 +389,7 @@ public class PendingTDSReportAction extends BaseFormAction {
                 }
                 remittedTDS.add(tds);
             }
-           
+
         }
     }
 

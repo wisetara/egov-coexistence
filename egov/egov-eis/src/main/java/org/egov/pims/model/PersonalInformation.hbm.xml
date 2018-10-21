@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -187,17 +187,17 @@
   <property type="long" name="createdBy">
    <column name="CREATED_BY"/>
   </property>
-  
+
   <property generated="never" lazy="false" name="permanentAddress" type="string">
    <column length="2048" name="PERMANENT_ADDRESS"/>
   </property>
-  
+
   <property generated="never" lazy="false" name="correspondenceAddress" type="string">
    <column length="2048" name="CORRESPONDENCE_ADDRESS"/>
   </property>
-  
-  
-  
+
+
+
  </class>
  <query name="ACTIVE_EMPLOYEES">from org.egov.pims.model.PersonalInformation as emp where emp.StatusMaster.moduletype = 'Employee' and emp.StatusMaster.description='Employed' order by employeeName</query>
  <query name="ACTIVE_EMPLOYEES_STARTSWITH">from PersonalInformation  where StatusMaster.id =(select id from EgwStatus where moduletype='Employee' and description='Employed')

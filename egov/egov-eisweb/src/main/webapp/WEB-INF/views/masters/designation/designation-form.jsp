@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -68,8 +68,8 @@
 						</c:otherwise>
 					</c:choose>
 					</div>
-				</div> 
-				
+				</div>
+
 				<div class="panel-body custom-form">
 					<div class="form-group">
 						<label class="col-sm-3 control-label">
@@ -96,7 +96,7 @@
 						<div class="col-sm-6">
 							<form:input path="description" id="description" type="text" class="form-control low-width is_valid_alphabet" placeholder="" autocomplete="off"/>
 						</div>
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -112,6 +112,6 @@
 			</div>
 </div>
 
-	
+
 <script src="<cdn:url value='/resources/global/js/bootstrap/typeahead.bundle.js' context='/services/egi'/>"></script>
 

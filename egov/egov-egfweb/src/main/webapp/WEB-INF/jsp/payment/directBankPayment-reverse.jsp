@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -113,29 +113,29 @@
 	path="${pageContext.request.contextPath}";
 		var totaldbamt=0,totalcramt=0;
 		var makeVoucherDetailTable = function() {
-		var voucherDetailColumns = [ 
+		var voucherDetailColumns = [
 			{key:"functionid",hidden:true,width:90, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
 			{key:"function",label:'Function Name',width:90, formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail")},
 			{key:"glcodeid",hidden:true,width:90, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
 			{key:"glcode",label:'Account Code <span class="mandatory">*</span>',width:100, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-			{key:"accounthead", label:'Account Head',width:250,formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
-			{key:"debitamount",label:'Debit Amount',width:90, formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+			{key:"accounthead", label:'Account Head',width:250,formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+			{key:"debitamount",label:'Debit Amount',width:90, formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
 			{key:"creditamount",label:'Credit Amount',width:90, formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var voucherDetailDS = new YAHOO.util.DataSource(); 
+	    var voucherDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
 		billDetailsTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 				updateAccountTableIndex();
 			}
-			if (column.key == 'Delete') { 	
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -148,8 +148,8 @@
 					bootbox.alert("This row can not be deleted");
 				}
 			}
-			
-			        
+
+
 		}
 		);
 		<s:iterator value="billDetailslist" status="stat">
@@ -172,9 +172,9 @@
 				updateGridPJV('creditAmountDetail',index,'<s:property value="creditAmountDetail"/>');
 				totaldbamt = totaldbamt+parseFloat('<s:property value="debitAmountDetail"/>');
 				totalcramt = totalcramt+parseFloat('<s:property value="creditAmountDetail"/>');
-				updateAccountTableIndex();	
+				updateAccountTableIndex();
 			</s:iterator>
-				
+
 
 		var tfoot = billDetailsTable.getTbodyEl().parentNode.createTFoot();
 		var tr = tfoot.insertRow(-1);
@@ -190,7 +190,7 @@
 		td.align="right"
 		td.innerHTML="<input type='text' style='text-align:right;width:100px;'  id='totalcramount' name='totalcramount' readonly='true' tabindex='-1'/>";
 		document.getElementById('totaldbamount').value=totaldbamt.toFixed(2);;
-		document.getElementById('totalcramount').value=totalcramt.toFixed(2);; 
+		document.getElementById('totalcramount').value=totalcramt.toFixed(2);;
 		}
 		var glcodeOptions=[{label:"--- Select ---", value:"0"}];
 		<s:iterator value="dropdownData.glcodeList">
@@ -200,12 +200,12 @@
 	<s:iterator value="dropdownData.detailTypeList">
 	    detailtypeOptions.push({label:'<s:property value="name"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
-	
-	
-	
-		
+
+
+
+
 		var makeSubLedgerTable = function() {
-		var subledgerColumns = [ 
+		var subledgerColumns = [
 			{key:"subledgerCode",hidden:true,width:90, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".subledgerCode","hidden")},
 			{key:"glcode.id",label:'Account Code <span class="mandatory">*</span>',width:90, formatter:createDropdownFormatterJV(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
 			{key:"detailTypeName",hidden:true,width:90, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".detailTypeName","hidden")},
@@ -217,19 +217,19 @@
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
 		subLedgersTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 				updateSLTableIndex();
 				check();
 			}
-			if (column.key == 'Delete') { 			
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -239,9 +239,9 @@
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}        
+			}
 		});
-	
+
 		<s:iterator value="subLedgerlist" status="stat">
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
 					"subledgerCode":'<s:property value="subledgerCode"/>',
@@ -264,7 +264,7 @@
 				updateSLGridPJV('amount',index,'<s:text name="format.number" ><s:param value="%{amount}"/></s:text>');
 				updateSLTableIndex();
 			</s:iterator>
-	
+
 	}
 	var amountCannotBeNegetive='<s:text name="amount.cannotbe.negetive"/>';
 	var succesMessage='<s:text name="directbank.transaction.succcess"/>';
@@ -374,8 +374,8 @@
 				{
 				revVoucherNumberObj.disabled=false;
 				}
-				 
-			
+
+
 			}
 
  function validateReverse() {
@@ -390,7 +390,7 @@
             if (field.value == "") {
                 addError(field, error);
                 errors = true;
-                
+
             }
         }
         if (form.elements['reversalVoucherNumber']) {
@@ -399,14 +399,14 @@
             if (field.value == "") {
                 addError(field, error);
                 errors = true;
-                
+
             }
         }
         return !errors;
-        
+
 }
 
-	
+
 </SCRIPT>
 </body>
 </html>

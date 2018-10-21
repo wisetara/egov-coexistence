@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -153,7 +153,7 @@ public class DishonorChequeWorkflowAction extends BaseFormAction {
     private String approverDesignation;
     private String mode = null;
     private List desgnationList;
-    
+
    // private @Autowired BankEntries bankEntries;
 
     public DishonorChequeWorkflowAction() {
@@ -326,7 +326,7 @@ public class DishonorChequeWorkflowAction extends BaseFormAction {
         LOGGER.info(">>>>>>>>>>" + getActionName());
         String returnValue = "view";
         final String actionNm = getActionName();
-        Integer userId = null;   
+        Integer userId = null;
         if (actionNm.equalsIgnoreCase(APPROVE)) {
             userId=   parameters.get("approverUserId") != null ? Integer.valueOf(parameters.get("approverUserId")[0]) :
                 ApplicationThreadLocals.getUserId().intValue();

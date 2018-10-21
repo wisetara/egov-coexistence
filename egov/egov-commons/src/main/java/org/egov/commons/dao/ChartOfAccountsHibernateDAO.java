@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -127,7 +127,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
 
     /**
      * This API will give the list of detailed active for posting chartofaccounts list
-     * 
+     *
      * @return
      * @throws ApplicationException
      */
@@ -147,7 +147,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
 
     }
 
-    
+
     public List<CChartOfAccounts> findDetailedAccountCodesByGlcodeOrNameLike(String searchString) {
         final Query qry = getCurrentSession()
                 .createQuery(
@@ -210,7 +210,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
     /**
      * This API will return the accountdetailtype for an account code when the accountcode and the respective accountdetailtype
      * name is passed.
-     * 
+     *
      * @param glcode - This the chartofaccount code (mandatory)
      * @param name - This is the accountdetailtype name that is associated with the account code (mandatory)
      * @return - Returns the accountdetailtype object if the account code is having the passed accountdetailtype name, else NULL
@@ -255,7 +255,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
 
     /**
      * This API will return the list of detailed chartofaccounts objects that are active for posting for the Type.
-     * 
+     *
      * @param -Accounting type-(Asset (A), Liability (L), Income (I), Expense (E))
      * @return list of chartofaccount objects
      */
@@ -272,7 +272,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
      * to get the list of chartofaccounts based on the purposeId. First query will get the detail codes for the purpose is mapped
      * to major code level. second query will get the detail codes for the purpose is mapped to minor code level. last one will
      * get the detail codes are mapped to the detail code level.
-     * 
+     *
      * @param purposeId
      * @return list of COA object(s)
      */
@@ -319,7 +319,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
 
     /**
      * This API will return the list of non control detailed chartofaccount codes that are active for posting.
-     * 
+     *
      * @return list of chartofaccount objects.
      */
     public List<CChartOfAccounts> getNonControlCodeList() {
@@ -539,7 +539,7 @@ public class ChartOfAccountsHibernateDAO implements ChartOfAccountsDAO {
      * to get the list of chartofaccounts based on the purposeName. First query will get the detail codes for the purpose is
      * mapped to major code level. second query will get the detail codes for the purpose is mapped to minor code level. last one
      * will get the detail codes are mapped to the detail code level.
-     * 
+     *
      * @param purposeId
      * @return list of COA object(s)
      */

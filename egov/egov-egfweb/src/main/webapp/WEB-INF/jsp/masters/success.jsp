@@ -2,8 +2,8 @@
 
 <%@ page language="java"%>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,7 +63,7 @@
 				<s:actionmessage />
 			</div></h3>
 			<s:token />
-	
+
 		<br /><br /> <input type="button" id="Close" value="Close"
 			onclick="javascript:window.close()" class="button" /></center>
 </body>

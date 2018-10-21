@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -256,7 +256,7 @@ var saveMode='<s:property value="contraBean.saveMode"/>';
 				bootbox.alert("Payinslip voucher created sucessfully with voucher number =  "+voucherNumber );
 				window.open('../voucher/preApprovedVoucher!loadvoucherview.action?vhid=<s:property value='%{voucherHeader.id}'/>','Search','resizable=yes,scrollbars=yes,left=300,top=40,width=900, height=700');
 			}
-	}		
+	}
 			   <s:if test="%{shouldShowHeaderField('vouchernumber')}">
 			   var tempVoucherNumber='<s:property value="voucherHeader.voucherNumber"/>';
 			   var prefixLength='<s:property value="voucherNumberPrefixLength"/>';
@@ -269,7 +269,7 @@ var saveMode='<s:property value="contraBean.saveMode"/>';
 		document.getElementById('saveMode').value=saveMode;
 		document.getElementById('fundId').enabled =true;
 		document.getElementById('lblError').innerHTML = "";
-		
+
 		if(document.getElementById('voucherNumber') && document.getElementById('voucherNumber').value.trim().length == 0){
 		document.getElementById('lblError').innerHTML = "Please enter voucher number";
 		return false;
@@ -278,17 +278,17 @@ var saveMode='<s:property value="contraBean.saveMode"/>';
 		document.getElementById('lblError').innerHTML = "Please select a bank ";
 		return false;
 		}
-		
+
 		if(document.getElementById('voucherDate').value.trim().length == 0){
 		document.getElementById('lblError').innerHTML = "Please enter  voucher date ";
 		return false;
 		}
-		
+
 		if(document.getElementById('accountNumber').value == -1 ){
 		document.getElementById('lblError').innerHTML = "Please select an account number ";
 		return false;
 		}
-		
+
 		if(document.getElementById('amount').value.trim().length == 0 || document.getElementById('amount').value.trim() == 0){
 		document.getElementById('lblError').innerHTML = "Please enter an amount greater than zero";
 		return false;
@@ -309,14 +309,14 @@ var saveMode='<s:property value="contraBean.saveMode"/>';
 		else{
 			return false;
 		}
-		
+
 }
 function amountFormat(){
 
 		var amount = document.getElementById('amount').value.trim();
 		var amountlastchar = amount.substring(amount.length-1,amount.length);
 		 var alphaCheck = "0123456789.";
-		
+
 	  if (alphaCheck.indexOf(amountlastchar) == -1 ) {
 	   		document.getElementById('amount').value=amount.substring(0,amount.length-1);
 	   		document.getElementById('amount').focus;
@@ -352,10 +352,10 @@ function amountFormat(){
 				document.getElementById('accountNumber').value=-1;
 				document.getElementById('accnumnar').value="";
 				document.getElementById('amount').value=0;
-			}	
+			}
 			var voucherNumber = '<s:property value='%{voucherHeader.voucherNumber}'/>' ;
 			var cgn = '<s:property value='%{cgn}'/>' ;
-			
+
 			if(dom.get('result').value=='sucess')
 			{
 				bootbox.alert("Transaction Succesfully Completed and VoucherNumber is :  "+voucherNumber);
@@ -365,11 +365,11 @@ function amountFormat(){
 					var vhId='<s:property value='%{voucherHeader.id}'/>';
 					document.forms[0].action = "${pageContext.request.contextPath}/voucher/preApprovedVoucher!loadvoucherview.action?vhid="+vhId;
 					document.forms[0].submit();
-					
-					
+
+
 				}
 			}
-	
+
 function populateAccNum(branch){
 
 	var bankbranchId = branch.options[branch.selectedIndex].value;
@@ -388,8 +388,8 @@ var postType = {
 success: function(o) {
 		var narrationfund= o.responseText;
 		var index=narrationfund.indexOf("-");
-		document.getElementById('accnumnar').value=narrationfund.substring(o,index);	
-		var fundid = narrationfund.substring(index+1,narrationfund.length);	
+		document.getElementById('accnumnar').value=narrationfund.substring(o,index);
+		var fundid = narrationfund.substring(index+1,narrationfund.length);
 		document.getElementById('fundId').value = fundid;
 		document.getElementById('fundId').disabled =true;
 		populateschemeid({fundId:fundid})

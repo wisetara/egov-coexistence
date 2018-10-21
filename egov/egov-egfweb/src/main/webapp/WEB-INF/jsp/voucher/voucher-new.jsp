@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -114,33 +114,33 @@
 <script>
 		path="${pageContext.request.contextPath}";
 		var totaldbamt=0,totalcramt=0;
-		
-		
-		
-		
+
+
+
+
 		var makeVoucherDetailTable = function() {
-		var voucherDetailColumns = [ 
+		var voucherDetailColumns = [
 			{key:"functionid",hidden:true,width:90, formatter:createTextFieldFormatterPJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
 			{key:"function",label:'Function Name',width:90, formatter:createTextFieldFormatterForFunctionPJV(VOUCHERDETAILLIST,".functionDetail")},
 			{key:"glcodeid",hidden:true,width:90, formatter:createTextFieldFormatterPJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
 			{key:"glcode",label:'Account Code <span class="mandatory">*</span>',width:100, formatter:createTextFieldFormatterPJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-			{key:"accounthead", label:'Account Head',width:250,formatter:createLongTextFieldFormatterPJV(VOUCHERDETAILLIST,".accounthead")},				
-			{key:"debitamount",label:'Debit Amount',width:90, formatter:createAmountFieldFormatterPJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmount()")}, 
+			{key:"accounthead", label:'Account Head',width:250,formatter:createLongTextFieldFormatterPJV(VOUCHERDETAILLIST,".accounthead")},
+			{key:"debitamount",label:'Debit Amount',width:90, formatter:createAmountFieldFormatterPJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmount()")},
 			{key:"creditamount",label:'Credit Amount',width:90, formatter:createAmountFieldFormatterPJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmount()")},
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var voucherDetailDS = new YAHOO.util.DataSource(); 
+	    var voucherDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
 		billDetailsTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 			}
-			if (column.key == 'Delete') { 	
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -152,8 +152,8 @@
 					bootbox.alert("This row can not be deleted");
 				}
 			}
-			
-			        
+
+
 		});
 		billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 		var tfoot = billDetailsTable.getTbodyEl().parentNode.createTFoot();
@@ -170,7 +170,7 @@
 		td.align="right"
 		td.innerHTML="<input type='text' style='text-align:right;width:100px;'  id='totalcramount' name='totalcramount' readonly='true'/>";
 	}
-	
+
 	var glcodeOptions=[{label:"--- Select ---", value:"0"}];
 	<s:iterator value="dropdownData.glcodeList">
 	    glcodeOptions.push({label:'<s:property value="glcode"/>', value:'<s:property value="id"/>'})
@@ -179,9 +179,9 @@
 	<s:iterator value="dropdownData.detailTypeList">
 	    detailtypeOptions.push({label:'<s:property value="name"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
-	
+
 	var makeSubLedgerTable = function() {
-		var subledgerColumns = [ 
+		var subledgerColumns = [
 			{key:"glcode.id",label:'Account Code <span class="mandatory">*</span>',width:90, formatter:createDropdownFormatterPJV(SUBLEDGERLIST),  dropdownOptions:glcodeOptions},
 			{key:"detailType.id",label:'Type <span class="mandatory">*</span>',width:90, formatter:createDropdownFormatterPJV(SUBLEDGERLIST),dropdownOptions:detailtypeOptions},
 			{key:"detailCode",label:'Code <span class="mandatory">*</span>',width:90, formatter:createSLTextFieldFormatterPJV(SUBLEDGERLIST,".detailCode","validateDetailCodeForJV(this)")},
@@ -191,17 +191,17 @@
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
 		subLedgersTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 			}
-			if (column.key == 'Delete') { 			
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -211,11 +211,11 @@
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}        
+			}
 		});
 		subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 	}
-	
+
 function getschemelist(obj)
 {
 var opt=obj.value;
@@ -298,9 +298,9 @@ PageManager.DataService.callDataService("subschemelist");
 					<div id="subLedgerTable"></div>
 				</div>
 				<script>
-			
+
 			makeSubLedgerTable();
-		
+
 			document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="80%"
 		</script>
 

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -71,13 +71,13 @@ public class EisRelationType implements java.io.Serializable
 	private String gender;
 
 	private Long eligibleAge;
-	
+
 	private String eligStatusIfMarried;
-	
+
 	private String eligStatusIfEmployed;
-	
+
 	private String narration;
-	
+
 	public EisRelationType() {}
 	public String getEligStatusIfMarried() {
 		return eligStatusIfMarried;
@@ -91,14 +91,14 @@ public class EisRelationType implements java.io.Serializable
 	public void setEligStatusIfEmployed(String eligStatusIfEmployed) {
 		this.eligStatusIfEmployed = eligStatusIfEmployed;
 	}
-	
+
 	public EisRelationType(boolean fullBenefitElegible, String gender)
 	{
 		this.fullBenefitEligible = fullBenefitElegible;
 		this.gender = gender;
 	}
 
-	
+
 
 	public Long getId()
 	{
@@ -152,5 +152,5 @@ public class EisRelationType implements java.io.Serializable
 	public void setNarration(String narration) {
 		this.narration = narration;
 	}
-	
+
 }

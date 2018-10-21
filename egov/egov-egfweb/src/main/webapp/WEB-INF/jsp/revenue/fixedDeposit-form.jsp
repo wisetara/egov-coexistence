@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -56,8 +56,8 @@
 		//var extendCount=0;
 		var res;
 		var chldIndex=0;
-		var makeFDTable = function(objTable) {                   
-    	var fixedDepositTableColumns = [ 
+		var makeFDTable = function(objTable) {
+    	var fixedDepositTableColumns = [
 			{key:"SlNo",label:'Sl No',width:30},
 			{key:"id",label:'id',width:100,hidden:true, formatter:createTextFieldFormatter('FDtable',FDLIST,".id","hidden")},
 			{key:"fileNo",label:'File Number',width:100, formatter:createTextFieldFormatter('FDtable',FDLIST,".fileNo","text")},
@@ -99,13 +99,13 @@
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			fdTableDT.addRow({SlNo:fdTableDT.getRecordSet().getLength()+1});
 			updateFDTableIndex();
 		}
-		if (column.key == 'Delete') { 	
+		if (column.key == 'Delete') {
 		//bootbox.alert(this);
-			if(this.getRecordSet().getLength()>1){			
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				//bootbox.alert(record);
 				allRecords=this.getRecordSet();
@@ -133,8 +133,8 @@
 				"serialNumber":'<s:property value="serialNumber"/>',
 				"GJVvhid":'<s:property value="outFlowVoucher.id"/>',
 				"generalVoucher":'<s:property value="outFlowVoucher.voucherNumber"/>',
-				"GJVDate":'<s:property value="outFlowVoucher.voucherDate"/>',	
-				"gjvAmount":'<s:property value="gjvAmount"/>',	
+				"GJVDate":'<s:property value="outFlowVoucher.voucherDate"/>',
+				"gjvAmount":'<s:property value="gjvAmount"/>',
 				"maturityAmount":'<s:property value="maturityAmount"/>',
 				"maturityDate":'<s:property value="maturityDate"/>',
 				"WithdrawalDate":'<s:property value="withdrawalDate"/>',
@@ -153,7 +153,7 @@
 				"extend":'<s:property value="extend"/>',
 				"extendTemp":'<s:property value="extendTemp"/>'
 		});
-		
+
 			var index = '<s:property value="#stat.index"/>';
 			updateYUIGrid(FDLIST,'id',index,'<s:property value="id"/>');
 			updateYUIGrid(FDLIST,'fileNo',index,'<s:property value="fileNo"/>');
@@ -186,12 +186,12 @@
 			updateYUIGrid(FDLIST,'parentId',index,'<s:property value="parentId"/>');
 			updateYUIGrid(FDLIST,'extend',index,'<s:property value="extend"/>');
 			updateYUIGrid(FDLIST,'extendTemp',index,'<s:property value="extendTemp"/>');
-			updateFDTableIndex();	                          
-			</s:iterator>		
+			updateFDTableIndex();
+			</s:iterator>
     }
-            
-            var makeChildTable = function() {                
-    		var childDepositTableColumns = [ 
+
+            var makeChildTable = function() {
+    		var childDepositTableColumns = [
 			{key:"SlNo",label:'Sl No',width:30},
 			{key:"fileNo",label:'File Number',width:100, formatter:createTextFieldFormatter('Childtable',CHILDLIST,".fileNo","text")},
 			{key:"amount",label:'Amount Of Deposit',width:100, formatter:createTextFieldFormatter('Childtable',CHILDLIST,".amount","text")},
@@ -224,20 +224,20 @@
 			{key:'Add',label:'Add',width:13,formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Del',width:13,formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-      
+
 		var childTableDS = new YAHOO.util.DataSource();
-		childTableDT = new YAHOO.widget.DataTable("childTablediv",childDepositTableColumns, childTableDS);         
+		childTableDT = new YAHOO.widget.DataTable("childTablediv",childDepositTableColumns, childTableDS);
 		childTableDT.on('cellClickEvent',function (oArgs) {
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			childTableDT.addRow({SlNo:childTableDT.getRecordSet().getLength()+1});
 			updatechildTableIndex();
 			chldIndex++;
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -250,8 +250,8 @@
 			}
 		}
 	});
-		
-		
+
+
 		<s:iterator value="childFDList" status="stat">
 			childTableDT.addRow({"SlNo":childTableDT.getRecordSet().getLength()+1,
 				"fileNo":'<s:property value="fileNo"/>',
@@ -265,8 +265,8 @@
 				"serialNumber":'<s:property value="serialNumber"/>',
 				"GJVvhid":'<s:property value="outFlowVoucher.id"/>',
 				"generalVoucher":'<s:property value="outFlowVoucher.voucherNumber"/>',
-				"GJVDate":'<s:property value="outFlowVoucher.voucherDate"/>',		
-				"gjvAmount":'<s:property value="gjvAmount"/>',	
+				"GJVDate":'<s:property value="outFlowVoucher.voucherDate"/>',
+				"gjvAmount":'<s:property value="gjvAmount"/>',
 				"maturityAmount":'<s:property value="maturityAmount"/>',
 				"maturityDate":'<s:property value="maturityDate"/>',
 				"WithdrawalDate":'<s:property value="withdrawalDate"/>',
@@ -285,7 +285,7 @@
 				//"parentslNo":'<s:property value="slNum"/>',
 				//"refe":'<s:property value="extend"/>'*/
 		});
-		
+
 			var index = '<s:property value="#stat.index"/>';
 			updateYUIChildGrid(CHILDLIST,'fileNo',index,'<s:property value="fileNo"/>');
 			updateYUIChildGrid(CHILDLIST,'amount',index,'<s:property value="amount"/>');
@@ -315,11 +315,11 @@
 			updateYUIChildGrid(CHILDLIST,'instrumentHeader.instrumentDate',index,'<s:property value="instrumentHeader.instrumentDate"/>');
 			updateYUIChildGrid(CHILDLIST,'remarks',index,'<s:property value="remarks"/>');
 			updateYUIChildGrid(CHILDLIST,'parentId',index,'<s:property value="parentId"/>');
-			updatechildTableIndex();	                          
-			</s:iterator>		
+			updatechildTableIndex();
+			</s:iterator>
     }
-                                  
-    
+
+
     var FDLIST='fixedDepositList';
     var CHILDLIST='childFDList';
     var fdTableIndex=0;
@@ -327,7 +327,7 @@
     var challanGJV=false;
     var outGJVAmount=false;
     var outGJV=false;
-    
+
     function createBankBranchDropDownFormatter(tableType,prefix,suffix){
 	return function(el, oRecord, oColumn, oData) {
 	var index=getIndexForTableType(tableType);
@@ -342,7 +342,7 @@
 		element=element+" </select>";
 		el.innerHTML =element ;
 		}
-	}                                        
+	}
 	function createBankAccountDropDownFormatter(tableType,prefix,suffix){
 	  return function(el, oRecord, oColumn, oData) {
 	  var index=getIndexForTableType(tableType);
@@ -351,15 +351,15 @@
 		element=element+"<option value='-1' selected='selected' > --- Choose --- </option>  ";
 		element=element+" </select>";
 		el.innerHTML =element ;
-		}      
-	}            
+		}
+	}
 	function createTextFieldFormatterImg(tableType,prefix,suffix,type){
 	   return function(el, oRecord, oColumn, oData) {
 		var tableIndex=getIndexForTableType(tableType);
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		var imgsuffix=suffix+"img";
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style='width:90px;' /><img src='/services/egi/resources/erp2/images/searchicon.gif' id='"+prefix+"["+tableIndex+"]"+imgsuffix+"' name='"+prefix+"["+tableIndex+"]"+imgsuffix+"' onclick='openViewVouchers(this)'/>";
-		}    
+		}
 	}
 	function createTextFieldFormatterWithStyle(tableType,prefix,suffix,style){
 		return function(el, oRecord, oColumn, oData) {
@@ -368,10 +368,10 @@
 		el.innerHTML = " <input type='text' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style='"+style+"' />";
 		}
 	}
-	
-	
+
+
 	function createDateFieldFormatter(tableType,prefix,suffix)
-	{	
+	{
 		return function(el, oRecord, oColumn, oData) {
 			var value = (YAHOO.lang.isValue(oData))?oData:"";
 			var index=getIndexForTableType(tableType);
@@ -384,7 +384,7 @@
 	 		el.innerHTML = markup;
 		}
 	}
-	  
+
 	function createTextFieldFormatter(tableType,prefix,suffix,type){
 	return function(el, oRecord, oColumn, oData) {
 		var tableIndex=getIndexForTableType(tableType);
@@ -398,18 +398,18 @@ function createCheckboxFieldFormatterNew(tableType,prefix,suffix,type){
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 	//sbootbox.alert(value);
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style='width:90px'  onclick='extendFixedDeposit(this);'/>";
-	}                          
-}    
+	}
+}
 function checkDate(obj)
 	{
 		var dat=validateDate(obj.value);
-		if (!dat && dat!=null) 
+		if (!dat && dat!=null)
 		{
 			bootbox.alert('Invalid date format : Enter Date as dd/mm/yyyy');
 			obj.value="";
 			return;
 		}
-	}  
+	}
 
 	function openViewVouchers(obj)
 	{
@@ -426,12 +426,12 @@ function checkDate(obj)
 		document.getElementById(id).value=data[2];   // vouchderid
 		patt1 = name.match("outFlowVoucher.voucherNumber");
 		patt2 = name.match("inFlowVoucher.voucherNumber");
-		      
+
 		if(patt1=="outFlowVoucher.voucherNumber"){
 			outGJVAmount=true;
 			onlyName=name.replace(".outFlowVoucher.voucherNumber","")
 			loadVoucherAmount(data[2],onlyName);
-		}        
+		}
 		else if(patt2=="inFlowVoucher.voucherNumber"){
 			challanGJV=false;
 			outGJV=true;
@@ -449,7 +449,7 @@ function checkDate(obj)
 			loadVoucherAmount(data[2],onlyName);
 		}
 	}
-			
+
 }
 	function loadVoucherAmount(billVhId,name){
 		var grantType='<s:property value="grantsType"/>';
@@ -468,19 +468,19 @@ function checkDate(obj)
 						document.getElementById(onlyName+".receiptAmount" ).value= ((docs[0]=='-')?"":docs[0]);
 					else if(outGJV)
 						document.getElementById(onlyName+".receiptAmount" ).value= ((docs[0]=='-')?"":docs[0]);
-				}				
-			}                   
+				}
+			}
 		},
 		failure: function(o) {
 			bootbox.alert('Cannot fetch Funding Agency Grant Amount');
 		}
 	}
- 
+
 	function loadChequeNoAndDate(billVhId,name){
 		var url = '../voucher/common!ajaxLoadChequeNoAndDate.action?billVhId='+billVhId;
 		YAHOO.util.Connect.asyncRequest('POST', url, chequeNoAndDate, null);
 	}
-	
+
 	var chequeNoAndDate={
 		success: function(o) {
 			if(o.responseText!="")
@@ -489,27 +489,27 @@ function checkDate(obj)
 				document.getElementById(onlyName+".instrumentHeader.id").value= ((docs[0]=='0')?"":docs[0]);
 				document.getElementById(onlyName+".instrumentHeader.instrumentNumber" ).value= ((docs[1]=='0')?"":docs[1]);
 				document.getElementById(onlyName+".instrumentHeader.instrumentDate" ).value= ((docs[2]=='-')?"":docs[2]);
-				
-				
+
+
 			}
 		},
 		failure: function(o) {
 			bootbox.alert('Cannot fetch instrument and account details');
-		}                 
+		}
 	}
 	function getbranchAccountId(obj){
 		var branchId=obj.value;
 		selectedname=obj.name;
 		var url = '../voucher/common!ajaxLoadBranchAccountNumbers.action?branchId='+branchId;
 		YAHOO.util.Connect.asyncRequest('POST', url, bankAccountList, null);
-	
+
 	}
 
 	var bankAccountList={
 		success: function(o) {
 			if(o.responseText!="")
 			{
-				var docs=o.responseText;               
+				var docs=o.responseText;
 				res=docs.split("$");
 				var accNumid=selectedname;
 				//bootbox.alert(docs);
@@ -517,36 +517,36 @@ function checkDate(obj)
 				//bootbox.alert(accNumid.value);
 				var x=document.getElementById(accNumid);
 				x.length=0;
-				x.options[0]=new Option("----Choose----","-1");  
+				x.options[0]=new Option("----Choose----","-1");
 				x.options[0].text='---Choose---';
-				x.options[0].value=0; 
-				var j=0;         
+				x.options[0].value=0;
+				var j=0;
  							for(var i=0;i<res.length-1;i++)
  							{
- 							      
+
 	 							var idandnum=res[i].split('~');
 	 							x.options[++j]=new Option(idandnum[0],idandnum[1]);
- 						    }                     
+ 						    }
 			}
-		},                                         
+		},
 		failure: function(o) {
 			bootbox.alert('Cannot fetch instrument and account details');
 		}
 	}
-	            
+
 
 function getIndexForTableType(tableType)
-{	               
+{
 		if(tableType=='FDtable'){
  			return fdTableIndex;
 		}
-		
+
 		else if(tableType=='Childtable'){
 		//bootbox.alert("hi");
 			return childTableIndex;
 		}
-		
-}	
+
+}
 function updateYUIGrid(fdlist,field,index,value){
 	  if(value==null)
 		return;
@@ -560,7 +560,7 @@ function updateYUIGrid(fdlist,field,index,value){
 	 	document.getElementById(fdlist+'['+index+'].'+field).value=value;
 	}
 
-}	
+}
 function updateYUIChildGrid(fdlist, field,index,value){
 	  if(value==null)
 		return;
@@ -569,7 +569,7 @@ function updateYUIChildGrid(fdlist, field,index,value){
 	 }else{
 	 	document.getElementById(fdlist+'['+index+'].'+field).value=value;
 	}
-}	 
+}
 function updateFDTableIndex()
 {
 	//bootbox.alert("fdTableIndex >> "+fdTableIndex);
@@ -590,7 +590,7 @@ function updatechildTableIndex(){
   var selAccount;
 var childDepositAmount=childStr.concat(".amount");
 var childBankBranch=childStr.concat(".bankBranch.id");
-var childBankAccount=childStr.concat(".bankAccount.id");                                      
+var childBankAccount=childStr.concat(".bankAccount.id");
 var childrefNo=childStr.concat(".referenceNumber");
 var fdExtend=fdobj.replace(".extendTemp",".extend");
 var parentaccId;
@@ -601,34 +601,34 @@ var parentBankAccount=fdobj.replace("extendTemp","bankAccount.id");
 var refNo=fdobj.replace("extendTemp","referenceNumber");
 var parentAccNo=fdobj.replace("extendTemp","bankAccNumber");
 var abc=getIndexForTableType('Childtable');
-      
+
 if(obj.checked){
 	document.getElementsByName(fdExtend)[0].value=true;
 	document.getElementById(refNo).value=parseInt(index)+1;
    	if(chldIndex==0){
   		makeChildTable();
-  		document.getElementById('childTablediv').getElementsByTagName('table')[0].width="80%"; 
-  		 
+  		document.getElementById('childTablediv').getElementsByTagName('table')[0].width="80%";
+
   		document.getElementById(childDepositAmount).value=document.getElementById(parentmaturityAmount).value;
 		document.getElementById(childBankBranch).value=document.getElementById(parentBankBranch).value;
-		document.getElementById(childrefNo).value=parseInt(index)+1; 
+		document.getElementById(childrefNo).value=parseInt(index)+1;
 		parentaccId=document.getElementById(parentBankAccount).value;
 		parentText=document.getElementById(parentBankAccount).text;
      	len=document.getElementById(parentBankAccount).length;
      	     	selAccount=document.getElementById(parentBankAccount).options;
-      	for(i=0;i<len;i++){	
+      	for(i=0;i<len;i++){
      		if(parentaccId==selAccount[i].value){
      		parentText=selAccount[i].text;
      		document.getElementById(childBankAccount).options[0]=new Option(selAccount[i].text,selAccount[i].value);
-     		}  		
+     		}
      	}
      	//bootbox.alert("PARENT ACCOUNT iD>>"+parentaccId);
      	//bootbox.alert("child table value"+document.getElementById(childBankAccount).value);
-     		document.getElementById(childBankAccount).options[0].value=parentaccId; 
+     		document.getElementById(childBankAccount).options[0].value=parentaccId;
      		document.getElementById(childBankAccount).options[0].text=parentText;
      		//bootbox.alert("afetr reassigning"+document.getElementById(childBankAccount).value)
-     		 
-     		                                 
+
+
 	}else{
 			//bootbox.alert(abc);
 		childTableDT.addRow({SlNo:childTableDT.getRecordSet().getLength()+1});
@@ -642,19 +642,19 @@ if(obj.checked){
      		if(parentaccId==selAccount[i].value){
      		parentText=selAccount[i].text;
      		document.getElementById(childBankAccount).options[0]=new Option(selAccount[i].text,selAccount[i].value);
-     		} 		
+     		}
      	}
-     		document.getElementById(childBankAccount).options[0].value=parentaccId; 
+     		document.getElementById(childBankAccount).options[0].value=parentaccId;
      		document.getElementById(childBankAccount).options[0].text=parentText;
      		updatechildTableIndex();
-     		  
+
 	}chldIndex++;
- }           
+ }
  else if(!obj.checked){
   	  chldIndex--;
  	  document.getElementsByName(fdExtend)[0].value=false;
- 	  
-			
+
+
  }
 }
 </SCRIPT>
@@ -691,7 +691,7 @@ if(obj.checked){
 <script type="text/javascript">
      		makeFDTable('fdTablediv');
      		document.getElementById('fdTablediv').getElementsByTagName('table')[0].width="80%";
-     		 
+
      	</script>
 
 

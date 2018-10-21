@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -142,9 +142,9 @@ public class FundService {
         return query.getResultList();
 
     }
-    
+
     public List<Fund>search(final Fund fund,List<Integer> ids,String sortBy,Integer offset,Integer pageSize){
-    	
+
     	final CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         final CriteriaQuery<Fund> createQuery = cb.createQuery(Fund.class);
         final Root<Fund> funds = createQuery.from(Fund.class);
@@ -167,17 +167,17 @@ public class FundService {
             predicates.add(cb.equal(funds.get("isactive"), true));
         if (fund.getParentId() != null)
             predicates.add(cb.equal(funds.get("parentId"), fund.getParentId()));
-       
+
         if(null!=ids && ids.size()>0)
         predicates.add(funds.get("id").in(ids));
-             
+
         createQuery.where(predicates.toArray(new Predicate[] {}));
         createQuery.orderBy(cb.asc(funds.get(sortBy)));
-        
+
         final TypedQuery<Fund> query = entityManager.createQuery(createQuery).setFirstResult(offset).setMaxResults(pageSize);
-           
+
         return query.getResultList();
-    	
+
     }
 
     public List<Fund> findByIsnotleaf() {

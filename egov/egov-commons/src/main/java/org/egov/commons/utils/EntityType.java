@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -104,15 +104,15 @@ public interface EntityType {
 	 */
 	public String getCode();
 	/**
-	 *To get The id/detailKeyd for the entity 
+	 *To get The id/detailKeyd for the entity
 	 * @return
 	 */
 	public Integer getEntityId();
 	/**
-	 * 
+	 *
 	 * @return data to be displayed in reports
 	 */
-	public String getEntityDescription();	
+	public String getEntityDescription();
 	/**
      *
      * @return status of Entity^M

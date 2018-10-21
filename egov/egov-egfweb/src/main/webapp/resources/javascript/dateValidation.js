@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -81,9 +81,9 @@ function validateDateBeforeSubmit(dateSelObj,fdateObj,tdateObj)
 		fdateObj.focus();
 		return false;
 	}
-	
+
 	/****** Validation of entered date *******/
-	
+
 	if(dateSelObj.value == "1" && tdateObj.value != "")
 	{
 		rType=validateDate(tdateObj.value);
@@ -93,9 +93,9 @@ function validateDateBeforeSubmit(dateSelObj,fdateObj,tdateObj)
 			tdateObj.value="";
 			tdateObj.focus();
 			return false;
-		}		
-	}	
-			
+		}
+	}
+
 	if(dateSelObj.value == "2" && fdateObj.value != "")
 	{
 		rType=validateDate(fdateObj.value);
@@ -105,14 +105,14 @@ function validateDateBeforeSubmit(dateSelObj,fdateObj,tdateObj)
 			fdateObj.value="";
 			fdateObj.focus();
 			return false;
-		}				
-	}	
-					
+		}
+	}
+
 	if(dateSelObj.value == "3" && fdateObj.value != "" && tdateObj.value != "")
 	{
 		rFrom=validateDate(fdateObj.value);
 		rTo=validateDate(tdateObj.value);
-		
+
 		//bootbox.alert('I m here');
 		if(rFrom==false || rTo==false)
 		{
@@ -122,7 +122,7 @@ function validateDateBeforeSubmit(dateSelObj,fdateObj,tdateObj)
 				fdateObj.value="";
 				fdateObj.focus();
 			}
-				
+
 			if(rTo==false)
 			{
 				tdateObj.value="";
@@ -130,7 +130,7 @@ function validateDateBeforeSubmit(dateSelObj,fdateObj,tdateObj)
 			}
 			return false;
 		}
-		
+
 		else
 		{
 			//bootbox.alert('I m inside F & T date');
@@ -141,12 +141,12 @@ function validateDateBeforeSubmit(dateSelObj,fdateObj,tdateObj)
 				//fdateObj.value="";
 				fdateObj.focus();
 				return false;
-			}			
-			
+			}
+
 		}
-		
-	}	
-	
+
+	}
+
 	return true;
 
 }
@@ -168,15 +168,15 @@ function myFromDate(dateSelObj)
 	}
 	if(dateSelObj.value == "0")
 	{
-		
+
 		bootbox.alert("From Date is not necessary when Date Selection is All Dates");
 		dateSelObj.focus();
 		return false;
 	}
-	
+
 	else if(dateSelObj.value == "4")
 	{
-			
+
 			bootbox.alert("From Date is not necessary when Date Selection is Current Date");
 			dateSelObj.focus();
 			return false;
@@ -186,7 +186,7 @@ function myFromDate(dateSelObj)
 			bootbox.alert("From Date is not necessary when Date Selection is Before");
 			dateSelObj.focus();
 			return false;
-		
+
 	}
 	return true;
 }
@@ -206,21 +206,21 @@ function myToDate(dateSelObj)
 	}
 
 	if(dateSelObj.value == "0")
-	{		
+	{
 		bootbox.alert("To Date is not necessary when Date Selection is  All Dates");
 		dateSelObj.focus();
 		return false;
 	}
-	
+
 	else if(dateSelObj.value == "4")
-	{			
+	{
 		bootbox.alert("To Date is not necessary when Date Selection is  Current Date");
 		dateSelObj.focus();
 		return false;
 	}
 	else if(dateSelObj.value == "2")
 	{
-					
+
 		bootbox.alert("To Date is not necessary when Date Selection is After");
 		dateSelObj.focus();
 		return false;
@@ -248,12 +248,12 @@ function enable_date(obj,o1,o2)
 		  o2.value="";
 		  o1.readOnly = true;
 		  o2.readOnly = true;
-		  
+
 	}
 	else if(value == 1)
 	{
 		//o1.disabled = true;
-		//o2.disabled = false;	
+		//o2.disabled = false;
 		o1.value="";
 		o2.value="";
 		o1.readOnly = true;
@@ -262,12 +262,12 @@ function enable_date(obj,o1,o2)
 	else if(value == 2)
 	{
 		//o2.disabled = true;
-		//o1.disabled = false;	
+		//o1.disabled = false;
 		o1.value="";
 		o2.value="";
 		o2.readOnly = true;
 		o1.readOnly = false;
-		
+
 	}
 	else if(value == 4)
 	{
@@ -294,32 +294,32 @@ function enable_date(obj,o1,o2)
 **/
 function checkFdateTdate(fromDate,toDate)
 {
-	//ENTERED DATE FORMAT MM/DD/YYYY	
+	//ENTERED DATE FORMAT MM/DD/YYYY
 
 	//bootbox.alert('From Year'+fromDate.substr(6,4)+'To'+toDate.substr(6,4));
 	//bootbox.alert('From Month'+fromDate.substr(0,2)+'To'+toDate.substr(0,2));
 	//bootbox.alert('From Date'+fromDate.substr(3,2)+'To'+toDate.substr(3,2));
-	
+
 	if(fromDate.substr(6,4) > toDate.substr(6,4))
 	{
 		return false;
 	}
-	
+
 	else if(fromDate.substr(6,4) == toDate.substr(6,4))
 	{
 		if(fromDate.substr(3,2) > toDate.substr(3,2))
 		{
 			return false;
 		}
-	   
+
 		else if(fromDate.substr(3,2) == toDate.substr(3,2))
 		{
 			if(fromDate.substr(0,2) > toDate.substr(0,2))
 			{
 				return false;
-			}	
-	
-			else 
+			}
+
+			else
 			{
 				return true;
 			}
@@ -334,17 +334,17 @@ function checkFdateTdate(fromDate,toDate)
 		return true;
 	}
 }
-  
+
 /*function validateDate(strValue)
 {
     var today = new Date();
     var day = today.getDate();
     var month = today.getMonth();
     var year = today.getYear();
-    
+
     //SYS DATE FORMAT DD/MM/YYYY
     //ENTERED DATE FORMAT DD/MM/YYYY
-    
+
    //bootbox.alert('ENTERED YEAR='+strValue.substr(6,4)+'YEAR='+year);
    //bootbox.alert('ENTERED MONTH='+strValue.substr(0,2)+'MONTH='+month);
    //bootbox.alert('ENTERED DATE='+strValue.substr(3,2)+'DAY='+day);
@@ -360,15 +360,15 @@ function checkFdateTdate(fromDate,toDate)
         //If entered year is greater than the current year return false
         else if ( strValue.substr(6,4) > year)
         {
-    
+
             return false;
         }
- 
+
  	//If entered year is equal the current year return false
         else if( strValue.substr(6,4) == year )
         {
             if(strValue.substr(3,2)< (month+1))
-            {            	
+            {
                  return true;
             }
             if(strValue.substr(3,2)> (month+1))
@@ -379,14 +379,14 @@ function checkFdateTdate(fromDate,toDate)
             {
                	return false;
             }
-            
+
             if(document.AggCollModeForm.fdate.value.substr(3,2)==(month+1) && document.AggCollModeForm.fdate.value.substr(0,2)==day)
             {
                	return false;
             }
-            
+
             else
-            {   
+            {
                 return true;
             }
         }
@@ -395,14 +395,14 @@ function checkFdateTdate(fromDate,toDate)
             return true;
         }
     }
-    else 
+    else
     {
         return true;
     }
 }*/
 
 
-//Validates that the Date entered belongs to the givenfinancial year 
+//Validates that the Date entered belongs to the givenfinancial year
 function validateFinancialYear(financialYear, collDateObj)
 {
     //bootbox.alert('Inside validateFinancialYear'+financialYear);
@@ -412,20 +412,20 @@ function validateFinancialYear(financialYear, collDateObj)
     //bootbox.alert('collYear'+collYear);
    // bootbox.alert('collMonth'+collMonth);
   //  bootbox.alert('finYear'+finYear);
-    
+
     //if(collMonth <= 3 && finYear == (collYear -1))
-    
+
     if(collMonth > 3 && collYear == (finYear -1))
         return true;
     else if(collMonth <= 3 && finYear == collYear)
         return true
-    else 
+    else
         return false;
-    
+
 }
 
 function validateCollDateFinYear(collDateObj)
-{	
+{
     var today = new Date();
     var collYear=eval(collDateObj.substr(6,4));
     finYear=today.getYear();
@@ -438,13 +438,13 @@ function validateCollDateFinYear(collDateObj)
     return true;
     else
     return false;
-   
-   
-       
-}       
+
+
+
+}
 
 /**
-* Checks whether the date entered is within the current financial Year 
+* Checks whether the date entered is within the current financial Year
 **/
 /*function validateCollDateFinYear(strValue)
 {
@@ -453,7 +453,7 @@ function validateCollDateFinYear(collDateObj)
     var sys_day = today.getDate();
     var sys_month = today.getMonth();
     var sys_year = today.getYear();
-    
+
 
 //bootbox.alert("Entered validateCollectionDate() fun    "+sys_month);
 sys_month=eval(sys_month)+eval(1);
@@ -461,7 +461,7 @@ sys_month=eval(sys_month)+eval(1);
     var coll_year=strValue.substr(6,4);
     var coll_month=strValue.substr(3,2);
     var coll_day=strValue.substr(0,2);
-    
+
    if(sys_month>=04)
    {
    	sys_yearNext=eval(sys_year)+eval(1);
@@ -473,15 +473,15 @@ sys_month=eval(sys_month)+eval(1);
    		}
    	}
    }
-   
+
    else if(sys_year<4)
    {
    	if(coll_month<4)
    	{
-   		
-   
-   
-        
+
+
+
+
     //bootbox.alert("SYS MONTH="+sys_month+" Coll_MONTH="+coll_month);
     if(coll_month>=4)
     {
@@ -500,18 +500,18 @@ sys_month=eval(sys_month)+eval(1);
     		return false;
     	}
     }
-    
+
     else
     {
     	return true;
     }
-    
+
 }
 
 */
 
 /**
-* Checks whether the date entered is greater than the current date 
+* Checks whether the date entered is greater than the current date
 **/
 function validateDate(strValue)
 {
@@ -521,11 +521,11 @@ function validateDate(strValue)
     var day = today.getDate();
     var month = today.getMonth();
     var year = today.getFullYear();
-    
+
     //SYS DATE FORMAT DD/MM/YYYY
     //ENTERED DATE FORMAT DD/MM/YYYY
     bootbox.alert("HIIIIIIIIIII");
-    
+
    /* bootbox.alert('ENTERED YEAR='+strValue.substr(6,4)+'YEAR='+year);
     bootbox.alert('ENTERED MONTH='+strValue.substr(0,2)+'MONTH='+month);
     bootbox.alert('ENTERED DATE='+strValue.substr(3,2)+'DAY='+day);*/
@@ -563,14 +563,14 @@ function validateDate(strValue)
             	//bootbox.alert('pls enter the valid date');
             	return false;
             }
-            
+
             /*if(document.AggCollDateForm.fdate.value.substr(3,2)==(month+1) && document.AggCollDateForm.fdate.value.substr(0,2)==day)
             {
             	return false;
             }*/
-            
+
             else
-            {   
+            {
                 return true;
             }
         }
@@ -579,20 +579,20 @@ function validateDate(strValue)
             return true;
         }
     }
-    else 
+    else
     {
         return true;
     }
 }
 
 /**
-* Checks whether the date entered is greater than the current date 
+* Checks whether the date entered is greater than the current date
 * (Used when validation.xml is used for validation)
 **/
 function validateDateJS(obj)
 {
 
-    
+
     /*if(!validateEnteredDate(strValue))
         return false;*/
 
@@ -604,14 +604,14 @@ function validateDateJS(obj)
      //SYS DATE FORMAT DD/MM/YYYY
     //ENTERED DATE FORMAT DD/MM/YYYY
     //bootbox.alert("HIIIIIIIIIII");
-    
+
    /* bootbox.alert('ENTERED YEAR='+strValue.substr(6,4)+'YEAR='+year);
     bootbox.alert('ENTERED MONTH='+strValue.substr(0,2)+'MONTH='+month);
     bootbox.alert('ENTERED DATE='+strValue.substr(3,2)+'DAY='+day);*/
 
 
     var strValue=obj.value;
-    
+
 
     if(strValue!="")
     {
@@ -643,21 +643,21 @@ function validateDateJS(obj)
             	obj.focus();
                 return false;
             }
-           
+
            if (strValue.substr(3,2) == (month+1) && strValue.substr(0,2)>day)
             {
             	bootbox.alert('pls enter the valid date');
             	obj.focus();
             	return false;
             }
-            
+
             /*if(document.AggCollDateForm.fdate.value.substr(3,2)==(month+1) && document.AggCollDateForm.fdate.value.substr(0,2)==day)
             {
             	return false;
             }*/
-            
+
             else
-            {   
+            {
                 return true;
             }
         }
@@ -666,14 +666,14 @@ function validateDateJS(obj)
             return true;
         }
     }
-    else 
+    else
     {
         return true;
     }
 }
 
 /**
-* Check for the valid characters in the date fields 
+* Check for the valid characters in the date fields
 **/
 function checkDate(obj)
 {
@@ -691,13 +691,13 @@ if(dt!="" && dt!=null)
 	for(var i=0;i<len && invalid==false;i++)
 	{
 		chars=dt.charAt(i);
-		
+
 		if(validChars.indexOf(chars)==-1)
-		{			
+		{
 			invalid=true;
 		}
 	}
-	
+
 	if(invalid==true)
 	{
 		bootbox.alert("Please enter the valid characters");
@@ -710,13 +710,13 @@ return;
 }
 
 /**
-* Check whether the values entered in the date fields are in dd/MM/yyyy format 
+* Check whether the values entered in the date fields are in dd/MM/yyyy format
 * and whether the dd, MM and yyyy values are valid
 **/
 function validateDateFormat(obj)
 {
  var dtStr=obj.value;
- 
+
  var year;
  var day;
  var month;
@@ -726,34 +726,34 @@ function validateDateFormat(obj)
  var feb=false;
  var validDate=true;
  var Ret=true;
- 
- 
- 
+
+
+
   if(obj.readOnly==false)
   {
-  
+
     if(dtStr!="" && dtStr!=null)
     {
     	year=dtStr.substr(6,4);
     	month=dtStr.substr(3,2);
     	day=dtStr.substr(0,2);
-    	if(dtStr.indexOf("/")=="2" && dtStr.lastIndexOf("/")=="5")    	
-    	validDate=true;    	
-    	else    	
+    	if(dtStr.indexOf("/")=="2" && dtStr.lastIndexOf("/")=="5")
+    	validDate=true;
+    	else
     	validDate=false;
     	checkDate(obj);
-    	
+
     	//bootbox.alert("day="+day+" month="+month);
     	if(year=="0000" || year<1900 || month=="00" || day=="00" || dtStr.length!=10)
     	{
     		validDate=false;
     	}
-    		
+
     	if(validDate==true)
     	{
     		//if(year>1900 && year<=
     		leap=year%4;
- 		
+
  		//bootbox.alert("Hi Feb LEAP="+leap);
  		 if(month=="02")
 		 {
@@ -761,7 +761,7 @@ function validateDateFormat(obj)
 		 		feb=true;
 		 }
 
- 		
+
  		if(leap==0 && month=="02")
     		{
     			//bootbox.alert("111111111111111111111");
@@ -770,7 +770,7 @@ function validateDateFormat(obj)
     				valid=false;
     				feb=true;
     			}
-    			//bootbox.alert("Leap Year");    			
+    			//bootbox.alert("Leap Year");
     			/*if(month=="2") // || month==02)
     			{
     				valid=false;
@@ -784,11 +784,11 @@ function validateDateFormat(obj)
     					feb=true;
     				}
     			}*/
-    			
+
     		}
-    	
+
     		else if(month=="02" && day>28)
-    		{    
+    		{
     			valid=false;
     			feb=true;
     			//bootbox.alert("222222222222222222");
@@ -806,35 +806,35 @@ function validateDateFormat(obj)
     				}
     			}*/
     		}
-    		
+
     		if(feb==false)
-    		{    	
+    		{
     			//bootbox.alert("33333333333333333333333");
     			if(month=="03" || month=="01" || month=="05" || month=="07" || month=="08" || month=="10" || month=="12")
     			{
     				if(day>31)
-    				{    					
+    				{
     					oth_valid=false;
     				}
     			}
-    		
-    			else if(month=="04" || month==06 || month=="09" || month=="11") 
+
+    			else if(month=="04" || month==06 || month=="09" || month=="11")
     			{
     				if(day>30)
-    				{    					
+    				{
     					oth_valid=false;
     				}
     			}
-    		
+
     			else
     			{
     				oth_valid=false;
     			}
-    		
+
     		}
     	}
-    }	
-   
+    }
+
    //bootbox.alert("valid="+valid+" oth_valid="+oth_valid+" validDate="+validDate);
     if(valid==false || oth_valid==false || validDate==false)
     {
@@ -855,22 +855,22 @@ function validateDateFormat(obj)
 function validateCollectionDate(paymentYear,collectionDate)
 {
 	var pmntYear=paymentYear;
-	var collDate=collectionDate;		
-	
+	var collDate=collectionDate;
+
 	var prevYear=pmntYear.substr(0,4);
 	var nextYear=eval(prevYear)+eval(0001);
-	
-	/*bootbox.alert("Payment year="+pmntYear+"CollectionYear="+collectionDate);	
-	bootbox.alert("Substring Year="+prevYear+"Substring Collection="+collDate.substr(6,4));	
+
+	/*bootbox.alert("Payment year="+pmntYear+"CollectionYear="+collectionDate);
+	bootbox.alert("Substring Year="+prevYear+"Substring Collection="+collDate.substr(6,4));
 	bootbox.alert("Financial Year="+prevYear+"-"+nextYear);*/
-	
+
 	if(collDate.substr(6,4) > nextYear || collDate.substr(6,4) <prevYear)
 	{
 		//bootbox.alert("The collection date should be between the payment year!!");
 		//obj.value="";
 		return false;
 	}
-	
+
 	else if(collDate.substr(6,4)<=nextYear && collDate.substr(6,4)>=prevYear)
 	{
 		if(collDate.substr(6,4)==nextYear)
@@ -882,12 +882,12 @@ function validateCollectionDate(paymentYear,collectionDate)
 			}
 			else
 			{
-				if(collDate.substr(3,2)<3)				
+				if(collDate.substr(3,2)<3)
 				{
 					return true;
 				}
-				
-				if(collDate.substr(3,2)==3)				
+
+				if(collDate.substr(3,2)==3)
 				{
 					// R if(collDate.substr(0,2)<=31)
 					if(collDate.substr(0,2)<=day)
@@ -928,29 +928,29 @@ function validateCollectionDate(paymentYear,collectionDate)
 				}
 			}
 		}
-		
+
 	}
-			
-	else 
+
+	else
 	{
 		return true;
-	}	 
-	
+	}
+
 }
 
 /**
-* Checks whether the collection date is greater than the 01 April of the first year of the 
-* financial year selected and <=current date 
+* Checks whether the collection date is greater than the 01 April of the first year of the
+* financial year selected and <=current date
 * RETURN TYPE:: true -- if within the financial year......Else returns false
 **/
 
 function validateCollectionDateCurrenDate(paymentYear,collectionDate)
 {
 	var pmntYear=paymentYear;
-	var collDate=collectionDate;		
-	
+	var collDate=collectionDate;
+
 	var prevYear=pmntYear.substr(0,4);
-	
+
 	//bootbox.alert("Ins Year="+paymentYear);
 	if(isNaN(prevYear) && pmntYear!="Choose")
 	{
@@ -958,9 +958,9 @@ function validateCollectionDateCurrenDate(paymentYear,collectionDate)
 		prevYear="2000";
 		//return false;
 	}
-	
+
 	var nextYear=eval(prevYear)+eval(0001);
-	
+
 	/******Newly added for the collection date<=todays date and >01April of the financial year selected ***/
 	var today = new Date();
    	var day = today.getDate();
@@ -969,17 +969,17 @@ function validateCollectionDateCurrenDate(paymentYear,collectionDate)
 	month=eval(month)+eval(1);
 	nextYear=year;
 	/***********************************************/
-	/*bootbox.alert("Payment year="+pmntYear+"CollectionYear="+collectionDate);	
-	bootbox.alert("Substring Year="+prevYear+"Substring Collection="+collDate.substr(6,4));	
+	/*bootbox.alert("Payment year="+pmntYear+"CollectionYear="+collectionDate);
+	bootbox.alert("Substring Year="+prevYear+"Substring Collection="+collDate.substr(6,4));
 	bootbox.alert("Financial Year="+prevYear+"-"+nextYear);*/
-	
+
 	if(collDate.substr(6,4) > nextYear || collDate.substr(6,4) <prevYear)
 	{
 		//bootbox.alert("The collection date should be between the payment year!!");
 		//obj.value="";
 		return false;
 	}
-	
+
 	else if(collDate.substr(6,4)<=nextYear && collDate.substr(6,4)>=prevYear)
 	{
 		if(collDate.substr(6,4)==nextYear)
@@ -1039,15 +1039,15 @@ function validateCollectionDateCurrenDate(paymentYear,collectionDate)
 				}
 			}
 		}
-		
+
 	}
-			
-	else 
+
+	else
 	{
 		return true;
 	}
-		 
-	
+
+
 }
 
 // ===================================================================
@@ -1063,7 +1063,7 @@ function validateCollectionDateCurrenDate(paymentYear,collectionDate)
 // use. That means, you can include it in your product, or your web
 // site, or any other form where the code is actually being used. You
 // may not put the plain javascript up on your site for download or
-// include it in your javascript libraries for download. 
+// include it in your javascript libraries for download.
 // If you wish to share this code with others, please just point them
 // to the URL instead.
 // Please DO NOT link directly to my .js files from your site. Copy
@@ -1075,14 +1075,14 @@ function validateCollectionDateCurrenDate(paymentYear,collectionDate)
 // May 17, 2003: Fixed bug in parseDate() for dates <1970
 // March 11, 2003: Added parseDate() function
 // March 11, 2003: Added "NNN" formatting option. Doesn't match up
-//                 perfectly with SimpleDateFormat formats, but 
+//                 perfectly with SimpleDateFormat formats, but
 //                 backwards-compatability was required.
 
 // ------------------------------------------------------------------
-// These functions use the same 'format' strings as the 
+// These functions use the same 'format' strings as the
 // java.text.SimpleDateFormat class, with minor exceptions.
 // The format string consists of the following abbreviations:
-// 
+//
 // Field        | Full Form          | Short Form
 // -------------+--------------------+-----------------------
 // Year         | yyyy (4 digits)    | yy (2 digits), y (2 or 4 digits)
@@ -1205,7 +1205,7 @@ function formatDate(date,format) {
 		}
 	return result;
 	}
-	
+
 // ------------------------------------------------------------------
 // Utility functions for parsing in getDateFromFormat()
 // ------------------------------------------------------------------
@@ -1224,12 +1224,12 @@ function _getInt(str,i,minlength,maxlength) {
 		}
 	return null;
 	}
-	
+
 // ------------------------------------------------------------------
 // getDateFromFormat( date_string , format_string )
 //
 // This function takes a date string and a format string. It matches
-// If the date string matches the format string, it returns the 
+// If the date string matches the format string, it returns the
 // getTime() of the date. If it does not match, it returns 0.
 // ------------------------------------------------------------------
 function getDateFromFormat(val,format) {
@@ -1249,7 +1249,7 @@ function getDateFromFormat(val,format) {
 	var mm=now.getMinutes();
 	var ss=now.getSeconds();
 	var ampm="";
-	
+
 	while (i_format < format.length) {
 		// Get next token from format string
 		c=format.charAt(i_format);
@@ -1387,10 +1387,10 @@ function parseDate(val) {
 	}
 
 function validateFromAndToDate(fromDate,toDate) {
-	  
+
    	var fromDate = fromDate.split('/');
    	var toDate = toDate.split('/');
-     
+
 	var fromDateNew = new Date();
 	fromDateNew.setFullYear(fromDate[2],fromDate[1]-1,fromDate[0]);
 	fromDateNew.setDate(fromDate[0]);
@@ -1402,7 +1402,7 @@ function validateFromAndToDate(fromDate,toDate) {
 	toDateNew.setMonth(toDate[1]-1);
 
 	var currDate = new Date();
-	
+
 	if (fromDateNew > currDate) {
 		bootbox.alert("From Date should be less than or equal to Current Date");
 		return false;

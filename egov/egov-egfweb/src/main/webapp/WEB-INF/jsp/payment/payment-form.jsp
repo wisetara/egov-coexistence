@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -526,7 +526,7 @@
 				</table>
 				<s:hidden name="cutOffDate" id="cutOffDate" />
 				<s:hidden name="bankBalanceCheck" id="bankBalanceCheck" value="%{bankBalanceCheck}" />
-			 
+
 				<%@ include file='../payment/commonWorkflowMatrix.jsp'%>
 				<%@ include file='../workflow/commonWorkflowMatrix-button.jsp'%>
 			</div>
@@ -542,12 +542,12 @@
 				if(document.getElementById('approverDepartment'))
 					document.getElementById('approverDepartment').value = "-1";
 				});
-			 
+
 		function back(){
 			window.location = "/services/EGF/payment/payment-beforeSearch.action?salaryType";
 			return true;
 		}
-		
+
 		var vFixedDecimal = 2;
 		function loadBankAccount(obj)
 		{
@@ -567,7 +567,7 @@
 			else
 				document.getElementById('hiddenText').value=obj.value;
 		}
-		
+
 		function calcGrandTotal(obj)
 		{
 			var vBillListSize = document.getElementById('billListSize').value;
@@ -578,12 +578,12 @@
 				bootbox.alert('Payment amount should be a numeric value.');
 				obj.value = putBackAmount.toFixed(vFixedDecimal);
 			}
-			
+
 			if(paymentAmount > parseFloat(document.getElementById('payableAmt'+index).value) ) {
 				bootbox.alert('Payment amount should not be greater than Payable amount');
 				obj.value = putBackAmount.toFixed(vFixedDecimal);
 			}
-			
+
 			paymentAmount = obj.value;
 			var vFinalGrandTotal = 0;
 			obj.value = parseFloat(paymentAmount).toFixed(vFixedDecimal);
@@ -596,7 +596,7 @@
 		}
 
 
-		function populateAvailableBalance(accnumObj) 
+		function populateAvailableBalance(accnumObj)
 		{
 					if (document.getElementById('voucherdate').value == '') {
 						bootbox.alert("Please Select the Voucher Date!!");
@@ -628,7 +628,7 @@
 				console.log("ins did");
 				console.log(parseFloat(document.getElementById('grandTotal').value));
 				console.log(parseFloat(document.getElementById('availableBalance').value));
-				
+
 				if(parseFloat(document.getElementById('grandTotal').value)>parseFloat(document.getElementById('availableBalance').value))
 				{
 					console.log("ins 44");
@@ -636,8 +636,8 @@
 				}
 			}
 			return true;
-		} 
-			
+		}
+
 		function onLoad(){
 			if (jQuery("#bankBalanceCheck") == null || jQuery("#bankBalanceCheck").val() == "") {
 				disableForm();
@@ -661,7 +661,7 @@
 				undoLoadingMask();
 				return false;
 			}
-			
+
 			if(dom.get('vouchernumber') && dom.get('vouchernumber').value=='')
 			{
 				bootbox.alert('Please Enter voucher number');
@@ -689,7 +689,7 @@
 					return false;
 				}
 			}
-		
+
 			if(document.getElementById('grandTotal').value==0 || document.getElementById('grandTotal').value=='NaN')
 			{
 				bootbox.alert('Payment Amount should be greater than zero!');
@@ -737,8 +737,8 @@
 				document.forms[0].action = '${pageContext.request.contextPath}/payment/payment-create.action';
 				return true;
 			}
-		}  
-		
+		}
+
 		function validateCutOff()
 		{
 		var cutOffDatePart=document.getElementById("cutOffDate").value.split("/");
@@ -758,7 +758,7 @@
 				return false;
 			}
 		}
-				
+
 		function checkLength(obj)
 		{
 			if(obj.value.length>250)

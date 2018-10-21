@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,7 +61,7 @@ public class CancelFinancialEntities implements CancelBillAndVoucher {
 
     @Override
     public boolean canCancelBill(final EgBillregister billRegister) {
-       
+
         if (securityUtils.getCurrentUser()!=null && securityUtils.getCurrentUser().getId().longValue() == billRegister.getCreatedBy())
             return true;
         else

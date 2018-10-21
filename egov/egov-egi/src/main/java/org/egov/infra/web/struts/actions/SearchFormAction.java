@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -57,8 +57,8 @@ import org.egov.infra.web.utils.EgovPaginatedList;
 import org.egov.infstr.search.SearchQuery;
 
 /**
- * Generic Search Form Action. Can be extended by any action class that intends to provide 
- * search functionality. Supports pagination. Extending class must implement the method {@link SearchFormAction#prepareQuery()} 
+ * Generic Search Form Action. Can be extended by any action class that intends to provide
+ * search functionality. Supports pagination. Extending class must implement the method {@link SearchFormAction#prepareQuery()}
  * that prepares the query based on criteria entered by user, and returns an object of {@link SearchQuery}
  */
 public abstract class SearchFormAction extends BaseFormAction {
@@ -78,7 +78,7 @@ public abstract class SearchFormAction extends BaseFormAction {
 	private int pageSize = 20;
 
 	/**
-	 * In case of "export", display tag encodes some request parameters. 
+	 * In case of "export", display tag encodes some request parameters.
 	 * This encoder is used to get the encoded names of the parameters so that their values can be fetched.
 	 */
 	private ParamEncoder paramEncoder = new ParamEncoder(DEFAULT_TABLE_ID);
@@ -89,9 +89,9 @@ public abstract class SearchFormAction extends BaseFormAction {
 	protected PaginatedList searchResult;
 
 	/**
-	 * Sets the display tag table id. This is used to create the param encoder. 
-	 * The param encoder is used to fetch data from encoded request parameters. 
-	 * The request parameters related to display tag are encoded in case 
+	 * Sets the display tag table id. This is used to create the param encoder.
+	 * The param encoder is used to fetch data from encoded request parameters.
+	 * The request parameters related to display tag are encoded in case
 	 * the attribute "export" is set to true in the "display:table" tag.
 	 * @param tableId The id of the display tag table (in "display:table" tag)
 	 */
@@ -177,9 +177,9 @@ public abstract class SearchFormAction extends BaseFormAction {
 	}
 
 	/**
-	 * @param sortField the field on which data is to be sorted. 
-	 * This will be same as the value of "property" attribute in display:column 
-	 * tag (when sortable=true and user clicks on the column to sort it). 
+	 * @param sortField the field on which data is to be sorted.
+	 * This will be same as the value of "property" attribute in display:column
+	 * tag (when sortable=true and user clicks on the column to sort it).
 	 * In case no sorting is required, this parameter will be passed as null.
 	 * @param sortOrder the sort order (asc/desc)
 	 * @return the query to be used for fetching the search results.
@@ -187,7 +187,7 @@ public abstract class SearchFormAction extends BaseFormAction {
 	public abstract SearchQuery prepareQuery(String sortField, String sortOrder);
 
 	/**
-	 * Checks if we are in "export mode". If yes, pagination will NOT be performed and the 
+	 * Checks if we are in "export mode". If yes, pagination will NOT be performed and the
 	 * <code>search</code> method will fetch ALL the records for given filter criteria.
 	 * @return true if user is trying to "export" the search results to a file, else false.
 	 */
@@ -196,8 +196,8 @@ public abstract class SearchFormAction extends BaseFormAction {
 	}
 
 	/**
-	 * The Search action method. This will internally call the method 
-	 * {@link SearchFormAction#prepareQuery()} to get the query to be executed. 
+	 * The Search action method. This will internally call the method
+	 * {@link SearchFormAction#prepareQuery()} to get the query to be executed.
 	 * It then executes the query and creates the paginated search result.
 	 * @return success
 	 */

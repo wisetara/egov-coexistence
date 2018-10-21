@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,10 +59,10 @@ var debitAmountrowcount=0;
 var creditAmoutrowcount=0;
 
 $(document).ready(function(){
-	
+
 	$('#subLedgerType').trigger("change");
 	$netPayableAccountCodeId = $('#netPayableId').val();
-	patternvalidation(); 
+	patternvalidation();
 	debitGlcode_initialize();
 	creditGlcode_initialize();
 	$('#fund').val($('#fund').val());
@@ -72,7 +72,7 @@ $(document).ready(function(){
 		billamount = $("#billamount").val();
 		creditamount = Number($("#billamount").val()) - Number(netpayableamount);
 		debitamount = $("#billamount").val();
-		
+
 		$("#expenseNetPayableAmount").html(netpayableamount);
 		$("#expenseBillTotalDebitAmount").html(debitamount);
 		$("#expenseBillTotalCreditAmount").html(creditamount);
@@ -81,7 +81,7 @@ $(document).ready(function(){
 	else{
 		calculateBillAmount();
 	}
-	
+
 	var entityName = new Bloodhound({
 		datumTokenizer : function(datum) {
 			return Bloodhound.tokenizers.whitespace(datum.value);
@@ -136,7 +136,7 @@ $('.btn-wf-primary').click(function(){
 			return true;
 		}else
 			return false;
-		
+
 	}else if (button != null && (button == 'Create And Approve')) {
 		$('#approvalDepartment').removeAttr('required');
 		$('#approvalDesignation').removeAttr('required');
@@ -202,12 +202,12 @@ function debitGlcode_initialize() {
    	hint : true,
 		highlight : true,
 		minLength : 3
-		
-	}, {		    
+
+	}, {
          displayKey: 'glcodesearch',
          source: custom.ttAdapter()
    }).on('typeahead:selected typeahead:autocompleted', function (event, data) {
-	   
+
 	   var originalglcodeid = data.id;
 	   var originaldetailtypeid = $('#subLedgerType').val();
 	   var originaldetailkeyid = $("#detailkeyId").val();
@@ -280,12 +280,12 @@ function creditGlcode_initialize() {
   	hint : true,
 		highlight : true,
 		minLength : 3
-		
-	}, {		    
+
+	}, {
         displayKey: 'glcodesearch',
         source: custom.ttAdapter()
   }).on('typeahead:selected typeahead:autocompleted', function (event, data) {
-	  
+
 	  var originalglcodeid = data.id;
 	   var originaldetailtypeid = $('#subLedgerType').val();
 	   var originaldetailkeyid = $("#detailkeyId").val();
@@ -311,7 +311,7 @@ function creditGlcode_initialize() {
 			});
 		}else{
 			$(this).parents("tr:first").find('.creditdetailname').val(data.name);
-		  	$(this).parents("tr:first").find('.creditdetailid').val(data.id);    
+		  	$(this).parents("tr:first").find('.creditdetailid').val(data.id);
 		  	$(this).parents("tr:first").find('.creditIsSubLedger').val(data.issubledger);
 		  	$(this).parents("tr:first").find('.creditaccountcode').val(data.glcode);
 		  	$(this).parents("tr:first").find('.creditDetailTypeId').val($('#subLedgerType').val());
@@ -344,7 +344,7 @@ $('#subLedgerType').change(function () {
 	}else{
 		accountDetailType = $('#subLedgerType').val();
 	}
-		
+
 		$.ajax({
 			method : "GET",
 			url : "/services/EGF/common/getnetpayablecodesbyaccountdetailtype",
@@ -363,7 +363,7 @@ $('#subLedgerType').change(function () {
 						$('#netPayableAccountCode').append($('<option '+ selected +'>').text(value.glcode + '-' +value.name + '~' + value.isSubLedger).attr('value', value.id));
 					});
 				});
-		
+
 });
 
 $('#billSubType').change(function () {
@@ -415,14 +415,14 @@ function loadCheckListTable(){
 								output = output + '<option value="No" selected = "selected">No</option>'
 							else
 								output = output + '<option value="No">No</option>'
-							
+
 							output = output + '</select>'
 							output = output + '</td>'
 							output = output + '</tr>';
 							$('#tblchecklist tbody').append(output);
 					});
 				});
-			
+
 		});
 	}
 }
@@ -437,11 +437,11 @@ $('#netPayableAccountCode').change(function () {
 		$('#netPayableDetailKeyName').val(detailKeyName);
 		$('#netPayableGlcode').val(netpayGlcode.substr(0,netpayGlcode.indexOf('-')));
 		$('#netPayableAccountHead').val(netpayGlcode.substr(netpayGlcode.indexOf('-')+1));
-		
+
 	}
 });
-function addDebitDetailsRow() { 
-	
+function addDebitDetailsRow() {
+
 	$('.debitGlcode').typeahead('destroy');
 	$('.debitGlcode').unbind();
 	var rowcount = $("#tbldebitdetails tbody tr").length;
@@ -469,12 +469,12 @@ function deleteDebitDetailsRow(obj) {
 		--debitAmountrowcount;
 		return true;
 	}
-    
+
     resetDebitCodes();
 }
 
-function addCreditDetailsRow() { 
-	
+function addCreditDetailsRow() {
+
 	$('.creditGlcode').typeahead('destroy');
 	$('.creditGlcode').unbind();
 	var rowcount = $("#tblcreditdetails tbody tr").length;
@@ -502,7 +502,7 @@ function deleteCreditDetailsRow(obj) {
 		deleteRow(obj,'tblcreditdetails');
 		--creditAmoutrowcount;
 		return true;
-	}	
+	}
 }
 
 function deleteAccountDetails(obj) {
@@ -517,7 +517,7 @@ function deleteAccountDetails(obj) {
     if(rowcount<=1) {
     	$('#accountdetailsrow').prop("hidden","true");
 		$('#accountdetailsrow').prop('accountdetailsinvisible',"true");
-		$('#accountDetailsGlCodeId_0').val("");    
+		$('#accountDetailsGlCodeId_0').val("");
 	    $('.accountDetailsGlCode_0').html("");
 		$('.accountDetailsAccountHead_0').html("");
 		$('.accountDetailsDebitAmount_0').html("");
@@ -533,7 +533,7 @@ function deleteAccountDetails(obj) {
 		deleteRow(obj,'tblaccountdetails');
 		calculateBillAmount();
 		return true;
-	}	
+	}
 }
 
 function deleteSubLedgerDetails(glcodeid) {
@@ -543,7 +543,7 @@ function deleteSubLedgerDetails(glcodeid) {
 		    if(rowcount<=1) {
 		    	$('#subledhgerrow').prop("hidden","true");
 		    	$('#subledhgerrow').prop('subledgerinvisible',"true");
-		    	$('#subLedgerGlCodeId_0').val("");  
+		    	$('#subLedgerGlCodeId_0').val("");
 		    	$('#subLedgerIsDebit_0').val("");
 		    	$('#subLedgerDebitAmount_0').val("");
 		    	$('#subLedgerCreditAmount_0').val("");
@@ -557,15 +557,15 @@ function deleteSubLedgerDetails(glcodeid) {
 				deleteRow($(this).find(".subLedgerAmount")[0],'tblsubledgerdetails');
 			}
 		}
-			
+
 	});
 }
 
 
 function validateAccountDetails()
-{	
+{
 	var flag = true;
-	
+
 	$('#tbldebitdetails  > tbody > tr:visible[id="debitdetailsrow"]').each(function(index) {
 		if($(this).find(".debitdetailid").val()!='' && $(this).find(".debitAmount").val()=='')
 		{
@@ -580,7 +580,7 @@ function validateAccountDetails()
 			return false;
 		}
 	});
-	
+
 	$('#tblcreditdetails  > tbody > tr:visible[id="creditdetailsrow"]').each(function(index) {
 		if($(this).find(".creditdetailid").val()!='' && $(this).find(".creditAmount").val()=='')
 		{
@@ -588,7 +588,7 @@ function validateAccountDetails()
 			flag = false;
 			return false;
 		}
-		
+
 		if(!validateDuplicateAccountDetail($(this).find(".creditdetailid").val(),$(this).find(".creditDetailTypeId").val(),
 				$(this).find(".creditDetailKeyId").val())){
 			bootbox.alert("Already added credit details for account code: "+ $(this).find(".creditaccountcode").val());
@@ -596,8 +596,8 @@ function validateAccountDetails()
 			return false;
 		}
 	});
-	
-	
+
+
 	$('#tblnetpayable  > tbody > tr:visible[id="netpayablerow"]').each(function() {
 		if($(this).find("#netPayableAccountCode").val()!='' && $netPayableAccountCodeId){
 			bootbox.alert("Only one Net Payable Account can select");
@@ -611,8 +611,8 @@ function validateAccountDetails()
 			return false
 		}
 	});
-	
-	
+
+
 	return flag;
 }
 function validateDuplicateAccountDetail(glcodeid,detailtypeid,detailkeyid){
@@ -622,7 +622,7 @@ function validateDuplicateAccountDetail(glcodeid,detailtypeid,detailkeyid){
 		if(glcodeid!="" && $(this).find(".subLedgerGlCodeIdId").val()==glcodeid){
 			existInSL = true;
 		}
-			
+
 		if (glcodeid!="" && $(this).find(".subLedgerGlCodeIdId").val() ==glcodeid && $(this).find(".subLedgerDetailTypeId").val()==detailtypeid && $(this).find(".subLedgerDetailKeyId").val()==detailkeyid)
 		{
 			flag = false;
@@ -667,7 +667,7 @@ $("#populateAccountDetails").click(function () {
 					if(!isMerged){
 						$('#accountdetailsrow').removeAttr("hidden");
 						$('#accountdetailsrow').removeAttr('accountdetailsinvisible');
-						$('#accountDetailsGlCodeId_' + accountDetailsCount).val($(this).find(".debitdetailid").val());    
+						$('#accountDetailsGlCodeId_' + accountDetailsCount).val($(this).find(".debitdetailid").val());
 					    $('.accountDetailsGlCode_' + accountDetailsCount).html($(this).find(".debitaccountcode").val());
 						$('.accountDetailsAccountHead_' + accountDetailsCount).html($(this).find(".debitdetailname").val());
 						$('.accountDetailsDebitAmount_' + accountDetailsCount).html($(this).find(".debitAmount").val());
@@ -708,7 +708,7 @@ $("#populateAccountDetails").click(function () {
 				if(!isMerged){
 					$('#accountdetailsrow').removeAttr("hidden");
 					$('#accountdetailsrow').removeAttr('accountdetailsinvisible');
-					$('#accountDetailsGlCodeId_' + accountDetailsCount).val($(this).find(".creditdetailid").val());    
+					$('#accountDetailsGlCodeId_' + accountDetailsCount).val($(this).find(".creditdetailid").val());
 				    $('.accountDetailsGlCode_' + accountDetailsCount).html($(this).find(".creditaccountcode").val());
 					$('.accountDetailsAccountHead_' + accountDetailsCount).html($(this).find(".creditdetailname").val());
 					$('.accountDetailsDebitAmount_' + accountDetailsCount).html('0.00');
@@ -727,7 +727,7 @@ $("#populateAccountDetails").click(function () {
 				}
 			}
 		 });
-		
+
 		$('#tblnetpayable  > tbody > tr:visible[id="netpayablerow"]').each(function() {
 			if($(this).find("#netPayableAccountCode").val()!='' && $(this).find("#netPayableAmount").val()!='')
 			{
@@ -738,7 +738,7 @@ $("#populateAccountDetails").click(function () {
 				netpayableamount =  parseFloat(Number($(this).find("#expense-netPayableAmount").val())).toFixed();
 				$('#accountdetailsrow').removeAttr("hidden");
 				$('#accountdetailsrow').removeAttr('accountdetailsinvisible');
-				$('#accountDetailsGlCodeId_' + accountDetailsCount).val($(this).find("#netPayableAccountCode").val());    
+				$('#accountDetailsGlCodeId_' + accountDetailsCount).val($(this).find("#netPayableAccountCode").val());
 			    $('.accountDetailsGlCode_' + accountDetailsCount).html($(this).find("#netPayableGlcode").val());
 				$('.accountDetailsAccountHead_' + accountDetailsCount).html($(this).find("#netPayableAccountHead").val().split("~")[0]);
 				$('.accountDetailsDebitAmount_' + accountDetailsCount).html('0.00');
@@ -768,17 +768,17 @@ function validate(){
 		bootbox.alert("Please select Account details");
 		return false;
 	}
-	
+
 	if(debitamount != Number(Number(creditamount) + Number(netpayableamount))){
 		bootbox.alert("Debit amount and credit amount is not matching");
 		return false;
 	}
-	
+
 	if(debitamount == 0){
 		bootbox.alert("Please select at least one Debit Details");
 		return false;
 	}
-	
+
 	if(!$netPayableAccountCodeId)
 	{
 		bootbox.alert("Please select one Net payable account detail");
@@ -803,7 +803,7 @@ function clearAllDetails() {
 			deleteRow(objects[i-1],'tbldebitdetails');
 		}
 	}
-	
+
 	var creditDetailsCount = $("#tblcreditdetails > tbody > tr:visible[id='creditdetailsrow']").length;
 	for (var i = creditDetailsCount; i >= 1; i--) {
 		if(1 == i){
@@ -819,28 +819,28 @@ function clearAllDetails() {
 			deleteRow(objects[i-1],'tblcreditdetails');
 		}
 	}
-	
+
 	$("#netPayableAccountId").val("");
 	$("#netPayableAccountCodeId").val("");
 	$("#netPayableDetailTypeId").val("");
 	$("#netPayableDetailKeyId").val("");
 	$("#netPayableAccountCode").val("");
 	$("#expense-netPayableAmount").val("");
-	
-	
-	
+
+
+
 }
 
 
 function populateSubLedgerDetails(glCodeId,glCode,detailTypeId,detailKeyId,detailTypeName,detailKeyName,amount,isdebit){
-	
+
 	var subLedgerCount = $("#tblsubledgerdetails > tbody > tr:visible[id='subledhgerrow']").length;
 	if(subLedgerCount!=0){
 		addRow('tblsubledgerdetails', 'subledhgerrow');
 	}
 	$('#subledhgerrow').removeAttr("hidden");
 	$('#subledhgerrow').removeAttr('subledgerinvisible');
-	$('#subLedgerGlCodeId_' + subLedgerCount).val(glCodeId);  
+	$('#subLedgerGlCodeId_' + subLedgerCount).val(glCodeId);
 	$('#subLedgerIsDebit_' + subLedgerCount).val(isdebit);
 	if(isdebit){
 		$('#subLedgerDebitAmount_' + subLedgerCount).val(amount);
@@ -855,7 +855,7 @@ function populateSubLedgerDetails(glCodeId,glCode,detailTypeId,detailKeyId,detai
 	$('.subLedgerType_' + subLedgerCount).html(detailTypeName);
 	$('.subLedgerName_' + subLedgerCount).html(detailKeyName);
 	$('.subLedgerAmount_' + subLedgerCount).html(amount);
-	
+
 }
 
 function calculateBillAmount(){
@@ -908,7 +908,7 @@ function validateWorkFlowApprover(name) {
 		return validateCutOff();
 	}else
 		return true;
-	
+
 	return true;
 }
 function validateCutOff()
@@ -933,7 +933,7 @@ function validateCutOff()
 	return false;
 }
 function calcualteNetpaybleAmount(){
-	
+
 
 	var debitamt = 0;
 	var creditamt = 0;

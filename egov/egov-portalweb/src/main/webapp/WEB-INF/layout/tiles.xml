@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -101,7 +101,7 @@
         <put-attribute name="page-title" value="title.servicetype" cascade="true"/>
         <put-attribute name="body" value="/WEB-INF/views/servicetype/portalservicetype-search.jsp"/>
     </definition>
-    
+
     <definition name="seachfor-link" extends="base_layout">
         <put-attribute name="page-title" value="title.servicetype" cascade="true"/>
         <put-attribute name="body" value="/WEB-INF/views/link/seachfor-link.jsp"/>

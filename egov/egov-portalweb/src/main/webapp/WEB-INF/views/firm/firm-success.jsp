@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,7 +52,7 @@
 <%@ taglib uri="/WEB-INF/taglib/cdn.tld" prefix="cdn"%>
 <div class="page-container" id="page-container">
 <input type="hidden" name="mode" value="${mode}" />
-	
+
 		<c:if test="${ mode != 'view'}">
 			<div class="new-page-header">
 				${success}
@@ -65,5 +65,5 @@
 						value="Close" Class="btn btn-default" onclick="window.close();" />
 				</div>
 			</div>
-		
+
 </div>

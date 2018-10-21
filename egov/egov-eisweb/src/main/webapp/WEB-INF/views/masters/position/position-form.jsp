@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -56,13 +56,13 @@
 
 		$(document).ready(function(){
 		 <c:if test="${mode == 'saved'}">
-	  		$('#position_dept').attr('disabled','true');	
-			$('#position_desig').attr('disabled','true');	
+	  		$('#position_dept').attr('disabled','true');
+			$('#position_desig').attr('disabled','true');
 			$('#position_name').attr('disabled','true');
 			</c:if>
  		});
-	
-	</script>	
+
+	</script>
 <div class="row">
 	<div class="col-md-12">
 			<c:if test="${not empty warning}">
@@ -86,7 +86,7 @@
 							</label>
 
 							<div class="col-sm-6 add-margin">
-								<form:select path="deptDesig.department" id="position_dept" required="required" 
+								<form:select path="deptDesig.department" id="position_dept" required="required"
 									cssClass="form-control" cssErrorClass="form-control error">
 									<form:option value="">
 										<spring:message code="lbl.select" />
@@ -104,30 +104,30 @@
 							</label>
 
 							<div class="col-sm-6 add-margin">
-								<form:select path="deptDesig.designation" id="position_desig" required="required" 
+								<form:select path="deptDesig.designation" id="position_desig" required="required"
 									cssClass="form-control" cssErrorClass="form-control error">
 									<form:option value="">
 										<spring:message code="lbl.select" />
 									</form:option>
 									<form:options items="${designations}" itemValue="id"
 										itemLabel="name" />
-								</form:select>		
+								</form:select>
 								<form:errors path="deptDesig.designation" cssClass="error-msg" />
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-sm-3 control-label"> <spring:message
 									code="lbl.position" /><span class="mandatory"></span>
 							</label>
 								<div class="col-sm-6 add-margin">
-								
-								<form:input path="name" id="position_name" required="required" 
+
+								<form:input path="name" id="position_name" required="required"
 									cssClass="form-control is_valid_letters_space_hyphen_underscore"
 									cssErrorClass="form-control error"  autocomplete="off"/>
 								<form:errors path="name" cssClass="error-msg" />
 							</div>
-							
+
 
 						</div>
 

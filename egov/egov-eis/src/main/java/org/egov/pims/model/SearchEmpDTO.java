@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -66,7 +66,7 @@ public class SearchEmpDTO implements java.io.Serializable
 	Integer depID = null;
 	java.sql.Date fromDate = null;
 	java.sql.Date toDate = null;
-	
+
 		public SearchEmpDTO(Integer desID,Integer depID,
     		String code,
     		String name,Integer iD)
@@ -154,14 +154,14 @@ public class SearchEmpDTO implements java.io.Serializable
 	public void setDesID(Integer desID) {
 		this.desID = desID;
 	}
-	
+
 	public String getDepartment()
 	{
-		
+
 		List deptMasterList=Collections.emptyList();//EgovMasterDataCaching.getInstance().get("egEmp-department");
 		Map deptmap = getDepartmentMap(deptMasterList);
 		String dept = (String)deptmap.get(getDepID());
-		
+
 		return dept;
 
 	}
@@ -205,7 +205,7 @@ public class SearchEmpDTO implements java.io.Serializable
 			desMap.put(desig.getId(), desig.getName());
 		}
 		return desMap;
-		
+
 	}
 	public Integer getPrdiD() {
 		return prdiD;

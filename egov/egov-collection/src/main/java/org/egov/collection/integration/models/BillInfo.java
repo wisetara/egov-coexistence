@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -176,22 +176,22 @@ public interface BillInfo {
      *            Payee object
      */
     void addPayees(BillPayeeDetails payee);
-    
+
     /**
      * This method returns the Collection Type
-     * 
+     *
      * @return Collection Type as String
      */
     COLLECTIONTYPE getCollectionType();
-    
+
     /**
-     * Used Only for Integration. 
+     * Used Only for Integration.
      * This method returns the Transaction Reference Number
-     *  
+     *
      * @return Transaction Number as String
      */
     String getTransactionReferenceNumber();
-    
+
     /**
      * This method returns the source of Receipt
      * Source value is null for the receipts created by ERP.

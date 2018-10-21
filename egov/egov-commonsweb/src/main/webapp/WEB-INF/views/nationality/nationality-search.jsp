@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,7 +50,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="/WEB-INF/taglib/cdn.tld" prefix="cdn" %>	
+<%@ taglib uri="/WEB-INF/taglib/cdn.tld" prefix="cdn" %>
 <form:form role="form"  modelAttribute="nationality" id="nationalitySearchform" name="nationalitySearchform"
 	cssClass="form-horizontal form-groups-bordered"
 	enctype="multipart/form-data">
@@ -61,9 +61,9 @@
 						<div class="panel-title">
 								<strong><spring:message code="lbl.search"/></strong>
 						</div>
-					</div> 
-					
-					<div class="panel-body custom-form">				
+					</div>
+
+					<div class="panel-body custom-form">
 						<div class="form-group">
 							<label class="col-sm-3 control-label">
 								<spring:message code="lbl.nationality"/>
@@ -77,7 +77,7 @@
 				</div>
 				<input type="hidden" id="mode" name="mode" value="${mode}" />
 				<div class="row">
-					<div class="text-center">					
+					<div class="text-center">
 						<button id="btnSearch" class="btn btn-primary"><spring:message code="lbl.search"/></button>
 				        <a href="javascript:void(0)" class="btn btn-default" onclick="self.close()"><spring:message code="lbl.close"/></a>
 					</div>
@@ -98,15 +98,15 @@
 					<th><spring:message code="lbl.action"/></th>
 				</tr>
 			</thead>
-			
+
 		</table>
 	</div>
-</div> 
+</div>
 
 <link rel="stylesheet"
 	href="<cdn:url value='/resources/global/js/jquery/plugins/datatables/responsive/css/datatables.responsive.css?rnd=${app_release_no}' context='/services/egi'/>">
 <link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/jquery.dataTables.min.css?rnd=${app_release_no}' context='/services/egi'/>"/>
-<link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/dataTables.bootstrap.min.css?rnd=${app_release_no}' context='/services/egi'/>">	
+<link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/dataTables.bootstrap.min.css?rnd=${app_release_no}' context='/services/egi'/>">
 <script
 	src="<cdn:url value='/resources/global/js/jquery/plugins/datatables/jquery.dataTables.min.js?rnd=${app_release_no}' context='/services/egi'/>"
 	type="text/javascript"></script>

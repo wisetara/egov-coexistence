@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -70,7 +70,7 @@ isNav5 = true;
 else {
 isIE4 = true;
 }
-function DateFormat(vDateName, vDateValue, e, dateCheck, dateType) 
+function DateFormat(vDateName, vDateValue, e, dateCheck, dateType)
 {
 	vDateType = dateType;
 	// vDateName = object name
@@ -91,15 +91,15 @@ function DateFormat(vDateName, vDateValue, e, dateCheck, dateType)
 		return true;
 	}
 	//bootbox.alert(window.Event)
-	//var whichCode = (window.Event) ? e.which : e.keyCode; 
-	var whichCode = window.event ? window.event.keyCode : e.charCode; 
+	//var whichCode = (window.Event) ? e.which : e.keyCode;
+	var whichCode = window.event ? window.event.keyCode : e.charCode;
 	// Check to see if a seperator is already present.
 	// bypass the date if a seperator is present and the length greater than 8
 	if (vDateValue.length > 8 && isNav4) {
 		if ((vDateValue.indexOf("-") >= 1) || (vDateValue.indexOf("/") >= 1))
 			return true;
 	}
-	
+
 	//Eliminate all the ASCII codes that are not valid
 	var alphaCheck = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/-";
 	if (alphaCheck.indexOf(vDateValue) >= 1) {
@@ -114,7 +114,7 @@ function DateFormat(vDateName, vDateValue, e, dateCheck, dateType)
 			return false;
 	   }
 	}
-	
+
 	if (whichCode == 8) //Ignore the Netscape value for backspace. IE has no value
 		return false;
 	else {
@@ -330,7 +330,7 @@ function DateFormat(vDateName, vDateValue, e, dateCheck, dateType)
 			return false;
 		}
 		else
-		{ 
+		{
 			if(whichCode==13) return false; //check for enter key
 			else{
 				vDateName.value = vDateName.value.substr(0, (vDateValue.length-1));

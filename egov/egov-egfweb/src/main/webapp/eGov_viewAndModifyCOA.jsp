@@ -4,8 +4,8 @@
 
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -77,18 +77,18 @@
 	 if(actionId==null)
 		actionId=(String)session.getAttribute("actionid");
 		%>
-		
+
 		var actionId=<%=request.getParameter("actionid")%>
 
 	 var userid = <%=session.getAttribute("com.egov.user.LoginUserId")%>;
-	 
+
 	function openPopupWindow(url, name, width, height)
 	{
 	    var myPopupWindow = '';
-	  
+
 	    //Remove special characters from name
 	    name = name.replace(/\/|\-|\./gi, "");
-	
+
 	    //Remove whitespaces from name;
 	    var whitespace = new RegExp("\\s","g");
 	    name = name.replace(whitespace,"");
@@ -101,21 +101,21 @@
 	    else
 	    {
 	     window.open(url,name, "resizable=yes,scrollbars=yes,left="+leftPos+",top=40, width="+width+", height= "+height);
-		       
+
 	    }
-	    
+
 	}
 
       /* This function is same as loadselectdata(), but here we load the values for a row in a table */
 
 function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 {
-	
+
 		var link=url;
 		var request = initiateRequest();
 		request.open("GET", link, false);
-		request.send(null);		
-		if (request.status == 200) 
+		request.send(null);
+		if (request.status == 200)
 		{
 			var response=request.responseText.split("^");
 			var id = response[1].split("\+");
@@ -125,54 +125,54 @@ function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 			menuObj.length = id.length;
 			menuObj.length = 0;
 			var nodeurl = null;
-			
+
 			for(var i = 0 ; i < id.length  ; i++)
 			{
-				
+
 				var menuItem =  { label: actionurl[i]+'-'+name[i], id: id[i], url: actionurl[i] } ;
 				var tempNode = new YAHOO.widget.TextNode(menuItem, menuObj, false);
 				tempNode.onLabelClick = onLabelClick
-				
+
 				if( nodeurl == null || nodeurl=='null') {
 					tempNode.setDynamicLoad(loadNodeData);
 				} else{
-				
+
 					tempNode.isLeaf = true;
 				}
-						
-			}					
+
+			}
 		}
-		
+
 	}
 
-      
+
       function treeInit()
-      {                                                     
-         
+      {
+
          buildTree(new YAHOO.widget.TreeView("treeDiv1"));
-                              
+
       }
       function buildTree(tree){
-      
-      if (typeof(userid) != "undefined"){ 
-	    
-	     tree.setDynamicLoad(loadNodeData);   
-	    
-	     var root = tree.getRoot();   
-	     
+
+      if (typeof(userid) != "undefined"){
+
+	     tree.setDynamicLoad(loadNodeData);
+
+	     var root = tree.getRoot();
+
         loadSelectDataForChartOfacounts('/services/EGF/voucher/common-ajaxloadcoa.action','roleId',root);
-	     tree.draw(); 
-	      }        
-     }             
-    var onLabelClick = function(oNode) {       
+	     tree.draw();
+	      }
+     }
+    var onLabelClick = function(oNode) {
         var baseUrl = oNode.data.url;
         var id=oNode.data.id;
         var windowname=oNode.data.label;
-    
+
         if ('null' == baseUrl){
         }
         else{
-			
+
 			var url="${pageContext.request.contextPath}";
 			actionidstr = 'actionId='+oNode.data.id;
 			if (!baseUrl.indexOf("/") != 0) {
@@ -183,14 +183,14 @@ function loadSelectDataForChartOfacounts(url,sourceobj,destobj)
 				url = url +'&'+actionidstr;
 			} else
 				{
-			
+
 			url = url +'?'+actionidstr;
 				url="/services/EGF/masters/chartOfAccounts-modifyChartOfAccounts.action?model.id="+id;
 				}
 				openPopupWindow(url, windowname , 900, 650)
-		}			
-    }    
-function loadNodeData(node, fnLoadComplete){  
+		}
+    }
+function loadNodeData(node, fnLoadComplete){
 	var nodeLabel = encodeURI(node.label);
 	var nodeId = encodeURI(node.data.id);
 	var nodeUrl =  node.data.url;
@@ -199,52 +199,52 @@ function loadNodeData(node, fnLoadComplete){
 	url="/services/EGF/masters/chartOfAccounts-modifyChartOfAccounts.action?model.id="+nodeId;
 	//prepare our callback object
 	var callback = {
-	
-			
+
+
 		success: function(oResponse) {
 
 			var response=oResponse.responseText.split("^");
 			var id = response[1].split("+");
 			var name = response[2].split("+");
 			var actionurl = response[4].split("+");
-			
+
 			var nodeurl = null;
-			
+
 			for(var i = 0 ; i < id.length  ; i++)
 			{
-				
+
 				if ((actionurl[i] != null) && (actionurl[i].length < 1)){
 					nodeurl = null;
 				} else{
 					nodeurl = actionurl[i];
 				}
 				if ((name[i] != null) && (name[i].length > 0)){
-				
+
 					var menuItem =  { label: actionurl[i]+'-'+name[i], id: id[i], url: nodeurl } ;
 					var tempNode = new YAHOO.widget.TextNode(menuItem, node, false);
 					tempNode.onLabelClick = onLabelClick
-					if( nodeurl.length<parseInt(coaDetailLength)) 
+					if( nodeurl.length<parseInt(coaDetailLength))
 					{
 					tempNode.setDynamicLoad(loadNodeData);
 					} else{
-							
+
 						tempNode.isLeaf = true;
 					}
 				}
-			}					
+			}
 			oResponse.argument.fnLoadComplete();
-		},		
+		},
 		failure: function(oResponse) {
 			oResponse.argument.fnLoadComplete();
-		},		
+		},
 		argument: {
 			"node": node,
 			"fnLoadComplete": fnLoadComplete
-		},		
+		},
 		timeout: 7000
-	};	
-	YAHOO.util.Connect.asyncRequest('GET', moduleQuery, callback);	          
-    }    
+	};
+	YAHOO.util.Connect.asyncRequest('GET', moduleQuery, callback);
+    }
 </script>
 	</div>
 </body>

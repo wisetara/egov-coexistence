@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -100,10 +100,10 @@ public class ApplicationAuthenticationFilter extends UsernamePasswordAuthenticat
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
-       
-    	
+
+
     	System.out.println("***************************************attemptAuthentication*********");
-    	
+
     	HashMap<String, String> credentials = new HashMap<>();
         for (String credential : credentialFields) {
             String field = emptyIfNull(request.getParameter(credential));
@@ -111,8 +111,8 @@ public class ApplicationAuthenticationFilter extends UsernamePasswordAuthenticat
         }
         String username = request.getParameter(SecurityConstants.USERNAME_FIELD);
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, credentials);
-       
-    
+
+
         request.getSession().setAttribute(SecurityConstants.USERNAME_FIELD, username);
         setDetails(request, authToken);
 

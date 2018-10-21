@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,7 +55,7 @@
 			<spring:message code="lbl.subledger.details" />
 		</div>
 	</div>
-	
+
 	<div style="padding: 0 15px;">
 		<table class="table table-bordered" id="tblsubledgerdetails">
 			<thead>
@@ -85,13 +85,13 @@
 										<span class="subLedgerAmount_${item.index } subLedgerAmount">${billPayeeDeatils.debitAmount}</span>
 									</td>
 								</c:if>
-								
+
 								<c:if test="${billPayeeDeatils.creditAmount > 0 }">
 									<td class="text-right">
 										<span class="subLedgerAmount_${item.index } subLedgerAmount">${billPayeeDeatils.creditAmount}</span>
 									</td>
 								</c:if>
-								
+
 							</tr>
 						</c:forEach>
 					</c:when>

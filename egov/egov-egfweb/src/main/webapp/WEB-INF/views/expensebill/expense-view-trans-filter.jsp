@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -47,7 +47,7 @@
   --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <div class="row add-border">
 	<c:choose>
@@ -66,7 +66,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<c:choose>
 		<c:when test="${headerFields.contains('fundsource')}">
 			<div class="col-md-3 col-xs-6 add-margin">
@@ -101,7 +101,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<c:choose>
 		<c:when test="${headerFields.contains('subscheme')}">
 			<div class="col-md-3 col-xs-6 add-margin">
@@ -135,7 +135,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<c:choose>
 		<c:when test="${headerFields.contains('field')}">
 			<div class="col-md-3 col-xs-6 add-margin">

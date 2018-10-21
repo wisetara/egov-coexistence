@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,7 +61,7 @@
 <s:push value="model">
 	<div class="subheadnew">
 	<s:if test="%{sourcePage=='cancelReceipt'}">
-	
+
 				  <!--  copy from receipt index start -->
 				 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tablebottom">
 					<tr align="center">
@@ -85,16 +85,16 @@
 				 <!--  copy end -->
 	</s:if>
 		<s:hidden id="sourcePage" name="sourcePage" value="%{sourcePage}"/>
-    <s:if test="%{sourcePage==null || sourcePage=='inbox' }"> 
+    <s:if test="%{sourcePage==null || sourcePage=='inbox' }">
 		<s:if test="%{challan.state.value=='CHECKED'}">
 			<s:text name="challan.checksuccess.message" />
-		</s:if> 
+		</s:if>
 		<s:elseif test="%{challan.state.value=='APPROVED'}">
 			<s:text name="challan.approvesucces.message" />
 		</s:elseif>
 		<s:elseif test="%{challan.state.value=='END'  && challan.status.code=='VALIDATED' && sourcePage!='cancelReceipt'}">
 			<s:text name="challan.validatesuccess.message" />
-		</s:elseif> 
+		</s:elseif>
 		<s:elseif test="%{challan.state.value=='REJECTED'}">
 			<s:text name="challan.rejectsuccess.message" /> <s:property value="%{approverName}" />
 		</s:elseif>
@@ -102,7 +102,7 @@
 			<s:text name="challan.cancelsuccess.message" />
 		</s:elseif>
 		</s:if>
-		
+
 	</div>
 	<br />
 

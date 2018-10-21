@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,16 +53,16 @@
 <s:set var="colratio" value="%{'[50,80,80,200,80,80,80,80,80,80,80,80,150,150,200,150]'}"/>
 <s:if test="%{isConsolidatedScreen()}">
 <s:set var="colratio" value="%{'[50,80,80,200,80,80,80,80,80,80,80,80,80,150,80,150,200,150]'}"/>
-</s:if>	
+</s:if>
 <s:if test="%{isAsstFMU()}">
 <s:set var="colratio" value="%{'[50,80,80,200,80,80,80,80,80,80,80,80,80,80,80,80,200,150,100]'}"/>
 </s:if>
 jQuery.noConflict();
 jQuery(document).ready(function() {
 	    jQuery('#detailsTable').fixheadertable({
-         caption: 'Budget Detail', 
+         caption: 'Budget Detail',
          height: 400,
-         minColWidth: 10,  
+         minColWidth: 10,
          resizeCol: true,
          colratio:<s:property value="colratio"/>
     });
@@ -84,7 +84,7 @@ var updateCallback = {
 	     failure: function(o) {
 		   //  bootbox.alert("Update failed");
 	     }
-} 
+}
 
 
 function update(obj)
@@ -92,38 +92,38 @@ function update(obj)
 //	bootbox.alert("calling update");
    	var name=obj.name;
   // 	bootbox.alert(name);
-    var factor='Rupees'; 
+    var factor='Rupees';
    	<s:if test="%{isConsolidatedScreen()}">
    	factor='thousand';
    	</s:if>
-   	
+
  	if(name.indexOf('proposedRE')!=-1)
 	 {
    		var idName=name.replace("proposedRE","id");
    		//bootbox.alert(idName);
-   		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(idName).value+"&amountField=originalAmount&amount="+obj.value;  
+   		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(idName).value+"&amountField=originalAmount&amount="+obj.value;
 	 }
 		 if(name.indexOf('proposedBE')!=-1)
 		 {
 		var validId=name.replace("proposedBE","id");
 		var idName=name.replace("proposedBE","nextYrId")
-		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(validId).value+"&amountField=originalAmount&amount="+obj.value;    
+		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(validId).value+"&amountField=originalAmount&amount="+obj.value;
 		 }
 		 if(name.indexOf('approvedRE')!=-1)
 		 {
 		var idName=name.replace("approvedRE","id")
-		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(idName).value+"&amountField=approvedAmount&amount="+obj.value;  
+		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(idName).value+"&amountField=approvedAmount&amount="+obj.value;
 		 }
 		if(name.indexOf('approvedBE')!=-1)
 		{
 		var validId=name.replace("approvedBE","id");
 		var idName=name.replace("approvedBE","nextYrId")
-		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(validId).value+"&amountField=approvedAmount&amount="+obj.value;     
+		var queryParams="detailId="+document.getElementById(idName).value+"&validId="+document.getElementById(validId).value+"&amountField=approvedAmount&amount="+obj.value;
 		}
 		queryParams=queryParams+"&factor="+factor;
-//		bootbox.alert("calling update  " +queryParams); 
+//		bootbox.alert("calling update  " +queryParams);
 		lastUpdateDate=new Date();
-		 var transaction = YAHOO.util.Connect.asyncRequest('POST', 'budgetProposal!ajaxUpdateBudgetDetail.action?'+queryParams, updateCallback, null);	
+		 var transaction = YAHOO.util.Connect.asyncRequest('POST', 'budgetProposal!ajaxUpdateBudgetDetail.action?'+queryParams, updateCallback, null);
 			}
 
 var lastUpdateDate=new Date();

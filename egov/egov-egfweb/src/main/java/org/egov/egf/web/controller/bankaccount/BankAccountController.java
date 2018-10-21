@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -116,7 +116,7 @@ public class BankAccountController {
 
     @Autowired
     private CreateBankService createBankService;
-    
+
     private void setDropDownValues(final Model model) {
         model.addAttribute("banks", createBankService.getByIsActiveTrueOrderByName());
         model.addAttribute("bankbranches", createBankBranchService.getByIsActiveTrueOrderByBranchname());

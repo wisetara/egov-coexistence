@@ -2,8 +2,8 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <%--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	    <meta name="description" content="eGov System" />
 	    <meta name="author" content="eGovernments Foundation" />
-	
+
 	    <title><tiles:insertAttribute name="title"/></title>
 		<link rel="icon" href="<c:url value='/resources/global/images/favicon.png" sizes="32x32' context='/egi'/>">
 	    <link rel="stylesheet" href="<c:url value='/resources/global/css/bootstrap/bootstrap.css' context='/egi'/>">
@@ -61,22 +61,22 @@
 		<link rel="stylesheet" href="<c:url value='/resources/global/css/font-icons/font-awesome/css/font-awesome.min.css' context='/egi'/>">
 		<link rel="stylesheet" href="<c:url value='/resources/global/css/bootstrap/typeahead.css' context='/egi'/>">
 		<link rel="stylesheet" href="<c:url value='/resources/global/css/bootstrap-tour/bootstrap-tour.css' context='/egi'/>">
-	
+
 		<script src="<c:url value='/resources/global/js/jquery/jquery.js' context='/egi'/>"></script>
 		<script src="<c:url value='/resources/global/js/bootstrap/bootstrap.js' context='/egi'/>"></script>
 		<script src="<c:url value='/resources/global/js/bootstrap/bootbox.min.js' context='/egi'/>"></script>
 		<script src="<c:url value='/resources/global/js/bootstrap-tour/bootstrap-tour.js' context='/egi'/>"></script>
 		<script src="<c:url value='/resources/global/js/egov/patternvalidation.js?rnd=${symbol_dollar}{app_release_no}' context='/egi'/>"></script>
 		<script src="<c:url value='/resources/global/js/jquery/plugins/jquery.validate.min.js' context='/egi'/>"></script>
-		<script src="<c:url value='/resources/global/js/egov/custom.js?rnd=${symbol_dollar}{app_release_no}' context='/egi'/>"></script>	
-	    
-		
+		<script src="<c:url value='/resources/global/js/egov/custom.js?rnd=${symbol_dollar}{app_release_no}' context='/egi'/>"></script>
+
+
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="/egi/resources/global/js/ie8/html5shiv.min.js"></script>
 			<script src="/egi/resources/global/js/ie8/respond.min.js"></script>
 		<![endif]-->
-	
+
 	</head>
     <body class="page-body" oncontextmenu="return false;">
         <div class="page-container">
@@ -101,7 +101,7 @@
 									<div class="rect5"></div>
 								</div>
 							</div>
-							
+
 							<div class="col-md-12 spinner-text">
 								Processing your request. Please wait..
 							</div>
@@ -112,7 +112,7 @@
 		<div class="modal fade demo-class" data-backdrop="static" style="opacity:0.01">
 			<div class="modal-dialog">
 					<div class="modal-body">
-						
+
 					</div>
 			</div>
 		</div>

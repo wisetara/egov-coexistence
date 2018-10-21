@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -380,7 +380,7 @@ public class CollectionDocumentElasticSearchService {
                 aggregationField = CITY_GRADE;
             else if (collectionDashBoardRequest.getType().equalsIgnoreCase(DASHBOARD_GROUPING_WARDWISE))
                 aggregationField = REVENUE_WARD;
-       
+
         /**
          * As per Elastic Search functionality, to get the total collections
          * between 2 dates, add a day to the endDate and fetch the results For
@@ -401,7 +401,7 @@ public class CollectionDocumentElasticSearchService {
         // total
         final Map<String, BigDecimal> totalCollMap = getCollectionAndDemandValues(collectionDashBoardRequest, fromDate,
                 toDate, TOTAL_AMOUNT, aggregationField, serviceDetail);
-        
+
         /**
          * As per Elastic Search functionality, to get the total collections
          * between 2 dates, add a day to the endDate and fetch the results For
@@ -417,10 +417,10 @@ public class CollectionDocumentElasticSearchService {
             fromDate = new Date();
             toDate = org.apache.commons.lang3.time.DateUtils.addDays(new Date(), 1);
         }
-        
+
         final Map<String, BigDecimal> todaysCollMap = getCollectionAndDemandValues(collectionDashBoardRequest, fromDate,
                 toDate, TOTAL_AMOUNT, aggregationField, serviceDetail);
-        
+
         Long timeTaken = System.currentTimeMillis() - startTime;
         if (LOGGER.isDebugEnabled())
             LOGGER.debug("Time taken by getCollectionAndDemandValues() is : " + timeTaken + MILLISECS);
@@ -460,7 +460,7 @@ public class CollectionDocumentElasticSearchService {
             LOGGER.debug("Time taken for setting values in getResponseTableData() is : " + timeTaken + MILLISECS);
         return collIndDataList;
     }
-    
+
     private Map getDetailsForAggregationType(CollectionDashBoardRequest collectionDashBoardRequest, String name,
             String aggregationField) {
         String[] requiredFields = null;

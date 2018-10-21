@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -51,7 +51,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class DishonoredChequeBean {
-    
+
     private String voucherNumber;
     private String receiptNumber;
     private String receiptDate;
@@ -74,7 +74,7 @@ public class DishonoredChequeBean {
     private String detailKeyId;
     private String detailTypeId;
     private String amount;
-   
+
 
     private Date transactionDate;
     private String dishonorReason;
@@ -325,6 +325,6 @@ public class DishonoredChequeBean {
         this.remittanceGLDetails = remittanceGLDetails;
     }
 
-   
+
 
 }

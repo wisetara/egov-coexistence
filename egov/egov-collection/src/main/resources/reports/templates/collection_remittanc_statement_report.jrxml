@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -129,25 +129,25 @@
 		<![CDATA[select * from (select distinct CH.receiptnumber as RECEIPT_NUMBER ,to_char(date(CH.receiptdate),'DD/mm/YYYY')as RECEIPT_DATE,
  (CASE WHEN EGF_INSTRUMENTTYPE.TYPE ='cash' THEN 'cash' WHEN EGF_INSTRUMENTTYPE.TYPE='bank' THEN 'bank' WHEN EGF_INSTRUMENTTYPE.TYPE='online' THEN 'online' WHEN  EGF_INSTRUMENTTYPE.TYPE='card' THEN 'card' WHEN  EGF_INSTRUMENTTYPE.TYPE='cheque' THEN 'cheque' WHEN EGF_INSTRUMENTTYPE.TYPE='dd' THEN 'dd' END) as PAY_MODE,
 INS.instrumentnumber as CHEQUE_NO, (CASE WHEN INS.bankid =null THEN null ELSE (select name from bank where id=INS.bankid) END)  as BANK_NAME ,
-INS.bankbranchname  BRANCH_NAME , ins.instrumentdate  as CHEQUE_DATE, INS.instrumentamount as AMOUNT  
+INS.bankbranchname  BRANCH_NAME , ins.instrumentdate  as CHEQUE_DATE, INS.instrumentamount as AMOUNT
 from EGCL_COLLECTIONHEADER CH , EGCL_COLLECTIONMIS CHMIS, egcl_collectioninstrument CINS,egf_instrumentheader INS,
 egw_status STA1 ,EGW_STATUS STA2, FUND F , BANK B, bankbranch BR, bankaccount BA , egcl_servicedetails SER,egf_instrumenttype EGF_INSTRUMENTTYPE,
 EG_USER USR,EGEIS_JURISDICTION JUR , EG_BOUNDARY BNDRY
-WHERE CH.ID = chmis.collectionheader 
-AND   CHMIS.fund = F.id 
+WHERE CH.ID = chmis.collectionheader
+AND   CHMIS.fund = F.id
 AND   CINS.collectionheader = CH.id
 AND   CINS.instrumentheader = INS.ID
 AND   ch.status = sta1.id
 AND   BR.bankid = b.id
-AND   BR.id = BA.branchid 
-AND   BA.id = INS.bankaccountid 
-AND   SER.ID = CH.servicedetails 
-AND   EGF_INSTRUMENTTYPE.ID = ins.instrumenttype 
-AND   sta1.moduletype = 'ReceiptHeader' 
-AND   sta1.code = 'REMITTED' 
+AND   BR.id = BA.branchid
+AND   BA.id = INS.bankaccountid
+AND   SER.ID = CH.servicedetails
+AND   EGF_INSTRUMENTTYPE.ID = ins.instrumenttype
+AND   sta1.moduletype = 'ReceiptHeader'
+AND   sta1.code = 'REMITTED'
 AND   sta2.moduletype = 'Instrument'
 AND   STA2.CODE IN ('Reconciled','Deposited')
-AND   CH.CREATEDBY =USR.ID 
+AND   CH.CREATEDBY =USR.ID
 AND   JUR.EMPLOYEE =  USR.ID
 AND BNDRY.ID=JUR.BOUNDARY
 AND CH.receiptdate >= $P{EGOV_FROM_DATE}
@@ -163,21 +163,21 @@ union
 select distinct CH.receiptnumber as RECEIPT_NUMBER ,to_char(date(CH.receiptdate),'DD/mm/YYYY')as RECEIPT_DATE,
  (CASE WHEN EGF_INSTRUMENTTYPE.TYPE ='cash' THEN 'cash' WHEN EGF_INSTRUMENTTYPE.TYPE='bank' THEN 'bank' WHEN EGF_INSTRUMENTTYPE.TYPE='online' THEN 'online' WHEN  EGF_INSTRUMENTTYPE.TYPE='card' THEN 'card' WHEN EGF_INSTRUMENTTYPE.TYPE='cheque' THEN 'cheque' WHEN EGF_INSTRUMENTTYPE.TYPE='dd' THEN 'dd' END) as PAY_MODE,
 INS.instrumentnumber as CHEQUE_NO, (CASE WHEN INS.bankid =null THEN null ELSE (select name from bank where id=INS.bankid) END)  as BANK_NAME ,
-INS.bankbranchname  BRANCH_NAME , ins.instrumentdate  as CHEQUE_DATE, INS.instrumentamount as AMOUNT  
+INS.bankbranchname  BRANCH_NAME , ins.instrumentdate  as CHEQUE_DATE, INS.instrumentamount as AMOUNT
 from EGCL_COLLECTIONHEADER CH , EGCL_COLLECTIONMIS CHMIS, egcl_collectioninstrument CINS,egf_instrumentheader INS,
 egw_status STA1 ,EGW_STATUS STA2, FUND F , BANK B, bankbranch BR, bankaccount BA , egcl_servicedetails SER,egf_instrumenttype EGF_INSTRUMENTTYPE, EG_BOUNDARY BNDRY
-WHERE CH.ID = chmis.collectionheader 
-AND   CHMIS.fund = F.id 
+WHERE CH.ID = chmis.collectionheader
+AND   CHMIS.fund = F.id
 AND   CINS.collectionheader = CH.id
 AND   CINS.instrumentheader = INS.ID
 AND   ch.status = sta1.id
 AND   BR.bankid = b.id
-AND   BR.id = BA.branchid 
-AND   BA.id = INS.bankaccountid 
-AND   SER.ID = CH.servicedetails 
-AND   EGF_INSTRUMENTTYPE.ID = ins.instrumenttype 
-AND   sta1.moduletype = 'ReceiptHeader' 
-AND   sta1.code = 'REMITTED' 
+AND   BR.id = BA.branchid
+AND   BA.id = INS.bankaccountid
+AND   SER.ID = CH.servicedetails
+AND   EGF_INSTRUMENTTYPE.ID = ins.instrumenttype
+AND   sta1.moduletype = 'ReceiptHeader'
+AND   sta1.code = 'REMITTED'
 AND   sta2.moduletype = 'Instrument'
 AND   STA2.CODE IN ('Reconciled','Deposited')
 AND CH.receiptdate >= $P{EGOV_FROM_DATE}
@@ -187,7 +187,7 @@ $P!{Q_SERVICE_ID}
 $P!{Q_BRANCH_ID}
 $P!{Q_BANKACCOUNT_ID}
 $P!{Q_MODEOFPAYMENT_ID}
-$P!{Q_DEPT_ID} 
+$P!{Q_DEPT_ID}
 $P!{Q_EGOV_BANKCOLL_BANKBRANCH_ID}) AS RESULT ORDER BY RECEIPT_NUMBER]]>
 	</queryString>
 	<field name="RECEIPT_NUMBER" class="java.lang.String">

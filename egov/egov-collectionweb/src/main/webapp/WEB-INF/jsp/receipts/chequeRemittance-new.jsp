@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2018  eGovernments Foundation
   ~
@@ -57,7 +57,7 @@
 	jQuery(document)
 			.ready(
 					function($) {
-						
+
 						if(jQuery("#finYearId").val()!=-1){
 							$("#dateDiv").hide();
 							$("#fromDate").val("");
@@ -66,7 +66,7 @@
 						else if(jQuery("#finYearId").val()==-1){
 							$("#dateDiv").show();
 						}
-						
+
 						//hide or show date fields on selecting year from drop down
 						jQuery("#finYearId").on("change",function(){
 							if(jQuery("#finYearId").val()!=-1){
@@ -79,7 +79,7 @@
 							}
 						});
 
-						
+
 						jQuery('#remittanceDate').val("");
 						//jQuery('#finYearId').prop("disabled", true);
 						jQuery("form").submit(function(event) {
@@ -254,7 +254,7 @@
 			}
 		}
 	}
-	
+
 	function validate() {
 		dom.get("bankselectionerror").style.display = "none";
 		dom.get("accountselectionerror").style.display = "none";
@@ -555,7 +555,7 @@
 									value="${currentRow.SERVICENAME}" />
 								<input type="hidden" name="fundCodeTempArray"
 									disabled="disabled" id="fundCodeTempArray"
-									value="${currentRow.FUNDCODE}" />	
+									value="${currentRow.FUNDCODE}" />
 								<input type="hidden" name="instrumentIdTempArray"
 									disabled="disabled" id="instrumentIdTempArray"
 									value="${currentRow.INSTRUMENTID}" />
@@ -611,7 +611,7 @@
 								class="blueborderfortd" title="Receipt number"
 								style="width:10%;text-align: center"
 								value="${currentRow.RECEIPTNUMBER}" />
-								
+
 							<display:column headerClass="bluebgheadtd"
 								class="blueborderfortd" title="Cheque/DD number and date"
 								style="width:20%;text-align: center"
@@ -640,7 +640,7 @@
 									</div>
 							</display:column>
 						</display:table>
-				
+
 				<br />
 				<div id="loadingMask"
 					style="display: none; overflow: hidden; text-align: center">
@@ -650,7 +650,7 @@
 
 				<div align="center">
 					<table>
-						<tr>					
+						<tr>
 							<s:if test="showRemittanceDate">
 								<td class="bluebox" colspan="3">&nbsp;</td>
 								<td class="bluebox"><s:text
@@ -663,11 +663,11 @@
 							<td class="bluebox"><s:text
 									name="bankremittance.remittanceamount" /></td>
 							<td class="bluebox"><s:textfield id="remittanceAmount"
-									name="remittanceAmount" readonly="true" /></td>								
+									name="remittanceAmount" readonly="true" /></td>
 							<td class="bluebox"><s:text
 									name="bankremittance.accountnumber" /></td>
 							<td class="bluebox"><s:textfield id="remitAccountNumber"
-									name="remitAccountNumber" readonly="true" /></td>		
+									name="remitAccountNumber" readonly="true" /></td>
 						</tr>
 					</table>
 				</div>

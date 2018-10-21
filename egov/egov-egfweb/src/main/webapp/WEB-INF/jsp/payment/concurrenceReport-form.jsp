@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -83,7 +83,7 @@ function getData(){
 	} else if (document.getElementsByName('chequeOrRTGS')[1].checked){
 		chequeOrRTGS = document.getElementsByName('chequeOrRTGS')[1].value;
 	}
-	var chequeCondition="&chequeOrRTGS="+chequeOrRTGS;	
+	var chequeCondition="&chequeOrRTGS="+chequeOrRTGS;
 	for(var i=0 ; i < dateNm.length; i++){
 		//bootbox.alert(dateNm[i].checked);
 		if(dateNm[i].checked)
@@ -116,15 +116,15 @@ function getData(){
 	   YAHOO.util.Connect.asyncRequest('POST', url, callback, null);
 	}
 	doAfterSubmit();
-	   
+
 }
 function loadBank(fund){
 	document.getElementById('accountNumber').value="-1";
 	if(fund.value!=-1){
-		populatebank({fundId:fund.options[fund.selectedIndex].value, typeOfAccount:typeOfAcc})   
-	}else{       
-		populatebank({typeOfAccount:typeOfAcc})       
-	} 
+		populatebank({fundId:fund.options[fund.selectedIndex].value, typeOfAccount:typeOfAcc})
+	}else{
+		populatebank({typeOfAccount:typeOfAcc})
+	}
 }
 
 function validateData(dateNm1){
@@ -134,7 +134,7 @@ function validateData(dateNm1){
 		 bootbox.alert("Please select a Bank Account");
 		 return false;
 	 }
-	return true;	
+	return true;
 }
 
 function validateBank(){
@@ -154,8 +154,8 @@ function populateAccNumbers(bankBranch){
 		populateaccountNumber({branchId:id,bankId:bankid,fundId:fund.options[fund.selectedIndex].value,typeOfAccount:typeOfAcc})
 	}else{
 		populateaccountNumber({branchId:id,bankId:bankid,typeOfAccount:typeOfAcc})
-	}	
-}  
+	}
+}
 function onLoadTask(){
 	document.getElementById('asdat1').style.display='none';
 	document.getElementById('dateran').style.display='none';
@@ -169,7 +169,7 @@ function loaddate(dateTypeObj){
   		document.getElementById('fromDate').value="";
   		document.getElementById('toDate').value="";
   	}
-	else if(dateTypeObj.value=='0'){ 
+	else if(dateTypeObj.value=='0'){
 	    document.getElementById('asdat1').style.display='none';
 		document.getElementById('dateran').style.display='table-row';
 		document.getElementById('asOnDate').value="";
@@ -241,7 +241,7 @@ function exportPdf(){
 	}
     if(bankAccount!=-1){
 	if(dtVal==0){
-	
+
 	window.open('/EGF/payment/concurrenceReport!exportPdf.action?skipPrepare=true&bankAccount.id='+bankAccount+'&fromDate='+fromDate+'&toDate='+toDate+"&chequeOrRTGS="+chequeOrRTGS,'','resizable=yes,height=650,width=900,scrollbars=yes,left=30,top=30,status=no');
 	}
 	if(dtVal==1){

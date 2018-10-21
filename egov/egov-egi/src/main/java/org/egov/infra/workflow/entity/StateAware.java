@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -282,7 +282,7 @@ public abstract class StateAware extends AbstractAuditable {
             state.setInitiatorPosition(this.getLongValue(owner, "getId"));
             return this;
         }
-        
+
         public final Transition withInitiator(Long owner) {
             checkTransitionStatus();
             state.setInitiatorPosition(owner);

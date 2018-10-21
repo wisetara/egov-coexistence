@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,11 +63,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ViewBoundaryTypeControllerTest extends AbstractContextControllerTest<ViewBoundaryTypeController> {
 
     private MockMvc mockMvc;
-    
+
     @Mock
     private BoundaryTypeService boundaryTypeService;
-    
-    
+
+
     @Before
     public void before() {
         mockMvc = mvcBuilder.build();
@@ -78,7 +78,7 @@ public class ViewBoundaryTypeControllerTest extends AbstractContextControllerTes
         initMocks(this);
         return new ViewBoundaryTypeController(boundaryTypeService);
     }
-    
+
     @Test
     public void getViewBoundaryTypeResult() throws Exception {
             Long id = 1l;
@@ -87,5 +87,5 @@ public class ViewBoundaryTypeControllerTest extends AbstractContextControllerTes
                             .andExpect(status().isOk());
 
     }
-    
+
 }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -201,11 +201,11 @@ public class FinancialUtils {
             asignList = assignmentService.getAssignmentsForPosition(approvalPosition, new Date());
         return !asignList.isEmpty() ? asignList.get(0).getEmployee().getName() : "";
     }
-    
+
     public String getInitiatorName(Long employeeId){
-        
+
       List<EmployeeInfo>empList =  microServiceUtil.getEmployee(employeeId, new Date(),null, null);
-      if(null!=empList && !empList.isEmpty())  
+      if(null!=empList && !empList.isEmpty())
       return empList.get(0).getName();
       else
           return "";
@@ -303,7 +303,7 @@ public class FinancialUtils {
             final Long ownerPosition = state.getOwnerPosition();
             // user = state.getOwnerUser();
             ownerobj=    this.microServiceUtil.getEmployeeByPositionId(ownerPosition);
-            
+
 //            if (null != user) {
             if(null != ownerobj){
                 map.put("user", ownerobj.getUserName() + "::" + ownerobj.getName());

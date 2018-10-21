@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,10 +53,10 @@
 	var recoveryTableIndex = 0;
 	var totalAmount = 0;
 	var populateRecoveryDetails = function() {
-	var recoveryDetailColumns = [ 
-			
-	{key:"serialNo",label:'Sl no',width:50,formatter:createLabelSamll(RECOVERYLIST,".serialNo")},				
-	{key:"voucherNumber",label:'<s:text name="remit.ref.number"/>', formatter:createLabelLarge(RECOVERYLIST,".voucherNumberLabel")}, 
+	var recoveryDetailColumns = [
+
+	{key:"serialNo",label:'Sl no',width:50,formatter:createLabelSamll(RECOVERYLIST,".serialNo")},
+	{key:"voucherNumber",label:'<s:text name="remit.ref.number"/>', formatter:createLabelLarge(RECOVERYLIST,".voucherNumberLabel")},
 	{key:"voucherDate",label:'<s:text name="remit.date"/>', formatter:createLabelMed(RECOVERYLIST,".voucherDateLabel")},
 	{key:"voucherName",label:'<s:text name="remit.nature.deduction"/>', formatter:createLabelLarge(RECOVERYLIST,".voucherNameLable")},
 	{key:"partyName",label:'<s:text name="remit.party.name"/>', formatter:createLabelLarge(RECOVERYLIST,".partyNameLable")},
@@ -69,14 +69,14 @@
 	{key:"chkremit",label:'Select', formatter:createcheckbox(RECOVERYLIST,".chkremit")},
 	{key:"remittance_gl_dtlId",hidden:true, formatter:createDivFormatter(RECOVERYLIST,".remittance_gl_dtlId")}
 	];
-	 var recoveryDetailDS = new YAHOO.util.DataSource(); 
+	 var recoveryDetailDS = new YAHOO.util.DataSource();
 	 var recoveryDetailsTable = new YAHOO.widget.DataTable("recoveryDetailsTable",recoveryDetailColumns, recoveryDetailDS);
-		
+
 	<s:iterator value="listRemitBean" status="stat">
 	recoveryDetailsTable.addRow({SlNo:recoveryDetailsTable.getRecordSet().getLength()+1});
 		var index = '<s:property value="#stat.index"/>';
 		updateLabel('serialNo',index,parseInt(index)+1);
-		updateLabel('voucherNumberLabel',index,'<s:property value="voucherNumber"/>');                           
+		updateLabel('voucherNumberLabel',index,'<s:property value="voucherNumber"/>');
 		updateLabel('voucherDateLabel',index,'<s:property value="voucherDate"/>');
 		updateLabel('voucherNameLable',index,'<s:property value="voucherName"/>');
 		updateLabel('partyNameLable',index,"<s:property value="partyName"/>");
@@ -90,13 +90,13 @@
 		recoveryTableIndex = recoveryTableIndex +1;
 		</s:iterator>
 	}
-	
+
 function createHiddenField(prefix,suffix,type){
 	 return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"' name='"+prefix+"["+recoveryTableIndex+"]"+suffix+"' id='"+prefix+"["+recoveryTableIndex+"]"+suffix+"'/>";
 	}
-	
+
 }
 function createLabelSamll(prefix,suffix){
     return function(el, oRecord, oColumn, oData) {
@@ -199,8 +199,8 @@ function selectAllORNone(obj){
 		}else{
 			document.getElementById('listRemitBean['+index+'].chkremit').checked=false;
 		}
-		
-		
+
+
 	}
 	document.getElementById('totalAmount').value =totalAmount.toFixed(2);
 	resetSelectedRows();
@@ -210,7 +210,7 @@ function selectAllORNone(obj){
 function validateSearch()
 {
 	document.getElementById('lblError').innerHTML ="";
-	
+
 	if(document.getElementById('recoveryId').value==-1){
 		bootbox.alert("Please select a recovery code");
 		return false;
@@ -244,70 +244,70 @@ function validateSearch()
 // Javascript validation of the MIS Manadate attributes.
 function validateMisAttributes()
 {
-			<s:if test="%{isFieldMandatory('vouchernumber')}"> 
+			<s:if test="%{isFieldMandatory('vouchernumber')}">
 				 if(null != document.getElementById('voucherNumber') && document.getElementById('voucherNumber').value.trim().length == 0 ){
 
 					document.getElementById('lblError').innerHTML = "Please enter a voucher number";
 					return false;
 				 }
 			 </s:if>
-		 <s:if test="%{isFieldMandatory('voucherdate')}"> 
+		 <s:if test="%{isFieldMandatory('voucherdate')}">
 				 if(null != document.getElementById('voucherDate') && document.getElementById('voucherDate').value.trim().length == 0){
 
 					document.getElementById('lblError').innerHTML = "Please enter a voucher date";
 					return false;
 				 }
 			 </s:if>
-		 <s:if test="%{isFieldMandatory('fund')}"> 
+		 <s:if test="%{isFieldMandatory('fund')}">
 				 if(null != document.getElementById('fundId') && document.getElementById('fundId').value == ""){
 
 					document.getElementById('lblError').innerHTML = "Please Select a fund";
 					return false;
 				 }
 			 </s:if>
-			<s:if test="%{isFieldMandatory('department')}"> 
+			<s:if test="%{isFieldMandatory('department')}">
 				 if(null!= document.getElementById('vouchermis.departmentid') && document.getElementById('vouchermis.departmentid').value == ""){
 
 					document.getElementById('lblError').innerHTML = "Please select a department";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('scheme')}"> 
+			<s:if test="%{isFieldMandatory('scheme')}">
 				 if(null!=document.getElementById('schemeid') &&  document.getElementById('schemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a scheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('subscheme')}"> 
+			<s:if test="%{isFieldMandatory('subscheme')}">
 				 if(null!= document.getElementById('subschemeid') && document.getElementById('subschemeid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a subscheme";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('functionary')}"> 
+			<s:if test="%{isFieldMandatory('functionary')}">
 				 if(null!=document.getElementById('vouchermis.functionary') &&  document.getElementById('vouchermis.functionary').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a functionary";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('fundsource')}"> 
+			<s:if test="%{isFieldMandatory('fundsource')}">
 				 if(null !=document.getElementById('fundsourceId') &&  document.getElementById('fundsourceId').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a fundsource";
 					return false;
 				}
 			</s:if>
-			<s:if test="%{isFieldMandatory('field')}"> 
+			<s:if test="%{isFieldMandatory('field')}">
 				 if(null!= document.getElementById('vouchermis.divisionid') && document.getElementById('vouchermis.divisionid').value == -1){
 
 					document.getElementById('lblError').innerHTML = "Please select a field";
 					return false;
 				 }
 			</s:if>
-			<s:if test="%{isFieldMandatory('function')}"> 
+			<s:if test="%{isFieldMandatory('function')}">
 			 if(null!= document.getElementById('vouchermis.function') && document.getElementById('vouchermis.function').value == -1){
 
 				document.getElementById('lblError').innerHTML = "Please select a function";
@@ -322,7 +322,7 @@ function validateRemit(){
 	var atleastOnecheque = false;
 	var chkBox;
 	for(var index=0;index<recoveryTableIndex;index++){
-		
+
 		chkBox =document.getElementById('listRemitBean['+index+'].chkremit');
 		if(chkBox.checked)
 		{
@@ -352,13 +352,13 @@ function disableAll()
 				{
 					if(document.forms[0].elements[i].name != 'selectedRows' && document.forms[0].elements[i].name != 'remittanceBean.recoveryId'
 						&& document.forms[0].elements[i].name != 'remittanceBean.fromVhDate' && document.forms[0].elements[i].name != 'voucherDate' && document.forms[0].elements[i].name != 'vouchermis.fundsource'
-							&& document.forms[0].elements[i].name != 'vouchermis.schemeid' && document.forms[0].elements[i].name != 'vouchermis.subschemeid' 
-							&& document.forms[0].elements[i].name != 'fundId'                
+							&& document.forms[0].elements[i].name != 'vouchermis.schemeid' && document.forms[0].elements[i].name != 'vouchermis.subschemeid'
+							&& document.forms[0].elements[i].name != 'fundId'
 								&& document.forms[0].elements[i].name!='vouchermis.departmentid' && document.forms[0].elements[i].name!='vouchermis.function'
 									&& document.forms[0].elements[i].name!='departmentId' && document.forms[0].elements[i].name!='functionId'){
-						document.forms[frmIndex].elements[i].disabled =true;   
-					}						
-				}	
+						document.forms[frmIndex].elements[i].disabled =true;
+					}
+				}
 		}
 }
 
@@ -366,7 +366,7 @@ function resetSubmit()
 {
 	document.remitRecoveryForm.action='/EGF/deduction/remitRecovery-newform.action';
 	document.remitRecoveryForm.submit();
-	
+
 	}
 </script>
 <style type="text/css">

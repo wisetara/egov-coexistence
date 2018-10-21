@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -120,9 +120,9 @@ public abstract class BaseVoucherController extends GenericWorkFlowController {
         }
         mandatoryFields.add("voucherdate");
         if (headerFields.contains("department")) {
-        	
+
         	model.addAttribute("departments", this.getDepartmentsFromMs());
-        
+
         }
         if (headerFields.contains("functionary"))
             model.addAttribute("functionarys", masterDataCache.get("egi-functionary"));

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -50,7 +50,7 @@ var budgetDetailsTable;
 
 function getSavedData()
 {
-	
+
 	if(budgetDetailsTable != null){
 		element = document.getElementById('budgetDetail_budget');
 		deptObj = document.getElementById('budgetDetail_executingDepartment');
@@ -70,7 +70,7 @@ function getSavedData()
 		deptObj = document.getElementById('budgetDetail_executingDepartment');
 		deptId=deptObj.options[deptObj.selectedIndex].value;
 		budgetId = element.options[element.selectedIndex].value;
-		budgetName = element.options[element.selectedIndex].text;   
+		budgetName = element.options[element.selectedIndex].text;
 		//bootbox.alert(budgetName);
 		//bootbox.alert(budgetId);
 	//	bootbox.alert(budgetId+"   "+budgetName+" "+deptId);
@@ -79,7 +79,7 @@ function getSavedData()
 	function populateBudgetGroup(budgetId){
   		populatebudgetDetail_filtered_budgetGroup({"budgetDetail.budget.id":budgetId});
 	}
-	
+
 function updateGrid(field,index){
 	if(budgetDetailsTable != null){
 		len = budgetDetailsTable.getRecordSet().getLength()
@@ -115,7 +115,7 @@ function setSelectedIndex(key){
 	element = document.getElementsByName(key)[0]
 	len = element.options.length
 	for(i=0;i<len;i++){
-		if(element.options[i].value == listValues[key]){ 
+		if(element.options[i].value == listValues[key]){
 			element.options[i].selected = true;
 		}
 	}
@@ -144,7 +144,7 @@ function populateBE(obj)
 	/*var budgetGroup = document.getElementById('budgetDetailList['+currRow+'].budgetGroup.id').options[document.getElementById('budgetDetailList['+currRow+'].budgetGroup.id').selectedIndex].text.split('-')[0];
 
 	var glcodeSubMin = budgetGroup.substring(0,7);
-	
+
 	if(glcodeSubMin == "2101001" || glcodeSubMin == "2101002"){
 		document.getElementById('beAmounts['+currRow+']').value=obj.value*1.25;
 	}else{
@@ -163,7 +163,7 @@ function createAnticipatoryFieldFormatter(prefix,suffix){
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:0.00;
 		el.innerHTML = "<input type='text' id='"+prefix+"["+budgetDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' name='"+prefix+"["+budgetDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' value='"+value+"' style='text-align:right;width:90px;' onblur='updateREamount(this)'/>";
-		
+
 	}
 }
 

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -108,7 +108,7 @@
 
 <script type="text/javascript">
 function onChangeVSubType(){
-	
+
 	var vType = document.getElementById('vType').value;
 	if(vType == 'JVGeneral' || vType == '-1'){
 		vsubTypeValue = "Journal-JVGeneral";
@@ -123,20 +123,20 @@ function onChangeVSubType(){
 	}else if(vType == 'Fixed Asset'){
 		vsubTypeValue = "fixedassetjv-Supplier Journal";
 	}else if(vType == 'Pension'){
-	vsubTypeValue = "pensionjv-Pension Journal";  
+	vsubTypeValue = "pensionjv-Pension Journal";
 	}
 	var array = vsubTypeValue.split("-");
 	document.getElementById('voucherTypeBean.voucherNumType').value = array[0];
 	document.getElementById('voucherTypeBean.voucherName').value = array[1];
 	document.getElementById('voucherTypeBean.voucherSubType').value = vType;
-	
+
 	if(vType == 'JVGeneral'){
 		document.getElementById('voucherTypeBean.partyBillNum').value="";
 		document.getElementById('voucherTypeBean.partyName').value="";
 		document.getElementById('partyBillDate').value="";
 		document.getElementById('voucherTypeBean.billNum').value="";
-		document.getElementById('billDate').value="";		
-		
+		document.getElementById('billDate').value="";
+
 		document.getElementById('voucherTypeBean.partyBillNum').readOnly=true;
 		document.getElementById('voucherTypeBean.partyName').readOnly=true;
 		document.getElementById('partyBillDate').readOnly=true;
@@ -150,14 +150,14 @@ function onChangeVSubType(){
 		document.getElementById('voucherTypeBean.billNum').readOnly=false;
 		document.getElementById('billDate').readOnly=false;
 	}
-	
+
 	if(vType == 'JVGeneral' || vType == '-1') {
 		document.getElementById('partyNameDivId').style.display='none';
 	} else {
 		document.getElementById('partyNameDivId').style.display='inline';
 	}
-	
-}    
+
+}
 
 function isSpecialChar(Obj)
 {

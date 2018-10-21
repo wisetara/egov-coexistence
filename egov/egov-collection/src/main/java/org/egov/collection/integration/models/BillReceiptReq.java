@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,8 +76,8 @@ public class BillReceiptReq {
     private String receiptInstrumentType;
     private String tenantId = null;
     private String receiptStatus;
-    
-    
+
+
 
     public BillReceiptReq(BillReceiptInfo billReceipt) {
         super();

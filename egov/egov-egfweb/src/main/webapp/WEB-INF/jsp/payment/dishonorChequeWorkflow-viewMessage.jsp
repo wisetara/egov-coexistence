@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -74,18 +74,18 @@
 	</s:form>
 	<script>
 function dishonorChequePrint(){
-	                           
+
 		var reversalVhId= '<s:property value="%{paymentVoucher.id}"/>';
  		var bankChargesVhId='<s:property value="%{bankChargesReversalVoucher.id}"/>';
- 		
+
  		var reversalAmount='<s:property value="%{dishonorChequeView.instrumentHeader.instrumentAmount}"/>';
  		var bankChargesAmount='<s:property value="%{dishonorChequeView.bankChargesAmt}"/>';
 	 	window.open("../brs/DishonoredChequeEntries.do?submitType=beforePrintDishonoredCheque&reversalVhId="+reversalVhId+
 	 		 	"&bankChargesVhId="+bankChargesVhId+"&reversalAmount="+reversalAmount+"&bankChargesAmount="+bankChargesAmount
 	 		 	,'','resizable=yes,height=650,width=900,scrollbars=yes,left=30,top=30,status=no');
-	     
-}               
-   
+
+}
+
 function printEJV(){
 	var id = '<s:property value="voucherHeader.id"/>';
 	window.open("${pageContext.request.contextPath}/report/expenseJournalVoucherPrint!print.action?id="+id,'Print','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');

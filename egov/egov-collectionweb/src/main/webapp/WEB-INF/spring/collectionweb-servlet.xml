@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -65,14 +65,14 @@
                     <bean class="org.egov.infra.web.support.json.mapper.HibernateAwareObjectMapper" />
                 </property>
             </bean>
-        </mvc:message-converters>                  
+        </mvc:message-converters>
     </mvc:annotation-driven>
-	
+
 	<mvc:view-controller path="/error/500" view-name="error/500"/>
   	<mvc:view-controller path="/error/404" view-name="error/404"/>
   	<mvc:view-controller path="/error/403" view-name="error/403"/>
   	<mvc:view-controller path="/error/400" view-name="error/400"/>
-  	
+
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources/ directory -->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
@@ -83,9 +83,9 @@
 			<bean class="org.egov.infra.web.spring.interceptor.CacheControlInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
+
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
-	
+
 	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetClass" value="org.springframework.core.convert.support.ConversionServiceFactory"/>
 		<property name="targetMethod" value="registerConverters"/>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -91,14 +91,14 @@ designationIdFailureHandler=function(){
 function populateDesg(){
 	if(null != document.getElementById("scriptName")){
 		if(document.getElementById("billRegisterId"))
-			populatedesignationId({departmentId:document.getElementById("departmentid").value,scriptName:document.getElementById("scriptName").value,billRegisterId:document.getElementById("billRegisterId").value})	
+			populatedesignationId({departmentId:document.getElementById("departmentid").value,scriptName:document.getElementById("scriptName").value,billRegisterId:document.getElementById("billRegisterId").value})
 		else
 			populatedesignationId({departmentId:document.getElementById("departmentid").value,scriptName:document.getElementById("scriptName").value})
 	}
 }
 
 function populateUser(){
-	
+
 	var desgFuncry = document.getElementById("designationId").value;
 	var array = desgFuncry.split("-");
 	var functionary = array[1];
@@ -108,7 +108,7 @@ function populateUser(){
 	}
 	populateapproverUserId({departmentId:document.getElementById("departmentid").value,
 	designationId:desgId,functionaryName:functionary})
-		
+
 }
 function validateUser(name,value){
 	document.getElementById("actionName").value= name;

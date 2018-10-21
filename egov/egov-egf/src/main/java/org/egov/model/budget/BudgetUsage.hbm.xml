@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,7 +50,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="org.egov.model.budget.BudgetUsage" table="EGF_BUDGET_USAGE"> 
+	<class name="org.egov.model.budget.BudgetUsage" table="EGF_BUDGET_USAGE">
 		<id name="id" type="long" unsaved-value="null" >
 			<column name="ID" not-null="true"/>
 			<generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
@@ -64,7 +64,7 @@
 			unsaved-value="null"/>
 		<property name="financialYearId">
 			<column name="FINANCIALYEARID" />
-		</property>	
+		</property>
 		<property name="moduleId">
 			<column name="MODULEID" />
 		</property>
@@ -76,7 +76,7 @@
 		</property>
 		<property name="consumedAmount">
 			<column name="CONSUMEDAMT" />
-		</property>	
+		</property>
 		<property name="releasedAmount">
 			<column name="RELEASEDAMT" />
 		</property>

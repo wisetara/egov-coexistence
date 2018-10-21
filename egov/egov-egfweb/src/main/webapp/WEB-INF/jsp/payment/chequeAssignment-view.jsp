@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -188,16 +188,16 @@
 			</div>
 		</div>
 	</s:form>
-	<script>      
+	<script>
 function printAdviceExcel(){
 	 	 var bank=document.getElementById("bank").value;
 	 	var bankbranch=document.getElementById("bankBranchId").value;
 	 	var bankaccount=document.getElementById("bankAccountNoId").value;
 	 	 var instrumentnumber=document.getElementById("transactionNumber").value;
-	 	// bootbox.alert("bank>>>>"+bank);   
-	 	// bootbox.alert("bankbranch>>>>"+bankbranch);   
-	 	// bootbox.alert("bankaccount>>>>"+bankaccount);   
-	 	// bootbox.alert("instrumentnumber>>>>"+instrumentnumber);                                        
+	 	// bootbox.alert("bank>>>>"+bank);
+	 	// bootbox.alert("bankbranch>>>>"+bankbranch);
+	 	// bootbox.alert("bankaccount>>>>"+bankaccount);
+	 	// bootbox.alert("instrumentnumber>>>>"+instrumentnumber);
 		 var url="${pageContext.request.contextPath}/report/bankAdviceReport!exportExcel.action?bank.id="+
 		 			bank+"&bankbranch.id="+bankbranch+"&bankaccount.id="+bankaccount+"&instrumentnumber.id="+instrumentnumber;
 		 window.open(url,'','height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
@@ -207,10 +207,10 @@ function printAdvicePdf(){
 	var bankbranch=document.getElementById("bankBranchId").value;
 	var bankaccount=document.getElementById("bankAccountNoId").value;
 	 var instrumentnumber=document.getElementById("transactionNumber").value;
-	// bootbox.alert("bank>>>>"+bank);   
-	// bootbox.alert("bankbranch>>>>"+bankbranch);   
-	// bootbox.alert("bankaccount>>>>"+bankaccount);   
-	// bootbox.alert("instrumentnumber>>>>"+instrumentnumber);                                        
+	// bootbox.alert("bank>>>>"+bank);
+	// bootbox.alert("bankbranch>>>>"+bankbranch);
+	// bootbox.alert("bankaccount>>>>"+bankaccount);
+	// bootbox.alert("instrumentnumber>>>>"+instrumentnumber);
 	 var url="${pageContext.request.contextPath}/report/bankAdviceReport!exportPDF.action?bank.id="+
 	 			bank+"&bankbranch.id="+bankbranch+"&bankaccount.id="+bankaccount+"&instrumentnumber.id="+instrumentnumber;
 	 window.open(url,'','height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
@@ -222,7 +222,7 @@ function printCheque(id)
 	if(chequeFormat == "" || chequeFormat == null){
 		bootbox.alert("This bank account is not attached to any cheque formats");
 		return false;
-	} 
+	}
 	window.open('/services/EGF/payment/chequeAssignmentPrint-generateChequeFormat.action?instrumentHeader='+id,'Search','resizable=yes,scrollbars=yes,left=300,top=40,width=900, height=700');
     return false;
 }

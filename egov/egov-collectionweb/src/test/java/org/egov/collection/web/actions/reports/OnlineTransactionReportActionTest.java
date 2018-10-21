@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -54,27 +54,27 @@ package org.egov.collection.web.actions.reports;
  */
 public class OnlineTransactionReportActionTest { /*extends
 		AbstractPersistenceServiceTest {
-	
+
 	private OnlineTransactionReportAction action;
 	private CollectionObjectFactory objectFactory;
-	
+
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setupAction() {
 		objectFactory = new CollectionObjectFactory(session);
-		
+
 		action = new OnlineTransactionReportAction();
 		action.setPersistenceService(genericService);
 		action.setSession(new HashMap());
 	}
-	
+
 	@Test
 	public void testPrepare() {
 		action.prepare();
 		assertEquals(FileFormat.PDF, action.getReportFormat());
 		assertEquals(ReportDataSourceType.HQL, action.getDataSourceType());
 	}
-	
+
 	@Test
 	public void testGetModel() {
 		assertNull(action.getModel());
@@ -85,23 +85,23 @@ public class OnlineTransactionReportActionTest { /*extends
 		Long onlineTransactionStataId = 1L;
 		action.setStatusId(onlineTransactionStataId);
 		assertEquals(onlineTransactionStataId, action.getStatusId());
-		
+
 		Integer departmentId = 1;
 		action.setDepartmentId(departmentId);
 		assertEquals(departmentId, action.getDepartmentId());
-		
+
 		Long billingServiceId = 1L;
 		action.setBillingServiceId(billingServiceId);
 		assertEquals(billingServiceId, action.getBillingServiceId());
-		
+
 		Date testDate = new Date();
 		action.setFromDate(testDate);
 		assertEquals(testDate, action.getFromDate());
-		
+
 		action.setToDate(testDate);
 		assertEquals(testDate, action.getToDate());
 	}
-	
+
 	@Test
 	public void testGetReportTemplate() {
 		Assert.assertEquals(CollectionConstants.REPORT_TEMPLATE_ONLINE_TRANSACTION, action.getReportTemplateName());
@@ -112,22 +112,22 @@ public class OnlineTransactionReportActionTest { /*extends
 		// Create mock object of collections util and set expectations
 		CollectionsUtil collectionsUtilMock = EasyMock.createMock(CollectionsUtil.class);
 		action.setCollectionsUtil(collectionsUtilMock);
-		
+
 		List<ServiceDetails> billingServiceList = new ArrayList<ServiceDetails>();
 		EasyMock.expect(collectionsUtilMock.getBillingServiceList()).andReturn(billingServiceList);
-		
+
 		Department dept = objectFactory.createDept("test.dept");
-		
+
 		EasyMock.replay(collectionsUtilMock);
-		
+
 		// Test the criteria method
 		String critResult = action.criteria();
 		EasyMock.verify(collectionsUtilMock);
-		
+
 		assertEquals(critResult, BaseFormAction.INDEX);
 		assertTrue(action.getDropdownData().get(CollectionConstants.DROPDOWN_DATA_SERVICE_LIST).equals(billingServiceList));
 		assertTrue(action.getDropdownData().get("departmentList").contains(dept));
-		
+
 		Date fromDate = action.getFromDate();
 	}
 */}

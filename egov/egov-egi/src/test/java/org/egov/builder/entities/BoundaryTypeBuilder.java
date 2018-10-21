@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -84,7 +84,7 @@ public class BoundaryTypeBuilder {
         return this;
     }
 
-    public BoundaryTypeBuilder withHeirarchyType(final HierarchyType hierarchyType) {
+    public BoundaryTypeBuilder withHierarchyType(final HierarchyType hierarchyType) {
         boundaryTypeImpl.setHierarchyType(hierarchyType);
         return this;
     }
@@ -105,7 +105,7 @@ public class BoundaryTypeBuilder {
         if (null != boundaryTypeImpl.getHierarchy() && 0 == boundaryTypeImpl.getHierarchy())
             withHierarchy(Long.valueOf(count));
         if (null != boundaryTypeImpl.getHierarchyType())
-            withHeirarchyType(new HeirarchyTypeBuilder().withDefaults().build());
+            withHierarchyType(new HierarchyTypeBuilder().withDefaults().build());
         return this;
     }
 
@@ -116,12 +116,12 @@ public class BoundaryTypeBuilder {
         if (null == boundaryTypeImpl.getName())
             withName("test-BoundaryType-" + count);
 
-        
+
         if (null == boundaryTypeImpl.getHierarchy())
             withHierarchy(Long.valueOf(count));
 
         if (null == boundaryTypeImpl.getHierarchyType())
-            withHeirarchyType(new HeirarchyTypeBuilder().withDbDefaults().build());
+            withHierarchyType(new HierarchyTypeBuilder().withDbDefaults().build());
 
         return this;
     }

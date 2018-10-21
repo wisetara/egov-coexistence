@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,20 +62,20 @@ import java.util.Set;
 @Unique(fields = { "code" }, id = "id", tableName = "EGCL_SERVICECATEGORY", columnName = { "CODE" }, message = "masters.serviceCategoryCode.isunique")
 
 public class ServiceCategory extends BaseModel {
-	
+
 
 	private static final long serialVersionUID = 1L;
 
 	@Required(message = "serviceCategoryName.null.validation")
 	@Length(max = 256, message = "masters.serviceCategory.nameLength")
 	private String name;
-	
+
 	@Required(message = "serviceCategoryCode.null.validation")
 	@Length(max = 256, message = "masters.serviceCategory.codeLength")
 	private String code;
-	
+
 	private Boolean isActive;
-	
+
 	private Set<ServiceDetails> services = new LinkedHashSet<ServiceDetails>(
 			0);
 

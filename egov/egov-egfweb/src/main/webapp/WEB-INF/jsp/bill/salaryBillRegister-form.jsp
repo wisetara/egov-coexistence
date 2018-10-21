@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -58,7 +58,7 @@ function fillNeighbourAfterSplitFunction(obj,prefix)
 	var temp = obj.value;
 	temp = temp.split("`-`");
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		var currRow=getRowIndex(obj);
 		document.getElementById(prefix+'['+currRow+'].functionid').value=temp[1];
@@ -113,7 +113,7 @@ success: function(o) {
 				optionEl = obj.appendChild(optionEl);
 				document.getElementById('subledgerList['+parseInt(eachItem[0])+']'+'.detailKey').value = eachItem[1];
 			}
-		} 
+		}
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -127,7 +127,7 @@ function wait(msecs){
 	{
 	cur = new Date().getTime();
 	}
-} 
+}
 
 var codeObject = [];
 var detailCodeCallback = {
@@ -144,18 +144,18 @@ success: function(o) {
 	function autoCompleteSubledgerCode(element,myEvent){
 		//bootbox.alert(codeObject)
 		var yuiflag = new Array();
-		var src = element;	
-		var target = document.getElementById('detailcodescontainer');	
-		var posSrc=findPos(src); 
-		target.style.left=posSrc[0];	                   
-		target.style.top=posSrc[1]+22;      
-		target.style.width=450;	
-		      		
+		var src = element;
+		var target = document.getElementById('detailcodescontainer');
+		var posSrc=findPos(src);
+		target.style.left=posSrc[0];
+		target.style.top=posSrc[1]+22;
+		target.style.width=450;
+
 		var coaCodeObj=element;
 		var  currRow=getRowIndex(element);
 		//40 --> Down arrow, 38 --> Up arrow
 		if(yuiflag[currRow] == undefined){
-			var key = window.event ? window.event.keyCode : myEvent.charCode;  
+			var key = window.event ? window.event.keyCode : myEvent.charCode;
 			if(key != 40 )
 			{
 				if(key != 38 )
@@ -169,10 +169,10 @@ success: function(o) {
 				}
 			}
 			yuiflag[currRow] = 1;
-		}	
+		}
 	}
 
-		var onDropDownChangeEvent = function(obj,index) { 
+		var onDropDownChangeEvent = function(obj,index) {
 				var subledgerid=document.getElementById('subledgerList['+index+'].glcode.id');
 				var accountCode = subledgerid.options[subledgerid.selectedIndex].text;
 				var url = path+'/voucher/common!getDetailType.action?accountCode='+accountCode+'&index='+index;
@@ -243,7 +243,7 @@ function createDropdownFormatterForAccountCode(prefix){
 			}
 			element.value = parseInt(element.value) + parseInt(target.value);
 		}
-		
+
 		function computeSubledgersTotalDrAmount(target){
 			if(isNaN(parseInt(target.value))){
 				bootbox.alert("Please enter a valid amount")
@@ -268,7 +268,7 @@ function createDropdownFormatterForAccountCode(prefix){
 			total = document.getElementById('totaldramount');
 			total.value =  parseInt(total.value) + parseInt(target.value);
 		}
-		
+
 		function computeDeductionsTotalAmount(target){
 			if(isNaN(parseInt(target.value))){
 				bootbox.alert("Please enter a valid amount")
@@ -321,10 +321,10 @@ function createDropdownFormatterForAccountCode(prefix){
 	<s:iterator value="dropdownData.detailTypeList">
 	    detailtypeOptions.push({label:'<s:property value="name"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
-	
+
 		var EARNINGS_SUBLEDGER_TABLENAME="subledgerTable";
 		var makeSubledgerTable = function() {
-		var subledgerColumns = [ 
+		var subledgerColumns = [
 			{key:"SlNo",label:'Sl No',width:30},
 			{key:"glcode",hidden:true,width:90, formatter:createSLTextFieldFormatterJV(EARNINGS_SUBLEDGER_TABLENAME,".subledgerCode","hidden")},
 			{key:"glcode.id",label:'Account Code <span class="mandatory">*</span>',width:100, formatter:createDropdownFormatterForAccountCode("subledgerList","loaddropdown(this)"),  dropdownOptions:glcodeOptions},
@@ -338,17 +338,17 @@ function createDropdownFormatterForAccountCode(prefix){
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subledgerTable = new YAHOO.widget.DataTable("subledgerTable",subledgerColumns, subledgerDS);
 		subledgerTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				subledgerTable.addRow({SlNo:subledgerTable.getRecordSet().getLength()+1});
 			}
-			if (column.key == 'Delete') { 	
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -388,7 +388,7 @@ function createDropdownFormatterForAccountCode(prefix){
 		td.align="right"
 		td.innerHTML="<input type='text' style='text-align:right;width:130px;'  id='totalSubLedgerCreditamount' name='totalSubLedgerCreditamount' value='0' readonly='true' tabindex='-1'/>";
 	}
-	
+
 </script>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -719,7 +719,7 @@ function validateSubledgerAmounts(){
 	var amount = 0;
 	<s:iterator value="earningsList" status="stat" var="a">
 		map[document.getElementById('earningsList[<s:property value="#stat.index"/>].glcode').value] = document.getElementById('earningsList[<s:property value="#stat.index"/>].debitamount').value;
-	</s:iterator>	
+	</s:iterator>
 	<s:iterator value="deductionsList" status="stat" var="a">
 		map[document.getElementById('deductionsList[<s:property value="#stat.index"/>].glcode').value] = document.getElementById('deductionsList[<s:property value="#stat.index"/>].creditamount').value;
 	</s:iterator>

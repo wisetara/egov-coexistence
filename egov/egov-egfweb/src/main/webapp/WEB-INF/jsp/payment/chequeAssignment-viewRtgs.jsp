@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -148,7 +148,7 @@
 		</div>
 		</div>
 	</s:form>
-	<script>   
+	<script>
 function generateReport(type,instrumentnumber,bankaccount,bankbranch,bank){
 	if(type=='pdf'){
 		 var url="${pageContext.request.contextPath}/report/bankAdviceReport-exportPDF.action?bank.id="+
@@ -158,7 +158,7 @@ function generateReport(type,instrumentnumber,bankaccount,bankbranch,bank){
 		 var url="${pageContext.request.contextPath}/report/bankAdviceReport-exportExcel.action?bank.id="+
 			bank+"&bankbranch.id="+bankbranch+"&bankaccount.id="+bankaccount+"&instrumentnumber.id="+instrumentnumber;
 	}
-	
+
 	else{
 	 	 var url="${pageContext.request.contextPath}/report/bankAdviceReport-exportText.action?bank.id="+
 	 			bank+"&bankbranch.id="+bankbranch+"&bankaccount.id="+bankaccount+"&instrumentnumber.id="+instrumentnumber;

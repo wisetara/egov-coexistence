@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -89,9 +89,9 @@ public class AccountdetailtypeHibernateDAO  {
     @PersistenceContext
     private EntityManager entityManager;
 
-   
 
-   
+
+
     /**
      * This API will return the detailtypeid for the object that is passed. If
      * this master is mapped in the accountdetailtype , it will return the id
@@ -134,7 +134,7 @@ public class AccountdetailtypeHibernateDAO  {
         return (Accountdetailtype) qry.uniqueResult();
     }
 
-    
+
     protected Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -155,7 +155,7 @@ public class OpeningBalance
                 pstmt.setString(i++,deptCode);
             List<Object[]> list= pstmt.list();
             resultset =list;
-            
+
             for (final Object[] element : resultset) {
                 if (!checkFund.equalsIgnoreCase(element[0].toString())
                         && !checkFund.equalsIgnoreCase("")) {

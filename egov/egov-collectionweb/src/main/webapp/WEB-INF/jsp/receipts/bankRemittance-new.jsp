@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -57,7 +57,7 @@
 	jQuery(document)
 			.ready(
 					function($) {
-						
+
 						if(jQuery("#finYearId").val()!=-1){
 							$("#dateDiv").hide();
 							$("#fromDate").val("");
@@ -66,7 +66,7 @@
 						else if(jQuery("#finYearId").val()==-1){
 							$("#dateDiv").show();
 						}
-						
+
 						//hide or show date fields on selecting year from drop down
 						jQuery("#finYearId").on("change",function(){
 							if(jQuery("#finYearId").val()!=-1){
@@ -79,7 +79,7 @@
 							}
 						});
 
-						
+
 						jQuery('#remittanceDate').val("");
 						//jQuery('#finYearId').prop("disabled", true);
 						jQuery("form").submit(function(event) {
@@ -194,7 +194,7 @@
 			document.getElementById("selected_"+i).value= checked;
 			document.getElementById("selected_"+i).checked = checked;
 		}
-		
+
 		var totalAmtDisplay = 0.00;
 		for (i = 0; i < list.length; i++) {
 			if(document.getElementById("selected_"+i).checked){
@@ -202,9 +202,9 @@
 			}
 		}
 		document.getElementById("remittanceAmount").value = totalAmtDisplay;
-		
+
 	}
-	
+
 	function validate() {
 		dom.get("bankselectionerror").style.display = "none";
 		dom.get("accountselectionerror").style.display = "none";
@@ -338,7 +338,7 @@
 
 	// Check if at least one receipt is selected
 	function isChecked(chk) {
-		
+
 		var list = document.getElementsByName('instrumentAmount');
 		for (i = 0; i < list.length; i++) {
 			if(document.getElementById("selected_"+i).checked){
@@ -365,15 +365,15 @@
 
 		dom.get("button32").disabled = true;
 		dom.get("button32").className = "buttonsubmit";
-		
-		
+
+
 	}
 
 	// Select all receipts
 	function selectAll() {
 		// Select all checkboxes
 		changeSelectionOfAllReceipts(true);
-		
+
 		dom.get("multipleserviceselectionerror").style.display = "none";
 		dom.get("selectremittanceerror").style.display = "none";
 
@@ -498,7 +498,7 @@
 									</div>
 							</display:column>
 						</display:table>
-				
+
 				<br />
 				<div id="loadingMask" style="display: none; overflow: hidden; text-align: center">
 					<img src="/services/collection/resources/images/bar_loader.gif" alt="" /> <span style="color: red">Please wait....</span>
@@ -506,16 +506,16 @@
 
 				<div align="center">
 					<table>
-						<tr>					
+						<tr>
 							<s:if test="showRemittanceDate">
 								<td class="bluebox" colspan="3">&nbsp;</td>
 								<td class="bluebox"><s:text name="bankremittance.remittancedate" /><span class="mandatory" /></td>
 								<td class="bluebox"><s:textfield id="remittanceDate" name="remittanceDate" readonly="true" data-inputmask="'mask': 'd/m/y'" placeholder="DD/MM/YYYY" /></td>
 							</s:if>
 							<td class="bluebox"><s:text name="bankremittance.remittanceamount" /></td>
-							<td class="bluebox"><s:textfield id="remittanceAmount" name="remittanceAmount" readonly="true" /></td>								
+							<td class="bluebox"><s:textfield id="remittanceAmount" name="remittanceAmount" readonly="true" /></td>
 							<td class="bluebox"><s:text name="bankremittance.accountnumber" /></td>
-							<td class="bluebox"><s:textfield id="remitAccountNumber" name="remitAccountNumber" readonly="true" /></td>		
+							<td class="bluebox"><s:textfield id="remitAccountNumber" name="remitAccountNumber" readonly="true" /></td>
 						</tr>
 					</table>
 				</div>

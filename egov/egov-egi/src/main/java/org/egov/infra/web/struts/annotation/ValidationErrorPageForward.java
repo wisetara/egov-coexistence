@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -57,13 +57,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * This annotation is used to annotate, action's method which possibly 
+ * This annotation is used to annotate, action's method which possibly
  * throws a {@link ValidationException}. {@link ValidationInterceptor}
  * will invoke the {@link ValidationErrorPageForward#forwarderMethod()}
  * and the returned result name will be used forward the request.
  * The value for {@link ValidationErrorPageForward#forwarderMethod()}
  * must follow certain rules as follows
- * (a) It must be a valid method name 
+ * (a) It must be a valid method name
  * (b) Method must exist in the same or parent class.
  * (c) Method should be public
  * (d) Method should always return a String value
@@ -76,12 +76,12 @@ import java.lang.annotation.Target;
  * 		//.......
  * 		//do your code
  * }
- * 
+ *
  * public String getResult() {
  * 		//.... do your code
  * 		return your result name;
  * }
- * </code>  
+ * </code>
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

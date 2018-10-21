@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -249,22 +249,22 @@ public class BankService extends PersistenceService<Bank, Integer> {
                 .setDate("asOnDate", asOnDate)
                 .list();
     }
-    
+
     public List<Bank> search(Bank bank,List<Long>ids, String sortBy,int offset,int pageSize){
-    	
+
     	Criteria criteria = getSession().createCriteria(Bank.class);
-    	
+
     	criteria.add(Restrictions.eq("code", bank.getCode()));
     	criteria.add(Restrictions.eq("name", bank.getName()));
     	criteria.add(Restrictions.eq("isactive", bank.getIsactive()));
-    	
+
     	if(ids.size()>0)
     	criteria.add(Restrictions.in("id",ids));
-    	
+
     	criteria.addOrder(Order.asc(sortBy));
     	criteria.setFirstResult(offset);
     	criteria.setMaxResults(pageSize);
-    	
+
     	return criteria.list();
     }
 }

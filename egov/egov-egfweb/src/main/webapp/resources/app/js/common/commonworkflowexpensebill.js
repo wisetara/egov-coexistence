@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -46,11 +46,11 @@
  *
  */
 $(document).ready(function()
-{	
+{
 	console.log("workflow file got updated................");
 /*	$('#approvalDepartment').change(function(){
 		$.ajax({
-			url: "/eis/ajaxWorkFlow-getDesignationsForActiveAssignmentsByObjectType",     
+			url: "/eis/ajaxWorkFlow-getDesignationsForActiveAssignmentsByObjectType",
 			type: "GET",
 			data: {
 				approvalDepartment : $('#approvalDepartment').val(),
@@ -71,18 +71,18 @@ $(document).ready(function()
 				});
 				$('#approvalDesignation').val($('#approvalDesignationValue').val());
 				$('#approvalDesignation').trigger('change');
-			}, 
+			},
 			error: function (response) {
 				bootbox.alert('json fail');
 				console.log("failed");
 			}
 		});
 	});*/
-	
+
 	$('#approvalDepartment').change(function(){
-		
+
 		$.ajax({
-			url: "/services/EGF/designations",     
+			url: "/services/EGF/designations",
 			type:'GET',
 			contentType:'application/json',
 			//data:JSON.stringify(jsonData),
@@ -95,27 +95,27 @@ $(document).ready(function()
 				});
 				$('#approvalDesignation').val($('#approvalDesignationValue').val());
 				$('#approvalDesignation').trigger('change');
-			}, 
+			},
 			error: function (response) {
 				bootbox.alert('json fail');
 				console.log("failed");
 			}
 		});
 	});
-	
 
-	
+
+
 	$('#approvalDesignation').change(function(){
-		
-		
+
+
 				todayDate = new Date(Date.now()).toLocaleString(),
-				
+
 				designationId=  $('#approvalDesignation').val(),
 				departmentId =$('#approvalDepartment').val();
-		
-		
+
+
 		$.ajax({
-			url: "/services/EGF/approvers/"+departmentId+"/"+designationId,     
+			url: "/services/EGF/approvers/"+departmentId+"/"+designationId,
 			type: "GET",
 			contentType:'application/json',
 //			data: JSON.stringify(jsonData),
@@ -124,25 +124,25 @@ $(document).ready(function()
 				$('#approvalPosition').empty();
 				$('#approvalPosition').append($("<option value=''>Select from below</option>"));
 				$.each(response, function(index, value) {
-					//$('#approvalPosition').append($('<option>').text(value.userName+'/'+value.positionName).attr('value', value.positionId));  
-					$('#approvalPosition').append($('<option>').text(value.name).attr('value', value.assignments[0].position));  
+					//$('#approvalPosition').append($('<option>').text(value.userName+'/'+value.positionName).attr('value', value.positionId));
+					$('#approvalPosition').append($('<option>').text(value.name).attr('value', value.assignments[0].position));
 				});
 				$('#approvalPosition').val($('#approvalPositionValue').val());
-			}, 
+			},
 			error: function (response) {
 				console.log("failed");
 			}
 		});
 	});
-	
+
 	$('#approvalDepartment').trigger('change');
-	
+
 	$('#approvalPosition').change(function(){
-		
+
 		$("#approverName").val($('#approvalPosition option:selected').text());
 	});
-	
-	
+
+
 });
 
 function callAlertForDepartment() {

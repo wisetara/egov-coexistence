@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -150,7 +150,7 @@
 				<s:hidden name="showMode" id="showMode" value="%{showMode}" />
 				<s:hidden id="subSchemeId" name="subSchemeId"
 					value="%{subScheme.id}" />
-					
+
 					</br>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
@@ -187,11 +187,11 @@
 						<td class="greybox"><s:checkbox id="isactive" name="isactive"
 								value="%{subScheme.isactive}" /></td>
 
-						
+
 					</tr>
 					<tr>
 						<td class="bluebox">&nbsp;</td>
-						
+
 						<td class="bluebox"><strong>Valid From</strong><span
 							class="mandatory1"> *</span></td>
 						<td class="bluebox"><s:date name="subScheme.validfrom"
@@ -208,8 +208,8 @@
 								onkeyup="DateFormat(this,this.value,event,false,'3')"
 								placeholder="DD/MM/YYYY" cssClass="form-control datepicker"
 								data-inputmask="'mask': 'd/m/y'" /></td>
-						
-						
+
+
 					</tr>
 					<tr>
 						<td class="greybox">&nbsp;</td>
@@ -308,7 +308,7 @@
 					<div align="center" class="buttonbottom"
 						style="padding-bottom: 10px;">
 						<input type="submit" class="buttonsubmit" value="Save"
-							id="saveButton" name="button" onclick="return validate();" /> 
+							id="saveButton" name="button" onclick="return validate();" />
 							<input type="reset" class="buttonsubmit" value="Reset"
 							id="resetButton" name="button" onclick="return resetSubmit();" /> <input
 							type="button" id="Close" value="Close"
@@ -340,7 +340,7 @@
 					document.getElementById('validfrom').value = "";
 					document.getElementById('validto').value = "";
 					document.getElementById('initialEstimateAmount').value = "";
-					
+
 					document.getElementById('councilLoanProposalNumber').value = "";
 					document.getElementById('councilLoanProposalDate').value = "";
 					document.getElementById('councilAdminSanctionNumber').value = "";

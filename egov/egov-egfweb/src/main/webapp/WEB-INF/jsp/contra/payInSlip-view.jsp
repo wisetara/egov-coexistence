@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -117,7 +117,7 @@
 								<div id="billDetailTable"></div>
 							</div>
 							<script>
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="80%"
 	 </script>
@@ -149,7 +149,7 @@
 	</s:form>
 
 	<script>
-	
+
 function onbodyload(){
 <s:iterator value="iHeaderList" status="stat">
 	document.getElementById("buttonTable").style.display="block";
@@ -160,16 +160,16 @@ function onbodyload(){
 document.getElementById("reversenumanddate").style.display="none";
 for(var i=0;i<document.forms[0].length;i++)
 	{
-		
+
 				if(document.forms[0].elements[i].value != 'Close'){
 document.forms[0].elements[i].disabled =true;
-					}	
-		
-				
-								
-		}	
+					}
+
+
+
+		}
 	}
-	
+
 
 </script>
 

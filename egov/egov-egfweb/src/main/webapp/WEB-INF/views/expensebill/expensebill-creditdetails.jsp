@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -62,27 +62,27 @@
 				<th><spring:message code="lbl.account.code"/></th>
 				<th><spring:message code="lbl.account.head"/></th>
 				<th><spring:message code="lbl.credit.amount"/></th>
-				<th><spring:message code="lbl.action"/></th> 					
+				<th><spring:message code="lbl.action"/></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr id="creditdetailsrow">
 				<td>
 					<input type="text" id="tempCreditDetails[0].creditGlcode" name="tempCreditDetails[0].creditGlcode" class="form-control table-input creditDetailGlcode creditGlcode"  data-errormsg="Account Code is mandatory!" data-idx="0" data-optional="0"   placeholder="Type first 3 letters of Account code" >
-					<form:hidden path="" name="tempCreditDetails[0].glcode" id="tempCreditDetails[0].glcode" class="form-control table-input hidden-input creditaccountcode"/> 
+					<form:hidden path="" name="tempCreditDetails[0].glcode" id="tempCreditDetails[0].glcode" class="form-control table-input hidden-input creditaccountcode"/>
 					<form:hidden path="" name="tempCreditDetails[0].glcodeid" id="tempCreditDetails[0].glcodeid"  class="form-control table-input hidden-input creditdetailid"/>
 					<form:hidden path="" name="tempCreditDetails[0].isSubLedger" id="tempCreditDetails[0].isSubLedger" class="form-control table-input hidden-input creditIsSubLedger"/>
 					<form:hidden path="" name="tempCreditDetails[0].detailTypeId" id="tempCreditDetails[0].detailTypeId" class="form-control table-input hidden-input creditDetailTypeId"/>
-					<form:hidden path="" name="tempCreditDetails[0].detailKeyId" id="tempCreditDetails[0].detailKeyId" class="form-control table-input hidden-input creditDetailKeyId"/> 
+					<form:hidden path="" name="tempCreditDetails[0].detailKeyId" id="tempCreditDetails[0].detailKeyId" class="form-control table-input hidden-input creditDetailKeyId"/>
 					<form:hidden path="" name="tempCreditDetails[0].detailTypeName" id="tempCreditDetails[0].detailTypeName" class="form-control table-input hidden-input creditDetailTypeName"/>
-					<form:hidden path="" name="tempCreditDetails[0].detailKeyName" id="tempCreditDetails[0].detailKeyName" class="form-control table-input hidden-input creditDetailKeyName"/> 
+					<form:hidden path="" name="tempCreditDetails[0].detailKeyName" id="tempCreditDetails[0].detailKeyName" class="form-control table-input hidden-input creditDetailKeyName"/>
 				</td>
 				<td>
-					<input type="text" id="tempCreditDetails[0].creditAccountHead" name="tempCreditDetails[0].creditAccountHead"  class="form-control creditdetailname" disabled>  
+					<input type="text" id="tempCreditDetails[0].creditAccountHead" name="tempCreditDetails[0].creditAccountHead"  class="form-control creditdetailname" disabled>
 				</td>
 				<td>
 					<form:input path="" name="tempCreditDetails[0].creditamount" id="tempCreditDetails[0].creditamount" data-errormsg="Credit Amount is mandatory!" onkeyup="decimalvalue(this);" onblur="calcualteNetpaybleAmount();" data-pattern="decimalvalue" data-idx="0" data-optional="0" class="form-control table-input text-right creditAmount"   maxlength="12"  />
-				</td> 
+				</td>
 				<td class="text-center"><span style="cursor:pointer;" onclick="addCreditDetailsRow();"><i class="fa fa-plus"></i></span>
 				 <span class="add-padding credit-delete-row" onclick="deleteCreditDetailsRow(this);"><i class="fa fa-trash" data-toggle="tooltip" title="" data-original-title="Delete!"></i></span> </td>
 			</tr>

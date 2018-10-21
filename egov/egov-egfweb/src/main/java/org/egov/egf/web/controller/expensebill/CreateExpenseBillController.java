@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -115,7 +115,7 @@ public class CreateExpenseBillController extends BaseBillController {
 
     private static final int BUFFER_SIZE = 4096;
 
-    
+
     @Autowired
     @Qualifier("messageSource")
     private MessageSource messageSource;
@@ -141,8 +141,8 @@ public class CreateExpenseBillController extends BaseBillController {
     public String showNewForm(@ModelAttribute("egBillregister") final EgBillregister egBillregister, final Model model,HttpServletRequest request) {
         LOGGER.info("New expensebill creation request created");
         Cookie[] cookies = request.getCookies();
-    	
-    	
+
+
     	if(null!=cookies && cookies.length>0)
     	{
     	   for(Cookie ck:cookies) {
@@ -169,7 +169,7 @@ public class CreateExpenseBillController extends BaseBillController {
       //User createdBy = new User();
      // createdBy.setId(ApplicationThreadLocals.getUserId());
       egBillregister.setCreatedBy(ApplicationThreadLocals.getUserId());
- 
+
 
         String[] contentType = ((MultiPartRequestWrapper) request).getContentTypes("file");
         List<DocumentUpload> list = new ArrayList<>();
@@ -215,12 +215,12 @@ public class CreateExpenseBillController extends BaseBillController {
                 approvalPosition = Long.valueOf(request.getParameter(APPROVAL_POSITION));
             if (request.getParameter(APPROVAL_DESIGNATION) != null && !request.getParameter(APPROVAL_DESIGNATION).isEmpty())
                 approvalDesignation = String.valueOf(request.getParameter(APPROVAL_DESIGNATION));
-            
+
             EgBillregister savedEgBillregister;
             egBillregister.setDocumentDetail(list);
             try {
 
-                savedEgBillregister = expenseBillService.create(egBillregister, approvalPosition, approvalComment, null, 
+                savedEgBillregister = expenseBillService.create(egBillregister, approvalPosition, approvalComment, null,
                         workFlowAction,approvalDesignation);
             } catch (final ValidationException e) {
                 setDropDownValues(model);
@@ -237,10 +237,10 @@ public class CreateExpenseBillController extends BaseBillController {
                 return EXPENSEBILL_FORM;
             }
             final String approverName = String.valueOf(request.getParameter("approverName"));
-            
+
             final String approverDetails = financialUtils.getApproverDetails(workFlowAction,
                     savedEgBillregister.getState(), savedEgBillregister.getId(), approvalPosition,approverName);
-//              
+//
 
             return "redirect:/expensebill/success?approverDetails=" + approverDetails + "&billNumber="
                     + savedEgBillregister.getBillnumber();

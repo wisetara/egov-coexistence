@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -182,7 +182,7 @@ public class CollectionsWorkflowActionTest {/* extends
 	@Test
 	public void testListSubmit() {
 		action.setWfAction(CollectionConstants.WF_ACTION_SUBMIT);
-		
+
 		InstrumentType instrTypeCheque=financialsUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_CHEQUE);
 		InstrumentHeader chequeInstrument=objectFactory.createInstrumentHeader(instrTypeCheque, objectFactory.createEgwStatus("testCode", "testModuleType"));
 		receiptToBeSubmitted.addInstrument(chequeInstrument);
@@ -200,11 +200,11 @@ public class CollectionsWorkflowActionTest {/* extends
 
 		assertFalse(action.getAllowPartialSelection());
 	}
-	
+
 	@Test
 	public void testSetInboxItemDetails(){
 		action.setInboxItemDetails("testWfAction-testServiceCode-testUserName-01");
-		
+
 		assertEquals(action.getServiceCode(),"testServiceCode");
 		assertEquals(action.getUserName(),"testUserName");
 		assertEquals(action.getCounterId(),1);
@@ -297,7 +297,7 @@ public class CollectionsWorkflowActionTest {/* extends
 		// Approve the collection
 		action.approveCollections();
 		EasyMock.verify(eisCommonsManagerMock);
-		
+
 		EasyMock.verify(receiptWorkflowServiceMock);
 		assertTrue(receiptToBeApproved.getStatus().getCode().equals(
 				CollectionConstants.RECEIPT_STATUS_CODE_APPROVED));
@@ -340,7 +340,7 @@ public class CollectionsWorkflowActionTest {/* extends
 	*//**
 	 * Checks whether the given list of receipts contains a receipt with given
 	 * reference number.
-	 * 
+	 *
 	 * @param receiptHeaders
 	 *            List of receipt headers
 	 * @param receiptNumber

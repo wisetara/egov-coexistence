@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,8 +50,8 @@
 
 		<div class="subheadsmallnew"><s:text name="challan.title.challanDetails"/></div>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="bobcontent3">
-			
-		      	<tr>   
+
+		      	<tr>
 			        <td width="9%" class="bluebox">&nbsp;</td>
 			        <td width="19%" class="bluebox"><s:text name="challan.date"/></td>
 			        <td width="22%" class="bluebox">
@@ -78,7 +78,7 @@
 			        <td class="bluebox"><span class="bluebox"><s:text name="challan.narration"/></span></td>
 			        <td class="bluebox"><s:textarea name="referenceDesc" id="referenceDesc"  value="%{referenceDesc}" cols="18" rows="2" readonly="true"/></td>
 		      	</tr>
-		      	
+
 		      	<tr>
 			        <td class="greybox">&nbsp;</td>
 			        <td class="greybox"><s:text name="challan.voucherNumber"/></td>
@@ -92,7 +92,7 @@
 			   			<td class="greybox">&nbsp;</td>
 			   		</s:else>
 			   	</tr>
-			   	
+
 		     	<s:if test="%{shouldShowHeaderField('fund') || shouldShowHeaderField('department')}">
 		      	<tr>
 			        <td class="bluebox">&nbsp;</td>
@@ -118,7 +118,7 @@
 		      	<tr>
                         <td class="greybox">&nbsp;</td>
 			        	<td class="greybox"><s:text name="challan.field"/></td>
-			       		<td class="greybox"><span class="bluebox"><s:textfield name="receiptMisc.boundary.name" id="boundaryId" value="%{receiptMisc.boundary.localName}" readonly="true"/> 
+			       		<td class="greybox"><span class="bluebox"><s:textfield name="receiptMisc.boundary.name" id="boundaryId" value="%{receiptMisc.boundary.localName}" readonly="true"/>
 			          </span></td>
 			            <td class="greybox" colspan="2"></td>
   				</tr>
@@ -136,7 +136,7 @@
 			        <td class="bluebox">&nbsp;</td>
 			        <td class="bluebox">&nbsp;</td>
 			        <td class="bluebox">
-			        	<input type="button" name="Show Account Details" id="ssd" value="Account Details"  onclick="displaydiv('capsearch');" class="button" /></td> 
+			        	<input type="button" name="Show Account Details" id="ssd" value="Account Details"  onclick="displaydiv('capsearch');" class="button" /></td>
 			        		<td class="bluebox">
 							<input type="button" name="Show Subledger Details" id="ssd" value="Subledger Details"  onclick="displaydiv('capsearch2');" class="button" /></td>
 			        		<td class="bluebox">&nbsp;</td>
@@ -197,7 +197,7 @@
 			            <tr>
 			                <td class="blueborderfortd"><s:property value="%{glcodeDetail}" />&nbsp;</td>
 			                <td class="blueborderfortd"><s:property value="%{detailTypeName}" />&nbsp;</td>
-			                <td class="blueborderfortd"><s:property value="%{detailCode}" />&nbsp;</td>  
+			                <td class="blueborderfortd"><s:property value="%{detailCode}" />&nbsp;</td>
 			                <td class="blueborderfortd"><s:property value="%{detailKey}" />&nbsp;</td>
 			                <td class="blueborderfortd"><div align="center">
 				                   <input name="textfield3" type="text" class="amount" value=<s:property value="%{amount}" /> readonly="true" size="12"/>

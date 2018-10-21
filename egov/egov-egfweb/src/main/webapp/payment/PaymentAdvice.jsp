@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -60,9 +60,9 @@
 
 <script>
 function buttonPrint()
-{       
+{
 	document.getElementById("row2").style.display="none";
-	window.print();   
+	window.print();
 	document.getElementById("row2").style.display="block";
 }
 
@@ -74,12 +74,12 @@ function buttonPrint()
 
  <html:form  action="/payment/paymentAdvice">
  <table align='center' class="tableStyle" id="table3" name="table3">
- 
+
  <tr><td>&nbsp;</td></tr>
-	<%				
+	<%
 			if(paf.getChqNo()!=null && paf.getChqNo().length>0)
 			{
-		%>		
+		%>
 		<tr>
 		<td colspan=4 align="center">
 		<table cellpadding="0" cellspacing="0" align="center" id="vhList" name="vhList">
@@ -94,19 +94,19 @@ function buttonPrint()
 			<%
 			for(int i=0; i<paf.getChqNo().length;i++)
 			{
-			%>	
-			
+			%>
+
 		<tr>
 			<td class="tdStlyle"><div align="left" id="slNo" name="slNo"><%= i+1 %></div> </td>
 			<td class="tdStlyle"><div align="left" id="chqNo" name="chqNo"><%= paf.getChqNo()[i] %></div> </td>
 			<td class="tdStlyle"><div align="left" id="chqDate" name="chqDate"><%= paf.getChqDate()[i] %></div> </td>
 			<td class="tdStlyle"><div align="left" id="partyName" name="partyName"><%= paf.getPartyName()[i] %></div> </td>
-			<td class="tdStlyle"><div align="left" id="accountNo" name="accountNo" ><%= paf.getAccountNo()[i] %></div> </td>			
+			<td class="tdStlyle"><div align="left" id="accountNo" name="accountNo" ><%= paf.getAccountNo()[i] %></div> </td>
 			<td class="tdStlyle"><div align="left" id="amount" name="amount" style="text-align:right"><%= paf.getAmount()[i] %></div> </td>
 		</tr>
 			<%
 			}
-			%>      
+			%>
 		</table>
 		</td>
 		</tr>
@@ -122,9 +122,9 @@ function buttonPrint()
 	</td>
 	</tr>
 
- </table> 
+ </table>
  </html:form>
 
 
   </body>
-</html>	
+</html>

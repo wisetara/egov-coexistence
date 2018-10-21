@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -64,7 +64,7 @@ public class PortalInboxBuilder {
     private final PortalInbox portalInbox;
 
     /***
-     * 
+     *
      * @param module -- Mandatory. Module details.
      * @param serviceType --Mandatory. Service type.
      * @param applicationNumber -- Mandatory. Application number
@@ -76,7 +76,7 @@ public class PortalInboxBuilder {
      * @param isResolved -- true. If application processed completely.
      * @param status -- Mandatory field. Current application status
      * @param slaEndDate -- SLA end date
-     * @param state -- Workflow state 
+     * @param state -- Workflow state
      * @param user -- List  Assignee user's
      */
     public PortalInboxBuilder(final Module module, final String serviceType, final String applicationNumber,

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -85,7 +85,7 @@ public class ChequeFormat extends AbstractAuditable{
     private Double amountLength;
     private String amountCoordinate;
     private boolean formatStatus;
-    
+
     public static long getSerialversionuid() {
         return serialVersionUID;
     }
@@ -237,6 +237,6 @@ public class ChequeFormat extends AbstractAuditable{
     public void setFormatStatus(boolean formatStatus) {
         this.formatStatus = formatStatus;
     }
-    
+
 
 }

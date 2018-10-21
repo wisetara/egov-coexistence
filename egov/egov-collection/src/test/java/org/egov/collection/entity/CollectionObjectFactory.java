@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -96,7 +96,7 @@ import org.elasticsearch.repositories.RepositoryException;
 import org.hibernate.Session;
 
 /**
- * 
+ *
  */
 public class CollectionObjectFactory {
 	private final Session session;
@@ -219,7 +219,7 @@ public class CollectionObjectFactory {
 
 	/**
 	 * Creates a receipt header with given details
-	 * 
+	 *
 	 * @param receiptnumber
 	 *            Receipt number
 	 * @param receiptType
@@ -263,7 +263,7 @@ public class CollectionObjectFactory {
 
 	/**
 	 * Creates a receipt header with given details
-	 * 
+	 *
 	 * @param receiptnumber
 	 *            Receipt number
 	 * @param receiptType
@@ -304,7 +304,7 @@ public class CollectionObjectFactory {
 	 * state.setModifiedDate(new Date());
 	 * state.setValue(CollectionConstants.WF_STATE_RECEIPT_CREATED);
 	 * session.saveOrUpdate(state); return state; }
-	 * 
+	 *
 	 * public State createState(String type,String value) { State state = new
 	 * State(type, value, createPosition(), "Test"); User user =
 	 * createUser("testUser"); state.setCreatedBy(user);
@@ -316,7 +316,7 @@ public class CollectionObjectFactory {
 	/**
 	 * Creates a receipt header along with associated instrument header attached
 	 * to it
-	 * 
+	 *
 	 * @param receiptNum
 	 * @param receiptType
 	 * @param statusCode
@@ -345,7 +345,7 @@ public class CollectionObjectFactory {
 	/**
 	 * Creates a receipt header along with associated instrument header attached
 	 * to it
-	 * 
+	 *
 	 * @param receiptNum
 	 * @param receiptType
 	 * @param statusCode
@@ -378,7 +378,7 @@ public class CollectionObjectFactory {
 	/**
 	 * Creates a receipt header along with associated instrument header attached
 	 * to it
-	 * 
+	 *
 	 * @param receiptNum
 	 * @param receiptType
 	 * @param statusCode
@@ -642,7 +642,7 @@ public class CollectionObjectFactory {
 	/**
 	 * TODO: Check if this can be removed and the subsequent
 	 * createInstrumentHeader method can be used in its place
-	 * 
+	 *
 	 * @param instrumentType
 	 * @return
 	 */
@@ -665,7 +665,7 @@ public class CollectionObjectFactory {
 	/**
 	 * TODO: Check if this can be removed and the subsequent
 	 * createInstrumentHeader method can be used in its place
-	 * 
+	 *
 	 * @param instrumentType
 	 * @return
 	 * @throws RepositoryException
@@ -699,7 +699,7 @@ public class CollectionObjectFactory {
 	/**
 	 * TODO: Check if this can be removed and the subsequent
 	 * createInstrumentHeader method can be used in its place
-	 * 
+	 *
 	 * @param instrumentType
 	 * @return
 	 */
@@ -708,7 +708,7 @@ public class CollectionObjectFactory {
 	 * instrumentType,EgwStatus status){ InstrumentHeader instrHdr = new
 	 * InstrumentHeader(); instrHdr.setInstrumentAmount(new Double(1000));
 	 * instrHdr.setStatusId(status); instrHdr.setInstrumentType(instrumentType);
-	 * 
+	 *
 	 * User user = createUser("testUser"); instrHdr.setCreatedBy(user);
 	 * instrHdr.setCreatedDate(new Date()); instrHdr.setCreatedDate(new Date());
 	 * instrHdr.setModifiedBy(user); instrHdr.setModifiedDate(new Date());
@@ -717,7 +717,7 @@ public class CollectionObjectFactory {
 
 	/**
 	 * Creates instrument header with given details
-	 * 
+	 *
 	 * @param instrumentType
 	 *            Instrument type object
 	 * @param instrumentNum
@@ -779,7 +779,7 @@ public class CollectionObjectFactory {
 
 	/**
 	 * Creates instrument header with given details
-	 * 
+	 *
 	 * @param instrumentType
 	 *            Instrument type object
 	 * @param instrumentNum
@@ -866,9 +866,9 @@ public class CollectionObjectFactory {
 		/*
 		 * receiptHeader1.setReceiptPayeeDetails(payee);
 		 * payee.addReceiptHeader(receiptHeader1);
-		 * 
+		 *
 		 * session.saveOrUpdate(payee);
-		 * 
+		 *
 		 * ReceiptHeader savedReceiptHeader1 = payee.getReceiptHeaders()
 		 * .iterator().next();
 		 */
@@ -886,7 +886,7 @@ public class CollectionObjectFactory {
 
 	/**
 	 * Creates receipt detail with given details
-	 * 
+	 *
 	 * @param glCode
 	 *            GL Code
 	 * @param crAmt
@@ -919,7 +919,7 @@ public class CollectionObjectFactory {
 
 	/**
 	 * Creates receipt detail with given details
-	 * 
+	 *
 	 * @param glCode
 	 *            GL Code
 	 * @param crAmt
@@ -1013,7 +1013,7 @@ public class CollectionObjectFactory {
 		boundaryTypeImpl.setName("karnataka");
 		boundaryTypeImpl.setLastModifiedDate(new Date());
 		/*
-		 * boundaryTypeImpl.setHeirarchyType(createHierarchy(
+		 * boundaryTypeImpl.setHierarchyType(createHierarchy(
 		 * "testHierarchyName", "testHierarchyCode"));
 		 */
 		session.saveOrUpdate(boundaryTypeImpl);
@@ -1070,11 +1070,11 @@ public class CollectionObjectFactory {
 	 * receipt.setReceiptPayeeDetails(newReceiptPayeeDetails);
 	 * newReceiptPayeeDetails.addReceiptHeader(receipt); return
 	 * newReceiptPayeeDetails; }
-	 * 
+	 *
 	 * public ReceiptPayeeDetails createReceiptPayeeDetails() {
 	 * ReceiptPayeeDetails payeeDetails = createUnsavedReceiptPayeeDetails();
 	 * session.saveOrUpdate(payeeDetails); return payeeDetails; }
-	 * 
+	 *
 	 * public ReceiptPayeeDetails createPayeeForChallan(){ ReceiptPayeeDetails
 	 * payeeDetails = new ReceiptPayeeDetails(); payeeDetails.setPayeeAddress(
 	 * "Test Address"); payeeDetails.setPayeename("Test Payee"); ReceiptHeader
@@ -1082,7 +1082,7 @@ public class CollectionObjectFactory {
 	 * header.setReceiptPayeeDetails(payeeDetails);
 	 * payeeDetails.addReceiptHeader(header);
 	 * session.saveOrUpdate(payeeDetails); return payeeDetails;
-	 * 
+	 *
 	 * }
 	 */
 
@@ -1143,7 +1143,7 @@ public class CollectionObjectFactory {
 	 * public InstrumentVoucher
 	 * createInstrumentVoucherForDishonoredInstruments(){ InstrumentVoucher
 	 * instrVoucher=new InstrumentVoucher();
-	 * 
+	 *
 	 * InstrumentHeader instrHdr = new InstrumentHeader();
 	 * instrHdr.setInstrumentAmount(new Double(1000));
 	 * instrHdr.setStatusId(createEgwStatus
@@ -1151,21 +1151,21 @@ public class CollectionObjectFactory {
 	 * ,CollectionConstants.MODULE_NAME_TESTRECEIPTHEADER));
 	 * instrHdr.setInstrumentType
 	 * (createInstrumentType("testInstrumentType"+getRandomNumber()));
-	 * 
+	 *
 	 * User user = createUser("testUser"); Date now = new Date();
 	 * instrHdr.setCreatedBy(user); instrHdr.setCreatedDate(now);
 	 * instrHdr.setModifiedBy(user); instrHdr.setModifiedDate(now);
 	 * session.saveOrUpdate(instrHdr);
-	 * 
+	 *
 	 * CVoucherHeader voucher = createVoucher("testVoucher");
-	 * 
+	 *
 	 * instrVoucher.setInstrumentHeaderId(instrHdr);
 	 * instrVoucher.setVoucherHeaderId(voucher);
 	 * instrVoucher.setCreatedBy(user); instrVoucher.setModifiedBy(user);
 	 * instrVoucher.setCreatedDate(now); instrVoucher.setModifiedDate(now);
-	 * 
+	 *
 	 * session.saveOrUpdate(instrVoucher);
-	 * 
+	 *
 	 * return instrVoucher; }
 	 */
 
@@ -1205,7 +1205,7 @@ public class CollectionObjectFactory {
 	 * ReceiptPayeeDetails receiptPayee = new ReceiptPayeeDetails();
 	 * receiptPayee.setPayeeAddress("Test Address"); receiptPayee.setPayeename(
 	 * "Test Payee"); return receiptPayee; }
-	 * 
+	 *
 	 * public ReceiptPayeeDetails createReceiptPayeeForBillingSystem() {
 	 * ReceiptPayeeDetails receiptPayee = createReceiptPayeeWithoutHeader();
 	 * ReceiptHeader receiptHeader = createReceiptHeader("testReceiptNo");
@@ -1228,7 +1228,7 @@ public class CollectionObjectFactory {
 	 * assignment.setDesigId(empDsgn); assignment.setPosition(position);
 	 * assignment.setDeptId(dimpl); session.saveOrUpdate(assignment); return
 	 * assignment;
-	 * 
+	 *
 	 * }
 	 */
 
@@ -1272,7 +1272,7 @@ public class CollectionObjectFactory {
 	 * createDesignation(dept.getId(), designation + getRandomNumber());
 	 * Position position = createPosition(desig); createAssignment(ap, desig,
 	 * position,dept);
-	 * 
+	 *
 	 * return position; }
 	 */
 

@@ -1,8 +1,8 @@
 <%@page contentType="text/json" %>
-<%@taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld" %>  
+<%@taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld" %>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,11 +51,11 @@
 {
 "ResultSet": {
     "Result":[
-	<s:iterator var="s" value="userList" status="status">  
+	<s:iterator var="s" value="userList" status="status">
     {"Value":"<s:property value="%{id}" />",
     "Text":"<s:property value="%{username}" />"
     }<s:if test="!#status.last">,</s:if>
-    </s:iterator>       
+    </s:iterator>
     ]
   }
 }

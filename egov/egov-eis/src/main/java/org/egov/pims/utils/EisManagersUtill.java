@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -69,8 +69,8 @@ import java.util.TreeMap;
 public class EisManagersUtill {
 
 	private static final Logger LOGGER = Logger.getLogger(EisManagersUtill.class);
-	
-	
+
+
 	static List list = new ArrayList();
 	static boolean RESET = true;
 	static boolean RESETMONTH = true;
@@ -86,7 +86,7 @@ public class EisManagersUtill {
 	static boolean RESETHOLMON = true;
 	static Map finYearMap = new HashMap();
 	private static UserService userService;
-	
+
 	public static UserService getUserService() {
 		return userService;
 	}
@@ -98,7 +98,7 @@ public class EisManagersUtill {
 
 	/*public static void  updateFYMonth()
 	{
-		
+
 		try {
 			monthVsYear = new TreeMap();
 			Map fYearVsmonthVsYear = new HashMap();
@@ -129,8 +129,8 @@ public class EisManagersUtill {
 
 						RESETFyER = false;
 		} catch (RuntimeException e) {
-			
-			
+
+
 			throw new ApplicationRuntimeException("Exception:" + e.getMessage(),e);
 		}
 	}
@@ -208,7 +208,7 @@ public class EisManagersUtill {
 
 		return monthStrVsDays;
 	}
-	
+
 	public static EisCommonsService getEisCommonsService()
     {
         return new EisCommonsServiceImpl();
@@ -224,8 +224,8 @@ public class EisManagersUtill {
 		{
 			return new EmployeeServiceImpl();
 		}
-		
-				
+
+
 		public static List getSundaysForGivenCurrentFinYear(CFinancialYear financialYear)
 		{
 			if(RESET)
@@ -236,7 +236,7 @@ public class EisManagersUtill {
 			{
 					update(financialYear);
 			}
-			
+
 			return list;
 		}
 		private static synchronized void update(CFinancialYear financialYear)
@@ -244,11 +244,11 @@ public class EisManagersUtill {
 			synchronized(list) {
 				list = new ArrayList();
 			}
-			
+
 			java.util.Date startingDate=null;
 			int year;
-			
-			
+
+
 				CFinancialYear financial = financialYear;
 				finId = financial.getId();
 				startingDate = financial.getStartingDate();
@@ -267,9 +267,9 @@ public class EisManagersUtill {
 						calendar.set(year+1, monthAry[i], 1);
 						setSundays(list,calendar,year+1,monthAry[i]);
 					}
-	
+
 				}
-			
+
 
 			RESET = false;
 
@@ -314,7 +314,7 @@ public class EisManagersUtill {
 					{
 						break;
 					}
-	
+
 				}
 			}
 		}
@@ -323,10 +323,10 @@ public class EisManagersUtill {
 		{
 			List list = new ArrayList();
 			DatePeriodFY datePeriodFY = null;
-			//Financial year for the given from and to dates 
+			//Financial year for the given from and to dates
 			CFinancialYear fromFinancialYear =null;
 			CFinancialYear toFinancialYear=null;
-			
+
 			//calendar year for the given from and to dates
 			CalendarYear fromCalYear=null;
 			CalendarYear toCalYear=null;
@@ -341,7 +341,7 @@ public class EisManagersUtill {
 			toFinId =formatter.format(calendarTo.getTime());
 			fromFinancialYear=EisManagersUtill.getCommonsService().getFinancialYearByDate(fromDate);
 			toFinancialYear =EisManagersUtill.getCommonsService().getFinancialYearByDate(toDate);
-				
+
 					if(fromFinancialYear!=null && toFinancialYear !=null)
 					{
 						if(fromFinancialYear.getId().intValue()==toFinancialYear.getId().intValue())
@@ -375,7 +375,7 @@ public class EisManagersUtill {
 							list.add(datePeriodFY);
 						}
 					}
-			
+
 			return list;
 		}*/
 
@@ -398,8 +398,8 @@ public class EisManagersUtill {
 				calender.set(year, month-1, 1);
 			}
 			java.sql.Date startDate =new  java.sql.Date(calender.getTime().getTime());
-			
-			Calendar cal = new GregorianCalendar(year, month-1, 1);  
+
+			Calendar cal = new GregorianCalendar(year, month-1, 1);
 	    	int noOfDaysInMonth= cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 			calender.add(Calendar.DATE, noOfDaysInMonth-1);
 			java.sql.Date endDate =new  java.sql.Date(calender.getTime().getTime());
@@ -408,14 +408,14 @@ public class EisManagersUtill {
 			return mp;
 
 		}
-		
-				
+
+
 		/*public static void updateHolidaySetForYear(int year,int month)
 		{
 			LOGGER.info("Year"+year+"month"+month);
 			update(year,month);
 		}
-		
+
 		public static Set getHolidaySetForMonth(int year,int month)
 		{
 			LOGGER.info("Inside RESETHOLMON="+RESETHOLMON+" year ="+year + " month ="+month);
@@ -423,9 +423,9 @@ public class EisManagersUtill {
 			{
 				update(year,month);
 			}
-							
+
 			Map mp = getYearAndMonth();
-			
+
 			int mo = 0;
 		 	int yr = 0;
 			for (Iterator it = mp.entrySet().iterator(); it.hasNext(); )
@@ -470,7 +470,7 @@ public class EisManagersUtill {
 
 			}
 			catch (Exception he) {
-				
+
 				LOGGER.error(he.getMessage());
 			}
 			RESETHOLMON = false;

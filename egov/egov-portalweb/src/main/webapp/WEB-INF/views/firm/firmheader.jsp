@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,15 +54,15 @@
 	<div class="panel-heading">
 		<div class="panel-title" style="text-align:center;"><spring:message code="lbl.createfirm" /></div>
 	</div>
-	
+
 	<input type="hidden" value="<spring:message code="error.firm.pan" />" id="errorPanNumber" />
 	<input type="hidden" value="<spring:message code="Pattern.citizen.mobileNumber" />" id="errorMobileNumber" />
 	<input type="hidden" value="<spring:message code="error.firm.mobilenumber.unique" />" id="errorUniqueMobileNumber" />
 	<input type="hidden" value="<spring:message code="error.firm.email.unique" />" id="errorUniqueEmailid" />
 	<input type="hidden" value="<spring:message code="error.firm.emailid" />" id="errorEmailId" />
-	
-	
-	
+
+
+
 	<div class="panel-body">
 		<div class="form-group">
 			<label class="col-sm-3 control-label text-right"><spring:message code="lbl.firmname" /><span
@@ -80,7 +80,7 @@
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label text-right"><spring:message code="lbl.address" /><span
-						class="mandatory"></span></label>	
+						class="mandatory"></span></label>
 			<div class="col-sm-3 add-margin">
 				<form:textarea path="address" class="form-control autogrow" id="address" maxlength="1024" required="required" />
 				<form:errors path="address" cssClass="add-margin error-msg" />

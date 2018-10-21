@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -56,13 +56,13 @@ $('#onlinePaymentReportSearch').click(function(e){
 		var transid = $("#transid").val();
 		oTable= $('#onlinePaymentReport-table');
 		$('#onlinePayment-header').show();
-		
+
 		console.log('district name --->'+districtname);
-		
+
 		var resultInfo="Online Payment Report Result for District: "+ (districtname?districtname:"All Districts") +" and Ulb: " +(ulbname?ulbname:"All Ulbs")+ "  and from Date: " + (fromdate?fromdate:"All Dates") + " and to Date: " + (todate?todate:"All Dates") +" and Transaction id: " + (transid?transid: "All transaction ids");
-		
+
 		$('#resultinfo').html(resultInfo);
-		
+
 		oTable.dataTable({
 			"sDom": "<'row'<'col-xs-12 hidden col-right'f>r>t<'row'<'col-md-3 col-xs-12'i><'col-md-3 col-xs-6 col-right'l><'col-xs-12 col-md-3 col-right'<'export-data'T>><'col-md-3 col-xs-6 text-right'p>>",
 			"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
@@ -70,13 +70,13 @@ $('#onlinePaymentReportSearch').click(function(e){
 			"bDestroy": true,
 			"oTableTools" : {
 				"sSwfPath" : "../../../../../../egi/resources/global/swf/copy_csv_xls_pdf.swf",
-				"aButtons" : [ 
+				"aButtons" : [
 				               {
 					             "sExtends": "pdf",
-					             "sPdfMessage": resultInfo, 
+					             "sPdfMessage": resultInfo,
 		                         "sTitle": "Online Payment Report",
 		                         "sPdfOrientation": "landscape"
-		                        	 
+
 				                },
 				                {
 						             "sExtends": "xls",
@@ -88,7 +88,7 @@ $('#onlinePaymentReportSearch').click(function(e){
 						             "sPdfMessage": resultInfo,
 		                             "sTitle": "Online Payment Report"
 					       }]
-				
+
 			},
 			ajax : {
 				url : "/collection/citizen/onlinePaymentReport/result",
@@ -105,7 +105,7 @@ $('#onlinePaymentReportSearch').click(function(e){
 			              { "data" : "receiptnumber", "title": "Application no"},
 			              { "data" : "transactionnumber", "title":  "Payment ID"},
 			              { "data" : "referenceid", "title": "Reference ID"},
-						  { "data" : "ulbname" , "title": "Name of the ULB"},  
+						  { "data" : "ulbname" , "title": "Name of the ULB"},
 						  { "data" : "districtname", "title": "Name of District"},
 						  { "data" : "onlineservicename", "title": "Payment Gateway"},
 						  { "data" : "totalamount", "title": "Pay Amount"},
@@ -118,9 +118,9 @@ $('#onlinePaymentReportSearch').click(function(e){
 						                   { "sClass": "text-center", "aTargets": [ 6 ] }
 						                 ]
 				}
-				
+
 		);
-		
+
 		e.stopPropagation();
 	});
 
@@ -141,7 +141,7 @@ $('#districtname').change(function(){
 			jQuery.each(response, function(index, value) {
 				jQuery('#ulbname').append($('<option>').text(value.ulbname).attr('value', value.ulbname));
 			});
-		}, 
+		},
 		error: function (response) {
 			jQuery('#ulbname').html("");
 			jQuery('#ulbname').append("<option value=''>Select</option>");

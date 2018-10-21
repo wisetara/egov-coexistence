@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,7 +55,7 @@ import org.egov.pims.commons.Position;
  * @author DivyaShree
  *
  */
-public class EisExternalImpl implements EisExternalInterface 
+public class EisExternalImpl implements EisExternalInterface
 {
 
 	@Override

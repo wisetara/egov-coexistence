@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -97,13 +97,13 @@ import java.util.Set;
 public class ScriptService  {
     private static LRUCache<String, Script> scriptCache;
     private static final Logger LOG = LoggerFactory.getLogger(ScriptService.class);
-    
+
     @Autowired
     private ScriptRepository scriptRepository;
-    
+
     @Autowired
     private ScriptEngineProvider scriptEngineProvider;
-    
+
     public Script getByName(String name) {
         return scriptRepository.findByName(name);
     }
@@ -111,7 +111,7 @@ public class ScriptService  {
     public Script findByNameAndPeriod( String name, Date period) {
         return scriptRepository.findByNameAndPeriod(name, period);
     }
-    
+
     public ScriptService() {
         if (scriptCache == null)
             scriptCache = new LRUCache<String, Script>(10, 50);
@@ -122,7 +122,7 @@ public class ScriptService  {
      * <code>ScriptContext</code> object, with ith argument as the key and
      * (i+1)th argument as the value. This is why this method expects an even
      * number of arguments.
-     * 
+     *
      * @param args
      *            Arguments from which the context will be created
      * @return The script context in which a script can be executed. This can be
@@ -140,7 +140,7 @@ public class ScriptService  {
 
     /**
      * Loads all functions from given script.
-     * 
+     *
      * @param scriptName
      *            Script which is to be loaded
      */
@@ -163,7 +163,7 @@ public class ScriptService  {
      * <code>scriptContext</code> - The script context - to be passed as second
      * argument to the
      * {@link ScriptService#executeScript(String, ScriptContext)} API<br>
-     * 
+     *
      * @param engine
      *            The script engine
      * @param context
@@ -177,7 +177,7 @@ public class ScriptService  {
 
     /**
      * Executes the given script using given script engine and context
-     * 
+     *
      * @param script
      *            Script to be executed
      * @param engine
@@ -237,7 +237,7 @@ public class ScriptService  {
 
     /**
      * Executes given function using given script engine
-     * 
+     *
      * @param engine
      *            Script engine to be used for executing the function
      * @param functionName
@@ -250,7 +250,7 @@ public class ScriptService  {
 
     /**
      * Executes given function using given script engine
-     * 
+     *
      * @param engine
      *            Script engine to be used for executing the function
      * @param functionName
@@ -282,7 +282,7 @@ public class ScriptService  {
     /**
      * Compiles given script if it is not already compiled, and if the
      * corresponding script engine supports compilation
-     * 
+     *
      * @param script
      *            Script to be compiled
      * @return The compiled script object. Returns null if the script engine
@@ -336,7 +336,7 @@ public class ScriptService  {
             return script;
 
         // Script not available in cache. Try to fetch from database.
-        
+
         script = scriptRepository.findByNameAndPeriod(scriptName, currentDate);
         if (script == null)
             throw new ApplicationRuntimeException("Script [" + scriptName + "] not found!");
@@ -354,7 +354,7 @@ public class ScriptService  {
      * Executes the given script with context as the ScriptContext. The values
      * in the context are available as variables in the script. The names of
      * these variables will be the attributes in the context.
-     * 
+     *
      * @param script
      *            Script to be executed
      * @param context
@@ -374,7 +374,7 @@ public class ScriptService  {
      * Executes the given script with context as the ScriptContext. The values
      * in the context are available as variables in the script. The names of
      * these variables will be the attributes in the context
-     * 
+     *
      * @param scriptName
      *            Name of script to be executed
      * @param context
@@ -393,7 +393,7 @@ public class ScriptService  {
      * executed (not the currently valid one). The values in the context are
      * available as variables in the script. The names of these variables will
      * be the attributes in the context.
-     * 
+     *
      * @param scriptName
      *            Name of script to be executed
      * @param context
@@ -411,7 +411,7 @@ public class ScriptService  {
     /**
      * Checks if the script has returned any validation errors. If yes, throws a
      * new <code>ValidationException</code> containing the errors.
-     * 
+     *
      * @param errors
      *            The value of "validationErrors" attributes from script context
      */
@@ -431,7 +431,7 @@ public class ScriptService  {
     /**
      * Converts a map of validation errors to a list of ValidationError objects
      * assuming that key = error key and value = error message
-     * 
+     *
      * @param errors
      *            Map of validation errors
      * @return List of ValidationError objects

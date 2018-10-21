@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -506,7 +506,7 @@ public class PaymentService extends PersistenceService<Paymentheader, Long> {
     /**
      * Partial payment is not allowed for netpayable subledger practically all bills will have single entity in netpayable Cbill
      * is not allowed to make partial payment
-     * 
+     *
      * @param ids
      * @param parameters
      * @param glcodeList
@@ -1150,7 +1150,7 @@ public class PaymentService extends PersistenceService<Paymentheader, Long> {
 
     /**
      * if mode is Create - checking with bill id, if mode is modify- checking with billvoucherid
-     * 
+     *
      * @param bean
      * @param mode
      * @throws ValidationException

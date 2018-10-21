@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -56,8 +56,8 @@
             /* font size="6" */
              font-family : Arial, Helvetica;
              font-size   : 24pt
-           }         
-       
+           }
+
 #header_form_font
 	   {
 	    /* font size="5" */
@@ -66,15 +66,15 @@
 	   }
 #heading_form
            {
-             font-family : Arial, Helvetica; 
+             font-family : Arial, Helvetica;
              font-size   : 18pt
            }
-	
+
 #header_table_font
 	   {
 	     font-size   : 18pt
 	   }
-         
+
 #table_row_font
  	   {
  	    /* font size="3" */
@@ -85,9 +85,9 @@
 	   {
 	     font-family : Arial, Helvetica;
              color       : #FF0000
-           }       
+           }
 #normal_font
-           { 
+           {
             /* font size="2" */
              font-family : Arial, Helvetica;
              font-size   : 10pt
@@ -96,7 +96,7 @@
            {
              font-family : Verdana;
              font-size   : 10pt
-           } 
+           }
 #form_main
            {
             /* font size="4" */
@@ -119,7 +119,7 @@
            }
 #normal_color0000FF
 	   {
-             font-size   : 10pt; 
+             font-size   : 10pt;
              color       : #0000FF
 	   }
 #normal_colorRed
@@ -130,7 +130,7 @@
 #normal_colorBlue
            {
              font-family : Arial, Helvetica;
-             color       : #003366          
+             color       : #003366
            }
 #comp_heading_font
            {
@@ -138,9 +138,9 @@
              font-size   : 12pt
            }
 #comp_msg_font
-           { 
+           {
              font-family : Garamond;
-             font-size   : 13.5pt; 
+             font-size   : 13.5pt;
              color       : #003366
            }
 #footer_font

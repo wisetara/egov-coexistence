@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,7 +51,7 @@
 This File reads the VoucherNumber Generation Type From egf_Config.xml For the ULB.
 Pass The Type of Voucher Tobe generated is 'Journal','Contra','Payment' Or 'Receipt'
 It will read the Value from egf_config.xml for the current ULB And Returns 'Auto'or 'Manual' which is mentioned in egf_config.xml
-1. If Auto Based on the mode it hides the VoucherNumber and ReverseVoucherNumber fields 
+1. If Auto Based on the mode it hides the VoucherNumber and ReverseVoucherNumber fields
 2. If Manual It continues as usual
 3. Department mandatory check is included with this
 
@@ -61,7 +61,7 @@ It will read the Value from egf_config.xml for the current ULB And Returns 'Auto
 <%@ page import="com.exilant.eGov.src.transactions.VoucherTypeForULB,org.apache.log4j.Logger" %>
 
 
-<% 
+<%
 Logger LOGGER = Logger.getLogger("VoucherTypeForULB.jsp");
 LOGGER.info("Calling VoucherTypes");
 VoucherTypeForULB voucherType=new VoucherTypeForULB();
@@ -105,9 +105,9 @@ var deptMandatory='<%=deptMandatory%>';
 		document.getElementById('<%=vText%>').style.display="none";
 		document.getElementById('<%=vid%>').readOnly=true;
 		document.getElementById('<%=vid%>').removeAttribute("exilMustEnter");
-		
+
 		<%//this only for payment Interfund JVS
-			if(isPayment!=null && isPayment.equalsIgnoreCase("YES")){%> 
+			if(isPayment!=null && isPayment.equalsIgnoreCase("YES")){%>
 		document.getElementById('<%=jvid%>').style.display="none";
 		document.getElementById('<%=jvText%>').style.display="none";
 		document.getElementById('<%=jvid%>').readOnly=true;
@@ -122,7 +122,7 @@ var deptMandatory='<%=deptMandatory%>';
 		document.getElementById('<%=vidRev%>').removeAttribute("exilMustEnter");
 		<%//this only for payment Interfund JVS
 			if(isPayment!=null && isPayment.equalsIgnoreCase("YES")){
-			%> 
+			%>
 		document.getElementById('<%=jvidRev%>').style.display="none";
 		document.getElementById('<%=jvTextRev%>').style.display="none";
 		document.getElementById('<%=jvidRev%>').readOnly=true;
@@ -135,7 +135,7 @@ var deptMandatory='<%=deptMandatory%>';
 		var obj=document.getElementById('<%=jvid%>')
 		if(obj!=null && obj!=undefined)
 		obj.readOnly=true;
-		
+
 		}
 	}
 	else if(Type=="Manual")
@@ -145,17 +145,17 @@ var deptMandatory='<%=deptMandatory%>';
 		document.getElementById('<%=vidRev%>').setAttribute('exilMustEnter','true');
 		}
 	}
-//tocheck whether department is mandatory	
- 
+//tocheck whether department is mandatory
+
 	if(deptMandatory=="Y")
 	{
 		var deptObj=	document.getElementById('<%=deptId%>');
-		
+
 		if(deptObj!=null && deptObj!=undefined)
 		{
 			deptObj.setAttribute('exilMustEnter','true');
 		}
-		
+
 	}
 	else
 	{
@@ -165,4 +165,4 @@ var deptMandatory='<%=deptMandatory%>';
 			deptStarObj.style.display='none';
 		}
 	}
- 
+

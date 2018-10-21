@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -82,7 +82,7 @@ public class EmployeeAssignmentSearchJson implements JsonSerializer<Employee> {
                     jsonObject.addProperty("temporaryDateRange_"+ i , assignment.getFromDate() != null && assignment.getToDate() != null ?
                             (DateUtils.getDefaultFormattedDate(assignment.getFromDate()) + " - " + DateUtils.getDefaultFormattedDate(assignment.getToDate())) : "" );
                     i++;
-                }  
+                }
             }
             if(employee.getAssignments().size()  >= maxTempAssignments)
                 maxTempAssignments = employee.getAssignments().size();

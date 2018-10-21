@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -104,13 +104,13 @@ public class BillRegisterSearchAction extends BaseFormAction {
     private List<Map<String, Object>> billList;
     @Autowired
     private AppConfigValueService appConfigValueService;
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
  @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     public BillRegisterSearchAction() {
         billregister = new EgBillregister();
         billregister.setEgBillregistermis(new EgBillregistermis());

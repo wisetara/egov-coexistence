@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -194,7 +194,7 @@ public class BaseVoucherAction extends GenericWorkFlowAction {
 		addDropdownData("typeList", VoucherHelper.VOUCHER_TYPES);
 		 addDropdownData("approverDepartmentList",
 				 masterDataCache.get("egi-department"));
-		
+
 		if (LOGGER.isDebugEnabled())
 			LOGGER.debug("Number of  MIS attributes are :" + headerFields.size());
 		if (LOGGER.isDebugEnabled())

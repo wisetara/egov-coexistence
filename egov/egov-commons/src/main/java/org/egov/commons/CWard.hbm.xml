@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,13 +50,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="org.egov.commons.CWard" table="EGF_WARD"> 
+	<class name="org.egov.commons.CWard" table="EGF_WARD">
 		<id name="id" type="long" unsaved-value="null" >
 			<column name="ID" not-null="true"/>
 			<generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
 				<param name="sequence_name">S_70_3_WARD</param>
 			</generator>
-		</id>				
+		</id>
 		<property name="name" column="NAME" />
 	</class>
 </hibernate-mapping>

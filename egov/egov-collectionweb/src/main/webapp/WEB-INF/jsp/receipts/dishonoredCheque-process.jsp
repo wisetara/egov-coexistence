@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -88,7 +88,7 @@
 		var showGlDebitAmount = document.getElementsByName("showGlDebitAmount");
 		var showGlCreditAmount = document.getElementsByName("showGlCreditAmount");
 		var len = amount.length;
-		var totalAmount = 0;  
+		var totalAmount = 0;
 		for (i = 0; i < len; i++) {
 			showGlTotalAmount = Number(showGlTotalAmount)
 					+ Number(amount[i].value);
@@ -172,7 +172,7 @@
 		for (i = 0; i < len; i++) {
 			debitAmount = Number(receiptDebitAmount[i].innerHTML);
 			creditAmount = Number(receiptCreditAmount[i].innerHTML);
-			if (debitAmount > 0) 
+			if (debitAmount > 0)
 				totalAmount = Number(totalAmount) + Number(amount[i].value);
 			else
 				totalAmount = Number(totalAmount) - Number(amount[i].value);
@@ -199,7 +199,7 @@
 			var totalAmount = 0;
 			for (i = 0; i < len; i++) {
 				showGlTotalAmount = Number(showGlTotalAmount)
-						+ Number(amount[i].value);  
+						+ Number(amount[i].value);
 				if(showGlCreditAmount[i].innerHTML >0 )
 					{
 					showGlCreditAmount[i].innerHTML = amount[i].value;
@@ -207,7 +207,7 @@
 					}
 				else
 					showGlDebitAmount[i].innerHTML = amount[i].value;
-			}   
+			}
 			dom.get("showGlDebitTotalAmount").innerHTML = showGlTotalAmount;
 			dom.get("showGlCreditTotalAmount").innerHTML = dom
 					.get("showRemittanceGlCreditAmount").innerHTML;

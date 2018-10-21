@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -58,34 +58,34 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly=true)
 public class FavouritesService {
-    
+
     @Autowired
     private FavouritesRepository favouritesRepository;
-    
+
     @Autowired
     private SecurityUtils securityUtils;
 
     public Favourites getFavouriteByUserIdAndActionId(Long userId, Integer actionId) {
         return favouritesRepository.findByUserIdAndActionId(userId, actionId);
     }
-    
+
     @Transactional
     public boolean removeFromCurrentUserFavourite(Integer actionId) {
     	final Favourites favourites = getFavouriteByUserIdAndActionId(securityUtils.getCurrentUser().getId(),actionId);
     	if(favourites == null) {
     		return Boolean.FALSE;
-    	} 
+    	}
     	favouritesRepository.delete(favourites);
     	return Boolean.TRUE;
     }
-    
+
     @Transactional
     public Favourites addToCurrentUserFavourite(Favourites favourites) {
     	 final Long userId = securityUtils.getCurrentUser().getId();
          if (getFavouriteByUserIdAndActionId(userId, favourites.getActionId()) == null) {
         	 favourites.setUserId(userId);
         	 favouritesRepository.save(favourites);
-         } 
+         }
         return favourites;
     }
 }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,7 +62,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 
-@Service 
+@Service
 @Transactional(readOnly = true)
 public class BudgetControlTypeService  {
 
@@ -78,11 +78,11 @@ public class BudgetControlTypeService  {
 	@Transactional
 	public BudgetControlType create(final BudgetControlType budgetCheckConfig) {
 		return budgetControlTypeRepository.save(budgetCheckConfig);
-	} 
+	}
 	@Transactional
 	public BudgetControlType update(final BudgetControlType budgetCheckConfig) {
 		return budgetControlTypeRepository.saveAndFlush(budgetCheckConfig);
-	} 
+	}
 	public List<BudgetControlType> findAll() {
 		return budgetControlTypeRepository.findAll(new Sort(Sort.Direction.ASC, "value"));
 	}
@@ -92,7 +92,7 @@ public class BudgetControlTypeService  {
 	public List<BudgetControlType> search(BudgetControlType budgetCheckConfig){
 		return budgetControlTypeRepository.findAll();
 	}
-	
+
 	public String getConfigValue()
 	{
 		List<BudgetControlType> configs = findAll();
@@ -106,5 +106,5 @@ public class BudgetControlTypeService  {
 			throw new ApplicationRuntimeException("Multiple Budget Check Configurations  defined");
 		}
 	}
-	
+
 }

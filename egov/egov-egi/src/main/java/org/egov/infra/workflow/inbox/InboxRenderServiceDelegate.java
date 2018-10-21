@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -225,17 +225,17 @@ public class InboxRenderServiceDelegate<T extends StateAware> {
     }
 
     private List<Long> currentUserPositionIds() {
-       
+
     	List<Long> positions = new ArrayList();
     	Long empId = ApplicationThreadLocals.getUserId();
     	List<EmployeeInfo> employs = microserviceUtils.getEmployee(empId, new Date(),null, null);
-    	
+
     	if(null !=employs && employs.size()>0 )
-    		
+
     	employs.get(0).getAssignments().forEach(assignment->{
     		positions.add(assignment.getPosition());
     	});
-    	
+
     	return positions;
 //    	return this.ownerGroupService.getOwnerGroupsByUserId(getUserId())
 //                .parallelStream()

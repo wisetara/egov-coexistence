@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -163,7 +163,7 @@
 			<td class="${approverOddTextCss}" width="14%"><s:select name="approverDepartment" id="approverDepartment" list="dropdownData.approverDepartmentList" listKey="code" listValue="name" headerKey="-1" headerValue="----Choose----" value="%{approverDepartment}" onchange="loadDesignationFromMatrix();" cssClass="dropDownCss" />
 			<egov:ajaxdropdown fields="['Text','Value']" url="workflow/ajaxWorkFlow-getDesignationsByObjectType.action"  id="approverDesignation" dropdownId="approverDesignation" contextToBeUsed="/services/eis" afterSuccess="setDesignation();" /></td>
 			<td class="${approverOddCSS}" width="14%"><s:text name="wf.approver.designation" />:</td>
-			<td class="${approverOddTextCss}" width="14%"><s:select id="approverDesignation" name="approverDesignation" list="dropdownData.designationList" listKey="code" headerKey="-1" listValue="value" headerValue="----Choose----" onchange="populateApprover();" onfocus="callAlertForDepartment();" cssClass="dropDownCss" /> 
+			<td class="${approverOddTextCss}" width="14%"><s:select id="approverDesignation" name="approverDesignation" list="dropdownData.designationList" listKey="code" headerKey="-1" listValue="value" headerValue="----Choose----" onchange="populateApprover();" onfocus="callAlertForDepartment();" cssClass="dropDownCss" />
 			<egov:ajaxdropdown id="approverPositionId" fields="['Text','Value']" dropdownId="approverPositionId" url="workflow/ajaxWorkFlow-getPositionByPassingDesigId.action" contextToBeUsed="/services/eis" afterSuccess="setApprover();" /></td>
 			<td class="${approverOddCSS}" width="14%"><s:text name="wf.approver" />:</td>
 			<td class="${approverOddTextCss}" width="14%"><s:select id="approverPositionId" name="approverPositionId" list="dropdownData.approverList" headerKey="-1" headerValue="----Choose----" listKey="id" listValue="firstName" onfocus="callAlertForDesignation();" value="%{approverPositionId}" cssClass="dropDownCss" /></td>

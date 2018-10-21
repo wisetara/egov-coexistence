@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -58,8 +58,8 @@ import java.util.List;
 public interface CityIndexRepository extends /*ElasticsearchRepository<CityIndex, String>,*/CityIndexCustomRepository {
 
 	CityIndex findByCitycode(String code);
-	
+
 	List<CityIndex> findByDistrictcode(String districtCode);
-	
+
 	List<CityIndex> findByRegionname(String regionName);
 }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,18 +55,18 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class ServiceAccountDetails {
-	
+
 	private Long id;
-	
+
 	private BigDecimal amount = BigDecimal.ZERO;
-	
+
 	private CChartOfAccounts glCodeId;
-	
+
 	private ServiceDetails serviceDetails;
-	
+
 	private Set<ServiceSubledgerInfo> subledgerDetails = new LinkedHashSet<ServiceSubledgerInfo>(0);
 
-	
+
 	public void addSubledgerDetails(ServiceSubledgerInfo subledgerInfo) {
        getSubledgerDetails().add(subledgerInfo);
     }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,9 +47,9 @@
  */
 package org.egov.commons.service;
 
-import org.egov.commons.RegionalHeirarchy;
-import org.egov.commons.RegionalHeirarchyType;
-import org.egov.commons.repository.RegionalHeirarchyRepository;
+import org.egov.commons.RegionalHierarchy;
+import org.egov.commons.RegionalHierarchyType;
+import org.egov.commons.repository.RegionalHierarchyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,31 +62,31 @@ import java.util.List;
  */
 @Service
 @Transactional(readOnly=true)
-public class RegionalHeirarchyService {
+public class RegionalHierarchyService {
 
-    private RegionalHeirarchyRepository regionalHeirarchyRepository;
-    
+    private RegionalHierarchyRepository regionalHierarchyRepository;
+
     @Autowired
-    public RegionalHeirarchyService(final RegionalHeirarchyRepository regionalHeirarchyRepository) {
-        this.regionalHeirarchyRepository = regionalHeirarchyRepository;
+    public RegionalHierarchyService(final RegionalHierarchyRepository regionalHierarchyRepository) {
+        this.regionalHierarchyRepository = regionalHierarchyRepository;
     }
-    
+
     @Transactional
-    public void create(final RegionalHeirarchy regionalHeirarchy) {
-        regionalHeirarchyRepository.save(regionalHeirarchy);
-    }
-    
-    
-    public  RegionalHeirarchy getObjectTypeByName(String code) {
-        return regionalHeirarchyRepository.findByCode(code);
+    public void create(final RegionalHierarchy regionalHierarchy) {
+        regionalHierarchyRepository.save(regionalHierarchy);
     }
 
-    public List<RegionalHeirarchy> getActiveRegionalHeirarchyByRegion(RegionalHeirarchyType region) {
-        return regionalHeirarchyRepository.getActiveRegionalHeirarchyByRegion(region);
+
+    public  RegionalHierarchy getObjectTypeByName(String code) {
+        return regionalHierarchyRepository.findByCode(code);
     }
 
-    public List<RegionalHeirarchy> getActiveChildRegionHeirarchyByPassingParentNameAndType( RegionalHeirarchyType heirarchyType,String regionName) {
-        return regionalHeirarchyRepository.getActiveChildRegionHeirarchyByPassingParentNameAndType(heirarchyType,regionName);
+    public List<RegionalHierarchy> getActiveRegionalHierarchyByRegion(RegionalHierarchyType region) {
+        return regionalHierarchyRepository.getActiveRegionalHierarchyByRegion(region);
     }
-    
+
+    public List<RegionalHierarchy> getActiveChildRegionHierarchyByPassingParentNameAndType( RegionalHierarchyType hierarchyType,String regionName) {
+        return regionalHierarchyRepository.getActiveChildRegionHierarchyByPassingParentNameAndType(hierarchyType,regionName);
+    }
+
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -56,8 +56,8 @@
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
             <param name="sequence_name">seq_egf_grant</param>
             </generator>
-        </id> 
-		<many-to-one name="department" class="org.egov.infra.admin.master.entity.Department" fetch="select" column="DEPTID" /> 
+        </id>
+		<many-to-one name="department" class="org.egov.infra.admin.master.entity.Department" fetch="select" column="DEPTID" />
 		<many-to-one name="financialYear" class="org.egov.commons.CFinancialYear" fetch="select" column="FINANCIALYEARID"/>
 	    <property name="period" type="string" column="PERIOD" />
 	    <property name="proceedingsNo" type="string" column="PROCEEDINGSNO" />
@@ -75,7 +75,7 @@
 	    <property name="modifiedDate" type="date" column="LASTMODIFIEDDATE" />
 	    <property name="createdBy" type="long" column="CREATEDBY" not-null="true"/>
 	    <property name="modifiedBy" type="long"><column name="LASTMODIFIEDBY"></column></property>
-	    
+
 	 </class>
 </hibernate-mapping>
 

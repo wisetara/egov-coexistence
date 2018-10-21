@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -49,7 +49,7 @@
 function validate()
 {
 
-	
+
 	if(!validateForm_contingentBill())
 	{
 		document.getElementById("tabber0").tabber.tabShow(0);
@@ -73,22 +73,22 @@ function validate()
 	}
 	else
 	{
-		bootbox.alert("No Account code is selected for Save . Please add Account code and click done and then try to save again");	
+		bootbox.alert("No Account code is selected for Save . Please add Account code and click done and then try to save again");
 		undoLoadingMask() ;
 		return false;
 	}
 	var billDate = document.getElementById("billDate").value;
-  
+
 
 //    if (myDate > today) {
 //        bootbox.alert("Bill date is greater than today's date ");
 //        return false
 //    }
-	
+
 return true;
 }
 
-//it takes account detail type id and creates 
+//it takes account detail type id and creates
 function load_COA_Entities(obj)
 {
 	//bootbox.alert("load_COA_Entities");
@@ -98,16 +98,16 @@ function load_COA_Entities(obj)
 	{
 	document.getElementById('entitycode').innerHTML=obj.options[obj.selectedIndex].text+" Code ";
 	}
-	//loadDropDownCodesForEntities(obj);   
+	//loadDropDownCodesForEntities(obj);
 }
 function functionFormatter1(tableName,columnName,type){
 	bootbox.alert("<input type='"+type+"'  id='"+tableName+"["+billDetailTableIndex+"]"+columnName+"' name='"+tableName+"["+billDetailTableIndex+"]"+columnName+"' onkeyup='autocompletecode(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitGlcode(this)' ");
 	}
-		
+
 
 function splitDetailName()
 {
-	
+
 }
 
 
@@ -146,10 +146,10 @@ if(obj.disabled==true)
 return;
 }
 
-var table_name=eval(tableName);		
+var table_name=eval(tableName);
 var record = table_name.getRecord(obj);
 if(table_name.getRecordSet().getLength()>1)
-{			
+{
 table_name.deleteRow(record);
 
 allRecords=table_name.getRecordSet();
@@ -162,7 +162,7 @@ for(var i=0;i<allRecords.getLength();i++){
 else{
 bootbox.alert("This row cannot be deleted");
 }
-}	
+}
 
 
 function deleteYUIRow1(tableName,obj)
@@ -172,10 +172,10 @@ if(obj.disabled==true)
 return;
 }
 
-var table_name=eval(tableName);		
+var table_name=eval(tableName);
 var record = table_name.getRecord(obj);
 if(table_name.getRecordSet().getLength()>1)
-{			
+{
 table_name.deleteRow(record);
 
 allRecords=table_name.getRecordSet();
@@ -188,7 +188,7 @@ calculatenNetFordelete();
 else{
 bootbox.alert("This row cannot be deleted");
 }
-}	
+}
 
 function addYUIRow(tableName,obj)
 {
@@ -202,7 +202,7 @@ table_name.addRow({SlNo:table_name.getRecordSet().getLength()+1});
 }
 function validateNetPaySubledgerAndDetailTypes()
 {
-	
+
 	var detailType=document.getElementById("commonBean.subledgerType").value;
 	var netType=document.getElementById("billDetailsTableNet[0].glcodeDetail").options[document.getElementById("billDetailsTableNet[0].glcodeDetail").selectedIndex].text;
 	var a=document.getElementById("billDetailsTableNet[0].detailTypes").value;
@@ -243,15 +243,15 @@ function validateNetPaySubledgerAndDetailTypes()
 	{
 		return true;
 	}
-                                  
-}                            
+
+}
 function updateTabels()
 {
 	if(document.getElementById('billDetailsTableNet[0].debitAmountDetail').value<0)
 	{
 		bootbox.alert('Negative Net payable is not allowed');
 		return false;
-	}                           
+	}
 var netpayablevalue=document.getElementById("billDetailsTableNet[0].glcodeDetail").value
 
 	if(netpayablevalue=="-1"){
@@ -299,7 +299,7 @@ while(k<25)
 		k++;
 		continue;
 	}
-	
+
 	if( document.getElementById("billDetailsTable["+j+"].glcodeDetail").value!="" && document.getElementById("billDetailsTableFinal["+k+"].glcodeDetail").value==document.getElementById("billDetailsTable["+j+"].glcodeDetail").value)
 		{
 		found=true;
@@ -313,7 +313,7 @@ if(found==false && document.getElementById("billDetailsTable["+j+"].glcodeDetail
 	//addrow and make readonly
 	billDetailsTableFinal.addRow({SlNo:billDetailsTableFinal.getRecordSet().getLength()+1});
 	var len=billDetailsTableFinal.getRecordSet().getLength()-1;
-	
+
 	document.getElementById("billDetailsTableFinal["+len+"].glcodeDetail").value=document.getElementById("billDetailsTable["+j+"].glcodeDetail").value;
 	document.getElementById("billDetailsTableFinal["+len+"].glcodeIdDetail").value=document.getElementById("billDetailsTable["+j+"].glcodeIdDetail").value;
 	document.getElementById("billDetailsTableFinal["+len+"].accounthead").value=document.getElementById("billDetailsTable["+j+"].accounthead").value;
@@ -328,21 +328,21 @@ if(found==false && document.getElementById("billDetailsTable["+j+"].glcodeDetail
 		document.getElementById("billDetailsTableFinal["+len+"].debitAmountDetail").disabled=true;
 		document.getElementById("billDetailsTableFinal["+len+"].debitAmountDetail").tabIndex=-1;
 	}
-	}	
+	}
 }
-//add subledgers 
+//add subledgers
 if(document.getElementById("billDetailsTable["+j+"].isSubledger") && document.getElementById("billDetailsTable["+j+"].isSubledger").value=='true')
 {
 var s_table_name=eval("billDetailsTableSubledger");
 var subledgerLen=s_table_name.getRecordSet().getLength()+1;
-s_table_name.addRow({SlNo:subledgerLen})	
+s_table_name.addRow({SlNo:subledgerLen})
 //bootbox.alert(subledgerLen);
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].subledgerCode").value=document.getElementById("billDetailsTable["+j+"].glcodeDetail").value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].glcodeIdDetail").value=document.getElementById("billDetailsTable["+j+"].glcodeIdDetail").value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].accounthead").value=document.getElementById("billDetailsTable["+j+"].accounthead").value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].detailName").value=document.getElementById('detailName').value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].detailCode").value=document.getElementById('detailCode').value;
-document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].detailKey").value=document.getElementById('detailKey').value;	
+document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].detailKey").value=document.getElementById('detailKey').value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].debitAmountDetail").value=document.getElementById("billDetailsTable["+j+"].debitAmountDetail").value;
 if(mode!='modify')
 	{
@@ -357,7 +357,7 @@ if(mode!='modify')
 	document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].debitAmountDetail").disabled=true;
 	document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].debitAmountDetail").tabIndex="-1";
 	}
-}	
+}
 j++;
 }
 i++;
@@ -365,13 +365,13 @@ i++;
 var table_name=eval("billDetailsTable");
 //table_name.getRecordSet().reset();
 if(table_name.getRecordSet().getLength()>=1)
-{			
+{
 	allRecords=table_name.getRecordSet();
 	for(var i=allRecords.getLength();i>=0;i--)
 	{
 	table_name.deleteRow(i);
 	}
-table_name.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1})		
+table_name.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1})
 }
 
 //Deductions-------------------------------------------------
@@ -400,7 +400,7 @@ while(k<25)
 		k++;
 		continue;
 	}
-	
+
 	if(document.getElementById("billDetailsTableCredit["+j+"].glcodeDetail").value!="" && document.getElementById("billDetailsTableCreditFinal["+k+"].glcodeDetail").value==document.getElementById("billDetailsTableCredit["+j+"].glcodeDetail").value)
 		{
 		found=true;
@@ -411,7 +411,7 @@ while(k<25)
 	}
 if(found==false && document.getElementById("billDetailsTableCredit["+j+"].glcodeDetail").value!="")
 	{
-	//addrow 
+	//addrow
 	billDetailsTableCreditFinal.addRow({SlNo:billDetailsTableCreditFinal.getRecordSet().getLength()+1});
 	var len=billDetailsTableCreditFinal.getRecordSet().getLength()-1;
 	document.getElementById("billDetailsTableCreditFinal["+len+"].glcodeDetail").value=document.getElementById("billDetailsTableCredit["+j+"].glcodeDetail").value;
@@ -426,13 +426,13 @@ if(found==false && document.getElementById("billDetailsTableCredit["+j+"].glcode
 		document.getElementById("billDetailsTableCreditFinal["+len+"].creditAmountDetail").disabled=true;
 		document.getElementById("billDetailsTableCreditFinal["+len+"].creditAmountDetail").tabIndex="-1";
 		}
-	}	
+	}
 }
 if(document.getElementById("billDetailsTableCredit["+j+"].isSubledger") && document.getElementById("billDetailsTableCredit["+j+"].isSubledger").value=='true')
 {
 var s_table_name=eval("billDetailsTableSubledger");
 var subledgerLen=s_table_name.getRecordSet().getLength()+1;
-s_table_name.addRow({SlNo:subledgerLen});	
+s_table_name.addRow({SlNo:subledgerLen});
 //bootbox.alert(subledgerLen);
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].subledgerCode").value=document.getElementById("billDetailsTableCredit["+j+"].glcodeDetail").value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].glcodeIdDetail").value=document.getElementById("billDetailsTableCredit["+j+"].glcodeIdDetail").value;
@@ -462,13 +462,13 @@ i++;
 var table_name=eval("billDetailsTableCredit");
 //table_name.getRecordSet().reset();
 if(table_name.getRecordSet().getLength()>=1)
-{			
+{
 	allRecords=table_name.getRecordSet();
 	for(var i=allRecords.getLength();i>=0;i--)
 	{
 	table_name.deleteRow(i);
 	}
-table_name.addRow({SlNo:billDetailsTableCredit.getRecordSet().getLength()+1})		
+table_name.addRow({SlNo:billDetailsTableCredit.getRecordSet().getLength()+1})
 }
 
 //polulate net if Subledger
@@ -476,7 +476,7 @@ if(document.getElementById("billDetailsTableNet[0].isSubledger").value=='true')
 {
 var s_table_name=eval("billDetailsTableSubledger");
 var subledgerLen=s_table_name.getRecordSet().getLength()+1;
-s_table_name.addRow({SlNo:subledgerLen});	
+s_table_name.addRow({SlNo:subledgerLen});
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].subledgerCode").value=document.getElementById("billDetailsTableNet[0].glcodeDetail").options[document.getElementById("billDetailsTableNet[0].glcodeDetail").selectedIndex].text;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].glcodeIdDetail").value=document.getElementById("billDetailsTableNet[0].glcodeIdDetail").value;
 document.getElementById("billDetailsTableSubledger["+(subledgerLen-1)+"].accounthead").value=document.getElementById("billDetailsTableNet[0].accounthead").value;
@@ -500,7 +500,7 @@ if(mode=!'modify')
 	}
 }
 
-//--populate net	
+//--populate net
 if(billDetailsTableNetFinal.getRecordSet().getLength()==0)
 {
 billDetailsTableNetFinal.addRow({SlNo:billDetailsTableNetFinal.getRecordSet().getLength()+1});
@@ -513,7 +513,7 @@ document.getElementById("billDetailsTableNetFinal[0].glcodeIdDetail").value=docu
 document.getElementById("billDetailsTableNetFinal[0].accounthead").value=document.getElementById("billDetailsTableNet[0].accounthead").value;
 document.getElementById("billDetailsTableNetFinal[0].isSubledger").value=document.getElementById("billDetailsTableNet[0].isSubledger").value;
 //}
-//---calculate net	
+//---calculate net
 var debitTotal=0;
 var creditTotal=0;
 var netPayTotal=0;
@@ -533,7 +533,7 @@ if(document.getElementById("billDetailsTableFinal["+i+"].debitAmountDetail").val
 debitTotal=debitTotal+(parseFloat(eval(document.getElementById("billDetailsTableFinal["+i+"].debitAmountDetail").value)*10/10));
 }
 }
-for(i=0;i<creditLen;i++)                      
+for(i=0;i<creditLen;i++)
 {
 	if(document.getElementById("billDetailsTableCreditFinal["+i+"].creditAmountDetail")==null)
 	{
@@ -543,7 +543,7 @@ if(document.getElementById("billDetailsTableCreditFinal["+i+"].creditAmountDetai
 {
 creditTotal=creditTotal+(parseFloat(eval(document.getElementById("billDetailsTableCreditFinal["+i+"].creditAmountDetail").value)*10/10));
 }
-}	
+}
 
 //bootbox.alert(debitTotal-creditTotal);
 
@@ -564,7 +564,7 @@ var currentCode="";
 entityCount=1;
 for(var l=0;l<subledgerLen;l++)
 {
-	
+
 	//bootbox.alert(l);
 	currentCode=document.getElementById("billDetailsTableSubledger["+l+"].detailCode").value;
 	if(previousCode!="" && previousCode!=currentCode)
@@ -575,10 +575,10 @@ for(var l=0;l<subledgerLen;l++)
 		document.getElementById("commonBean.payto").disabled=true;
 		break;
 		}
-			
+
 	}
 	previousCode=currentCode;
-	
+
 }
 document.getElementById("billDetailsTableNet[0].glcodeDetail").value="";
 document.getElementById("billDetailsTableNet[0].glcodeDetail").disabled=true;
@@ -649,7 +649,7 @@ if(acode!=null && acode.length==3)
 document.getElementById('billDetailsTableNet[0].accounthead').value=acode[1];
 document.getElementById('billDetailsTableNet[0].isSubledger').value=acode[2];
 }
-}		
+}
 
 function loadSubledgerGrids(temp)
 {
@@ -662,13 +662,13 @@ return false;
 else
 {
 return true;
-}	
+}
 }
 
 
 function splitEntities(obj)
 {
-	
+
 var entity=obj.value;
 var detailKey  = document.getElementById("detailKey").value;
 if(entity.trim()!="")
@@ -697,7 +697,7 @@ document.getElementById("detailKey").value="";
 
 function loadBank()
 {
-	
+
 }
 
 function enableAll()
@@ -715,15 +715,15 @@ for(var i=0;i<document.forms[frmIndex].length;i++)
 {
 	if(document.forms[0].elements[i].value != 'Save & Forward' && document.forms[0].elements[i].value != 'Approve'
 		&& document.forms[0].elements[i].value != 'Reject' && document.forms[0].elements[i].value != 'Cancel' && document.forms[0].elements[i].value != 'Forward'
-			&& document.forms[0].elements[i].value != 'Revert for Rectification' && document.forms[0].elements[i].value != 'Proceed' 
-			&& document.forms[0].elements[i].value != 'Checked and Proceed'                
+			&& document.forms[0].elements[i].value != 'Revert for Rectification' && document.forms[0].elements[i].value != 'Proceed'
+			&& document.forms[0].elements[i].value != 'Checked and Proceed'
 				&& document.forms[0].elements[i].name!='struts.token.name' && document.forms[0].elements[i].name!='struts.token'){
-		document.forms[frmIndex].elements[i].disabled =true;   
-	}						
-}	
+		document.forms[frmIndex].elements[i].disabled =true;
+	}
+}
 }
 disableYUIAddDeleteButtons(true);
-document.getElementById("closeButton").disabled=false;   
+document.getElementById("closeButton").disabled=false;
 }
 
 function disableYUIAddDeleteButtons(value)
@@ -737,11 +737,11 @@ function disableYUIAddDeleteButtons(value)
 			allAddImages[i].disabled=value;
 		}
 	}
-	else if(document.getElementById('egov_yui_add_image'))	
+	else if(document.getElementById('egov_yui_add_image'))
 	{
 		document.getElementById('egov_yui_add_image').disabled=value;
 	}
-	
+
 	var allDeleteImages=document.getElementsByName('egov_yui_delete_image');
 	if(allDeleteImages)
 	{
@@ -785,7 +785,7 @@ function popupCallback(arg0, srchType) {
 			document.getElementById("detailCode").value=entity_array[0];
 			document.getElementById("detailName").value=entity_array[1];
 			document.getElementById("detailKey").value=entity_array[2];
-	
+
 			//bootbox.alert("setting payto");
 			document.getElementById("commonBean.payto").value=entity_array[1];
 			//bootbox.alert(document.getElementById("commonBean.payto").value);
@@ -835,9 +835,9 @@ function calculateNetForGrid(obj) {
 		return false;
 	}
 	calculatenNetFordelete();
-	
 
-} 
+
+}
 function calculatenNetFordelete()
 {
 	var debitLen = billDetailsTableFinal.getRecordSet().getLength();
@@ -855,24 +855,24 @@ function calculatenNetFordelete()
 		}
 		}else
 		{
-		
+
 		}
 	}
 	k=0;
 	for (i = 0; i <25&& k< creditLen; i++) {
 		if(document.getElementById("billDetailsTableCreditFinal[" + i+ "].creditAmountDetail"))
 		  {
-		if (document.getElementById("billDetailsTableCreditFinal[" + i+ "].creditAmountDetail").value.trim() != "") 
+		if (document.getElementById("billDetailsTableCreditFinal[" + i+ "].creditAmountDetail").value.trim() != "")
 				{
 			credit = credit+ parseFloat(eval(document.getElementById("billDetailsTableCreditFinal[" + i+ "].creditAmountDetail").value));
 				}
 		  }
 		else
 		{
-			
+
 		}
 		}
-		
+
 	var resultNum = parseFloat(debit - credit);
 	document.getElementById("billDetailsTableNetFinal[0].creditAmountDetail").value = resultNum
 			.toFixed(2);

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,19 +53,19 @@
  <s:set var="colratio" value="%{'[50,80,80,200,80,80,80,80,80,80,80,80,150,150,200,150]'}"/>
 <s:if test="%{isConsolidatedScreen()}">
 <s:set var="colratio" value="%{'[50,80,80,200,80,80,80,80,80,80,80,80,80,150,80,150,200,150]'}"/>
-</s:if>	
+</s:if>
 
 jQuery.noConflict();
 jQuery(document).ready(function() {
 	    jQuery('#detailsTable').fixheadertable({
-         caption: 'Budget Detail', 
+         caption: 'Budget Detail',
          height: 400,
-         minColWidth: 10,  
+         minColWidth: 10,
          resizeCol: true,
          colratio:<s:property value="colratio"/>
     });
 });
- 
+
 </script>
 
 <div id="detail">

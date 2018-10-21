@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -73,7 +73,7 @@
             <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
-        
+
         <!-- VIEWS RELATED END -->
         <dependency>
             <groupId>org.apache.tiles</groupId>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,7 +52,7 @@ import org.egov.infstr.services.PersistenceService;
 
 public class RemittanceGeneralLedgerDetailService extends PersistenceService<EgRemittanceGldtl, Long>
 {
-    
+
     public RemittanceGeneralLedgerDetailService() {
         super(EgRemittanceGldtl.class);
     }

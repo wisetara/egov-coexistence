@@ -1,7 +1,7 @@
 <%@ include file="/includes/taglibs.jsp"%>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -67,8 +67,8 @@
 	<div class="buttonbottom">
 	<input name="collectionReport.close" type="button" class="button"
 		id="buttonClose" value="Close" onclick="window.close()" />
-		<input name="buttonBack" type="button" class="button" id="buttonBack" value="Back" onclick="window.location='${pageContext.request.contextPath}/reports/dishonoredChequeReport-criteria.action';"  /> 
-		
+		<input name="buttonBack" type="button" class="button" id="buttonBack" value="Back" onclick="window.location='${pageContext.request.contextPath}/reports/dishonoredChequeReport-criteria.action';"  />
+
 	</div>
 </s:form>
 </body>

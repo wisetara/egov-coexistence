@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -65,7 +65,7 @@ function onSubmit(obj){
 	   return true;
 	}
 	else
-		return false 
+		return false
 }
 function validate() {
 	var valid = true;
@@ -109,7 +109,7 @@ function validate() {
 			 <s:text name="branchuser.master.create.title" />
 		</div>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:960px;margin:0 auto;"  theme="simple">
-	   	
+
 		<tr>
 			<td class="greybox"><s:text name="branchuser.master.bank"></s:text> <span class="mandatory"></span></td>
 			<td class="greybox"><s:select headerKey="-1"
@@ -150,7 +150,7 @@ function validate() {
 	<br />
 </div>
     <div class="buttonbottom">
-				<s:submit name="sumbit" cssClass="buttonsubmit" id="button32" 
+				<s:submit name="sumbit" cssClass="buttonsubmit" id="button32"
 					onclick="return onSubmit('branchUserMap-create.action'); "
 					value="Create Mapping" />
 				<s:reset name="reset" cssClass="button" id="button" value="Reset" />

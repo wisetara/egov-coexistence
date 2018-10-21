@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,7 +51,7 @@
 <body>
 	<s:form action="budgetAppropriationRegisterReport" theme="simple"
 		name="budgetAppropriationRegister-Result">
-		
+
 			</br>
 			</br>
 			<div class="formmainbox">

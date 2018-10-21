@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -47,42 +47,42 @@
   --%>
 
 <!--
-	eGov suite of products aim to improve the internal efficiency,transparency, 
-    accountability and the service delivery of the government  organizations.
- 
+	eGov suite of products aim to improve the internal efficiency, transparency,
+    accountability and the service delivery of the government organizations.
+
     Copyright (C) <2015>  eGovernments Foundation
- 
-	The updated version of eGov suite of products as by eGovernments Foundation 
+
+	The updated version of eGov suite of products as by eGovernments Foundation
     is available at http://www.egovernments.org
- 
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     any later version.
- 
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
- 
+
     You should have received a copy of the GNU General Public License
-    along with this program. If not, see http://www.gnu.org/licenses/ or 
+    along with this program. If not, see http://www.gnu.org/licenses/ or
     http://www.gnu.org/licenses/gpl.html .
- 
+
     In addition to the terms of the GPL license to be adhered to in using this
     program, the following additional terms are to be complied with:
- 
- 	1) All versions of this program, verbatim or modified must carry this 
+
+ 	1) All versions of this program, verbatim or modified must carry this
  	   Legal Notice.
- 
- 	2) Any misrepresentation of the origin of the material is prohibited. It 
- 	   is required that all modified versions of this material be marked in 
+
+ 	2) Any misrepresentation of the origin of the material is prohibited. It
+ 	   is required that all modified versions of this material be marked in
  	   reasonable ways as different from the original version.
- 
- 	3) This license does not grant any rights to any user of the program 
- 	   with regards to rights under trademark law for use of the trade names 
+
+ 	3) This license does not grant any rights to any user of the program
+ 	   with regards to rights under trademark law for use of the trade names
  	   or trademarks of eGovernments Foundation.
- 
+
    	In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
 -->
 
@@ -102,25 +102,25 @@
 
         <title>eGov  - <decorator:title/> </title>
 
-   
+
     <link rel="icon" href="<cdn:url value='/resources/global/images/favicon.png' context='/services/egi'/>" sizes="32x32">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/collections.css?rnd=${app_release_no}"/>
 	<link rel="stylesheet" type="text/css" href="/services/collection/resources/commonyui/yui2.8/fonts/fonts-min.css" />
 	<link rel="stylesheet" type="text/css" href="/services/collection/resources/commonyui/yui2.8/datatable/assets/skins/sam/datatable.css"/>
-	
+
 	<link href="<cdn:url value='/resources/global/css/bootstrap/bootstrap.css' context='/services/egi'/>" rel="stylesheet" type="text/css" />
 	<link href="<cdn:url value='/resources/global/css/egov/custom.css?rnd=${app_release_no}' context='/services/egi'/>" rel="stylesheet" type="text/css" />
 	<link href="<cdn:url value='/resources/global/css/bootstrap/bootstrap-datepicker.css' context='/services/egi'/>"
 	rel="stylesheet" type="text/css" />
-		
+
 	<script type="text/javascript" src="<cdn:url value='/resources/global/js/jquery/jquery.js' context='/services/egi'/>"> </script>
 	<script src="<cdn:url value='/resources/global/js/bootstrap/bootstrap.js' context='/services/egi'/>"></script>
-	
+
 <script	src="<cdn:url value='/resources/global/js/bootstrap/bootstrap-datepicker.js' context='/services/egi'/>"
 	type="text/javascript"></script>
 	<script src="<cdn:url value='/resources/global/js/bootstrap/bootbox.min.js' context='/services/egi'/>"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ajax-script.js?${app_release_no}"></script>
-	
+
 	<script src="<cdn:url value='/resources/global/js/egov/patternvalidation.js?rnd=${app_release_no}' context='/services/egi'/>"></script>
 	<SCRIPT type="text/javascript" src="/services/collection/resources/js/jsCommonMethods.js"></SCRIPT>
 	<script type="text/javascript" src="/services/collection/resources/commonyui/yui2.8/yuiloader/yuiloader-min.js"></script>
@@ -141,24 +141,24 @@
 
     <decorator:head/>
     </head>
-    
+
 <body <decorator:getProperty property="body.id" writeEntireProperty="yes"/><decorator:getProperty property="body.class" writeEntireProperty="true"/> <decorator:getProperty property="body.onload" writeEntireProperty="true"/>  >
     <div class="page-container">
 		    <!-- header -->
 		    <%-- <egov:breadcrumb/> --%>
-		    
+
 		    <!-- pagecontent -->
 		    <div class="main-content">
 		       <decorator:body/>
 		    </div>
-		    
+
 		    <!-- footer -->
 		    <footer class="main">
 			    Powered by <a href="http://egovernments.org/" target="_blank">eGovernments Foundation</a>
 			</footer>
 	</div>
-	
-	 <!-- loading indicator --> 
+
+	 <!-- loading indicator -->
 	 <div class="modal fade loader-class" data-backdrop="static">
 			<div class="modal-dialog">
 					<div class="modal-body">
@@ -172,7 +172,7 @@
 									<div class="rect5"></div>
 								</div>
 							</div>
-							
+
 							<div class="col-md-12 spinner-text">
 								Processing your request. Please wait..
 							</div>
@@ -181,7 +181,7 @@
 			</div>
 	 </div>
 
-	  
+
 	  <script>
 
 	    // jQuery plugin to prevent double submission of forms
@@ -203,7 +203,7 @@
 		jQuery("form").submit(function( event ) {
 			jQuery('.loader-class').modal('show', {backdrop: 'static'});
 		});
-		
+
 		jQuery('form').preventDoubleSubmission();
 
 		function disableRefresh(e) {
@@ -213,12 +213,12 @@
                     if ((e.which || e.keyCode) == 82)
                             e.preventDefault();
     	};
-        
+
         jQuery(".datepicker").datepicker({
 			format: "dd/mm/yyyy",
 			autoclose:true
-		}); 
-    	
+		});
+
     	jQuery(document).on("keydown", disableRefresh);
 
     	window.location.hash = "no-back-button";
@@ -227,7 +227,7 @@
             window.location.hash = "no-back-button";
         }
 	  </script>
-	
-	
+
+
     </body>
 </html>

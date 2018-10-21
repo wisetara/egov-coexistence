@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -294,7 +294,7 @@ public class BudgetAppropriationRegisterReportAction extends BaseFormAction {
                     .addScalar("debitAmount", BigDecimalType.INSTANCE)
                     .addScalar("creditAmount", BigDecimalType.INSTANCE)
                     .setResultTransformer(Transformers.aliasToBean(BudgetAppDisplay.class));
-            query=setParameterForBudgetAppDisplay(query,dtAsOnDate,dStartDate); 
+            query=setParameterForBudgetAppDisplay(query,dtAsOnDate,dStartDate);
             budgetApprRegNewList = query.list();
             if (budgetApprRegNewList.size() > 0) {
                 for (final BudgetAppDisplay budgetAppRtDisp : budgetApprRegNewList)
@@ -520,31 +520,31 @@ public class BudgetAppropriationRegisterReportAction extends BaseFormAction {
     {
         if (function.getId() != null && function.getId() != -1)
         {
-            query.setLong("functionId", function.getId()) ; 
+            query.setLong("functionId", function.getId()) ;
         }
         if (department.getId() != null && department.getId() != -1)
         {
-            query.setLong("departmentId", department.getId()) ; 
+            query.setLong("departmentId", department.getId()) ;
         }
         if (fund.getId() != null && fund.getId() != -1)
         {
-            query.setLong("fundId", fund.getId()) ; 
+            query.setLong("fundId", fund.getId()) ;
         }
         if (budgetGroup.getMinCode().getId() != null )
         {
-            query.setLong("glCodeId", budgetGroup.getMinCode().getId()) ; 
+            query.setLong("glCodeId", budgetGroup.getMinCode().getId()) ;
         }
         if (asOnDate != null )
         {
-            query.setDate("strAODate", asOnDate) ; 
+            query.setDate("strAODate", asOnDate) ;
         }
-        
+
         if (startDate != null )
         {
-            query.setDate("strStDate", startDate) ; 
+            query.setDate("strStDate", startDate) ;
         }
-        
-        
+
+
         return query;
     }
 

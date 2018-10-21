@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -71,16 +71,16 @@ public interface PersonalInformationDAO
 	public PersonalInformation getEmployeeByFunctionary(Long deptId, Long designationId, Long Boundaryid,Integer functionaryId)throws TooManyValuesException, NoSuchObjectException;
 	public List getListOfUsersForGivenBoundaryId(Long boundaryId) throws NoSuchObjectException;
 	/**
-	  * Returning temporary  assigned employee object by pepartment,designation,functionary,date 
+	  * Returning temporary  assigned employee object by pepartment,designation,functionary,date
 	  * @param deptId
 	  * @param DesigId
 	  * @param functionaryId
 	  * @param onDate
 	  * @return Employee
-	  * @throws Exception 
+	  * @throws Exception
 	  */
 	 public PersonalInformation getTempAssignedEmployeeByDeptDesigFunctionaryDate(Integer deptId, Integer desigId, Integer functionaryId, Date onDate) throws Exception;
-	 
+
 	 public abstract List getAllDesignationByDept(Integer deptId)throws TooManyValuesException, NoSuchObjectException;
 	 public abstract List getAllActiveUsersByGivenDesg(Integer DesgId)throws Exception;
 	 public List<PersonalInformation> getAllEmpByGrade(Integer gradeId) throws Exception;

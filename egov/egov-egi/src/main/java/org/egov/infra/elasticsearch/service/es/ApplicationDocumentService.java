@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -174,18 +174,18 @@ public class ApplicationDocumentService {
 
     private static final String TOTAL_BEYOND_SLA = "totalBeyondSLA";
 
-    private static final String TOTAL_WITHIN_SLA = "totalWithinSLA"; 
-    
+    private static final String TOTAL_WITHIN_SLA = "totalWithinSLA";
+
     private static final String MODULE_PROPERTY_TAX = "Property Tax";
-    
+
     private static final String MODULE_WATER_TAX = "Water Charges";
-    
+
     private static final String MODULE_TRADE_LICENSE = "Trade License";
-    
+
     private static final String MODULE_ADVERTISEMENT_TAX = "Advertisement Tax";
-    
+
     private static final String MODULE_MARRIAGE_REGISTRATION = "Marriage Registration";
-    
+
     private static final String SLA = "sla";
 
     private static final String REJECTED = "REJECTED";
@@ -272,7 +272,7 @@ public class ApplicationDocumentService {
 
     /**
      * Provides Service group wise applications details
-     * 
+     *
      * @param applicationIndexRequest
      * @return ApplicationIndexResponse
      */
@@ -352,7 +352,7 @@ public class ApplicationDocumentService {
 
     /**
      * Provides Source wise applications details
-     * 
+     *
      * @param applicationIndexRequest
      * @return ApplicationIndexResponse
      */

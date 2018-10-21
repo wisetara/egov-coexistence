@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -142,7 +142,7 @@ public class ReportBean {
     public void setFunctionName(final String functionName) {
         this.functionName = functionName;
     }
-    
+
     public String getDepartmentCode() {
 		return departmentCode;
 	}

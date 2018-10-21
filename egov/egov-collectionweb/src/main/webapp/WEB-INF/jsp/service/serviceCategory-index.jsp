@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -47,10 +47,10 @@
   --%>
 
 <%@ taglib prefix="s" uri="/struts-tags" %>
-			  
-<html>  
-	<head>  
-		<title><s:text name="list.title.serviceCategory"/></title>  
+
+<html>
+	<head>
+		<title><s:text name="list.title.serviceCategory"/></title>
 		<script>
 function onSubmit(obj){
 	document.forms[0].action=obj;
@@ -58,40 +58,40 @@ function onSubmit(obj){
    return true;
 }
 </script>
-	</head>  
+	</head>
 
-	<body>  
-	<s:form action="serviceCategory" theme="simple" > 
+	<body>
+	<s:form action="serviceCategory" theme="simple" >
 	  	<div class="subheadnew"><s:text name="serviceCategory.edit.title"/></div>
 	  	<br/>
 	  	<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablebottom">
-		        <tr>  
-		            <th class="bluebgheadtd" width="18%" style="display:none">ID</th>  
+		        <tr>
+		            <th class="bluebgheadtd" width="18%" style="display:none">ID</th>
 		            <th class="bluebgheadtd" width="15%"><s:text name="masters.serviceCategory.servicCategoryeCode"/></th>
 					<th class="bluebgheadtd" width="15%"><s:text name="masters.serviceCategory.serviceCategoryName"/></th>
 				    <th class="bluebgheadtd" width="15%"><s:text name="masters.serviceCategory.serviceCategoryeEnabled" /></th>
 					<th class="bluebgheadtd" width="15%"><s:text name="masters.edit"/></th>
-				</tr>  
-				<s:iterator var="p" value="serviceCategoryList">  
-	            <tr>  
-					<s:if test="code != null">								
+				</tr>
+				<s:iterator var="p" value="serviceCategoryList">
+	            <tr>
+					<s:if test="code != null">
 					<td class="blueborderfortd">
-					<div align="center">  
-					<s:property value="%{code}" /> 
+					<div align="center">
+					<s:property value="%{code}" />
 					</div>
 					</td>
 					</s:if>
 
 					<s:else>
-					<td class="blueborderfortd">							
-					&nbsp;	
+					<td class="blueborderfortd">
+					&nbsp;
 					</td>
 					</s:else>
-			
-					<s:if test="name!= null">								
+
+					<s:if test="name!= null">
 					<td class="blueborderfortd">
-					<div align="center">  
-					<s:property value="%{name}" /> 
+					<div align="center">
+					<s:property value="%{name}" />
 					</td>
 					</div>
 					</s:if>
@@ -108,23 +108,23 @@ function onSubmit(obj){
 					</td>
 
 					<s:else>
-					<td class="blueborderfortd">							
-					&nbsp;	
+					<td class="blueborderfortd">
+					&nbsp;
 					</td>
 					</s:else>
-						
+
 					<td class="blueborderfortd">
-					<div align="center">  
-   						<a href="serviceCategory-edit.action?code=<s:property value='%{code}'/>"><s:text name="masters.edit"/></a>  
+					<div align="center">
+   						<a href="serviceCategory-edit.action?code=<s:property value='%{code}'/>"><s:text name="masters.edit"/></a>
    					</div>
-					</td>  
-	            </tr>  
-	        	</s:iterator> 
-			</table> 
+					</td>
+	            </tr>
+	        	</s:iterator>
+			</table>
 				<div class="buttonbottom">
 			 		<input name="button2" type="submit" class="buttonsubmit" id="button" onclick="return onSubmit('serviceCategory-newform.action');" value="Add New"/>
 					<input name="button2" type="button" class="button" id="button" onclick="window.close()" value="Close"/>
 				</div>
-         </s:form>   
-	</body>  
+         </s:form>
+	</body>
 </html>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
 
 <div class="panel panel-primary" data-collapsed="0">
 	<div class="panel-heading">
-		
+
 	</div>
 	<div class="form-group">
 		<c:choose>
@@ -65,7 +65,7 @@
 					<form:input class="form-control patternvalidation" data-pattern="alphanumericwithspecialcharacters" id="billnumber" path="billnumber" maxlength="50" required="required" />
 					<form:errors path="billnumber" cssClass="add-margin error-msg" />
 				</div>
-				
+
 				<label class="col-sm-2 control-label text-right"><spring:message code="lbl.billdate" />
 				</label>
 				<div class="col-sm-3 add-margin">
@@ -85,12 +85,12 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
-		
+
 	</div>
-	
-	
+
+
 	<jsp:include page="expense-trans-filter.jsp"/>
-	
+
 	<div class="form-group">
 		<label class="col-sm-3 control-label text-right">
 			<spring:message code="lbl.function" />	<span class="mandatory"></span>
@@ -105,7 +105,7 @@
 			<form:hidden path="egBillregistermis.function" name="egBillregistermis.function" id="egBillregistermis.function" class="form-control table-input hidden-input cfunction"/>
 			<form:errors path="egBillregistermis.function" cssClass="add-margin error-msg" />
 		</div>
-				
+
 		<label class="col-sm-2 control-label text-right"><spring:message code="lbl.narration" />
 		</label>
 		<div class="col-sm-3 add-margin">
@@ -113,16 +113,16 @@
 			<form:errors path="egBillregistermis.narration" cssClass="add-margin error-msg" />
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<label class="col-sm-3 control-label text-right">
 			<spring:message code="lbl.party.billnumber" />
 		</label>
 		<div class="col-sm-3 add-margin">
 			<form:input class="form-control patternvalidation" data-pattern="alphanumerichyphenbackslash" id="partyBillNumber" path="egBillregistermis.partyBillNumber" maxlength="32" />
-			<form:errors path="egBillregistermis.partyBillNumber" cssClass="add-margin error-msg" />		
+			<form:errors path="egBillregistermis.partyBillNumber" cssClass="add-margin error-msg" />
 		</div>
-		
+
 		<label class="col-sm-2 control-label text-right">
 			<spring:message code="lbl.party.billdate" />
 		</label>

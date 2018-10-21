@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -58,36 +58,36 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import java.util.List;
 
 public class CityIndexRepositoryImpl implements CityIndexCustomRepository {
-	
+
 	@Autowired
 	private ElasticsearchTemplate elasticSearchTemplate;
 
-	//Can be used preferably for fetching only one record where  
+	//Can be used preferably for fetching only one record where
 	//district code id fetched during aggregation
 	@Override
 	public CityIndex findOneByDistrictCode(String districtCode) {
-		
+
 		SearchQuery query = new NativeSearchQueryBuilder().withIndices("city")
 				            .withQuery(QueryBuilders.matchQuery("districtcode", districtCode))
 				            .build();
-		
+
 		List<CityIndex> cityList = elasticSearchTemplate.queryForList(query, CityIndex.class);
-		
+
 		//Used for returning one record based on aggregated result district code
 		return cityList.get(0);
 	}
 
-	//Can be used preferably for fetching only one record where  
+	//Can be used preferably for fetching only one record where
 	//city code id fetched during aggregation
 	public CityIndex findOneByCityCode(String cityCode){
 		SearchQuery query = new NativeSearchQueryBuilder().withIndices("city")
 	            .withQuery(QueryBuilders.matchQuery("citycode", cityCode))
 	            .build();
-		
+
 		List<CityIndex> cityList = elasticSearchTemplate.queryForList(query, CityIndex.class);
-		
+
 		//Used for returning one record based on aggregated result city code
 		return cityList.get(0);
 	}
-	
+
 }

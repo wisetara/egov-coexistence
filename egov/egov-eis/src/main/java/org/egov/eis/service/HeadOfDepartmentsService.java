@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,27 +61,27 @@ import java.util.List;
 public class HeadOfDepartmentsService {
 
     private HeadOfDepartmentsRepository employeeDepartmentRepository;
-    
+
     @Autowired
     public HeadOfDepartmentsService(final HeadOfDepartmentsRepository employeeDepartmentRepository) {
         this.employeeDepartmentRepository = employeeDepartmentRepository;
     }
-    
+
     @Transactional
     public void create(final HeadOfDepartments headOfDepartments) {
         employeeDepartmentRepository.save(headOfDepartments);
     }
-    
+
     @Transactional
     public void update(final HeadOfDepartments headOfDepartments) {
         employeeDepartmentRepository.save(headOfDepartments);
     }
-    
+
     @Transactional
     public void delete(final HeadOfDepartments headOfDepartments) {
         employeeDepartmentRepository.delete(headOfDepartments);
     }
-    
+
     /**
      * Returns true if the given employee is an HOD
      *

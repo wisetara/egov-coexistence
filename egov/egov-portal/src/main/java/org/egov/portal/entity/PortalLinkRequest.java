@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,9 +52,9 @@ import java.io.Serializable;
 public class PortalLinkRequest implements Serializable {
 
     private static final long serialVersionUID = 7403741969547156920L;
-    
+
     private String moduleName;
-    
+
     private String assessmentNo;
 
     public String getAssessmentNo() {

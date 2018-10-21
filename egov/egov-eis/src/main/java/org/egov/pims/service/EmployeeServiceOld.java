@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -70,7 +70,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 @Deprecated
-public interface EmployeeServiceOld 
+public interface EmployeeServiceOld
 {
 
 	public abstract boolean checkDuplication(String name,String className);

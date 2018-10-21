@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -47,13 +47,13 @@
  */
 
 $(document).ready(function(){
-	tableContainer1 = $("#position-table"); 
-	
+	tableContainer1 = $("#position-table");
+
 	$('#positionSearch').click(function(){
 		callajaxdatatable();
-		
+
 	});
-	
+
 	function callajaxdatatable(){
 
 		tableContainer1.dataTable({
@@ -78,7 +78,7 @@ $(document).ready(function(){
 				"targets": -1,
 				"mData" : null,
 				"defaultContent": '<button type="button" class="btn btn-xs btn-secondary edit-position"><span class="glyphicon glyphicon-edit"></span>&nbsp;Edit</button>'
-				
+
 			},{
 				"mData" : "positionId",
 				"visible": false
@@ -100,10 +100,10 @@ $(document).ready(function(){
 
 			}]
 		});
-		
+
 	}
-	
-	
+
+
 	$('#position-table').on( 'draw.dt', function () {
 	/*	var outsourced=0, sanctioned=0;
 		var oTable = $('#position-table').dataTable();
@@ -112,12 +112,12 @@ $(document).ready(function(){
 					outsourced=outsourced+1;
 					sanctioned=sanctioned+1;
 		})
-		
-		$("#outSourcedPost").val(outsourced); 
+
+		$("#outSourcedPost").val(outsourced);
 		$("#sanctionedPost").val(sanctioned); */
 		 getSanctionAndOutsourcePositions();
 	  } );
-	
+
 	/*$('#searchposition').keyup(function(){
 		tableContainer1.fnFilter(this.value);
 	});*/
@@ -128,20 +128,20 @@ $(document).ready(function(){
          type: 'GET',
          data: {departmentId : $('#position_dept').val(),designationId : $('#position_desig').val()
         	 },
-         success: function(data) { 
+         success: function(data) {
          	var msg = data.split('/');
-         	$("#outSourcedPost").val(msg[0]); 
-    		$("#sanctionedPost").val(msg[1]); 	
+         	$("#outSourcedPost").val(msg[0]);
+    		$("#sanctionedPost").val(msg[1]);
          //	bootbox.alert(msg(0)+msg(1));
          },
          error: function() {
         	 bootbox.alert("Internal server error occurred, please try after sometime.");
          }
- }); 
+ });
 	}
-	 
-	
-	
+
+
+
 	$('#position-table').on('click', 'tbody tr', function(event){
 		if($(event.target).attr('class') ==  'btn btn-xs btn-secondary edit-position')
 	    {
@@ -154,20 +154,20 @@ $(document).ready(function(){
 			}else{
 				$('#outSourced-No').prop('checked', true);
 			}
-			/*$("#outSourcedPost").val(tableContainer1.fnGetData(this,4)); 
+			/*$("#outSourcedPost").val(tableContainer1.fnGetData(this,4));
 			$("#sanctionedPost").val(tableContainer1.fnGetData(this,5)); */
 			$('.position-modal').modal('show');
 		}
-			
+
 	});
-	
+
 	$(".is_valid_letters_space_hyphen_underscore").on("input", function(){
         var regexp = /[^a-zA-Z _0-9_-]/g;
 		if($(this).val().match(regexp)){
 			$(this).val( $(this).val().replace(regexp,'') );
 		}
 	});
-	
+
 	$('#position-form').on('submit', function(e){
 	       e.preventDefault();
 	       $.ajax({
@@ -184,8 +184,8 @@ $(document).ready(function(){
             		msg = "No changes with current position name."
             	}else if (data == "POSITIONNAMEISNULL") {
             		msg = "Position name is mandatory"
-            	}  
-            	
+            	}
+
             	if (data == "SUCCESS") {
              		callajaxdatatable();
             	}
@@ -196,9 +196,9 @@ $(document).ready(function(){
             }, complete : function() {
             	$('.position-modal, .loader-class').modal('hide');
             }
-    }); 
+    });
 	});
-	
-	
-	
+
+
+
 });

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -76,7 +76,7 @@ var callback = {
 function getData(){
 	var asOnDate =  document.getElementById('asOnDate').value;
 	var bankAccount = document.getElementById('accountNumber').value;
-	
+
 	isValid = validateData();
 	if(isValid == false)
 		return false;
@@ -87,14 +87,14 @@ function getData(){
 function loadBank(fund){
 	var status = '<s:property value="voucherStatusKey" escape="false"/>';
 	var asOnDate =  document.getElementById('asOnDate').value;
-	populatebank({fundId:fund.options[fund.selectedIndex].value,asOnDate:asOnDate,voucherStatusKey:status})	
+	populatebank({fundId:fund.options[fund.selectedIndex].value,asOnDate:asOnDate,voucherStatusKey:status})
 }
 function populateAccNumbers(bankBranch){
 	var status = '<s:property value="voucherStatusKey" escape="false"/>';
 	var fund = document.getElementById('fundId');
 	id = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1]
 	var asOnDate =  document.getElementById('asOnDate').value;
-	populateaccountNumber({branchId:id,fundId:fund.options[fund.selectedIndex].value,asOnDate:asOnDate,voucherStatusKey:status})	
+	populateaccountNumber({branchId:id,fundId:fund.options[fund.selectedIndex].value,asOnDate:asOnDate,voucherStatusKey:status})
 }
 function doAfterSubmit(){
 		document.getElementById('loading').style.display ='block';
@@ -120,7 +120,7 @@ function validateData(){
 		bootbox.alert("Please enter a valid date")
 		return false;
 	}
-	return true;	
+	return true;
 }
 
 function computeBalance(index){
@@ -167,7 +167,7 @@ function viewVoucher(vid){
 function exportXls(){
 	var bankAccount = document.getElementById('accountNumber').value;
 	var asOnDate = document.getElementById('asOnDate').value;
-	var runningBalance = document.getElementById('rBalance').value;	
+	var runningBalance = document.getElementById('rBalance').value;
 	var selectedVhs="";
 	var selectdVhs="";
 	var x=document.getElementsByName('selectVhs');
@@ -187,7 +187,7 @@ function exportXls(){
 function exportPdf(){
 	var bankAccount = document.getElementById('accountNumber').value;
 	var asOnDate = document.getElementById('asOnDate').value;
-	var runningBalance = document.getElementById('rBalance').value;	
+	var runningBalance = document.getElementById('rBalance').value;
 	var selectedVhs="";
 	var selectdVhs="";
 	var x=document.getElementsByName('selectVhs');

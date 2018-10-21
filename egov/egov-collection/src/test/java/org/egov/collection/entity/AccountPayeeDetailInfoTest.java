@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,13 +52,13 @@ package org.egov.collection.entity;
 public class AccountPayeeDetailInfoTest { /* extends AbstractPersistenceServiceTest {
 	private CollectionObjectFactory objectFactory;
 	private EgovCommon egovCommon;
-	
+
 	@Before
 	public void setUp() {
 		objectFactory = new CollectionObjectFactory(session);
-		
+
 	}
-	
+
 	@Test
 	public void testCreateAccountPayeeDetailInfoEx(){
 		AccountPayeeDetail accountPayeeDetail = objectFactory.createAccountPayeeDetail();
@@ -78,7 +78,7 @@ public class AccountPayeeDetailInfoTest { /* extends AbstractPersistenceServiceT
 							+ "]", ex.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testCreateAccountPayeeDetailInfo() throws ApplicationException
 	{
@@ -87,7 +87,7 @@ public class AccountPayeeDetailInfoTest { /* extends AbstractPersistenceServiceT
 		EasyMock.expect(egovCommon.getEntityType(EasyMock.isA(Accountdetailtype.class), EasyMock.isA(Integer.class))).
 			andThrow(new ApplicationException("")).andReturn(null);
 		AccountPayeeDetailInfo accountPayeeDetailInfo = new AccountPayeeDetailInfo(accountPayeeDetail,egovCommon);
-		
+
 		assertEquals(accountPayeeDetailInfo.getAccountDetailKey(),accountPayeeDetail.getAccountDetailKey());
 		assertEquals(accountPayeeDetailInfo.getAccountDetailType(),accountPayeeDetail.getAccountDetailType());
 		assertEquals(accountPayeeDetailInfo.getAccountDetailTypeName(),accountPayeeDetail.getAccountDetailType().getName());

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -88,21 +88,21 @@ public class CFinancialYear extends AbstractAuditable {
     @Column(name="financialyear")
     private String finYearRange;
 
-  
+
     @NotNull
     private Date startingDate;
 
     @NotNull
     private Date endingDate;
-    
+
     private Boolean isActive;
-  
+
     private Boolean isActiveForPosting;
-    
+
     private Boolean isClosed;
- 
+
     private Boolean transferClosingBalance;
-    
+
     @OneToMany(mappedBy = "cFinancialYear", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("id DESC ")
     @NotAudited
@@ -173,19 +173,19 @@ public class CFinancialYear extends AbstractAuditable {
     public void setId(final Long id) {
         this.id = id;
     }
-    
+
 
     public List<CFiscalPeriod> getcFiscalPeriod() {
         return cFiscalPeriod;
     }
-    
+
 
     public void setcFiscalPeriod(final List<CFiscalPeriod> cFiscalPeriod) {
         this.cFiscalPeriod.clear();
         if (cFiscalPeriod != null)
             this.cFiscalPeriod.addAll(cFiscalPeriod);
     }
-    
+
     public void addCFiscalPeriod(final CFiscalPeriod cFiscalPeriod) {
         getcFiscalPeriod().add(cFiscalPeriod);
     }

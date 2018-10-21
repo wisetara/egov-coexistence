@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,15 +55,15 @@
 	<c:if test="${analyticsEnabled}">
 		<spring:eval expression="@environment.getProperty('analytics.config')" scope="application"/>
 	</c:if>
- <%@ include file="/includes/meta.jsp" %>    
+ <%@ include file="/includes/meta.jsp" %>
 		<title>eGov Financials <decorator:title/></title>
 		<link rel="icon" href="<cdn:url value='/resources/global/images/favicon.png' context='/services/egi'/>" sizes="32x32">
 		<link href="<cdn:url value='/resources/css/budget.css?rnd=${app_release_no}'/>" rel="stylesheet" type="text/css" />
 		<link href="<cdn:url value='/resources/css/commonegovnew.css?rnd=${app_release_no}'/>" rel="stylesheet" type="text/css" />
 		<link href="${pageContext.request.contextPath}/resources/css/error.css?rnd=${app_release_no}" rel="stylesheet" type="text/css"></link>
 		<link rel="stylesheet" type="text/css" href="/services/EGF/resources/commonyui/yui2.8/fonts/fonts-min.css"/>
-		<link rel="stylesheet" type="text/css" href="/services/EGF/resources/commonyui/yui2.8/datatable/assets/skins/sam/datatable.css"/>	
-		<link rel="stylesheet" type="text/css" href="/services/EGF/resources/commonyui/yui2.8/assets/skins/sam/autocomplete.css" />	
+		<link rel="stylesheet" type="text/css" href="/services/EGF/resources/commonyui/yui2.8/datatable/assets/skins/sam/datatable.css"/>
+		<link rel="stylesheet" type="text/css" href="/services/EGF/resources/commonyui/yui2.8/assets/skins/sam/autocomplete.css" />
 		<!-- <script type="text/javascript" src="/EGF/resources/commonyui/yui2.8/animation/animation-min.js"></script> -->
 		<script type="text/javascript" src="/services/EGF/resources/commonyui/yui2.8/yuiloader/yuiloader-min.js"></script>
 		<script type="text/javascript" src="/services/EGF/resources/commonyui/yui2.8/yahoo-dom-event/yahoo-dom-event.js"></script>
@@ -88,39 +88,39 @@
 		<script src="<cdn:url value='/resources/global/js/bootstrap/bootstrap-datepicker.js' context='/services/egi'/>" ></script>
 		<decorator:head/>
 	</head>
-	
+
 <script type="text/javascript" >
-window.document.onkeydown = function(event) { 
-   	 switch (event.keyCode) { 
+window.document.onkeydown = function(event) {
+   	 switch (event.keyCode) {
         case 116 : //F5 button
             event.returnValue = false;
             event.keyCode = 0;
-            return false; 
+            return false;
         case 82 : //R button
             if (event.ctrlKey) { //Ctrl button
-                event.returnValue = false; 
-                event.keyCode = 0;  
-                return false; 
-            } 
+                event.returnValue = false;
+                event.keyCode = 0;
+                return false;
+            }
     }
 }
 
-</script>	
+</script>
 <body <decorator:getProperty property="body.id" writeEntireProperty="yes"/><decorator:getProperty property="body.class" writeEntireProperty="true"/> <decorator:getProperty property="body.onload" writeEntireProperty="true"/>  >
-	
+
 		<div class="page-container">
-		 
+
 		    <div class="main-content">
 		       <decorator:body/>
 		    </div>
-		    
+
 		    <!-- footer -->
 		    <footer class="main">
 			    Powered by <a href="http://egovernments.org/" target="_blank">eGovernments Foundation</a>
 			</footer>
 	   </div>
-	   
-	   <!-- loading indicator --> 
+
+	   <!-- loading indicator -->
 	 <div class="modal fade loader-class" data-backdrop="static">
 			<div class="modal-dialog">
 					<div class="modal-body">
@@ -134,7 +134,7 @@ window.document.onkeydown = function(event) {
 									<div class="rect5"></div>
 								</div>
 							</div>
-							
+
 							<div class="col-md-12 spinner-text">
 								Processing your request. Please wait..
 							</div>
@@ -142,7 +142,7 @@ window.document.onkeydown = function(event) {
 					</div>
 			</div>
 	 </div>
-	  
+
 	  <script>
 
 		jQuery("form").submit(function( event ) {
@@ -162,13 +162,13 @@ window.document.onkeydown = function(event) {
 		      return false;
 		    }
 		  });
-		
+
 		jQuery(".datepicker").datepicker({
 			format: "dd/mm/yyyy",
 			autoclose:true
-		}); 
-	  
+		});
+
 	  </script>
-	  
+
 	</body>
 </html>

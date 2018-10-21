@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -92,7 +92,7 @@
 		<filter-name>restAuthFilter</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	
+
     <filter>
         <filter-name>applicationCoreFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -193,7 +193,7 @@
 		<filter-name>restAuthFilter</filter-name>
 		<url-pattern>/rest/*</url-pattern>
 	</filter-mapping>
-    
+
     <filter-mapping>
         <filter-name>applicationCoreFilter</filter-name>
         <url-pattern>/*</url-pattern>

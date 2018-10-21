@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -66,7 +66,7 @@
                 </div>
                 <div class="panel-body custom-form">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><spring:message code="lbl.boundaryType.heirarchyType"/></label>
+                        <label class="col-sm-3 control-label"><spring:message code="lbl.boundaryType.hierarchyType"/></label>
                         <div class="col-sm-6">
                             <form:input path="hierarchyType.name" id="hierarchyType" type="text" class="form-control low-width" placeholder="" autocomplete="off" required="required" readonly="true"/>
                             <form:errors path="hierarchyType" cssClass="add-margin error-msg"/>

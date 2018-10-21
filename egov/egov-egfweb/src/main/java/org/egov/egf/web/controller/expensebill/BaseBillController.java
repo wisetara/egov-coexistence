@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -97,7 +97,7 @@ public abstract class BaseBillController extends BaseVoucherController {
     @Autowired
     @Qualifier("persistenceService")
     private PersistenceService persistenceService;
-    
+
     public BaseBillController(final AppConfigValueService appConfigValuesService) {
         super(appConfigValuesService);
     }
@@ -229,7 +229,7 @@ public abstract class BaseBillController extends BaseVoucherController {
                     details.getEgBillPaydetailes().add(payeeDetail);
                 }
     }
-    
+
     protected void prepareBillDetailsForView(final EgBillregister egBillregister) {
         for (final EgBilldetails details : egBillregister.getBillDetails()) {
             details.setChartOfAccounts(chartOfAccountsService.findById(details.getGlcodeid().longValue(), false));

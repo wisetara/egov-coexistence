@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -62,15 +62,15 @@
 				<th><spring:message code="lbl.account.code"/></th>
 				<th><spring:message code="lbl.account.head"/></th>
 				<th><spring:message code="lbl.debit.amount"/></th>
-				<th><spring:message code="lbl.action"/></th> 					
+				<th><spring:message code="lbl.action"/></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr id="debitdetailsrow">
 				<td>
 					<input type="text" id="tempDebitDetails[0].debitGlcode" name="tempDebitDetails[0].debitGlcode" class="form-control table-input debitDetailGlcode debitGlcode"  data-errormsg="Account Code is mandatory!" data-idx="0" data-optional="0"   placeholder="Type first 3 letters of Account code" >
-					<form:hidden path="" name="tempDebitDetails[0].glcode" id="tempDebitDetails[0].glcode" class="form-control table-input hidden-input debitaccountcode"/> 
-					<form:hidden path="" name="tempDebitDetails[0].glcodeid" id="tempDebitDetails[0].glcodeid" class="form-control table-input hidden-input debitdetailid"/> 
+					<form:hidden path="" name="tempDebitDetails[0].glcode" id="tempDebitDetails[0].glcode" class="form-control table-input hidden-input debitaccountcode"/>
+					<form:hidden path="" name="tempDebitDetails[0].glcodeid" id="tempDebitDetails[0].glcodeid" class="form-control table-input hidden-input debitdetailid"/>
 					<form:hidden path="" name="tempDebitDetails[0].isSubLedger" id="tempDebitDetails[0].isSubLedger" class="form-control table-input hidden-input debitIsSubLedger"/>
 					<form:hidden path="" name="tempDebitDetails[0].detailTypeId" id="tempDebitDetails[0].detailTypeId" class="form-control table-input hidden-input debitDetailTypeId"/>
 					<form:hidden path="" name="tempDebitDetails[0].detailKeyId" id="tempDebitDetails[0].detailKeyId" class="form-control table-input hidden-input debitDetailKeyId"/>
@@ -78,11 +78,11 @@
 					<form:hidden path="" name="tempDebitDetails[0].detailKeyName" id="tempDebitDetails[0].detailKeyName" class="form-control table-input hidden-input debitDetailKeyName"/>
 				</td>
 				<td>
-					<input type="text" id="tempDebitDetails[0].debitAccountHead" name="tempDebitDetails[0].debitAccountHead" class="form-control debitdetailname" disabled>  
+					<input type="text" id="tempDebitDetails[0].debitAccountHead" name="tempDebitDetails[0].debitAccountHead" class="form-control debitdetailname" disabled>
 				</td>
 				<td>
 					<form:input path="" name="tempDebitDetails[0].debitamount" id="tempDebitDetails[0].debitamount"  data-errormsg="Debit Amount is mandatory!" onkeyup="decimalvalue(this);" onblur="calcualteNetpaybleAmount();" data-pattern="decimalvalue" data-idx="0" data-optional="0" class="form-control table-input text-right debitAmount"   maxlength="12"  />
-				</td> 
+				</td>
 				<td class="text-center"><span style="cursor:pointer;" onclick="addDebitDetailsRow();"><i class="fa fa-plus" aria-hidden="true"></i></span>
 				 <span class="add-padding debit-delete-row" onclick="deleteDebitDetailsRow(this);"><i class="fa fa-trash"  aria-hidden="true" data-toggle="tooltip" title="" data-original-title="Delete!"></i></span> </td>
 			</tr>

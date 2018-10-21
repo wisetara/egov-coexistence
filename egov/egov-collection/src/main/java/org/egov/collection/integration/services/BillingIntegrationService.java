@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -137,9 +137,9 @@ public interface BillingIntegrationService {
      * @return
      */
     public ReceiptAmountInfo receiptAmountBifurcation(BillReceiptInfo billReceiptInfo);
-    
+
     /**
-     * Collection system invokes billing system to validate receipt cancellation allowed or not. 
+     * Collection system invokes billing system to validate receipt cancellation allowed or not.
      * parameter.
      * @param receiptNumber
      * @return

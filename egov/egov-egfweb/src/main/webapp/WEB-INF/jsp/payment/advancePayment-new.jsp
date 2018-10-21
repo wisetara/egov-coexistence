@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -59,7 +59,7 @@
 <script>
 window.history.forward(1);
 function noBack() {
-	window.history.forward(); 
+	window.history.forward();
 }
 
 function populateAccNum(bankBranch){
@@ -76,11 +76,11 @@ function validateInputBeforeSubmit() {
 	advanceRequisitionDate = '<s:date name="advanceRequisition.advanceRequisitionDate" format="dd/MM/yyyy"/>';
 	currentDate = '<%=new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())%>';
 	if(voucherDate == '') {
-		dom.get("advancePayment_error").innerHTML='<s:text name="arf.payment.voucherdate.required"/>'; 
+		dom.get("advancePayment_error").innerHTML='<s:text name="arf.payment.voucherdate.required"/>';
         dom.get("advancePayment_error").style.display='';
         window.scroll(0,0);
 		return false;
-	}	 
+	}
 
 	if(compareDate(voucherDate,advanceRequisitionDate) == 1 ) {
 		dom.get("advancePayment_error").innerHTML='<s:text name="arf.payment.voucherdate.lessthan.advancerequisitiondate" />';
@@ -90,30 +90,30 @@ function validateInputBeforeSubmit() {
 	}
 
 	if(compareDate(voucherDate,currentDate) == -1 ){
-		dom.get("advancePayment_error").innerHTML='<s:text name="arf.validate.payment.voucherdate.greaterthan.currentDate" />'; 
+		dom.get("advancePayment_error").innerHTML='<s:text name="arf.validate.payment.voucherdate.greaterthan.currentDate" />';
        	dom.get("advancePayment_error").style.display='';
        	window.scroll(0,0);
 		return false;
-	 }	
-	
+	 }
+
 	bankBranchId = document.getElementById('bankId').value;
 	if(bankBranchId == '' || bankBranchId == 0 || bankBranchId == -1) {
-		dom.get("advancePayment_error").innerHTML='<s:text name="arf.bankbranch.required"/>'; 
+		dom.get("advancePayment_error").innerHTML='<s:text name="arf.bankbranch.required"/>';
         dom.get("advancePayment_error").style.display='';
         window.scroll(0,0);
 		return false;
-	}	 
+	}
 
 	accountNumber = document.getElementById('accountNumber').value;
 	if(accountNumber == '' || accountNumber == 0 || accountNumber == -1) {
-		dom.get("advancePayment_error").innerHTML='<s:text name="arf.accountnumber.required"/>'; 
+		dom.get("advancePayment_error").innerHTML='<s:text name="arf.accountnumber.required"/>';
         dom.get("advancePayment_error").style.display='';
         window.scroll(0,0);
 		return false;
-	}	
-	
+	}
+
 	dom.get("advancePayment_error").style.display="none";
-	return true;	
+	return true;
 }
 
 function validateAppoveUser(name,value){
@@ -130,7 +130,7 @@ function validateAppoveUser(name,value){
 			return false;
 		}
 	</s:else>
-	
+
 	return true;
 }
 

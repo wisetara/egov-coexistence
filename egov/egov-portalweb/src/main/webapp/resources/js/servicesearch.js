@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -53,16 +53,16 @@ jQuery('#searchservice').click(function(e) {
 	}
 	else
 		callAjaxViewSearch();
-	
-	
-	
+
+
+
 });
 
 var reportdatatable;
 function callAjaxViewSearch(){
 	$.post("/portal/citizen/searchresult", $('#serviceSearchRequestForm').serialize())
 	.done(function (response) {
-		var data= []; 
+		var data= [];
 		data.push(JSON.parse(response).data);
 		console.log(JSON.parse(response).data)
 		console.log(data);
@@ -77,7 +77,7 @@ function callAjaxViewSearch(){
 			{title: 'Consumer Number', data: "consumerNo"},
 			{title: 'Owner Name', data: "ownerName"},
 			{title: 'Service Name', data: "serviceName","bVisible": true},
-			
+
 			{title:'action', "data" : null, "sClass" : "text-center", "target":-1,"bVisible": true,
 			    sortable: false,
 			    "render": function ( data, type, full, meta ) {
@@ -86,9 +86,9 @@ function callAjaxViewSearch(){
 			       	return '<button type="button" id ="viewbutton" class="btn btn-primary viewbutton"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;LINK</button>';
 			    }
 			}]
-			
+
 		});
-		
+
 	});
 }
 
@@ -99,12 +99,12 @@ $("#SearchResults").on('click','tbody tr td  .viewbutton',function(event) {
 	var consumerCode = reportdatatable.fnGetData($(this).parent().parent(),0);
 	if(consumerCode=='' || consumerCode === null){
 		bootbox.alert("you can't link the application which is under process")
-		
+
 	}
 	else{
 	bootbox.confirm({
 						    message: "Do you want to link\n" +
-						    		"consumer Number " + consumerCode  + 
+						    		"consumer Number " + consumerCode  +
 						    		" with applicant Name "+ applicantName +
 						    		"\nto your account",
 						    buttons: {
@@ -123,13 +123,13 @@ $("#SearchResults").on('click','tbody tr td  .viewbutton',function(event) {
 								} else {
 									event.stopPropagation();
 									event.preventDefault();
-									
+
 								}
 							}
 						});
-	
+
 	}
-	
+
 });
 
 function openPopupPage(relativeUrl,consumerCode,moduleName,applicantName)
@@ -137,7 +137,7 @@ function openPopupPage(relativeUrl,consumerCode,moduleName,applicantName)
  var param = { 'consumerCode' : consumerCode, 'moduleName': moduleName ,'applicantName':applicantName };
  OpenWindowWithPost(relativeUrl, "width=1000, height=600, left=100, top=100, resizable=yes, scrollbars=yes", param);
 }
- 
+
 
 function OpenWindowWithPost(url, windowoption,params)
 {

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,17 +53,17 @@ var FUNDSOUCELIST = "fundSourceList";
 var fundSourceGridIndex = 0;
 var fundSourceGridTable;
 function updateGridData(){
-	var validationSuccess = validateHeaderBeforeAddingToGrid();	
+	var validationSuccess = validateHeaderBeforeAddingToGrid();
 	if(validationSuccess ){
-		if(document.getElementsByName('subschmselectionOpt')[0].checked){ 
+		if(document.getElementsByName('subschmselectionOpt')[0].checked){
 			addDataToGridWithsubscheme();
 		}else{
 			addDataToGridWithoutsubscheme();
 		}
 		fundSourceGridIndex = fundSourceGridIndex + 1;
 	}
-	
-	
+
+
 }
 function addDataToGridWithoutsubscheme(){
 	document.getElementById("finSrcGrid").style.display="block";
@@ -75,18 +75,18 @@ function addDataToGridWithoutsubscheme(){
 
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].name').value = document.getElementById('nameUpper').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].nameLable').innerHTML = document.getElementById('nameUpper').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].sourceAmount').value = document.getElementById('sourceAmountUpper').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].srcAmtLabel').innerHTML =  document.getElementById('sourceAmountUpper').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].isactive').value = document.getElementById('isactiveChkUpper').checked;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].isactiveL').innerHTML = document.getElementById('isactiveChkUpper').checked?"Yes":"No";
-	
+
 	$('form').clearForm();
 }
 
 function addDataToGridWithsubscheme(){
-	
+
 	document.getElementById("finSrcGrid").style.display="block";
 	fundSourceGridTable.addRow({SlNo:fundSourceGridTable.getRecordSet().getLength()+1});
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].serialNo').innerHTML =fundSourceGridIndex+1;
@@ -97,34 +97,34 @@ function addDataToGridWithsubscheme(){
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].subscemeLabel').innerHTML = subschemeObj.options[subschemeObj.selectedIndex].text;
 
 	}
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].code').value = document.getElementById('codeMiddle').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].codeLable').innerHTML = document.getElementById('codeMiddle').value;
 
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].name').value = document.getElementById('nameMiddle').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].nameLable').innerHTML = document.getElementById('nameMiddle').value;
-	
+
 	var finInstObj = document.getElementById('finInstId');
 	if(! finInstObj.disabled){
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstId.id').value = finInstObj.options[finInstObj.selectedIndex].value;
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].instNameLabel').innerHTML = finInstObj.options[finInstObj.selectedIndex].text;
 	}
-	
+
 	if( document.getElementById('fundingType').disabled){
-		
+
 	     document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].type').value = "Shared Source";
 	     var finSrcOwnSrcObj = document.getElementById('finSrcOwnSrc');
 	     document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].fsrcTypLabel').innerHTML =  finSrcOwnSrcObj.options		[finSrcOwnSrcObj.selectedIndex].text;
 	}else{
 
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].type').value = document.getElementById('fundingType').value;
-		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].fsrcTypLabel').innerHTML = document.getElementById('fundingType').value; 
-		
+		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].fsrcTypLabel').innerHTML = document.getElementById('fundingType').value;
+
 	}
 
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].sourceAmount').value = document.getElementById('sourceAmountMiddle').disabled ? document.getElementById('sourceAmountOwnSrc').value : document.getElementById('sourceAmountMiddle').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].srcAmtLabel').innerHTML =  document.getElementById('sourceAmountMiddle').disabled ? document.getElementById('sourceAmountOwnSrc').value : document.getElementById('sourceAmountMiddle').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].isactive').value = document.getElementById('isactiveChkMiddle').checked;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].isactiveL').innerHTML = document.getElementById('isactiveChkMiddle').checked?"Yes":"No";
 
@@ -133,20 +133,20 @@ function addDataToGridWithsubscheme(){
 
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].rateOfIntrest').value = document.getElementById('rateOfIntrest').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].rtofIntrLabel').innerHTML = document.getElementById('rateOfIntrest').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].loanPeriod').value = document.getElementById('loanPeriod').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].loanprdLabel').innerHTML = document.getElementById('loanPeriod').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].moratoriumPeriod').value = document.getElementById('moratoriumPeriod').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].mrtmPrdLabel').innerHTML=document.getElementById('moratoriumPeriod').value;
-	
+
 	var repyfrqObj = document.getElementById('repaymentFrequency');
 	if(repyfrqObj.options[repyfrqObj.selectedIndex].value !=-1){
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].repaymentFrequency').value = repyfrqObj.options[repyfrqObj.selectedIndex].value;
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].repymntLabel').innerHTML=repyfrqObj.options[repyfrqObj.selectedIndex].text;
-	
+
 	}
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].noOfInstallment').value = document.getElementById('noOfInstallment').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].noOfInstLabel').innerHTML=document.getElementById('noOfInstallment').value;
 
@@ -156,36 +156,36 @@ function addDataToGridWithsubscheme(){
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].accNumLabel').innerHTML=accnumObj.options[accnumObj.selectedIndex].text;
 
 	}
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].govtOrder').value = document.getElementById('govtOrder').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].govtOrderLabel').innerHTML=document.getElementById('govtOrder').value;
 
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].govtDate').value = document.getElementById('govtDate').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].govtDateLabel').innerHTML=document.getElementById('govtDate').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].dpCodeNum').value = document.getElementById('dpCodeNum').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].dpCodeNumLabel').innerHTML=document.getElementById('dpCodeNum').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstLetterNum').value = document.getElementById('finInstLetterNum').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstLetNumLabel').innerHTML=document.getElementById('finInstLetterNum').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstLetterDate').value = document.getElementById('finInstLetterDate').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstLetDtLabel').innerHTML=document.getElementById('finInstLetterDate').value;
-	
+
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstSchmNum').value = document.getElementById('finInstSchmNum').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstSchmNumLabel').innerHTML=document.getElementById('finInstSchmNum').value;
 
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstSchmDate').value = document.getElementById('finInstSchmDate').value;
 	document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].finInstSchmDtLabel').innerHTML=document.getElementById('finInstSchmDate').value;
-        
+
 	if(!document.getElementById('finSrcOwnSrc').disabled){
 		document.getElementById(FUNDSOUCELIST+'['+fundSourceGridIndex+'].id').value = document.getElementById('finSrcOwnSrc').value;
 	}
 	$('form').clearForm();
 }
 var makeFundSourceGridTable = function() {
-   var fundSourceGridColumns = [ 
-	{key:"serialNo",label:'Sl no',width:30,formatter:createLabelSamll(FUNDSOUCELIST,".serialNo")},	
+   var fundSourceGridColumns = [
+	{key:"serialNo",label:'Sl no',width:30,formatter:createLabelSamll(FUNDSOUCELIST,".serialNo")},
 	{key:"fsrcTypL",label:'<s:text name="masters.finsrc.fundingType"/>',width:110, formatter:createLabelSamll(FUNDSOUCELIST,".fsrcTypLabel")},
 	{key:"subschemeL",label:'<s:text name="masters.subscheme"/>',width:140, formatter:createLabelSamll(FUNDSOUCELIST,".subscemeLabel")},
 	{key:"codeL",label:'<s:text name="masters.funsrc.code"/>',width:70, formatter:createLabelSamll(FUNDSOUCELIST,".codeLable")},
@@ -207,8 +207,8 @@ var makeFundSourceGridTable = function() {
 	{key:"finISDtL",label:'<s:text name="masters.finsrc.finInstSchDt"/>',width:330, formatter:createLabelSamll(FUNDSOUCELIST,".finInstSchmDtLabel")},
 	{key:"amtPerctgL",label:'<s:text name="masters.finsrc.amtPerc"/>',width:120, formatter:createLabelSamll(FUNDSOUCELIST,".amtPerctgLabel")},
 	{key:"bankAccL",label:'<s:text name="masters.finsrc.bankAcc"/>',width:140, formatter:createLabelSamll(FUNDSOUCELIST,".accNumLabel")},
-	
-	
+
+
 	{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")},
 	{key:"subscheme",hidden:true,formatter:createHiddenField(FUNDSOUCELIST,".subSchemeId.id","hidden")},
 	{key:"code",hidden:true,formatter:createHiddenField(FUNDSOUCELIST,".code","hidden")},
@@ -232,27 +232,27 @@ var makeFundSourceGridTable = function() {
 	{key:"finISDt",hidden:true,formatter:createHiddenField(FUNDSOUCELIST,".finInstSchmDate","hidden")},
 	{key:"isactive",hidden:true,formatter:createHiddenField(FUNDSOUCELIST,".isactive","hidden")},
 	{key:"finSrcId",hidden:true,formatter:createHiddenField(FUNDSOUCELIST,".id","hidden")}
-	
+
 	];
-		
-		var fundSourceGridDS = new YAHOO.util.DataSource(); 
+
+		var fundSourceGridDS = new YAHOO.util.DataSource();
 		fundSourceGridTable = new YAHOO.widget.DataTable("fundSourceGridTable",fundSourceGridColumns, fundSourceGridDS);
 		fundSourceGridTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Delete') { 	
-					fundSourceGridIndex = fundSourceGridIndex -1;	
+			if (column.key == 'Delete') {
+					fundSourceGridIndex = fundSourceGridIndex -1;
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
 						this.updateCell(this.getRecord(i),this.getColumn('SlNo'),""+(i+1));
 					}
-					
-				
+
+
 			}
-			
-			        
+
+
 		});
 }
 
@@ -267,7 +267,7 @@ function createHiddenField(prefix,suffix,type){
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"' name='"+prefix+"["+fundSourceGridIndex+"]"+suffix+"' id='"+prefix+"["+fundSourceGridIndex+"]"+suffix+"'/>";
 	}
-	
+
 }
  function validateDecimal(obj){
 		var fieldValue = obj.value;
@@ -275,7 +275,7 @@ function createHiddenField(prefix,suffix,type){
 		if(null == fieldValue.match(/(^-*\d+$)|(^-*\d+\.\$)|(^-*\d+\.\d+$)/)){
 			obj.value = fieldValue.substring(0,fieldValue.length-1) ;
 		}
-		
+
 }
 function validateGrid(){
 	if(fundSourceGridIndex == 0){

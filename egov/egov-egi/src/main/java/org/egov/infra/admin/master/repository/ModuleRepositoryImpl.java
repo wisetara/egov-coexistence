@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -74,13 +74,13 @@ public class ModuleRepositoryImpl implements ModuleRepositoryCustom {
                 append("WHERE act.id IN (SELECT DISTINCT actionid FROM eg_roleaction WHERE roleid IN (:roles)) ").
                 append("AND mod.enabled=true AND act.enabled = true AND act.application=mod.id AND mod.parentmodule is null ORDER BY mod.ordernumber ASC");
         //entityManager.setFlushMode(FlushModeType.COMMIT);
-       
+
 //        return entityManager.createNativeQuery(sql.toString()).
 //                setParameter("roles", roles).
 //                setFlushMode(FlushModeType.COMMIT).
 //                getResultList();
-  
-        	
+
+
         return entityManager.createNativeQuery(sql.toString()).
                 setParameter("roles", Arrays.asList(4L,2L)).
                 setFlushMode(FlushModeType.COMMIT).

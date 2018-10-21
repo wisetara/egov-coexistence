@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -78,12 +78,12 @@ public class CacheControlFilter implements Filter {
         else
             expireInSeconds = Long.valueOf(filterConfig.getInitParameter("expireInSeconds"));
     }
-    
+
     @Override
     public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
-       
+
     	System.out.println("********************** CacheControlFilter: doFilter");
-    	
+
     	final HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         httpServletResponse.setHeader(CACHE_CONTROL_HEADER, "public,max-age=" + expireInSeconds);
         httpServletResponse.setDateHeader(EXPIRE_HEADER, System.currentTimeMillis() + expireInSeconds * 1000L);

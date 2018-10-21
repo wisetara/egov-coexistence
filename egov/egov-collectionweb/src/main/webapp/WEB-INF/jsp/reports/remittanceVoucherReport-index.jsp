@@ -1,7 +1,7 @@
 <%@ include file="/includes/taglibs.jsp"%>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -46,7 +46,7 @@
   ~   In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
   ~
   --%>
-  
+
 <head>
 <title><s:text name="remittanceVoucherReport.title" /></title>
 <link rel="stylesheet" type="text/css" href="/collection/resources/commonyui/yui2.8/assets/skins/sam/autocomplete.css" />
@@ -68,7 +68,7 @@ function onChangeServiceList(bankAccountId) {
 function validate()
 {
 		document.getElementById("report_error_area").innerHTML = "";
-		document.getElementById("report_error_area").style.display="none"; 
+		document.getElementById("report_error_area").style.display="none";
 		var valid = false;
 		if (document.getElementById('receiptNumber').value != ""
 			&& document.getElementById('receiptNumber').value != null) {
@@ -88,20 +88,20 @@ function validate()
 		} else if (document.getElementById("bankAccountId").value != null
 				&& document.getElementById("bankAccountId").value != -1) {
 			valid = true;
-		} 
+		}
 		if (!valid) {
 			document.getElementById("report_error_area").style.display = "block";
 			document.getElementById("report_error_area").innerHTML += '<s:text name="remittanceVoucher.atleast.one.criteria" />'
 					+ '<br>';
 			return false;
-		} 
+		}
 
 		return validate;
 }
 var receiptNumberSelectionEnforceHandler = function(sType, arguments) {
 		warn('improperreceiptNumberSelection');
 }
-var receiptNumberSelectionHandler = function(sType, arguments) { 
+var receiptNumberSelectionHandler = function(sType, arguments) {
 	var oData = arguments[2];
 	dom.get("receiptNumber").value=oData[0];
 }
@@ -128,8 +128,8 @@ var receiptNumberSelectionHandler = function(sType, arguments) {
                     </div>
                 </div>
                 <egov:autocomplete name="receiptNumber" width="15" field="receiptNumber"
-                 url="${pageContext.request.contextPath}/receipts/receiptNumberSearch-searchAjax.action" 
-                 queryQuestionMark="true" results="receiptNumberResults" 
+                 url="${pageContext.request.contextPath}/receipts/receiptNumberSearch-searchAjax.action"
+                 queryQuestionMark="true" results="receiptNumberResults"
                  handler="receiptNumberSelectionHandler"  id="improperreceiptNumberSelectionWarning" queryLength="3"/>
                  <span class='warning' id="improperreceiptNumberSelectionWarning"></span>
 			</td>
@@ -156,9 +156,9 @@ var receiptNumberSelectionHandler = function(sType, arguments) {
 				src="/services/egi/resources/erp2/images/calendaricon.gif"
 				alt="Date" width="18" height="18" border="0" align="absmiddle" /></a>
 			<div class="highlight2" style="width: 80px">DD/MM/YYYY</div></td>
-			
+
 		</tr>
-	
+
 		<tr>
 		 <td width="4%" class="bluebox">&nbsp;</td>
 			<td width="21%" class="bluebox2"><s:text
@@ -181,7 +181,7 @@ var receiptNumberSelectionHandler = function(sType, arguments) {
 								list="dropdownData.accountNumberList" listKey="id"
 								id="bankAccountId" listValue="accountnumber"
 								label="accountNumberMaster" name="bankAccountId"
-								value="%{bankAccountId}" 
+								value="%{bankAccountId}"
 								onChange="onChangeServiceList(this.value)" /> <egov:ajaxdropdown
 								id="serviceIdDropdown" fields="['Text','Value']"
 								dropdownId='serviceId'
@@ -189,7 +189,7 @@ var receiptNumberSelectionHandler = function(sType, arguments) {
 								selectedValue="%{serviceId}" /></td></td>
 		</tr>
 	</table>
-	
+
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"

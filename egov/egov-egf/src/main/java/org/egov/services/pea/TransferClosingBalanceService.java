@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -138,21 +138,21 @@ public class TransferClosingBalanceService extends PersistenceService {
 
     /**
      * This function is called to calculate the closing balance for GlCodes of type A,L (Excluding ExcessIE code)
-     * 
+     *
      * Transaction entries for Non-Control codes(1st Query)
-     * 
+     *
      * UNION
-     * 
+     *
      * Opening Balance entries for Non-Control codes(2nd Query)
-     * 
+     *
      * UNION
-     * 
+     *
      * Mismatch Transaction entries for Control codes(3rd Query)
-     * 
+     *
      * UNION
-     * 
+     *
      * Mismatch Opening Balance entries for Control codes(4th Query)
-     * 
+     *
      */
 
     private String getQueryForNonControlCodesAndMisMatchsInControlCodes(Long financialYear, String fyStartingDate,
@@ -231,14 +231,14 @@ public class TransferClosingBalanceService extends PersistenceService {
 
     /**
      * This function is called to calculate the closing balance for GlCodes of type A,L (Excluding ExcessIE code)
-     * 
+     *
      * Transaction entries for Control codes(1st Query)
-     * 
+     *
      * UNION
-     * 
+     *
      * Opening Balance entries for Control codes(2nd Query)
-     * 
-     * 
+     *
+     *
      */
     private String getQueryForControlCodes(Long financialYear, String fyStartingDate, String fyEndingDate,
             CFinancialYear nextFinancialYear) {
@@ -288,26 +288,26 @@ public class TransferClosingBalanceService extends PersistenceService {
 
     /**
      * This function is called to calculate the closing balance for GlCodes of type I,E and ExcessIE Code
-     * 
+     *
      * Transaction entries for Income codes(1st Query) (X)
-     * 
+     *
      * UNION
-     * 
+     *
      * Transaction entries for Expense codes(2nd Query) (Y)
-     * 
+     *
      */
 
     /**
      * (X-Y)
-     * 
+     *
      * UNION
-     * 
+     *
      * Transaction entries for ExcessIE Code(3rd Query)
-     * 
+     *
      * UNION
-     * 
+     *
      * Opening Balance entries for ExcessIE Code(4th Query)
-     * 
+     *
      */
     private String getQueryForIncomeOverExpense(Long financialYear, String fyStartingDate, String fyEndingDate,
             CFinancialYear nextFinancialYear) {

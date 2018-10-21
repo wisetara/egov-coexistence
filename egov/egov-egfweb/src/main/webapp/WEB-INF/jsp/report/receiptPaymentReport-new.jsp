@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -143,7 +143,7 @@
 					onclick="javascript: self.close()" Class="button" />
 			</div>
 			<s:if test="%{model.entries.size!=0}">
-				<!-- <div align="center" class="extracontent"><h4><s:property value="fundType"/>  <s:property value="budgetType"/></h4></div> 
+				<!-- <div align="center" class="extracontent"><h4><s:property value="fundType"/>  <s:property value="budgetType"/></h4></div>
 		<div align="right" class="extracontent"><b>Amount in Thousands</b></div> -->
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0" class="tablebottom">
@@ -279,7 +279,7 @@
 	function bodyOnLoad(){
 		//bootbox.alert("hi");
 		var period='<s:property value="model.period"/>';
-		//bootbox.alert("period >> "+period);  
+		//bootbox.alert("period >> "+period);
 		if(period == 'Date Range')
 			document.getElementById('dateran').style.display ="inline";
 		else
@@ -306,7 +306,7 @@
 		window.open(url,'rpReportDetailView','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 	}
 
-	
+
 
 	 </script>
 </body>

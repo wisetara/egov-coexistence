@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -128,7 +128,7 @@
 					<div class="headingsmallbg">
 					<td class="bluebgheadtd" width="100%" colspan="5"><strong
 								style="font-size: 15px;">Add New Cheque</strong></td>
-					</div>  
+					</div>
 
 				</tr>
 			</table>
@@ -221,7 +221,7 @@
 					</script>
 					<br />
 					<div class="buttonbottom">
-						<input type="button" id="save" value="Save"	onclick="submitForm();" class="buttonsubmit" /> 
+						<input type="button" id="save" value="Save"	onclick="submitForm();" class="buttonsubmit" />
 						<input type="button" id="Close" value="Close" onclick="javascript:window.parent.postMessage('close','*');" class="button" />
 					</div>
 				</div>

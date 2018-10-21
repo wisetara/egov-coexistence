@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -164,9 +164,9 @@ jQuery('#btnsearch').click(function(e) {
 		bootbox.alert("Please select atleast one search criteria");
 		return false;
 	}
-	
+
 	var searchCriteria = "Employee Assignment Report as on  ";
-	if(date != '') 
+	if(date != '')
 		searchCriteria +=  date+ " ";
 	if(name != "")
 		searchCriteria +=  "," +" Employee Name  : " + name + " ";
@@ -178,12 +178,12 @@ jQuery('#btnsearch').click(function(e) {
 		searchCriteria += "and Designation  : " + $("#designationInput").val()+ " ";
 	if(position != '')
 		searchCriteria += "and Position  : " + $("#positionInput").val()+ " ";
-	
+
 	  if (searchCriteria.endsWith(" "))
 		  searchCriteria = searchCriteria.substring(0, searchCriteria.length - 1);
-	  
+
 	  $('#searchCriteria').html(searchCriteria);
-	  
+
 	if($('form').valid())
 		callAjaxSearch();
 });
@@ -191,12 +191,12 @@ jQuery('#btnsearch').click(function(e) {
 
 function goToView(obj) {
 	jQuery('input[name=' + jQuery(obj).data('hiddenele') + ']')
-	.val(jQuery(obj).data('eleval'));   
+	.val(jQuery(obj).data('eleval'));
 	/*window.open("/wtms/viewDcb/consumerCodeWis/"
 			+ boundaryId, '',
 			'scrollbars=yes,width=1000,height=700,status=yes');*/
 	window.open("/eis/employee/view/"+jQuery('#employeeCode').val(), '', 'scrollbars=yes,width=1000,height=700,status=yes');
-} 
+}
 
 
 function callAjaxSearch() {
@@ -206,7 +206,7 @@ function callAjaxSearch() {
 		reportdatatable = employeeAssignmentContainer
 			.dataTable({
 				ajax : {
-					url : "/eis/reports/employeeassignments/search",      
+					url : "/eis/reports/employeeassignments/search",
 					type: "POST",
 					"data":  getFormData(jQuery('form'))
 				},
@@ -222,7 +222,7 @@ function callAjaxSearch() {
 					$('#btndownloadpdf').show();
 					$('#btndownloadexcel').show();
 				},
-				columns : [  
+				columns : [
                              {
 	                            "data" : function(row, type, set, meta){
 		                     	return { name:row.employeeCode, id:row.id };
@@ -233,27 +233,27 @@ function callAjaxSearch() {
 	                           },
 	                     } ,{
 					"data" : "employeeName", "sClass" : "text-center"} ,{
-					"data" : "primaryDepartment", "sClass" : "text-center"} ,{ 
+					"data" : "primaryDepartment", "sClass" : "text-center"} ,{
 					"data" : "primaryDesignation", "sClass" : "text-center"} ,{
 					"data" : "primaryPosition", "sClass" : "text-center"} ,{
-					"data" : "primaryDateRange", "sClass" : "text-center"},{ 
+					"data" : "primaryDateRange", "sClass" : "text-center"},{
 					 "data" : "temporaryDepartment_0", "sClass" : "text-center"} ,{
 					"data" : "temporaryDesignation_0", "sClass" : "text-center"} ,{
 					"data" : "temporaryPosition_0", "sClass" : "text-center"},{
-					"data" : "temporaryDateRange_0", "sClass" : "text-center"},{ 
+					"data" : "temporaryDateRange_0", "sClass" : "text-center"},{
 					"data" : "temporaryDepartment_1", "sClass" : "text-center"} ,{
 					"data" : "temporaryDesignation_1", "sClass" : "text-center"} ,{
 					"data" : "temporaryPosition_1", "sClass" : "text-center"},{
-					"data" : "temporaryDateRange_1", "sClass" : "text-center"},{ 
+					"data" : "temporaryDateRange_1", "sClass" : "text-center"},{
 					"data" : "temporaryDepartment_2", "sClass" : "text-center"} ,{
 					"data" : "temporaryDesignation_2", "sClass" : "text-center"} ,{
 					"data" : "temporaryPosition_2", "sClass" : "text-center"},{
-					"data" : "temporaryDateRange_2", "sClass" : "text-center"},{ 
+					"data" : "temporaryDateRange_2", "sClass" : "text-center"},{
 					"data" : "temporaryDepartment_3", "sClass" : "text-center"} ,{
 					"data" : "temporaryDesignation_3", "sClass" : "text-center"} ,{
 					"data" : "temporaryPosition_3", "sClass" : "text-center"},{
 					"data" : "temporaryDateRange_3", "sClass" : "text-center"}],
-			
+
 			});
 }
 
@@ -262,11 +262,11 @@ $('#btndownloadpdf').click(function() {
 	var name = $('#employeeName').val();
 	var department = $('#department').val();
 	var designation = $('#designation').val();
-	var position = $('#position').val(); 
+	var position = $('#position').val();
 	var date = $('#assignmentDate').val();
 
 	window.open("/eis/reports/employeeassignments/pdf?code="+ code + "&name="+ name + "&departmentId="+ department + "&designationId="
-			+ designation  + "&positionId=" + position +"&date=" + date 
+			+ designation  + "&positionId=" + position +"&date=" + date
 			+ "&contentType=pdf", '', 'height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
 });
 
@@ -279,6 +279,6 @@ $('#btndownloadexcel').click(function() {
 	var date = $('#assignmentDate').val();
 
 	window.open("/eis/reports/employeeassignments/pdf?code="+ code + "&name="+ name + "&departmentId="+ department + "&designationId="
-			+ designation  + "&positionId=" + position  +"&date=" + date 
+			+ designation  + "&positionId=" + position  +"&date=" + date
 			+ "&contentType=excel", '', 'height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
 });

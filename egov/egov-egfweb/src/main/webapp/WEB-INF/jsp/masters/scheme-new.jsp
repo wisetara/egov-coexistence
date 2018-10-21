@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -57,15 +57,15 @@
     function checkuniquenesscode(){
     	document.getElementById('codeuniquecode').style.display ='none';
 		var code = document.getElementById('code').value;
-		populatecodeuniquecode({code:code});		
+		populatecodeuniquecode({code:code});
     }
-    
+
     function checkuniquenessname(){
     	document.getElementById('uniquename').style.display ='none';
 		var name = document.getElementById('name').value;
-		populateuniquename({name:name});		
+		populateuniquename({name:name});
     }
-    
+
     function validateFormAndSubmit(){
         if (!validateForm_scheme()) {
         	undoLoadingMask();
@@ -80,7 +80,7 @@
             undoLoadingMask();
             document.getElementById('validtoId').value = "";
             return false;
- 	    } 
+ 	    }
  	    var showMode = document.getElementById('mode').value;
  	   if(showMode=='edit'){
         	document.schemeForm.action='${pageContext.request.contextPath}/masters/scheme-edit.action';
@@ -90,7 +90,7 @@
  	    	document.schemeForm.submit();
  	 	   }
     	return true;
-    }     
+    }
 
     function resetForm(){
     	document.getElementById('code').value="";
@@ -100,8 +100,8 @@
     	document.getElementById('validfromId').value="";
     	document.getElementById('validtoId').value="";
     	document.getElementById('description').value="";
-    	
-    }    
+
+    }
 	function validateDate(date)
 	{
 		var todayDate = new Date();
@@ -112,7 +112,7 @@
 		if (Date.parse(date) > Date.parse(todayDateText)) {
 			return false;
 			}
-		return true; 
+		return true;
 		}
     </SCRIPT>
 </head>
@@ -183,7 +183,7 @@
 					<td style="width: 10%"></td>
 					<td class="greybox"><s:text name="scheme.startDate" /><span
 						class="mandatory1"> *</span></td>
-					<td class="greybox"><s:date name="scheme.validfrom" var="validfromId" 
+					<td class="greybox"><s:date name="scheme.validfrom" var="validfromId"
 							format="dd/MM/yyyy" /> <s:textfield id="validfromId"
 							name="validfrom" value="%{validfromId}"
 							onkeyup="DateFormat(this,this.value,event,false,'3')"

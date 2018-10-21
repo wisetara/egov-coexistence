@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -58,9 +58,9 @@
 
 
 	function validate() {
-	document.getElementById("msg").innerHTML="";  
+	document.getElementById("msg").innerHTML="";
 	document.getElementById("Errors").innerHTML="";
-	
+
 		if (document.getElementById("bankId").value == "") {
 			bootbox.alert("Select Bank");
 			return false;
@@ -77,11 +77,11 @@
 			bootbox.alert("Select File to upload");
 			return false;
 		}
-		
-		
+
+
 		document.forms[0].action='autoReconciliation-upload.action';
         document.forms[0].submit();
-     	
+
 	}
 	function populatebranch(obj) {
 		var bid = document.getElementById("bankId").value;
@@ -109,7 +109,7 @@
 			<div class="subheadnew">
 				<s:text name="autobankreconciliation" />
 			</div>
-		
+
 		<div align="center">
 			<font style='color: red;'>
 				<div id="msg">
@@ -163,7 +163,7 @@
 						class="greybox"><span class="mandatory1">*</span></span></td>
 					<td class="greybox"><s:file name="bankStatmentInXls"
 							id="bankStatmentInXls" /></td>
-                  
+
 					<td class="greybox" colspan="2">
                     <a href="/services/EGF/resources/app/formats/brs_format.xls">Download Template</a>
 					</td>
@@ -175,7 +175,7 @@
 				<table>
 					<tr>
 						<td><input type="button" Class="buttonsubmit"
-								value="Upload" name="upload" 
+								value="Upload" name="upload"
 								onclick="validate();" /></td>
 						<td><input type="button" value="Close"
 							onclick="javascript:window.close()" class="buttonsubmit" /></td>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -80,7 +80,7 @@ a.left {
 	color: #4733dd;
 	text-decoration: underline;
 	padding-right: 4px;
-	padding-left: 4px;	
+	padding-left: 4px;
 	}
 a.left:link {
 	color: #4733dd;
@@ -119,9 +119,9 @@ h5 {
 	color: #000;
 	}
 div.maincontainer {
-	width: auto; 
-	margin-left:auto; 
-	margin-right:auto; 
+	width: auto;
+	margin-left:auto;
+	margin-right:auto;
 	float:none;
 	}
 div.topheadcontainer {
@@ -154,30 +154,30 @@ div.headcontainer2 {
 	font-weight: normal;
 	}
 div.headertop {
-	vertical-align:middle; 
-	text-align:center; 
-	font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; 
-	font-size:30px; 
-	color:#21409a; 
+	vertical-align:middle;
+	text-align:center;
+	font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;
+	font-size:30px;
+	color:#21409a;
 	font-weight:bold;
 	}
-span.orange { 
+span.orange {
 	color:#ff6600;
 	}
 .rbroundbox {
 	background-image: url(../images/ntnew.gif);
 	background-repeat: repeat;
 	}
-.rbtop div { 
-	background: url(../images/tl.gif) no-repeat top left; 
+.rbtop div {
+	background: url(../images/tl.gif) no-repeat top left;
 	}
-.rbtop { 
-	background: url(../images/tr.gif) no-repeat top right; 
+.rbtop {
+	background: url(../images/tr.gif) no-repeat top right;
 	}
-.rbbot div { 
-	background: url(../images/bl.gif) no-repeat bottom left; 
+.rbbot div {
+	background: url(../images/bl.gif) no-repeat bottom left;
 	}
-.rbbot { 
+.rbbot {
 	background: url(../images/br.gif) no-repeat bottom right;
 	}
 .rbtop div, .rbtop, .rbbot div, .rbbot {
@@ -191,19 +191,19 @@ span.orange {
 	background-image: url(../images/boxvbg.gif);
 	background-repeat: repeat-y;
 	}
-.rbcontent { 
+.rbcontent {
 	margin: 0 7px;
 	}
-.rbtop2 div { 
-	background: url(../images/tl2.gif) no-repeat top left; 
+.rbtop2 div {
+	background: url(../images/tl2.gif) no-repeat top left;
 	}
-.rbtop2 { 
-	background: url(../images/tr2.gif) no-repeat top right; 
+.rbtop2 {
+	background: url(../images/tr2.gif) no-repeat top right;
 	}
-.rbbot2 div { 
-	background: url(../images/bl2.gif) no-repeat bottom left; 
+.rbbot2 div {
+	background: url(../images/bl2.gif) no-repeat bottom left;
 	}
-.rbbot2 { 
+.rbbot2 {
 	background: url(../images/br2.gif) no-repeat bottom right;
 	}
 .rbtop2 div, .rbtop2, .rbbot2 div, .rbbot2 {
@@ -227,17 +227,17 @@ span.orange {
 	background-image: url(../images/boxvbg2.gif);
 	background-repeat: repeat-y;
 	}
-.rbtop3 div { 
-	background: url(../images/tl3.gif) no-repeat top left; 
+.rbtop3 div {
+	background: url(../images/tl3.gif) no-repeat top left;
 	}
-.rbtop3 { 
-	background: url(../images/tr3.gif) no-repeat top right; 
+.rbtop3 {
+	background: url(../images/tr3.gif) no-repeat top right;
 	}
-.rbbot3 div { 
-	background: url(../images/bl3.gif) no-repeat bottom left; 
+.rbbot3 div {
+	background: url(../images/bl3.gif) no-repeat bottom left;
 	}
-.rbbot3 { 
-	background: url(../images/br3.gif) no-repeat bottom right; 
+.rbbot3 {
+	background: url(../images/br3.gif) no-repeat bottom right;
 	}
 .rbtop3 div, .rbtop3, .rbbot3 div, .rbbot3 {
 	width: 100%;
@@ -260,17 +260,17 @@ span.orange {
 	background-image: url(../images/boxvbg3.gif);
 	background-repeat: repeat-y;
 	}
-.rbtop4 div { 
-	background: url(../images/tl4.gif) no-repeat top left; 
+.rbtop4 div {
+	background: url(../images/tl4.gif) no-repeat top left;
 	}
-.rbtop4 { 
-	background: url(../images/tr4.gif) no-repeat top right; 
+.rbtop4 {
+	background: url(../images/tr4.gif) no-repeat top right;
 	}
-.rbbot4 div { 
-	background: url(../images/bl4.gif) no-repeat bottom left; 
+.rbbot4 div {
+	background: url(../images/bl4.gif) no-repeat bottom left;
 	}
-.rbbot4 { 
-	background: url(../images/br4.gif) no-repeat bottom right; 
+.rbbot4 {
+	background: url(../images/br4.gif) no-repeat bottom right;
 	}
 .rbtop4 div, .rbtop4, .rbbot4 div, .rbbot4 {
 	width: 100%;
@@ -383,15 +383,15 @@ input {
 	font-family: Tahoma, Geneva, sans-serif;
 	}
 div.inputbgholder {
-	background-color:#ffebc0; 
-	width:153px; margin-left:auto; 
-	margin-right:auto; 
-	margin-top:5px; 
+	background-color:#ffebc0;
+	width:153px; margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
 	padding:5px;
 	}
 div.gobuttonholder {
-	float:right; 
-	width:21px; 
+	float:right;
+	width:21px;
 	position:inherit
 	}
 div.dottedbg {
@@ -401,22 +401,22 @@ div.dottedbg {
 	margin-right: auto;
 	margin-left: auto;
 	}
-div.textabovedottedline { 
-	margin-left:auto; 
-	margin-right:auto; 
-	background-color:#FFF; 
-	padding-left:10px; 
-	padding-right:10px; 
-	width:250px; 
-	color:#666666; 
+div.textabovedottedline {
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#FFF;
+	padding-left:10px;
+	padding-right:10px;
+	width:250px;
+	color:#666666;
 	}
 .margin20 {
 	margin:20px;
 	}
-div.orgrid { 
-	height:1px; 
-	background-color:#ff6600; 
-	margin-left:auto; 
+div.orgrid {
+	height:1px;
+	background-color:#ff6600;
+	margin-left:auto;
 	margin-right:auto;
 	width:100%;
 	}
@@ -466,7 +466,7 @@ div.containerinsidebox1right {
 	background-image: url(../images/shadowbox.jpg);
 	background-position: right bottom;
 	padding-bottom: 5px;
-	margin-left: 20px; 
+	margin-left: 20px;
 	float: right;
 	}
 div.headmain {
@@ -551,14 +551,14 @@ div.bottombuttonholder {
 	padding-bottom: 5px;
 	padding-left: 5px;
 	}
-span.exceedstyle { 
-	font-family: Arial, Helvetica, sans-serif; 
-	font-size:10px; 
+span.exceedstyle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
 	color:#999;
 	}
-span.exceedstyle1 { 
-	font-family: Arial, Helvetica, sans-serif; 
-	font-size:10px; 
+span.exceedstyle1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
 	color:#666;
 	}
 span.exceedstyle2 {
@@ -576,9 +576,9 @@ div.buttonholdertopbar {
 	padding-left:56px;
 	padding-bottom: 5px;
 	}
-span.thankyou { 
-	font-family:Tahoma, Geneva, sans-serif; 
-	font-size:16px; 
+span.thankyou {
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:16px;
 	color:#333;
 	}
 ul, li {
@@ -672,9 +672,9 @@ div.dottedgridlarge6 {
 	height:1px;
 	margin-bottom: 10px;
 	}
-span.complaintmsg { 
-	font-size:14px; 
-	font-weight:normal; 
+span.complaintmsg {
+	font-size:14px;
+	font-weight:normal;
 	color:#ff6600;
 	}
 div.containerformsg1 {
@@ -682,7 +682,7 @@ div.containerformsg1 {
 	background-color:#FFF;
 	border: 1px solid #eae6dc;
 	}
-	
+
 div.dottedgridlarge3 {
 	width:auto;
 	margin-left:auto;
@@ -693,16 +693,16 @@ div.dottedgridlarge3 {
 	background-color: #E2E2E2;
 	}
 div.iconholder {
-	width:35px; 
+	width:35px;
 	float:left;
 	}
 div.yellowcontainer {
-	padding:10px; 
+	padding:10px;
 	background-color:#fff8e8;
 	line-height: 15px;
 	}
 div.greycontainer {
-	padding:10px; 
+	padding:10px;
 	background-color:#eee;
 	line-height: 15px;
 	}
@@ -715,19 +715,19 @@ div.greycontainer2 {
 	font-size: 11px;
 	}
 div.nameholder {
-	float:right; 
-	width:50%; 
+	float:right;
+	width:50%;
 	text-align:right;
 	}
 div.nameholderleft {
-	float:right; 
-	width:50%; 
+	float:right;
+	width:50%;
 	text-align:left;
 	}
 div.logoutholder {
-	float:right; 
-	width:20%; 
-	text-align:right; 
+	float:right;
+	width:20%;
+	text-align:right;
 	padding-right:50px;
 	}
 a.adminbuttton {
@@ -737,7 +737,7 @@ a.adminbuttton {
 	color: #666;
 	text-decoration: underline;
 	padding-right: 4px;
-	padding-left: 4px;	
+	padding-left: 4px;
 	}
 a.adminbuttton:link {
 	color: #666;
@@ -774,14 +774,14 @@ input.buttonsubmitnew {
 	font-weight: bold;
 	color: #FFF;
 	}
-span.mandatory { 
+span.mandatory {
 	font-family:Verdana, Geneva, sans-serif;
-	color:#F00; 
-	font-weight:normal; 
+	color:#F00;
+	font-weight:normal;
 	font-size:10px;
 	}
-div.contentright { 
-	text-align:right; 
+div.contentright {
+	text-align:right;
 	margin-bottom:15px;
 	}
 div.dottedgridlarge4 {
@@ -797,7 +797,7 @@ div.dottedgridlarge4 {
 	margin-bottom:2px;
 	}
 
-.bluetext { 
+.bluetext {
 	color:#369;
 	}
 div.marginleft33 {
@@ -838,8 +838,8 @@ div.direction {
 	height:44px;
 	}
 div.orarrowholder {
-	float:right; 
-	width:12px; 
+	float:right;
+	width:12px;
 	margin-left:12px;
 	}
 div.orangeboxmainholder {
@@ -849,7 +849,7 @@ div.orangeboxmainholder {
 	margin-right:12px;
 	padding-right:5px;
 	}
-div.marginfive 
+div.marginfive
 	{margin-bottom:5px;
 	padding-left:2px;
 	}
@@ -874,13 +874,13 @@ td.tablestyle2 {
 	padding-left: 4px;
 	text-align:right;
 }
-td.tablestyle3 { 
+td.tablestyle3 {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 4px;
 	background-color:#eee;}
-	
-	td.tablestyle4 { 
+
+	td.tablestyle4 {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 4px;

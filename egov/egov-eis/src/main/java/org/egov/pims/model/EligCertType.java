@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,13 +59,13 @@ import org.hibernate.validator.constraints.Length;
 
 /**
  * @author Divya
- * EligCertType 
+ * EligCertType
  */
 @Unique(fields={"type"},id="id",tableName="EGEIS_ELIG_CERT_TYPE",columnName={"TYPE"},message="Type is unique")
-public class EligCertType extends BaseModel implements java.io.Serializable 
+public class EligCertType extends BaseModel implements java.io.Serializable
 {
 
-	
+
 	@Required(message="Type should not be empty")
 	@Length(max=50,message="Max 50 characters are allowed for Type")
 	private String type;
@@ -74,7 +74,7 @@ public class EligCertType extends BaseModel implements java.io.Serializable
 
 	public EligCertType()
 	{
-		
+
 	}
 	/*public EligCertType(String type, String description)
 	{
@@ -100,6 +100,6 @@ public class EligCertType extends BaseModel implements java.io.Serializable
 	{
 		this.description = description;
 	}
-	
-	
+
+
 }

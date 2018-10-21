@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,17 +61,17 @@
 		<s:if test='key.equals("paymentGatewayURL")'>
 		   var 	actionvalue =  '<s:property value='value' />';
 		   actionvalue = actionvalue.replace(/&amp;/g,'&');
-			form.setAttribute("action", actionvalue);			
+			form.setAttribute("action", actionvalue);
 		</s:if>
 		<s:else>
 			var hiddenField = document.createElement("input");
-			hiddenField.setAttribute("type","hidden");              
+			hiddenField.setAttribute("type","hidden");
 			hiddenField.setAttribute("name",  "<s:property value='key' />");
 			hiddenField.setAttribute("value", "<s:property value='value' />");
-			form.appendChild(hiddenField);	
+			form.appendChild(hiddenField);
 		</s:else>
-			
-	</s:iterator> 
+
+	</s:iterator>
    	document.body.appendChild(form);
 	form.submit();
 }

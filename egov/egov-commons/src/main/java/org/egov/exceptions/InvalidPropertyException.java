@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,16 +52,16 @@ package org.egov.exceptions;
  * Checked exception class for Invalid Property
  */
 public class InvalidPropertyException extends Exception {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Instantiates a new invalid property exception.
 	 */
 	public InvalidPropertyException() {
 		super();
 	}
-	
+
 	/**
 	 * Instantiates a new invalid property exception.
 	 * @param msg the msg
@@ -69,7 +69,7 @@ public class InvalidPropertyException extends Exception {
 	public InvalidPropertyException(final String msg) {
 		super(msg);
 	}
-	
+
 	/**
 	 * Instantiates a new invalid property exception.
 	 * @param msg the msg

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,7 +76,7 @@ public class UserSessionDestroyListener implements HttpSessionListener {
 
     @Autowired
     private UserService userService;
-    
+
     @Autowired
     private RedisTemplate<Object, Object> redisTemplate;
 
@@ -102,7 +102,7 @@ public class UserSessionDestroyListener implements HttpSessionListener {
                 redisTemplate.delete(auth_token);
             }
         }
-                
+
         if (masterServer)
             auditUserLogin(event.getSession());
     }

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -81,10 +81,10 @@
 						invalidAmount = true;
 						invalidMessage = 'Addition/Deduction amount must be greater than 0';
 					}
-				}				
+				}
 				if(invalidAmount == true){
 					bootbox.alert(invalidMessage);
-					return false;	
+					return false;
 				}
 				return true;
 			}
@@ -99,7 +99,7 @@
 				        },
 				     failure: function(o) {
 				     }
-			} 
+			}
 		var deleteCallback = {
 			     success: function(o) {
 					document.getElementById('deleted').innerHTML = o.responseText;
@@ -111,7 +111,7 @@
 			        },
 			     failure: function(o) {
 			     }
-		} 
+		}
 			function getBeRe(){
 				element = document.getElementById('financialYear')
 				id = element.options[element.selectedIndex].value;
@@ -123,7 +123,7 @@
 			function populateSubSchemes(scheme){
 				populatebudgetReAppropriation_subScheme({schemeId:scheme.options[scheme.selectedIndex].value})
 			}
-			
+
 			function onHeaderSubSchemePopulation(req,res){
 				if(budgetDetailsTable != null){
 					headerSubScheme=dom.get('budgetReAppropriation_subScheme');
@@ -319,25 +319,25 @@ function preselectSubScheme(){
 									budgetDetailsTable.addRow({SlNo:budgetDetailsTable.getRecordSet().getLength()+1,
 										"budgetDetail.id":'<s:property value="budgetDetail.id"/>',
 										"budgetDetail.budgetGroup.name":'<s:property value="budgetDetail.budgetGroup.name"/>',
-										<s:if test="%{shouldShowField('executingDepartment')}">				
+										<s:if test="%{shouldShowField('executingDepartment')}">
 											"budgetDetail.executingDepartment.deptName":'<s:property value="budgetDetail.executingDepartment.deptName"/>',
 										</s:if>
-										<s:if test="%{shouldShowField('functionary')}">				
+										<s:if test="%{shouldShowField('functionary')}">
 											"budgetDetail.functionary.name":'<s:property value="budgetDetail.functionary.name"/>',
 										</s:if>
-										<s:if test="%{shouldShowField('function')}">				
+										<s:if test="%{shouldShowField('function')}">
 											"budgetDetail.function.name":'<s:property value="budgetDetail.function.name"/>',
 										</s:if>
-										<s:if test="%{shouldShowField('scheme')}">				
+										<s:if test="%{shouldShowField('scheme')}">
 											"budgetDetail.scheme.name":'<s:property value="budgetDetail.scheme.name"/>',
 										</s:if>
-										<s:if test="%{shouldShowField('subScheme')}">				
+										<s:if test="%{shouldShowField('subScheme')}">
 											"budgetDetail.subScheme.name":'<s:property value="budgetDetail.subScheme.name"/>',
 										</s:if>
-										<s:if test="%{shouldShowField('fund')}">				
+										<s:if test="%{shouldShowField('fund')}">
 											"budgetDetail.fund.name":'<s:property value="budgetDetail.fund.name"/>',
 										</s:if>
-										<s:if test="%{shouldShowField('boundary')}">				
+										<s:if test="%{shouldShowField('boundary')}">
 											"budgetDetail.boundary.name":'<s:property value="budgetDetail.boundary.name"/>',
 										</s:if>
 										"sequenceNumber":'<s:property value="sequenceNumber"/>',
@@ -353,31 +353,31 @@ function preselectSubScheme(){
 									});
 								</s:iterator>
 							}
-						
-						
+
+
 							var makeBudgetDetailTable = function() {
-								var budgetDetailColumns = [ 
-									{key:"budgetDetail.id",label:'',hidden:true,formatter:getReadOnlyTextFieldFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.id')},		                   		
+								var budgetDetailColumns = [
+									{key:"budgetDetail.id",label:'',hidden:true,formatter:getReadOnlyTextFieldFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.id')},
 									{key:"budgetDetail.budgetGroup.name",label:'Budget Group',width:150,sortable:true, formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.budgetGroup.name')},
-									<s:if test="%{shouldShowField('executingDepartment')}">				
-										{key:"budgetDetail.executingDepartment.deptName", label:'Executing Department',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.executingDepartment.deptName')},				
+									<s:if test="%{shouldShowField('executingDepartment')}">
+										{key:"budgetDetail.executingDepartment.deptName", label:'Executing Department',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.executingDepartment.deptName')},
 									</s:if>
-									<s:if test="%{shouldShowField('functionary')}">				
+									<s:if test="%{shouldShowField('functionary')}">
 										{key:"budgetDetail.functionary.name",label:'Functionary',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.functionary.name')} ,
 									</s:if>
-									<s:if test="%{shouldShowField('function')}">				
+									<s:if test="%{shouldShowField('function')}">
 										{key:"budgetDetail.function.name",label:'Function',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.function.name')} ,
 									</s:if>
-									<s:if test="%{shouldShowField('scheme')}">				
+									<s:if test="%{shouldShowField('scheme')}">
 										{key:"budgetDetail.scheme.name",label:'Scheme',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.scheme.name')} ,
 									</s:if>
-									<s:if test="%{shouldShowField('subScheme')}">				
+									<s:if test="%{shouldShowField('subScheme')}">
 										{key:"budgetDetail.subScheme.name",label:'Sub Scheme',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.subScheme.name')} ,
 									</s:if>
-									<s:if test="%{shouldShowField('fund')}">				
+									<s:if test="%{shouldShowField('fund')}">
 										{key:"budgetDetail.fund.name",label:'Fund',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.fund.name')} ,
 									</s:if>
-									<s:if test="%{shouldShowField('boundary')}">				
+									<s:if test="%{shouldShowField('boundary')}">
 										{key:"budgetDetail.boundary.name",label:'Field',width:90,sortable:true,formatter:getLabelFormatter('budgetDetailsTable',BUDGETDETAILLIST,'.budgetDetail.boundary.name')} ,
 									</s:if>
 									{key:"sequenceNumber",label:'Sequence Number',width:120, sortable:true,formatter:getReadOnlyTextFieldFormatter('budgetDetailsTable',BUDGETDETAILLIST,".sequenceNumber")},
@@ -392,23 +392,23 @@ function preselectSubScheme(){
 									</s:if>
 									{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 								];
-							    var budgetDetailDS = new YAHOO.util.DataSource(); 
-								budgetDetailsTable = new YAHOO.widget.DataTable("budgetDetailTable",budgetDetailColumns, budgetDetailDS);	
+							    var budgetDetailDS = new YAHOO.util.DataSource();
+								budgetDetailsTable = new YAHOO.widget.DataTable("budgetDetailTable",budgetDetailColumns, budgetDetailDS);
 								budgetDetailsTable.on('cellClickEvent',function (oArgs) {
 									var target = oArgs.target;
 									var record = this.getRecord(target);
 									var column = this.getColumn(target);
-									if (column.key == 'Add') { 
+									if (column.key == 'Add') {
 										budgetDetailsTable.addRow({SlNo:budgetDetailsTable.getRecordSet().getLength()+1});
 									}
-									if (column.key == 'Delete') { 			
+									if (column.key == 'Delete') {
 										this.deleteRow(record);
 										allRecords=this.getRecordSet();
 										for(i=0;i<allRecords.getLength();i++){
 											this.updateCell(this.getRecord(i),this.getColumn('SlNo'),""+(i+1));
 										}
 										deleteBudgetReAppropriation(record.getData('sequenceNumber'),record.getData('budgetDetail.id'));
-									}        
+									}
 								});
 							}
 							makeBudgetDetailTable();

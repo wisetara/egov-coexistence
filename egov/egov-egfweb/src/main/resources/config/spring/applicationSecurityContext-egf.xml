@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,11 +63,11 @@
 				<security:filter-chain pattern="/resources/**" filters="none" />
 				<security:filter-chain pattern="/index.jsp" filters="none" />
 				<security:filter-chain pattern="/error/**" filters="none" />
-				<security:filter-chain pattern="/struts/**" filters="none" /> 
+				<security:filter-chain pattern="/struts/**" filters="none" />
 				<security:filter-chain pattern="/commonyui/build/**" filters="none" />
 				<security:filter-chain pattern="/commonyui/yui2.7/**" filters="none" />
 				<security:filter-chain pattern="/script/**" filters="none" />
-				<security:filter-chain pattern="/javascript/**" filters="none" /> 
+				<security:filter-chain pattern="/javascript/**" filters="none" />
 				<!-- <security:filter-chain pattern="/report/dayBookReport*.action" filters="none" />
 				<security:filter-chain pattern="/report/trialBalance*.action" filters="none" />
 				<security:filter-chain pattern="/report/bankBookReport*.action" filters="none" />
@@ -96,7 +96,7 @@
 				<security:filter-chain pattern="/findashboard/*" filters="none" />
 				<security:filter-chain pattern="/rest/**" filters="none" />
 				<security:filter-chain pattern="/**"  filters="concurrentSessionFilter,securityContextPersistenceFilter,logoutFilter,authenticationProcessingFilter,securityContextHolderAwareRequestFilter,rememberMeAuthenticationFilter,anonymousAuthenticationFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
-			</list> 
+			</list>
 		</constructor-arg>
-	</bean>	
+	</bean>
 </beans>

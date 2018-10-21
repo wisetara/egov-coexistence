@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -69,35 +69,35 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Unique(id = "id", tableName = "EG_REGIONALHEIRARCHY", fields = { "name","code" }, columnName = {"name","code" }, enableDfltMsg = true)
-@Table(name = "EG_REGIONALHEIRARCHY")
-@SequenceGenerator(name = RegionalHeirarchy.SEQ_REGIONALHEIRARCHY, sequenceName = RegionalHeirarchy.SEQ_REGIONALHEIRARCHY, allocationSize = 1)
-public class RegionalHeirarchy extends AbstractAuditable {
-   
+@Unique(id = "id", tableName = "EG_REGIONALHIERARCHY", fields = { "name","code" }, columnName = {"name","code" }, enableDfltMsg = true)
+@Table(name = "EG_REGIONALHIERARCHY")
+@SequenceGenerator(name = RegionalHierarchy.SEQ_REGIONALHIERARCHY, sequenceName = RegionalHierarchy.SEQ_REGIONALHIERARCHY, allocationSize = 1)
+public class RegionalHierarchy extends AbstractAuditable {
+
     private static final long serialVersionUID = -6147843882272796650L;
 
-    public static final String SEQ_REGIONALHEIRARCHY = "seq_eg_regionlaHeirarchy";
+    public static final String SEQ_REGIONALHIERARCHY = "seq_eg_regionlaHierarchy";
 
     @Id
-    @GeneratedValue(generator = SEQ_REGIONALHEIRARCHY, strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = SEQ_REGIONALHIERARCHY, strategy = GenerationType.SEQUENCE)
     private Long id;
-    
+
     @Length(max = 512)
     @SafeHtml
     @NotNull
     private String name;
-    
+
     @NotNull
     private Long code;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent")
     @Fetch(value = FetchMode.SELECT)
-    private RegionalHeirarchy parent;
-    
+    private RegionalHierarchy parent;
+
     @NotNull
     @Enumerated(EnumType.ORDINAL)
-    private RegionalHeirarchyType type;
+    private RegionalHierarchyType type;
 
     private boolean isHistory;
 
@@ -125,19 +125,19 @@ public class RegionalHeirarchy extends AbstractAuditable {
         this.code = code;
     }
 
-    public RegionalHeirarchy getParent() {
+    public RegionalHierarchy getParent() {
         return parent;
     }
 
-    public void setParent(RegionalHeirarchy parent) {
+    public void setParent(RegionalHierarchy parent) {
         this.parent = parent;
     }
 
-    public RegionalHeirarchyType getType() {
+    public RegionalHierarchyType getType() {
         return type;
     }
 
-    public void setType(RegionalHeirarchyType type) {
+    public void setType(RegionalHierarchyType type) {
         this.type = type;
     }
 
@@ -149,5 +149,5 @@ public class RegionalHeirarchy extends AbstractAuditable {
         this.isHistory = isHistory;
     }
 
-   
+
 }

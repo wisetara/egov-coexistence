@@ -1,8 +1,8 @@
 <%@ page contentType="text/json" %>
-<%@ taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld" %> 
+<%@ taglib prefix="s" uri="/WEB-INF/taglib/struts-tags.tld" %>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,9 +53,9 @@
     "Result":[
     <s:iterator var="s" value="approverList" status="status">
     {"Text":"<s:property value="%{employeeName}"/>",
-    "Value":"<s:property value="%{position}" />"  
+    "Value":"<s:property value="%{position}" />"
     }<s:if test="!#status.last">,</s:if>
-    </s:iterator>       
+    </s:iterator>
     ]
   }
 }

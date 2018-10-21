@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,7 +61,7 @@ import java.util.StringTokenizer;
 
 public class BoundryTag extends BodyTagSupport {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private Object name = null;
@@ -140,7 +140,7 @@ public class BoundryTag extends BodyTagSupport {
 	private String createCombo(final Integer bndryid, final String formName, final String[] functionName) {
 
 		/*
-		 * final HeirarchyType htype = (HeirarchyType) this.getName(); // HeirarchyType htype = hmang.getHeirarchyTypeByID(1); final String bndryName = bmang.getBoundaryNameForID(bndryid); final
+		 * final HierarchyType htype = (HierarchyType) this.getName(); // HierarchyType htype = hmang.getHierarchyTypeByID(1); final String bndryName = bmang.getBoundaryNameForID(bndryid); final
 		 * Boundary topLevelBoundary = (Boundary) bmang.getTopBoundary(bndryName, htype); logger.info("topLevelBoundary>>>>>>>>>>>>>>>>>>>>>>>>" + topLevelBoundary.getName()); final int j = 1;
 		 * StringBuilder bndrySelect1 = new StringBuilder(""); ; String bndrySelect2 = ""; final EgovInfrastrUtilInteface inteface = new EgovInfrastrUtil(); final ArrayList al = (ArrayList)
 		 * ExcludeBndryType.getExcludeType(); final Map typeMap = inteface.getMapOfBoundryTypes(); logger.debug("typeMap>>>>>>>>>>>>>>>>>>>>>>>>" + typeMap.keySet()); final Map typeMapm1 =
@@ -183,7 +183,7 @@ public class BoundryTag extends BodyTagSupport {
 
 	/**
 	 * methord added by deepak
-	 * 
+	 *
 	 * @param:String toplevelBndryID,String formName
 	 * @return:String javaScriptString
 	 */

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -47,7 +47,7 @@
   --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
@@ -88,7 +88,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<c:choose>
 		<c:when test="${headerFields.contains('fundsource')}">
 		<form:hidden path="" name="fundSourceId" id="fundSourceId" value="${egBillregister.egBillregistermis.fundsource.id }"/>
@@ -160,7 +160,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<c:choose>
 		<c:when test="${headerFields.contains('subscheme')}">
 		<form:hidden path="" name="subSchemeId" id="subSchemeId" value="${egBillregister.egBillregistermis.subScheme.id }"/>
@@ -233,7 +233,7 @@
 			</div>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<c:choose>
 		<c:when test="${headerFields.contains('field')}">
 			<c:choose>

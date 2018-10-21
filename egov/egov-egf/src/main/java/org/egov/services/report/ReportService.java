@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -85,7 +85,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public abstract class ReportService {
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -97,7 +97,7 @@ public abstract class ReportService {
     List<Character> coaType = new ArrayList<Character>();
     @Autowired
     private FinancialYearHibernateDAO financialYearDAO;
-  
+
     final static Logger LOGGER = Logger.getLogger(ReportService.class);
 
     public Date getPreviousYearFor(final Date date) {
@@ -217,12 +217,12 @@ public abstract class ReportService {
         final SimpleDateFormat formatter = Constants.DDMMYYYYFORMAT1;
         return formatter.format(date);
     }
-    
+
     public String getFormattedDate2(final Date date) {
         final SimpleDateFormat formatter = Constants.DDMMYYYYFORMAT2;
         return formatter.format(date);
     }
-    
+
 //TODO- Use the common method instead
     public String getAppConfigValueFor(final String module, final String key) {
         try {
@@ -292,7 +292,7 @@ public abstract class ReportService {
             final Date toDate, final Date fromDate, final String coaType, final String subReportType) {
     	String    voucherStatusToExclude = getAppConfigValueFor("EGF",
                 "statusexcludeReport");
-        
+
         final Query query = persistenceService.getSession()
                 .createSQLQuery(
                         "select c.majorcode as glCode,v.fundid as fundId,c.type as type,sum(debitamount)-sum(creditamount) as amount"
@@ -363,7 +363,7 @@ public abstract class ReportService {
             return calendar.getTime();
         }
         return statement.getFinancialYear().getEndingDate();
-        
+
     }
 
     void addFundAmount(final StatementEntry entry, final Map<String, BigDecimal> fundTotals) {

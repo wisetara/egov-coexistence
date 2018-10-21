@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -87,13 +87,13 @@
     		document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetProposalDetail-newRe.action?re";
 			document.forms[0].submit();
 	    	}
-    	
+
     	defaultDept();
     	<s:if test="%{referenceBudget != null}">
     		document.getElementById('referenceBudget').innerHTML = '<s:property value="referenceBudget.name"/>';
     	</s:if>
     }
-    
+
     function getActuals(){
         var cont=confirm('This Will reset the amounts Do you want to Continue?');
         if(cont==false)
@@ -113,7 +113,7 @@
    		document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetDetail-createReAndForward.action";
 		document.forms[0].submit();
     }
-    
+
     var elementId = null;
     function showDocumentManager(obj){
     	if(obj.id == 'budgetDocUploadButton'){
@@ -128,15 +128,15 @@
     var docNumberUpdater = function (docNumber){
 			document.getElementById(elementId).value = docNumber;
 		}
-		
+
 	function populateFunctions(budgetId){
 		populatebudgetDetail_filtered_function({id:budgetId});
 	}
 	function populateBudgetGroup(budgetId){
 		populatebudgetDetail_filtered_budgetGroup({id:budgetId});
 	}
-	
-    
+
+
     </SCRIPT>
 </head>
 <body>
@@ -158,11 +158,11 @@
 								for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
 									if(isNaN(document.getElementById('budgetDetailList['+i+'].anticipatoryAmount').value))
 										anticipatory = true;
-								}				
+								}
 								for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
 									if(isNaN(document.getElementById('budgetDetailList['+i+'].originalAmount').value))
 										estimate = true;
-								}				
+								}
 								if(estimate && anticipatory){
 									bootbox.alert('Estimate amount and Anticipatory amount must be a number');
 									return false;
@@ -316,7 +316,7 @@
 			failure: function(o) {
 		    }
 		}
-		
+
 		<s:if test="%{showDetails}">
 			var temp = window.setInterval(load,1);
 			function load()
@@ -324,7 +324,7 @@
 				try{document.getElementById('tabber1').onclick(); window.clearInterval(temp);}catch(e){}
 			}
     	</s:if>
-    	
+
 		function updateApproverDepartment(obj){
 			document.getElementById('departmentid').value = document.getElementById('budgetDetail_executingDepartment').value;
 			populateDesg();

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -67,10 +67,10 @@ import java.util.List;
 import java.util.Map;
 
 public class BudgetDetailHelper {
-    
+
     @Autowired
     private BudgetDetailsDAO budgetDetailsDAO;
-    @Autowired    
+    @Autowired
     private FinancialYearDAO financialYearDAO;
 
     public void setBudgetDetailsDAO(final BudgetDetailsDAO budgetDetailsDAO) {

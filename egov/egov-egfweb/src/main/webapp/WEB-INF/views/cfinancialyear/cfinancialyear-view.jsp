@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -128,7 +128,7 @@
 														class="form-control text-right patternvalidation" />
 												</td>
 											<td><fmt:formatDate value="${var1.startingDate}"
-													var="startDate" pattern="dd/MM/yyyy" /> 
+													var="startDate" pattern="dd/MM/yyyy" />
 													<input type="text"
 														name="cFiscalPeriod[${counter.index}].startingDate"
 														 value="${startDate}"
@@ -157,4 +157,4 @@
 		</div>
 			</div>
 		</div>
-		
+

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -84,7 +84,7 @@
 <script>
 window.history.forward(1);
 function noBack() {
-	window.history.forward(); 
+	window.history.forward();
 }
 
 var insuffiecientBankBalance ='<s:text name="insuffiecientBankBalance"/>';
@@ -103,18 +103,18 @@ function validateAppoveUser(actionName,actionDescription){
 			return false;
 		}
 	</s:else>
-	
+
 	return true;
 }
 
 function viewARF(sourcePath){
 	window.open(sourcePath,'', 'height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
-} 
+}
 
 function printVoucher() {
 	document.forms[0].action='../report/billPaymentVoucherPrint!print.action?id=<s:property value="paymentheader.id"/>';
 	document.forms[0].submit();
-} 
+}
 
 function showHistory(stateId) {
 var url="../voucher/common!showHistory.action?stateId="+stateId;
@@ -339,7 +339,7 @@ function balanceCheck(obj, actionName,actionDescription) {
 					</tr>
 				</table>
 				<script>
-		  <s:if test="%{hasActionMessages()}">   
+		  <s:if test="%{hasActionMessages()}">
 			  if(opener && opener.top && opener.top.document.getElementById('inboxframe'))
 				opener.top.document.getElementById('inboxframe').contentWindow.egovInbox.refresh();
 		 </s:if>
@@ -355,16 +355,16 @@ function balanceCheck(obj, actionName,actionDescription) {
 						if(document.getElementById('bankbalanceRow')) {
 							document.getElementById('bankbalanceRow').style.visibility='visible';
 							document.getElementById('bankAccountBalance').innerHTML='<s:property value="%{balance}"/>'
-						}  
+						}
 				</s:if>
 				<s:if test="%{balance=='-1'}">
 					bootbox.alert('<s:text name="validation.message.fundflow.report.notgenerated" />');
 					for(var i=0;i<document.forms[0].length;i++)
 					if(document.forms[0].elements[i].id!='Close')
-						document.forms[0].elements[i].disabled =true;   
+						document.forms[0].elements[i].disabled =true;
 				</s:if>
 			</s:if>
-		
+
 		</script>
 			</s:if>
 			<s:else>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -53,15 +53,15 @@ package org.egov.infra.web.struts.utils;
  * adding extra functionality to include model id, module name with request parameter.
  **/
 public class ServletActionRedirectResult extends org.apache.struts2.result.ServletActionRedirectResult {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public void setModelId(String id) {
 		this.addParameter("model.id", id);
 	}
-	
+
 	public void setModuleName(String moduleName) {
 		this.addParameter("moduleName", moduleName);
 	}
-	
+
 }

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -69,10 +69,10 @@
 <script>
 var vTypeOfAccount="RECEIPTS_PAYMENTS,PAYMENTS";
 function loadBank(fundId){
-	populatebank({fundId:fundId.options[fundId.selectedIndex].value,typeOfAccount:"PAYMENT,RECEIPTS_PAYMENTS"})	
+	populatebank({fundId:fundId.options[fundId.selectedIndex].value,typeOfAccount:"PAYMENT,RECEIPTS_PAYMENTS"})
 }
 function loadBankForFund(fundId){
-	populatebank({fundId:fundId.options[fundId.selectedIndex].value})	
+	populatebank({fundId:fundId.options[fundId.selectedIndex].value})
 }
 function validateFund(){
 	var fund = document.getElementById('fundId').value;
@@ -86,13 +86,13 @@ function validateFund(){
 function populateAccNumbers(bankBranch){
 	var fund = document.getElementById('fundId');
 	id = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1]
-	populatebankaccount({branchId:id,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:id,fundId:fund.options[fund.selectedIndex].value})
 }
 function populateAccNumbersForId(bankBranchId){
 	var fund = document.getElementById('fundId');
-	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})
 }
-function onLoadTask(){ 
+function onLoadTask(){
 }
 function populateNarration(accnumObj){
    if(accnumObj.options[accnumObj.selectedIndex].value=="")
@@ -130,9 +130,9 @@ var callback = {
 			},
 			failure: function(o) {
 		    }
-		}                  
-		
-		
+		}
+
+
 function populateAccNum(branch){
 	var fundObj = document.getElementById('fundId');
 
@@ -172,7 +172,7 @@ function checkLength(obj)
 }
 
 function populateUser(){
-	
+
 	var desgFuncry = document.getElementById("designationId").value;
 	var array = desgFuncry.split("-");
 	var functionary = array[1];
@@ -182,7 +182,7 @@ function populateUser(){
 	}
 	populateapproverUserId({departmentId:document.getElementById("departmentid").value,
 	designationId:desgId,functionaryName:functionary})
-		
+
 }
 function validateApproveUser(name,value){
 	document.getElementById("actionName").value= name;
@@ -201,7 +201,7 @@ function printVoucher(){
 }
 	function validate(obj,name,value)
 		{
-	
+
 		document.getElementById('lblError').innerHTML = "";
 			if(!validateMIS())
 			  return false;
@@ -227,14 +227,14 @@ function printVoucher(){
 					return false;
 				}
 				}
-			}  
-			if(!validateApproveUser(name,value))    
+			}
+			if(!validateApproveUser(name,value))
 				return false;
-			
-			enableAll();  
+
+			enableAll();
 			return true;
 		}
-		
+
 	function	enableAll()
 		{
 		var frmIndex=0;
@@ -543,7 +543,7 @@ function printVoucher(){
 					onclick="javascript:window.close()" class="button" />
 			</div>
 			<script type="text/javascript">
-	//bootbox.alert('<s:property value="fund.id"/>');                               
+	//bootbox.alert('<s:property value="fund.id"/>');
 	calcTotalForPayment();
 	</script>
 		</s:push>
@@ -571,18 +571,18 @@ function printVoucher(){
 		if(document.getElementById("printPreview"))
 			document.getElementById("printPreview").disabled=false;
 		if(document.getElementById("cancelPayment"))
-			document.getElementById("cancelPayment").disabled=false;	
+			document.getElementById("cancelPayment").disabled=false;
 		if(document.getElementById("remittedTo"))
-			document.getElementById("remittedTo").disabled=false;	
+			document.getElementById("remittedTo").disabled=false;
 	<s:iterator value="listRemitBean" status="stat">
 		var index = '<s:property value="#stat.index"/>';
 			document.getElementById("listRemitBean["+index+"].partialAmount").disabled=false;
 	</s:iterator>
 		if(null != document.getElementById("departmentid") ){
-			document.getElementById("departmentid").disabled=false;    
+			document.getElementById("departmentid").disabled=false;
 			document.getElementById("designationId").disabled=false;
 			document.getElementById("approverUserId").disabled=false;
-			
+
 		}
 		if(document.getElementById("bank"))
 		  document.getElementById("bank").disabled=false;
@@ -590,9 +590,9 @@ function printVoucher(){
 		 	document.getElementById("bankaccount").disabled=false;
 		if(document.getElementById("voucherDate"))
 		 	document.getElementById("voucherDate").disabled=false;
-		 	
-				
-		
+
+
+
 	 <s:if test="%{validateUser('balancecheck')}">
 			if(document.getElementById('balanceText'))
 			{
@@ -602,9 +602,9 @@ function printVoucher(){
 				x=parseFloat(x);
 				document.getElementById('availableBalance').value=x.toFixed(2);
 			}
-	</s:if>	
-		
-		
+	</s:if>
+
+
 		if(document.getElementById("wfBtn0"))
 		{
 		document.getElementById("wfBtn0").disabled=false;
@@ -617,9 +617,9 @@ function printVoucher(){
 		{
 		document.getElementById("wfBtn3").disabled=false;
 		}
-		
-		
-		
+
+
+
 </SCRIPT>
 
 		<s:if test="%{validateUser('balancecheck')}">
@@ -630,7 +630,7 @@ function printVoucher(){
 				document.getElementById('balanceText').style.display='block';
 				document.getElementById('balanceAvl').style.display='block';
 			}
-		
+
 </SCRIPT>
 		</s:if>
 

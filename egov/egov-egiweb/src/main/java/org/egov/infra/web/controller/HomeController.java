@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -144,11 +144,11 @@ public class HomeController {
 
     @GetMapping
     public ModelAndView showHome(HttpServletRequest request, HttpServletResponse response, ModelMap modelData) {
-    	
-    	//  code change for parallel 
+
+    	//  code change for parallel
     	CurrentUser curuser = (CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	System.out.println("************current user: "+curuser.getUsername());
-    	
+
     	//    	User user = userService.getCurrentUser();
     	User user =curuser.getUser();
         setUserLocale(user, request, response);

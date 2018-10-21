@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,17 +62,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ViewBoundaryTypeController {
 
 	private BoundaryTypeService boundaryTypeService;
-	
+
 	@Autowired
 	public ViewBoundaryTypeController(BoundaryTypeService boundaryTypeService){
 		this.boundaryTypeService = boundaryTypeService;
 	}
-	
+
 	@ModelAttribute
         public BoundaryType boundaryTypeModel(@PathVariable Long id){
             return boundaryTypeService.getBoundaryTypeById(id);
         }
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewBoundaryType(){
 		return "boundaryType-view";

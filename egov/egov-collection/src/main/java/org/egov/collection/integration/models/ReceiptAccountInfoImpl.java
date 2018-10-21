@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -67,7 +67,7 @@ public class ReceiptAccountInfoImpl implements ReceiptAccountInfo {
      * The private instance of receipt detail. This is used by all public getters.
      */
     private ReceiptDetail receiptDetail;
-    
+
 
     /**
      * Creates the receipt account info for given receipt detail.
@@ -195,11 +195,11 @@ public class ReceiptAccountInfoImpl implements ReceiptAccountInfo {
         return receiptDetail.getPurpose() == null ? "" : receiptDetail.getPurpose();
     }
 
- 
+
     @Override
     public Long getGroupId() {
         return receiptDetail.getGroupId() ;
     }
 
-  
+
 }

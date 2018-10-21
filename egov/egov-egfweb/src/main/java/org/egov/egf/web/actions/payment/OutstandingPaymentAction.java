@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -103,7 +103,7 @@ public class OutstandingPaymentAction extends BaseFormAction {
     private EgovCommon egovCommon;
     private BigDecimal currentReceiptsAmount = BigDecimal.ZERO;
     private BigDecimal runningBalance = BigDecimal.ZERO;
-    
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -118,7 +118,7 @@ public class OutstandingPaymentAction extends BaseFormAction {
     private BigDecimal rBalance = BigDecimal.ZERO;
     @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     @Override
     public String execute() throws Exception {
         return "form";

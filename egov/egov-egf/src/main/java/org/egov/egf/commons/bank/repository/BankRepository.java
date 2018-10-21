@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,7 +62,7 @@ import java.util.List;
 public interface BankRepository extends JpaRepository<Bank, Integer> {
 
     List<Bank> findByIsactive(Boolean isActive);
-    
+
     List<Bank> findByIsactiveTrueOrderByNameAsc();
 
 

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -68,18 +68,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GeneralLedgerHibernateDAO  implements GeneralLedgerDAO {
-    
+
     @Autowired
     private FinancialYearHibernateDAO financialYearHibernateDAO;
 
     @Autowired
     private FiscalPeriodHibernateDAO fiscalPeriodHibernateDAO;
-    
+
     @PersistenceContext
     private EntityManager entityManager;
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(GeneralLedgerHibernateDAO.class);
-    
+
     @Transactional
     public CGeneralLedger update(final CGeneralLedger entity) {
         getCurrentSession().update(entity);
@@ -105,12 +105,12 @@ public class GeneralLedgerHibernateDAO  implements GeneralLedgerDAO {
         return (List<CGeneralLedger>) getCurrentSession().createCriteria(CGeneralLedger.class).list();
     }
 
-  
+
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
 
-    
+
     /**
      * This method will calculate the Actuals for the previous year.
      */
@@ -403,7 +403,7 @@ public class GeneralLedgerHibernateDAO  implements GeneralLedgerDAO {
     public BigDecimal getGlAmountbyGlcodeList(final List glCodeList, final BigDecimal glAmount) throws Exception {
         BigDecimal amount = glAmount;
         Query qry = null;
-      
+
         try {
             for (final Iterator i = glCodeList.iterator(); i.hasNext();) {
                 final String glCode = (String) i.next();
@@ -418,7 +418,7 @@ public class GeneralLedgerHibernateDAO  implements GeneralLedgerDAO {
 
                         final BigDecimal debitamount = BigDecimal.valueOf(ob.getDebitAmount());
                         final BigDecimal creditamount = BigDecimal.valueOf(ob.getCreditAmount());
-                        
+
                         if (!debitamount.equals(0.0)) {
                             amount = amount.subtract(debitamount);
                         } else {

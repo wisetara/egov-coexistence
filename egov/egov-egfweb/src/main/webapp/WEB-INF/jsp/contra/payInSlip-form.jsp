@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,24 +55,24 @@
 
 path="${pageContext.request.contextPath}";
 		var totaldbamt=0,totalcramt=0;
-		
-		
-		
+
+
+
 		var makeVoucherDetailTable = function() {
-		var voucherDetailColumns = [ 
-			
+		var voucherDetailColumns = [
+
 			{key:"serialNo",label:'Sl no',width:90, formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".serialNo")},
 			{key:"chequeNo",label:'Cheque No' ,width:100, formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".chequeNo")},
-			{key:"chequeDate", label:'chequeDate',width:100,formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".chequeDate")},				
-			{key:"voucherNumber",label:'Voucher Number',width:90, formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".voucherNumber")}, 
+			{key:"chequeDate", label:'chequeDate',width:100,formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".chequeDate")},
+			{key:"voucherNumber",label:'Voucher Number',width:90, formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".voucherNumber")},
 			{key:"voucherDate",label:'Voucher Date',width:90, formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".voucherDate")},
 			{key:"amount",label:'Amount',width:90, formatter:createLongTextFieldFormatterPayin(INSTRUMENTLIST,".amount")},
 			{key:"selectChq",label:'Select',width:90, formatter:createcheckbox(INSTRUMENTLIST,".selectChq","calcTotal()")},
 			{key:"instrumentId",hidden:true,width:90, formatter:createTextFieldFormatterPJV(INSTRUMENTLIST,".instrumentId","hidden")}
 		];
-	    var voucherDetailDS = new YAHOO.util.DataSource(); 
+	    var voucherDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
-		
+
 		<s:iterator value="iHeaderList" status="stat">
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
 					"serialNo":'<s:property value="serialNo"/>',
@@ -95,8 +95,8 @@ path="${pageContext.request.contextPath}";
 				updatecheckBox('selectChq',index,'<s:property value="selectChq"/>');
 				updateInstrTableIndex();
 			</s:iterator>
-				
-	
+
+
 		}
 </script>
 
@@ -182,8 +182,8 @@ path="${pageContext.request.contextPath}";
 
 
 function loadBank(fund){
-	
-	populatebankId({fundId:fund.options[fund.selectedIndex].value})	
+
+	populatebankId({fundId:fund.options[fund.selectedIndex].value})
 
 	}
 function populateAccNum(branch){
@@ -208,7 +208,7 @@ function populateNarration(accnumObj){
 var postType = {
 success: function(o) {
 		var narration= o.responseText;
-		document.getElementById('accnumnar').value=narration;	
+		document.getElementById('accnumnar').value=narration;
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -218,14 +218,14 @@ function validateFundSelected(){
 	if( document.getElementById('fundId').value == -1){
 		bootbox.alert("Enter value for Fund");
 	}
-	
+
 }
 
 function validateCheque(saveMode)
 {
 	document.getElementById('saveMode').value=saveMode;
 	document.getElementById('lblError').innerHTML = "";
-	<s:if test="%{isFieldMandatory('vouchernumber')}"> 
+	<s:if test="%{isFieldMandatory('vouchernumber')}">
 	if(null != document.getElementById('payinNumber') && document.getElementById('payinNumber').value.trim().length == 0){
 		document.getElementById('lblError').innerHTML = "Please enter  payinslip number ";
 		return false;
@@ -249,15 +249,15 @@ function validateCheque(saveMode)
 	var instId;
 	var table = document.getElementById('billDetailTable');
 	var row = table.getElementsByTagName('tr');
-	
+
 	for(var i=0;i<row.length-2;i++)
 	{
-		
+
 		chkBox =document.getElementById('iHeaderList['+i+'].selectChq');
 		instId = document.getElementById('iHeaderList['+i+'].instrumentId');
 		if(chkBox.checked)
 		{
-			
+
 			atleastOnecheque = true;
 			if(chequeSlNos !=""){
 				chequeSlNos=chequeSlNos+","+instId.value;

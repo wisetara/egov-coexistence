@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -102,13 +102,13 @@
 	background: #FFFFCC;
 }
 </style>
-	<script>  
+	<script>
 function loadBank(fund){
 	if(fund.value!=-1){
-		populatebank({fundId:fund.options[fund.selectedIndex].value})   
-	}else{       
-		populatebank()       
-	} 
+		populatebank({fundId:fund.options[fund.selectedIndex].value})
+	}else{
+		populatebank()
+	}
 }
 function validateFund(){
 	var fund = document.getElementById('fund').value;
@@ -129,7 +129,7 @@ function populateBankAccount(branch){
 }
 function populateDO(){
 	var dept = document.getElementById('department');
-	populatedrawingOfficerId({departmentId:dept.options[dept.selectedIndex].value})	
+	populatedrawingOfficerId({departmentId:dept.options[dept.selectedIndex].value})
 }
 function validateBank(){
 	var bank = document.getElementById('bank').value;
@@ -147,14 +147,14 @@ function validateBank(){
 	  	   oACDS = new YAHOO.widget.DS_XHR(path+"/services/EGF/voucher/common!ajaxLoadEntitesBy20.action", [ "~^"]);
 		   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 		   oACDS.scriptQueryParam = "startsWith";
-		 //  bootbox.alert("in side fun2"); 
-		   
+		 //  bootbox.alert("in side fun2");
+
 		   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 		   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-			   loadWaitingImage(); 
+			   loadWaitingImage();
 			   return sQuery+"&accountDetailType="+type;
-		   } 
-		  // bootbox.alert("in side fun3"); 
+		   }
+		  // bootbox.alert("in side fun3");
 		   oAutoCompEntityForJV.queryDelay = 0.5;
 		   oAutoCompEntityForJV.minQueryLength = 3;
 		   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight";
@@ -171,8 +171,8 @@ function validateBank(){
 		           return true;
 		   }
 	}
-	function splitEntitiesDetailCodeForcontractor(obj) 
-	{	
+	function splitEntitiesDetailCodeForcontractor(obj)
+	{
 		var entity=obj.value;
 		if(entity.trim()!="")
 		{
@@ -184,8 +184,8 @@ function validateBank(){
 		}
 
 	}
-	function splitEntitiesDetailCodeForsupplier(obj) 
-	{	
+	function splitEntitiesDetailCodeForsupplier(obj)
+	{
 		var entity=obj.value;
 		if(entity.trim()!="")
 		{
@@ -226,14 +226,14 @@ function validateBank(){
 	  	   oACDS = new YAHOO.widget.DS_XHR(path+"/services/EGF/voucher/common!ajaxLoadRTGSNumberBy20.action", [ "~^"]);
 		   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 		   oACDS.scriptQueryParam = "startsWith";
-		 //bootbox.alert("in side fun2"); 
-		   
+		 //bootbox.alert("in side fun2");
+
 		   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 		   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-			   loadWaitingImage(); 
+			   loadWaitingImage();
 			   return sQuery+"&bankaccountId="+document.getElementById('bankaccount').value+"&rtgsNumber="+document.getElementById('instrumentnumber').value;
-		   } 
-		 // bootbox.alert(document.getElementById('accountNumber').value); 
+		   }
+		 // bootbox.alert(document.getElementById('accountNumber').value);
 		   oAutoCompEntityForJV.queryDelay = 0.5;
 		   oAutoCompEntityForJV.minQueryLength = 3;
 		   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight";
@@ -251,7 +251,7 @@ function validateBank(){
 		   }
 	}
 
-	
+
 </script>
 
 	<s:form action="autoRemittanceReport" theme="simple"

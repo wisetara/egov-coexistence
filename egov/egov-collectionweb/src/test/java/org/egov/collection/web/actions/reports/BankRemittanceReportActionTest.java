@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -54,27 +54,27 @@ package org.egov.collection.web.actions.reports;
  */
 public class BankRemittanceReportActionTest{ /* extends
 		AbstractPersistenceServiceTest {
-	
+
 	private BankRemittanceReportAction action;
 	private CollectionObjectFactory objectFactory;
-	
+
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setupAction() {
 		objectFactory = new CollectionObjectFactory(session);
-		
+
 		action = new BankRemittanceReportAction();
 		action.setPersistenceService(genericService);
 		action.setSession(new HashMap());
 	}
-	
+
 	@Test
 	public void testPrepare() {
 		action.prepare();
 		Assert.assertEquals(FileFormat.PDF, action.getReportFormat());
 		Assert.assertEquals(ReportDataSourceType.HQL, action.getDataSourceType());
 	}
-	
+
 	@Test
 	public void testGetModel() {
 		assertNull(action.getModel());
@@ -86,7 +86,7 @@ public class BankRemittanceReportActionTest{ /* extends
 		action.setDeptId(deptId);
 		assertEquals(deptId, action.getDeptId());
 	}
-	
+
 	@Test
 	public void testGetReportTemplate() {
 		Assert.assertEquals("bank_remittance", action.getReportTemplateName());
@@ -96,14 +96,14 @@ public class BankRemittanceReportActionTest{ /* extends
 	public void testCriteria() {
 		CollectionsUtil collectionsUtilMock = EasyMock.createMock(CollectionsUtil.class);
 		action.setCollectionsUtil(collectionsUtilMock);
-		
+
 		Department dept = objectFactory.createDept("test.dept");
 		EasyMock.expect(collectionsUtilMock.getDepartmentOfLoggedInUser(EasyMock.isA(Map.class))).andReturn(dept);
 		EasyMock.replay(collectionsUtilMock);
-		
+
 		String critResult = action.criteria();
 		EasyMock.verify(collectionsUtilMock);
-		
+
 		assertEquals(critResult, BaseFormAction.INDEX);
 		assertEquals(dept.getId(), action.getDeptId());
 	}

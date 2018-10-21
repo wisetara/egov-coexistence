@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -72,16 +72,16 @@ public interface PositionHierarchyRepository extends JpaRepository<PositionHiera
                                                                          @Param("objectSubType") String objectSubType);
 
     @Query(" from PositionHierarchy P where P.fromPosition.id=:fromPosition and P.objectType.id=:objectType  order by  P.objectSubType ")
-    List<PositionHierarchy> getListOfPositionHeirarchyByFromPositionAndObjectType(
+    List<PositionHierarchy> getListOfPositionHierarchyByFromPositionAndObjectType(
             @Param("fromPosition") Long fromPosition, @Param("objectType") Integer objectType);
 
     @Query(" from PositionHierarchy P where P.fromPosition.id=:fromPosition and P.objectType.id=:objectType and P.objectSubType=:objectSubType")
-    List<PositionHierarchy> getListOfPositionHeirarchyByFromPositionAndObjectTypeAndSubType(
+    List<PositionHierarchy> getListOfPositionHierarchyByFromPositionAndObjectTypeAndSubType(
             @Param("fromPosition") Long fromPosition, @Param("objectType") Integer objectType,
             @Param("objectSubType") String objectSubType);
 
     @Query(" from PositionHierarchy P where  P.objectType.id=:objectType ")
-    List<PositionHierarchy> getListOfPositionHeirarchyByObjectType(@Param("objectType") Integer objectType);
+    List<PositionHierarchy> getListOfPositionHierarchyByObjectType(@Param("objectType") Integer objectType);
 
     @Query("select ph from PositionHierarchy ph where ph.objectType.id=:objectType and ph.objectSubType in :objectSubTypes and ph.fromPosition = :fromPosition")
     List<PositionHierarchy> findPositionHierarchyByObjectSubTypeAndFromPosition(@Param("objectType") Integer objectType,

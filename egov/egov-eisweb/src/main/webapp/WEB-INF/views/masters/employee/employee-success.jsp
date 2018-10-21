@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,8 +53,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="/WEB-INF/taglib/cdn.tld" prefix="cdn" %>
 <script src="<cdn:url value='/resources/js/app/designation.js'/>"></script>
-		 
-			
+
+
 			<form:form  method ="post" action="create" class="form-horizontal form-groups-bordered" modelAttribute="employee" id="employeeForm" >
 				<div class="row">
 						<div class="col-md-12">
@@ -66,17 +66,17 @@
 									<div class="panel-title">
 										<spring:message code="title.basic"/>
 									</div>
-									
+
 								</div>
 								<div class="panel-body">
 									<div class="row add-border">
 										<div class="col-md-3 col-xs-6 add-margin">
-											<spring:message code="lbl.name"/> 
+											<spring:message code="lbl.name"/>
 										</div>
 										<div class="col-md-3 col-xs-6 add-margin view-content">
 											<c:out value="${employee.name}"/>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.gender"/>
 										</div>
@@ -86,12 +86,12 @@
 									</div>
 									<div class="row add-border">
 										<div class="col-md-3 col-xs-6 add-margin">
-											<spring:message code="lbl.mobile"/>  
+											<spring:message code="lbl.mobile"/>
 										</div>
 										<div class="col-md-3 col-xs-6 add-margin view-content">
 											<c:out value="${employee.mobileNumber}"/>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.email"/>
 										</div>
@@ -106,7 +106,7 @@
 										<div class="col-md-3 col-xs-6 add-margin view-content">
 											<c:out value="${employee.altContactNumber}"/>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.DOB"/>
 										</div>
@@ -125,7 +125,7 @@
 											pattern="dd-MM-yyyy" />
 											<c:out value="${DOA}"/>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.status"/>
 										</div>
@@ -140,7 +140,7 @@
 										<div class="col-md-3 col-xs-6 add-margin view-content">
 											<c:out value="${employee.employeeType.name}"/>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.code"/>
 										</div>
@@ -155,7 +155,7 @@
 										<div class="col-md-3 col-xs-6 add-margin view-content">
 											<c:out value="${employee.pan}"/>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.aadhar"/>
 										</div>
@@ -169,8 +169,8 @@
 										</div>
 										<c:if test="${not empty image}">
 										<div class="col-md-3 col-xs-6 add-margin view-content">
-											<img width="100" height="70" src='data:image/png;base64,${image}' /> 
-										</div>	
+											<img width="100" height="70" src='data:image/png;base64,${image}' />
+										</div>
 										</c:if>
 									</div>
 									<div class="row">
@@ -185,7 +185,7 @@
 												No
 											</c:if>
 										</div>
-										
+
 										<div class="col-md-3 col-xs-6 add-margin">
 											<spring:message code="lbl.username"/>
 										</div>
@@ -197,8 +197,8 @@
 							</div>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="row form-group">
 										<div class="col-md-6 col-xs-6 table-header">Assignment Details</div>
 										<table id="assignmentTable" class="table table-bordered">
@@ -217,17 +217,17 @@
 														<form:input type="hidden"
 															id="assignments[${status.index}].fromDate"
 															path="assignments[${status.index}].fromDate"
-															/> 
+															/>
 														<form:input type="hidden"
 															id="assignments[${status.index}].toDate"
 															path="assignments[${status.index}].toDate"
-															/> 
-														
+															/>
+
 														<fmt:formatDate value="${assignment.fromDate}" var="fromDate"
 															pattern="dd/MM/yyyy" />
 														<fmt:formatDate value="${assignment.toDate}" var="toDate"
 															pattern="dd/MM/yyyy" />
-														<input type="text" id="table_date_range${status.index}" 
+														<input type="text" id="table_date_range${status.index}"
 															class="form-control" readonly="readonly" style="text-align:center"
 															value="<c:out value="${fromDate} - ${toDate}"/>"/>
 													</td>
@@ -237,11 +237,11 @@
 															path="assignments[${status.index}].primary"
 															/>
 																<c:if test="${assignment.primary==true}" >
-																<input type="text" id="table_department${status.index}" class="form-control" 
+																<input type="text" id="table_department${status.index}" class="form-control"
 																	readonly="readonly" style="text-align:center" value="Yes"/>
 																</c:if>
 																<c:if test="${assignment.primary==false}">
-																	<input type="text" id="table_department${status.index}" class="form-control" 
+																	<input type="text" id="table_department${status.index}" class="form-control"
 																	readonly="readonly" style="text-align:center" value="No"/>
 																</c:if>
 													</td>
@@ -250,20 +250,20 @@
 															id="assignments[${status.index}].department"
 															path="assignments[${status.index}].department"
 															/>
-															<input type="text" id="table_department${status.index}" class="form-control" 
+															<input type="text" id="table_department${status.index}" class="form-control"
 															readonly="readonly" style="text-align:center" value="${assignment.department.name}"/>
-															
+
 													</td>
 													<td>
 														<form:input type="hidden"
 															id="assignments[${status.index}].designation"
 															path="assignments[${status.index}].designation"
 															/>
-															<input type="text" id="table_designation${status.index}" class="form-control" 
+															<input type="text" id="table_designation${status.index}" class="form-control"
 															readonly="readonly" style="text-align:center" value="${assignment.designation.name}"/>
 													</td>
 													<td>
-														<input type="text" id="table_position${status.index}" class="form-control" 
+														<input type="text" id="table_position${status.index}" class="form-control"
 														readonly="readonly" style="text-align:center" value="${assignment.position.name}"/>
 														<form:input type="hidden"
 															id="assignments[${status.index}].position"
@@ -284,19 +284,19 @@
 														<form:input type="hidden"
 															id="assignments[${status.index}].grade"
 															path="assignments[${status.index}].grade"
-															/>	
+															/>
 														<form:input type="hidden"
 															id="assignments[${status.index}].employee"
 															path="assignments[${status.index}].employee"
 															/>
 													</td>
-													<td><c:if test="${assignment.deptSet!=null}">  								
+													<td><c:if test="${assignment.deptSet!=null}">
 															<c:forEach var="hodDept" items="${assignment.deptSet}" varStatus="hodeptStatus">
 																<input type="text" id="assignments[${status.index}].hodDept[${hodeptStatus.index}].hod"
 																	name="assignments[${status.index}].hodDept[${hodeptStatus.index}].hod.id"
-																	value="${hodDept.hod.name}"/>						
-															</c:forEach>  		
-																
+																	value="${hodDept.hod.name}"/>
+															</c:forEach>
+
 													  </c:if>  </td>
 												</tr>
 											</c:forEach>
@@ -318,16 +318,16 @@
 															id="jurisdictions[${status.index}].boundaryType"
 															path="jurisdictions[${status.index}].boundaryType"
 															/>
-															<input type="text" id="table_boundaryType${status.index}" class="form-control" 
+															<input type="text" id="table_boundaryType${status.index}" class="form-control"
 															readonly="readonly" style="text-align:center" value="${jurisdiction.boundaryType.name}"/>
-															
+
 													</td>
 													<td>
 														<form:input type="hidden"
 															id="jurisdictions[${status.index}].boundary"
 															path="jurisdictions[${status.index}].boundary"
 															/>
-															<input type="text" id="table_boundary${status.index}" class="form-control" 
+															<input type="text" id="table_boundary${status.index}" class="form-control"
 															readonly="readonly" style="text-align:center" value="${jurisdiction.boundary.name}"/>
 													</td>
 												</tr>
@@ -335,12 +335,12 @@
 											</tbody>
 										</table>
 									</div>
-									
+
 									<div class="row text-center">
 										<div class="row">
 										<a href="javascript:void(0)" class="btn btn-default"
 											onclick="self.close()"><spring:message code="lbl.close" /></a>
 						</div>
 					</div>
-					
+
 			</form:form>

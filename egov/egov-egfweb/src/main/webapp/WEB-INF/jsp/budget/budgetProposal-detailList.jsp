@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -72,8 +72,8 @@
 
 <jsp:include page="budgetHeader.jsp" />
 <SCRIPT type="text/javascript">
-  
-    
+
+
     var dept_callback = {
 		success: function(o){
 			if(trimStr(o.responseText) != '' && trimStr(o.responseText) != '0'){
@@ -89,7 +89,7 @@
 				document.getElementById('departmentid').disabled=false;
 		    }
 		}
-		
+
     </SCRIPT>
 </head>
 <body>
@@ -126,7 +126,7 @@
 							     failure: function(o) {
 								     bootbox.alert("Deletion failed");
 							     }
-						} 
+						}
 						function deleteBudgetDetail(re, be,obj,bename,rename){
 							var rownum=getRow(obj);
 							var table=document.getElementById("detailsTable");
@@ -136,12 +136,12 @@
 							if(table)
 								{
 								table.deleteRow(rownum.rowIndex);
-								} 
+								}
 							bootbox.alert("Sending Request to server Please wait for Confirmation");
 							var transaction = YAHOO.util.Connect.asyncRequest('POST', 'budgetProposal-ajaxDeleteBudgetDetail.action?bpBean.id='+re+'&bpBean.nextYrId='+be, callback, null);
 						}else{
 							bootbox.alert("This Budget detail cannot be deleted ");
-						}  
+						}
 						}
 						</script>
 								<s:set var="validButtons" value="%{validActions}" />
@@ -278,8 +278,8 @@
 		   if(document.getElementById("forward"))
 			document.getElementById("forward").style.display = 'none';
 		</s:if>
-	</s:if>   
-	
+	</s:if>
+
 
 
 		 function exportPDF() {
@@ -303,7 +303,7 @@
 
 	var elementId = null;
     function showDocumentManager(obj){
-        
+
     	if(obj.id == 'budgetDocUploadButton'){
             elementId = 'budgetDocNumber';
         }else{
@@ -312,15 +312,15 @@
         docManager(document.getElementById(elementId).value);
     }
  var docNumberUpdater = function (docNumber){
-            document.getElementById(elementId).value = docNumber;   
-        }	
+            document.getElementById(elementId).value = docNumber;
+        }
  var checkDatatableLoaded = window.setInterval(checkDatatable,1);
  function checkDatatable() {
 	  if (jQuery('.t_fixed_header_main_wrapper_child')) {
 		  jQuery('.t_fixed_header_main_wrapper_child').css('width','918px');
 		  window.clearInterval(checkDatatableLoaded);
 	  }
- } 			 			
+ }
 	</script>
 	</s:form>
 </body>

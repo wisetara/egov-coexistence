@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -174,10 +174,10 @@
 			<br /> <br />
 	</s:form>
 	<script>
-		
+
 		function loadVoucherNames(selected)
 		{
-			var s="";  
+			var s="";
 			if(selected==-1)
 				{
 				document.getElementById('name').options.length=0;
@@ -189,16 +189,16 @@
 		 {
 		document.getElementById('name').options.length=0;
 		document.getElementById('name').options[0]= new Option('--------Choose--------','0');
-		
+
 		 <s:iterator value="voucherNames[#obj]" status="stat" var="names">
 		 document.getElementById('name').options[<s:property value="#stat.index+1"/>]= new Option('<s:property value="#names"/>','<s:property value="#names"/>');
-		 </s:iterator>   
+		 </s:iterator>
 		 }
 		 </s:iterator>
-			  
-			
+
+
 		}
-		
+
 	   function selectAll()
 	   {
 	    var list=document.getElementsByName("approveList");
@@ -206,9 +206,9 @@
 	    {
 	     list[i].checked="checked";
 	    }
-	    
+
 	   }
-	   	
+
 	 function deselectAll()
 	   {
 	    var list=document.getElementsByName("approveList");
@@ -216,19 +216,19 @@
 	    {
 	     list[i].checked="";
 	    }
-	    
+
 	   }
-	   	
-			
-		
+
+
+
 		<s:if test="%{voucherList.size==0}">
 				dom.get('msgdiv').style.display='block';
 			</s:if>
 			<s:if test="%{voucherList.size!=0}">
 				dom.get('msgdiv').style.display='none';
 				dom.get('listid').style.display='block';
-			</s:if>	
-	
+			</s:if>
+
 		</script>
 </body>
 </html>

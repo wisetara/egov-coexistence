@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -53,14 +53,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 public  class Helper {
 	 @Autowired
 	    private AppConfigValueService appConfigValuesService;
-	
+
 	/*public static Integer getStatusTypeByDescAndModule()
 	{
 		String statusDesc=null;
 		String moduleType=null;
 		EgwStatus statusType=null;
 		Integer statusId=null;
-		
+
 		try {
 			//moduleType=EGovConfig.getProperty("eis_egov_config.xml", "STATUS_MODULE_TYPE", "","EIS.STATUS");
 			AppConfigValues appConfigValuesForModule = appConfigValuesService.getAppConfigValueByDate("EIS_STATUS","STATUS_MODULE_TYPE",new Date());
@@ -74,38 +74,38 @@ public  class Helper {
 			}
 			if(moduleType!=null && statusDesc!=null)
 			{
-			  
+
 				statusType =  EisManagersUtill.getCommonsService().getStatusByModuleAndCode(moduleType, statusDesc);
 				if(statusType!=null)
 				{
-					
+
 					statusId=statusType.getId();
 				}
 			}
 		} catch (ApplicationRuntimeException e) {
 			throw e;
 		}
-		
+
 		return statusId;
 	}
 	*//**
-	 * isCompOffValid API checks is requested  compensatory off date is within the validity period 
+	 * isCompOffValid API checks is requested  compensatory off date is within the validity period
 	 * @param workedOn
 	 * @param compoffDate
 	 * @return Boolean
 	 *//*
 	public static Boolean isCompOffValid(Date workedOn,Date compoffDate){
-		
+
 		Boolean isCompOffValid=false;
 		List<AppConfigValues> compoffValidityList=appConfigValuesDAO.getConfigValuesByModuleAndKey(EisConstants.MODULE_LEAVEAPP, EisConstants.MODULE_KEY_COMPVAL);
-		
+
 		Calendar calworkedOnAndThirty=Calendar.getInstance();
 		Calendar calComoffDate=Calendar.getInstance();
 		calComoffDate.setTime(compoffDate);
 		calworkedOnAndThirty.setTime(workedOn);
 		calworkedOnAndThirty.add(Calendar.DAY_OF_MONTH,Integer.valueOf(compoffValidityList.get(0).getValue()));
-		isCompOffValid=(calworkedOnAndThirty.compareTo(calComoffDate)>0 || calworkedOnAndThirty.compareTo(calComoffDate)==0);		
+		isCompOffValid=(calworkedOnAndThirty.compareTo(calComoffDate)>0 || calworkedOnAndThirty.compareTo(calComoffDate)==0);
 		return isCompOffValid;
 	}*/
-	
+
 }

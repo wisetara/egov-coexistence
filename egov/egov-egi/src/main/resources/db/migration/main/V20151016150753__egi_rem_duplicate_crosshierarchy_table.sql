@@ -1,2 +1,2 @@
-DROP TABLE eg_crossheirarchy CASCADE;
-DROP SEQUENCE seq_eg_crossheirarchy;
+DROP TABLE eg_crosshierarchy CASCADE;
+DROP SEQUENCE seq_eg_crosshierarchy;

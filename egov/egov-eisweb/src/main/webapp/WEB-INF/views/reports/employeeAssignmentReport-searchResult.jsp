@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -56,7 +56,7 @@
 			id="resultTable">
 			<thead id="resultheader">
 				<tr>
-				    <th rowspan="2"><spring:message code="lbl.employeecode"/></th> 
+				    <th rowspan="2"><spring:message code="lbl.employeecode"/></th>
 				    <th rowspan="2"><spring:message code="lbl.employeename"/></th>
 				    <th colspan="4"><spring:message code="lbl.primaryposition"/></th>
 				    <th colspan="4"><spring:message code="lbl.tempposition1"/></th>

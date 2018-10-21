@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -68,24 +68,24 @@ public class UpdateHierarchyTypeController {
 
     private static final String REDIRECT_URL_VIEW = "redirect:/hierarchytype/view/";
     private static final String REQUEST_MAP_UPDATE = "/update/{name}";
-    
+
     private HierarchyTypeService hierarchyTypeService;
-    
+
     @Autowired
     public UpdateHierarchyTypeController(HierarchyTypeService hierarchyTypeService) {
         this.hierarchyTypeService = hierarchyTypeService;
     }
-    
+
     @ModelAttribute
     public HierarchyType hierarchyTypeModel(@PathVariable String  name) {
            return hierarchyTypeService.getHierarchyTypeByName(name);
     }
-    
+
     @RequestMapping(value = REQUEST_MAP_UPDATE, method = RequestMethod.GET)
     public String hierarchyTypeUpdateForm(Model model) {
         return "hierarchyType-updateForm";
     }
-    
+
     @RequestMapping(value = REQUEST_MAP_UPDATE, method = RequestMethod.POST)
     public String updateHierarchyType(@ModelAttribute @Valid HierarchyType hierarchyType, BindingResult errors,
             RedirectAttributes additionalAttr) {
@@ -100,5 +100,5 @@ public class UpdateHierarchyTypeController {
 
         return REDIRECT_URL_VIEW + hierarchyType.getName();
     }
-    
+
 }

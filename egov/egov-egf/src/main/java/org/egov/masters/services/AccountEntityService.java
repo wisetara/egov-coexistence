@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -68,7 +68,7 @@ import java.util.List;
 @Deprecated
 @Transactional(readOnly = true)
 public class AccountEntityService extends PersistenceService<AccountEntity, Integer> implements EntityTypeService {
-    
+
     public AccountEntityService() {
         super(AccountEntity.class);
     }
@@ -76,7 +76,7 @@ public class AccountEntityService extends PersistenceService<AccountEntity, Inte
     public AccountEntityService(final Class<AccountEntity> type) {
         super(type);
     }
-    
+
     @Override
     public List<EntityType> getAllActiveEntities(final Integer accountDetailTypeId) {
         final List<EntityType> entities = new ArrayList<EntityType>();

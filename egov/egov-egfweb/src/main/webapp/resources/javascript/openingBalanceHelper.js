@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -60,10 +60,10 @@
             data:  formData,
             type : 'POST',
     		async : false,
-    		datatype : 'text',  
-    		processData: false, 
+    		datatype : 'text',
+    		processData: false,
     		contentType: false,
-        	
+
         success: function(data)
         {
         	document.getElementById("resultDiv").innerHTML="";
@@ -74,15 +74,15 @@
          error: function(jqXHR, textStatus, errorThrown)
          {
         	 undoLoadingMask();
-         }         
+         }
         });
         return true;
-           
-    	
+
+
     }
-	
+
 	function viewVoucher(vid){
 		var url = '../voucher/preApprovedVoucher!loadvoucherview.action?vhid='+vid;
 		window.open(url,'','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700,status=yes');
 	}
-	
+

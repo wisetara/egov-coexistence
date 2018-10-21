@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -69,7 +69,7 @@
 					</div>
 				</div>
 				<div class="panel-body custom-form">
-				
+
 				<div class="form-group">
 						<label for="field-1" class="col-sm-2 control-label"><spring:message code="lbl.onlinepayment.districtname" /></label>
 						<div class="col-sm-3 add-margin">
@@ -81,8 +81,8 @@
 								<form:options items="${districtname}"/>
 							</form:select>
 						</div>
-						
-						
+
+
 						<label for="field-1" class="col-sm-2 control-label"><spring:message code="lbl.onlinepayment.ulbname" /></label>
 						<div class="col-sm-3 add-margin">
 							<form:select name="ulbname" id="ulbname" path=""
@@ -93,7 +93,7 @@
 							</form:select>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="field-1" class="col-sm-2 control-label"><spring:message
 								code="lbl.fromDate" /></label>
@@ -122,24 +122,24 @@
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 				<div class="row">
 	       			<div class="text-center">
 	       				<button type="button" class="btn btn-primary" id="onlinePaymentReportSearch"><spring:message code="lbl.search"/></button>
 	          		    <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal" onclick="self.close()"><spring:message code="lbl.close"/></a>
 	          		</div>
         		</div>
-        		
+
         		</div>
 		</form:form>
-		
+
 		<div class="text-bold" id="resultinfo"></div>
 		 <br/>
-		
+
 		<table class="table table-bordered datatable dt-responsive table-hover" id="onlinePaymentReport-table">
 		</table>
-		
+
 	</div>
 </div>
 

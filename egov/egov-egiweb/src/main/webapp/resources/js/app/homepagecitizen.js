@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -47,7 +47,7 @@
  */
 
 $(document).ready(function()
-{	
+{
 	$('.menu-item').click(function(e)
 	{
 		$('.citizen-screens').hide();
@@ -55,11 +55,11 @@ $(document).ready(function()
 		$(this).parent().addClass('active');
 		$($(this).data('show-screen')).show();
 	});
-	
+
 	$("#sortby_drop li a").click(function(){
 		$("#sortby_drop > .btn > span > b").html($(this).html());
 	});
-	
+
 	$('.tabs-style-topline nav li').click(function(){
 		if($(this).attr('data-section') == "newrequest")
 		{
@@ -70,7 +70,7 @@ $(document).ready(function()
 				$(this).addClass('tab-current-newreq');
 				$($(this).attr('data-newreq-section')).addClass('content-current-newreq');
 			}
-			
+
 		}else if($(this).attr('data-section') == "myaccount")
 		{
 			$('.tabs-style-topline nav li').removeClass('tab-current-myacc');
@@ -79,19 +79,19 @@ $(document).ready(function()
 			$($(this).attr('data-myaccount-section')).addClass('content-current-myacc');
 		}
 	});
-	
+
 	$('.check-password').blur(function(){
 		if(($('#new-pass').val()!="") && ($('#retype-pass').val()!=""))
 		{
 			if ($('#new-pass').val() === $('#retype-pass').val()) {
-				
+
 				}else{
 				$('.password-error').show();
 				$('#retype-pass').addClass('error');
 			}
 		}
 	});
-	
+
 	$('#password-form').on('submit', function(e){
 	       e.preventDefault();
 	       $.ajax({
@@ -106,7 +106,7 @@ $(document).ready(function()
                		msg = "New password you have entered does not match with retyped password."
                	} else if (data == "CURRPWD_UNMATCH") {
                		msg = "Old password you have entered is incorrect."
-               	} 
+               	}
                	bootbox.alert(msg);
                },
                error: function() {
@@ -114,28 +114,28 @@ $(document).ready(function()
                }, complete : function() {
                	$('.change-password, .loader-class').modal('hide');
                }
-       }); 
+       });
 	});
-	
-	
+
+
 	$(".ico-menu").bind('mouseover', function () {
 		$(this).addClass('open');
 	});
-	
-	$(".ico-menu").bind('mouseout', function () { 
+
+	$(".ico-menu").bind('mouseout', function () {
 		$(this).removeClass('open');
 	});
-	
+
 	$('a[data-open-popup]').click(function(event){
 		event.preventDefault();
 		popupCenter($(this).attr('href'), 'myPop1',940,600);
 	});
-	
+
 	function popupCenter(url, title, w, h) {
 		var left = (screen.width/2)-(w/2);
 		var top = (screen.height/2)-(h/2);
 		return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-	} 
-	
-	
+	}
+
+
 });

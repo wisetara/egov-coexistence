@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -85,9 +85,9 @@
             <column name="depositedBranch" precision="22" scale="0" />
         </many-to-one>
     </class>
-    
+
     <query name="getAllReceiptBoundary">
     <![CDATA[select distinct boundary from ReceiptMisc ]]></query>
     <query name="getAllReceiptBranch">
-    <![CDATA[select distinct rm.depositedBranch from org.egov.collection.entity.ReceiptMisc rm where rm.depositedBranch is not null]]></query>   
+    <![CDATA[select distinct rm.depositedBranch from org.egov.collection.entity.ReceiptMisc rm where rm.depositedBranch is not null]]></query>
 </hibernate-mapping>

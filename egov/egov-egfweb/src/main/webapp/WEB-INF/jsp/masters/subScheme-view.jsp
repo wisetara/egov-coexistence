@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -84,15 +84,15 @@
 	    	document.subSchemeForm.submit();
 			return true;
 		}
-		
+
 	function disableControls(isDisable) {
 		for ( var i = 0; i < document.subSchemeForm.length; i++)
 			document.subSchemeForm.elements[i].disabled = isDisable;
 		document.getElementById('Close').disabled = false;
-		
-		var id; 
+
+		var id;
 		var obj;
-		
+
 		// Calendar ids are of the form calendar1,calendar2 etc.
 			for (i = 0; i <= 5; i++) {
 				id = "calendar" + i;
@@ -101,7 +101,7 @@
 					obj.removeAttribute('href');
 			}
 
-	}	
+	}
 </script>
 
 </head>
@@ -113,13 +113,13 @@
 		<div class="subheadnew">
 			<s:if test="%{showMode=='new'}">
 			<s:text name="subScheme.add" />
-				
+
 			</s:if>
 			<s:elseif  test="%{showMode=='view'}">
 				<s:text name="masters.subscheme.searchview.title" />
 			</s:elseif>
 			<s:else><s:text name="subscheme.modify" /></s:else>
-			
+
 		</div>
 
 		<s:actionerror />
@@ -146,7 +146,7 @@
 			 	<s:if test="%{clearValues==true}">
 			 		bootbox.alert('<s:text name="subscheme.saved.successfully" />');
 			 		window.close();
-			 	</s:if>	
+			 	</s:if>
 			</s:if>
 			<s:else>
 				disableControls(true);

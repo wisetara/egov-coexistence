@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -84,12 +84,12 @@ public class FundHibernateDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-    
+
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
 
-   
+
     public List findAllActiveFunds() {
         return getCurrentSession().createQuery("from Fund where isactive = true order by name").list();
 
@@ -99,7 +99,7 @@ public class FundHibernateDAO {
     /**
      * This method returns all the <code>Fund</code> records which are active
      * and is a leaf.
-     * 
+     *
      * @return a <code>List</code> of <code>Fund</code> objects.
      */
     public List findAllActiveIsLeafFunds() {

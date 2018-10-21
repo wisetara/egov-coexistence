@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -144,15 +144,15 @@ function initializeGrid() {
 				width : 800,
 				hiddengrid : true,
 				colNames : [ 'Srl No', 'Branch Name', 'Branch Code','MICR', 'Address', 'Contact Person', 'Phone Number', 'Narration', 'Active' ],
-				colModel : [ {name : 'id',index : 'id',key : true,hidden : true,width : 55,	editable : true,editoptions : {readonly : true, size : 10}}, 
-				             {name : 'branchname', index : 'branchname',align:'center', width : 90, editable : true, editoptions : {size : 25},editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}}, 
-				             {name : 'branchcode', index : 'branchcode',align:'center', width : 90, editable : true, editoptions : {size : 25}, editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}}, 
-				             {name : 'branchMICR', index : 'branchMICR',align:'center', width : 90, editable : true, searchoptions: { sopt: ['eq','ne','lt','le','gt','ge', 'in', 'ni'] },editoptions : {size : 25, dataEvents : [ {type : 'blur', fn : check_MICR} ]}}, 
+				colModel : [ {name : 'id',index : 'id',key : true,hidden : true,width : 55,	editable : true,editoptions : {readonly : true, size : 10}},
+				             {name : 'branchname', index : 'branchname',align:'center', width : 90, editable : true, editoptions : {size : 25},editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}},
+				             {name : 'branchcode', index : 'branchcode',align:'center', width : 90, editable : true, editoptions : {size : 25}, editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}},
+				             {name : 'branchMICR', index : 'branchMICR',align:'center', width : 90, editable : true, searchoptions: { sopt: ['eq','ne','lt','le','gt','ge', 'in', 'ni'] },editoptions : {size : 25, dataEvents : [ {type : 'blur', fn : check_MICR} ]}},
 				             {name : 'branchaddress1', index : 'branchaddress1',align:'center', width : 100, sortable : false, editable : true, edittype : "textarea", editoptions : {rows : "2", cols : "20"}, editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}},
-				             {name : 'contactperson', index : 'contactperson',align:'center', width : 80, editable : true, editoptions : {size : 25}}, 
-				             {name : 'branchphone', index : 'branchphone',align:'center', width : 80, editable : true, editoptions : {size : 25}}, 
-				             {name : 'narration', index : 'narration',align:'center', width : 80, sortable : false, editable : true, edittype : "textarea", editoptions : {rows : "2", cols : "20"}}, 
-				             {name : 'isActive', index : 'isActive', align:'center',width : 80, editable : true, edittype : "checkbox",searchoptions: { sopt: ['eq','ne']}, editoptions : { value : "Y:N"}} 
+				             {name : 'contactperson', index : 'contactperson',align:'center', width : 80, editable : true, editoptions : {size : 25}},
+				             {name : 'branchphone', index : 'branchphone',align:'center', width : 80, editable : true, editoptions : {size : 25}},
+				             {name : 'narration', index : 'narration',align:'center', width : 80, sortable : false, editable : true, edittype : "textarea", editoptions : {rows : "2", cols : "20"}},
+				             {name : 'isActive', index : 'isActive', align:'center',width : 80, editable : true, edittype : "checkbox",searchoptions: { sopt: ['eq','ne']}, editoptions : { value : "Y:N"}}
 				             ],
 				             rowNum : 20,
 				             rowList : [ 20, 30, 40, 50 ],
@@ -194,7 +194,7 @@ function initializeGrid() {
 				            				             sortorder : "asc",
 				            				             height : '100%'
 				            			 });
-				            	 jQuery("#" + subgrid_table_id).jqGrid('navGrid',"#" + pager_id, 
+				            	 jQuery("#" + subgrid_table_id).jqGrid('navGrid',"#" + pager_id,
 				            			 {edit : true, add : true, del : false},
 				            			 {
 				            				 closeAfterEdit:true,
@@ -251,18 +251,18 @@ function initializeGrid() {
 				            	 // jQuery("#"+subgrid_table_id).remove();
 				             }
 			});
-	jQuery("#listsg11").jqGrid('navGrid', '#pagersg11', 
+	jQuery("#listsg11").jqGrid('navGrid', '#pagersg11',
 			{add : true,edit : true, del : false},
 			{
 				closeAfterEdit:true,
 				checkOnUpdate:true,
-				checkOnSubmit:true,					
+				checkOnSubmit:true,
 				bSubmit: "Save Bank Branch",
 				editCaption: "Edit Bank Branch",
 				resize : true,
 				afterSubmit: function(response,data){
 					return afterSubmit(response.responseText,data,"Bank Branch Updated ");
-				}				
+				}
 			},
 			{
 				closeAfterAdd:true,
@@ -276,7 +276,7 @@ function initializeGrid() {
 			},{
 				caption: "Remove Bank Branch",
 				msg: "Remove the selected Bank Branch ?",
-				beforeSubmit : function(data, formid) { 
+				beforeSubmit : function(data, formid) {
 					if(check_BankAccounts(data)){
 						return[false,"Should not delete branch!!!"];
 					}
@@ -285,7 +285,7 @@ function initializeGrid() {
 					}
 
 
-				} 
+				}
 			},{multipleSearch:true});
 }
 
@@ -301,15 +301,15 @@ function viewGrid()
 				width : 800,
 				hiddengrid : true,
 				colNames : [ 'Srl No', 'Branch Name', 'Branch Code','MICR', 'Address', 'Contact Person', 'Phone Number', 'Narration', 'Active' ],
-				colModel : [ {name : 'id',index : 'id',key : true,hidden : true,width : 55,	editable : true,editoptions : {readonly : true, size : 10}}, 
-				             {name : 'branchname', index : 'branchname',align:'center', width : 90, editable : true, editoptions : {size : 25},editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}}, 
-				             {name : 'branchcode', index : 'branchcode',align:'center', width : 90, editable : true, editoptions : {size : 25}, editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}}, 
-				             {name : 'branchMICR', index : 'branchMICR',align:'center', width : 90, editable : true, searchoptions: { sopt: ['eq','ne','lt','le','gt','ge', 'in', 'ni'] },editoptions : {size : 25, dataEvents : [ {type : 'blur', fn : check_MICR} ]}}, 
+				colModel : [ {name : 'id',index : 'id',key : true,hidden : true,width : 55,	editable : true,editoptions : {readonly : true, size : 10}},
+				             {name : 'branchname', index : 'branchname',align:'center', width : 90, editable : true, editoptions : {size : 25},editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}},
+				             {name : 'branchcode', index : 'branchcode',align:'center', width : 90, editable : true, editoptions : {size : 25}, editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}},
+				             {name : 'branchMICR', index : 'branchMICR',align:'center', width : 90, editable : true, searchoptions: { sopt: ['eq','ne','lt','le','gt','ge', 'in', 'ni'] },editoptions : {size : 25, dataEvents : [ {type : 'blur', fn : check_MICR} ]}},
 				             {name : 'branchaddress1', index : 'branchaddress1',align:'center', width : 100, sortable : false, editable : true, edittype : "textarea", editoptions : {rows : "2", cols : "20"}, editrules : {required : true},formoptions: { elmprefix: "<span class='mandatory1'>*</span>"}},
-				             {name : 'contactperson', index : 'contactperson',align:'center', width : 80, editable : true, editoptions : {size : 25}}, 
-				             {name : 'branchphone', index : 'branchphone',align:'center', width : 80, editable : true, editoptions : {size : 25}}, 
-				             {name : 'narration', index : 'narration',align:'center', width : 80, sortable : false, editable : true, edittype : "textarea", editoptions : {rows : "2", cols : "20"}}, 
-				             {name : 'isActive', index : 'isActive', align:'center',width : 80, editable : true, edittype : "checkbox",searchoptions: { sopt: ['eq','ne']}, editoptions : { value : "Y:N"}} 
+				             {name : 'contactperson', index : 'contactperson',align:'center', width : 80, editable : true, editoptions : {size : 25}},
+				             {name : 'branchphone', index : 'branchphone',align:'center', width : 80, editable : true, editoptions : {size : 25}},
+				             {name : 'narration', index : 'narration',align:'center', width : 80, sortable : false, editable : true, edittype : "textarea", editoptions : {rows : "2", cols : "20"}},
+				             {name : 'isActive', index : 'isActive', align:'center',width : 80, editable : true, edittype : "checkbox",searchoptions: { sopt: ['eq','ne']}, editoptions : { value : "Y:N"}}
 				             ],
 				             rowNum : 20,
 				             rowList : [ 20, 30, 40, 50 ],
@@ -351,7 +351,7 @@ function viewGrid()
 				            				             height : '100%'
 				            			 });}
 				            	 });
-	
+
 }
 function showMessage (msg) {
 	jQuery.jgrid.info_dialog("Info","<div class=\"ui-state-highlight\" style=\"padding:5px;\">"+msg+"!</div>");

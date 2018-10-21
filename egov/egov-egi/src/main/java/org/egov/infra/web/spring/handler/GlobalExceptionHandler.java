@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -91,13 +91,13 @@ public final class GlobalExceptionHandler {
         LOG.error(ERROR_MESSAGE, e);
         return errorView(request, e.getMessage(),MS_INVALID_TOKEN);
     }
-    
+
     @ExceptionHandler(MicroServiceNotAuthroizedException.class)
     public RedirectView handleMicroServiceNotAuthroizedException(HttpServletRequest request,MicroServiceNotAuthroizedException e){
         LOG.error(ERROR_MESSAGE, e);
         return errorView(request, e.getMessage(),MS_NOTAUTHROIZED_TOKEN);
     }
-    
+
     public RedirectView errorView(HttpServletRequest request, String message,String view) {
         RedirectView rw = new RedirectView(view, true);
         FlashMap outputFlashMap = RequestContextUtils.getOutputFlashMap(request);

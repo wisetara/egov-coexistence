@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -141,7 +141,7 @@
 function loadDrawingOfficer(obj)
 {
 	<s:iterator value="deptDOList" var="s">
-	if(obj.value=='<s:property value="%{department.id}"/>')                                              
+	if(obj.value=='<s:property value="%{department.id}"/>')
 	{
 	document.getElementById("drawingOfficer").value='<s:property value="%{drawingOfficer.name}"/>';
 	}

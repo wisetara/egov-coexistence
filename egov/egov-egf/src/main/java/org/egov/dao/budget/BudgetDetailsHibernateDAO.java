@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -265,7 +265,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * object if the available amount is >=0. If there is insufficient available
      * amount then null is returned. Note that the first parameter is a String,
      * unlike the previous API.
-     * 
+     *
      * @param appropriationnumber
      * @param financialyearid
      * @param moduleid
@@ -302,7 +302,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * On modify of any entity they should first call the release budget and
      * then call the consume budget. The budget usage table needs to be updated
      * anytime this is invoked with the date and reference object number.
-     * 
+     *
      * @param detailsMap
      *            is the map containig following fields financialyearid This is
      *            the id from the financial year object moduleid This is the id
@@ -341,7 +341,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
     /**
      * This does the same as the above API except this returns the BudgetUsage
      * object that is modified. Please note that first parameter is a string.
-     * 
+     *
      * @param appropriationnumber
      * @param financialyearid
      * @param moduleid
@@ -744,8 +744,8 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
         }
         return " and bd.budget.status.description='Approved' and bd.status.description='Approved'  " + query;
     }
-    
-    
+
+
     private String prepareQueryToGetBudgetDetails(final Integer departmentid, final Long functionid, final Integer functionaryid,
             final Integer schemeid, final Integer subschemeid, final Integer boundaryid, final Integer fundid) {
         StringBuilder query = new StringBuilder();
@@ -804,7 +804,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
 
     /**
      * To get the planning budget available amount
-     * 
+     *
      * @param financialyearid
      * @param departmentid
      * @param functionid
@@ -861,7 +861,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
             throw new ValidationException(EMPTY_STRING, e.getMessage());
         }
     }
-    
+
     @Override
     public List<BudgetDetail> getBudgetAvailableDetail(final Long financialyearid, final Integer departmentid,
             final Long functionid, final Integer functionaryid, final Integer schemeid, final Integer subschemeid,
@@ -904,7 +904,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * Generalledger. Transaction amount calculation for Income and Liabilities
      * -> sum(creditamt) - sum (debitamt) Transaction amount calculation for
      * Expense and Assets -> sum(debitamt) - sum (creditamt)
-     * 
+     *
      * @param functionid
      *            (optional) -id for Function object
      * @param functionaryid
@@ -1056,7 +1056,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * Generalledger. Transaction amount calculation for Income and Liabilities
      * -> sum(creditamt) - sum (debitamt) Transaction amount calculation for
      * Expense and Assets -> sum(debitamt) - sum (creditamt)
-     * 
+     *
      * @param functionid
      *            (optional) -id for Function object
      * @param functionaryid
@@ -1250,7 +1250,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * functionaryid,schemeid,
      * subschemeid,boundaryid,budgetheadid,financialyearid it'll get the
      * budgeted amount based on the parameters.
-     * 
+     *
      * @param paramMap
      * @return budgeted amount @
      */
@@ -1340,7 +1340,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * functionaryid,schemeid,
      * subschemeid,boundaryid,budgetheadid,financialyearid it'll get the
      * budgeted amount based on the parameters.
-     * 
+     *
      * @param paramMap
      * @return budgeted amount @
      */
@@ -1507,7 +1507,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * subschemeid,boundaryid,budgetheadid,financialyearid it'll get the
      * budgeted amount based on the parameters. Only financial year parameter
      * will be considered mandatory here.
-     * 
+     *
      * @param paramMap
      * @return budgeted amount @
      */
@@ -1635,7 +1635,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
 
     /**
      * This API is handling the budget checking
-     * 
+     *
      * @param paramMap
      *            paramMap contains 1. debitAmt (mandatory) 2. creditAmt
      *            (mandatory) 3. deptid (optional) 4. functionid (optional) 5.
@@ -1724,7 +1724,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
     /**
      * To check budget available for the glcode with other parameters. if txnamt
      * is less than the budget available, it would return true, otherwise false.
-     * 
+     *
      * @param paramMap
      * @return @
      */
@@ -1894,7 +1894,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
 
     /**
      * to check the budget checking is required or not
-     * 
+     *
      * @param txnType
      * @param budgetingType
      * @return
@@ -1913,7 +1913,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
     /**
      * To get the Budgetgroup for the glcode at detailcode level or minorcode
      * level or major code level.
-     * 
+     *
      * @param coa
      * @param paramMap
      * @return @
@@ -1980,7 +1980,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
     /**
      * To get the Budgetgroup for the glcode at detailcode level for a list of
      * COA codes
-     * 
+     *
      * @param coa
      * @param paramMap
      * @return @
@@ -2043,7 +2043,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
 
     /**
      * This API is handling the budget checking
-     * 
+     *
      * @param paramMap
      *            paramMap contains 1. debitAmt (mandatory) 2. creditAmt
      *            (mandatory) 3. deptid (optional) 4. functionid (optional) 5.
@@ -2394,7 +2394,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
     /**
      * This API is to get the total bill amount where bill vouchers are created
      * but cancelled later.
-     * 
+     *
      * @param query
      * @param fromdate
      * @param asondate
@@ -2428,7 +2428,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * functionaryid,schemeid,
      * subschemeid,boundaryid,budgetheadid,financialyearid,typeBeRe it'll get
      * the budgeted amount based on the parameters.
-     * 
+     *
      * @param paramMap
      * @return budgeted amount @
      */
@@ -2665,7 +2665,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
      * returns sum(approved BE/RE amount + appropriated (addition-deduction)
      * amount)* mutliplicationFactor if budget and reappropriation both doesnot
      * exist it will return zero
-     * 
+     *
      * @param fundId
      * @param deptId
      * @param asOnDate
@@ -2714,7 +2714,7 @@ public class BudgetDetailsHibernateDAO implements BudgetDetailsDAO {
     /**
      * Returns a list of Functions having entry in budget detail with the given
      * fund and department .
-     * 
+     *
      * @param fund,function,department
      *            and account type @
      */

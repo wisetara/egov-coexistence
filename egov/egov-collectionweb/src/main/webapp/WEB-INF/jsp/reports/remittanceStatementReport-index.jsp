@@ -1,7 +1,7 @@
 <%@ include file="/includes/taglibs.jsp"%>
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -57,7 +57,7 @@ function validate()
 	var todate=dom.get("toDate").value;
 	var valSuccess = true;
 	document.getElementById("report_error_area").innerHTML = "";
-	document.getElementById("report_error_area").style.display="none"; 
+	document.getElementById("report_error_area").style.display="none";
 
 		if (fromdate == "") {
 			document.getElementById("report_error_area").style.display = "block";
@@ -108,9 +108,9 @@ function getBankAccountList(branch)
   var fund = dom.get("fundId");
   populatebankaccountId({branchId:branch.options[branch.selectedIndex].value,serviceId:service.options[service.selectedIndex].value,
   	fundId:fund.options[fund.selectedIndex].value});
-    
-    
-	
+
+
+
 }
 </script>
 </head>
@@ -154,7 +154,7 @@ function getBankAccountList(branch)
 			<div class="highlight2" style="width: 80px">DD/MM/YYYY</div>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td width="4%" class="bluebox2">&nbsp;</td>
 			<td width="21%" class="bluebox2"><s:text
@@ -169,10 +169,10 @@ function getBankAccountList(branch)
 				headerValue="%{getText('collectionReport.service.all')}" name="serviceId" id="serviceId" cssClass="selectwk"
 				list="dropdownData.collectionServiceList" listKey="id" listValue="name"
 				value="%{serviceId}" onChange="getBankBranchList();"/></td>
-		</tr>	
+		</tr>
 		<tr>
 		<egov:ajaxdropdown id="branchIdDropdown" fields="['Text','Value']" dropdownId='branchId'
-                url='receipts/ajaxBankRemittance-bankBranchList.action' /> 
+                url='receipts/ajaxBankRemittance-bankBranchList.action' />
 			<td width="4%" class="bluebox">&nbsp;</td>
 			<td width="21%" class="bluebox"><s:text
 				name="collectionReport.bank.name" /></td>
@@ -181,40 +181,40 @@ function getBankAccountList(branch)
 				list="dropdownData.bankList" listKey="id" listValue="name"
 				value="%{branchId}" onchange="getBankAccountList(this)"/></td>
 			<egov:ajaxdropdown id="bankaccountIdDropdown" fields="['Text','Value']" dropdownId='bankaccountId'
-                url='receipts/ajaxBankRemittance-accountList.action' /> 
+                url='receipts/ajaxBankRemittance-accountList.action' />
 			<td width="21%" class="bluebox"><s:text
 				name="collectionReport.criteria.bankaccount" /></td>
 			<td width="30%" class="bluebox"><s:select headerKey="-1"
 				headerValue="%{getText('collectionReport.bankaccount.all')}" name="bankaccountId" id="bankaccountId" cssClass="selectwk"
 				list="dropdownData.bankAccountList" listKey="id" listValue="accountnumber"
 				value="%{bankaccountId}" /></td>
-		</tr>	
-		
+		</tr>
+
 		<tr>
 			<td width="4%" class="bluebox2">&nbsp;</td>
 			<td width="21%" class="bluebox2">
 				<s:text name="collectionReport.criteria.payment.mode"/></td>
 	        	<td width="30%" class="bluebox2"><s:select headerKey="-1"
-				headerValue="%{getText('collectionReport.payment.mode.all')}" 
-				name="paymentMode" id="paymentMode" cssClass="selectwk" 
+				headerValue="%{getText('collectionReport.payment.mode.all')}"
+				name="paymentMode" id="paymentMode" cssClass="selectwk"
 				list="paymentModes" value="%{paymentMode}" /> </td>
-				
+
 		   <td width="21%" class="bluebox2">
 				<s:text name="collectionReport.criteria.collectionlocation"/></td>
 	        	<td width="30%" class="bluebox2"><s:select headerKey="-1"
-				headerValue="%{getText('collectionReport.collectionlocation.all')}" 
-				name="deptId" id="deptId" cssClass="selectwk" 
+				headerValue="%{getText('collectionReport.collectionlocation.all')}"
+				name="deptId" id="deptId" cssClass="selectwk"
 				list="dropdownData.boundaryList" value="%{deptId}"  listKey="id" listValue="name"/> </td>
 		</tr>
 		<tr>
 					<td>
 						<div class="subheadsmallnew"><span class="subheadnew">
 											<s:text name="bankcollection.title" />
-						</span>		
+						</span>
 						</div>
 					</td>
 		</tr>
-			
+
 		<tr>
 					<td width="4%" class="bluebox">&nbsp;</td>
 					<td width="21%" class="bluebox"><s:text name="searchreceipts.criteria.bankbranch"/></td>
@@ -225,14 +225,14 @@ function getBankAccountList(branch)
 										value="%{bankCollBankBranchId}" /> </td>
 					<td width="21%" class="bluebox">&nbsp;</td>
 					<td width="30%" class="bluebox">&nbsp;</td>
-		</tr>		
+		</tr>
 	</table>
     <div align="left" class="mandatory1">
 		              <s:text name="report.bankbranch.note"/>
 	</div>
 	<div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
 	</div>
-	
+
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"

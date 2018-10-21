@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -96,7 +96,7 @@ public interface BudgetDetailsDAO {
     public BigDecimal getPlanningBudgetAvailable(Long financialyearid, Integer departmentid, Long functionid,
             Integer functionaryid, Integer schemeid, Integer subschemeid, Integer boundaryid, List<Long> budgetheadid,
             Integer fundid) throws ValidationException;
-    
+
     public List<BudgetDetail> getBudgetAvailableDetail(Long financialyearid, Integer departmentid, Long functionid,
             Integer functionaryid, Integer schemeid, Integer subschemeid, Integer boundaryid, List<Long> budgetheadid,
             Integer fundid) throws ValidationException;

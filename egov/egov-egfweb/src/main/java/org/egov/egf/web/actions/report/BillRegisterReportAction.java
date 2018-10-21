@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -126,15 +126,15 @@ public class BillRegisterReportAction extends SearchFormAction {
     // accounts codes based on the
     // expenditure type.
     private Date fromDate;
-    
-   
+
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
- @Autowired	
+ @Autowired
     private  AppConfigValueService appConfigValueService;
-    
-   
+
+
 
 	private Date toDate;
     private String exptype;
@@ -153,7 +153,7 @@ public class BillRegisterReportAction extends SearchFormAction {
 
     @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     public BillRegisterReportAction() {
         voucherHeader.setVouchermis(new Vouchermis());
         addRelatedEntity("vouchermis.departmentid", Department.class);
@@ -168,7 +168,7 @@ public class BillRegisterReportAction extends SearchFormAction {
         chequeStatusCheckList.add(FinancialConstants.INSTRUMENT_SURRENDERED_STATUS);
         chequeStatusCheckList.add(FinancialConstants.INSTRUMENT_CANCELLED_STATUS);
 
-        
+
 
         getRemiitPaymentVoucherQry.append("select  distinct rm from EgRemittance rm join rm.egRemittanceDetail rdtl  " +
                 "where rdtl.egRemittanceGldtl.generalledgerdetail.generalLedgerId.voucherHeaderId.voucherNumber =?" +
@@ -579,14 +579,14 @@ public class BillRegisterReportAction extends SearchFormAction {
     }
 
     public void netAccountCodeValue() {
-        
+
         final Session session = persistenceService.getSession();
         try {
 
         	final List<AppConfigValues> cBillNetPurpose = appConfigValueService.
                     getConfigValuesByModuleAndKey("EGF", "contingencyBillPurposeIds");
-            
-        	
+
+
         	final List<String> cBillNetPayCodeList = new ArrayList<String>();
             String coaQuery;
             for (final AppConfigValues appConfigValues : cBillNetPurpose) {
@@ -601,7 +601,7 @@ public class BillRegisterReportAction extends SearchFormAction {
             final List<String> pBillNetPayCodeList = new ArrayList<String>();
             final List<AppConfigValues> purchBillNetPurpose = appConfigValueService.
                     getConfigValuesByModuleAndKey("EGF", "purchaseBillPurposeIds");
-            
+
             for (final AppConfigValues appConfigValues : purchBillNetPurpose) {
                 coaQuery = "from CChartOfAccounts where purposeId in ( " + appConfigValues.getValue() + " )";
                 final List<CChartOfAccounts> coaList = session.createQuery(coaQuery).list();
@@ -614,7 +614,7 @@ public class BillRegisterReportAction extends SearchFormAction {
             final List<String> sBillNetPayCodeList = new ArrayList<String>();
             final List<AppConfigValues> sBillNetPurpose = appConfigValueService.
                     getConfigValuesByModuleAndKey("EGF", "salaryBillPurposeIds");
-            
+
            if (LOGGER.isDebugEnabled())
                 LOGGER.debug("Number of salary purpose ids - " + sBillNetPurpose.size());
             for (final AppConfigValues appConfigValues : sBillNetPurpose) {
@@ -631,7 +631,7 @@ public class BillRegisterReportAction extends SearchFormAction {
             // setting net pay account codes for works type.
 
             final List<String> wBillNetPayCodeList = new ArrayList<String>();
-            
+
             final List<AppConfigValues> wBillNetPurpose = appConfigValueService.
                     getConfigValuesByModuleAndKey("EGF", "worksBillPurposeIds");
 
@@ -647,7 +647,7 @@ public class BillRegisterReportAction extends SearchFormAction {
             final List<String> penBillNetPayCodeList = new ArrayList<String>();
             final List<AppConfigValues> pensionBillNetPurpose = appConfigValueService.
                     getConfigValuesByModuleAndKey("EGF", "pensionBillPurposeIds");
-            
+
             for (final AppConfigValues appConfigValues : pensionBillNetPurpose) {
                 coaQuery = "from CChartOfAccounts where purposeId in ( " + appConfigValues.getValue() + " )";
                 final List<CChartOfAccounts> coaList = session.createQuery(coaQuery).list();
@@ -882,7 +882,7 @@ public class BillRegisterReportAction extends SearchFormAction {
         this.billRegReportList = billRegReportList;
     }
 
-   
+
 
     public List<String> getChequeStatusCheckList() {
         return chequeStatusCheckList;
@@ -924,9 +924,9 @@ public class BillRegisterReportAction extends SearchFormAction {
 		this.appConfigValueService = appConfigValueService;
 	}
 
-	
-	
-	
+
+
+
     /*
      * protected String getQuery(){ StringBuffer query = new StringBuffer();
      * query.append(" from EgBillregister egBill where egBill.egBillregistermis.fund.id="+voucherHeader.getFundId().getId());

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,79 +52,79 @@
 <egEmp-department>
 	<type>hql</type>
 	<query>from Department order by NAME</query>
-</egEmp-department> 
+</egEmp-department>
 
 <egEmp-Functionary>
 	<type>hql</type>
 	<query>from Functionary order by upper(name)</query>
-</egEmp-Functionary> 
+</egEmp-Functionary>
 
 <egEmp-function>
 	<type>hql</type>
-        <query>from CFunction where isactive = true AND isnotleaf=false order by upper(name)</query> 
-</egEmp-function> 
+        <query>from CFunction where isactive = true AND isnotleaf=false order by upper(name)</query>
+</egEmp-function>
 
 <egEmp-CFinancialYear>
 	<type>hql</type>
 	<query>from CFinancialYear  </query>
-</egEmp-CFinancialYear> 
+</egEmp-CFinancialYear>
 
 <egEmp-Position>
 	<type>hql</type>
 	<query>from Position  </query>
-</egEmp-Position> 
+</egEmp-Position>
 
 
 <egEmp-ObjectType>
 	<type>hql</type>
 	<query>from ObjectType </query>
-</egEmp-ObjectType> 
+</egEmp-ObjectType>
 
 <egEmp-BANKBRANCH>
         <type>hql</type>
         <query>from Bankbranch</query>
-</egEmp-BANKBRANCH> 
+</egEmp-BANKBRANCH>
 
 <egEmp-Bank>
 	<type>hql</type>
 	<query>from Bank order by upper(name)</query>
-</egEmp-Bank> 
+</egEmp-Bank>
 
 
 <egEmp-DesignationMaster>
 	<type>hql</type>
 	<query>from DesignationMaster order by designationName</query>
-</egEmp-DesignationMaster> 
+</egEmp-DesignationMaster>
 
 <egEmp-fund>
 	<type>hql</type>
 	<query>from Fund where isactive = true and isNotLeaf!=true order by upper(name)</query>
-</egEmp-fund> 
+</egEmp-fund>
 <egEmp-EmployeeStatusMaster>
 	<type>hql</type>
 	<query>from EmployeeStatusMaster  e</query>
-</egEmp-EmployeeStatusMaster> 
+</egEmp-EmployeeStatusMaster>
 
 <egEmp-StatusMaster>
 	<type>hql</type>
 	<query>from StatusMaster </query>
-</egEmp-StatusMaster> 
+</egEmp-StatusMaster>
 <egEmp-ReligionMaster>
 	<type>hql</type>
 	<query>from ReligionMaster </query>
-</egEmp-ReligionMaster> 
+</egEmp-ReligionMaster>
 <egEmp-LanguagesQulifiedMaster>
 	<type>hql</type>
 	<query>from LanguagesQulifiedMaster where fromDate &lt;= current_date and toDate >= current_date </query>
-</egEmp-LanguagesQulifiedMaster> 
+</egEmp-LanguagesQulifiedMaster>
 <egEmp-LanguagesKnownMaster>
 	<type>hql</type>
 	<query>from LanguagesKnownMaster</query>
-</egEmp-LanguagesKnownMaster> 
+</egEmp-LanguagesKnownMaster>
 <egEmp-TypeOfRecruimentMaster>
 	<type>hql</type>
 	<query>from TypeOfRecruimentMaster where fromDate &lt;= current_date and toDate >= current_date </query>
-</egEmp-TypeOfRecruimentMaster> 
+</egEmp-TypeOfRecruimentMaster>
 <egEmp-RecruimentMaster>
 	<type>hql</type>
 	<query>from RecruimentMaster where fromDate &lt;= current_date and toDate >= current_date </query>
@@ -133,19 +133,19 @@
 <egEmp-CommunityMaster>
 	<type>hql</type>
 	<query>from CommunityMaster where fromDate &lt;= current_date and toDate >= current_date </query>
-</egEmp-CommunityMaster> 
+</egEmp-CommunityMaster>
 <egEmp-CategoryMaster>
 	<type>hql</type>
 	<query>from CategoryMaster </query>
-</egEmp-CategoryMaster> 
+</egEmp-CategoryMaster>
 <egEmp-BloodGroupMaster>
 	<type>hql</type>
 	<query>from BloodGroupMaster </query>
-</egEmp-BloodGroupMaster> 
+</egEmp-BloodGroupMaster>
 <egEmp-GradeMaster>
 	<type>hql</type>
 	<query>from GradeMaster where  fromDate &lt;= current_date and toDate >= current_date  order by orderNo</query>
-</egEmp-GradeMaster> 
+</egEmp-GradeMaster>
 <egEmp-NomineeType>
 	<type>hql</type>
 	<query>from EisRelationType </query>
@@ -160,4 +160,4 @@
 	<query>from EmployeeGroupMaster order by orderNumber</query>
 </egEmp-EmployeeGroupMaster>
 </sql>
-</properties> 
+</properties>

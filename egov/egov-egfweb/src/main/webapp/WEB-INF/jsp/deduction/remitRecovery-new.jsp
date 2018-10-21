@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -130,7 +130,7 @@
 							value="%{remittanceBean.bankBranchId}" /></td>
 					</tr>
 					<tr>
-					<td class="greybox"></td>		
+					<td class="greybox"></td>
 					<td class="greybox"><s:text name="remit.recovery.search.bankaccount" /></td>
 					<td class="greybox"><s:select name="remittanceBean.bankAccountId"
 							id="bankAccount" list="dropdownData.accNumList" listKey="id"
@@ -177,7 +177,7 @@
 					<div id="recoveryDetailsTable"></div>
 				</div>
 				<script>
-		
+
 		populateRecoveryDetails();
 		document.getElementById('recoveryDetailsTable').getElementsByTagName('table')[0].width="90%"
 	 </script>

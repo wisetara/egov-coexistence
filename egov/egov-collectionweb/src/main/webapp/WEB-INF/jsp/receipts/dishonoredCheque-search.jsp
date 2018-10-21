@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -181,7 +181,7 @@
 			bootbox.confirm("Are you sure you want to process ?", function(result) {
 				  if(result)
 					  {
-					  console.log("referenceNum" + referenceNum);  
+					  console.log("referenceNum" + referenceNum);
 						  document.dishonorForm.action = '/collection/receipts/dishonoredCheque-process.action?instHeaderIds='
 							+ value+'&voucherHeaderIds='+voucherHeaderIds+'&referenceNo='+referenceNum + '&receiptHeaderIds=' + receiptHeaderIds;
 						  document.dishonorForm.submit();
@@ -190,7 +190,7 @@
 					  {
 					  undoLoadingMask();
 					  }
-				}); 
+				});
 		}
 		return false;
 	}

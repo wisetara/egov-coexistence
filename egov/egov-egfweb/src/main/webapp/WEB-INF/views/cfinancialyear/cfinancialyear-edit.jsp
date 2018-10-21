@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,7 +55,7 @@
 	cssClass="form-horizontal form-groups-bordered"
 	enctype="multipart/form-data">
 	<%@ include file="cfinancialyear-form.jsp"%>
-  <input type="hidden" name="CFinancialYear" value="${CFinancialYear.id}" /> 
+  <input type="hidden" name="CFinancialYear" value="${CFinancialYear.id}" />
 	</div>
 	</div>
 	</div>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -101,7 +101,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
     private static final long serialVersionUID = 3393565721493478018L;
     private static final long LONG_FOUR = 4l;
     private static final long LONG_TWO = 2l;
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -116,7 +116,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
     List<Accountdetailtype> mappedAccountDetailTypeList = new ArrayList<>();
     List<Accountdetailtype> accountDetailType = new ArrayList<Accountdetailtype>();
     private static final Logger LOGGER = Logger.getLogger(ChartOfAccountsAction.class);
- 
+
     boolean activeForPosting = false;
     boolean functionRequired = false;
     boolean budgetCheckRequired = false;
@@ -144,7 +144,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
     private ChartOfAccountsHibernateDAO chartOfAccountsHibernateDAO;
     @Autowired
     private GeneralLedgerService generalLedgerService;
-    
+
     @Autowired
     private AccountdetailtypeService accountdetailtypeService;
 
@@ -468,7 +468,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
                 classification=parent.getClassification()+2;
             }else
             {
-                classification=parent.getClassification()+1; 
+                classification=parent.getClassification()+1;
             }
             populateGlcode(classification);
             newGlcode = model.getGlcode();
@@ -519,7 +519,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
     }
 
     void populateGlcode(final Long classification) {
-        
+
         model.setGlcode(StringUtils.leftPad("", glCodeLengths.get(classification), '0'));
     }
 
@@ -557,7 +557,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
        // reset();
         coaId = model.getId();
         return Constants.VIEW;
-       
+
     }
 
     private void reset() {
@@ -740,7 +740,7 @@ public class ChartOfAccountsAction extends BaseFormAction {
         	coaCache.reLoad();
         }catch(Exception e)
         {
-        	LOGGER.error("Error while reloading coa cache");  
+        	LOGGER.error("Error while reloading coa cache");
         }
     }
 

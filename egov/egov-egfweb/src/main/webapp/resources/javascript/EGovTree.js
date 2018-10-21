@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -136,7 +136,7 @@ t.createNode( "", "202", "Financial Statements", "2");
 	//t.createNode( "", "2031", "Contractors/Suppliers Schedule", "203");
 	//t.createNode( "", "2032", "Festival Advance", "203");
 	//t.createNode( "", "2033", "Housing Advance", "203");
-	
+
 
 
 t.createNode( "", "301", "Chart Of Accounts", "3");
@@ -162,7 +162,7 @@ t.createNode( "", "3022", "Project", "3");
 	//	t.createNode( "", "30182", "View Scheme", "3018");
 	//	t.createNode( "", "30183", "Modify Scheme", "3018");
 	//	t.createNode( "", "30184", "Delete Scheme", "3018");
-	
+
 
 		//t.createNode( "", "30191", "Create CostCentre", "3019");
 		//t.createNode( "", "30192", "View CostCentre", "3019");
@@ -174,12 +174,12 @@ t.createNode( "", "305", "Supplier/Contractor", "3");
 		t.createNode( "", "3052", "View Supplier/Contractor", "305");
 		t.createNode( "", "3053", "Modify Supplier/Contractor", "305");
 
-t.createNode( "", "306", "Setup Cheque in Hand/Cash in Hand", "3");	
+t.createNode( "", "306", "Setup Cheque in Hand/Cash in Hand", "3");
 t.createNode( "", "307", "Accounting Entity", "3");
 
 t.createNode( "", "401", "Financial Year", "4");
 	t.createNode( "", "4011", "Opening", "401");
-	t.createNode( "", "4012", "Close Period", "401");	
+	t.createNode( "", "4012", "Close Period", "401");
 	//t.createNode( "", "4013", "Transfering closing balances", "401");
 
 t.createNode( "", "501", "Chart of Accounts", "5");
@@ -197,8 +197,8 @@ t.createNode( "", "509", "Assets", "5");
 	t.createNode( "", "5091", "Asset Category", "509");
 	t.createNode( "", "5092", "Asset", "509");
 	t.createNode( "", "5093", "Depreciation Add", "509");
-	
-	
+
+
 t.normalBackgroundColor="white" ;
 t.highlightedbackgroundColor="blue";
 t.normalColor="navy";
@@ -215,4 +215,4 @@ t.addImg("account","/egi/resources/erp2/images/account.gif");
 //alert ('completed');
 t.display();
 window.status = 'completed';
-	
+

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -64,7 +64,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-primary" data-collapsed="0">
 	<input type="hidden" value="${firm.id }" id="firmid" name="firm" />
-	
+
 			<jsp:include page="firmheader.jsp" />
 			<jsp:include page="firmusers.jsp" />
 		</div>

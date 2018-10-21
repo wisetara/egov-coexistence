@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,14 +63,14 @@ import java.util.List;
  * @version 1.2
  * @since 1.2, Oct 25, 2005
 */
-public interface EisCommonsService 
-{  
+public interface EisCommonsService
+{
    public abstract void updatePosition(Position position);
    public abstract Position getPositionById(Integer positionId);
    public abstract Position getPositionByUserId(Long userId);
    public abstract User getUserforPosition(Position pos);
    public abstract Position getPositionForUserByIdAndDate(Integer userId, Date assignDate);
-   
+
  //Api for Auto Generate Employee code
 	public abstract Boolean isEmployeeAutoGenerateCodeYesOrNo();
 	//Api check's for employee code unique
@@ -79,24 +79,24 @@ public interface EisCommonsService
 	public abstract Position getPositionByName(String positionName);
 	/**
 	 * This method returns the current position id  of the user
-	 * 
+	 *
 	 * @param user the user whose designation is needed.
-	 * 
-	 * 
-	 * @return the position id as integer 
+	 *
+	 *
+	 * @return the position id as integer
 	 */
 	public abstract Position getCurrentPositionByUser(User user);
-	
+
 	public abstract  User getUserForPosition(Integer posId, Date date);
 	public abstract List<Designation> getDesigantionBasedOnFuncDept(Integer deptId,Integer functionaryId) throws Exception;
 	/**
-	  * Returning temporary  assigned employee object by pepartment,designation,functionary,date 
+	  * Returning temporary  assigned employee object by pepartment,designation,functionary,date
 	  * @param deptId
 	  * @param DesigId
 	  * @param functionaryId
 	  * @param onDate
 	  * @return Employee
-	  * @throws Exception 
+	  * @throws Exception
 	  */
 	 public PersonalInformation getTempAssignedEmployeeByDeptDesigFunctionaryDate(Integer deptId, Integer desigId, Integer functionaryId, Date onDate) throws Exception;
 

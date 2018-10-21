@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -66,27 +66,27 @@ import javax.validation.Valid;
 public class UpdateBoundaryTypeController {
 
 private BoundaryTypeService boundaryTypeService;
-	
+
 	@Autowired
 	public UpdateBoundaryTypeController(BoundaryTypeService boundaryTypeService){
 		this.boundaryTypeService = boundaryTypeService;
 	}
-	
+
 	@ModelAttribute
         public BoundaryType boundaryTypeModel(@PathVariable Long id){
             return boundaryTypeService.getBoundaryTypeById(id);
         }
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String updateBoundaryTypeForm(){
 		return "boundaryType-update";
 	}
-	
+
 	@RequestMapping(method =RequestMethod.POST)
 	public String updateBoundaryType(@Valid @ModelAttribute BoundaryType boundaryType,final BindingResult errors, RedirectAttributes redirectAttrs){
 		if (errors.hasErrors())
             return "boundaryType-update";
-		
+
 		boundaryTypeService.updateBoundaryType(boundaryType);
 		redirectAttrs.addFlashAttribute("message", "msg.bndrytype.update.success");
 		return "redirect:/boundarytype/view/"+boundaryType.getId();

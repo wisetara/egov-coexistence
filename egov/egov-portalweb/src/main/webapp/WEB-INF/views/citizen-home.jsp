@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -83,7 +83,7 @@
                 <span class="pull-right profile-name">
                   <span class="text hidden-sm">${userName }</span> <span><i class="fa fa-caret-down" aria-hidden="true"></i></span>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  
+
                     <li><a href="/egi/home/profile/edit"  onClick="MyWindow=window.open('/egi/home/profile/edit','MyWindow',width=980,height=650); return false;" >Edit Profile</a></li>
                     <li><a href="javascript:void(0)" onclick="jQuery('.change-password').modal('show', {backdrop: 'static'});" >Change Password</a></li>
                   </ul>
@@ -91,7 +91,7 @@
               </div>
             </nav>
           </header>
-          
+
           <div class="main-content">
             <div class="action-bar">
               <div class="action-item"><input type="text" id="search" placeholder="Search"></div>
@@ -281,9 +281,9 @@
               </table>
           </div>
             </div><br>
-          
+
             <input type="hidden" value="<spring:message code="error.pwd.invalid.case" />" id="errorPwdInvalid" />
-            
+
             <c:forEach items="${services}" var="service" varStatus="item">
 	            <div class="is-flex services-item">
 	              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 services" data-services="${service.module.displayName }">
@@ -304,7 +304,7 @@
                     <th><spring:message code="lbl.linkeddate" /></th>
                     <th><spring:message code="lbl.servicegroup" /></th>
                     <th><spring:message code="lbl.action" /></th>
-                 
+
                   </tr>
                 </thead>
                 <tbody>
@@ -319,7 +319,7 @@
 								pattern="dd/MM/yyyy" />
 		                    </td>
 		                   <td>${linkedItem.moduleName} </td>
-		                   <td><input type="Button" type="submit" value="Pay Tax" class="buttonsubmit" onclick="onlinePayTaxForm('${linkedItem.paymentURL}');"> 
+		                   <td><input type="Button" type="submit" value="Pay Tax" class="buttonsubmit" onclick="onlinePayTaxForm('${linkedItem.paymentURL}');">
 		                   		<input type="Button" type="submit" value="View DCB" class="buttonsubmit" onclick="onlinePayTaxForm('${linkedItem.viewDcbURL}');">
 		                   </td>
 		                 </tr>

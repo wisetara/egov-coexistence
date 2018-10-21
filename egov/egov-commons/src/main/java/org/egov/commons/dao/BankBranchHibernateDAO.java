@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -116,10 +116,10 @@ public class BankBranchHibernateDAO {
         }
         return bankBranchList;
     }
-    
+
     /**
      * @param bankId
-     * @return BankBranch for type "RECEIPTS_PAYMENTS" 
+     * @return BankBranch for type "RECEIPTS_PAYMENTS"
      */
     public List<Bankbranch> getAllBankBranchsByBankForReceiptPayments(Integer bankId) {
         Set<Bankbranch> ss = new LinkedHashSet<Bankbranch>();

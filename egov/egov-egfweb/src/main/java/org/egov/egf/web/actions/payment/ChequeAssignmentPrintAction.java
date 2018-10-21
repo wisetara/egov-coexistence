@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -103,14 +103,14 @@ public class ChequeAssignmentPrintAction extends BaseFormAction {
         inputStream = reportHelper.exportHtml(inputStream, jasperpath, paramMap, getDataForChequeFormat(), "pt");
         return "chequeFormat-HTML";
     }
-    
+
     public boolean chequeFormatExists(){
-        
+
         return true;
     }
 
     protected List<Object> getDataForChequeFormat() {
-        
+
         return chequeFormatList;
     }
 
@@ -126,7 +126,7 @@ public class ChequeAssignmentPrintAction extends BaseFormAction {
         if(instrumentHeader!=null){
             instrumentDetails = instrumentService.getInstrumentHeaderById(Long.valueOf(instrumentHeader));
         }
-        
+
         Map<String, Object> paramMap = new HashMap<String, Object>();
         if(instrumentDetails!=null){
         paramMap.put("payee", instrumentDetails.getPayTo());
@@ -145,13 +145,13 @@ public class ChequeAssignmentPrintAction extends BaseFormAction {
         return chequeFormat;
     }
 
-   
+
 
     public void setChequeFormat(ChequeFormat chequeFormat) {
         this.chequeFormat = chequeFormat;
     }
 
-    
+
 
     public InputStream getInputStream() {
         return inputStream;

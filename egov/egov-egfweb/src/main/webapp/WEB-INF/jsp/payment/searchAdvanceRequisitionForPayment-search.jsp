@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -72,7 +72,7 @@ function validateAndSubmit(){
 		}
 }
 
-var arfNumberSearchSelectionHandler = function(sType, arguments){ 
+var arfNumberSearchSelectionHandler = function(sType, arguments){
 	var oData = arguments[2];
 };
 

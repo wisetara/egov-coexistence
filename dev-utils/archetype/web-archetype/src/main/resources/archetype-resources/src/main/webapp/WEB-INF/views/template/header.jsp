@@ -2,8 +2,8 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 <%--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -63,7 +63,7 @@
 					</div>
 				</a>
 			</div>
-			
+
 			<div class="nav-right-menu col-md-2 col-xs-2">
 				<ul class="hr-menu text-right">
 					<li class="ico-menu">
@@ -71,10 +71,10 @@
 							<img src="<c:url value='/resources/global/images/logo@2x.png' context='/egi'/>" title="Powered by eGovernments" height="20px">
 						</a>
 					</li>
-					
+
 				</ul>
 			</div>
-			
+
 		</div>
 	</nav>
 </header>

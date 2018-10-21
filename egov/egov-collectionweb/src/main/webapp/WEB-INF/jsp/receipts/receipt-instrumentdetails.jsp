@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -49,10 +49,10 @@
 <script>
 
 function callpopulateapportioningamountforbills(){
-	<s:if test="%{!isBillSourcemisc()}">  
+	<s:if test="%{!isBillSourcemisc()}">
 		populateapportioningamount();
 	</s:if>
-	
+
 }
 
 apportionLoadFailureHandler= function(){
@@ -71,7 +71,7 @@ apportionLoadFailureHandler= function(){
 		var credittotal=0;
 		collectiontotal=calculateCollectionTotal();
 		document.getElementById("totalamountdisplay").value=isNaN(collectiontotal)?collectiontotal:collectiontotal.toFixed(2);
-		
+
 		for(var j=0;j<noofaccounts; j++)
 		{
 			var advanceRebatePresent=document.getElementById('receiptDetailList['+j+'].isActualDemand').value;
@@ -99,13 +99,13 @@ apportionLoadFailureHandler= function(){
 				if(initialSetting=="true"){
 					initialiseCreditAmount();
 				}
-				
+
 				credittotal=calculateCreditTotal();
-				
+
 				// logic for advance payt START
-				
-				// if amt paid by citizen(collectiontotal) is more than the billed amt(billingtottal), 
-				// and if overrideaccountheads is permitted, system should not apportion for the "zero" account heads. 
+
+				// if amt paid by citizen(collectiontotal) is more than the billed amt(billingtottal),
+				// and if overrideaccountheads is permitted, system should not apportion for the "zero" account heads.
 				// The citizen has to manually apportion the amount among the account heads
 				var zeroAccHeads=false;
 				for(var j=0;j<noofaccounts; j++)
@@ -123,13 +123,13 @@ apportionLoadFailureHandler= function(){
 					bobexample.init()
 					bobexample.sweepToggle('expand')
 				}
-				
+
 				// logic for advance payt END
-				
+
 				//bill apportioning - the collectiontotal is apportioned among the account heads
 				if(checkpartpaymentvalue=="true")
 				{
-					// if overriding accounts is permitted and collected total is same as the 
+					// if overriding accounts is permitted and collected total is same as the
 					// credit total, do not apportion
 					if(checkoverridevalue=="true" && collectiontotal==credittotal){
 				    		return;
@@ -150,7 +150,7 @@ apportionLoadFailureHandler= function(){
 										//This is for advance pyt for account which has 0 as credit amount.
 										// document.getElementById('receiptDetailList['+j+'].cramount').value=collectiontotal;
 										// DO NOTHING NOW FOR ADVANCE PAYT - I.E., DO NOT APPROTION
-										// LATER SHUD APPROTION TREATING THE 'ZERO' ACCOUNT HEADS WITH LEAST PRIORITY 
+										// LATER SHUD APPROTION TREATING THE 'ZERO' ACCOUNT HEADS WITH LEAST PRIORITY
 										continue;
 									}
 									else
@@ -197,7 +197,7 @@ apportionLoadFailureHandler= function(){
 						document.getElementById("totalamountdisplay").value=isNaN(collectiontotal)?collectiontotal:collectiontotal.toFixed(2);
 					}//end of if collectiontotal < billingtotal
 				}//end of if checkpartpaymentvalue=="true"
-			}	
+			}
 	}//end of function populateapportioningamount
 
 
@@ -214,8 +214,8 @@ apportionLoadFailureHandler= function(){
 			document.getElementById('receiptDetailList['+j+'].cramount').value=results[k].CreditAmount;
 			document.getElementById('receiptDetailList['+j+'].cramountToBePaid').value=results[k].CrAmountToBePaid;
 			document.getElementById('receiptDetailList['+j+'].dramount').value=results[k].DebitAmount;
-		    }	
-	    } 
+		    }
+	    }
 	  }
 	}
 
@@ -285,7 +285,7 @@ function showInstrumentDetails(obj){
 				getBankBranchList(document.getElementById('fundId'));
 			}
 		</s:if>
-		document.getElementById('manualreceipt').style.display='block';    
+		document.getElementById('manualreceipt').style.display='block';
 	}
 	else if(obj.id=='onlineradiobutton'){
 		document.getElementById('onlinedetails').style.display='table-row';
@@ -303,10 +303,10 @@ function showInstrumentDetails(obj){
 }
 function validateTransactionNumber()
 {
-	document.getElementById("receipt_error_area").innerHTML="";    
+	document.getElementById("receipt_error_area").innerHTML="";
 	document.getElementById("receipt_error_area").style.display="none";
 	 if(document.getElementById("cardradiobutton").checked)
-		 {    
+		 {
 		 	 var instrumentNum="";
 		 	 var confirmInstrumentNo="";
 			 if(document.getElementById("instrHeaderCard.transactionNumber")!=null)
@@ -314,8 +314,8 @@ function validateTransactionNumber()
 			 if(document.getElementById("confirmtransactionNumber")!=null)
 			 	 confirmInstrumentNo =  document.getElementById("confirmtransactionNumber").value;
 			 if(confirmInstrumentNo!=null && confirmInstrumentNo !="" && confirmInstrumentNo !=null && confirmInstrumentNo !=""){
-					 if (instrumentNum !=confirmInstrumentNo)	
-			        {		
+					 if (instrumentNum !=confirmInstrumentNo)
+			        {
 				         document.getElementById("confirmtransactionNumber").value="";
 				         document.getElementById("receipt_error_area").style.display="block";
 				         document.getElementById("receipt_error_area").innerHTML+=
@@ -580,9 +580,9 @@ function validateTransactionNumber()
 									value="%{instrHeaderCard.transactionNumber}" onblur="validateTransactionNumber();" /></td>
 								<td class="bluebox"><s:text
 									name="billreceipt.payment.reenter.transactionnumber" /><span
-								class="mandatory1">*</span></td>									
+								class="mandatory1">*</span></td>
 							<td class="bluebos"> <s:password id="confirmtransactionNumber"  maxlength="14"
-							                   name ="confirmtransactionNumber"  size="18" onblur="validateTransactionNumber();" /></td>		
+							                   name ="confirmtransactionNumber"  size="18" onblur="validateTransactionNumber();" /></td>
 						</tr>
 
 						<tr id="carddetailsrow">

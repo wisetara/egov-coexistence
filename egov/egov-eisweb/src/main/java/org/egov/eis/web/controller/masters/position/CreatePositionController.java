@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -132,11 +132,11 @@ public class CreatePositionController {
 			model.addAttribute(WARNING, POSITION_ALREADY_PRESENT);
 			return "position-form";
 		}
-		
+
 		 * If designation and department object already present in DeptDesig
 		 * table, then increase the sanctioned post count by 1. Increase
 		 * Postoutsourced by 1, if position type is outsourced from UI.
-		 
+
 		if (position != null && position.getDeptDesig() != null && position.getDeptDesig().getDepartment() != null
 				&& position.getDeptDesig().getDesignation() != null) {
 
@@ -162,29 +162,29 @@ public class CreatePositionController {
 
 		}
 		positionMasterService.createPosition(position);*/
-		
+
 		/*List<org.egov.infra.microservice.contract.Position> positions = new ArrayList<>();
-		
+
 		org.egov.infra.microservice.contract.Position _position = new org.egov.infra.microservice.contract.Position();
-		
+
 		DepartmentDesignation deptdsng = new DepartmentDesignation();
 		deptdsng.setDepartmentId(position.getDeptDesig().getDepartment().getId());
-		
+
 		Designation desg = new Designation();
 		desg.setActive(true);
 		desg.setTenantId("default");
 		desg.setId(position.getDeptDesig().getDesignation().getId());
-		
+
 		deptdsng.setDesignation(desg);
 		_position.setActive(true);
 		_position.setIsPostOutsourced(position.isPostOutsourced());
 		_position.setDeptdesig(deptdsng);
 		_position.setName(position.getName());
-		
+
 		positions.add(_position);
-		
+
 		this.msUtil.createPosition(this.msUtil.getAccessTokenFromRedis(serRequest), "default", positions);*/
-		
+
 		model.addAttribute("mode", "saved");
 		model.addAttribute(WARNING, SUCCESS_MESSAGE);
 		return "position-form";
@@ -195,7 +195,7 @@ public class CreatePositionController {
 		List<Department> departments = microserviceUtils.getDepartments();
 		return departments;
 	}
-	
+
 	public List<Designation> getDesignationsFromMs(){
 		return microserviceUtils.getDesignations();
 	}

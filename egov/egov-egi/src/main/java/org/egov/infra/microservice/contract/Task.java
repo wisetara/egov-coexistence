@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -162,7 +162,7 @@ public class Task {
      * natureOfTask Detaild Description of the task or process . For example in case of voucher it can be set as
      * "Finaicial Voucher Workflow " . This data is also configured by the display name of the workflowtype object. This data is
      * read only. .
-     * 
+     *
      */
     @Length(max = 128, min = 1)
     private String natureOfTask;

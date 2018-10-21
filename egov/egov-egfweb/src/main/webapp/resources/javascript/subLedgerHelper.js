@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -54,20 +54,20 @@
        var endDate = document.getElementById('endDate').value;
        var currDate = new Date();
        var currentDate = currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear() ;
-    	 /* checking Fiscal year start Date with End Date of Fiscal year */	
+    	 /* checking Fiscal year start Date with End Date of Fiscal year */
     	var tMonth=endDate.substr(endDate.length-7,2);
     	if(tMonth<4)
     		var fiscalYearStartDate="01/04/"+(endDate.substr(endDate.length-4,4)-1);
     	else
     		var fiscalYearStartDate="01/04/"+endDate.substr(endDate.length-4,4);
     	if(compareDate(fiscalYearStartDate,strtDate) == -1 )
-   		{ 
+   		{
 	       bootbox.alert("Start Date and End Date should be in same financial year");
 	       document.getElementById('startDate').focus();
 	       return false;
-	    
-   		} 
-    	
+
+   		}
+
     	/*To check whether Start Date is Greater than End Date*/
     	if( compareDate(formatDate6(strtDate),formatDate6(endDate)) == -1 )
     	{
@@ -76,18 +76,18 @@
 	    	document.getElementById('endDate').value='';
 	    	document.getElementById('startDate').focus();
 	    	return false;
-    	}	
+    	}
     	   /*to check whether the End Date is greater than the Current Date*/
     	if( compareDate(formatDate6(currentDate),formatDate6(endDate)) == 1 )
     	{
     		bootbox.alert('End Date cannot be greater than Current Date');
     		document.getElementById('endDate').value='';
-    		document.getElementById('endDate').focus();	
-    		return false;	
-   		}	
+    		document.getElementById('endDate').focus();
+    		return false;
+   		}
         document.getElementById("glCode2").value=document.getElementById("glCode1").value;
         document.getElementById("accEntityId").value=document.getElementById("subledger").value;
-        
+
         doLoadingMask();
       	 /*var formObj = jQuery(document.getElementById("subLedgerForm"));
           var formURL = '/EGF/report/subLedgerReport-search.action';
@@ -97,10 +97,10 @@
               data:  formData,
               type : 'POST',
       		async : false,
-      		datatype : 'text',  
-      		processData: false, 
+      		datatype : 'text',
+      		processData: false,
       		contentType: false,
-          	
+
           success: function(data)
           {
         	  undoLoadingMask();
@@ -108,13 +108,13 @@
           error: function(jqXHR, textStatus, errorThrown)
            {
           	 undoLoadingMask();
-           }         
+           }
           });*/
         document.subLedgerForm.action = "/services/EGF/report/subLedgerReport-search.action";
         document.subLedgerForm.submit();
         return true;
-           
-    	
+
+
     }
     var path="../..";
 	var oAutoCompEntityForJV;
@@ -125,9 +125,9 @@
 		   oACDS.scriptQueryParam = "startsWith";
 		   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 		   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-			   loadWaitingImage(); 
+			   loadWaitingImage();
 			   return sQuery+"&glCode="+document.getElementById("glCode1").value;
-		   } 
+		   }
 		   oAutoCompEntityForJV.queryDelay = 0.5;
 		   oAutoCompEntityForJV.minQueryLength = 3;
 		   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight";
@@ -144,8 +144,8 @@
 		           return true;
 		   };
 	}
-	function splitAccountCodes(obj) 
-	{	
+	function splitAccountCodes(obj)
+	{
 		var entity=obj.value;
 		if(entity.trim()!="")
 		{
@@ -153,7 +153,7 @@
 			if(entity_array.length==2)
 			{
 				document.getElementById("glCode1").value=entity_array[0].split("`-`")[0];
-				
+
 			}
 		}
 		populateSubLedger();
@@ -165,9 +165,9 @@
 		   oACDS.scriptQueryParam = "startsWith";
 		   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 		   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-			   loadWaitingImage(); 
+			   loadWaitingImage();
 			   return sQuery+"&accountDetailType="+document.getElementById("subledger").value;
-		   } 
+		   }
 		   oAutoCompEntityForJV.queryDelay = 0.5;
 		   oAutoCompEntityForJV.minQueryLength = 3;
 		   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight";
@@ -184,8 +184,8 @@
 		           return true;
 		   };
 	}
-	function splitEntityDetails(obj) 
-	{	
+	function splitEntityDetails(obj)
+	{
 		var entity=obj.value;
 		if(entity.trim()!="")
 		{
@@ -195,7 +195,7 @@
 				document.getElementById('accEntitycode').value=entity_array[0].split("`-`")[0];
 				document.getElementById('accEntityKey').value=entity_array[1];
 				document.getElementById('entityName').value=entity_array[0].split("`-`")[1];
-				
+
 			}/*else{
 				bootbox.alert("Invalid entity selected.");
 				document.getElementById('accEntitycode').value="";
@@ -204,9 +204,9 @@
 			}*/
 		}
 	}
-	
+
 	function viewVoucher(vid){
 		var url = '../voucher/preApprovedVoucher-loadvoucherview.action?vhid='+vid;
 		window.open(url,'','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700,status=yes');
 	}
-	
+

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -56,21 +56,21 @@
 <head>
 <title><s:text name="scheme.search.title" /></title>
 <SCRIPT type="text/javascript">
-   
+
     function validateAndSubmit()
 	{
 		var fromDate=document.getElementById('validfromId').value;
 		var toDate=document.getElementById('validtoId').value;
 
 		var fundId=document.getElementById('fundId').value;
-		
+
 
 		if(fundId == "-1"){
 			bootbox.alert("Please select fund");
 			return false;
 			}
-		
-		 
+
+
 		if(!validateDate(fromDate)){
 			bootbox.alert("Invalid Date! Start date is greater than current date");
 			return false;
@@ -82,13 +82,13 @@
 		if (fdate > tdate) {
 			bootbox.alert("Invalid Date Range! Start Date should be less than End Date!")
 			return false;
-			} 
+			}
 
-		
+
     	document.schemeForm.action='${pageContext.request.contextPath}/masters/scheme-search.action';
     	document.schemeForm.submit();
     	//return true;
-    	
+
 	document.getElementById('type').disabled=false;
 	return true;
 	}
@@ -102,10 +102,10 @@
 		if (Date.parse(date) > Date.parse(todayDateText)) {
 			return false;
 			}
-		return true; 
+		return true;
 		}
 
-   
+
     </SCRIPT>
 </head>
 <body>
@@ -235,8 +235,8 @@
 	function urlLoad(id,showMode) {
 		if(showMode=='edit')
 			 url = "../masters/scheme-beforeEdit.action?id="+id+"&mode=edit";
-		else          
-			 url = "../masters/scheme-beforeView.action?id="+id+"&mode=view"; 
+		else
+			 url = "../masters/scheme-beforeView.action?id="+id+"&mode=view";
 		window.open(url,'schemeView','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 	}
 	</script>

@@ -1,6 +1,6 @@
 <%@ taglib uri="/WEB-INF/tags/struts-tags.tld" prefix="s"%><%@ page contentType="text/json"%><%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~

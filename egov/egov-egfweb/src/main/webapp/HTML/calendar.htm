@@ -1,6 +1,6 @@
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -48,8 +48,8 @@
 
 <HTML>
    <HEAD>
-   
-      <TITLE>Calendar</TITLE> 
+
+      <TITLE>Calendar</TITLE>
       <STYLE TYPE="text/css">
          .today {color:navy; font-weight:bold}
          .days {font-weight:bold}
@@ -62,7 +62,7 @@
          var daysInMonth = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
          var days = new Array("Sun", "Mon", "Tue","Wed", "Thu", "Fri", "Sat");
 
-         function getDays(month, year) {	
+         function getDays(month, year) {
 		 																		//alert('Check Leaf');
             // Test for leap year when February is selected.
             if (1 == month)
@@ -88,7 +88,7 @@
 		 																		//alert('new Calendar');
             today = new getToday();
 			var parseYear = parseInt(document.getElementById('divYear').innerHTML);
-			
+
 			var newCal = new Date(parseYear, document.all.month.selectedIndex, 1);
             var day = -1;
             var startDay = newCal.getDay();
@@ -97,9 +97,9 @@
                   (today.month == newCal.getMonth()))
                day = today.day;
             // Cache the calendar table's tBody section, dayList.
-			
-			
-			
+
+
+
             var tableCal = document.all.calendar.tBodies.dayList;
             var intDaysInMonth = getDays(newCal.getMonth(), newCal.getFullYear());
             for (var intWeek = 0; intWeek < tableCal.rows.length; intWeek++)
@@ -127,9 +127,9 @@
                // Test whether day is valid.
                if ("" != event.srcElement.innerText)
                   //alert(event.srcElement.innerText);
-				  																													
+
 				  //sDate = event.srcElement.innerText + "-" + months[document.all.month.value - 1].substring(0,3) + "-" + document.all.year.value;
-				  
+
 				 // months[document.all.month.value - 1]);
 //				  sDate = event.srcElement.innerText + "-" + months[document.all.month.value - 1].substring(0,3) + "-" + parseInt(document.getElementById('divYear').innerHTML);
 sDate = event.srcElement.innerText + "/" + months1[document.all.month.value - 1].substring(0,2) + "/" + parseInt(document.getElementById('divYear').innerHTML);
@@ -137,7 +137,7 @@ sDate = event.srcElement.innerText + "/" + months1[document.all.month.value - 1]
 				  document.all.ret.value = sDate;
  		  		  window.close();
          }
-		 
+
 
 		 function changeYear1()
 		 {
@@ -157,7 +157,7 @@ sDate = event.srcElement.innerText + "/" + months1[document.all.month.value - 1]
 			document.getElementById('divYear').innerHTML = dt.getFullYear();
 		}
       </SCRIPT>
-	  
+
    </HEAD>
    <!-- <BODY ONLOAD="newCalendar()" OnUnload="window.returnValue = document.all.ret.value;" BGCOLOR="#ECE9D8" TOPMARGIN=2 LEFTMARGIN=5> -->
    <BODY ONLOAD="getYear();newCalendar();" OnUnload="window.returnValue = document.all.ret.value;" BGCOLOR="#ECE9D8" TOPMARGIN=2 LEFTMARGIN=5>
@@ -182,8 +182,8 @@ sDate = event.srcElement.innerText + "/" + months1[document.all.month.value - 1]
                               months[intLoop]);
                      </SCRIPT>
                   </SELECT>
-                  
-                  
+
+
                </TD>
             </TR>
             <TR CLASS="days" >
@@ -195,7 +195,7 @@ sDate = event.srcElement.innerText + "/" + months1[document.all.month.value - 1]
                </SCRIPT>
             </TR>
          </THEAD>
-		 
+
          <TBODY ID="dayList" ALIGN=CENTER onMouseOver="this.style.cursor='hand'" ONCLICK="getDate()">
             <!-- Generate grid for individual days. -->
             <SCRIPT LANGUAGE="JavaScript">
@@ -208,7 +208,7 @@ sDate = event.srcElement.innerText + "/" + months1[document.all.month.value - 1]
                }
             </SCRIPT>
          </TBODY>
-		
+
       </TABLE>
 	  <!-- <center><Input Style="width:50pt" type=button value="Cancel" OnClick="Cancel();"></center> -->
    </BODY>

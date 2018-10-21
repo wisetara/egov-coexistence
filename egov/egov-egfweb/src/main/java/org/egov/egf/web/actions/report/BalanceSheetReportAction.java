@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -109,8 +109,8 @@ public class BalanceSheetReportAction extends BaseFormAction {
     private Date todayDate;
     FinancialYearDAO financialYearDAO;
     CFinancialYear financialYear=new CFinancialYear();
-    
-   
+
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -118,7 +118,7 @@ public class BalanceSheetReportAction extends BaseFormAction {
     private EgovMasterDataCaching masterDataCache;
 
     private Date asOnDate;
-    
+
     public FinancialYearDAO getFinancialYearDAO() {
 		return financialYearDAO;
 	}
@@ -440,9 +440,9 @@ public class BalanceSheetReportAction extends BaseFormAction {
     }
 
     protected void populateDataSource() {
-    	
+
     	setRelatedEntitesOn();
-        
+
         if (balanceSheet.getFund() != null && balanceSheet.getFund().getId() != null) {
             final List<Fund> selFund = new ArrayList<Fund>();
             selFund.add(balanceSheet.getFund());
@@ -453,7 +453,7 @@ public class BalanceSheetReportAction extends BaseFormAction {
     }
 
     //TODO- This table is not used. Check reference and remove
-  
+
     public String getCurrentYearToDate() {
         return balanceSheetService.getFormattedDate(balanceSheetService.getToDate(balanceSheet));
     }

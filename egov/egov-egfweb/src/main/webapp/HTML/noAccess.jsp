@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -58,7 +58,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=x-user-defined">
 
 		<LINK rel="stylesheet" type="text/css" href="./css/egov.css">
-		
+
 	</head>
 	<body bgcolor="#FFFFFF">
 		<table align="center" class="eGovTblContent" bgColor="#efefef" border="1" borderColorDark="#ffffff" borderColorLight="#aaaaaa" cellPadding="3" cellSpacing="0" width="755"  summary>

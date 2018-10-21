@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,7 +62,7 @@ $('#voucherSubType').change(function () {
 });
 
 function makePartyNameMandatory(voucherSubType){
-	
+
 	if(voucherSubType){
 		if(voucherSubType != 'JVGeneral'){
 			$('#partyNameLabelId').removeClass('hide');
@@ -122,8 +122,8 @@ function accountDetailGlcode_initialize() {
   	hint : true,
 		highlight : true,
 		minLength : 3
-		
-	}, {		    
+
+	}, {
         displayKey: 'glcodesearch',
         source: custom.ttAdapter()
   }).on('typeahead:selected typeahead:autocompleted', function (event, data) {
@@ -168,8 +168,8 @@ $('.subLedgerDetailKeyName').typeahead({
  	hint : true,
 		highlight : true,
 		minLength : 3
-		
-	}, {		    
+
+	}, {
        displayKey: 'codeAndName',
        source: custom.ttAdapter()
  }).on('typeahead:selected typeahead:autocompleted', function (event, data) {
@@ -177,8 +177,8 @@ $('.subLedgerDetailKeyName').typeahead({
 	   	$(this).parents("tr:first").find('.subLedgerName').val(data.name);
  });
 }
-function addAccountDetailsRow() { 
-	
+function addAccountDetailsRow() {
+
 	$('.accountDetailGlcode').typeahead('destroy');
 	$('.accountDetailGlcode').unbind();
 	var rowcount = $("#tblaccountdetails tbody tr").length;
@@ -211,8 +211,8 @@ function deleteAccountDetailsRow(obj) {
 }
 
 
-function addSubLedgerRow() { 
-	
+function addSubLedgerRow() {
+
 	$('.subLedgerDetailKeyName').typeahead('destroy');
 	$('.subLedgerDetailKeyName').unbind();
 	var rowcount = $("#tblsubledger tbody tr").length;
@@ -317,7 +317,7 @@ function validateWorkFlowApprover(name) {
 		return validateCutOff();
 	}else
 		return true;
-	
+
 	return true;
 }
 function validateCutOff()
@@ -343,7 +343,7 @@ function validateCutOff()
 }
 
 function loadSubLedgerAccountCodes(){
-	
+
 	subLedgerAccountCodes = new Array();
 	$('#tblaccountdetails  > tbody > tr:visible[id="accountdetailsrow"]').each(function() {
 		var isSubledger = $(this).find(".accountglcodeissubledger").val();
@@ -353,17 +353,17 @@ function loadSubLedgerAccountCodes(){
 			subLedgerAccountCodes.push(glcodeId + "-" + glcode);
 		}
 	});
-	
+
 	$('#tblsubledger  > tbody > tr:visible[id="subledgerrow"]').each(function(index) {
 		$('#subLedgerDetails\\['+index+'\\]\\.generalLedgerId\\.glcodeId').empty();
 		$('#subLedgerDetails\\['+index+'\\]\\.generalLedgerId\\.glcodeId').append($("<option value=''>Select from below</option>"));
-		
+
 		var subLedgerAccountCodesLength = subLedgerAccountCodes.length;
 		for (i = 0; i < subLedgerAccountCodesLength; i++) {
 			$('#subLedgerDetails\\['+index+'\\]\\.generalLedgerId\\.glcodeId').append($('<option>').text(subLedgerAccountCodes[i].split('-')[1]).attr('value', subLedgerAccountCodes[i].split('-')[0]));
 		}
 	});
-	
+
 }
 function getRow(obj) {
 	if(!obj)return null;
@@ -389,7 +389,7 @@ function loadAccountDetailTypesByGlcodeId(glcodeId,rowindex){
 		$('#subLedgerDetails\\['+rowindex+'\\]\\.detailTypeId').append($('<option>').text('Select from below').attr('value', ''));
 		return;
 	} else {
-		
+
 		$.ajax({
 			method : "GET",
 			url : "/services/EGF/common/getaccountdetailtypesbyglcodeid",

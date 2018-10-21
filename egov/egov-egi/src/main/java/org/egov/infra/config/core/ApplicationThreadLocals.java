@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -60,7 +60,7 @@ public class ApplicationThreadLocals {
     private static ThreadLocal<String> ipAddress = new ThreadLocal<>();
     private static ThreadLocal<String> userTenantId = new ThreadLocal<>();
     private static ThreadLocal<String> userToken = new ThreadLocal<>();
-    
+
     private ApplicationThreadLocals() {
         //Not to be initialized
     }
@@ -132,20 +132,20 @@ public class ApplicationThreadLocals {
     public static String getUserTenantId(){
     	return userTenantId.get();
     }
-    
+
     public static void setUserTenantId(String tenantId){
     	userTenantId.set(tenantId);
     }
-    
+
     public static String getUserToken(){
-    	
+
     	return userToken.get();
     }
-    
+
     public static void setUserToken(String token){
     	userToken.set(token);
     }
-    
+
     public static void clearValues() {
         domainName.remove();
         userId.remove();

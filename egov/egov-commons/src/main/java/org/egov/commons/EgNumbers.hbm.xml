@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,7 +55,7 @@
         <id name="id" type="long">
             <column name="ID" precision="22" scale="0" />
             <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
-            <param name="sequence_name">SEQ_EG_NUMBERS</param>  
+            <param name="sequence_name">SEQ_EG_NUMBERS</param>
             </generator>
         </id>
         <property name="vouchertype" type="string">

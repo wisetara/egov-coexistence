@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -70,13 +70,13 @@ public class ReconcileBean {
 	private String voucherNumber;
 	private Integer limit;
 	private String instrumentNo;
-	
+
 	private BigDecimal creditAmount;
 	private BigDecimal debitAmount;
 	private BigDecimal otherCreditAmount;
 	private BigDecimal otherDebitAmount;
-	
-	
+
+
 	public Long getBranchId() {
 		return branchId;
 	}
@@ -137,7 +137,7 @@ public class ReconcileBean {
 	public void setTxnType(String txnType) {
 		this.txnType = txnType;
 	}
-	
+
 	public Date getBankStatementDate() {
 		return bankStatementDate;
 	}
@@ -198,5 +198,5 @@ public class ReconcileBean {
 	public void setOtherDebitAmount(BigDecimal otherDebitAmount) {
 		this.otherDebitAmount = otherDebitAmount;
 	}
-	
+
 }

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -110,8 +110,8 @@ public class ManualReconciliationAction extends BaseFormAction {
 		reconcileBean=new ReconcileBean();
 		reconcileBean.setLimit(500);
 
-		List<Bank> allBankHavingAccounts = bankHibernateDAO.getAllBankHavingBranchAndAccounts(); 
-		dropdownData.put("bankList", allBankHavingAccounts);  
+		List<Bank> allBankHavingAccounts = bankHibernateDAO.getAllBankHavingBranchAndAccounts();
+		dropdownData.put("bankList", allBankHavingAccounts);
 		dropdownData.put("branchList", branchList);
 		dropdownData.put("accountList", accountList);
 		if (reconcileBean.getBranchId() != null)
@@ -154,7 +154,7 @@ public class ManualReconciliationAction extends BaseFormAction {
 
 		return "balance";
 	}
-	
+
 	@Action(value = "/brs/manualReconciliation-update")
 	@ValidationErrorPage("search")
 	public String update()
@@ -205,7 +205,7 @@ public class ManualReconciliationAction extends BaseFormAction {
 		return accountList;
 	}
 
-	
+
 
 	public List<ReconcileBean> getUnReconciledCheques() {
 		return unReconciledCheques;

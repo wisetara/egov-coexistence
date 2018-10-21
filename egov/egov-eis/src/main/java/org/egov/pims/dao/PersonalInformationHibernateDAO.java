@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,21 +76,21 @@ import java.util.Map;
 @Repository
 public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 {
-    
-	private static final Logger LOGGER = Logger.getLogger(PersonalInformationHibernateDAO.class); 
-	
+
+	private static final Logger LOGGER = Logger.getLogger(PersonalInformationHibernateDAO.class);
+
 	private final static String STR_CURRDATE= "currDate";
-	
+
 	@Autowired
 	private BoundaryService boundaryService;
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
-	
+
 
 	public PersonalInformation getPersonalInformationByID(Integer idPersonalInformation)
 	{
@@ -119,29 +119,29 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 		}
 	}
 
-	public PersonalInformation getPersonalInformationByUserId(Long userId) 
+	public PersonalInformation getPersonalInformationByUserId(Long userId)
 	{
 		Query qry = getCurrentSession().createQuery("from PersonalInformation P where P.userMaster.id =:userId ");
 		qry.setLong("userId", userId);
 		return (PersonalInformation)qry.uniqueResult();
-		
+
 	}
-	
+
 	public void deleteLangKnownForEmp(PersonalInformation personalInformation)
 	{
 		Query qry = getCurrentSession().createSQLQuery("delete  from EGEIS_LANG_KNOWN B where B.id = :id ");
 		qry.setInteger("id", personalInformation.getIdPersonalInformation());
-		
+
 	}
 	public List getListOfPersonalInformationByEmpIdsList(List empIdsList)
 	{
 		List <PersonalInformation> list = null;
 		if(empIdsList!=null && !empIdsList.isEmpty())
-		{			
+		{
 			Query qry = getCurrentSession().createQuery("from PersonalInformation per where per.idPersonalInformation in (:empIdsList) order by per.employeeCode");
 			if(empIdsList.size() <= 1000)
 			{
-				qry.setParameterList("empIdsList", empIdsList);		
+				qry.setParameterList("empIdsList", empIdsList);
 				list = qry.list();
 				return list;
 			}
@@ -149,29 +149,29 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 			{
 				//If it exceeds 1000, get the list for each 1000 employees iteratively.
 				int noOfSublists = empIdsList.size()/1000;
-				int remainingItems= empIdsList.size() % 1000 ;		
+				int remainingItems= empIdsList.size() % 1000 ;
 				int initialVal=0;
 				List <PersonalInformation> listFinal = new ArrayList();
 				for(int i=1; i<=noOfSublists; i++)
-				{				
-					qry.setParameterList("empIdsList", empIdsList.subList(initialVal,i*1000));		
+				{
+					qry.setParameterList("empIdsList", empIdsList.subList(initialVal,i*1000));
 					list = qry.list();
 					listFinal.addAll(list);
 					initialVal=i*1000;
 				}
-				qry.setParameterList("empIdsList", empIdsList.subList(initialVal,initialVal+remainingItems));		
+				qry.setParameterList("empIdsList", empIdsList.subList(initialVal,initialVal+remainingItems));
 				list = qry.list();
-				listFinal.addAll(list);						
+				listFinal.addAll(list);
 				return listFinal;
-			}						
+			}
 		}
 		else
 		{
 			return list;
 		}
-		
+
 	}
-	
+
 	public List getListOfUsersByBoundaryId(Long boundaryId) throws NoSuchObjectException
 	{
 		List userObjList = new ArrayList();
@@ -198,8 +198,8 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 
  	}
 	/**
-	 * To get list of users which belong to given boundary. If give boundary is Zone, then it will get all the wards 
-	 * under that zone and search for users for that Zone and wards within that zone. 
+	 * To get list of users which belong to given boundary. If give boundary is Zone, then it will get all the wards
+	 * under that zone and search for users for that Zone and wards within that zone.
 	 * @param boundaryId
 	 * @return
 	 * @throws NoSuchObjectException
@@ -207,8 +207,8 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 	public List getListOfUsersForGivenBoundaryId(Long boundaryId) throws NoSuchObjectException
 	{
 		List userObjList = new ArrayList();
-		List bndryObjList = new ArrayList();	
-			
+		List bndryObjList = new ArrayList();
+
 		//get All Children of given boundary
 		bndryObjList = boundaryService.getChildBoundariesByBoundaryId(boundaryId);
 		//Add parent boundary
@@ -242,7 +242,7 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 	 * @param deptId
 	 * @param designationId
 	 * @param Boundaryid
-	 * @return temAssigned employee if temp Assignement is present otherwise primary assigned employee 
+	 * @return temAssigned employee if temp Assignement is present otherwise primary assigned employee
 	 * @throws TooManyValuesException
 	 * @throws NoSuchObjectException
 	 */
@@ -260,11 +260,11 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 				//FIXME: should  take actual instance of boundary
 				//fixed
 			userList = getListOfUsersByBoundaryId(boundaryId);
-			} 
+			}
 			if(userList.isEmpty())
 			{
 				throw new NoSuchObjectException("user.Obj.null");
-				
+
 			}
 			else{
 				qry1 = getCurrentSession().createQuery("select P from PersonalInformation P, Assignment A where" +
@@ -275,7 +275,7 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 						" P.userMaster in (:userObjList) and (" +
 						"(A.toDate IS NULL and A.fromDate <= :currDate) " +
 						"OR " +
-						"(A.fromDate <= :currDate and A.toDate >= :currDate))");  
+						"(A.fromDate <= :currDate and A.toDate >= :currDate))");
 		qry1.setInteger("deptId",deptId);
 		qry1.setInteger("designationId", designationId);
 		qry1.setParameterList("userObjList",userList);
@@ -290,7 +290,7 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 						" P.userMaster in (:userObjList) and (" +
 						"(A.toDate IS NULL and A.fromDate <= :currDate) " +
 						"OR " +
-						"(A.fromDate <= :currDate and A.toDate >= :currDate))");  
+						"(A.fromDate <= :currDate and A.toDate >= :currDate))");
 				qry1.setInteger("deptId",deptId);
 				qry1.setInteger("designationId", designationId);
 				qry1.setParameterList("userObjList",userList);
@@ -327,8 +327,8 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 
 
 	}
-	
-	
+
+
 	/**
 	 * This is used for workflow
 	 * Getting employee by passing deptId,desigId,boundaryId,functionaryId
@@ -353,10 +353,10 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 				//FIXME: should  take actual instance of boundary
 				//fixed
 			userList = getListOfUsersByBoundaryId(boundaryId);
-			} 
+			}
 			if(userList.isEmpty())
 			{
-				
+
 				throw new NoSuchObjectException("user.Obj.null");
 			}
 			else
@@ -370,7 +370,7 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 						" P.userMaster in (:userObjList) and (" +
 						"(A.toDate IS NULL and A.fromDate <= :currDate) " +
 						"OR " +
-						"(A.fromDate <= :currDate and A.toDate >= :currDate))");  
+						"(A.fromDate <= :currDate and A.toDate >= :currDate))");
 		qry1.setLong("deptId",deptId);
 		qry1.setLong("designationId", designationId);
 		qry1.setInteger("functionaryId", functionaryId);
@@ -387,7 +387,7 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 					" P.userMaster in (:userObjList) and (" +
 					"(A.toDate IS NULL and A.fromDate <= :currDate) " +
 					"OR " +
-					"(A.fromDate <= :currDate and A.toDate >= :currDate))");  
+					"(A.fromDate <= :currDate and A.toDate >= :currDate))");
 			qry1.setLong("deptId",deptId);
 			qry1.setLong("designationId", designationId);
 			qry1.setInteger("functionaryId", functionaryId);
@@ -413,31 +413,31 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 		else if(empList.size()==1){
 			personalInformation = empList.get(0);
 		}
-		
+
 			}
 		return (personalInformation);
 
 		}
 		 catch(Exception e)
         {
-			
+
            throw new ApplicationRuntimeException(e.getMessage(),e);
         }
 
 
 	}
-	
-	
-	
-	
+
+
+
+
 	/**
-	  * Returning temporary  assigned employee object by pepartment,designation,functionary,date 
+	  * Returning temporary  assigned employee object by pepartment,designation,functionary,date
 	  * @param deptId
 	  * @param DesigId
 	  * @param functionaryId
 	  * @param onDate
 	  * @return Employee
-	  * @throws Exception 
+	  * @throws Exception
 	  */
 	 public PersonalInformation getTempAssignedEmployeeByDeptDesigFunctionaryDate(Integer deptId, Integer desigId, Integer functionaryId, Date onDate) throws Exception{
 		 PersonalInformation tempAssignedEemployee = null;
@@ -467,52 +467,52 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 		}
 		 return tempAssignedEemployee;
 	 }
-	 
+
 	 public List getAllDesignationByDept(Integer deptId)throws TooManyValuesException, NoSuchObjectException
 		{
 		 	List<Designation> desgMstr = null;
 			try
 			{
-				
-				
+
+
 					Query qry = getCurrentSession().createQuery("from Designation dm where dm.deptId =:deptId");
 					qry.setInteger("deptId",deptId);
 					LOGGER.info("QUERY TEST-----------"+qry.getQueryString());
 					desgMstr = qry.list();
-				
-				
+
+
 			}
 			 catch(Exception e)
 		        {
-					
+
 		           throw new ApplicationRuntimeException("system.error", e);
 		        }
-			 
 
 
-		
+
+
 		 	return desgMstr;
 		}
-	
+
 	 public List getAllActiveUsersByGivenDesg(Integer desgId)
 	 {
-		 List<User> userList = null; 
-			
-			try {					
+		 List<User> userList = null;
+
+			try {
 						Query qry = getCurrentSession().createQuery("from User u where u.id in (select ev.userMaster.id from EmployeeView ev where ev.desigId.designationId =:desgId) and u.active=true ");
-						qry.setInteger("desgId",desgId);					
+						qry.setInteger("desgId",desgId);
 						userList = qry.list();
-						
-					
+
+
 				} catch (RuntimeException e) {
 					throw new ApplicationRuntimeException("Exception while getting users for given designation",e);
-					
+
 				}
-		
-				
+
+
 		 return userList;
 	 }
-	 
+
 	 public List<PersonalInformation> getAllEmpByGrade(Integer gradeId) throws Exception
 	 {
 		 List<PersonalInformation> listEmployee = null;
@@ -522,15 +522,15 @@ public class PersonalInformationHibernateDAO implements PersonalInformationDAO
 		listEmployee = qry.list();
 		return listEmployee;
 	 }
-	
+
 	 /**
 	  * This is used for getting the users (both active and inactive) who are not mapped to any of the employees
-	  */	 
+	  */
 	 public  List getListOfUsersNotMappedToEmp()
 	 {
 		 Query qry = getCurrentSession().createQuery("from User UI where id not in("+
 			"select userMaster.id from PersonalInformation  where  userMaster.id is not null) order by UI.userName");
-		 
+
 		 return qry.list();
 	 }
 

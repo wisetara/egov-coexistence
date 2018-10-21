@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -164,19 +164,19 @@
 		</s:if>
 	</s:form>
 	<script>
-		
-		function validate() {			
+
+		function validate() {
 			var monthValue = document.getElementById('month').value;
 			var finYearId = document.getElementById('financialYearId').value;
-			
+
 			if (monthValue == null || monthValue.trim().length == 0 || monthValue == undefined) {
-				bootbox.alert('Please select month');				
+				bootbox.alert('Please select month');
 				document.getElementById('month').focus();
 				return false;
 			}
-			
+
 			if (finYearId == null || finYearId.trim().length == 0 || finYearId == undefined) {
-				bootbox.alert('Please select financial year');				
+				bootbox.alert('Please select financial year');
 				document.getElementById('financialYearId').focus();
 				return false;
 			}
@@ -184,12 +184,12 @@
 		}
 
 		function urlLoad(instrumentnumber,bankaccount,bankbranch,bank){
-			
+
 			 var url="${pageContext.request.contextPath}/report/bankAdviceReport!exportText.action?bank.id="+
 				bank+"&bankbranch.id="+bankbranch+"&bankaccount.id="+bankaccount+"&instrumentnumber.id="+instrumentnumber;
 			  window.open(url,'','height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
 			}
-		
+
 	</script>
 </body>
 </html>

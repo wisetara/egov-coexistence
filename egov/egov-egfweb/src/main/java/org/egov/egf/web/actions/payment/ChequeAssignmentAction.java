@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -658,14 +658,14 @@ public class ChequeAssignmentAction extends BaseVoucherAction {
         ChequeAssignment obj = new ChequeAssignment();
 
         rtgsChequeAssignmentList = new CopyOnWriteArrayList(paymentService.getPaymentVoucherForRTGSInstrument(parameters, voucherHeader));
-        
-        Iterator<ChequeAssignment> rtgsItr = rtgsChequeAssignmentList.iterator(); 
-        
+
+        Iterator<ChequeAssignment> rtgsItr = rtgsChequeAssignmentList.iterator();
+
         while(rtgsItr.hasNext()){
-            ChequeAssignment cheqA = rtgsItr.next(); 
+            ChequeAssignment cheqA = rtgsItr.next();
             cheqA.setDepartmentName(this.getDepartmentbyId(cheqA.getDepartmentName()).getName());
         }
-        
+
         dbpRtgsAssignmentList = paymentService.getDirectBankPaymentVoucherForRTGSInstrument(parameters, voucherHeader);
 
         rtgsChequeAssignmentList.addAll(dbpRtgsAssignmentList);
@@ -1670,7 +1670,7 @@ public class ChequeAssignmentAction extends BaseVoucherAction {
         final Bankaccount account = (Bankaccount) persistenceService.find("from Bankaccount where id=?", bankaccount.longValue());
         bank_account_dept = account.getBankbranch().getBank().getName() + "-" + account.getBankbranch().getBranchname()
                 + "-" + account.getAccountnumber();
-       
+
         if (department != null && !department.equalsIgnoreCase("-1") && !department.equalsIgnoreCase("0")) {
 //            final Department dept = (Department) persistenceService.find("from Department where code=?", department);
             org.egov.infra.microservice.models.Department dept = this.getDepartmentbyId(department);
@@ -1679,17 +1679,17 @@ public class ChequeAssignmentAction extends BaseVoucherAction {
         if (LOGGER.isDebugEnabled())
             LOGGER.debug("Completed getheader.");
     }
-    
+
     private org.egov.infra.microservice.models.Department getDepartmentbyId(String departmentCode){
-        
+
         List<org.egov.infra.microservice.models.Department> departments= this.masterDataCache.get("egi-department");
-       
+
         if(null!=departments && !departments.isEmpty()){
-        List<org.egov.infra.microservice.models.Department> selecteddept = departments.stream().filter(department->department.getCode().equalsIgnoreCase(departmentCode)).collect(Collectors.toList());     
+        List<org.egov.infra.microservice.models.Department> selecteddept = departments.stream().filter(department->department.getCode().equalsIgnoreCase(departmentCode)).collect(Collectors.toList());
          if(!selecteddept.isEmpty())
              return selecteddept.get(0);
         }
-        
+
         return new org.egov.infra.microservice.models.Department();
     }
 

@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -188,7 +188,7 @@ padding-left:10px;
 </table>
 <table width="100%" class="container" cellpadding="0" cellspacing="0">
 <tr>
-<td class="signature" colspan="2"><s:text name="viewReceipt.payee.name"/>&nbsp;<s:property value="receiptPayeeDetails.payeename" /></td> 
+<td class="signature" colspan="2"><s:text name="viewReceipt.payee.name"/>&nbsp;<s:property value="receiptPayeeDetails.payeename" /></td>
 </tr>
 <s:iterator value='%{getInstruments("cash")}' >
 <tr>

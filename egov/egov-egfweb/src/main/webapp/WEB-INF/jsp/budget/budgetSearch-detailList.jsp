@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -82,15 +82,15 @@
 					el.innerHTML = "<label id='"+prefix+"["+budgetDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' name='"+prefix+"["+budgetDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' style='text-align:right'>"+value+"</label>";
 				}
 			}
-			
+
 			var budgetDetailTable = function() {
-				var budgetDetailColumns = [ 
+				var budgetDetailColumns = [
 					{key:"budget.id",label:'Budget',width:90,className:"budgetSearch", sortable:true},
 					{key:"budgetGroup.id",label:'Budget Group',className:"budgetSearch",sortable:true,width:200},
 					<s:if test="%{shouldShowHeaderField('executingDepartment') || shouldShowGridField('executingDepartment')}">
 						{key:"executingDepartment.id", label:'Executing Department',className:"budgetSearch",sortable:true},
 					</s:if>
-					<s:if test="%{shouldShowHeaderField('functionary') || shouldShowGridField('functionary')}">				
+					<s:if test="%{shouldShowHeaderField('functionary') || shouldShowGridField('functionary')}">
 						{key:"functionary.id",label:'Functionary',className:"budgetSearch",sortable:true} ,
 					</s:if>
 					<s:if test="%{shouldShowHeaderField('function') || shouldShowGridField('function')}">
@@ -129,19 +129,19 @@
         				rowsPerPage: 10
     				})
 				};
-			    var budgetDetailDS = new YAHOO.util.DataSource(); 
-				budgetDetailsTable = new YAHOO.widget.DataTable("budgetDetailTable",budgetDetailColumns, budgetDetailDS,myConfigs);	
+			    var budgetDetailDS = new YAHOO.util.DataSource();
+				budgetDetailsTable = new YAHOO.widget.DataTable("budgetDetailTable",budgetDetailColumns, budgetDetailDS,myConfigs);
 				budgetDetailsTable.on('cellClickEvent',function (oArgs) {
 					var target = oArgs.target;
 					var record = this.getRecord(target);
 					var column = this.getColumn(target);
-					if (column.key == 'Delete') { 			
+					if (column.key == 'Delete') {
 						this.deleteRow(record);
 						allRecords=this.getRecordSet();
 						for(i=0;i<allRecords.getLength();i++){
 							this.updateCell(this.getRecord(i),this.getColumn('SlNo'),""+(i+1));
 						}
-					}        
+					}
 				});
 					<s:iterator value="savedbudgetDetailList" status="stat" var="p">
 						budgetDetailsTable.addRow({SlNo:budgetDetailsTable.getRecordSet().getLength()+1,
@@ -150,7 +150,7 @@
 							<s:if test="%{shouldShowHeaderField('executingDepartment') || shouldShowGridField('executingDepartment')}">
 								"executingDepartment.id":"<s:property value='executingDepartment.name'/>",
 							</s:if>
-							<s:if test="%{shouldShowHeaderField('functionary') || shouldShowGridField('functionary')}">				
+							<s:if test="%{shouldShowHeaderField('functionary') || shouldShowGridField('functionary')}">
 								"functionary.id":"<s:property value='functionary.name'/>",
 							</s:if>
 							<s:if test="%{shouldShowHeaderField('function') || shouldShowGridField('function')}">

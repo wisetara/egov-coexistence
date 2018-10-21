@@ -4,8 +4,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ eGov suite of products aim to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~ eGov suite of products aim to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) <2015>  eGovernments Foundation
   ~
@@ -56,7 +56,7 @@
     <context:component-scan base-package="${package}">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-	
+
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="${symbol_dollar}{max.file.upload.size}"/>
 		<property name="maxInMemorySize" value="${symbol_dollar}{max.file.inmemory.size}"/>

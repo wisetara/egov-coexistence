@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -116,10 +116,10 @@
 
 <script>
 function loadBank(fund){
-	populatebank({fundId:fund.options[fund.selectedIndex].value,typeOfAccount:"PAYMENT,RECEIPTS_PAYMENTS"})	
+	populatebank({fundId:fund.options[fund.selectedIndex].value,typeOfAccount:"PAYMENT,RECEIPTS_PAYMENTS"})
 }
 function loadBankForFund(fund){
-	populatebank({fundId:fund.options[fund.selectedIndex].value})	
+	populatebank({fundId:fund.options[fund.selectedIndex].value})
 }
 function validateFund(){
 	var fund = document.getElementById('fund').value;
@@ -133,11 +133,11 @@ function validateFund(){
 function populateAccNumbers(bankBranch){
 	var fund = document.getElementById('fund');
 	id = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1]
-	populatebankaccount({branchId:id,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:id,fundId:fund.options[fund.selectedIndex].value})
 }
 function populateAccNumbersForId(bankBranchId){
 	var fund = document.getElementById('fund');
-	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})
 }
 function onLoadTask(){
 	var currentTime = new Date()
@@ -174,7 +174,7 @@ function onLoadTask(){
 }
 
 function populateUser(){
-	
+
 	var desgFuncry = document.getElementById("designationId").value;
 	var array = desgFuncry.split("-");
 	var functionary = array[1];
@@ -184,7 +184,7 @@ function populateUser(){
 	}
 	populateapproverUserId({departmentId:document.getElementById("departmentid").value,
 	designationId:desgId,functionaryName:functionary})
-		
+
 }
 function validateUser(name,value){
 	document.getElementById("actionName").value= name;

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -129,8 +129,8 @@ public class EGovExcelView extends BaseExportView {
 			// quotes around fields are needed to avoid occasional "Sylk format invalid" messages from excel
 
 			return "\"" //$NON-NLS-1$
-					+ StringUtils.replace(StringUtils.trim(value.toString()), "\"", "\"\"") //$NON-NLS-1$ //$NON-NLS-2$ 
-					+ "\""; //$NON-NLS-1$ 
+					+ StringUtils.replace(StringUtils.trim(value.toString()), "\"", "\"\"") //$NON-NLS-1$ //$NON-NLS-2$
+					+ "\""; //$NON-NLS-1$
 		}
 
 		return null;

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -113,7 +113,7 @@
 	var showMode = '<s:property value="showMode"/>';
 	var totaldbamt = 0, totalcramt = 0;
 	var OneFunctionCenter = <s:property value="isRestrictedtoOneFunctionCenter"/>;
-	//bootbox.alert(">>.."+OneFunctionCenter);                 
+	//bootbox.alert(">>.."+OneFunctionCenter);
 	var glcodeOptions = [ {
 		label : "--- Select ---",
 		value : "0"
@@ -220,7 +220,7 @@
 				jQuery(".datepicker").datepicker({
 					format: "dd/mm/yyyy",
 					autoclose:true
-				}); 
+				});
 				updateBENIBBTableIndex();
 				check();
 			}
@@ -231,7 +231,7 @@
 						url : '/EGF/payment/ajaxDeleteBankEntries.action',
 						type : "get",
 						data : {
-							beId : record._oData.beId						
+							beId : record._oData.beId
 						},
 						success : function(data, textStatus, jqXHR) {
 							bootbox.alert("Deleting data is successful");
@@ -259,7 +259,7 @@
 						bootbox.alert("This row can not be deleted");
 					}
 				}
-				
+
 			}
 		});
 
@@ -391,7 +391,7 @@
 												jQuery(".datepicker").datepicker({
 													format: "dd/mm/yyyy",
 													autoclose:true
-												}); 
+												});
 											document
 													.getElementById(
 															'bankEntriesNotInBankBookTable')
@@ -426,71 +426,71 @@
 			if (fund == null || fund == "" || fund == "-1") {
 				bootbox.alert("Please select Fund");
 				return false;
-			} 
+			}
 			if (bank == null || bank == "" || bank == "-1") {
 				bootbox.alert("Please select bank");
 				return false;
-			} 
+			}
 			 if (bankBranch == null || bankBranch == ""
 					|| bankBranch == "-1") {
 				bootbox.alert("Please select bank branch");
 
 				return false;
-			}  
+			}
 			if (bankAccount == null || bankAccount == ""
 					|| bankAccount == "-1") {
 				bootbox.alert("Please select bank account");
 				return false;
 			}
-			<s:if test="%{isFieldMandatory('fund')}"> 
+			<s:if test="%{isFieldMandatory('fund')}">
 			 if(null != document.getElementById('fundId') && document.getElementById('fundId').value == ""){
 				 bootbox.alert( "Please select a Fund");
 				return false;
-			 }    
-		 </s:if>   
-		 <s:if test="%{isFieldMandatory('function')}">                        
+			 }
+		 </s:if>
+		 <s:if test="%{isFieldMandatory('function')}">
 		 if(null != document.getElementById('vouchermis.function') && document.getElementById('vouchermis.function').value == -1){
 
 			 bootbox.alert( "Please select a Function");
 			return false;
 		 }
 	 	</s:if>
-		<s:if test="%{isFieldMandatory('department')}"> 
+		<s:if test="%{isFieldMandatory('department')}">
 			 if(null!= document.getElementById('vouchermis.departmentid') && document.getElementById('vouchermis.departmentid').value ==""){
 
 				 bootbox.alert( "Please select a Department");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('scheme')}"> 
+		<s:if test="%{isFieldMandatory('scheme')}">
 			 if(null!=document.getElementById('schemeid') &&  document.getElementById('schemeid').value == -1){
 
 				 bootbox.alert( "Please select a Scheme");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('subscheme')}"> 
+		<s:if test="%{isFieldMandatory('subscheme')}">
 			 if(null!= document.getElementById('subschemeid') && document.getElementById('subschemeid').value == -1){
 
 				 bootbox.alert( "Please select a Subscheme");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('functionary')}"> 
+		<s:if test="%{isFieldMandatory('functionary')}">
 			 if(null!=document.getElementById('vouchermis.functionary') &&  document.getElementById('vouchermis.functionary').value == -1){
 
 				 bootbox.alert( "Please select a Functionary");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('fundsource')}"> 
+		<s:if test="%{isFieldMandatory('fundsource')}">
 			 if(null !=document.getElementById('fundsourceId') &&  document.getElementById('fundsourceId').value == -1){
 
 				 bootbox.alert( "Please select a Fundsource");
 				return false;
 			}
 		</s:if>
-		<s:if test="%{isFieldMandatory('field')}"> 
+		<s:if test="%{isFieldMandatory('field')}">
 			 if(null!= document.getElementById('vouchermis.divisionid') && document.getElementById('vouchermis.divisionid').value == -1){
 
 				 bootbox.alert( "Please select a Field");
@@ -513,71 +513,71 @@
 			if (fund == null || fund == "" || fund == "-1") {
 				bootbox.alert("Please select Fund");
 				return false;
-			} 
+			}
 			if (bank == null || bank == "" || bank == "-1") {
 				bootbox.alert("Please select bank");
 				return false;
-			} 
+			}
 			 if (bankBranch == null || bankBranch == ""
 					|| bankBranch == "-1") {
 				bootbox.alert("Please select bank branch");
 
 				return false;
-			}  
+			}
 			if (bankAccount == null || bankAccount == ""
 					|| bankAccount == "-1") {
 				bootbox.alert("Please select bank account");
 				return false;
 			}
-			<s:if test="%{isFieldMandatory('fund')}"> 
+			<s:if test="%{isFieldMandatory('fund')}">
 			 if(null != document.getElementById('fundId') && document.getElementById('fundId').value == ""){
 				 bootbox.alert( "Please select a Fund");
 				return false;
-			 }    
-		 </s:if>   
-		 <s:if test="%{isFieldMandatory('function')}">                        
+			 }
+		 </s:if>
+		 <s:if test="%{isFieldMandatory('function')}">
 		 if(null != document.getElementById('vouchermis.function') && document.getElementById('vouchermis.function').value == -1){
 
 			 bootbox.alert( "Please select a Function");
 			return false;
 		 }
 	 	</s:if>
-		<s:if test="%{isFieldMandatory('department')}"> 
+		<s:if test="%{isFieldMandatory('department')}">
 			 if(null!= document.getElementById('vouchermis.departmentid') && document.getElementById('vouchermis.departmentid').value ==""){
 
 				 bootbox.alert( "Please select a Department");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('scheme')}"> 
+		<s:if test="%{isFieldMandatory('scheme')}">
 			 if(null!=document.getElementById('schemeid') &&  document.getElementById('schemeid').value == -1){
 
 				 bootbox.alert( "Please select a Scheme");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('subscheme')}"> 
+		<s:if test="%{isFieldMandatory('subscheme')}">
 			 if(null!= document.getElementById('subschemeid') && document.getElementById('subschemeid').value == -1){
 
 				 bootbox.alert( "Please select a Subscheme");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('functionary')}"> 
+		<s:if test="%{isFieldMandatory('functionary')}">
 			 if(null!=document.getElementById('vouchermis.functionary') &&  document.getElementById('vouchermis.functionary').value == -1){
 
 				 bootbox.alert( "Please select a Functionary");
 				return false;
 			 }
 		</s:if>
-		<s:if test="%{isFieldMandatory('fundsource')}"> 
+		<s:if test="%{isFieldMandatory('fundsource')}">
 			 if(null !=document.getElementById('fundsourceId') &&  document.getElementById('fundsourceId').value == -1){
 
 				 bootbox.alert( "Please select a Fundsource");
 				return false;
 			}
 		</s:if>
-		<s:if test="%{isFieldMandatory('field')}"> 
+		<s:if test="%{isFieldMandatory('field')}">
 			 if(null!= document.getElementById('vouchermis.divisionid') && document.getElementById('vouchermis.divisionid').value == -1){
 
 				 bootbox.alert( "Please select a Field");
@@ -593,13 +593,13 @@
 		}
 
 		}
-		
+
 		function load(){
-			<s:if test="%{mode == 'save'}"> 
+			<s:if test="%{mode == 'save'}">
 				disableAll();
 			</s:if>
-		}	
-			
+		}
+
 	</SCRIPT>
 </body>
 </html>

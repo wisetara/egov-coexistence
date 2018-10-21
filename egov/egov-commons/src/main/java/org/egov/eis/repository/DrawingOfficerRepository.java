@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,17 +55,17 @@ import java.util.List;
 
 @Repository
 public interface DrawingOfficerRepository extends JpaRepository<DrawingOfficer, Long>{
-    
+
     public DrawingOfficer findByName(String name);
-    
+
     public DrawingOfficer findByCode(String code);
-    
+
     public DrawingOfficer findByPosition_Id(Long id);
-    
+
     List<DrawingOfficer> findByNameContainingIgnoreCase(String name);
-    
+
     List<DrawingOfficer> findByCodeContainingIgnoreCase(String code);
-    
+
     public List<DrawingOfficer> findByNameLikeOrCodeLike(String name, String code);
 
 

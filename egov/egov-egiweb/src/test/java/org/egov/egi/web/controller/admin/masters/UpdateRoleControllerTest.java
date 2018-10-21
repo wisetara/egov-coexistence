@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,13 +76,13 @@ public class UpdateRoleControllerTest extends AbstractContextControllerTest<Upda
 
 	@Mock
     private RoleService roleService;
-	
+
 	@Mock
     private SecurityUtils securityUtils;
 	@Mock
 	private User user;
     private MockMvc mockMvc;
-    
+
 
     @Override
     protected UpdateRoleController initController() {
@@ -115,7 +115,7 @@ public class UpdateRoleControllerTest extends AbstractContextControllerTest<Upda
         Role existingRole = (Role) result.getModelAndView().getModelMap().get("role");
         assertEquals(role.getName(), existingRole.getName());
     }
- 
+
     @Test
     public void shouldUpdateRole() throws Exception {
         this.mockMvc.perform(post("/role/update/existing")
@@ -141,5 +141,5 @@ public class UpdateRoleControllerTest extends AbstractContextControllerTest<Upda
 
         verify(roleService, never()).update(any(Role.class));
     }
-   
+
 }

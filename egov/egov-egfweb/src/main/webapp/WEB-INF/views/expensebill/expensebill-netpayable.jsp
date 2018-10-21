@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -80,7 +80,7 @@
 						<form:option value=""> <spring:message code="lbl.select" /> </form:option>
 					</form:select>
 				</td>
-				<td><input type="text" id="expense-netPayableAmount" name="netPayableAmount"  class="form-control text-right" onkeyup="decimalvalue(this);" data-pattern="decimalvalue"> 
+				<td><input type="text" id="expense-netPayableAmount" name="netPayableAmount"  class="form-control text-right" onkeyup="decimalvalue(this);" data-pattern="decimalvalue">
 				</td>
 			</tr>
 		</tbody>

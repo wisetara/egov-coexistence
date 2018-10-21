@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -156,14 +156,14 @@ public class ApplicationConfiguration {
         methodInvokingFactoryBean.prepare();
         methodInvokingFactoryBean.invoke();
     }
-    
+
     @Bean
     public RestTemplate restTemplate(){
         System.out.println("************************* RestTemplate object created*********************");
 
         SimpleClientHttpRequestFactory simpleCFactory = new  SimpleClientHttpRequestFactory();
         simpleCFactory.setOutputStreaming(false);
-        
+
         ClientHttpRequestFactory factory = new BufferingClientHttpRequestFactory(simpleCFactory);
         RestTemplate restTemplate = new RestTemplate(factory);
         restTemplate.setInterceptors(Collections.singletonList(new RestTemplateLoggerInterceptor()));

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -86,7 +86,7 @@ public class EgBillRegisterHibernateDAO {
         getCurrentSession().delete(entity);
     }
 
-    
+
     public EgBillregister findById(Long id, boolean lock) {
         return (EgBillregister) getCurrentSession().load(EgBillregister.class, id);
     }
@@ -98,7 +98,7 @@ public class EgBillRegisterHibernateDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-    
+
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
@@ -109,7 +109,7 @@ public class EgBillRegisterHibernateDAO {
     private PersistenceService<EgBillregister, Long> egBillRegisterService;
     private Session session;
 
-   
+
 
     public List<String> getDistinctEXpType() {
         session = getCurrentSession();

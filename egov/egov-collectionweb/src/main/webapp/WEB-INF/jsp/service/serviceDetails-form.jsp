@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,17 +50,17 @@
 <%@ taglib prefix="egov" tagdir="/WEB-INF/tags" %>
 <script>
 function populateSchemes(fund){
-	
+
 	if(null != document.getElementById("schemeId")){
 		populateschemeId({fundId:fund.options[fund.selectedIndex].value});
 		populatesubschemeId({schemeId:-1});
 	}
-		
+
 }
 function populatesubSchemes(scheme){
-	
-	populatesubschemeId({schemeId:scheme.options[scheme.selectedIndex].value});	
-	
+
+	populatesubschemeId({schemeId:scheme.options[scheme.selectedIndex].value});
+
 }
 
 function validate(){
@@ -82,62 +82,62 @@ function validate(){
 		dom.get("error_area").style.display="block";
 		valid=false;
 	}
-	 <s:if test="%{isFieldMandatory('fund')}"> 
+	 <s:if test="%{isFieldMandatory('fund')}">
      if(null != document.getElementById('fundId') && document.getElementById('fundId').value == -1){
             document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.fundcode.errormessage" />'+  "<br>";
             dom.get("error_area").style.display="block";
             valid=false;
      }
      </s:if>
-	     <s:if test="%{isFieldMandatory('department')}"> 
+	     <s:if test="%{isFieldMandatory('department')}">
 	     if(null!= document.getElementById('deptId') && document.getElementById('deptId').value == -1){
 	            document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.deptcode.errormessage" />'+ '<br>';
 	            dom.get("error_area").style.display="block";
 	            valid=false;
 	     }
 		</s:if>
-		<s:if test="%{isFieldMandatory('scheme')}"> 
+		<s:if test="%{isFieldMandatory('scheme')}">
 		     if(null!=document.getElementById('schemeId') &&  document.getElementById('schemeId').value == -1){
 		            document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.schemeId.errormessage" />'+ '<br>';
 		            dom.get("error_area").style.display="block";
 		            valid=false;
 		     }
 		</s:if>
-		<s:if test="%{isFieldMandatory('subscheme')}"> 
+		<s:if test="%{isFieldMandatory('subscheme')}">
 		     if(null!= document.getElementById('subschemeId') && document.getElementById('subschemeId').value == -1){
 		            document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.subschemeId.errormessage" />'+ '<br>';
 		            dom.get("error_area").style.display="block";
 		            valid=false;
 		     }
 		</s:if>
-		<s:if test="%{isFieldMandatory('functionary')}"> 
+		<s:if test="%{isFieldMandatory('functionary')}">
 		     if(null!=document.getElementById('receiptMisc.idFunctionary.id') &&  document.getElementById('receiptMisc.idFunctionary.id').value == -1){
 		            document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.functionarycode.errormessage" />'+ '<br>';
 		            dom.get("error_area").style.display="block";
 		            valid=false;
 		     }
 		</s:if>
-		<s:if test="%{isFieldMandatory('fundsource')}"> 
+		<s:if test="%{isFieldMandatory('fundsource')}">
 		     if(null !=document.getElementById('receiptMisc.fundsource.id') &&  document.getElementById('receiptMisc.fundsource.id').value == -1){
 		            document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.fundsourcecode.errormessage" />'+ '<br>';
 		            dom.get("error_area").style.display="block";
 		            valid=false;
 		    }
 		</s:if>
-		<s:if test="%{isFieldMandatory('function')}">                     
+		<s:if test="%{isFieldMandatory('function')}">
 		 if(null!= document.getElementById('functionId') && document.getElementById('functionId').value == -1){
 			 document.getElementById("error_area").innerHTML+='<s:text name="miscreceipt.functioncode.errormessage" />'+ '<br>';
-			 dom.get("error_area").style.display="block";                                
+			 dom.get("error_area").style.display="block";
 			 valid=false;
-		 }            
+		 }
 		</s:if>
 		if(document.getElementById('serviceType').value =="P" ){
-	        if(document.getElementById('serviceUrl').value =="" ){       
+	        if(document.getElementById('serviceUrl').value =="" ){
 	        document.getElementById("error_area").innerHTML+='<s:text name="service.serviceurl.null" />'+  "<br>";
 	        dom.get("error_area").style.display="block";
 	        valid=false;
 	    }
-	        if(document.getElementById('callBackurl').value ==""){       
+	        if(document.getElementById('callBackurl').value ==""){
 	            document.getElementById("error_area").innerHTML+='<s:text name="service.callbackurl.null" />'+  "<br>";
 	            dom.get("error_area").style.display="block";
 	            valid=false;
@@ -161,7 +161,7 @@ function uniqueCheckCode(){
 function clearCodeIfExists(){
 	 if(dom.get("CodeUnique").style.display =="" ){
 		 document.getElementById('serviceCode').value="";
-	 }	
+	 }
 }
 
 function enableUrl(obj) {
@@ -178,19 +178,19 @@ function enableUrl(obj) {
 
 <div class="errorstyle" id="error_area" style="display:none;"></div>
 	 <span align="center" style="display:none" id="CodeUnique">
- 		<font  style='color: red ; font-weight:bold '> 
+ 		<font  style='color: red ; font-weight:bold '>
          	<s:text name="service.code.already.exists"/>
  		 </font>
 	</span>
 		<span class="mandatory1">
-			<font  style='color: red ; font-weight:bold '> 
-				<s:actionerror/>  
+			<font  style='color: red ; font-weight:bold '>
+				<s:actionerror/>
 				<s:fielderror />
 				<s:actionmessage /></font>
 			</span>
 
 <div class="formmainbox">
-	 
+
 	<div class="subheadnew"><s:text name="service.master.create.header"></s:text> </div>
 
 	<div class="subheadsmallnew">
@@ -219,7 +219,7 @@ function enableUrl(obj) {
 			<td class="bluebox"> <s:text name="service.master.enable"></s:text> </td>
 			<td class="bluebox"><s:checkbox name="isEnabled" /></td>
 			<td class="bluebox"><s:text name="service.master.classification"/> <span class="mandatory"></td>
-			<td class="bluebox"> 
+			<td class="bluebox">
 				<s:select list="serviceTypeMap" headerKey="-1" headerValue="%{getText('miscreceipt.select')}"
 				name="serviceType" id="serviceType" onchange="return enableUrl(this)"></s:select>
 			</td>
@@ -230,7 +230,7 @@ function enableUrl(obj) {
 			<td class="bluebox" >
 			<s:if test="%{isVoucherOnReceiptAndStatusDisplay}">
 			<s:checkbox name="voucherCreation" id="voucherCreation" onclick="return EnableVoucherDetails(this)"/>
-			</s:if> 
+			</s:if>
 			<s:else>
 			   <s:checkbox name="voucherCreation" id="voucherCreation" onclick ="return false;" />
 			</s:else>
@@ -240,7 +240,7 @@ function enableUrl(obj) {
 		<td></td>
 		<td class="bluebox"><s:text name="service.master.isvouchertobeapproved" ></s:text> </td>
 			<td class="bluebox">
-			<s:select list="#{'true':'Approved','false':'Pre-Approved'}" 
+			<s:select list="#{'true':'Approved','false':'Pre-Approved'}"
 				name="isVoucherApproved" id="isVoucherApproved"></s:select>
 			</td>
 			<td class="bluebox"></td>
@@ -269,7 +269,7 @@ function enableUrl(obj) {
           <td width="21%" class="bluebox"><s:text name="miscreceipt.fund"/><s:if test="%{isFieldMandatory('fund')}"><span class="bluebox"><span class="mandatory"/></s:if></td>
           <td width="24%" class="bluebox"><s:select headerKey="-1" headerValue="%{getText('miscreceipt.select')}" name="fund" id="fundId" cssClass="selectwk" onChange="setFundId();getSchemelist(this);getBankBranchList(this);" list="dropdownData.fundList" listKey="id" listValue="name" value="%{fund.id}" />
           <egov:ajaxdropdown id="bankBranchMasterDropdown" fields="['Text','Value']" dropdownId='bankBranchMaster'
-                url='receipts/ajaxBankRemittance-bankBranchList.action' selectedValue="%{bankbranch.id}"/> 
+                url='receipts/ajaxBankRemittance-bankBranchList.action' selectedValue="%{bankbranch.id}"/>
           <egov:ajaxdropdown id="schemeIdDropdown" fields="['Text','Value']" dropdownId='schemeId' url='receipts/ajaxReceiptCreate-ajaxLoadSchemes.action' />
           </td>
           </s:if>
@@ -311,7 +311,7 @@ function enableUrl(obj) {
         <s:if test="%{shouldShowHeaderField('functionary')}">
           <td width="21%" class="bluebox"><s:text name="miscreceipt.functionary"/>  <s:if test="%{isFieldMandatory('functionary')}"><span class="bluebox"><span class="mandatory"/></s:if> </td>
          <td width="30%" class="bluebox"><s:select headerKey="-1" headerValue="%{getText('miscreceipt.select')}" name="receiptMisc.idFunctionary.id" id="receiptMisc.idFunctionary.id" cssClass="selectwk" list="dropdownData.functionaryList" listKey="id" listValue="name"  /></td>
-         
+
          </s:if>
          <s:else>
         <td colspan=2 class="bluebox"></td>
@@ -323,11 +323,11 @@ function enableUrl(obj) {
           <td width="4%" class="bluebox">&nbsp;</td>
           <td width="21%" class="bluebox"><s:text name="miscreceipt.scheme"/> <s:if test="%{isFieldMandatory('scheme')}"><span class="mandatory"/></s:if>  </td>
           <td width="24%" class="bluebox">
-          <s:select headerKey="-1" headerValue="%{getText('miscreceipt.select')}" name="schemeId" id="schemeId" onclick="checkfund()" onchange="setSchemeId();getSubSchemelist(this)" cssClass="selectwk" list="dropdownData.schemeList" listKey="id" listValue="name"  value="%{scheme.id}" /> 
+          <s:select headerKey="-1" headerValue="%{getText('miscreceipt.select')}" name="schemeId" id="schemeId" onclick="checkfund()" onchange="setSchemeId();getSubSchemelist(this)" cssClass="selectwk" list="dropdownData.schemeList" listKey="id" listValue="name"  value="%{scheme.id}" />
           <egov:ajaxdropdown id="subschemeId" fields="['Text','Value']" dropdownId='subschemeId' url='receipts/ajaxReceiptCreate-ajaxLoadSubSchemes.action' />
           <s:hidden label="receiptMisc.scheme.id" id="receiptMisc.scheme.id"  name="receiptMisc.scheme.id"/>
           </td>
-          
+
           <td width="21%" class="bluebox"><s:text name="miscreceipt.subscheme"/> <s:if test="%{isFieldMandatory('subscheme')}"><span class="mandatory"/></s:if>  </td>
 
          <td width="30%" class="bluebox">
@@ -335,7 +335,7 @@ function enableUrl(obj) {
           <egov:ajaxdropdown id="fundSourceId" fields="['Text','Value']" dropdownId='fundSourceId'
            url='../../EGF/voucher/common-ajaxLoadFundSource.action'  />
            <s:hidden label="receiptMisc.subscheme.id" id="receiptMisc.subscheme.id"  name="receiptMisc.subscheme.id"/>
-         
+
         </tr>
         </s:if>
 		<s:hidden name="serviceCategory.id" id="serviceCategory.id"></s:hidden>
@@ -346,32 +346,32 @@ function enableUrl(obj) {
 	<jsp:include page="finAccountsTable.jsp"/>
 
 <div class="subheadsmallnew"><span class="subheadnew">Account Details</span></div>
-    
+
     <div class="yui-skin-sam" align="center">
        <div id="accountsDetailTable"></div>
-       
+
      </div>
      <script>
-        
+
         makeAccountsDetailTable();
         document.getElementById('accountsDetailTable').getElementsByTagName('table')[0].width="100%";
      </script>
      <div id="codescontainer"></div>
      <br/>
-    
+
       <div class="subheadsmallnew"><span class="subheadnew">Subledger Details</span></div>
-    
-        
+
+
         <div class="yui-skin-sam" align="center">
            <div id="subLedgerTable"></div>
          </div>
         <script>
-            
+
             makeSubLedgerTable();
-            
+
             document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="100%";
         </script>
-<div id="subledgercodescontainer"></div> 
+<div id="subledgercodescontainer"></div>
 
 <br/>
 <div align="left" class="mandatorycoll"> &nbsp;&nbsp;&nbsp;<s:text name="common.mandatoryfields"/></div>

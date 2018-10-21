@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -90,7 +90,7 @@ public class CashBook {
     NumberFormat numberformatter = new DecimalFormat("##############0.00");
     private final CommnFunctions commonFun = new CommnFunctions();
     private static final Logger LOGGER = Logger.getLogger(CashBook.class);
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -98,7 +98,7 @@ public class CashBook {
     private FinancialYearHibernateDAO financialYearDAO;
     final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     final SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MMM-yyyy");
-    private @Autowired EGovernCommon eGovernCommon; 
+    private @Autowired EGovernCommon eGovernCommon;
     private @Autowired  ReportEngine engine;
 
     public CashBook() {
@@ -157,7 +157,7 @@ public class CashBook {
             if (LOGGER.isInfoEnabled())
                 LOGGER.info(" fundId:" + fundId + " fundSourceId:"
                         + fundSourceId);
-            
+
             isCurDate(endDate1);
             try {
                 endDate = reportBean.getEndDate();
@@ -179,7 +179,7 @@ public class CashBook {
             }
 
             if (startDate.equalsIgnoreCase("null")) {
-            	
+
                 try {
 					dt = sdf.parse(endDate);
 				} catch (ParseException e) {
@@ -193,7 +193,7 @@ public class CashBook {
             	{
                 		startDate =sdf.format(finYearByDate.getStartingDate());
             	}
-                
+
             } else
                 startDate = formstartDate;
             // if(LOGGER.isInfoEnabled()) LOGGER.info("startDate22 "+startDate);
@@ -208,7 +208,7 @@ public class CashBook {
                 throw taskExc;
             }
 
-            
+
             Date dt1=new Date();
 			try {
 				dt1 = sdf.parse(endDate);
@@ -812,19 +812,19 @@ public class CashBook {
         return opBal;
     }
     /**
-     * 
+     *
      * @param startDate
      * @param endDate
      * @throws TaskFailedException
      * if start date is not provided then set financial year startdate
      * if end date is not provided then set financial year end date
-     * 
-     *        
-     *     
-     */    
-    
+     *
+     *
+     *
+     */
 
-    
+
+
 
     public String getMinCode(final String minGlCode) throws TaskFailedException {
         // if(LOGGER.isInfoEnabled()) LOGGER.info("coming");

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -81,7 +81,7 @@
         </property>
         <property name="lastmodifiedby" type="big_decimal">
             <column name="LASTMODIFIEDBY" precision="22" scale="0" />
-        </property>       
+        </property>
         <property name="lastmodifieddate" type="date">
             <column name="LASTMODIFIEDDATE" />
         </property>
@@ -93,6 +93,6 @@
                 <column name="REMITTANCEID" precision="22" scale="0"/>
             </key>
             <one-to-many class="org.egov.deduction.model.EgRemittanceDetail" />
-        </set>  
+        </set>
     </class>
 </hibernate-mapping>

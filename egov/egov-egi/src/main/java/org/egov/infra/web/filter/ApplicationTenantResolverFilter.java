@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -75,14 +75,14 @@ public class ApplicationTenantResolverFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-    	
+
         String domainURL = extractRequestDomainURL((HttpServletRequest) request, false);
         String domainName = extractRequestedDomainName(domainURL);
         ApplicationThreadLocals.setTenantID(environmentSettings.schemaName(domainName));
         LOGGER.info(" *** Schema name  :"+environmentSettings.schemaName(domainName) );
         LOGGER.info(" *** domainName  :"+domainName);
         LOGGER.info(" *** domainURL  :"+domainURL);
-        
+
         ApplicationThreadLocals.setDomainName(domainName);
         ApplicationThreadLocals.setDomainURL(domainURL);
         chain.doFilter(request, response);

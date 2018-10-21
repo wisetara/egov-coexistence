@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,7 +47,7 @@
  */
 
 /**
- * 
+ *
  */
 package org.egov.collection.integration.services;
 
@@ -59,7 +59,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 
 /**
- * JUnit Test class for testing the billing integration service 
+ * JUnit Test class for testing the billing integration service
  * implementation.
  */
 public class BillingIntegrationServiceStubTest  {
@@ -73,12 +73,12 @@ public class BillingIntegrationServiceStubTest  {
 	 */
 	private CollectionObjectFactory objectFactory;
 
-	@Before  
+	@Before
 	public void setupService() {
 		objectFactory = null ;//= new CollectionObjectFactory(session);
 		billingIntgrnServiceStub = new BillingIntegrationServiceStub();
 	}
-	
+
 	@After
 	public void tearDownService() {
 		Method method;
@@ -95,7 +95,7 @@ public class BillingIntegrationServiceStubTest  {
 
 		}
 	}
-	
+
 /*	@Test
 	public void testUpdateReceiptDetailsExceptions() {
 		billingIntgrnServiceStub = new BillingIntegrationServiceStub(){
@@ -109,30 +109,30 @@ public class BillingIntegrationServiceStubTest  {
 			return null;
 			 }
 		};
-		
+
 		billingIntgrnServiceStub.updateReceiptDetails(createBillReceipts());
 	}*/
-	
+
 	/*private Set<BillReceiptInfo> createBillReceipts(){
 		ReceiptPayeeDetails payeeDetails = objectFactory.createReceiptPayeeForBillingSystem();
 		Set<BillReceiptInfo> billReceipts = new HashSet<BillReceiptInfo>();
-		
+
 		for(ReceiptHeader receiptHeader : payeeDetails.getReceiptHeaders()){
 			billReceipts.add(new BillReceiptInfoImpl(receiptHeader));
-			
+
 		}
-		
+
 		return billReceipts;
 	}
-	
+
 	@Test
 	public void testUpdateReceiptDetails() throws Exception{
-		
+
 			try{
 			billingIntgrnServiceStub.updateReceiptDetails(createBillReceipts());
 		}catch(Exception exp){
 			throw new Exception("Could not delete update billing receiptdetails");
-		}	
+		}
 	}*/
 
 }

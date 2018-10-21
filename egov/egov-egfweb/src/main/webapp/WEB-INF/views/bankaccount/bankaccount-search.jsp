@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -143,7 +143,7 @@
 							<form:errors path="chartofaccounts.glcode" cssClass="error-msg" />
 							</div>
 						</c:if>
-						
+
 					</div>
 					<input type="hidden" id="mode" name="mode" value="${mode}" />
 				</div>

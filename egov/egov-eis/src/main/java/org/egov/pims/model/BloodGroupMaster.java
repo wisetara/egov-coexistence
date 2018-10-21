@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,7 +55,7 @@ package org.egov.pims.model;
  */
 public class BloodGroupMaster implements GenericMaster
 {
-	public Integer id;   
+	public Integer id;
 	public String name;
 	public java.util.Date fromDate;
 	public java.util.Date toDate;

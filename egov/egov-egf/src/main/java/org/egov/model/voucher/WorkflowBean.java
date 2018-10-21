@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -131,7 +131,7 @@ public class WorkflowBean {
     public void setDesignationList(final List<Designation> designationList) {
         this.designationList = designationList;
     }
-    
+
     public String getApproverComments() {
         return approverComments;
     }
@@ -147,7 +147,7 @@ public class WorkflowBean {
     public void setWorkFlowAction(String workFlowAction) {
         this.workFlowAction = workFlowAction;
     }
-    
+
     public Long getApproverPositionId() {
         return approverPositionId;
     }
@@ -155,7 +155,7 @@ public class WorkflowBean {
     public void setApproverPositionId(Long approverPositionId) {
         this.approverPositionId = approverPositionId;
     }
-    
+
     public String getCurrentState() {
         return currentState;
     }
@@ -163,5 +163,5 @@ public class WorkflowBean {
     public void setCurrentState(String currentState) {
         this.currentState = currentState;
     }
-    
+
 }

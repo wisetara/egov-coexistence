@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -66,7 +66,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row add-border">
-                        <div class="col-md-3 col-xs-6 add-margin"><spring:message code="lbl.boundaryType.heirarchyType"/></div>
+                        <div class="col-md-3 col-xs-6 add-margin"><spring:message code="lbl.boundaryType.hierarchyType"/></div>
                         <div class="col-md-9 col-xs-6 add-margin">
                             <strong><c:out value="${boundaryType.hierarchyType.name}"></c:out></strong>
                             <input id="boundaryTypeId" type="hidden" value="<c:out value="${boundaryType.id}" />"/>

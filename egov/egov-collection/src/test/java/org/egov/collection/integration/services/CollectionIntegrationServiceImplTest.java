@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,7 +47,7 @@
  */
 
 /**
- * 
+ *
  */
 package org.egov.collection.integration.services;
 
@@ -92,12 +92,12 @@ public class CollectionIntegrationServiceImplTest { /*extends
 	 * Instrument date
 	 *//*
 	private final Date instrumentDate = new Date();
-	
+
 	private CommonsManager commonsManager;
 	private CollectionCommon collectionCommon;
 	private EgovCommon egovCommon;
 	private CollectionsUtil collectionsUtil;
-	private FinancialsUtil finUtil; 
+	private FinancialsUtil finUtil;
 	private BoundaryDAO boundaryDAO;
 	private ReceiptService receiptService;
 	private ReceiptHeaderService receiptHeaderService;
@@ -116,7 +116,7 @@ public class CollectionIntegrationServiceImplTest { /*extends
 
 	@Before
 	public void setupService() {
-		
+
 		if (context == null) {
 			context = new ClassPathXmlApplicationContext(
 					"erpCollectionsAppContextTest.xml");
@@ -173,27 +173,27 @@ public class CollectionIntegrationServiceImplTest { /*extends
 								"333333", instrumentAmount, instrumentDate,
 								"testCode", glCode3, functionName,
 								"system"));
-		
+
 		commonsManager = createMock(CommonsManager.class);
 		boundaryDAO = createMock(BoundaryDAO.class);
 		instrumentService = createMock(InstrumentService.class);
 		egovCommon = createMock(EgovCommon.class);
 		eisCommonsManagerMock = createMock(EisCommonsManager.class);
 		//receiptWorkflowServiceMock = createMock(WorkflowService.class);
-		
+
 		finUtil = new FinancialsUtil(){
-			
+
 			public InstrumentType getInstrumentTypeByType(String type){
 				return (InstrumentType) genericService.find("from InstrumentType  where type=? and isActive=true",type);
 			}
 		};
 		finUtil.setInstrumentService(instrumentService);
-		
+
 		collectionsUtil=new CollectionsUtil();
 		collectionsUtil.setPersistenceService(genericService);
 		collectionsUtil.setEisCommonsManager(eisCommonsManagerMock);
 		collectionsUtil.setUserManager(userManager);
-		
+
 		receiptService = new ReceiptService(){
 			public Boolean updateBillingSystem(String serviceCode,Set<BillReceiptInfo> billReceipts){
 				return true;
@@ -201,7 +201,7 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		};
 		receiptService.setType(ReceiptPayeeDetails.class);
 		receiptService.setFinancialsUtil(finUtil);
-		
+
 		collectionCommon = new CollectionCommon();
 		collectionCommon.setBoundaryDAO(boundaryDAO);
 		collectionCommon.setCollectionsUtil(collectionsUtil);
@@ -210,40 +210,40 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		collectionCommon.setPersistenceService(genericService);
 		collectionCommon.setReceiptPayeeDetailsService(receiptService);
 		collectionCommon.setFinancialsUtil(finUtil);
-		
+
 		receiptHeaderService = new ReceiptHeaderService(){
 			public CVoucherHeader createVoucherForReceipt(ReceiptHeader receiptHeader,Boolean receiptBulkUpload){
 				CVoucherHeader voucherHeader=objectFactory.createVoucher("testReceiptVoucher");
-				
+
 				ReceiptVoucher receiptVoucher = new ReceiptVoucher();
 				receiptVoucher.setVoucherheader(voucherHeader);
 				receiptVoucher.setReceiptHeader(receiptHeader);
 				receiptHeader.addReceiptVoucher(receiptVoucher);
 				receiptVoucher.setReceiptHeader(receiptHeader);
-				
+
 				receiptHeader.addReceiptVoucher(receiptVoucher);
-				
+
 				return voucherHeader;
 			}
 			public void startWorkflow(Collection<ReceiptHeader> receiptHeaders,Boolean receiptBulkUpload){
-				
+
 			}
 		};
 		receiptHeaderService.setType(ReceiptHeader.class);
 		receiptHeaderService.setCollectionsUtil(collectionsUtil);
 		receiptHeaderService.setFinancialsUtil(finUtil);
 		//receiptHeaderService.setReceiptWorkflowService(receiptWorkflowServiceMock);
-		
+
 		ScriptService scriptExecutionService = new ScriptService(2, 5, 10, 30);
 
 		collectionsNumberGenerator=new CollectionsNumberGenerator();
 		collectionsNumberGenerator.setScriptExecutionService(scriptExecutionService);
 		collectionsNumberGenerator.setSequenceGenerator(sequenceGenerator);
 		collectionsNumberGenerator.setCollectionsUtil(collectionsUtil);
-		
+
 		receiptService.setCollectionsNumberGenerator(collectionsNumberGenerator);
 		receiptHeaderService.setCollectionsNumberGenerator(collectionsNumberGenerator);
-		
+
 		collectionIntegrationService.setCommonsManager(commonsManager);
 		collectionIntegrationService.setCollectionsUtil(collectionsUtil);
 		collectionIntegrationService.setCollectionCommon(collectionCommon);
@@ -254,7 +254,7 @@ public class CollectionIntegrationServiceImplTest { /*extends
 
 	*//**
 	 * Compares given receipt info with given receipt header
-	 * 
+	 *
 	 * @param receiptInfo
 	 *            Receipt info to be compared
 	 * @param receiptHeader
@@ -333,7 +333,7 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		if (receiptHeaders == null || receiptHeaders.size() == 0) {
 			return;
 		}
-		
+
 		BillReceiptInfo receiptInfo=
 			collectionIntegrationService.getReceiptInfo("testDummyServiceCode","testDummyReferenceNumber");
 		assertNull(receiptInfo);
@@ -343,13 +343,13 @@ public class CollectionIntegrationServiceImplTest { /*extends
 				.getReceiptInfo(receiptHeader.getService().getCode(),receiptHeader.getReceiptnumber());
 		compareReceiptInfoWithReceiptHeader(receiptInfo, receiptHeader);
 	}
-	
+
 	@Test
 	public void testGetReceiptInfoSingleReceipt() {
 		if (receiptHeaders == null || receiptHeaders.size() == 0) {
 			return;
 		}
-		
+
 		BillReceiptInfo receiptInfo=
 			collectionIntegrationService.getReceiptInfo("testDummyServiceCode","testDummyReferenceNumber");
 		assertNull(receiptInfo);
@@ -436,11 +436,11 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		if (receiptHeaders == null || receiptHeaders.size() == 0) {
 			return;
 		}
-		
+
 		List<BillReceiptInfo> receiptInfo=
 			collectionIntegrationService.getInstrumentReceiptInfo("testDummyServiceCode","testDummyReferenceNumber");
 		assertNull(receiptInfo);
-		
+
 		for (ReceiptHeader receiptHeader : receiptHeaders) {
 			for (InstrumentHeader instrumentHeader : receiptHeader
 					.getReceiptInstrument()) {
@@ -488,22 +488,22 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		// TODO: check that receipt info objects for ALL instrument numbers have
 		// been returned
 	}
-	
+
 	private BillInfoImpl createBillInfoImplObject() throws ParseException{
-		
+
 		CFunction function1 = objectFactory.createFunction("testFunctionName1","testFunctionCode1");
 		CChartOfAccounts account1=objectFactory.createCOA("testGLCode1");
-		
+
 		BillAccountDetails billAccount = new BillAccountDetails(
 				account1.getGlcode(),1,new BigDecimal("567.9"),
 				new BigDecimal(0),function1.getCode(),"GL CODE DESCRIPTION1",1);
-		
+
 		BoundaryImpl boundary = objectFactory.createBoundary();
 		Fund fund = objectFactory.createFund("testFundCode");
 		Fundsource fundSource = objectFactory.createFundsource("testfundSourceName", "testfundSourceCode");
 		DepartmentImpl dept = objectFactory.createDeptForCode("testDeptCode");
 		ServiceDetails service = objectFactory.createServiceDetails();
-		
+
 		BillDetails billDetail = new BillDetails("refno1",null,null,boundary.getBoundaryNum().toString(),
 				boundary.getBoundaryType().getName(),"", new BigDecimal("567.9"),null);
 		BillPayeeDetails payee = new BillPayeeDetails("testPayeeName","testPayeeAddress");
@@ -511,48 +511,48 @@ public class CollectionIntegrationServiceImplTest { /*extends
 				service.getCode(),fund.getCode(),new BigDecimal("001"),fundSource.getCode(),
 				dept.getDeptCode(),"Hello","testPaidBy",Boolean.TRUE,Boolean.TRUE,null,
 				BillInfo.COLLECTIONTYPE.C);
-		
+
 		billDetail.addBillAccountDetails(billAccount);
 		payee.addBillDetails(billDetail);
 		billInfo.addPayees(payee);
-		
+
 		commonsManager.fundByCode(fund.getCode());
 		expectLastCall().andReturn(fund);
-		
+
 		commonsManager.getFundSourceByCode(fundSource.getCode());
 		expectLastCall().andReturn(fundSource);
-		
+
 		commonsManager.getFunctionByCode(function1.getCode());
 		expectLastCall().andReturn(function1);
-		
+
 		commonsManager.getCChartOfAccountsByGlCode(account1.getGlcode());
 		expectLastCall().andReturn(account1);
-		
+
 		boundaryDAO.getBoundary(boundary.getBoundaryNum().intValue(),
 				boundary.getBoundaryType().getName(),
 				CollectionConstants.BOUNDARY_HIER_CODE_ADMIN);
 		expectLastCall().andReturn(boundary);
 		replay(boundaryDAO);
-		
+
 		return billInfo;
 	}
-	
+
 	@Test
 	public void testCreateReceiptWithoutDept(){
 		Fund fund = objectFactory.createFund("testFundCode");
-		
+
 		BillInfoImpl billColl = new BillInfoImpl(
 				"testServiceCode",fund.getCode(),new BigDecimal("001"),"testFundSourceCode",
 				"testDeptCode","Hello","testPaidBy",Boolean.TRUE,Boolean.TRUE,null,
 				BillInfo.COLLECTIONTYPE.C);
-		
+
 		commonsManager.fundByCode(fund.getCode());
 		expectLastCall().andReturn(fund);
 		replay(commonsManager);
-		
+
 		List<PaymentInfo> paytInfoList = new ArrayList<PaymentInfo>();
 		paytInfoList.add(new PaymentInfoCash());
-		
+
 		try{
 		collectionIntegrationService.createReceipt(billColl, paytInfoList);
 		}
@@ -560,34 +560,34 @@ public class CollectionIntegrationServiceImplTest { /*extends
 			assertEquals("Department not present for the department code [testDeptCode].",ex.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testCreateReceiptWithoutFund(){
 		BillInfoImpl billColl = new BillInfoImpl(
 				"testService","testFundCode",new BigDecimal("001"),"testfundSourceCode",
 				"deptCode","Hello","testPaidBy",Boolean.TRUE,Boolean.TRUE,null,
 				BillInfo.COLLECTIONTYPE.C);
-		
+
 		List<PaymentInfo> paytInfoList = new ArrayList<PaymentInfo>();
 		paytInfoList.add(new PaymentInfoCash());
-		
+
 		try{
 		collectionIntegrationService.createReceipt(billColl, paytInfoList);
 		}
 		catch(ApplicationRuntimeException ex){
 			assertEquals("Fund not present for the fund code [testFundCode].",ex.getMessage());
 		}
-		
+
 	}
-	
+
 	@Test
 	public void testCreateReceiptWithCash() throws ParseException{
 		BillInfoImpl billInfo = createBillInfoImplObject();
-		
+
 		List<PaymentInfo> paytInfoList = new ArrayList<PaymentInfo>();
 		PaymentInfoCash paytInfoCash = new PaymentInfoCash(
 				new BigDecimal(1000));
-		
+
 		EgwStatus instrumentStatus = (EgwStatus) genericService.find(
 				"from EgwStatus S where S.moduletype =? and S.code =?",
 				CollectionConstants.MODULE_NAME_INSTRUMENTHEADER,
@@ -601,25 +601,25 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		instrHeaderCash.setStatusId(instrumentStatus);
 		session.saveOrUpdate(instrHeaderCash);
 		actualInstrList.add(instrHeaderCash);
-		
+
 		List<InstrumentHeader> instrList = new ArrayList<InstrumentHeader>();
 		instrList.add(instrHeaderCash);
-		
+
 		List<Map<String, Object>> instrMapList = objectFactory.createMapForInstrumentHeader(instrList);
 		List<Map<String, Object>> instrVoucherMapList = new ArrayList<Map<String, Object>>();
-		
+
 		EasyMock.expect(instrumentService.addToInstrument(EasyMock.isA(List.class))).andReturn(actualInstrList);
 		EasyMock.expect(instrumentService.updateInstrumentVoucherReference(
 				EasyMock.isA(List.class))).andReturn(new ArrayList<InstrumentVoucher>());
 		replay(instrumentService);
-		
+
 		CChartOfAccounts cashOnHand = objectFactory.createCOA("TestcashInHand");
 		Map<String, Object> cashChequeInfoMap = new HashMap();
 		cashChequeInfoMap.put(CollectionConstants.MAP_KEY_EGOVCOMMON_CASHINHAND, cashOnHand.getGlcode());
 		egovCommon.getCashChequeInfoForBoundary();
 		expectLastCall().andReturn(cashChequeInfoMap);
 		replay(egovCommon);
-		
+
 		commonsManager.getCChartOfAccountsByGlCode(cashOnHand.getGlcode());
 		expectLastCall().andReturn(cashOnHand);
 		replay(commonsManager);
@@ -630,19 +630,19 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		expectLastCall().andReturn(user);
 		replay(userManager);
 
-		
+
 		paytInfoList.add(paytInfoCash);
-		
+
 		BillReceiptInfoImpl billReceiptInfo = (BillReceiptInfoImpl)collectionIntegrationService.createReceipt(billInfo, paytInfoList);
 		ReceiptInstrumentInfo billReceiptInstrInfo = billReceiptInfo.getInstrumentDetails().iterator().next();
-		
-		
+
+
 		BillPayeeDetails expctdBillPayee = billInfo.getPayees().get(0);
 		BillDetails expctdBillDetail = expctdBillPayee.getBillDetails().get(0);
 		BillAccountDetails expctdBillAccDetail = expctdBillDetail.getAccounts().get(0);
-		
+
 		assertEquals(expctdBillDetail.getRefNo(), billReceiptInfo.getBillReferenceNum());
-		
+
 		assertEquals(expctdBillDetail.getBoundaryNum(), billReceiptInfo.getReceiptMisc().getBoundary().getBoundaryNum().toString());
 		assertEquals(BillingIntegrationService.EVENT_RECEIPT_CREATED, billReceiptInfo.getEvent());
 		assertEquals(CollectionConstants.RECEIPT_STATUS_CODE_APPROVED,billReceiptInfo.getReceiptStatus().getCode());
@@ -654,16 +654,16 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		assertEquals(billInfo.getPaidBy(), billReceiptInfo.getPaidBy());
 		assertEquals(billInfo.getCollectionType(), BillInfo.COLLECTIONTYPE.C);
 	}
-	
+
 	//@Test
 	public void testCreateReceiptWithCard() throws ParseException{
 		BillInfoImpl billInfo = createBillInfoImplObject();
-		
+
 		List<PaymentInfo> paytInfoList = new ArrayList<PaymentInfo>();
 		PaymentInfoCard paytInfoCard = new PaymentInfoCard();
 		paytInfoCard = new PaymentInfoCard("12345",
 				new BigDecimal(1000),"67890","12","2010","234",paytInfoCard.cardTypeValue.M);
-		
+
 		EgwStatus instrumentStatus = (EgwStatus) genericService.find(
 				"from EgwStatus S where S.moduletype =? and S.code =?",
 				CollectionConstants.MODULE_NAME_INSTRUMENTHEADER,
@@ -677,47 +677,47 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		instrHeaderCard.setStatusId(instrumentStatus);
 		session.saveOrUpdate(instrHeaderCard);
 		actualInstrList.add(instrHeaderCard);
-		
+
 		List<InstrumentHeader> instrList = new ArrayList<InstrumentHeader>();
 		instrList.add(instrHeaderCard);
-		
+
 		List<Map<String, Object>> instrMapList = objectFactory.createMapForInstrumentHeader(instrList);
 		List<Map<String, Object>> instrVoucherMapList = new ArrayList<Map<String, Object>>();
-		
+
 		EasyMock.expect(instrumentService.addToInstrument(EasyMock.isA(List.class))).andReturn(actualInstrList);
 		EasyMock.expect(instrumentService.updateInstrumentVoucherReference(
 				EasyMock.isA(List.class))).andReturn(new ArrayList<InstrumentVoucher>());
 		replay(instrumentService);
-		
+
 		CChartOfAccounts cashOnHand = objectFactory.createCOA("TestcashInHand");
 		Map<String, Object> cashChequeInfoMap = new HashMap();
 		cashChequeInfoMap.put(CollectionConstants.MAP_KEY_EGOVCOMMON_CASHINHAND, cashOnHand.getGlcode());
 		egovCommon.getCashChequeInfoForBoundary();
 		expectLastCall().andReturn(cashChequeInfoMap);
 		replay(egovCommon);
-		
+
 		commonsManager.getCChartOfAccountsByGlCode(cashOnHand.getGlcode());
 		expectLastCall().andReturn(cashOnHand);
 		replay(commonsManager);
-		
+
 		userManager.getUserByID(user.getId());
 		expectLastCall().andReturn(user);
 		userManager.getUserByID(user.getId());
 		expectLastCall().andReturn(user);
 		replay(userManager);
-		
+
 		paytInfoList.add(paytInfoCard);
-		
+
 		BillReceiptInfoImpl billReceiptInfo = (BillReceiptInfoImpl)collectionIntegrationService.createReceipt(billInfo, paytInfoList);
 		ReceiptInstrumentInfo billReceiptInstrInfo = billReceiptInfo.getInstrumentDetails().iterator().next();
-		
-		
+
+
 		BillPayeeDetails expctdBillPayee = billInfo.getPayees().get(0);
 		BillDetails expctdBillDetail = expctdBillPayee.getBillDetails().get(0);
 		BillAccountDetails expctdBillAccDetail = expctdBillDetail.getAccounts().get(0);
-		
+
 		assertEquals(expctdBillDetail.getRefNo(), billReceiptInfo.getBillReferenceNum());
-		
+
 		assertEquals(expctdBillDetail.getBoundaryNum(), billReceiptInfo.getReceiptMisc().getBoundary().getBoundaryNum().toString());
 		assertEquals(BillingIntegrationService.EVENT_RECEIPT_CREATED, billReceiptInfo.getEvent());
 		assertEquals(CollectionConstants.RECEIPT_STATUS_CODE_APPROVED,billReceiptInfo.getReceiptStatus().getCode());
@@ -730,15 +730,15 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		assertEquals(paytInfoCard.getInstrumentType().toString(), billReceiptInstrInfo.getInstrumentType());
 		assertEquals(billInfo.getPaidBy(), billReceiptInfo.getPaidBy());
 	}
-	
+
 	@Test
 	public void testCreateReceiptWithChequeDD() throws ParseException{
 		BillInfoImpl billInfo = createBillInfoImplObject();
-		
+
 		Bank bank = objectFactory.createBank();
 		commonsManager.getBankById(Integer.valueOf(bank.getId()));
 		expectLastCall().andReturn(bank).anyTimes();
-		
+
 		List<PaymentInfo> paytInfoList = new ArrayList<PaymentInfo>();
 		PaymentInfoChequeDD paytInfoChequeDD1 = new PaymentInfoChequeDD(
 				bank.getId().longValue(),"testBranchName",new Date(),
@@ -746,60 +746,60 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		PaymentInfoChequeDD paytInfoChequeDD2 = new PaymentInfoChequeDD(
 				bank.getId().longValue(),"testBranchName",new Date(),
 				"789012",TYPE.dd,new BigDecimal(500));
-		
+
 		EgwStatus instrumentStatus = (EgwStatus) genericService.find(
 				"from EgwStatus S where S.moduletype =? and S.code =?",
 				CollectionConstants.MODULE_NAME_INSTRUMENTHEADER,
 				CollectionConstants.INSTRUMENT_NEW_STATUS);
 		Date date=new Date();
 		InstrumentHeader chqInstrumentHeader=objectFactory.createInstrumentHeaderWithBankDetails(
-				finUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_CHEQUE), 
+				finUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_CHEQUE),
 				"12346",Double.valueOf(500),date,
 				instrumentStatus,bank,"testBranchName",CollectionConstants.ZERO_INT);
 		InstrumentHeader ddInstrumentHeader=objectFactory.createInstrumentHeaderWithBankDetails(
-				finUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_DD), 
+				finUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_DD),
 				"789012",Double.valueOf(500),date,
 				instrumentStatus,bank,"testBranchName",CollectionConstants.ZERO_INT);
-		
+
 		List<InstrumentHeader> actualInstrList = new ArrayList<InstrumentHeader>();
 		actualInstrList.add(chqInstrumentHeader);
 		actualInstrList.add(ddInstrumentHeader);
-		
+
 		List<InstrumentHeader> instrList = new ArrayList<InstrumentHeader>();
 		instrList.add(chqInstrumentHeader);
 		instrList.add(ddInstrumentHeader);
-		
+
 		List<Map<String, Object>> instrMapList = objectFactory.createMapForInstrumentHeader(instrList);
-		
+
 		EasyMock.expect(instrumentService.addToInstrument(EasyMock.isA(List.class))).andReturn(actualInstrList);
 		EasyMock.expect(instrumentService.updateInstrumentVoucherReference(
 				EasyMock.isA(List.class))).andReturn(new ArrayList<InstrumentVoucher>());
 		replay(instrumentService);
-		
+
 		CChartOfAccounts chequeInHand = objectFactory.createCOA("TestcchequeInHand");
 		Map<String, Object> cashChequeInfoMap = new HashMap();
 		cashChequeInfoMap.put(CollectionConstants.MAP_KEY_EGOVCOMMON_CHEQUEINHAND, chequeInHand.getGlcode());
 		egovCommon.getCashChequeInfoForBoundary();
 		expectLastCall().andReturn(cashChequeInfoMap);
 		replay(egovCommon);
-		
+
 		commonsManager.getCChartOfAccountsByGlCode(chequeInHand.getGlcode());
 		expectLastCall().andReturn(chequeInHand);
 		replay(commonsManager);
-		
+
 		userManager.getUserByID(user.getId());
 		expectLastCall().andReturn(user);
 		userManager.getUserByID(user.getId());
 		expectLastCall().andReturn(user);
 		replay(userManager);
-		
+
 		paytInfoList.add(paytInfoChequeDD1);
 		paytInfoList.add(paytInfoChequeDD2);
-		
+
 		BillReceiptInfoImpl billReceiptInfo = (BillReceiptInfoImpl)collectionIntegrationService.createReceipt(billInfo, paytInfoList);
 		ReceiptInstrumentInfo billReceiptInstrInfo1 = billReceiptInfo.getInstrumentDetails().iterator().next();
 		ReceiptInstrumentInfo billReceiptInstrInfo2 = billReceiptInfo.getInstrumentDetails().iterator().next();
-		
+
 		ReceiptInstrumentInfo actualBillReceiptInstrInfo1=new ReceiptInstrumentInfoImpl(chqInstrumentHeader);
 		ReceiptInstrumentInfo actualBillReceiptInstrInfo2=new ReceiptInstrumentInfoImpl(ddInstrumentHeader);
 		// assertTrue(billReceiptInfo.getInstrumentDetails().contains(actualBillReceiptInstrInfo1));
@@ -810,66 +810,66 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		assertEquals(paytInfoChequeDD1.getInstrumentAmount(), billReceiptInstrInfo2.getInstrumentAmount());
 		assertEquals(paytInfoChequeDD1.getInstrumentType().toString(), billReceiptInstrInfo2.getInstrumentType());
 		assertEquals(paytInfoChequeDD1.getPaidBy(), billReceiptInfo.getPaidBy());
-		
+
 		assertEquals(paytInfoChequeDD1.getInstrumentAmount(), billReceiptInstrInfo2.getInstrumentAmount());
 		assertEquals(paytInfoChequeDD1.getInstrumentType().toString(), billReceiptInstrInfo2.getInstrumentType());
 		//assertEquals(paytInfoChequeDD2.getPaidBy(), billReceiptInfo.getPaidBy());
 	}
-	
+
 	@Test
 	public void testCreateReceiptWithBank() throws ParseException{
 		BillInfoImpl billInfo = createBillInfoImplObject();
-		
+
 		List<PaymentInfo> paytInfoList = new ArrayList<PaymentInfo>();
-		
+
 		EgwStatus instrumentStatus = (EgwStatus) genericService.find(
 				"from EgwStatus S where S.moduletype =? and S.code =?",
 				CollectionConstants.MODULE_NAME_INSTRUMENTHEADER,
 				CollectionConstants.INSTRUMENT_NEW_STATUS);
-		
+
 		InstrumentHeader instrHeaderBank = objectFactory.createBankInstrumentHeader();
-		
-		PaymentInfoBank paytInfoBank = new PaymentInfoBank(new BigDecimal(1000), 
+
+		PaymentInfoBank paytInfoBank = new PaymentInfoBank(new BigDecimal(1000),
 				instrHeaderBank.getBankId().getId().longValue(),
 				instrHeaderBank.getBankAccountId().getId().longValue(),
 				123456,instrHeaderBank.getTransactionDate());
-		
+
 		commonsManager.getBankaccountById(paytInfoBank.getBankAccountId().intValue());
 		expectLastCall().andReturn(instrHeaderBank.getBankAccountId());
-		
+
 		List<InstrumentHeader> actualInstrList = new ArrayList<InstrumentHeader>();
 		actualInstrList.add(instrHeaderBank);
 		replay(commonsManager);
-		
+
 		userManager.getUserByID(user.getId());
 		expectLastCall().andReturn(user);
 		userManager.getUserByID(user.getId());
 		expectLastCall().andReturn(user);
 		replay(userManager);
 
-		
+
 		List<InstrumentHeader> instrList = new ArrayList<InstrumentHeader>();
 		instrList.add(instrHeaderBank);
-		
+
 		List<Map<String, Object>> instrMapList = objectFactory.createMapForInstrumentHeader(instrList);
-		
+
 		EasyMock.expect(instrumentService.addToInstrument(EasyMock.isA(List.class))).andReturn(actualInstrList);
 		EasyMock.expect(instrumentService.updateInstrumentVoucherReference(
 				EasyMock.isA(List.class))).andReturn(new ArrayList<InstrumentVoucher>());
 		replay(instrumentService);
-		
+
 		paytInfoList.add(paytInfoBank);
-		
+
 		BillReceiptInfoImpl billReceiptInfo = (BillReceiptInfoImpl)collectionIntegrationService.createReceipt(billInfo, paytInfoList);
-		
+
 		ReceiptInstrumentInfo billReceiptInstrInfo = billReceiptInfo.getInstrumentDetails().iterator().next();
-		
+
 		BillPayeeDetails expctdBillPayee = billInfo.getPayees().get(0);
 		BillDetails expctdBillDetail = expctdBillPayee.getBillDetails().get(0);
 		BillAccountDetails expctdBillAccDetail = expctdBillDetail.getAccounts().get(0);
-		
+
 		assertEquals(expctdBillDetail.getRefNo(), billReceiptInfo.getBillReferenceNum());
-		
+
 		assertEquals(BillingIntegrationService.EVENT_RECEIPT_CREATED, billReceiptInfo.getEvent());
 		assertEquals(CollectionConstants.RECEIPT_STATUS_CODE_APPROVED,billReceiptInfo.getReceiptStatus().getCode());
 		assertEquals(CollectionConstants.COLLECTION_TYPE_FIELDCOLLECTION,billReceiptInfo.getCollectionType().charAt(0));
@@ -879,14 +879,14 @@ public class CollectionIntegrationServiceImplTest { /*extends
 		assertEquals(paytInfoBank.getInstrumentType().toString(), billReceiptInstrInfo.getInstrumentType());
 		assertEquals(paytInfoBank.getTransactionDate(), billReceiptInstrInfo.getTransactionDate());
 		assertEquals(String.valueOf(paytInfoBank.getTransactionNumber()), billReceiptInstrInfo.getTransactionNumber());
-		
+
 		Bankaccount expectedAccount= (Bankaccount) genericService.find(
 				"from Bankaccount where id=?",paytInfoBank.getBankAccountId().intValue());
 		assertEquals(expectedAccount.getBankbranch().getBranchname(), billReceiptInstrInfo.getBankBranchName());
 		assertEquals(expectedAccount.getBankbranch().getBank().getName(), billReceiptInstrInfo.getBankName());
 		assertEquals(expectedAccount.getAccountnumber(), billReceiptInstrInfo.getBankAccountNumber());
 		assertEquals(billInfo.getPaidBy(), billReceiptInfo.getPaidBy());
-		
+
 		assertEquals(paytInfoBank.getBankId(),expectedAccount.getBankbranch().getBank().getId());
 	}*/
 }

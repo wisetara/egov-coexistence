@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,10 +47,10 @@
  */
 
 jQuery('#btnsearch').click(function(e) {
-		
+
 		callAjaxSearch();
 	});
-	
+
 	function getFormData($form){
     var unindexed_array = $form.serializeArray();
     var indexed_array = {};
@@ -63,12 +63,12 @@ jQuery('#btnsearch').click(function(e) {
 }
 
 function callAjaxSearch() {
-	drillDowntableContainer = jQuery("#resultTable");		
+	drillDowntableContainer = jQuery("#resultTable");
 	jQuery('.report-section').removeClass('display-hide');
 		reportdatatable = drillDowntableContainer
 			.dataTable({
 				ajax : {
-					url : "/services/EGF/budgetgroup/ajaxsearch/"+$('#mode').val(),      
+					url : "/services/EGF/budgetgroup/ajaxsearch/"+$('#mode').val(),
 					type: "POST",
 					"data":  getFormData(jQuery('form'))
 				},
@@ -86,15 +86,15 @@ function callAjaxSearch() {
 					"sSwfPath" : "../../../../../../egi/resources/global/swf/copy_csv_xls_pdf.swf",
 					"aButtons" : [ "xls", "pdf", "print" ]
 				},
-				aaSorting: [],				
-				columns : [ { 
-"data" : "name", "sClass" : "text-left"} ,{ 
-"data" : "majorCode", "sClass" : "text-left"} ,{ 
-"data" : "maxCode", "sClass" : "text-left"} ,{ 
-"data" : "minCode", "sClass" : "text-left"} ,{ 
-"data" : "accountType", "sClass" : "text-left"} ,{ 
-"data" : "budgetingType", "sClass" : "text-left"} ,{ 
-"data" : "isActive", "sClass" : "text-left"}]				
+				aaSorting: [],
+				columns : [ {
+"data" : "name", "sClass" : "text-left"} ,{
+"data" : "majorCode", "sClass" : "text-left"} ,{
+"data" : "maxCode", "sClass" : "text-left"} ,{
+"data" : "minCode", "sClass" : "text-left"} ,{
+"data" : "accountType", "sClass" : "text-left"} ,{
+"data" : "budgetingType", "sClass" : "text-left"} ,{
+"data" : "isActive", "sClass" : "text-left"}]
 			});
 			}
 
@@ -102,14 +102,14 @@ var majorCodeId = $('#majorCodeValue').val();
 var maxCodeId = $('#maxCodeValue').val();
 var minCodeId = $('#minCodeValue').val();
 $(document).ready(function(){
-	
+
 	if (majorCodeId != "") {
 		$('#majorCode option').each(function() {
 		if ($(this).val() == majorCodeId)
 		$(this).attr('selected', 'selected');
 		});
 		}
-	
+
 	if (maxCodeId != "") {
 		$('#maxCode option').each(function() {
 		if ($(this).val() == maxCodeId)

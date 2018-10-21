@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -57,7 +57,7 @@
 
 jQuery.noConflict();
 jQuery(document).ready(function() {
-  	 
+
      jQuery(" form ").submit(function( event ) {
     	 doLoadingMask();
     });
@@ -102,13 +102,13 @@ function warningInfo()
 			<s:hidden label="oldReceiptId" id="oldReceiptId" name="oldReceiptId" value="%{id}"/>
 			<s:hidden label="cancelreceiptno" id="cancelreceiptno" name="cancelreceiptno" value="%{receiptnumber}"/>
 			<%-- <s:hidden label="payeeDetailsId" id="payeeDetailsId" name="payeeDetailsId" value="%{receiptPayeeDetails.id}"/> --%>
-			
+
 			<tr>
 				<td width="4%" class="bluebox2">&nbsp;</td>
 				<td width="21%" class="bluebox2"><s:text name="viewReceipt.receiptno"/></td>
 				<td width="24%" class="bluebox2"><b><s:property value="receiptnumber" /></b></td>
 				<td width="21%" class="bluebox2"><s:text name="viewReceipt.receiptdate"/></td>
-				<td width="30%" class="bluebox2"><b> 
+				<td width="30%" class="bluebox2"><b>
 				<fmt:formatDate value="${receiptDate}" var="receiptDate" pattern="dd-MM-yyyy"/>
 				<c:out value="${receiptDate}"></c:out></b></td>
 			</tr>
@@ -157,7 +157,7 @@ function warningInfo()
 						<tr><td>
 						<div class="subheadsmallnew"><span class="subheadnew"><s:text name="billreceipt.billdetails.Credit"/></span></div>
 						</td></tr>
-						
+
 						<tr>
 						 <td>
 						 <table width="100%" class="tablebottom">
@@ -181,12 +181,12 @@ function warningInfo()
 						<s:if test="dramount!=0 && !isRevenueAccountHead(accounthead)">
 						<% rebateaccountavalailable=1; %>
 						</s:if>
-						
+
 						</s:iterator>
 						</table>
 						</td>
 						</tr>
-						
+
 						<%if(rebateaccountavalailable==1){ %>
 						<tr><td>
 						<div class="subheadsmallnew"><span class="subheadnew"><s:text name="billreceipt.billdetails.Rebate"/></span></div>
@@ -208,22 +208,22 @@ function warningInfo()
 							<td class="blueborderfortd"><div align="center"><s:property value="%{description}" /></div></td>						<fmt:formatNumber var="newdramount" value='${dramount}' pattern='#0.00' />
 							<td class="blueborderfortd"><div align="center">${newdramount}</div></td>
 						</tr>
-						
-						
+
+
 						</s:if>
 						</s:iterator>
 						<tr>
 						    <td colspan="2" class="blueborderfortd">&nbsp;</td>
-							<td class="blueborderfortd"><div align="right"><b>Total&nbsp;&nbsp;</b></div></td>							<fmt:formatNumber var="newtotalamount" value='${amount}' pattern='#0.00' />	
-							<td class="blueborderfortd"><div align="center"><b>${newtotalamount}</b></div></td>			
+							<td class="blueborderfortd"><div align="right"><b>Total&nbsp;&nbsp;</b></div></td>							<fmt:formatNumber var="newtotalamount" value='${amount}' pattern='#0.00' />
+							<td class="blueborderfortd"><div align="center"><b>${newtotalamount}</b></div></td>
 						</tr>
 						<%if(rebateaccountavalailable==1){ %>
 						</table>
 						</td></tr>
 						<%} %>
-							
+
 					</table>
-					
+
 				</td>
 			</tr>
 			<tr>
@@ -278,7 +278,7 @@ function warningInfo()
 							</s:if>
 							</td>
 						</tr>
-						
+
 						</s:iterator>
 
 						<s:iterator value='%{getInstruments("card")}' >
@@ -289,27 +289,27 @@ function warningInfo()
 						</tr>
 						</s:iterator>
 
-						
+
 						<tr>
 							<td width="4%" class="bluebox2">&nbsp;</td>
 							<td width="21%" class="bluebox2"><s:text name="billreceipt.reasonforcancellation"/><span class="mandatory1">*</span></td>
 							<td width="24%" class="bluebox2" colspan="7"><s:textarea id="reasonForCancellation" label="reasonforcancellation" cols="90" rows="8" name="reasonForCancellation"/></td>
 						</tr>
 					</table>
-			</tr>	
-			
-			
+			</tr>
+
+
 		</table>
 
 		   <div id="loadingMask" style="display:none;overflow:hidden;text-align: center"><img src="/services/collection/resources/images/bar_loader.gif"/> <span style="color: red">Please wait....</span></div>
-		   
+
 		<div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
 		<div class="buttonbottom">
 		<s:if test="isReceiptCancelEnable">
 		<input name="button32" type="button" class="buttonsubmit" id="button32"  value="Cancel Receipt" onclick="return warningInfo()"/>
 		</s:if>
 		<input name="button2" type="button" class="button" id="button" onclick="window.close()" value="Close"/>
-		<input name="buttonBack" type="button" class="button" id="buttonBack" value="Back" onclick="window.location='${pageContext.request.contextPath}/receipts/searchReceipt.action';"  /> 
+		<input name="buttonBack" type="button" class="button" id="buttonBack" value="Back" onclick="window.location='${pageContext.request.contextPath}/receipts/searchReceipt.action';"  />
 		</div>
 	</s:iterator>
 </div>

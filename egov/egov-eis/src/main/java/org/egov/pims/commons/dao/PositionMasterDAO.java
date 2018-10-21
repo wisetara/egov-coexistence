@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -69,10 +69,10 @@ public class PositionMasterDAO
 {
 
     public final static Logger LOGGER = Logger.getLogger(PositionMasterDAO.class.getClass());
-    
+
     @PersistenceContext
 	private EntityManager entityManager;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
@@ -139,8 +139,8 @@ public class PositionMasterDAO
         	throw new ApplicationRuntimeException(e.getMessage(),e);
         }
     }
-    
-    
+
+
     public Integer getPositionIdByPositionName(String positionName)
     {
         try
@@ -152,7 +152,7 @@ public class PositionMasterDAO
             LOGGER.info((new StringBuilder("iter")).append(iter).toString());
             if(iter.hasNext())
             {
-               
+
                 positionId = (Integer)iter.next();
             }
             return positionId;
@@ -162,7 +162,7 @@ public class PositionMasterDAO
         	throw new ApplicationRuntimeException(e.getMessage(),e);
         }
     }
-    
-    
+
+
 
 }

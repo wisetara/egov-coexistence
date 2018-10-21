@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -181,17 +181,17 @@
 				var date='<s:date name="currentDate" format="dd/MM/yyyy"/>';
 				function onload()
 				{
-					populatebank_branch(); 
+					populatebank_branch();
 				}
-							
+
 				function loadBank(obj)
 				{
 					var vTypeOfAccount = '<s:property value="%{typeOfAccount}"/>';
-					
+
 					if(obj.options[obj.selectedIndex].value!=-1){
-						populatebank_branch({fundId:obj.options[obj.selectedIndex].value+'&asOnDate='+date});              
+						populatebank_branch({fundId:obj.options[obj.selectedIndex].value+'&asOnDate='+date});
 					}else{
-						populatebank_branch();                         
+						populatebank_branch();
 					}
 				}
 				function loadBankAccount(obj)
@@ -201,11 +201,11 @@
 					if(obj.options[obj.selectedIndex].value!=-1)
 					{
 						var x=	obj.options[obj.selectedIndex].value.split("-");
-						//bootbox.alert("heelo"+x);                            
+						//bootbox.alert("heelo"+x);
 						document.getElementById("bankbranch").value=x[1];
 						populatebankaccount({branchId:x[1]+'&asOnDate='+date,fundId:fund.options[fund.selectedIndex].value});
 					}
-					
+
 				}
 				function setRecoveryCode()
 				{

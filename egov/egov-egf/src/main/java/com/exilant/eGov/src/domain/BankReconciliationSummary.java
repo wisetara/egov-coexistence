@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -68,32 +68,32 @@ public class BankReconciliationSummary {
 	protected PersistenceService persistenceService;
 	@Autowired
     private AppConfigValueService appConfigValuesService;
-	
+
 
 	String defaultStatusExclude=null;
-	
-	
+
+
 	SimpleDateFormat sdf1 =new SimpleDateFormat("yyyy-MM-dd");
 	SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-	
-	
-	
+
+
+
 	public String getUnReconciledDrCr(Integer bankAccId,Date fromDate,Date toDate) throws Exception
 	{
 
 		String instrumentsForTotal="case when iv.voucherHeaderId is null then 0 else ih.instrumentAmount end)";
 		String instrumentsForBrsEntryTotal="(case when br.voucherHeaderId is null then ih.instrumentAmount else 0 end)";
-		
-		
+
+
 		String totalQuery="SELECT (sum(case when ih.ispaycheque='1' then ih.instrumentAmount else 0 end))  AS \"brs_creditTotal\", "
 			+" (sum( case when ih.ispaycheque= '0' then ih.instrumentAmount else 0 end) ) AS \"brs_debitTotal\" "
 			+" FROM egf_instrumentheader ih 	WHERE   ih.bankAccountId =:bankAccountId "
-			+" AND IH.INSTRUMENTDATE >= :fromDate" 
+			+" AND IH.INSTRUMENTDATE >= :fromDate"
 			+" AND IH.INSTRUMENTDATE <= :toDate"
 			+" AND  ( (ih.ispaycheque='0' and  ih.id_status=(select id from egw_status where moduletype='Instrument'  and description='Deposited'))or (ih.ispaycheque='1' and  ih.id_status=(select id from egw_status where moduletype='Instrument'  and description='New'))) "
 			+" and ih.instrumentnumber is not null";
-	//see u might need to exclude brs entries here 
-		
+	//see u might need to exclude brs entries here
+
 		String otherTotalQuery=" SELECT (sum(case when ih.ispaycheque='1' then ih.instrumentAmount else 0 end ))  AS \"brs_creditTotalOthers\", "
 			+" (sum(case when ih.ispaycheque='0' then ih.instrumentAmount else 0 end ) ) AS \"brs_debitTotalOthers\" "
 			+" FROM  egf_instrumentheader ih	WHERE   ih.bankAccountId =:bankAccountId"
@@ -101,38 +101,38 @@ public class BankReconciliationSummary {
 			+" AND IH.transactiondate <= :toDate  "
 			+" AND ( (ih.ispaycheque='0' and ih.id_status=(select id from egw_status where moduletype='Instrument'  and description='Deposited'))or (ih.ispaycheque='1' and  ih.id_status=(select id from egw_status where moduletype='Instrument'  and description='New'))) "
 			+" AND ih.transactionnumber is not null";
-		
-		
-		
+
+
+
 		String brsEntryQuery="select (sum(case when be.type='Receipt' then (case when be.voucherheaderid is null then be.txnamount else 0 end) else 0 end))AS \"brs_creditTotalBrsEntry\","
 				+"(sum(case when be.type='Payment' then (case when be.voucherheaderid is null then be.txnamount else 0 end) else 0 end))AS \"brs_debitTotalBrsEntry\""
 				+"FROM  bankentries be WHERE   be.bankAccountId = :bankAccountId and be.voucherheaderid is null AND be.txndate >=:fromDate   AND be.txndate <= :toDate";
 
 
-		
-		
-	
+
+
+
 		if(LOGGER.isInfoEnabled())     LOGGER.info("  query  for  total : "+totalQuery);
 		if(LOGGER.isInfoEnabled())     LOGGER.info("  query  for other than cheque/DD: "+otherTotalQuery);
 		if(LOGGER.isInfoEnabled())     LOGGER.info("  query  for bankEntries: "+brsEntryQuery);
-		
+
 		String unReconciledDrCr="";
-		
-		
+
+
 		String creditTotal=null;
 		String creditOthertotal=null;
 		String debitTotal=null;
 		String debitOtherTotal=null;
 		String creditTotalBrsEntry=null;
 		String debitTotalBrsEntry=null;
-		
+
 		try
 		{
 			SQLQuery totalSQLQuery =  persistenceService.getSession().createSQLQuery(totalQuery);
 			totalSQLQuery.setInteger("bankAccountId",bankAccId);
 			totalSQLQuery.setDate("fromDate",fromDate);
 			totalSQLQuery.setDate("toDate",toDate);
-			
+
 			List list = totalSQLQuery.list();
 			if (list.size()>0)
 			{
@@ -180,9 +180,9 @@ public class BankReconciliationSummary {
 		}
 		return unReconciledDrCr;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }

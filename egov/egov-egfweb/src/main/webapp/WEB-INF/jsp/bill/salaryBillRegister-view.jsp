@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -64,7 +64,7 @@
 			}
 		}
 	}
-	
+
 	function populateFunctionName(){
 		var funcArray;
 		var map = {};
@@ -98,7 +98,7 @@
 		req2.open("GET", url, true);
 		req2.send(null);
 	}
-	
+
 	function computeTotal(){
 		var total = 0;
 		var earningsTotal = 0;
@@ -129,7 +129,7 @@
 		document.getElementById('totalSubLedgerCreditamount').value = subledgerCreditTotal;
 		document.getElementById('totalSubLedgerDebitamount').value = subledgerDebitTotal;
 	}
-	
+
 	function onLoadTask(){
 		document.getElementById('month').selectedIndex = <s:property value="billregistermis.month"/>;
 		<s:iterator value="subledgerList" status="stat">

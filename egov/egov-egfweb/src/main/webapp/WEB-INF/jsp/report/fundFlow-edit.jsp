@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -60,7 +60,7 @@
 <script type="text/javascript">
     function onloadFundFlow()
     {
-    
+
 	<s:if test="receiptList!=null && receiptList.size()>0">
     calculateFunds(document.getElementById('receiptList[0].openingBalance'));
     </s:if>
@@ -73,7 +73,7 @@
     }
     function validateFundFlow()
     {
-    
+
     /*if(document.getElementById("fund").value=="")
     {
      bootbox.alert("Select Fund");
@@ -84,16 +84,16 @@
      bootbox.alert("Select Date");
      return false;
      }
-     
-     
+
+
     }
  function   alertTheMessage()
     {
     var alrtmsg='<s:text name="fundflow.recalculate.alert"/>';
    	return confirm(alrtmsg);
-    
+
  }
-   
+
 
 
 </script>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -107,18 +107,18 @@ public class ApplicationCoreFilter implements Filter {
 
     @Autowired
     private CityService cityService;
-    
+
     @Autowired
     AuthenticationManager authManager;
-    
+
     @Autowired
     CompositeSessionAuthenticationStrategy csuauthStrategy;
-    
-    
-    
+
+
+
     @Autowired
     ApplicationAuthenticationProvider authProvider;
-    
+
 
     @Autowired
     private SecurityUtils securityUtils;
@@ -131,11 +131,11 @@ public class ApplicationCoreFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-       
+
     	HttpServletRequest request = (HttpServletRequest) req;
     	HttpServletResponse response = (HttpServletResponse)resp;
         HttpSession session = request.getSession();
-  
+
         LOGGER.info(request.getRequestURL());
         try {
         	 prepareUserSession(request,response,session);
@@ -156,12 +156,12 @@ public class ApplicationCoreFilter implements Filter {
             session.setAttribute(TENANTID_KEY, ApplicationThreadLocals.getTenantID());
         if (session.getServletContext().getAttribute(CDN_ATTRIB_NAME) == null)
             session.getServletContext().setAttribute(CDN_ATTRIB_NAME, cdnURL);
-     
-     
+
+
         LOGGER.info(getCurrentAuthentication());
-        
+
         if (session.getAttribute(USERID_KEY) == null) {
-             
+
             Optional<Authentication> authentication = getCurrentAuthentication();
             if (authentication.isPresent() && authentication.get().getPrincipal() instanceof CurrentUser) {
                 session.setAttribute(USERID_KEY, ((CurrentUser) authentication.get().getPrincipal()).getUserId());
@@ -172,11 +172,11 @@ public class ApplicationCoreFilter implements Filter {
         }else
         {
         }
-        
+
     }
 
     private void prepareApplicationThreadLocal(HttpSession session) {
-    	
+
         ApplicationThreadLocals.setCityCode((String) session.getAttribute(CITY_CODE_KEY));
         ApplicationThreadLocals.setCityName((String) session.getAttribute(CITY_NAME_KEY));
         ApplicationThreadLocals.setMunicipalityName((String) session.getAttribute(CITY_CORP_NAME_KEY));
@@ -187,7 +187,7 @@ public class ApplicationCoreFilter implements Filter {
     }
 
     private void prepareRequestOriginDetails(HttpSession session, HttpServletRequest request) {
-    	
+
         if (session.getAttribute(IP_ADDRESS) == null) {
             String ipAddress = request.getRemoteAddr();
             String proxiedIPAddress = request.getHeader(X_FORWARDED_FOR_HEADER);
@@ -210,5 +210,5 @@ public class ApplicationCoreFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         //Nothing to be initialized
     }
-    
+
 }

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,7 +55,7 @@
 			<spring:message code="lbl.accountdetails" />
 		</div>
 	</div>
-	
+
 	 <div style="padding: 0 15px;">
 		<table class="table table-bordered" id="tblaccountdetails">
 			<thead>
@@ -84,7 +84,7 @@
 									<span class="accountDetailsCreditAmount_${item.index } accountDetailsCreditAmount">${billDeatils.creditamount }</span>
 								</td>
 							</tr>
-						</c:forEach> 
+						</c:forEach>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>

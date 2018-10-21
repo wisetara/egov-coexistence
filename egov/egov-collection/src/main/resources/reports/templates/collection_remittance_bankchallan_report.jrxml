@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -1109,7 +1109,7 @@
 		</band>
 		<band height="30">
 			<printWhenExpression><![CDATA[$F{collectionBankRemittanceReportList} != null &&
- $F{collectionBankRemittanceReportList}.size()>0 && 
+ $F{collectionBankRemittanceReportList}.size()>0 &&
 $P{EGOV_CHEQUE_AMOUNT}!=0]]></printWhenExpression>
 			<subreport>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="1" y="1" width="820" height="29" isRemoveLineWhenBlank="true" uuid="813a390a-9520-4eac-a0c6-159327c254de"/>

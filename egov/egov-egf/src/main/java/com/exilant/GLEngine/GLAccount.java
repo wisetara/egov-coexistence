@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -79,9 +79,9 @@ public class GLAccount implements Serializable
     private String name;
 
     private boolean isActiveForPosting;
-    
+
     private Boolean functionRequired;
-    
+
     private Long classification;
 
     private ArrayList glParameters = new ArrayList();

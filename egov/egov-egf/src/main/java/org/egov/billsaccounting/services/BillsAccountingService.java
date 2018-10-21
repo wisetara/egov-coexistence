@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -79,7 +79,7 @@ public class BillsAccountingService {
 
     private static final String MISSINGMSG = "is not defined in AppConfig values cannot proceed creating voucher";
 
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -49,16 +49,16 @@ package org.egov.collection.web.actions.receipts;
 
 
 public class ReceiptNumberSearchActionTest { /*extends AbstractPersistenceServiceTest<ReceiptHeader,Long>{
-	
+
 	private ReceiptNumberSearchAction action;
 	private CollectionObjectFactory objectFactory;
-	private ReceiptHeaderService receiptService;   
-	
-	
+	private ReceiptHeaderService receiptService;
+
+
 	public ReceiptNumberSearchActionTest() {
 		this.type = ReceiptHeader.class;
 	}
-	
+
 	@Before
 	public void setUp() throws Exception {
 		action = new ReceiptNumberSearchAction();
@@ -67,7 +67,7 @@ public class ReceiptNumberSearchActionTest { /*extends AbstractPersistenceServic
 		action.setReceiptHeaderService(receiptService);
 		objectFactory = new CollectionObjectFactory(session);
 	}
-	
+
 	@Test
 	public void getReceiptNumberList() throws Exception{
 		objectFactory.createReceiptHeader("22222");
@@ -76,12 +76,12 @@ public class ReceiptNumberSearchActionTest { /*extends AbstractPersistenceServic
 		assertNotNull(action.getQuery());
 		assertEquals(false,action.getReceiptNumberList().isEmpty());
 	}
-	
+
 	@Test
 	public void testGetModel() {
 		assertNull(action.getModel());
 	}
-	
+
 	@Test
 	public void testsearchAjax()
 	{

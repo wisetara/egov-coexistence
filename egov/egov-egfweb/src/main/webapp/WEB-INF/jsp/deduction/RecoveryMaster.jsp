@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,7 +63,7 @@
 
 	<%
 	RecoverySetupForm rsf = (RecoverySetupForm)request.getAttribute("RecoverySetupForm");
-	Logger logger = Logger.getLogger(getClass().getName()); 
+	Logger logger = Logger.getLogger(getClass().getName());
 
 	ArrayList glCodeList=(ArrayList)EgovMasterDataCaching.getInstance().get("egi-coaCodesForLiability");
 	ArrayList empglCodeList=(ArrayList)EgovMasterDataCaching.getInstance().get("egi-AllCoaCodesOfEarning");
@@ -85,12 +85,12 @@ var booleanValue;
 
 function uniqueCheckForAccCode()
 {
-	
-	<% 
+
+	<%
 	if(rsf.getRecovAccCodeId()==null)
 	{%>
-			
-		// For create Mode	
+
+		// For create Mode
 		booleanValue=uniqueIdentifierBoolean('../commonyui/egov/uniqueCheckAjax.jsp', 'tds', 'glcodeid', 'recovAccCodeId', 'no', 'no');
 		if(booleanValue==false)
 		{
@@ -106,36 +106,36 @@ function uniqueCheckForAccCode()
 		// For Modify Mode
 		var accCodeIdNew=document.getElementById('recovAccCodeId').value;
 		var accCodeIdOld="<%=(rsf.getRecovAccCodeId())%>";
-		
+
 		//bootbox.alert("accCodeIdNew"+accCodeIdNew);
 		//bootbox.alert("accCodeIdOld"+accCodeIdOld);
-		
+
 		if(accCodeIdNew!=accCodeIdOld)
 		{
 			booleanValue = uniqueIdentifierBoolean('../commonyui/egov/uniqueCheckAjax.jsp', 'tds', 'glcodeid', 'recovAccCodeId', 'no', 'no');
 			if(booleanValue==false)
 			{
-	
+
 			bootbox.alert("This Account code already used for some other Recoveries!!!!");
-			document.RecoverySetupForm.recovAccCodeId.focus();			
+			document.RecoverySetupForm.recovAccCodeId.focus();
 			return false;
-			}		
-		}	
-			
+			}
+		}
+
 	<%
 	}
-			
+
 	%>
 	return true;
 }
 
 function uniqueCheckForRecoveryCode()
 {
-	<% 
+	<%
 	if(rsf.getRecovCode()==null)
 	{%>
 
-		// For create Mode	
+		// For create Mode
 		if(document.getElementById('recovCode').value != '' ) {
 			booleanValue=uniqueIdentifierBoolean('../commonyui/egov/uniqueCheckAjax.jsp', 'tds', 'type', 'recovCode', 'no', 'no');
 			if(booleanValue==false) {
@@ -162,12 +162,12 @@ function uniqueCheckForRecoveryCode()
 				bootbox.alert("This Recovery code already used for some other Recoveries!!!!");
 				document.getElementById('recovCode').value = recovCodeOld;
 				return false;
-			}		
-		}	
+			}
+		}
 
 	<%
 	}
-	%>	
+	%>
 }
 
 function selected(e)
@@ -175,13 +175,13 @@ function selected(e)
 	myrowId=e.rowIndex;
 }
 
-function keyPressed() 
+function keyPressed()
 	{
 
 	  var F2 = 113;
 	  var tbl = document.getElementById('gridRecoverySetup');
 	  var rCount=tbl.rows.length-1;
-	  if ((event.keyCode == F2) && (myrowId==rCount)) 
+	  if ((event.keyCode == F2) && (myrowId==rCount))
 	  {
 		addRow();
 
@@ -195,18 +195,18 @@ function addRow()
 	var rowObj = document.getElementById('detailsRow').cloneNode(true);
 	tbody.appendChild(rowObj);
 	//bootbox.alert("lastRow :"+lastRow);
-	
+
 	//document.forms[0].docType[lastRow-1].options.length=0;
 	//document.forms[0].subType[lastRow-1].options.length=0;
-	
+
 	document.forms[0].recovDateFrom[lastRow-1].value="";
 	document.forms[0].recovDateTo[lastRow-1].value="";
 	document.forms[0].lowAmount[lastRow-1].value="";
 	document.forms[0].highAmount[lastRow-1].value="";
-	
+
 	document.forms[0].cumulativeAmountLow[lastRow-1].value="";
 	document.forms[0].cumulativeAmountHigh[lastRow-1].value="";
-	
+
 	document.forms[0].ITPercentage[lastRow-1].value="";
 	document.forms[0].surPercentage[lastRow-1].value="";
 	document.forms[0].eduCessPercentage[lastRow-1].value="";
@@ -245,22 +245,22 @@ function calcTotalForViewModify()
 	var surPer=0;
 	var eduPer=0;
 	var totalPer=0;
-			
+
 	for(var i=1;i<table.rows.length;i++)
 	{
 		itPer=getControlInBranch(table.rows[i],"ITPercentage").value;
 		surPer=getControlInBranch(table.rows[i],"surPercentage").value;
 		eduPer=getControlInBranch(table.rows[i],"eduCessPercentage").value;
-				
+
 		if(itPer=="")
 		itPer=0;
 		if(surPer=="")
 		surPer=0;
 		if(eduPer=="")
 		eduPer=0;
-		
+
 		totalPer=parseFloat(itPer)+parseFloat(surPer)+parseFloat(eduPer);
-		
+
 		getControlInBranch(table.rows[i],"totalPercentage").value=totalPer.toFixed(2);
 		var totalVal=getControlInBranch(table.rows[i],"totalPercentage").value;
 		if(totalVal==0.00)
@@ -276,7 +276,7 @@ function calcTotalPer(obj)
 			var surPer=0;
 			var eduPer=0;
 			var totalPer=0;
-			
+
 	for(var i=1;i<table.rows.length;i++)
 	{
 			itPer=getControlInBranch(table.rows[rowobj.rowIndex],"ITPercentage").value;
@@ -288,7 +288,7 @@ function calcTotalPer(obj)
 				bootbox.alert("IT should be a Numeric value");
 				return false;
 			}
-			
+
 			if(surPer!="")
 			{
 				if(isNaN(surPer))
@@ -305,7 +305,7 @@ function calcTotalPer(obj)
 				return false;
 				}
 			}
-			
+
 			if(!(itPer!=""))
 				itPer=0;
 
@@ -324,19 +324,19 @@ function calcTotalPer(obj)
 			b=parseFloat(itPer);
 			c=parseFloat(surPer);
 			d=parseFloat(eduPer);
-			
+
               getControlInBranch(table.rows[rowobj.rowIndex],"totalPercentage").value=(a+b+c+d).toFixed(2);
               if(getControlInBranch(table.rows[rowobj.rowIndex],"totalPercentage").value>100.00)
               {
               	 	bootbox.alert("Total Percentage cannot be more than 100");
 			return false;
               }
-              
+
               var totalRowVal=getControlInBranch(table.rows[rowobj.rowIndex],"totalPercentage").value;
               if(totalRowVal==0.00)
               getControlInBranch(table.rows[rowobj.rowIndex],"totalPercentage").value="";
-              
-	
+
+
 	} //for
 }
 
@@ -344,7 +344,7 @@ function checkEmptyFieldFromTable()
 {
 	var table=document.getElementById("gridRecoverySetup");
 	var col1,col2,col3,col4;
-	
+
 	for(var i=1;i<table.rows.length;i++)
 	{
 		col1=getControlInBranch(table.rows[i],"partyType").value;
@@ -371,23 +371,23 @@ function checkLimitsAll()
 	var table=document.getElementById("gridRecoverySetup");
 	var col1,col2,col3,col4;
 	//bootbox.alert(table.rows.length);
-	
+
  	for(var i=1;i<table.rows.length;i++)
 	{
 		col1=getControlInBranch(table.rows[i],"recovDateFrom").value;
 		col2=getControlInBranch(table.rows[i],"recovDateTo").value;
 		col3=getControlInBranch(table.rows[i],"lowAmount").value;
 		col4=getControlInBranch(table.rows[i],"highAmount").value;
-		
+
 		col5=getControlInBranch(table.rows[i],"cumulativeAmountLow").value;
 		col6=getControlInBranch(table.rows[i],"cumulativeAmountHigh").value;
-	
+
 		if(col2!="" && col2.length>0)
 		{
 			if((compareDate(formatDate6(col1),formatDate6(col2)) !=1))
 			 {
 				 bootbox.alert("In Row "+i+", To Date must be higher than the From Date");
-				 getControlInBranch(table.rows[i],'recovDateTo').focus();				
+				 getControlInBranch(table.rows[i],'recovDateTo').focus();
 				 return false;
 			 }
 		 }
@@ -402,12 +402,12 @@ function checkLimitsAll()
 			if(minVal>parseFloat(9999999999999.99))
 			{
 				bootbox.alert("Low Limit Values  cannot be greater than 9999999999999.99");
-				getControlInBranch(table.rows[i],'lowAmount').focus();				
+				getControlInBranch(table.rows[i],'lowAmount').focus();
 				return false;
 			}
-		 
+
 		 }
-		 
+
 		 if(col4!="")
 		 {
 			if(isNaN(col4))
@@ -425,13 +425,13 @@ function checkLimitsAll()
 			if(minVal >= maxVal)
 			{
 				bootbox.alert("In Row "+i+", Amount High value must be higher than the Amount Low value.");
-				getControlInBranch(table.rows[i],'highAmount').focus();				
+				getControlInBranch(table.rows[i],'highAmount').focus();
 				return false;
 			}
 			if(maxVal>parseFloat(9999999999999.99))
 			{
 				bootbox.alert("Amount High Value cannot be greater than 9999999999999.99");
-				getControlInBranch(table.rows[i],'highAmount').focus();				
+				getControlInBranch(table.rows[i],'highAmount').focus();
 				return false;
 			}
 		}
@@ -447,12 +447,12 @@ function checkLimitsAll()
 			if(minVal > parseFloat(9999999999999.99))
 			{
 				bootbox.alert("Cumulative Low Limit Values  cannot be greater than 9999999999999.99");
-				getControlInBranch(table.rows[i],'cumulativeAmountLow').focus();				
+				getControlInBranch(table.rows[i],'cumulativeAmountLow').focus();
 				return false;
 			}
-		 
+
 		 }
-		 
+
 		 if(col6!="")
 		 {
 			if(isNaN(col6))
@@ -470,13 +470,13 @@ function checkLimitsAll()
 			if(minVal >= maxVal)
 			{
 				bootbox.alert("In Row "+i+", Cumulative Amount High value must be higher than the Low Amount value.");
-				getControlInBranch(table.rows[i],'cumulativeAmountHigh').focus();				
+				getControlInBranch(table.rows[i],'cumulativeAmountHigh').focus();
 				return false;
 			}
 			if(maxVal>parseFloat(9999999999999.99))
 			{
 				bootbox.alert("Cumulative High Limit value cannot be greater than 9999999999999.99");
-				getControlInBranch(table.rows[i],'cumulativeAmountHigh').focus();				
+				getControlInBranch(table.rows[i],'cumulativeAmountHigh').focus();
 				return false;
 			}
 		}
@@ -492,43 +492,43 @@ function checkLimitsWithCombination()
 	var rowcol1,rowcol2,rowcol3,rowcol4,rowcol5,rowcol6;
 	var minVal,maxVal,previousHigh=0;
 	var curfromDateVal,toDateVal,previousMaxDate;
-	
+
 	for(var i=1;i<table.rows.length-1;i++)
 	{
 		row1col1=getControlInBranch(table.rows[i],"partyType");
 		row1col2=getControlInBranch(table.rows[i],"docType");
 		//row1col3=getControlInBranch(table.rows[i],"subType");
-		
+
 		row1col4=getControlInBranch(table.rows[i],"recovDateFrom").value;
 		row1col5=getControlInBranch(table.rows[i],"lowAmount").value;
 		row1col6=getControlInBranch(table.rows[i],"highAmount").value;
 		row1col7=getControlInBranch(table.rows[i],"recovDateTo").value;
-		
+
 		row1col8=getControlInBranch(table.rows[i],"cumulativeAmountLow").value;
 		row1col9=getControlInBranch(table.rows[i],"cumulativeAmountHigh").value;
 		//bootbox.alert("cumulativeAmountLow :"+row1col8);
 
-	
+
 		for(var j=i+1;j<table.rows.length;j++)
 		{
 			rowcol1=getControlInBranch(table.rows[j],"partyType");
 			rowcol2=getControlInBranch(table.rows[j],"docType");
 			//rowcol3=getControlInBranch(table.rows[j],"subType");
-			
+
 			rowcol4=getControlInBranch(table.rows[j],"recovDateFrom").value;
 			rowcol5=getControlInBranch(table.rows[j],"lowAmount").value;
 			rowcol6=getControlInBranch(table.rows[j],"highAmount").value;
 			rowcol7=getControlInBranch(table.rows[j],"recovDateTo").value;
-	
-	
+
+
 	if((row1col1.value==rowcol1.value))
-	{	
+	{
 	   if((row1col2.value==rowcol2.value) && rowcol2.value.length>0)
 	   {
-    
-	     //if((row1col3.value==rowcol3.value)) 
-		 //{ 
-		
+
+	     //if((row1col3.value==rowcol3.value))
+		 //{
+
 		  if((compareDate(formatDate6(row1col4),formatDate6(rowcol4)) == 0) && rowcol4.length>0)
 		   {
 			// for date validation
@@ -536,7 +536,7 @@ function checkLimitsWithCombination()
 			 {
 			 	curfromDateVal=rowcol4;
 			 }
-			 
+
 			 if(row1col7!="" && row1col7.length>0)
 			 {	 toDateVal=row1col7;
 				previousMaxDate=toDateVal;
@@ -546,7 +546,7 @@ function checkLimitsWithCombination()
 				toDateVal=row1col4;
 				previousMaxDate=toDateVal;
 			 }
-			  
+
 			// Payment Limit validation
 			if(rowcol5>=0 && rowcol5!="")
 			{
@@ -554,11 +554,11 @@ function checkLimitsWithCombination()
 				if(minVal>parseFloat(9999999999999.99))
 				{
 					bootbox.alert("Amount Low value cannot be greater than 9999999999999.99");
-					getControlInBranch(table.rows[j],'lowAmount').focus();				
+					getControlInBranch(table.rows[j],'lowAmount').focus();
 					return false;
 				}
 			}
-			
+
 			if(row1col6>0 && row1col6!="")
 			{
 				maxVal=parseInt(row1col6);
@@ -575,13 +575,13 @@ function checkLimitsWithCombination()
 				if(previousHigh >= minVal)
 				{
 					bootbox.alert("In Row "+j+", Amount Low value must be higher than the "+i+" Row Amount Limits");
-					getControlInBranch(table.rows[j],'lowAmount').focus();				
+					getControlInBranch(table.rows[j],'lowAmount').focus();
 					return false;
 				}
 			}
 	       } // If From Date equal
-	       
-	       else 
+
+	       else
 	       {
 	               	// for date validation
 			if(rowcol4!="" && rowcol4.length>0)
@@ -602,10 +602,10 @@ function checkLimitsWithCombination()
 			  if((compareDate(formatDate6(previousMaxDate),formatDate6(curfromDateVal)) != 1))
 			  {
 				 bootbox.alert("In Row "+j+", From Date must be higher than the "+i+" Row Date Range");
-				 getControlInBranch(table.rows[j],'recovDateFrom').focus();				
+				 getControlInBranch(table.rows[j],'recovDateFrom').focus();
 				 return false;
 			  }
-			 
+
 
 			// Payment Limit validation
 
@@ -615,11 +615,11 @@ function checkLimitsWithCombination()
 				if(minVal>parseFloat(9999999999999.99))
 				{
 				bootbox.alert("Amount Low value cannot be greater than 9999999999999.99");
-				getControlInBranch(table.rows[j],'lowAmount').focus();				
+				getControlInBranch(table.rows[j],'lowAmount').focus();
 				return false;
 				}
 			}
-			
+
 			if(row1col6>0 && row1col6!="")
 			{
 				maxVal=parseInt(row1col6);
@@ -635,17 +635,17 @@ function checkLimitsWithCombination()
 				if(previousHigh >= minVal)
 				{
 					bootbox.alert("In Row "+j+" Row Low Limit  value must be Higher than the "+i+" Row Payment Limits");
-					getControlInBranch(table.rows[j],'lowAmount').focus();				
+					getControlInBranch(table.rows[j],'lowAmount').focus();
 					return false;
 				}
 			}
 			*/
 	       }//else From Date Not equal
 	    // } // doc sub type
-	   } // doc type 
+	   } // doc type
 
 	  } //party type
-	 
+
 	 } // for j
 
 	} // for i
@@ -656,7 +656,7 @@ function checkDuplicatesFromTable()
 		var table=document.getElementById("gridRecoverySetup");
 		var row1col1,row1col2,row1col3,row1col4,row1col5;
 		var rowcol1,rowcol2,rowcol3,rowcol4,rowcol5;
-		
+
 		for(var i=1;i<table.rows.length-1;i++)
 		{
 			row1col1=getControlInBranch(table.rows[i],"partyType");
@@ -664,8 +664,8 @@ function checkDuplicatesFromTable()
 			//row1col3=getControlInBranch(table.rows[i],"subType");
 			row1col4=getControlInBranch(table.rows[i],"recovDateFrom");
 			row1col5=getControlInBranch(table.rows[i],"lowAmount");
-			
-						
+
+
 			for(var j=i+1;j<table.rows.length;j++)
 			{
 				rowcol1=getControlInBranch(table.rows[j],"partyType");
@@ -673,7 +673,7 @@ function checkDuplicatesFromTable()
 				//rowcol3=getControlInBranch(table.rows[j],"subType");
 				rowcol4=getControlInBranch(table.rows[j],"recovDateFrom");
 				rowcol5=getControlInBranch(table.rows[j],"lowAmount");
-				
+
 				if((row1col1.value==rowcol1.value))
 				{
 				   if((row1col2.value==rowcol2.value) && rowcol2.value.length>0)
@@ -698,25 +698,25 @@ function checkNegativeInputs()
 {
 	var table=document.getElementById("gridRecoverySetup");
 	var col1,col2,col3,col4,col5,col6, col7, col8;
-	
+
 	var typeOfCalc = document.getElementById("calculationType").value;
-		
+
 	for(var i=1;i<table.rows.length;i++)
 	{
 	col1=getControlInBranch(table.rows[i],"lowAmount").value;
 	col2=getControlInBranch(table.rows[i],"highAmount").value;
-	
+
 	col3=getControlInBranch(table.rows[i],"ITPercentage").value;
 	col4=getControlInBranch(table.rows[i],"surPercentage").value;
 	col5=getControlInBranch(table.rows[i],"eduCessPercentage").value;
 	col6=getControlInBranch(table.rows[i],"flatAmount").value;
-	
+
 	col7 = getControlInBranch(table.rows[i],"cumulativeAmountLow").value;
-	col8 = getControlInBranch(table.rows[i],"cumulativeAmountHigh").value;	
-	
+	col8 = getControlInBranch(table.rows[i],"cumulativeAmountHigh").value;
+
 	var valPresentPer=false;
 	var valPresentFlat=false;
-	
+
 		if(col1!="")
 		{
 			if(isNaN(col1))
@@ -750,9 +750,9 @@ function checkNegativeInputs()
 				getControlInBranch(table.rows[i],'highAmount').focus();
 				return false;
 			}
-			
+
 		}
-		
+
 		if(typeOfCalc == "Percentage") {
 			if(col3!="")
 			{
@@ -782,7 +782,7 @@ function checkNegativeInputs()
 				}
 				else
 					col4=parseFloat(col4)
-				
+
 				if(col4<0)
 				{
 					bootbox.alert("In Row "+i+", Sur Charge value should not be a Negative value");
@@ -801,7 +801,7 @@ function checkNegativeInputs()
 				}
 				else
 					col5=parseFloat(col5)
-				
+
 				if(col5<0)
 				{
 					bootbox.alert("In Row "+i+", EDU Cess value should not be a Negative value");
@@ -821,7 +821,7 @@ function checkNegativeInputs()
 				}
 				else
 					col6=parseFloat(col6)
-				
+
 				if(col6<0)
 				{
 					bootbox.alert("In Row "+i+", Flat Amount should not be a Negative value");
@@ -831,7 +831,7 @@ function checkNegativeInputs()
 				valPresentFlat=true;
 			}
 		}
-		
+
 		if(col7!="")
 		{
 			if(isNaN(col7))
@@ -842,7 +842,7 @@ function checkNegativeInputs()
 			}
 			else
 				col7=parseFloat(col7)
-			
+
 			if(col7<0)
 			{
 				bootbox.alert("In Row "+i+", Cumulative Low value should not be a Negative value");
@@ -850,7 +850,7 @@ function checkNegativeInputs()
 				return false;
 			}
 		}
-		
+
 		if(col8!="")
 		{
 			if(isNaN(col8))
@@ -861,7 +861,7 @@ function checkNegativeInputs()
 			}
 			else
 				col8=parseFloat(col8)
-			
+
 			if(col8<0)
 			{
 				bootbox.alert("In Row "+i+", Cumulative High value should not be a Negative value");
@@ -869,8 +869,8 @@ function checkNegativeInputs()
 				return false;
 			}
 		}
-		
-		
+
+
 		if(typeOfCalc == "Flat" && !valPresentFlat ) {
 			bootbox.alert("In Row "+i+", Enter Flat Amount value");
 			getControlInBranch(table.rows[i],'flatAmount').focus();
@@ -883,7 +883,7 @@ function checkNegativeInputs()
 		}
 
 	}//for
-	
+
 return true;
 }
 
@@ -914,25 +914,25 @@ function checkEitherPerOrFlat()
 		var table=document.getElementById("gridRecoverySetup");
 		var row1col1,row1col2;
 		var rowcol1,rowcol2;
-				
+
 		for(var i=1;i<table.rows.length-1;i++)
 		{
 			row1col1=getControlInBranch(table.rows[i],"totalPercentage").value;
 			row1col2=getControlInBranch(table.rows[i],"flatAmount").value;
-			
+
 			//var previousPer=false;
 			//var previousFlat=false;
-									
+
 			for(var j=i+1;j<table.rows.length;j++)
 			{
 				rowcol1=getControlInBranch(table.rows[j],"totalPercentage").value;
 				rowcol2=getControlInBranch(table.rows[j],"flatAmount").value;
-				
+
 				var previousPer=false;
 				var previousFlat=false;
 				var currPer=false;
 				var currFlat=false;
-				
+
 				if(row1col1!="")
 				{
 					previousPer=true;
@@ -941,7 +941,7 @@ function checkEitherPerOrFlat()
 				{
 					previousFlat=true;
 				}
-				
+
 				if(rowcol1!="")
 				{
 					currPer=true;
@@ -950,7 +950,7 @@ function checkEitherPerOrFlat()
 				{
 					currFlat=true;
 				}
-				
+
 				if(previousPer)
 				{
 					if(currFlat)
@@ -960,7 +960,7 @@ function checkEitherPerOrFlat()
 					return false;
 
 					}
-						
+
 				}
 				if(previousFlat)
 				{
@@ -971,43 +971,43 @@ function checkEitherPerOrFlat()
 					return false;
 
 					}
-										
+
 				}
-				
-				
+
+
 			} // for j
-			
-			
+
+
 		} // for i
-return true;		
+return true;
 } */
 
 
 
 function ButtonPress(arg)
-{	
+{
     if(arg =="saveclose" || arg == "savenew" ) {
     	if( document.RecoverySetupForm.recMode[0].checked == false &&  document.RecoverySetupForm.recMode[1].checked == false ) {
     		bootbox.alert("Select the Method");
     		return false;
     	}
-    	
+
 		if(document.RecoverySetupForm.recovCode.value=="") {
 			bootbox.alert("Enter the value for Recovery Code");
 			var temp="document.RecoverySetupForm.recovCode.focus();";
-			setTimeout(temp,0);		
+			setTimeout(temp,0);
 			return;
 		}
 		if(document.RecoverySetupForm.recovName.value=="") {
 			bootbox.alert("Enter the value for Recovery Name");
 			var temp="document.RecoverySetupForm.recovName.focus();";
-			setTimeout(temp,0);		
+			setTimeout(temp,0);
 			return;
 		}
 		if(document.RecoverySetupForm.recovAppliedTo.value == "0") {
 				bootbox.alert("Select Applied To");
 				var temp="document.RecoverySetupForm.recovAppliedTo.focus();";
-				setTimeout(temp,0);		
+				setTimeout(temp,0);
 				return;
 		}
 
@@ -1015,7 +1015,7 @@ function ButtonPress(arg)
 				if(document.RecoverySetupForm.emprecovAccCodeId.value == "0") {
 						bootbox.alert("Select Account Code");
 						var temp="document.RecoverySetupForm.emprecovAccCodeId.focus();";
-						setTimeout(temp,0);		
+						setTimeout(temp,0);
 						return;
 				} else {
 					if(!uniqueCheckForEmpEarningCode())
@@ -1025,11 +1025,11 @@ function ButtonPress(arg)
 			if(document.RecoverySetupForm.recovAccCodeId.value == "0") {
 					bootbox.alert("Select Account Code");
 					var temp="document.RecoverySetupForm.recovAccCodeId.focus();";
-					setTimeout(temp,0);		
+					setTimeout(temp,0);
 					return;
 			}
 		}
-		
+
 		if(document.RecoverySetupForm.recMode[0].checked==true) {
 			if(document.RecoverySetupForm.recovRemitTo.value=="") {
 				bootbox.alert("Enter the value for Remitted To");
@@ -1041,49 +1041,49 @@ function ButtonPress(arg)
 			{
 				bootbox.alert("BSR Code is required!");
 				var temp="document.RecoverySetupForm.recovBSRCode.focus();";
-				setTimeout(temp,0);		
+				setTimeout(temp,0);
 				return;
-			}*/				
-			
-			if(!checkEmptyFieldFromTable())return;	
+			}*/
+
+			if(!checkEmptyFieldFromTable())return;
 
 			if(!checkDuplicatesFromTable())return;
-			
+
 			if(!checkNegativeInputs())return;
-			
+
 			//if(!checkEitherPerOrFlat())return;
-			
+
 			if(!checkLimitsAll())return;
-			
+
 			if(!checkLimitsWithCombination())return;
-			
+
 			if(!checkDates())return;
 		}
 		else
-		{			
+		{
 			if(document.RecoverySetupForm.isBankLoan.checked==false && document.RecoverySetupForm.recovRemitTo.value=="")
 			{
 				bootbox.alert("Remitted to is required!");
 				var temp="document.RecoverySetupForm.recovRemitTo.focus();";
-				setTimeout(temp,0);		
+				setTimeout(temp,0);
 				return;
 			}
 			/*if(document.RecoverySetupForm.isBankLoan.checked==false && document.RecoverySetupForm.recovBSRCode.value=="")
 			{
 				bootbox.alert("BSR Code is required!");
 				var temp="document.RecoverySetupForm.recovBSRCode.focus();";
-				setTimeout(temp,0);		
+				setTimeout(temp,0);
 				return;
-			}*/	
-			if(document.RecoverySetupForm.isBankLoan.checked==true && document.RecoverySetupForm.bank.value=="0")	
+			}*/
+			if(document.RecoverySetupForm.isBankLoan.checked==true && document.RecoverySetupForm.bank.value=="0")
 			{
 				bootbox.alert("Select Bank!");
 				var temp="document.RecoverySetupForm.bank.focus();";
-				setTimeout(temp,0);		
+				setTimeout(temp,0);
 				return;
 			}
-		}		
-		
+		}
+
 		/*if(document.RecoverySetupForm.isBankLoan.checked==false)
 		{
 			if(!uniqueCheckForAccCode())
@@ -1100,10 +1100,10 @@ function ButtonPress(arg)
 			{
 				document.RecoverySetupForm.emprecovAccCodeId.value=0;
 			}
-		
+
 		}
 		var mode="${mode}";
-		//bootbox.alert(mode);		
+		//bootbox.alert(mode);
 		document.getElementById("button").value=arg;
 		if(document.RecoverySetupForm.isBankLoan.checked==false)
 			document.RecoverySetupForm.bankLoan.value="off";
@@ -1112,27 +1112,27 @@ function ButtonPress(arg)
 		if(mode == "create")
 		{
 			document.getElementById("button").value=arg;
-			//bootbox.alert("Create submit"+mode);		
+			//bootbox.alert("Create submit"+mode);
 			document.RecoverySetupForm.action = "../deduction/recoverySetupMaster.do?submitType=createRecoveryMaster";
-			document.RecoverySetupForm.submit();	
+			document.RecoverySetupForm.submit();
 		}
 		if(mode == "modify")
 		{
 			//bootbox.alert("Modify submit"+mode);
 
-			
+
 			document.RecoverySetupForm.action = "../deduction/recoverySetupMaster.do?submitType=modifyRecoveryMaster";
 			document.RecoverySetupForm.submit();
 		}
 	}// main if
-	
+
 	if(arg=="view")
 	{
 		if(document.RecoverySetupForm.tdsTypeId.value == "0")
 		{
 			bootbox.alert("Select Recovery Code First");
 			var temp="document.RecoverySetupForm.tdsTypeId.focus();";
-			setTimeout(temp,0);		
+			setTimeout(temp,0);
 			return;
 		}
 		document.getElementById("button").value=arg;
@@ -1145,26 +1145,26 @@ function ButtonPress(arg)
 		{
 			bootbox.alert("Select Recovery Code First");
 			var temp="document.RecoverySetupForm.tdsTypeId.focus();";
-			setTimeout(temp,0);		
+			setTimeout(temp,0);
 			return;
 		}
 		document.getElementById("button").value=arg;
 		document.RecoverySetupForm.action = "../deduction/recoverySetupMaster.do?submitType=beforeModifyRecoveryMaster";
 		document.RecoverySetupForm.submit();
 	}
-	
+
 	if(arg == "backView")
 	{
-		window.location="../deduction/recoverySetupMaster.do?submitType=toView";	
+		window.location="../deduction/recoverySetupMaster.do?submitType=toView";
 		return;
 	}
-	
+
 	if(arg == "backModify")
 	{
-		window.location="../deduction/recoverySetupMaster.do?submitType=toModify";	
+		window.location="../deduction/recoverySetupMaster.do?submitType=toModify";
 		return;
 	}
-	
+
 }
 
 
@@ -1194,7 +1194,7 @@ function empsplitGlCode()
 		var arr=document.RecoverySetupForm.emprecovAccCodeId.options[document.RecoverySetupForm.emprecovAccCodeId.selectedIndex].text.split("`-`");
 		//bootbox.alert(arr[0]);
 		//bootbox.alert(arr[1]);
-	
+
 		document.RecoverySetupForm.emprecovAccCodeId.options[document.RecoverySetupForm.emprecovAccCodeId.selectedIndex].text=arr[0];
 		document.getElementById("emprecAccDesc").value=arr[1];
 		document.RecoverySetupForm.emprecovAccCodeId.options[document.RecoverySetupForm.emprecovAccCodeId.selectedIndex].text=arr[0]+"`-`"+arr[1];
@@ -1205,14 +1205,14 @@ function empsplitGlCode()
 	}
 }
 function onBodyLoad()
-{	
-	document.RecoverySetupForm.recMode[0].checked=true;	
+{
+	document.RecoverySetupForm.recMode[0].checked=true;
 	var target="<%=(request.getAttribute("alertMessage"))%>";
 	var buttonType="${buttonType}";
-	
+
 	if(target!="null")
 	{
-		bootbox.alert("<%=request.getAttribute("alertMessage")%>");		
+		bootbox.alert("<%=request.getAttribute("alertMessage")%>");
 	}
 	var mode="${mode}";
 	if(buttonType == "saveclose") {
@@ -1226,7 +1226,7 @@ function onBodyLoad()
 		document.getElementById("calculationType").value = "Flat";
 		callTheType('OL');
 	}
-		
+
 	if(mode == "searchView")
 	{
 			document.title="View Recovery Master";
@@ -1234,7 +1234,7 @@ function onBodyLoad()
 			document.getElementById("hideRow1").style.display="";
 			document.getElementById("SectionRowId").style.display="none";
 			document.getElementById("IFSCCodeRowId").style.display="none";
-			
+
 			hideRowsViewModify();
 			document.getElementById("hidegridRecovery").style.display="none";
 			//document.RecoverySetupForm.recovAccCodeId.options.selectedIndex=0;
@@ -1259,17 +1259,17 @@ function onBodyLoad()
 			document.getElementById("flagRow").style.display="none";
 	}
 	if(mode == "view")
-	{	
+	{
 		document.title="View Recovery Master";
 		//document.getElementById("hidegridRecovery").style.display="block";
 		document.RecoverySetupForm.recMode[0].disabled = true;
 		document.RecoverySetupForm.recMode[1].disabled = true;
-		
+
 		document.getElementById("AddDelId").style.display="none";
 		document.getElementById("hideRow8").style.display="none";
 		document.getElementById("hideRow9").style.display="none";
 		document.getElementById("hideRow12").style.display="none";
-		document.getElementById("hideRow10").style.display="";		
+		document.getElementById("hideRow10").style.display="";
 		//document.getElementById('screenName').innerHTML="View-Recovery Master";
 		if("<%=rsf.getRecMode()%>"=="Automatic")
 		{
@@ -1282,38 +1282,38 @@ function onBodyLoad()
 		{
 			document.getElementById("hidegridRecovery").style.display="none";
 			document.RecoverySetupForm.recMode[1].checked=true;
-			
+
 			document.getElementById("CalculationTypeId1").style.display="none";
 			document.getElementById("CalculationTypeId2").style.display="none";
 		}
 		if(document.RecoverySetupForm.bankLoan.value=="on")
-		{			
+		{
 			getGridData(document.RecoverySetupForm.recovAppliedTo);
-			document.RecoverySetupForm.isBankLoan.checked=true;			
+			document.RecoverySetupForm.isBankLoan.checked=true;
 			document.getElementById("bankLoanCheckBox").style.display="";
 			document.getElementById("bankListRow").style.display="";
 			//document.getElementById("hideRow6").style.display="none";
 		}
 		else
-		{			
+		{
 			getGridData(document.RecoverySetupForm.recovAppliedTo);
-			document.RecoverySetupForm.isBankLoan.checked=false;		
+			document.RecoverySetupForm.isBankLoan.checked=false;
 			//document.getElementById("bankLoanCheckBox").style.display="none";
 			document.getElementById("bankListRow").style.display="none";
 			//document.getElementById("hideRow6").style.display="block";
 		}
-		
+
 		for(var i=0;i<document.RecoverySetupForm.length;i++)
 		{
 			if(document.RecoverySetupForm.elements[i].value != "Back" && document.RecoverySetupForm.elements[i].value != "Close")
 			{
 				document.RecoverySetupForm.elements[i].disabled =true;
-			}					
+			}
 		}
-			
+
 	}
 	if(mode == "modify")
-	{		
+	{
 		document.title="Modify Recovery Master";
 		//document.getElementById("hidegridRecovery").style.display="block";
 		document.getElementById("hideRow8").style.display="none";
@@ -1334,37 +1334,37 @@ function onBodyLoad()
 		{
 			document.getElementById("hidegridRecovery").style.display="none";
 			document.RecoverySetupForm.recMode[1].checked=true;
-			
+
 			document.getElementById("CalculationTypeId1").style.display="none";
 			document.getElementById("CalculationTypeId2").style.display="none";
 		}
-		
+
 		document.RecoverySetupForm.recMode[0].disabled = true;
 		document.RecoverySetupForm.recMode[1].disabled = true;
-		
+
 		if(document.RecoverySetupForm.bankLoan.value=="on")
-		{			
+		{
 			getGridData(document.RecoverySetupForm.recovAppliedTo);
-			document.RecoverySetupForm.isBankLoan.checked=true;			
+			document.RecoverySetupForm.isBankLoan.checked=true;
 			document.getElementById("bankLoanCheckBox").style.display="";
 			document.getElementById("bankListRow").style.display="";
 			//document.getElementById("hideRow6").style.display="none";
 		}
 		else
-		{			
+		{
 			getGridData(document.RecoverySetupForm.recovAppliedTo);
-			document.RecoverySetupForm.isBankLoan.checked=false;		
+			document.RecoverySetupForm.isBankLoan.checked=false;
 			//document.getElementById("bankLoanCheckBox").style.display="none";
 			document.getElementById("bankListRow").style.display="none";
 			//document.getElementById("hideRow6").style.display="block";
 		}
 
 	}
-	
+
 	if(mode == "view" || mode == "modify")
 	{
-		
-		  <% 
+
+		  <%
 		  if(rsf.getIsEarning()!=null) {
 		  		if(rsf.getIsEarning().equalsIgnoreCase("1"))
 		  		{
@@ -1388,7 +1388,7 @@ function onBodyLoad()
 
 		var j=1;
 		var q=1;
-		<% 
+		<%
 		if(rsf.getPartyType()!=null)
 		{
 			if((rsf.getPartyType()!=null && !session.getAttribute("mode").equals("create")))
@@ -1401,9 +1401,9 @@ function onBodyLoad()
 					<%
 				} // After loading combo-Assigned values
 			}
-					
+
 		}
-		
+
 		if(rsf.getDocType()!=null)
 		{
 
@@ -1418,7 +1418,7 @@ function onBodyLoad()
 				<%
 				} // After loading combo-Assigned values
 			}
-			
+
 		}
 		%>
 		//for(var i=2;i<table.rows.length;i++)
@@ -1427,7 +1427,7 @@ function onBodyLoad()
 		//	loadSelectDataForCurrentRow('../commonyui/egov/loadComboAjax.jsp', 'egw_typeofwork', 'ID', 'CODE', 'PARENTID=#1 order by code','docType','subType',currRowObj,'gridRecoverySetup');
 		//} //for
 	} // main if
-	
+
 	/*if(buttonType == "saveclose")
 	{
 		window.close();
@@ -1436,8 +1436,8 @@ function onBodyLoad()
 	{
 		window.location= "../deduction/recoverySetupMaster.do?submitType=toLoad";
 	}*/
-			
-	<% 
+
+	<%
 		if(rsf.getDocType()!=null)
 		{%>
 		if(mode!="create")
@@ -1468,16 +1468,16 @@ function getSelected(obj)
 		document.getElementById("bankLoanCheckBox").style.display="none";
 		document.getElementById("CalculationTypeId1").style.display="";
 		document.getElementById("CalculationTypeId2").style.display="";
-		
-		getGridData(document.RecoverySetupForm.recovAppliedTo);	
+
+		getGridData(document.RecoverySetupForm.recovAppliedTo);
 	}
 	else
-	{		
+	{
 		document.getElementById("bankLoanCheckBox").style.display="";
 		document.getElementById("hidegridRecovery").style.display="none";
 		document.getElementById("CalculationTypeId1").style.display="none";
 		document.getElementById("CalculationTypeId2").style.display="none";
-		
+
 	}
 }
 
@@ -1488,7 +1488,7 @@ function changeAppliedTo(obj) {
 				obj.selectedIndex = document.RecoverySetupForm.recovAppliedToHidden.value;
 				return false;
 			}
-		} 
+		}
 	}
 	document.RecoverySetupForm.recovAppliedToHidden.value = obj.selectedIndex;
 	getGridData(obj);
@@ -1507,16 +1507,16 @@ function getGridData(obj)
 		//loadSelectData('../commonyui/egov/loadComboAjax.jsp', 'egw_typeofwork', 'ID', 'CODE', 'PARTYTYPEID=#1 and PARENTID is not null order by code','recovAppliedTo' ,'subType');
 	}
 	else if(document.RecoverySetupForm.recMode[1].checked && obj.options[obj.selectedIndex].text=='Employee')
-	{		
-		document.getElementById("bankLoanCheckBox").style.display="";		
+	{
+		document.getElementById("bankLoanCheckBox").style.display="";
 	}
 	else
 	{
 		document.getElementById("bankLoanCheckBox").style.display="none";
-		//document.getElementById("hideRow6").style.display="block";	
+		//document.getElementById("hideRow6").style.display="block";
 		document.getElementById("bankListRow").style.display="none";
 	}
-	
+
 	if(obj.options[obj.selectedIndex].text.toLowerCase()=='employee')
 	{
 		document.getElementById("EarDedRow").style.display="";
@@ -1558,7 +1558,7 @@ function getBankList(obj)
 	{
 		document.RecoverySetupForm.isEarning.value=0;
 		document.RecoverySetupForm.isEarning.disabled=true;
-		//document.getElementById("hideRow6").style.display="none";	
+		//document.getElementById("hideRow6").style.display="none";
 		document.getElementById("bankListRow").style.display="";
 		document.RecoverySetupForm.bankLoan.value="on";
 	}
@@ -1568,7 +1568,7 @@ function getBankList(obj)
 		document.RecoverySetupForm.isEarning.disabled=false;
 		document.getElementById("bankListRow").style.display="none";
 		document.RecoverySetupForm.bankLoan.value="off";
-	}	
+	}
 	toggleAccountCodes();
 }
 
@@ -1577,10 +1577,10 @@ function checkDocumentType(obj)
 	var currRow=getRow(obj);
 	var col1 =getControlInBranch(currRow,'docType').value;
 	var col2=getControlInBranch(currRow,"subType").value;
-	
+
 	//bootbox.alert("Current row Doc Type"+col1);
 	//bootbox.alert("Current row Sub Type"+col2);
-	
+
 	if((col2 !=0 && col2 !=""))
 	{
 		if(!(col1 !=0 && col1 !=""))
@@ -1590,7 +1590,7 @@ function checkDocumentType(obj)
 		return false;
 		}
 	}
-		
+
 }
 function deleteExtraRow()
 {
@@ -1605,27 +1605,27 @@ function deleteExtraRow()
 
 			}
 		}
-		
+
 		//if(document.getElementById('recovAppliedTo').value != 0) {
 		//	loadSelectData('../commonyui/egov/loadComboAjax.jsp', 'EG_PARTYTYPE', 'ID', 'CODE', 'parentid=#1 and PARENTID is not null order by code', 'recovAppliedTo', 'partyType');
 		//	loadSelectData('../commonyui/egov/loadComboAjax.jsp', 'egw_typeofwork', 'ID', 'CODE', 'PARTYTYPEID=#1 and PARENTID is null order by code','recovAppliedTo' ,'docType');
 		//}
 }
 
-//donot move this method up 
-function uniqueCheckForEmpEarningCode()                  
+//donot move this method up
+function uniqueCheckForEmpEarningCode()
 {
-	<% 
+	<%
 	if(rsf.getEmprecovAccCodeId()==null)
 	{
 		%>
 		booleanValue = uniqueIdentifierBoolean('../commonyui/egov/uniqueCheckAjax.jsp', 'tds', 'glcodeid', 'emprecovAccCodeId', 'no', 'no');
 		//bootbox.alert("booleanValue "+booleanValue);
 		if(booleanValue==false) {
-			//document.RecoverySetupForm.emprecovAccCodeId.focus();	
+			//document.RecoverySetupForm.emprecovAccCodeId.focus();
 			bootbox.alert("This Account code already used for some other Earnings!!!!");
-			document.RecoverySetupForm.emprecovAccCodeId.focus();	
-			//document.RecoverySetupForm.emprecovAccCodeId.value=0;		
+			document.RecoverySetupForm.emprecovAccCodeId.focus();
+			//document.RecoverySetupForm.emprecovAccCodeId.value=0;
 			return false;
 		}
 		<%
@@ -1636,21 +1636,21 @@ function uniqueCheckForEmpEarningCode()
 		// For Modify Mode
 		var accCodeIdNew=document.getElementById('emprecovAccCodeId').value;
 		var accCodeIdOld="<%=(rsf.getEmprecovAccCodeId())%>";
-		
+
 		//bootbox.alert("accCodeIdNew"+accCodeIdNew);
 		//bootbox.alert("accCodeIdOld"+accCodeIdOld);
-		
+
 		if(accCodeIdNew!=accCodeIdOld)
 		{
 			booleanValue=uniqueIdentifierBoolean('../commonyui/egov/uniqueCheckAjax.jsp', 'tds', 'glcodeid', 'emprecovAccCodeId', 'no', 'no');
 			if(booleanValue==false)
 			{
-	
+
 			bootbox.alert("This Account code already used for some other Earnings!!!!");
-			document.RecoverySetupForm.emprecovAccCodeId.focus();			
+			document.RecoverySetupForm.emprecovAccCodeId.focus();
 			return false;
-			}		
-		}	
+			}
+		}
 	<%
 	}
 	%>
@@ -1660,14 +1660,14 @@ function uniqueCheckForEmpEarningCode()
 function loadRecoveryMasterDetails() {
 	var mode="${mode}";
 	var submitTy = "viewRecoveryMaster";
-	
+
 	if(mode == 'searchModify') {
 		submitTy ="beforeModifyRecoveryMaster";
 	}
 	else if(mode == 'view' || mode == 'searchView') {
 		submitTy ="viewRecoveryMaster";
 	}
-		
+
 	document.RecoverySetupForm.action = "../deduction/recoverySetupMaster.do?submitType="+submitTy;
 	document.RecoverySetupForm.submit();
 }
@@ -1688,26 +1688,26 @@ function callTheType(arg0) {
 		//}
 	}
 	if(argValue == "Percentage") {
-		document.getElementById('ItScEcId').style.display = "";	
+		document.getElementById('ItScEcId').style.display = "";
 		document.getElementById('FlatAmtId').style.display = "none";
-			
+
 		document.getElementById('ItScEcTextId1').style.display = "";
 		document.getElementById('ItScEcTextId2').style.display = "";
 		document.getElementById('ItScEcTextId3').style.display = "";
 		document.getElementById('ItScEcTextId4').style.display = "";
-		
+
 		document.getElementById('flatAmountTextId').style.display = "none";
 	} else {
 		document.getElementById('ItScEcId').style.display = "none";
 		document.getElementById('FlatAmtId').style.display = "";
-		
+
 		document.getElementById('ItScEcTextId1').style.display = "none";
 		document.getElementById('ItScEcTextId2').style.display = "none";
 		document.getElementById('ItScEcTextId3').style.display = "none";
 		document.getElementById('ItScEcTextId4').style.display = "none";
-		
+
 		document.getElementById('flatAmountTextId').style.display = "";
-	} 
+	}
 }
 
 function getTableRow(obj){
@@ -1789,7 +1789,7 @@ function validateBankAccount(obj)
            <td width="63" align="right"><img src="/egi/resources/erp2/images/print.gif" alt="Print" width="18" height="18" border="0" align="absmiddle" /> <a href="#">Print</a></td>
       <td width="63" align="right"><img src="/egi/resources/erp2/images/help.gif" alt="Help" width="18" height="18" border="0" align="absmiddle" /> <a href="#">Help</a></td>
     </tr>
-  </table> 
+  </table>
   </div>
 </div> -->
 
@@ -1803,7 +1803,7 @@ function validateBankAccount(obj)
 				<td class="bluebox"><span class="bold">Method</span>:<span
 					class="mandatory">*</span></td>
 				<td colspan="3" class="bluebox">
-					<!--  
+					<!--
 	    <input name="radiobutton" type="radio" value="radiobutton" align="absmiddle" onclick="show('recoverytable');" checked="checked"/>
 	    <span class="bold" >Automatic</span>
 	    <input name="radiobutton" type="radio" value="radiobutton" align="absmiddle" onclick="hide('recoverytable')"/>
@@ -2031,9 +2031,9 @@ function validateBankAccount(obj)
 					<th width="5%" class="bluebgheadtd" id="AddDelId">Add/del</th>
 				</tr>
 
-				<% 
+				<%
 		if(rsf.getLowAmount()==null && session.getAttribute("mode").equals("create"))
-		{	
+		{
 			logger.info("INSIDE JSP --------------->CREATE MODE");
 	%>
 				<tr id="detailsRow" name="detailsRow" onClick="selected(this);"
@@ -2123,21 +2123,21 @@ function validateBankAccount(obj)
 		}
 		else if((rsf.getLowAmount()!=null && !session.getAttribute("mode").equals("create")))
 		{
-		
+
 			 String FlatAmtStyleMaker = "", PercentageAmtStyleMaker = "";
 			 if(rsf.getCalculationType() != null && rsf.getCalculationType().equals("Percentage")) {
-					FlatAmtStyleMaker = "style='display:none'"; 
+					FlatAmtStyleMaker = "style='display:none'";
 			 } else {
-					PercentageAmtStyleMaker = "style='display:none'"; 
+					PercentageAmtStyleMaker = "style='display:none'";
 			 }
-			
+
 		   for(int i=0;i<rsf.getDocType().length;i++)
 		   {
 		 	logger.info("INSIDE JSP --------------->VIEW/MODIFY MODE");
 		 	logger.info("PARTY TYPE ID------------>"+rsf.getPartyType()[i]);
 			//logger.info("DOC TYPE ID-------------->"+rsf.getDocType()[i]);
-			//logger.info("DOC SUBTYPE ID------------>"+rsf.getSubType()[i]); 
-			//logger.info("LIST OF PTYPE------------>"+session.getAttribute("partyTypeList")); 
+			//logger.info("DOC SUBTYPE ID------------>"+rsf.getSubType()[i]);
+			//logger.info("LIST OF PTYPE------------>"+session.getAttribute("partyTypeList"));
  	 	  %>
 				<tr id="detailsRow" name="detailsRow" onClick="selected(this);"
 					height="40">

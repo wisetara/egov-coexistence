@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -84,7 +84,7 @@ jQuery(document).click(function() {
 			}, maskingTimeForDownloads)
 		}
 	}
-	
+
 });
 
 
@@ -99,10 +99,10 @@ function ajaxSubmit(formId,formUrl,event)
 		    data:  formData,
 		    type : 'POST',
 		    async : false,
-			datatype : 'text',  
-			processData: false, 
+			datatype : 'text',
+			processData: false,
 			contentType: false,
-			   	
+
 			success: function(data)
 			   {
 			     document.getElementById("resultDiv").innerHTML=data;
@@ -112,7 +112,7 @@ function ajaxSubmit(formId,formUrl,event)
 			error: function(jqXHR, textStatus, errorThrown)
 			  {
 			  	 undoLoadingMask();
-			  }         
+			  }
 		});
 	    event.preventDefault();
 
@@ -138,10 +138,10 @@ function DateValidation(start , end){
     if (start != "" && end != "") {
 		var stsplit = start.split("/");
 		var ensplit = end.split("/");
-		
+
 		start = stsplit[1] + "/" + stsplit[0] + "/" + stsplit[2];
 		end = ensplit[1] + "/" + ensplit[0] + "/" + ensplit[2];
-		
+
 		return ValidRange(start, end);
 	}else{
 		return true;
@@ -152,7 +152,7 @@ function ValidRange(start, end) {
 	var retvalue = false;
     var startDate = Date.parse(start);
     var endDate = Date.parse(end);
-	
+
     // Check the date range, 86400000 is the number of milliseconds in one day
     var difference = (endDate - startDate) / (86400000 * 7);
     if (difference < 0) {

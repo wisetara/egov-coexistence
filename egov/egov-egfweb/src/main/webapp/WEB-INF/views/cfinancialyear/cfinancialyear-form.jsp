@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -138,7 +138,7 @@
 														class="form-control text-right patternvalidation" />
 													<input type="hidden" id="cmdaddListId"
 														value="cFiscalPeriod[${counter.index}].id" />
-												</c:if><c:if test="${mode == 'edit'}"> 
+												</c:if><c:if test="${mode == 'edit'}">
 													<input type="text"
 														name="cFiscalPeriod[${counter.index}].name"
 														value="${var1.name}"

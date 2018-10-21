@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -87,12 +87,12 @@ public class BankaccountHibernateDAO  {
     @PersistenceContext
     private EntityManager entityManager;
 
-    
+
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
 
-    
+
 
     public List<Bankaccount> getAllBankAccounts() {
         return getCurrentSession().createQuery("from Bankaccount BA order by BA.accountnumber").list();
@@ -101,7 +101,7 @@ public class BankaccountHibernateDAO  {
     /**
      * This method will return the BankAccount object based on matching
      * bankcode,branchcode,bankaccountanumber
-     * 
+     *
      * @return
      */
     public Bankaccount getBankAccountByAccBranchBank(final String bankAccNum, final String bankBranchCode,
@@ -122,7 +122,7 @@ public class BankaccountHibernateDAO  {
     /**
      * This method will return List of BankAccounts object based on matching
      * bankBranchId
-     * 
+     *
      * @return
      */
     public List<Bankaccount> getBankAccountByBankBranch(final Integer bankBranchId) {
@@ -135,7 +135,7 @@ public class BankaccountHibernateDAO  {
         }
         return bankAccount;
     }
-    
+
     public List<Bankaccount> getBankAccountByBankBranchForReceiptsPayments(final Integer bankBranchId, Integer fundId) {
         final StringBuilder query = new StringBuilder(
                 "from Bankaccount bankacc where bankacc.isactive=true and bankacc.type in ('RECEIPTS_PAYMENTS','RECEIPTS') and bankacc.bankbranch.id=:bankBranchId");

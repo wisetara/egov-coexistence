@@ -1,6 +1,6 @@
   /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -47,42 +47,42 @@
  */
 
 /**
-   * eGov suite of products aim to improve the internal efficiency,transparency, 
-     accountability and the service delivery of the government  organizations.
-  
+   * eGov suite of products aim to improve the internal efficiency, transparency,
+     accountability and the service delivery of the government organizations.
+
       Copyright (C) <2015>  eGovernments Foundation
-  
-      The updated version of eGov suite of products as by eGovernments Foundation 
+
+      The updated version of eGov suite of products as by eGovernments Foundation
       is available at http://www.egovernments.org
-  
+
       This program is free software: you can redistribute it and/or modify
       it under the terms of the GNU General Public License as published by
       the Free Software Foundation, either version 3 of the License, or
       any later version.
-  
+
       This program is distributed in the hope that it will be useful,
       but WITHOUT ANY WARRANTY; without even the implied warranty of
       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
       GNU General Public License for more details.
-  
+
       You should have received a copy of the GNU General Public License
-      along with this program. If not, see http://www.gnu.org/licenses/ or 
+      along with this program. If not, see http://www.gnu.org/licenses/ or
       http://www.gnu.org/licenses/gpl.html .
-  
+
       In addition to the terms of the GPL license to be adhered to in using this
       program, the following additional terms are to be complied with:
-  
-  	1) All versions of this program, verbatim or modified must carry this 
+
+  	1) All versions of this program, verbatim or modified must carry this
   	   Legal Notice.
-  
-  	2) Any misrepresentation of the origin of the material is prohibited. It 
-  	   is required that all modified versions of this material be marked in 
+
+  	2) Any misrepresentation of the origin of the material is prohibited. It
+  	   is required that all modified versions of this material be marked in
   	   reasonable ways as different from the original version.
-  
-  	3) This license does not grant any rights to any user of the program 
-  	   with regards to rights under trademark law for use of the trade names 
+
+  	3) This license does not grant any rights to any user of the program
+  	   with regards to rights under trademark law for use of the trade names
   	   or trademarks of eGovernments Foundation.
-  
+
     In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
    */
 // JavaScript Document
@@ -97,7 +97,7 @@ function MM_goToURL() { //v3.0
 }
 function MM_showHideLayers() { //v9.0
   var i,p,v,obj,args=MM_showHideLayers.arguments;
-  for (i=0; i<(args.length-2); i+=3) 
+  for (i=0; i<(args.length-2); i+=3)
   with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
     if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
     obj.visibility=v; }
@@ -134,13 +134,13 @@ function switchcontent(className, filtertag){
 	this.ajaxheaders={} //object to hold path to ajax content for corresponding header (ie: ajaxheaders["header1"]='external.htm')
 }
 
-switchcontent.prototype.setColor=function(openColor, closeColor){ 
+switchcontent.prototype.setColor=function(openColor, closeColor){
 //PUBLIC: Set open/ closing color of switch header. Optional
 	this.colorOpen=openColor
 	this.colorClosed=closeColor
 }
 
-switchcontent.prototype.setPersist=function(bool, days){ 
+switchcontent.prototype.setPersist=function(bool, days){
 //PUBLIC: Enable/ disable persistence. Default is false.
 	if (bool==true){ //if enable persistence
 		if (typeof days=="undefined") //if session only
@@ -158,12 +158,12 @@ switchcontent.prototype.collapsePrevious=function(bool){ //PUBLIC: Enable/ disab
 	this.collapsePrev=bool
 }
 
-switchcontent.prototype.setContent=function(index, filepath){ 
+switchcontent.prototype.setContent=function(index, filepath){
 //PUBLIC: Set path to ajax content for corresponding header based on header index
 	this.ajaxheaders["header"+index]=filepath
 }
 
-switchcontent.prototype.sweepToggle=function(setting){ 
+switchcontent.prototype.sweepToggle=function(setting){
 //PUBLIC: Expand/ contract all contents method. (Values: "contract"|"expand")
 	if (typeof this.headers!="undefined" && this.headers.length>0){ //if there are switch contents defined on the page
 		for (var i=0; i<this.headers.length; i++){
@@ -176,7 +176,7 @@ switchcontent.prototype.sweepToggle=function(setting){
 }
 
 
-switchcontent.prototype.defaultExpanded=function(){ 
+switchcontent.prototype.defaultExpanded=function(){
 //PUBLIC: Set contents that should be expanded by default when the page loads (ie: defaultExpanded(0,2,3)). Persistence if enabled overrides this setting.
 	var expandedindices=[] //Array to hold indices (position) of content to be expanded by default
 	//Loop through function arguments, and store each one within array
@@ -347,7 +347,7 @@ switchcontent.connect=function(pageurl, header){
 	if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
 		try {
 		page_request = new ActiveXObject("Msxml2.XMLHTTP")
-		} 
+		}
 		catch (e){
 			try{
 			page_request = new ActiveXObject("Microsoft.XMLHTTP")
@@ -375,7 +375,7 @@ switchcontent.loadpage=function(page_request, header){
 	}
 }
 
-switchcontent.getCookie=function(Name){ 
+switchcontent.getCookie=function(Name){
 	var re=new RegExp(Name+"=[^;]+", "i"); //construct RE to search for target name/value pair
 	if (document.cookie.match(re)) //if cookie found
 		return document.cookie.match(re)[0].split("=")[1] //return its value
@@ -423,7 +423,7 @@ function waterMarkInitialize(styleId,value)
 }
 
 /**
-* Check whether the values entered in the date fields are in dd/MM/yyyy format 
+* Check whether the values entered in the date fields are in dd/MM/yyyy format
 * and whether the dd, MM and yyyy values are valid
 **/
 function validateDateFormat(obj)
@@ -439,18 +439,18 @@ function validateDateFormat(obj)
 	 var feb=false;
 	 var validDate=true;
 	 var Ret=true;
- 
+
     if(dtStr!="" && dtStr!=null)
     {
     	year=dtStr.substr(6,4);
     	month=dtStr.substr(3,2);
     	day=dtStr.substr(0,2);
-    	if(dtStr.indexOf("/")=="2" && dtStr.lastIndexOf("/")=="5")    	
-    	validDate=true;    	
-    	else    	
+    	if(dtStr.indexOf("/")=="2" && dtStr.lastIndexOf("/")=="5")
+    	validDate=true;
+    	else
     	validDate=false;
-    	
-    	
+
+
     	if(dtStr.length>10 || year=="0000" || year<1900 || month=="00" || day=="00")
     	{
     		validDate=false;
@@ -471,49 +471,49 @@ function validateDateFormat(obj)
     				feb=true;
     			}
     		}
-    	
+
     		else if(month=="02" && day>28)
-    		{    
+    		{
     			valid=false;
     			feb=true;
     		}
-    		
+
     		if(feb==false)
-    		{    	
+    		{
     			if(month=="03" || month=="01" || month=="05" || month=="07" || month=="08" || month=="10" || month=="12")
     			{
     				if(day>31)
-    				{    					
+    				{
     					oth_valid=false;
     				}
     			}
-    		
-    			else if(month=="04" || month==06 || month=="09" || month=="11") 
+
+    			else if(month=="04" || month==06 || month=="09" || month=="11")
     			{
     				if(day>30)
-    				{    					
+    				{
     					oth_valid=false;
     				}
     			}
-    		
+
     			else
     			{
     				oth_valid=false;
     			}
-    		
+
     		}
     	}
-    }	
+    }
     if(valid==false || oth_valid==false || validDate==false)
     {
     	// dom.get("invaliddateformat").style.display="block";
-    	
+
         document.getElementById("invaliddateformat").style.display="block";
     	obj.value="";
     	obj.focus();
     	Ret=false;
     }
-    
+
     return Ret;
 }
 
@@ -522,28 +522,28 @@ function validateDateFormat(obj)
 **/
 function checkFdateTdate(fromDate,toDate)
 {
-	//ENTERED DATE FORMAT MM/DD/YYYY	
+	//ENTERED DATE FORMAT MM/DD/YYYY
 
 	if(fromDate.substr(6,4) > toDate.substr(6,4))
 	{
 		return false;
 	}
-	
+
 	else if(fromDate.substr(6,4) == toDate.substr(6,4))
 	{
 		if(fromDate.substr(3,2) > toDate.substr(3,2))
 		{
 			return false;
 		}
-	   
+
 		else if(fromDate.substr(3,2) == toDate.substr(3,2))
 		{
 			if(fromDate.substr(0,2) > toDate.substr(0,2))
 			{
 				return false;
-			}	
-	
-			else 
+			}
+
+			else
 			{
 				return true;
 			}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -66,10 +66,10 @@
         <many-to-one name="accountDetailKey" class="org.egov.commons.Accountdetailkey" fetch="select">
             <column name="accountdetailskey" precision="22" scale="0" not-null="true" />
         </many-to-one>
-        
+
         <property name="amount" type="big_decimal">
             <column name="AMOUNT" precision="22" scale="0" />
         </property>
-        
+
     </class>
 </hibernate-mapping>

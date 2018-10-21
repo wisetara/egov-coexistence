@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -65,7 +65,7 @@ function validate()
 	var strtDate=document.getElementById('fromDate').value;
 	var endDate=document.getElementById('toDate').value;
 	if(fundValue!=null && fundValue!=-1)
-	{	
+	{
 		if(strtDate.length !=0 && endDate.length !=0)
 		{
 			if( compareDate(formatDateToDDMMYYYY1(strtDate),formatDateToDDMMYYYY1(endDate)) == -1 )
@@ -74,14 +74,14 @@ function validate()
 				return false;
 		    }
 		 }
-		
+
 	}
 	else
 	{
 		bootbox.alert("Please select a fund");
 		return false;
 	}
-	
+
 	document.billForm.action='/services/EGF/voucher/cancelBill-search.action';
 	document.billForm.submit();
 	return true;
@@ -115,7 +115,7 @@ function validateCancel()
 		<jsp:include page="../budget/budgetHeader.jsp">
 			<jsp:param name="heading" value="Bill Cancellation" />
 		</jsp:include>
-		<span id="errorSpan"> 
+		<span id="errorSpan">
 		<div style="color: red;"><s:actionerror /> <s:fielderror /></div>
 		 <div style="color: green;"><s:actionmessage /></div>
 		</span>
@@ -161,15 +161,15 @@ function validateCancel()
 							id="deptImpl.code" list="dropdownData.DepartmentList" listKey="code"
 							listValue="name" headerKey="-1" headerValue="----Choose----"
 							value="%{deptImpl.code}" /></td>
-					
-				
+
+
 					<td class="greybox"><s:text name="payment.expendituretype" />
 					</td>
-					
+
 					<td class="greybox"><s:select name="expType" id="expType"
 							list="dropdownData.expenditureList"
 							value="%{expType}" headerKey="" headerValue="--- Select ---" /></td>
-					
+
 				</tr>
 			</table>
 			<div class="buttonbottom">

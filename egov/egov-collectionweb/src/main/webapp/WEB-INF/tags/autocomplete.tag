@@ -14,8 +14,8 @@
 <%@ attribute name="width"%>
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -75,7 +75,7 @@
 <script type="text/javascript">
 
 <%=name%>Request = function() {
-	
+
     var <%=name%>DS = new YAHOO.util.XHRDataSource("<%=url%>");
     // Set the responseType
     <%=name%>DS.responseType = YAHOO.util.XHRDataSource.TYPE_JSON;
@@ -93,47 +93,47 @@
     <%}%>
     <%=name%>AC.generateRequest = function(sQuery){
         var dataType = this.dataSource.dataType;
-        
+
         // Transform query string in to a request for remote data
         // By default, local data doesn't need a transformation, just passes along the query as is.
         if(dataType === YAHOO.util.DataSourceBase.TYPE_XHR) {
             // By default, XHR GET requests look like "{scriptURI}?{scriptQueryParam}={sQuery}&{scriptQueryAppend}"
             if(!this.dataSource.connMethodPost) {
-                sQuery = (this.queryQuestionMark ? "?" : "") + (this.dataSource.scriptQueryParam || "query") + "=" + sQuery + 
-                    (this.dataSource.scriptQueryAppend ? ("&" + this.dataSource.scriptQueryAppend) : "");        
+                sQuery = (this.queryQuestionMark ? "?" : "") + (this.dataSource.scriptQueryParam || "query") + "=" + sQuery +
+                    (this.dataSource.scriptQueryAppend ? ("&" + this.dataSource.scriptQueryAppend) : "");
             }
             // By default, XHR POST bodies are sent to the {scriptURI} like "{scriptQueryParam}={sQuery}&{scriptQueryAppend}"
             else {
-                sQuery = (this.dataSource.scriptQueryParam || "query") + "=" + sQuery + 
+                sQuery = (this.dataSource.scriptQueryParam || "query") + "=" + sQuery +
                     (this.dataSource.scriptQueryAppend ? ("&" + this.dataSource.scriptQueryAppend) : "");
             }
         }
         // By default, remote script node requests look like "{scriptURI}&{scriptCallbackParam}={callbackString}&{scriptQueryParam}={sQuery}&{scriptQueryAppend}"
         else if(dataType === YAHOO.util.DataSourceBase.TYPE_SCRIPTNODE) {
-            sQuery = "&" + (this.dataSource.scriptQueryParam || "query") + "=" + sQuery + 
-                (this.dataSource.scriptQueryAppend ? ("&" + this.dataSource.scriptQueryAppend) : "");    
+            sQuery = "&" + (this.dataSource.scriptQueryParam || "query") + "=" + sQuery +
+                (this.dataSource.scriptQueryAppend ? ("&" + this.dataSource.scriptQueryAppend) : "");
         }
-        
+
        var params=''
        <%if(paramsFunction!=null && !"".equals(paramsFunction.trim())){%>
        	  params="&"+<%=paramsFunction%>();
 	<%}%>
        return sQuery+params;
-      
+
     }
-    <%=name%>AC.minQueryLength=<%=queryLength%>  
+    <%=name%>AC.minQueryLength=<%=queryLength%>
     <%=name%>AC.queryDelay = .5;
 	<%=name%>AC.useIFrame =  true;
 	<%=name%>AC.maxResultsDisplayed=<%=maxResults%>
     <%if(handler!=null && !"".equals(handler.trim())){%>
         <%=name%>AC.itemSelectEvent.subscribe(<%=handler%>);
-    <%}%>   
+    <%}%>
     <%if(queryQuestionMark!=null && !"".equals(queryQuestionMark.trim())){%>
         <%=name%>AC.queryQuestionMark=<%=queryQuestionMark%>;
-    <%}%>  
+    <%}%>
     <%if(forceSelectionHandler!=null && !"".equals(forceSelectionHandler.trim())){%>
-        <%=name%>AC.forceSelection = true;  
-    <%}%>  
+        <%=name%>AC.forceSelection = true;
+    <%}%>
 
     return {
         <%=name%>DS: <%=name%>DS,
@@ -141,4 +141,4 @@
     };
 }();
 </script>
- 
+

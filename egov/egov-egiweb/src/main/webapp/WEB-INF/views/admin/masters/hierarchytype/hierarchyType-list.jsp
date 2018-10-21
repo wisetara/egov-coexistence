@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -64,8 +64,8 @@
 							<div class="panel-title">
 								<strong><spring:message code="lbl.hdr.viewHierarchyType"/></strong>
 							</div>
-						</div> 
-						
+						</div>
+
 						<div class="panel-body custom-form">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">
@@ -86,14 +86,14 @@
 
                     <div class="form-group">
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary"><spring:message code="lbl.submit"/></button>                           
+                            <button type="submit" class="btn btn-primary"><spring:message code="lbl.submit"/></button>
                             <button type="reset" class="btn btn-default"><spring:message code="lbl.reset"/></button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" onclick="self.close()">
                             	<spring:message code="lbl.close"/>
                             </button>
                         </div>
                     </div>
-                    
+
                 </form:form>
             </div>
 </div>

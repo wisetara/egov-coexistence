@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,10 +51,10 @@
 <head>
 	<title><s:text name="searchchallan.title"/></title>
 	<script>
-	
+
 	jQuery.noConflict();
 	jQuery(document).ready(function() {
-	  	 
+
 	     jQuery(" form ").submit(function( event ) {
 	    	 doLoadingMask();
 	    });
@@ -64,21 +64,21 @@
 	jQuery(window).load(function () {
 		undoLoadingMask();
 	});
-	
+
 	function openChallan(receiptId){
 	var leftPos=document.body.clientWidth;
-	window.open ("${pageContext.request.contextPath}"+"/receipts/challan-viewChallan.action?sourcePage=search&receiptId="+receiptId,"ViewChallan","resizable=yes,scrollbars=yes,left="+leftPos+",top=40, width=900, height=650"); 
+	window.open ("${pageContext.request.contextPath}"+"/receipts/challan-viewChallan.action?sourcePage=search&receiptId="+receiptId,"ViewChallan","resizable=yes,scrollbars=yes,left="+leftPos+",top=40, width=900, height=650");
 	}
 
    function  populateService(serviceCategory){
-    	populateserviceId({serviceCatId:serviceCategory.options[serviceCategory.selectedIndex].value});	
+    	populateserviceId({serviceCatId:serviceCategory.options[serviceCategory.selectedIndex].value});
     }
 
    <jsp:useBean id="now" class="java.util.Date" />
 
    <fmt:formatDate var = "currDate" pattern="dd/MM/yyyy" value="${now}" />
    	var currDate = "${currDate}";
-	
+
 	function validate()
 	{
 		if(dom.get("actionErrorMessages")!=null){
@@ -96,12 +96,12 @@
 			dom.get("errorMessages").style.display="block";
 			document.getElementById("errorMessages").innerHTML='<s:text name="searchchallan.selectonecriteria" />'+ '<br>';
 			return false;
-		
+
 		}
 		var valSuccess = true;
 		document.getElementById("errorMessages").innerHTML = "";
-		document.getElementById("errorMessages").style.display="none"; 
-	
+		document.getElementById("errorMessages").style.display="none";
+
 			if (fromdate != "" && todate != "" && fromdate != todate) {
 				if (!checkFdateTdate(fromdate, todate)) {
 					document.getElementById("errorMessages").style.display = "block";
@@ -122,9 +122,9 @@
 					valSuccess = false;
 				}
 			}
-	
+
 			return valSuccess;
-	
+
 		doLoadingMask('#loadingMask');
 }
 	</script>
@@ -169,7 +169,7 @@
        	<egov:ajaxdropdown id="service" fields="['Text','Value']" dropdownId="serviceId" url="receipts/ajaxReceiptCreate-ajaxLoadServiceByCategoryForChallan.action" /></td>
 	      <td width="21%" class="bluebox2"><s:text name="miscreceipt.service"/></td>
 	      <td width="24%" class="bluebox2"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="serviceId" id="serviceId" cssClass="selectwk" list="dropdownData.serviceList" listKey="id" listValue="name"  /></td>
-	    </tr>	
+	    </tr>
 	    <tr>
 	     <td width="4%" class="bluebox">&nbsp;</td>
 	     <td width="21%" class="bluebox2"><s:text name="searchchallan.status"/></td>
@@ -192,7 +192,7 @@
 		</display:column>
 <display:column headerClass="bluebgheadtd" class="blueborderfortd" title="Challan No." style="width:10%">
 <div align="center">
-	<s:hidden name="currentRow.challan.challanNumber" value="%{currentRow.challan.challanNumber}"/> 
+	<s:hidden name="currentRow.challan.challanNumber" value="%{currentRow.challan.challanNumber}"/>
 	 <c:if test="${not empty currentRow.challan.challanNumber}">  <a href="#" onclick="openChallan('${currentRow.id}')"><c:out value="${currentRow.challan.challanNumber}"/></a></c:if>
 </div>
 </display:column>
@@ -207,14 +207,14 @@
 </s:if>
  <s:if test="%{results.isEmpty()}">
 	<s:if test="target=='searchresult'">
-	
+
 		<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablebottom">
-		<tr> 
+		<tr>
 			<div>&nbsp;</div>
 			<div class="subheadnew"><s:text name="searchresult.norecord"/></div>
 		</tr>
 		</table>
-	
+
 	</s:if>
 </s:if>
 </s:form>

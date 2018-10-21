@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -115,8 +115,8 @@ public class AdvancePaymentAction extends BasePaymentAction {
     private PersistenceService<Miscbilldetail, Long> miscbilldetailService;
     private Map<String, String> modeOfPaymentMap = new LinkedHashMap<String, String>();
     private EgovCommon egovCommon;
-    @Autowired 
-    @Qualifier("persistenceService") 
+    @Autowired
+    @Qualifier("persistenceService")
     private PersistenceService persistenceService;
     @Autowired
     CreateVoucher createVoucher;

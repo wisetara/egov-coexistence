@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -314,7 +314,7 @@ function exportPdf()
 		<div class="buttonbottom" id="buttondiv" align="center">
 			<table>
 				<tr>
-					<input type="submit" value="Export EXCEL" 
+					<input type="submit" value="Export EXCEL"
 						class="buttonsubmit"
 						onclick="exportXls();" />
 					<input type="submit" value="Export PDF" class="buttonsubmit"

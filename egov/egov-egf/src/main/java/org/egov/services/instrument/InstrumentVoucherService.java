@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -62,9 +62,9 @@ public class InstrumentVoucherService extends PersistenceService<InstrumentVouch
     public InstrumentVoucherService(Class<InstrumentVoucher> type) {
         super(type);
     }
-    
+
     public InstrumentVoucher getInstrumentVoucherByVoucherHeader(Long instrumentHeaderId){
-        
+
        return find("from InstrumentVoucher where instrumentHeaderId.id=?",instrumentHeaderId);
     }
 }

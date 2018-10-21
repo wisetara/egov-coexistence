@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -80,7 +80,7 @@ public class BalanceSheetService extends ReportService {
     private static final String L = "L";
     private static final BigDecimal NEGATIVE = new BigDecimal(-1);
     private String removeEntrysWithZeroAmount = "";
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -108,7 +108,7 @@ public class BalanceSheetService extends ReportService {
                 .createSQLQuery(
                         "select sum(openingdebitbalance)- sum(openingcreditbalance),ts.fundid,coa.majorcode,coa.type FROM transactionsummary ts,chartofaccounts coa  WHERE ts.glcodeid = coa.ID  AND ts.financialyearid="
                                 + balanceSheet.getFinancialYear().getId()
-                       
+
                                 + transactionQuery
                                 + " GROUP BY ts.fundid,coa.majorcode,coa.type");
         final List<Object[]> openingBalanceAmountList = query.list();
@@ -183,11 +183,11 @@ public class BalanceSheetService extends ReportService {
         qry.append(" and coa.ID=g.glcodeid and coa.type in ('I','E') " + filterQuery + " group by v.fundid");
         final Query query = persistenceService.getSession().createSQLQuery(qry.toString());
         final List<Object[]> excessieAmountList = query.list();
-        
+
         for (final StatementEntry entry : balanceSheet.getEntries())
             if (entry.getGlCode() != null && glCodeForExcessIE.equals(entry.getGlCode()))
                 for (final Object[] obj : excessieAmountList){
-                	
+
                     if (obj[0] != null && obj[1] != null) {
                         final String fundNameForId = getFundNameForId(fundList, Integer.valueOf(obj[1].toString()));
                         if (entry.getFundWiseAmount().containsKey(fundNameForId))
@@ -214,7 +214,7 @@ public class BalanceSheetService extends ReportService {
             cal.add(Calendar.DATE, -1);
             formattedToDate = getFormattedDate(cal.getTime());
         }
-        else 
+        else
             formattedToDate = getFormattedDate(getPreviousYearFor(toDate));
         StringBuffer qry = new StringBuffer(256);
         qry = qry.append("		select sum(g.creditamount)-sum(g.debitamount),v.fundid  from voucherheader v,generalledger g, ");

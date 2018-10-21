@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -52,10 +52,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface GeoLocationConstants {
-	
+
 	String GEOLOCATIONLIST_ATTRIBUTE = "geoLocationList";
 	String KML_FILENAME_ATTRIBUTE = "kmlfilename";
-	
+
 	String MARKEROPTION_ANIMATION ="animation";
 	String MARKEROPTION_CLICKABLE ="clickable";
 	String MARKEROPTION_CURSOR ="cursor";
@@ -70,8 +70,8 @@ public interface GeoLocationConstants {
 	String MARKEROPTION_VISIBLE ="visible";
 	String MARKEROPTION_ZINDEX ="zIndex";
 
-	
-	
+
+
 	String MARKEROPTION_ICON_RED = "red" ;
 	String MARKEROPTION_ICON_ORANGE = "orange" ;
 	String MARKEROPTION_ICON_YELLOW = "yellow" ;
@@ -79,30 +79,30 @@ public interface GeoLocationConstants {
 	String MARKEROPTION_ICON_GREEN = "green" ;
 	String MARKEROPTION_ICON_PURPLE = "purple";
 	String MARKEROPTION_ICON_PINK = "pink";
-	
+
 	String PGR_GOOGLE_MAP_URL_REDIRECT_PATH = "/pgr/staff/greComplaintHistory.jsp?ComplaintNumber=";
-	
+
 	String PGR_GOOGLE_MAP_URL_DISPLAY = "/pgr/citizen/xmlRequest!getGeoDisplayUrl.action?ComplaintNumber=";
-	
+
 	String BASE_KML_CLASS_PATH_FILE_NAME = "base.kml";
-	
+
 	String KML_URL_PATH_REQ_ATTR_NAME = "kmlurlpath";
-	
+
 	String KML_FREEMARKER_PROPERRIES_FILENAME = "wardcolor.properties";
-	
+
 	String KML_DATA_MODEL_SESSION_NAME = "kmldatamodel";
-	
+
 	String KML_DATA_MODEL_JBOSS_CACHE_KEY_NAME = "kmlDataModelKey";
-	
+
 	String KML_DATA_JBOSS_CACHE_NODE ="GMAP/"+"kmlMapData";
-	
+
 	String KML_STYLE_COLOR = "color";
-	
-	
+
+
 	String COLOR_CODE_AND_RANGE_MAP_NAME = "colorCodeAndRange";
-	
+
 	/**
-	 * 
+	 *
 	 */
 
     Map<Integer, String> COLORCODES = new HashMap<Integer, String>() {

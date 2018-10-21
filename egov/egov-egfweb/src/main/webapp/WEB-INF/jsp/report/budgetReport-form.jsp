@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -59,7 +59,7 @@ function validateData(){
 		bootbox.alert("Please select a Budget")
 		return false;
 	}
-	return true;	
+	return true;
 }
 
 	var callback = {
@@ -70,7 +70,7 @@ function validateData(){
 		failure: function(o) {
 	    }
 	}
-	
+
 	function populateBudgets(){
 		var finYear = document.getElementById('financialYear');
 		if(finYear.value == -1)
@@ -83,7 +83,7 @@ function validateData(){
 		var url = '/EGF/report/budgetReport!ajaxLoadBudgets.action?budgetDetail.budget.financialYear.id='+finYear.value+'&budgetDetail.budget.isbere='+bereValue;
 		YAHOO.util.Connect.asyncRequest('POST', url, callback, null);
 	}
-	
+
 	function exportXls(){
 		var finYear =  document.getElementById('financialYear').value;
 		var budget =  document.getElementById('budget').value;
@@ -99,7 +99,7 @@ function validateData(){
 		var budgetGroup =  document.getElementById('budgetGroup').value;
 		window.open('/EGF/report/budgetReport!exportPdf.action?budgetDetail.budget.financialYear.id='+finYear+'&budgetDetail.budget.id='+budget+'&budgetDetail.budgetGroup.id='+budgetGroup+'&budgetDetail.executingDepartment.id='+department,'','resizable=yes,height=650,width=900,scrollbars=yes,left=30,top=30,status=no');
 	}
-	
+
 </script>
 <body>
 	<div class="formmainbox">

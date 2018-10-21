@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -112,9 +112,9 @@ function checkMiscAttributes(obj)
 		if(document.getElementsByName(deptName) && document.getElementsByName(deptName).item(0) != null )
 			mis = mis+'#'+( document.getElementsByName(deptName).item(0)).value; */
 		if(document.getElementsByName(functionaryName) && document.getElementsByName(functionaryName).item(0) != null)
-			mis = mis+'#'+( document.getElementsByName(functionaryName).item(0)).value;	
+			mis = mis+'#'+( document.getElementsByName(functionaryName).item(0)).value;
 		if(document.getElementsByName(fundsourceName) && document.getElementsByName(fundsourceName).item(0) != null)
-			mis = mis+'#'+( document.getElementsByName(fundsourceName).item(0)).value;	
+			mis = mis+'#'+( document.getElementsByName(fundsourceName).item(0)).value;
 		if(document.getElementsByName(schemeName) && document.getElementsByName(schemeName).item(0) != null)
 			mis = mis+'#'+( document.getElementsByName(schemeName).item(0)).value;
 		if(document.getElementsByName(subschemeName) && document.getElementsByName(subschemeName).item(0) != null)
@@ -124,15 +124,15 @@ function checkMiscAttributes(obj)
 
 		if(document.getElementById('miscattributes').value=='')
 			document.getElementById('miscattributes').value = mis;
-		
+
 		if(mis!=document.getElementById('miscattributes').value)
 		{
 			bootbox.alert('Selected bills do not have same attributes. Please select bills with same attributes');
 			obj.checked =false;
 			return;
-			
+
 		}
-		document.getElementById('miscount').value=parseInt(document.getElementById('miscount').value)+1;		
+		document.getElementById('miscount').value=parseInt(document.getElementById('miscount').value)+1;
 	}
 	else
 	{
@@ -142,12 +142,12 @@ function checkMiscAttributes(obj)
 	}
 	calculatePaymentTotal();
 }
-function check()                   
+function check()
 {
 
-	
-    
-   
+
+
+
 	var rtgsMode = document.getElementById("rtgsDefaultMode").value;
 	//var restrictionDate = document.getElementById("paymentRestrictionDateForCJV").value;
 	var restrictionDateForCJV = document.getElementById("rtgsModeRestrictionDateForCJV").value;
@@ -159,25 +159,25 @@ function check()
 		for ( var i = 0; i < length; i++){
 			if(document.getElementsByName('contractorList['+i+'].isSelected')[0].checked)
 			{
-				
-				/*var billdt=document.getElementsByName('contractorList['+i+'].billDate')[0];          
-				if( compareDate(restrictionDateForCJV,billdt) == 1){                                 
-						isAnyOneContratorBillChecked = true;                    
+
+				/*var billdt=document.getElementsByName('contractorList['+i+'].billDate')[0];
+				if( compareDate(restrictionDateForCJV,billdt) == 1){
+						isAnyOneContratorBillChecked = true;
 						break;
 				}
 				*/
 			}
-		}             
-		
+		}
+
 		if(!document.getElementById("paymentModertgs").checked &&  isAnyOneContratorBillChecked)
 		{
 			bootbox.alert("Mode of payment for contractor bills should only be RTGS");
 			return false;
-		}	
-       addSelectedToForm2();   
+		}
+       addSelectedToForm2();
 		document.form2.action='${pageContext.request.contextPath}/payment/payment-save.action';
 		document.form2.submit();
-	}	             
+	}
 	if(document.getElementById('miscount').value==0)
 	{
 		bootbox.alert('Please select a bill before making the payment');
@@ -185,7 +185,7 @@ function check()
 	}
 	if(document.getElementById('vouchermis.departmentid'))
 		document.getElementById('vouchermis.departmentid').disabled=false;
-    addSelectedToForm2();  
+    addSelectedToForm2();
 	document.form2.action='${pageContext.request.contextPath}/payment/payment-save.action';
 	document.form2.submit();
 	return true;
@@ -197,17 +197,17 @@ function search()
 		document.getElementById('vouchermis.departmentid').disabled=false;
 	var fund = document.getElementById('fundId').value;
 	if(fund == "-1"){
-		bootbox.alert("Please select fund");   
-		return false;  
+		bootbox.alert("Please select fund");
+		return false;
 	}else{
 		document.getElementById("search").innerHTML="";
 		document.getElementById("search").innerHTML=document.getElementById("searchtab").innerHTML;
 		setSelectedValues();
 		document.form2.action='${pageContext.request.contextPath}/payment/payment-search.action';
-		document.form2.submit();  
-		
+		document.form2.submit();
+
 	}
-	
+
 }
 
 function setSelectedValues()
@@ -220,7 +220,7 @@ function setSelectedValues()
 	var fundsource=document.getElementById("vouchermis.fundsource");
 	var schemeid=document.getElementById("vouchermis.schemeid");
 	var subschemeid=document.getElementById("vouchermis.subschemeid");
-	var functionId=document.getElementById("vouchermis.function"); 
+	var functionId=document.getElementById("vouchermis.function");
 	var departmentid=document.getElementById('vouchermis.departmentid');
 
 	jQuery("#search input[name='billNumber']").val('');
@@ -233,11 +233,11 @@ function setSelectedValues()
 	jQuery('#search select[name="vouchermis.schemeid"] option:selected').removeAttr('selected');
 	jQuery('#search select[name="vouchermis.subschemeid"] option:selected').removeAttr('selected');
 	jQuery('#search select[name="vouchermis.function"] option:selected').removeAttr('selected');
-	
+
 	if(billNumber!=null&& billNumber.value!=""){
-		
+
 		jQuery("#search input[name='billNumber']").val(billNumber.value);
-		jQuery("#search input[name='billNumber']").attr('value',billNumber.value); 
+		jQuery("#search input[name='billNumber']").attr('value',billNumber.value);
 	}
 	if(fromDate!=null&& fromDate.value!="")
 	{
@@ -263,7 +263,7 @@ function setSelectedValues()
 		jQuery("#search").find('select[name="vouchermis.departmentid"]').val(departmentid.value);
 	}
 	if(functionId!=null && functionId.value!="-1")
-		jQuery("#search").find('select[name="vouchermis.function"]').val(functionId.value); 
+		jQuery("#search").find('select[name="vouchermis.function"]').val(functionId.value);
 }
 
 function selectAllContractors(element){
@@ -271,7 +271,7 @@ function selectAllContractors(element){
 	<s:if test="%{contractorList!=null}">
 		length = <s:property value="%{contractorList.size()}"/>;
 	</s:if>
-	
+
 	if(element.checked == true)	{
 		var concnt=checkcontractorForSameMisAttribs('contractorList',length);
 		if(concnt!=0){
@@ -307,15 +307,15 @@ function selectAllContingent(element){
 	<s:if test="%{contingentList!=null}">
 		length = <s:property value="%{contingentList.size()}"/>;
 	</s:if>
-	
+
 	if(element.checked == true){
-		 
+
 		 var expcnt=checkContingentForSameMisAttribs('contingentList',length);
 		 if(expcnt!=0){
 		  bootbox.alert("Selected Bills doesnot have same attributes" );
 		  document.getElementById('expSelectAll').checked =false;    }
 		  else
-		  checkAll('contingentList',length); 
+		  checkAll('contingentList',length);
 		}
 	else
 		uncheckAll('contingentList',length);
@@ -382,56 +382,56 @@ function checkcontractorForSameMisAttribs(obj,len)
 		   if(fund1[0].value != null && fund1[0].value !=(document.getElementsByName(obj+"["+i+"].fundName").item(0)).value) {
 		   	document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		  	concount++; break;}}
-		  	</s:if>                     
-		   
-		   <s:if test="%{shouldShowHeaderField('department')}"> 
-		   if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){  	
+		  	</s:if>
+
+		   <s:if test="%{shouldShowHeaderField('department')}">
+		   if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){
 		   if(dept1[0].value != null &&  dept1[0].value !=(document.getElementsByName(obj+"["+i+"].deptName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   concount++; break;}}
 		   </s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('function')}"> 
-		   if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){  	
+
+		   <s:if test="%{shouldShowHeaderField('function')}">
+		   if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){
 		   if(function1[0].value != null &&  function1[0].value !=(document.getElementsByName(obj+"["+i+"].functionName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   concount++; break;}}
 		   </s:if>
-		    
+
 		     <s:if test="%{shouldShowHeaderField('functionary')}">
 		    if(document.getElementsByName(obj+"["+i+"].functionaryName")!=null){
 		    if(functionaryName1[0].value != null && functionaryName1[0].value != (document.getElementsByName(obj+"["+i+"].functionaryName").item(0)).value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    concount++; break;}}
 		    </s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('fundsource')}"> 
+
+		   <s:if test="%{shouldShowHeaderField('fundsource')}">
 		   if((document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value!=null){
 		   if(fundsource1[0].value != null &&  fundsource1[0].value !=(document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   concount++; break;}}
-		   </s:if>		   
-		   
+		   </s:if>
+
 		   <s:if test="%{shouldShowHeaderField('scheme')}">
 		   if((document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value!=null){
 		   if(scheme1[0].value != null  && scheme1[0].value !=( document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value) {
 		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   concount++; break;}}
 		   </s:if>
-		 
+
 		   <s:if test="%{shouldShowHeaderField('subscheme')}">
 		   if((document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value!=null){
 		   if(subscheme1[0].value !=  null && subscheme1[0].value!=(document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;  
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   concount++; break;}}
-		   </s:if>		 
-		   
+		   </s:if>
+
 		    <s:if test="%{shouldShowHeaderField('field')}">
 		    if(document.getElementsByName(obj+"["+i+"].fieldName")!=null){
 		    if(field1[0].value != null && field1[0].value != (document.getElementsByName(obj+"["+i+"].fieldName").item(0)).value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    concount++; break;}}
-		    </s:if>	  		  
+		    </s:if>
 		   }
 		   return concount;
 }
@@ -480,11 +480,11 @@ document.getElementById("con2").innerHTML=document.getElementById("con2").innerH
 document.getElementById("search").innerHTML="";
 document.getElementById("search").innerHTML=document.getElementById("searchtab").innerHTML;
 console.log(document.getElementById("exp2").innerHTML);
-} 
- 
+}
+
 function checkSupplierForSameMisAttribs(obj,len)
 {
-		
+
 		var fund1=document.getElementsByName(obj+"[0].fundName");
 		var dept1=document.getElementsByName(obj+"[0].deptName");
 		var function1=document.getElementsByName(obj+"[0].functionName");
@@ -501,64 +501,64 @@ function checkSupplierForSameMisAttribs(obj,len)
 		    if(fund1[0].value != null && fund1[0].value !=(document.getElementsByName(obj+"["+i+"].fundName").item(0)).value) {
 		   	document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		  	suppcount++; break;}}
-		  	 </s:if>		   
-		   
-		   <s:if test="%{shouldShowHeaderField('department')}"> 
-		    if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){ 	
+		  	 </s:if>
+
+		   <s:if test="%{shouldShowHeaderField('department')}">
+		    if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){
 		   if(dept1[0].value != null && dept1[0].value !=(document.getElementsByName(obj+"["+i+"].deptName").item(0)).value) {
 		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   suppcount++; break;}}
 		   </s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('function')}"> 
-		    if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){   	
+
+		   <s:if test="%{shouldShowHeaderField('function')}">
+		    if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){
 		   if(function1[0].value != null && function1[0].value !=(document.getElementsByName(obj+"["+i+"].functionName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   suppcount++; break;}}
 		   </s:if>
-		  
+
 		   <s:if test="%{shouldShowHeaderField('functionary')}">
 		   if(document.getElementsByName(obj+"["+i+"].functionaryName")!=null){
 		   if(functionaryName1[0].value != null && functionaryName1[0].value != (document.getElementsByName(obj+"["+i+"].functionaryName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   suppcount++; break;}}
 		    </s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('fundsource')}"> 
+
+		   <s:if test="%{shouldShowHeaderField('fundsource')}">
 		    if((document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value!=null){
 		   if(fundsource1[0].value != null && fundsource1[0].value !=(document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   suppcount++; break;}}
 		   </s:if>
-		  
+
 		  	<s:if test="%{shouldShowHeaderField('subscheme')}">
 		  	if((document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value!=null){
 		    if(scheme1[0].value != null && scheme1[0].value !=( document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value) {
 		     document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    suppcount++; break;}}
 		    </s:if>
-		 
+
 		 	<s:if test="%{shouldShowHeaderField('subscheme')}">
-		 	if((document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value!=null){	 
+		 	if((document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value!=null){
 		   if(subscheme1[0].value !=  null && subscheme1[0].value!=(document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;  
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   suppcount++; break;}}
 		   </s:if>
-		 
+
 		 	<s:if test="%{shouldShowHeaderField('field')}">
 		    if(document.getElementsByName(obj+"["+i+"].fieldName")!=null){
 		    if(field1[0].value != null && field1[0].value != document.getElementsByName(obj+"["+i+"].fieldName")[0].value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    suppcount++; break;}}
 		    </s:if>
-		   			  
+
 		   }
 		   return suppcount;
 }
- 
+
 function checkContingentForSameMisAttribs(obj,len)
 {
-   
+
 		var fund1=document.getElementsByName(obj+"[0].fundName");
 		var dept1=document.getElementsByName(obj+"[0].deptName");
 		var function1=document.getElementsByName(obj+"[0].functionName");
@@ -576,55 +576,55 @@ function checkContingentForSameMisAttribs(obj,len)
 		   	document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		  	expcount++; break;}}
 		  	</s:if>
-		   
-		   <s:if test="%{shouldShowHeaderField('department')}"> 
-		    if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){   	
+
+		   <s:if test="%{shouldShowHeaderField('department')}">
+		    if((document.getElementsByName(obj+"["+i+"].deptName").item(0)).value!=null){
 		   if(dept1[0].value != null && dept1[0].value !=(document.getElementsByName(obj+"["+i+"].deptName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   expcount++; break;}}
 		   </s:if>
 
-		   <s:if test="%{shouldShowHeaderField('function')}"> 
-		    if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){   	
+		   <s:if test="%{shouldShowHeaderField('function')}">
+		    if((document.getElementsByName(obj+"["+i+"].functionName").item(0)).value!=null){
 		   if(function1[0].value != null && function1[0].value !=(document.getElementsByName(obj+"["+i+"].functionName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   expcount++; break;}}
 		   </s:if>
-		   
+
 		    <s:if test="%{shouldShowHeaderField('functionary')}">
-		   if(document.getElementsByName(obj+"["+i+"].functionaryName")!=null){	  
+		   if(document.getElementsByName(obj+"["+i+"].functionaryName")!=null){
 		   if(functionaryName1[0].value != null && functionaryName1[0].value != (document.getElementsByName(obj+"["+i+"].functionaryName").item(0)).value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   expcount++; break; }}
 		   </s:if>
-		   
+
 		   <s:if test="%{shouldShowHeaderField('fundsource')}">
-		   if((document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value!=null){		 
+		   if((document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value!=null){
 		   if(fundsource1[0].value != null && fundsource1[0].value !=(document.getElementsByName(obj+"["+i+"].fundsourceName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   expcount++; break;}}
 		   </s:if>
-		   
+
 		   <s:if test="%{shouldShowHeaderField('scheme')}">
 		   if((document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value!=null){
 		   if(scheme1[0].value != null && scheme1[0].value !=( document.getElementsByName(obj+"["+i+"].schemeName").item(0)).value) {
 		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   expcount++; break;}}
 		   </s:if>
-		 
+
 		   <s:if test="%{shouldShowHeaderField('subscheme')}">
 		   if((document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value!=null){
 		   if(subscheme1[0].value !=  null && subscheme1[0].value!=(document.getElementsByName(obj+"["+i+"].subschemeName").item(0)).value) {
-		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;  
+		   document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		   expcount++; break;}}
 		    </s:if>
-		 
+
 		   <s:if test="%{shouldShowHeaderField('field')}">
 		    if(document.getElementsByName(obj+"["+i+"].fieldName")!=null){
 		    if(field1[0].value != null && field1[0].value != (document.getElementsByName(obj+"["+i+"].fieldName").item(0)).value) {
-		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false; 
+		    document.getElementsByName(obj+"["+i+"].isSelected")[0].checked = false;
 		    expcount++; break;}}
-		     </s:if>	  
+		     </s:if>
 		   }
 		   return expcount;
 }
@@ -791,7 +791,7 @@ function checkContingentForSameMisAttribs(obj,len)
 																						value="%{billVoucherNumber}" /> <s:hidden
 																						name="contractorList[%{#s.index}].billVoucherId"
 																						id="billVoucherId%{#s.index}"
-																						value="%{billVoucherId}" /> 
+																						value="%{billVoucherId}" />
 																						<a href="#" onclick="openVoucher('<s:property value='%{billVoucherId}'/>');">
 																							<s:property value="%{billVoucherNumber}" />
 																						</a>
@@ -956,7 +956,7 @@ function checkContingentForSameMisAttribs(obj,len)
 																						value="%{billVoucherNumber}" />  <s:hidden
 																						name="supplierList[%{#s.index}].billVoucherId"
 																						id="billVoucherId%{#s.index}"
-																						value="%{billVoucherId}" /> 
+																						value="%{billVoucherId}" />
 																						<a href="#" onclick="openVoucher('<s:property value='%{billVoucherId}'/>');">
 																							<s:property value="%{billVoucherNumber}" />
 																						</a>
@@ -1122,7 +1122,7 @@ function checkContingentForSameMisAttribs(obj,len)
 																						value="%{billVoucherNumber}" />  <s:hidden
 																						name="contingentList[%{#s.index}].billVoucherId"
 																						id="billVoucherId%{#s.index}"
-																						value="%{billVoucherId}" /> 
+																						value="%{billVoucherId}" />
 																						<a href="#" onclick="openVoucher('<s:property value='%{billVoucherId}'/>');">
 																							<s:property value="%{billVoucherNumber}" />
 																						</a>
@@ -1290,7 +1290,7 @@ function checkContingentForSameMisAttribs(obj,len)
 				<table align="center" width="100%">
 					<tr>
 						<td class="text-right view-content">
-								Total:  
+								Total:
 						</td>
 						<td width="10%" class="text-right view-content"><div id="totalPaymentAmount">0.00</div></td>
 					</tr>
@@ -1312,16 +1312,16 @@ function checkContingentForSameMisAttribs(obj,len)
 							id="paymentModertgs" value="rtgs" type="radio"><label
 							for="paymentModertgs">RTGS</label></td>
 					</tr>
-	
+
 					<tr>
 						<td colspan="2" class="buttonbottomnew" align="center"><br> <input
 							type="button" class="buttonsubmit" value="Generate Payment"
 							id="generatePayment" onclick="return check();" /></td>
 					</tr>
-					
+
 					<tr>
-					
-						
+
+
 					</tr>
 </table>
 </div>

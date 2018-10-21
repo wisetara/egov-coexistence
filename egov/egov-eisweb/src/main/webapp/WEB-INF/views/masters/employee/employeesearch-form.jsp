@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,7 +52,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="/WEB-INF/taglib/cdn.tld" prefix="cdn" %>
-		<form:form  class="form-horizontal form-groups-bordered" 
+		<form:form  class="form-horizontal form-groups-bordered"
 					id="searchEmployeeForm" modelAttribute="employee" action="search">
 				<div class="row">
 					<div class="col-md-12">
@@ -64,7 +64,7 @@
 							</div>
 							<div class="panel-body">
 									<div class="form-group advanced-forms">
-										
+
 										<div class="col-sm-4 add-margin">
 											<form:input path="name" id="name" cssClass="form-control" placeholder="Name"/>
 										</div>
@@ -88,11 +88,11 @@
 										         </c:forEach>
 											</form:select>
 										</div>
-										
+
 									</div>
 
 									<div class="form-group advanced-forms">
-										
+
 										<div class="col-sm-4 add-margin">
 											<form:select cssClass="form-control" id="function" name="function" path="function">
 												<form:option value="">
@@ -126,7 +126,7 @@
 									</div>
 
 									<div class="form-group advanced-forms">
-										
+
 										<div class="col-sm-4 add-margin">
 											<form:select cssClass="form-control" id="employeeType" name="employeeType" path="employeeType">
 												<form:option value="">
@@ -143,7 +143,7 @@
 										<div class="col-sm-4 add-margin">
 											<form:input type="text" name="aadhaar" id="aadhaar" cssClass="form-control" path="aadhaar" placeholder="Aadhaar"/>
 										</div>
-										
+
 									</div>
 
 									<div class="form-group advanced-forms">
@@ -156,18 +156,18 @@
 										<div class="col-sm-4 add-margin">
 											<form:input type="text" name="code" id="code" cssClass="form-control" path="code" placeholder="Code"/>
 										</div>
-										
+
 									</div>
-									
+
 									<div class="form-group advanced-forms">
-								    
+
 									 <label for="field-1" class="col-sm-3 control-label"><spring:message code="lbl.hod"/> :</label>
-								
+
 									<div class="col-sm-4 add-margin">
 									<form:checkbox path="isHOD"/>
 					                <form:errors path="isHOD" />
 									</div>
-									</div> 
+									</div>
 		                            <input type="hidden" id="mode" name="mode" value="${mode}" />
 										<div class="text-center">
 											<button type="button"  class="btn btn-primary" id="searchbtn">Search Employee</button>
@@ -178,7 +178,7 @@
 
 
 							</div>
-						</div>					
+						</div>
 					</div>
 				</form:form>
 				<div class="row">
@@ -211,6 +211,6 @@
 <link rel="stylesheet" href="<cdn:url value='/resources/global/js/jquery/plugins/datatables/responsive/css/datatables.responsive.css' context='/services/egi'/>"/>
 <link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/jquery.dataTables.min.css' context='/services/egi'/>"/>
 <link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/dataTables.bootstrap.min.css' context='/services/egi'/>">
-<script src="<cdn:url value='/resources/global/js/jquery/plugins/datatables/jquery.dataTables.min.js' context='/services/egi'/>"></script>		
+<script src="<cdn:url value='/resources/global/js/jquery/plugins/datatables/jquery.dataTables.min.js' context='/services/egi'/>"></script>
 <script src="<cdn:url value='/resources/global/js/jquery/plugins/datatables/dataTables.bootstrap.js' context='/services/egi'/>"></script>
 <script src="<cdn:url value='/resources/global/js/jquery/plugins/datatables/responsive/js/datatables.responsive.js' context='/services/egi'/>"></script>

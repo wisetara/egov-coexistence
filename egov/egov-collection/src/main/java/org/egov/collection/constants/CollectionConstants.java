@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -94,7 +94,7 @@ public final class CollectionConstants {
     public static final String INSTRUMENTTYPE_NAME_CARD = "Card";
     public static final String INSTRUMENTTYPE_NAME_DD = "DD";
 
-    
+
     // Receipt types
     public static final char RECEIPT_TYPE_ADHOC = 'A';
     public static final char RECEIPT_TYPE_BILL = 'B';

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -98,7 +98,7 @@ function check()
 function changeTNEBSelectListCount(obj)
 {
 	if(obj.checked){
-		document.getElementById('miscount').value=parseInt(document.getElementById('miscount').value)+1;		
+		document.getElementById('miscount').value=parseInt(document.getElementById('miscount').value)+1;
 	}
 	else
 	{
@@ -152,7 +152,7 @@ function selectAllTNEB(element){
 	<s:if test="%{contingentList!=null}">
 		length = <s:property value="%{contingentList.size()}"/>;
 	</s:if>
-	
+
 	if(element.checked == true)	{
 		checkAll('contingentList',length);
 	}

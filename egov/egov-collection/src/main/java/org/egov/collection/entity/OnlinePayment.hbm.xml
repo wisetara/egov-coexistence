@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -61,59 +61,59 @@
 		<many-to-one name="receiptHeader" class="org.egov.collection.entity.ReceiptHeader" fetch="select">
             <column name="collectionheader" precision="22" scale="0" />
         </many-to-one>
-        
-        			
+
+
 		<many-to-one name="service" class="org.egov.infstr.models.ServiceDetails"
 			fetch="select">
 			<column name="servicedetails" precision="22" scale="0" not-null="true" />
 		</many-to-one>
-		
+
 		<property name="transactionNumber" type="string">
 			<column name="TRANSACTIONNUMBER" length="50" />
 		</property>
-		
+
 		<property name="transactionAmount" type="big_decimal">
 			<column name="TRANSACTIONAMOUNT" precision="22" scale="0" />
 		</property>
-		
+
 		<property name="transactionDate" type="date">
 			<column name="TRANSACTIONDATE" length="7" />
 		</property>
 
-		
+
 		<many-to-one name="status" class="org.egov.commons.EgwStatus"
 			fetch="select">
 			<column name="status" precision="22" scale="0" not-null="true" />
 		</many-to-one>
-		
+
 		<property name="authorisationStatusCode" type="string">
 			<column name="AUTHORISATION_STATUSCODE" precision="22" scale="0" />
 		</property>
-		
+
 		<property name="remarks" type="string">
 			<column name="REMARKS" precision="22" scale="0" />
 		</property>
-		
-		
+
+
 		<many-to-one name="createdBy" class="org.egov.infra.admin.master.entity.User"
 			fetch="select">
 			<column name="CREATEDBY" precision="22" scale="0" />
 		</many-to-one>
-		
+
 		<many-to-one name="modifiedBy" class="org.egov.infra.admin.master.entity.User"
 			fetch="select">
 			<column name="LASTMODIFIEDBY" precision="22" scale="0" />
 		</many-to-one>
-		
+
 		<property name="createdDate" column="CREATEDDATE" type="timestamp" />
 		<property name="modifiedDate" column="LASTMODIFIEDDATE" type="timestamp" />
-		
+
 	</class>
-	
+
 	<query name="ONLINERECEIPTS_BY_STATUSCODE">
-    <![CDATA[select receipt from org.egov.collection.entity.OnlinePayment receipt where receipt.status.code = ?]]></query> 
-	 
+    <![CDATA[select receipt from org.egov.collection.entity.OnlinePayment receipt where receipt.status.code = ?]]></query>
+
 	 <query name="CREATEDBYUSERS_OF_PAYMENT_RECEIPTS">
     <![CDATA[select distinct createdBy from org.egov.collection.entity.OnlinePayment op where op.createdBy.type not in ('CITIZEN','SYSTEM') and op.service.id=?]]></query>
-       
+
 </hibernate-mapping>

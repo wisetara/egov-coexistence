@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -487,7 +487,7 @@ public class ExpenseBillPrintAction extends BaseFormAction {
                         budgetApprDetails = getBudgetDetails(coa, detail, functionById.getName());
                         budget.add(budgetApprDetails);
                     }
-                   
+
                 }
                 vd.setGlcodeDetail(coa.getGlcode());
                 vd.setGlcodeIdDetail(coa.getId());
@@ -554,7 +554,7 @@ public class ExpenseBillPrintAction extends BaseFormAction {
                             budgetApprDetails = getBudgetDetails(coa, detail, functionName);
                             budget.add(budgetApprDetails);
                         }
-                
+
                 }
                 vd.setGlcodeDetail(coa.getGlcode());
                 vd.setGlcodeIdDetail(coa.getId());
@@ -598,10 +598,10 @@ public class ExpenseBillPrintAction extends BaseFormAction {
         paramMap.put("budgetDetail", budget);
 
     }
-    
+
     /**
      * to check the budget checking is required or not
-     * 
+     *
      * @param txnType
      * @param budgetingType
      * @return

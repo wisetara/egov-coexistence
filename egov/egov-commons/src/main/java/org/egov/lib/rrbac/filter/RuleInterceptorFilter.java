@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -73,9 +73,9 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * This Filter is used to put rules on actions based on Authentication. 
- * The request parameters expected here are: 
- * 1. object id with parameter name : AUTHRULE_OBJECT_ID 
+ * This Filter is used to put rules on actions based on Authentication.
+ * The request parameters expected here are:
+ * 1. object id with parameter name : AUTHRULE_OBJECT_ID
  * 2. action id with parameter name : actionid
  */
 public class RuleInterceptorFilter implements Filter {

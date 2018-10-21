@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,10 +61,10 @@ public class BudgetUploadReportJsonAdaptor implements JsonSerializer<BudgetUploa
 {
     @Override
     public JsonElement serialize(final BudgetUploadReport budgetUploadReport, final Type type, final JsonSerializationContext jsc)
-    { 
+    {
         final JsonObject jsonObject = new JsonObject();
         if (budgetUploadReport != null)
-        { 
+        {
             jsonObject.addProperty("fundCode", budgetUploadReport.getFundCode()!=null?budgetUploadReport.getFundCode():"");
             jsonObject.addProperty("deptCode", budgetUploadReport.getDeptCode()!=null?budgetUploadReport.getDeptCode():"");
             jsonObject.addProperty("functionCode", budgetUploadReport.getFunctionCode()!=null?budgetUploadReport.getFunctionCode():"");

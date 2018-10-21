@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,32 +76,32 @@ public class CFiscalPeriod extends AbstractAuditable {
         @Id
         @GeneratedValue(generator = SEQ_CFISCALPERIOD, strategy = GenerationType.SEQUENCE)
         private Long id;
-        
+
         private Integer type = 0;
-        
+
         @Length(min = 1, max = 25)
         @NotNull
         private String name = "";
-        
+
         @ManyToOne(fetch=FetchType.LAZY)
         @JoinColumn(name="financialyearid", updatable = false)
         private CFinancialYear cFinancialYear ;
-        
+
         private Integer parentId = 0;
-        
+
         @NotNull
         private Date startingDate;
-        
+
         @NotNull
         private Date endingDate;
-        
+
         private Boolean isActive;
-        
+
         private Boolean isActiveForPosting;
-        
+
         private Boolean isClosed ;
 
-        
+
         public Date getEndingDate() {
                 return endingDate;
         }
@@ -115,55 +115,55 @@ public class CFiscalPeriod extends AbstractAuditable {
         public Integer getType() {
             return type;
         }
-    
-    
+
+
         public String getName() {
             return name;
         }
-    
-    
-       
-    
+
+
+
+
         public Integer getParentId() {
             return parentId;
         }
-    
-    
+
+
         public Date getStartingDate() {
             return startingDate;
         }
-    
-    
+
+
         public Boolean getIsActive() {
             return isActive;
         }
-    
-    
+
+
         public Boolean getIsActiveForPosting() {
             return isActiveForPosting;
         }
-    
-    
+
+
         public Boolean getIsClosed() {
             return isClosed;
         }
-    
+
         @Override
         public void setId(Long id) {
             this.id = id;
         }
-    
-    
+
+
         public void setType(Integer type) {
             this.type = type;
         }
-    
-    
+
+
         public void setName(String name) {
             this.name = name;
         }
-    
-    
+
+
 
         public CFinancialYear getcFinancialYear() {
             return cFinancialYear;
@@ -176,32 +176,32 @@ public class CFiscalPeriod extends AbstractAuditable {
         public void setParentId(Integer parentId) {
             this.parentId = parentId;
         }
-    
-    
+
+
         public void setStartingDate(Date startingDate) {
             this.startingDate = startingDate;
         }
-    
-    
+
+
         public void setEndingDate(Date endingDate) {
             this.endingDate = endingDate;
         }
-    
-    
+
+
         public void setIsActive(Boolean isActive) {
             this.isActive = isActive;
         }
-    
-    
+
+
         public void setIsActiveForPosting(Boolean isActiveForPosting) {
             this.isActiveForPosting = isActiveForPosting;
         }
-    
-    
+
+
         public void setIsClosed(Boolean isClosed) {
             this.isClosed = isClosed;
         }
 
-        
+
 
 }

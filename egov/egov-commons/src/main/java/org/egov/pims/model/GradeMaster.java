@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,7 +61,7 @@ public class GradeMaster implements GenericMaster {
 	public Integer getId() {
 		return id;
 	}
-	
+
 	/**
 	 * @param id
 	 *            The id to set.
@@ -69,14 +69,14 @@ public class GradeMaster implements GenericMaster {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	/**
 	 * @return Returns the name.
 	 */
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * @param name
 	 *            The name to set.
@@ -84,27 +84,27 @@ public class GradeMaster implements GenericMaster {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public java.util.Date getFromDate() {
 		return fromDate;
 	}
-	
+
 	public void setFromDate(java.util.Date fromDate) {
 		this.fromDate = fromDate;
 	}
-	
+
 	public java.util.Date getToDate() {
 		return toDate;
 	}
-	
+
 	public void setToDate(java.util.Date toDate) {
 		this.toDate = toDate;
 	}
-	
+
 	public Integer getAge() {
 		return age;
 	}
-	
+
 	public void setAge(Integer age) {
 		this.age = age;
 	}
@@ -122,5 +122,5 @@ public class GradeMaster implements GenericMaster {
 	public void setOrderNo(Integer orderNo) {
 		this.orderNo = orderNo;
 	}
-	
+
 }

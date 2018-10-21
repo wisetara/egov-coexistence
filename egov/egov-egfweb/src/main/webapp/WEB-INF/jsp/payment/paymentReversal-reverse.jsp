@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -232,7 +232,7 @@ function onloadTask(){
 }
 function validate(){
 	document.getElementById('lblError').innerHTML = "";
-		
+
 	if(document.getElementById('reversalVoucherDate').value == ''){
 		document.getElementById('lblError').innerHTML = "Please enter Reversal Voucher Date";
 		return false;

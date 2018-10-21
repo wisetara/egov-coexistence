@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -67,13 +67,13 @@
 			<font size="2" color="red"><b>
 			<s:if test="target=='view'">
 				<div align="center"><s:text name="billreceipt.payement.confirmatiommessage"/></div>
-			</s:if>		
+			</s:if>
 			<s:else >
 				<div align="center"><s:text name="billreceipt.cancel.confirmatiommessage"/></div>
 			</s:else>
 			</b></font>
 		</tr>
-		<s:iterator value="%{receiptHeaderValues}"> 
+		<s:iterator value="%{receiptHeaderValues}">
 		<tr>
 			<s:if test="%{receipttype=='B'}">
 			<th class="bluebgheadtd" width="20%" ><s:text name="billreceipt.billnumber.confirmation"/></th>
@@ -81,7 +81,7 @@
 			<s:if test="%{receipttype=='C'}">
 			<th class="bluebgheadtd" width="20%" ><s:text name="billreceipt.challannumber.confirmation"/></th>
 			</s:if>
-			
+
 			<th class="bluebgheadtd" width="30%" ><s:text name="billreceipt.receiptnumber.confirmation"/></th>
 			<th class="bluebgheadtd" width="25%" ><s:text name="billreceipt.receiptdate.confirmation"/></th>
 			<th class="bluebgheadtd" width="25%" ><s:text name="billreceipt.receiptstatus.confirmation"/></th>

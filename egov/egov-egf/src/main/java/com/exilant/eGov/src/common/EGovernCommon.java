@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -91,21 +91,21 @@ import java.util.Set;
 @Transactional(readOnly = true)
 @Service("eGovernCommon")
 public class EGovernCommon extends AbstractTask {
-	 
+
 	private final SimpleDateFormat dtFormat = new SimpleDateFormat("dd-MMM-yyyy");
-	
+
 	private static final Logger LOGGER = Logger.getLogger(EGovernCommon.class);
 	private static TaskFailedException taskExc;
 	private static final String EXILRPERROR = "exilRPError";
 	@Autowired
 	@Qualifier("persistenceService")
 	private PersistenceService persistenceService;
-	
+
 	@Autowired
 	private DatabaseSequenceCreator databaseSequenceCreator;
 	@Autowired
 	private DatabaseSequenceProvider databaseSequenceProvider;
-	
+
 
 	@Override
 	public void execute(final String taskName,
@@ -179,9 +179,9 @@ public class EGovernCommon extends AbstractTask {
 			return " ";
 	}
 
-	 
 
-	 
+
+
 	@Deprecated
 	public String getCurrentDateTime() throws TaskFailedException
 	{
@@ -298,7 +298,7 @@ public class EGovernCommon extends AbstractTask {
 		}
 		return fiscalPeriod.toString();
 	}
-	
+
 	 /**
      * Function to check if the voucher number is Unique
      * @param vcNum
@@ -338,7 +338,7 @@ public class EGovernCommon extends AbstractTask {
         }
         return isUnique;
     }
-	   
+
    /**
     * @param vcNum
     * @param vcDate
@@ -350,7 +350,7 @@ public class EGovernCommon extends AbstractTask {
        boolean isUnique = false;
        String fyStartDate = "", fyEndDate = "";
        vcNum = vcNum.toUpperCase();
-       Query pst = null;                           
+       Query pst = null;
        List<Object[]> rs = null;
        try {
            final String query1 = "SELECT to_char(startingDate, 'DD-Mon-YYYY') AS \"startingDate\", to_char(endingDate, 'DD-Mon-YYYY') AS \"endingDate\" FROM financialYear WHERE startingDate <= '"
@@ -384,12 +384,12 @@ public class EGovernCommon extends AbstractTask {
        return isUnique;
    }
 
-      
-   
+
+
    public BigDecimal getAccountBalance(final Date VoucherDate, final String bankAccountId) throws TaskFailedException
    {
        BigDecimal totalAvailable = BigDecimal.ZERO;
-       BigDecimal opeAvailable = BigDecimal.ZERO;  
+       BigDecimal opeAvailable = BigDecimal.ZERO;
        Query pst = null;
        List<Object[]> resultset = null;
        List<Object[]> resultset1 = null;
@@ -461,8 +461,8 @@ public class EGovernCommon extends AbstractTask {
 		else
 			return defaultValue;
 	}
-	
-	
+
+
 	public BigDecimal getAccountBalance(final String recDate, final String bankAccountId) throws TaskFailedException
     {
 
@@ -485,7 +485,7 @@ public class EGovernCommon extends AbstractTask {
             pst.setDate(0, sDate);
             pst.setDate(1, sDate);
             pst.setInteger(2, Integer.valueOf(bankAccountId));
-            List list = pst.list();  
+            List list = pst.list();
             if (list == null || list.size() == 0)
                 if (LOGGER.isDebugEnabled()) LOGGER.debug("Else resultset in getAccountBalance...");
 
@@ -493,13 +493,13 @@ public class EGovernCommon extends AbstractTask {
             {
             	opeAvailable=new BigDecimal(list.get(0).toString());
             }
-            
+
            /* for (final Object[] element : resultset)
             {
             	if(element[0]!=null)
                 opeAvailable = new BigDecimal(element[0].toString());
             }*/
-           
+
             if (LOGGER.isDebugEnabled())
                 LOGGER.debug("opening balance  " + opeAvailable);
 
@@ -511,7 +511,7 @@ public class EGovernCommon extends AbstractTask {
                     " vh.voucherDate >=( SELECT startingDate FROM financialYear WHERE startingDate <= ? AND endingDate >= ?) AND vh.voucherDate <= ? and vh.status!=4";
 
             if (LOGGER.isDebugEnabled())
-                LOGGER.debug("Curr Yr Bal: " + str1);  
+                LOGGER.debug("Curr Yr Bal: " + str1);
             pst = persistenceService.getSession().createSQLQuery(str1);
             pst.setInteger(0, Integer.valueOf(bankAccountId));
             pst.setDate(1, reconDate);
@@ -521,8 +521,8 @@ public class EGovernCommon extends AbstractTask {
             if(list2!=null)
                totalAvailable = new BigDecimal(list2.get(0).toString());
             if (LOGGER.isDebugEnabled())
-                LOGGER.debug("total balance  " + totalAvailable);       
-            
+                LOGGER.debug("total balance  " + totalAvailable);
+
             if (resultset1 == null || resultset1.size() == 0)
                 if (LOGGER.isDebugEnabled())
                     LOGGER.debug("Else resultset in getAccountBalance...");
@@ -534,7 +534,7 @@ public class EGovernCommon extends AbstractTask {
         } catch (final Exception e) {
             LOGGER.error(e.getMessage(), e);
             throw taskExc;
-        }    
+        }
     }
 
 	/**

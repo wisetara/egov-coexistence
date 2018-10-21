@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -118,13 +118,13 @@ public class FundFlowManualEntryReportAction extends BaseFormAction {
     private final Map<String, Object> paramMap = new HashMap<String, Object>();
     BigDecimal grandTotal = BigDecimal.ZERO;
     private static final String JASPERPATH = "/reports/templates/manualEntryReport.jasper";
-   
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
  @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     @Override
     public Object getModel() {
 

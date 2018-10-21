@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,7 +52,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="org.egov.pims.model.ReligionMaster" table="EGEIS_RELIGION_MSTR">
-		
+
 		<id
 							name="id"
 							column="RELIGION_ID"
@@ -64,17 +64,17 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property
 			name="name"
 			column="RELIGION_VALUE"
-			
+
 		/>
 		<property
 							name="fromDate"
 							column="START_DATE"
-							
+
 				/>
 				<property
 							name="toDate"
 							column="END_DATE"
-							
+
 		/>
 	</class>
 </hibernate-mapping>

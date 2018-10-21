@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,8 +53,8 @@
    var deletedChqDeptCode="";
    var CHQDETAILSLIST = "chequeDetailsList";
    var chqDetailsIndex = 0;
-	var makeChequeDetailsGridTable = function() {    
-    var chequeDetailsGridColumns = [ 
+	var makeChequeDetailsGridTable = function() {
+    var chequeDetailsGridColumns = [
 	{key:"fromChqNo",label:'From Cheque Number', formatter:createTextField(CHQDETAILSLIST,".fromChqNo")},
 	{key:"isExhaustedH",hidden:true,formatter:createHiddenField(CHQDETAILSLIST,".isExhusted","hidden")},
 	{key:"toChqNo",label:'To Cheque Number', formatter:createTextField(CHQDETAILSLIST,".toChqNo")},
@@ -70,17 +70,17 @@
 	{key:"accountChequeId",hidden:true,formatter:createHiddenField(CHQDETAILSLIST,".accountChequeId","hidden")},
         {key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 	];
-		
-		var chqueDetailsGridDS = new YAHOO.util.DataSource(); 
+
+		var chqueDetailsGridDS = new YAHOO.util.DataSource();
 		chequeDetailsGridTable = new YAHOO.widget.DataTable("chequeDetailsGridTable",chequeDetailsGridColumns, chqueDetailsGridDS);
 		chequeDetailsGridTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Delete') { 	
-						
+			if (column.key == 'Delete') {
+
 					if(record.getData("isExhustedL") =="Yes" || record.getData("nextChqPresent")=="Yes"){
-						
+
 						bootbox.alert("cannot be deleted");
 					}else{
 						this.deleteRow(record);
@@ -88,14 +88,14 @@
 						chequeRangeArray.splice(index,1);
 						if(record.getData("chequeDeptCode")){ // for new cheque leaf records the chequeDeptId value will be blank
 							document.getElementById("deletedChqDeptCode").value = document.getElementById("deletedChqDeptCode").value==""?record.getData("chequeDeptCode"):document.getElementById("deletedChqDeptCode").value+","+record.getData("chequeDeptCode");
-							
+
 						}
-						
+
 					}
 			}
-			
+
            });
-	
+
 	<s:iterator value="chequeDetailsList" status="stat">
 		chequeDetailsGridTable.addRow({
 			"fromChqNo":'<s:property value="fromChqNo"/>',
@@ -130,7 +130,7 @@
 		if(chequeRangeArray.indexOf(chequeRange) == -1){
 			chequeRangeArray.push(chequeRange);
 		}
-		
+
         </s:iterator>
 }
 
@@ -141,7 +141,7 @@ function createLabelSamll(prefix,suffix){
 	}
 }
 function createTextField(prefix,suffix){
-	
+
 	 return function(el, oRecord, oColumn, oData) {
 			var value = (YAHOO.lang.isValue(oData))?oData:"";
 			el.innerHTML = "<input type='text'  id='"+prefix+"["+chqDetailsIndex+"]"+suffix+"' name='"+prefix+"["+chqDetailsIndex+"]"+suffix+"' onblur='validateCheque(this);' style='width:130px;' maxlength='18' onkeyup='validateOnlyNumber(this);'/>";
@@ -152,17 +152,17 @@ function createHiddenField(prefix,suffix,type){
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"' name='"+prefix+"["+chqDetailsIndex+"]"+suffix+"' id='"+prefix+"["+chqDetailsIndex+"]"+suffix+"'/>";
 	}
-	
+
 }
 function updateFieldChq(field,index,value,nxtChqPrsnt,isExhausted){
-	
+
 	document.getElementById(CHQDETAILSLIST+'['+index+'].'+field).value =value;
 	if(nxtChqPrsnt=="Yes" || isExhausted =="Yes" ){
 		document.getElementById(CHQDETAILSLIST+'['+index+'].'+field).readOnly=true;
 	}
 }
 function updateField(field,index,value){
-	
+
 	document.getElementById(CHQDETAILSLIST+'['+index+'].'+field).value =value;
 }
 function updateLabel(field,index,value){

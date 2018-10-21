@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -130,7 +130,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
     @Autowired
     private GenericMasterDAO genericMasterDAO;
-    
+
     public Session getCurrentSession() {
         return entityManager.unwrap(Session.class);
     }
@@ -409,7 +409,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
             Query qry = null;
             if (code != null && !code.equals("")) {
                 logger.info(" Search by Code " + code);
-               
+
                 List<EmployeeView> list = persistenceService.findAllBy(
                         " from EmployeeView ev where upper(ev.employeeCode) like ? ", code);
                 Iterator itr = list.iterator();
@@ -1222,7 +1222,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
     /**
      * Returns Map for a given list
-     * 
+     *
      * @param list
      * @return
      */
@@ -1438,7 +1438,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
     /**
      * This is used for workflow Getting employee by passing dept,desig,boundary
-     * 
+     *
      * @param deptId
      * @param designationId
      * @param Boundaryid
@@ -1465,7 +1465,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
     /**
      * This is used for workflow Getting employee by passing
      * dept,desig,boundary,functionary
-     * 
+     *
      * @param deptId
      * @param designationId
      * @param Boundaryid
@@ -1579,7 +1579,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
     /**
      * Returns list of employees for a given position and date
-     * 
+     *
      * @param dateEntered
      * @param posId
      * @return
@@ -1634,7 +1634,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
      * given department for current date. This list includes primary as well as
      * secondary assignments If there is No Designation for the given department
      * then returns the empty list
-     * 
+     *
      * @param departmentId
      * @param givenDate
      * @return DesignationMaster List
@@ -1643,7 +1643,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
         Integer departmentId = deptId;
         List<Designation> designationMstrObj = new ArrayList<Designation>();
-       
+
         designationMstrObj = (List<Designation>) eisService.getAllDesignationByDept(departmentId, new Date());
         return designationMstrObj;
     }
@@ -1652,7 +1652,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
      * Returns the list of active users who are assigned to the given
      * designation. The designation can be a primary or temporary assignment of
      * the user. The API does not currently check for active assignments
-     * 
+     *
      * @param DesgId
      * @return the list of active users who are assigned to the given
      *         designation.
@@ -1676,7 +1676,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
     /**
      * Returns the list of employees (EmployeeView) who have a temporary
      * assignment as on the given date assigned to the given position
-     * 
+     *
      * @param givenDate
      * @param posId
      * @return
@@ -1703,7 +1703,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
      * Returns the list of employees (EmployeeView) who have a temporary
      * assignment as on the given date assigned to the given position and has
      * the employee code equal to the given code
-     * 
+     *
      * @param givenDate
      * @param posId
      * @return
@@ -1732,7 +1732,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
      * the parameter is ignored. For instance, if givenDate is null, all
      * temporary assignments for employee with given code and when assigned to
      * givenPosition will be returned
-     * 
+     *
      * @param code
      * @param givenDate
      * @param posId
@@ -1781,7 +1781,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
     /**
      * Returns a list of assignment ids. All assignments for the employee based
      * on employee id and that fall in the given date will be returned.
-     * 
+     *
      * @param empId
      *            - Required parameter. If null is passed, the API throws an
      *            ApplicationException
@@ -1936,7 +1936,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
      * on the dates. For Employed, Retired and Deceased, the employee's
      * assignment dates are considered. Whereas for Suspended status, the
      * Disciplinary Action details are considered.
-     * 
+     *
      * @param status
      * @param fromDate
      * @param toDate
@@ -2052,7 +2052,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
     /**
      * Returns the list of departments that the user is assigned to. This could
      * be through primary as well as temporary assignments.
-     * 
+     *
      * @param userName
      * @return List of Department
      */
@@ -2103,7 +2103,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
     /**
      * Returns the list of Employees who are assigned to the given department
      * and designation as of current date.
-     * 
+     *
      * @param deptId
      *            - Integer representing id of department
      * @param desgId
@@ -2125,7 +2125,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
     /**
      * Returns the list of Employees who are assigned to the given department as
      * of given date.
-     * 
+     *
      * @param deptId
      *            - Integer representing id of department
      * @param date
@@ -2146,7 +2146,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
     /**
      * returns all the employees who has active assignment period
-     * 
+     *
      * @return
      */
     public List<PersonalInformation> getAllEmployees() {
@@ -2159,7 +2159,7 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 
     /**
      * List of users not mapped to any of the employees
-     * 
+     *
      * @return empUserMapList
      */
     public List getListOfUsersNotMappedToEmp() {
@@ -2214,6 +2214,6 @@ public class EmployeeServiceImpl implements EmployeeServiceOld {
 		this.appConfigValuesService = appConfigValuesService;
 	}
 
-    
+
 
 }

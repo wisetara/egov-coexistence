@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -449,7 +449,7 @@
 		</div>
 		<script>
 		document.getElementById('paymentAmountspan').innerHTML = '<c:out value="${totalAmt}"/>';
-	
+
 		function validateAppoveUser(name,value){
 			document.getElementById("actionName").value= name;
 			<s:if test="%{wfitemstate =='END'}">
@@ -465,14 +465,14 @@
 					return false;
 				}
 			</s:else>
-			
+
 			return true;
 		}
-		
-		
+
+
 		function validate(name,value)
 		{
-		
+
 		if(dom.get('vouchernumber') && dom.get('vouchernumber').value=='')
 			{
 				bootbox.alert('Please Enter voucher number');
@@ -483,7 +483,7 @@
 				bootbox.alert("Please Select the Voucher Date!!");
 				return false;
 			}*/
-		
+
 			if(dom.get('bankbranch').options[dom.get('bankbranch').selectedIndex].value==-1)
 			{
 				bootbox.alert("Please Select the Bank!!");
@@ -494,7 +494,7 @@
 				bootbox.alert("Please Select the Bank Account");
 				return false;
 			}
-		
+
 			if(document.getElementById('grandTotal').value==0)
 			{
 				bootbox.alert('Payment Amount should be greater than zero!');
@@ -537,7 +537,7 @@
 		{
 			if(obj.value=='' || isNaN(obj.value))
 				obj.value=0;
-			var index = obj.id.substring(10,obj.id.length);	
+			var index = obj.id.substring(10,obj.id.length);
 			if(obj.value>parseFloat(document.getElementById('payableAmt'+index).value))
 			{
 				bootbox.alert('Payment amount should not be greater than payable amount');
@@ -560,7 +560,7 @@
 				var d = dom.get('bankaccount');
 				d.options.length=1;
 				d.options.value=-1;
-			}	
+			}
 			else
 				populatebankaccount({branchId:obj.options[obj.selectedIndex].value+'&date='+new Date(), typeOfAccount:vTypeOfAccount,fundId:fund});
 		}

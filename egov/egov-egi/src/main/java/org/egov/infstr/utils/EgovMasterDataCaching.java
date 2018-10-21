@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -97,7 +97,7 @@ public class EgovMasterDataCaching {
 
     @Autowired
     private MicroserviceUtils microserviceUtils;
-    
+
     static {
         try {
             final Context context = new InitialContext();
@@ -164,7 +164,7 @@ public class EgovMasterDataCaching {
                 CACHE_MANAGER.getCache().put(applName + PATH_DELIM + domainName + PATH_DELIM + sqlTagName, hm);
             } else
                 LOGGER.info("EgovMasterDataCaching: Got directly from cache, not from db");
-            
+
 
         } catch (final Exception e) {
             LOGGER.error("Error occurred in EgovMasterDataCaching", e);
@@ -456,11 +456,11 @@ public class EgovMasterDataCaching {
     }
 
     private List loadFromMicroService(){
-    	
+
     	List<Department> deptList = this.microserviceUtils.getDepartments();
     	return deptList;
     }
-    
+
     @PreDestroy
     public void destroy() {
         if (CACHE_MANAGER != null && CACHE_MANAGER.isDefaultRunning())

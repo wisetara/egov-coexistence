@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -67,7 +67,7 @@ public class ChartOfAccountDetailService extends PersistenceService<CChartOfAcco
     public List<CChartOfAccountDetail> getByGlcodeId(Long glcodeId) {
         return findAllBy("from CChartOfAccountDetail where glCodeId.id=?", glcodeId);
     }
-    
+
     public CChartOfAccountDetail getByGlcodeIdAndDetailTypeId(Long glcodeId,Integer accountDetailTypeId) {
         return find("from CChartOfAccountDetail where glCodeId.id=? and detailTypeId.id=?", glcodeId,accountDetailTypeId);
     }

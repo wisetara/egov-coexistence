@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -79,7 +79,7 @@ function process(date){
 	   var parts = date.split("/");
 	   return new Date(parts[2], parts[1] - 1, parts[0]);
 	}
-	
+
 jQuery.noConflict();
 jQuery(document).ready(function() {
 
@@ -89,9 +89,9 @@ jQuery(document).ready(function() {
      var nowTemp = new Date();
      var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-      jQuery( "#challanDate").datepicker({ 
+      jQuery( "#challanDate").datepicker({
      	 format: 'dd/mm/yyyy',
-     	 endDate: nowTemp, 
+     	 endDate: nowTemp,
      	 autoclose:true,
          onRender: function(date) {
       	    return date.valueOf() < now.valueOf() ? 'disabled' : '';
@@ -103,9 +103,9 @@ jQuery(document).ready(function() {
      		jQuery("#approvedet").show();
      	 else
      		jQuery("#approvedet").hide();
-     	 
+
      	  if(!(date.indexOf("_") > -1)){
-     		  isDatepickerOpened=false; 
+     		  isDatepickerOpened=false;
      	  }
        }).data('datepicker');
      doLoadingMask();
@@ -115,7 +115,7 @@ jQuery(window).load(function () {
 	undoLoadingMask();
 });
 
- 
+
 path="${pageContext.request.contextPath}";
 <jsp:useBean id="now" class="java.util.Date" />
 
@@ -128,11 +128,11 @@ function onBodyLoad(){
 			document.getElementById("challanDate").disabled=true;
 		}
 	</s:if>
-	
+
 	if(document.getElementById('challanDate').value==""){
 		document.getElementById("challanDate").value=currDate;
 	}
-	
+
 	if('<s:property value="designationId"/>'!=null && '<s:property value="designationId"/>'!="")
 	{
 		onChangeDesignation('<s:property value="designationId"/>');
@@ -140,13 +140,13 @@ function onBodyLoad(){
 	loadDropDownCodes();
 	loadDropDownCodesFunction();
 	loadFinancialYearList();
-	
+
 	check();
-	
+
 	if(dom.get("deptId")!=null){
 		document.getElementById('deptId').disabled=true;
 	}
-	
+
 	// page has to be disabled when view through search option/ when challan has to be modified -->
 	<s:if test="%{sourcePage=='search' || (model.id!=null && model.challan.state.value=='CREATED' && sourcePage!='inbox')}">
 			setAsViewPage();
@@ -156,21 +156,21 @@ function onBodyLoad(){
 
 function setAsViewPage(){
 	var el = document.forms[0].elements;
-	
+
 	// disable all elements except the workflow action buttons, print button and close button
 	for(var i=0;i<el.length;i++){
-	
+
 		if(el[i].name!='method:save'){
-		
+
 			el[i].setAttribute('disabled',true);
 		}
 		if(dom.get("buttonprint")!=null){
 			document.getElementById('buttonprint').disabled=false;
-			document.getElementById('buttonclose2').disabled=false;		
+			document.getElementById('buttonclose2').disabled=false;
 		}
-	
+
 	}
-	 
+
 	<s:if test="%{sourcePage=='inbox' && model.challan.state.value=='APPROVED'}">
 	if(document.getElementById('receiptMisc.fund.id')!=null)
 		document.getElementById('receiptMisc.fund.id').disabled=false;
@@ -197,7 +197,7 @@ function setAsViewPage(){
 	document.getElementById('receiptId').disabled=false;
 	document.getElementById('actionName').disabled=false;
 	document.getElementById('sourcePage').disabled=false;
-	<s:if test="%{sourcePage=='inbox'}"> 
+	<s:if test="%{sourcePage=='inbox'}">
 	if(document.getElementById('approvalRemarks')!=null)
 		document.getElementById('approvalRemarks').disabled=false;
 	if(document.getElementById('designationId')!=null)
@@ -205,7 +205,7 @@ function setAsViewPage(){
 	if(document.getElementById('approverDeptId')!=null)
 		document.getElementById('approverDeptId').disabled=false;
 	if(document.getElementById('positionUser')!=null)
-		document.getElementById('positionUser').disabled=false;	
+		document.getElementById('positionUser').disabled=false;
 	if(document.getElementById('buttonverify')!=null)
 		document.getElementById('buttonverify').disabled=false;
 	if(document.getElementById('buttonreject')!=null)
@@ -227,7 +227,7 @@ function validate(obj){
 	{
 		dom.get("actionMessages").style.display="none";
 	}
-		
+
 	//validations for challan approval
 	if(actionname=="CHALLAN_CHECK" || actionname=="CHALLAN_APPROVE" || actionname=="CHALLAN_REJECT")
 	{
@@ -272,24 +272,24 @@ function validate(obj){
              document.getElementById("challan_error_area").innerHTML+='<s:text name="error.select.service.type" />'+ "<br>";
              valid=false;
          }
-		 
-		 <s:if test="%{isFieldMandatory('fund')}"> 
+
+		 <s:if test="%{isFieldMandatory('fund')}">
 	 	 	if(null != document.getElementById('receiptMisc.fund.id') && document.getElementById('receiptMisc.fund.id').value == -1){
 				document.getElementById("challan_error_area").innerHTML+='<s:text name="challan.fundcode.errormessage" />'+  "<br>";
 				valid=false;
 		 	}
 		</s:if>
-		<s:if test="%{isFieldMandatory('department')}"> 
+		<s:if test="%{isFieldMandatory('department')}">
 			 if(null!= document.getElementById('deptId') && document.getElementById('deptId').value == -1){
 					document.getElementById("challan_error_area").innerHTML+='<s:text name="challan.deptcode.errormessage" />'+ '<br>';
 					valid=false;
 			 }
 		</s:if>
-		 <s:if test="%{isFieldMandatory('function')}">                     
+		 <s:if test="%{isFieldMandatory('function')}">
 		 if(null!= document.getElementById('functionId') && document.getElementById('functionId').value == -1){
-			 document.getElementById("challan_error_area").innerHTML+='<s:text name="miscreceipt.functioncode.errormessage" />'+ '<br>';                                
+			 document.getElementById("challan_error_area").innerHTML+='<s:text name="miscreceipt.functioncode.errormessage" />'+ '<br>';
 			valid=false;
-		 }            
+		 }
 		</s:if>
 		 var chlndate=document.getElementById("challanDate").value;
     	 var cutOff = document.getElementById("cutOffDate").value;
@@ -297,24 +297,24 @@ function validate(obj){
 			document.getElementById("challan_error_area").innerHTML+='<s:text name="challan.department.errormessage" />'+ "<br>";
 			valid=false;
 		}
-		
+
 		if(process(chlndate) >= process(cutOff) && null!= document.getElementById('designationId') && document.getElementById('designationId').value == "-1"){
 			document.getElementById("challan_error_area").innerHTML+='<s:text name="challan.designation.errormessage" />'+ "<br>";
 			valid=false;
 		}
-		
+
 		if(process(chlndate) >= process(cutOff) && null!= document.getElementById('positionUser') &&  document.getElementById('positionUser').value == "-1"){
 			document.getElementById("challan_error_area").innerHTML+='<s:text name="challan.position.errormessage" />'+ "<br>";
 			valid=false;
 		}
-		
+
 		if(!validateAccountDetail()){
 			valid=false;
 		}
 		if(!validateSubLedgerDetail()){
 			valid=false;
 		}
-		
+
 	}
 	if(valid==false){
 			dom.get("challan_error_area").style.display="block";
@@ -329,7 +329,7 @@ function validate(obj){
 	}
 
 	return valid;
-	
+
 }
 
 function checkreset(){
@@ -371,7 +371,7 @@ var fcount=0;
 			}
 		}
 	}
-	
+
 }
 
 var totalcramt=0;
@@ -381,8 +381,8 @@ var fYearOptions=[{label:"--- Select ---", value:"0"}];
 	    fYearOptions.push({label:'<s:property value="finYearRange"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
 var makeBillDetailTable = function() {
-		var billDetailColumns = [ 
-			{key:"accounthead", label:'Account Head <span class="mandatory"/>',formatter:createLongTextFieldFormatter(VOUCHERDETAILLIST,".accounthead",VOUCHERDETAILTABLE)},				
+		var billDetailColumns = [
+			{key:"accounthead", label:'Account Head <span class="mandatory"/>',formatter:createLongTextFieldFormatter(VOUCHERDETAILLIST,".accounthead",VOUCHERDETAILTABLE)},
 			{key:"glcode",label:'Account Code ', formatter:createTextFieldFormatter(VOUCHERDETAILLIST,".glcodeDetail","text",VOUCHERDETAILTABLE)},
 			{key:"creditamount",label:'Amount (Rs.)', formatter:createAmountFieldFormatter(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmount()",VOUCHERDETAILTABLE)},
 			{key:"financialYearId",label:'Financial Year <span class="mandatory"/>', formatter:createDropdownFormatterFYear(VOUCHERDETAILLIST,'<s:property value="%{currentFinancialYearId}"/>'),  dropdownOptions:fYearOptions},
@@ -391,10 +391,10 @@ var makeBillDetailTable = function() {
 			{key:"glcodeid",hidden:true, formatter:createTextFieldFormatter(VOUCHERDETAILLIST,".glcodeIdDetail","hidden",VOUCHERDETAILTABLE)},
 			{key:"functionid",hidden:true,formatter:createTextFieldFormatter(VOUCHERDETAILLIST,".functionIdDetail","hidden")}
 		];
-		
-	    var billDetailDS = new YAHOO.util.DataSource(); 
+
+	    var billDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",billDetailColumns, billDetailDS);
-		
+
 		<s:if test="%{sourcePage=='search' || (model.id!=null && model.challan.state.value=='CREATED') || (sourcePage=='inbox' && model.challan.state.value!='REJECTED')}">
 			var addColumn = billDetailsTable.getColumn(5);
 			billDetailsTable.hideColumn(addColumn);
@@ -405,12 +405,12 @@ var makeBillDetailTable = function() {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-				if (column.key == 'Add') { 
+				if (column.key == 'Add') {
 					billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 					updateAccountTableIndex();
 				}
-				if (column.key == 'Delete') { 	
-					if(this.getRecordSet().getLength()>1){			
+				if (column.key == 'Delete') {
+					if(this.getRecordSet().getLength()>1){
 						this.deleteRow(record);
 						allRecords=this.getRecordSet();
 						for(var i=0;i<allRecords.getLength();i++){
@@ -425,7 +425,7 @@ var makeBillDetailTable = function() {
 						bootbox.alert("This row can not be deleted");
 					}
 				}
-					 
+
 		});
 		<s:iterator value="billDetailslist" status="stat">
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
@@ -443,10 +443,10 @@ var makeBillDetailTable = function() {
 				updateGridDropdown('financialYearId',index,'<s:property value="finYearRange"/>','<s:property value="id"/>');
 				totalcramt = totalcramt+parseInt('<s:property value="getText(\'format.amount\',{creditAmountDetail})"/>');
 				// totaldbamt = totaldbamt+parseFloat('<s:property value="debitAmountDetail"/>');
-				updateAccountTableIndex();	
+				updateAccountTableIndex();
 			</s:iterator>
-				
-	
+
+
 		var tfoot = billDetailsTable.getTbodyEl().parentNode.createTFoot();
 		var tr = tfoot.insertRow(-1);
 		var td1 = tr.insertCell(-1);
@@ -496,8 +496,8 @@ var makeBillDetailTable = function() {
 		td4.innerHTML='&nbsp;';
 		</s:else>
 	}//end of makeBillDetailTable
-	
-		
+
+
 	var glcodeOptions=[{label:"--- Select ---", value:"0"}];
 	<s:iterator value="dropdownData.glcodeList">
 	    glcodeOptions.push({label:'<s:property value="glcode"/>', value:'<s:property value="id"/>'})
@@ -511,8 +511,8 @@ var makeBillDetailTable = function() {
 	    detailtypeOptions.push({label:'<s:property value="name"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
 	var makeSubLedgerTable = function() {
-		var subledgerColumns = [ 
-		            			
+		var subledgerColumns = [
+
 			{key:"glcode.id",label:'Account Code <span class="mandatory"/>', formatter:createDropdownFormatterCode(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
             {key:"detailType.id",label:'Type <span class="mandatory"></span>', formatter:createDropdownFormatterDetail(SUBLEDGERLIST),dropdownOptions:detailtypeOptions},
 			{key:"detailCode",label:'Code <span class="mandatory"/>',formatter:createSLDetailCodeTextFieldFormatter(SUBLEDGERLIST,".detailCode","splitEntitiesDetailCode(this)")},
@@ -522,20 +522,20 @@ var makeBillDetailTable = function() {
 			{key:"detailTypeName",hidden:true, formatter:createSLHiddenFieldFormatter(SUBLEDGERLIST,".detailTypeName")},
 			{key:"detailKeyId",hidden:true, formatter:createSLHiddenFieldFormatter(SUBLEDGERLIST,".detailKeyId")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
-		
+
 		subLedgersTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-				if (column.key == 'Add') { 
+				if (column.key == 'Add') {
 					subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 					updateSLTableIndex();
 					check();
 				}
-				if (column.key == 'Delete') { 			
-					if(this.getRecordSet().getLength()>1){			
+				if (column.key == 'Delete') {
+					if(this.getRecordSet().getLength()>1){
 						this.deleteRow(record);
 						allRecords=this.getRecordSet();
 						for(var i=0;i<allRecords.getLength();i++){
@@ -545,7 +545,7 @@ var makeBillDetailTable = function() {
 					else{
 						bootbox.alert("This row can not be deleted");
 					}
-				}  
+				}
 		});
 		<s:iterator value="subLedgerlist" status="stat">
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
@@ -569,7 +569,7 @@ var makeBillDetailTable = function() {
 				updateSLGrid('amount',index,'<s:property value="amount"/>');
 				updateSLTableIndex();
 			</s:iterator>
-		
+
 	}
 
 function onChangeDesignation(designationId)
@@ -597,7 +597,7 @@ function populatepositionuseronload()
 {
 	if(document.getElementById('positionUser')){
 		document.getElementById('positionUser').value='<s:property value="positionUser"/>';
-	}	
+	}
 }
 
 
@@ -667,7 +667,7 @@ function populatepositionuseronload()
 	      <td width="24%" class="bluebox">
 	      		<s:textfield id="challanDate" name="challan.challanDate" value="%{cdFormat}" data-inputmask="'mask': 'd/m/y'"/><div>(DD/MM/YYYY)</div>
 	      </td>
-	        
+
    		<s:if test="%{shouldShowHeaderField('billNumber')}">
    			<td width="21%" class="bluebox"><s:text name="challan.billNumber"/></td>
 			<td width="30%" class="bluebox"><s:textfield name="referencenumber" id="referencenumber" value="%{referencenumber}"  maxlength="50"/></td>
@@ -676,7 +676,7 @@ function populatepositionuseronload()
    			<td width="21%" class="bluebox">&nbsp;</td>
    			<td width="30%" class="bluebox">&nbsp;</td>
    		</s:else>
- 		
+
 	    </tr>
 	    <tr> <td width="4%" class="bluebox2">&nbsp;</td>
 	    <td width="21%" class="bluebox2"><s:text name="challan.payeename"/><span class="mandatory"/></td>
@@ -684,14 +684,14 @@ function populatepositionuseronload()
 	     <td width="21%" class="bluebox2"><s:text name="challan.payeeAddress"/></td>
 	    <td width="24%" class="bluebox2"><s:textarea name="payeeAddress" id="payeeAddress" value="%{payeeAddress}" cols="18" rows="1" maxlength="255" onkeyup="return ismaxlength(this)"/></td>
 	    </tr>
-	  <tr> 
+	  <tr>
 	      	<td width="4%" class="bluebox">&nbsp;</td>
 		    <td width="21%" class="bluebox"><s:text name="challan.narration"/></td>
 		    <td width="24%" class="bluebox"><s:textarea name="referenceDesc" id="referenceDesc" value="%{referenceDesc}" cols="18" rows="1" maxlength="125" onkeyup="return ismaxlength(this)"/></td>
 	    </tr>
 	    <tr>
         <td width="4%" class="bluebox">&nbsp;</td>
-         
+
         <td width="21%" class="bluebox"><s:text name="miscreceipt.service.category" /><span class="mandatory"/> </td>
         <td width="30%" class="bluebox"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="serviceCategoryId" id="serviceCategoryId" cssClass="selectwk" list="dropdownData.serviceCategoryList" listKey="id" listValue="name" value="%{serviceCategoryId}" onChange="populateService(this);" />
        	<egov:ajaxdropdown id="service" fields="['Text','Value']" dropdownId="serviceId" url="receipts/ajaxReceiptCreate-ajaxLoadServiceByCategoryForChallan.action" /></td>
@@ -699,16 +699,16 @@ function populatepositionuseronload()
         <td width="30%" class="bluebox"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="serviceId" id="serviceId" cssClass="selectwk"
 			list="dropdownData.serviceList" listKey="id" listValue="code" value="%{serviceId}" onchange="loadFinDetails(this);"/>
         </td>
-         
-       
+
+
         </tr>
-        
+
 	    <s:if test="%{shouldShowHeaderField('fund') || shouldShowHeaderField('department')}">
 	     <tr>
 	      <td width="4%" class="bluebox2">&nbsp;</td>
 	       <s:if test="%{shouldShowHeaderField('fund')}">
 	      		<td width="21%" class="bluebox2"><s:text name="challan.fund"/><s:if test="%{isFieldMandatory('fund')}"><span class="mandatory"/></s:if></td>
-		  		<td width="24%" class="bluebox2"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="receiptMisc.fund" id="receiptMisc.fund.id" cssClass="selectwk"  list="dropdownData.fundList" listKey="id" listValue="name" value="%{receiptMisc.fund.id}" /> </td> 
+		  		<td width="24%" class="bluebox2"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="receiptMisc.fund" id="receiptMisc.fund.id" cssClass="selectwk"  list="dropdownData.fundList" listKey="id" listValue="name" value="%{receiptMisc.fund.id}" /> </td>
 		   </s:if>
 		  <s:else>
   			<td class="bluebox2" colspan="2"></td>
@@ -750,35 +750,35 @@ function populatepositionuseronload()
 		     <td width="21%" class="bluebox2" colspan="2"></td>
 	    </tr>
 	     </s:if>
-	   
+
 </table>
 </td></tr>
 
  <tr><td>
-    
+
 	<div class="subheadsmallnew"><span class="subheadnew"><s:text name="challan.billdetails"/></span></div>
-	
+
 	<div class="yui-skin-sam" align="center">
        <div id="billDetailTable"></div>
-       
+
      </div>
      <script>
-		
+
 		makeBillDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="100%";
 	 </script>
 	 <div id="codescontainer"></div>
 	 <br/>
 	 <div class="subheadsmallnew"><span class="subheadnew"><s:text name="billreceipt.billdetails.SubLedger"/></span></div>
-	
-	 	
+
+
 		<div class="yui-skin-sam" align="center">
 	       <div id="subLedgerTable"></div>
 	     </div>
 		<script>
-			
+
 			makeSubLedgerTable();
-			
+
 			document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="100%";
 		</script>
  <div id="subledgercodescontainer"></div>
@@ -790,7 +790,7 @@ function populatepositionuseronload()
 <!-- Change to Manual WorkFlow on Create Challan-->
  <!-- When request is to check/approve challan -->
 	<table id="approvedet" width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr><td> 
+	<tr><td>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	    <!-- Remarks have to displayed on Challan Check/Approve. -->
 		<s:if test="%{sourcePage=='inbox' && (model.challan.state.value=='CREATED' || model.challan.state.value=='CHECKED')}">
@@ -811,7 +811,7 @@ function populatepositionuseronload()
 		<!--  Designation and Position has to be displayed for Challan Create/Check/Modify -->
 		<!--  Designation and Position should not be displayed when invoked from search -->
 		<s:if test="%{model.id==null || (model.challan.state.value=='REJECTED' || model.challan.state.value=='CHECKED')}">
-		<tr> 
+		<tr>
 		<div class="subheadnew">
 			<s:text name="approval.authority.information"/>
 		</div>
@@ -820,16 +820,16 @@ function populatepositionuseronload()
 			<td width="4%" class="bluebox2">&nbsp;</td>
 			<td width="15%" class="bluebox2"> Approver Department <s:if test="%{model.id==null}"><span class="mandatory"/></s:if></td>
 			<td width="20%" class="bluebox2"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="approverDeptId" id="approverDeptId" cssClass="selectwk" list="dropdownData.approverDepartmentList" listKey="id" listValue="name" value="%{approverDeptId}"
-onChange="onChangeDeparment(this.value)" /> 
+onChange="onChangeDeparment(this.value)" />
 		<egov:ajaxdropdown id="designationIdDropdown" fields="['Text','Value']" dropdownId='designationId'
 			         url='receipts/ajaxChallanApproval-approverDesignationList.action' selectedValue="%{designationId}"/>
 			</td>
 
-			
+
 		      	<td width="15%" class="bluebox2"><s:text name="challan.approve.designation"/><s:if test="%{model.id==null}"><span class="mandatory"/></s:if></td>
 			  <td width="20%" class="bluebox2"><s:select headerKey="-1" headerValue="%{getText('challan.select')}" name="designationId" id="designationId" cssClass="selectwk"  list="dropdownData.designationMasterList" listKey="id" listValue="name" value="%{designationId}" onChange="onChangeDesignation(this.value)"/>
 			  <egov:ajaxdropdown id="positionUserDropdown" fields="['Text','Value']" dropdownId='positionUser'
-			         url='receipts/ajaxChallanApproval-positionUserList.action' selectedValue="%{position.id}"/>	 
+			         url='receipts/ajaxChallanApproval-positionUserList.action' selectedValue="%{position.id}"/>
 			 </td>
 			 <td width="15%" class="bluebox2"><s:text name="challan.approve.userposition"/><s:if test="%{model.id==null}"><span class="mandatory"/></s:if></td>
 				<td width="20%" class="bluebox2">
@@ -850,25 +850,25 @@ onChange="onChangeDeparment(this.value)" />
 	<s:date name="cutOffDate" var="cutOffDateFormat" format="dd/MM/yyyy"/>
     <s:hidden label="cutOffDate" id="cutOffDate"  name="cutOffDate" value="%{cutOffDateFormat}"/>
 	 <div class="buttonbottom" align="center" id="printButton">
-		<!-- Action Buttons should be displayed only in case of Create New Challan or 
+		<!-- Action Buttons should be displayed only in case of Create New Challan or
 		     If page is opened from inbox -->
 			<s:if test="%{model.id==null || (sourcePage=='inbox' && !hasActionMessages()) || (actionName=='CHALLAN_MODIFY' && hasErrors()) || (actionName=='CHALLAN_VALIDATE' && hasErrors())}" >
 			<s:iterator value="%{validActions}">
 				<s:submit type="submit" cssClass="buttonsubmit" value="%{description}" id="%{name}" name="actionButton" onclick="document.challan.actionName.value='%{name}';document.challan.action='challan-save.action'; return validate(this);"/>
-		    </s:iterator>	
+		    </s:iterator>
 	    </s:if>
-	   
+
 	     &nbsp;
 	    <s:if test="%{model.id==null}" >
 	    	<input name="button" type="button" class="button" id="button" value="Reset" onclick="checkreset();"/>
 	    </s:if>
 	    <s:if test="%{model.id!=null}" >
-				
-				<s:submit type="submit" cssClass="buttonsubmit" id="buttonprint" value="Print" onclick="document.challan.action='challan-printChallan.action'" /> 			
+
+				<s:submit type="submit" cssClass="buttonsubmit" id="buttonprint" value="Print" onclick="document.challan.action='challan-printChallan.action'" />
 	    </s:if>
 	    &nbsp;<input name="button" type="button" class="button" id="buttonclose2" value="Close" onclick="window.close();" />
     </div>
-   
+
    	<s:hidden id="receiptId" name="receiptId" value="%{model.id}"/>
    	<s:hidden id="sourcePage" name="sourcePage" value="%{sourcePage}"/>
 	<s:hidden id="challanNextState" name="challanNextState" value="%{challan.state.nextAction}"/>

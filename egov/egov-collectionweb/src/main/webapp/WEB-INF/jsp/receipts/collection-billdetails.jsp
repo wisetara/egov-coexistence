@@ -1,7 +1,7 @@
 
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -68,7 +68,7 @@
 			<td class="textholder"><s:property value="%{displayMsg}"/></td>
 			<td class="textholder"><s:property value="%{consumerCode}"/></td>
 			<td class="textholderl"><s:property value="%{payeeName}"/>,<s:property value="%{referenceDesc}"/></td>
-			<td class="textholderl"><div id="bobcontent-title" class="billdetailaction"><s:text name="billreceipt.accountdetails"/></div></td>	
+			<td class="textholderl"><div id="bobcontent-title" class="billdetailaction"><s:text name="billreceipt.accountdetails"/></div></td>
 		</tr>
 		</table>
         </td>
@@ -101,13 +101,13 @@
 				                <td class="blueborderfortd">
 				                   <div align="center">
 				                	<input id="receiptDetailList[<%=rcptDtlCnt%>].cramountToBePaid" name="receiptDetailList[<%=rcptDtlCnt%>].cramountToBePaid" value='<s:property value="%{cramountToBePaid}"/>' type="text" readonly="true" disabled="disabled" size="12"/>
-				                	
+
 									<input type="hidden" name="receiptDetailList[<%=rcptDtlCnt%>].cramount" value="0"  id="receiptDetailList[<%=rcptDtlCnt%>].cramount"  size="12" onblur='checkandcalculatecredittotal(<%=rcptDtlCnt%>,this);'/>
-									<!-- the below two fields are included to be matched in the action --> 
+									<!-- the below two fields are included to be matched in the action -->
 									<input type="hidden" name="receiptDetailList[<%=rcptDtlCnt%>].ordernumber" id="receiptDetailList[<%=rcptDtlCnt%>].ordernumber" value='<s:property value="ordernumber"/>' />
 									<input type="hidden" name="receiptDetailList[<%=rcptDtlCnt%>].receiptHeader.referencenumber" id="receiptDetailList[<%=rcptDtlCnt%>].receiptHeader.referencenumber" value='<s:property value="referencenumber"/>'/>
 									<input type="hidden" name="receiptDetailList[<%=rcptDtlCnt%>].dramount" id="receiptDetailList[<%=rcptDtlCnt%>].dramount"  value='<s:property value="dramount"/>'/>
-									<input type="hidden" name="receiptDetailList[<%=rcptDtlCnt%>].isActualDemand" id="receiptDetailList[<%=rcptDtlCnt%>].isActualDemand" value='<s:property value="isActualDemand"/>' />	
+									<input type="hidden" name="receiptDetailList[<%=rcptDtlCnt%>].isActualDemand" id="receiptDetailList[<%=rcptDtlCnt%>].isActualDemand" value='<s:property value="isActualDemand"/>' />
 				                   </div>
 				                </td>
 			              	</tr>

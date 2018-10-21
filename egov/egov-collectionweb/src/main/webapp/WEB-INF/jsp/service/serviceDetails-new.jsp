@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -73,10 +73,10 @@ function validate(obj){
 	 <div class="errorstyle" id="error_area" style="display:none;"></div>
 	<div class="formmainbox">
 	<div class="subheadnew"><s:text name="service.master.search.header"></s:text> </div>
-	
+
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:960px;margin:0 auto;">
 
-		
+
 		<tr>
 			<td class="greybox" width="5%">&nbsp;</td>
 			<td class="greybox"><s:text name="service.master.search.category"></s:text> <span class="mandatory1">*</span></td>
@@ -86,25 +86,25 @@ function validate(obj){
 				list="dropdownData.serviceCategoryList" listKey="id" listValue="name"
 				value="%{serviceCategory.id}" /></td>
 		</tr>
-		
+
 
 	</table>
 <div align="left" class="mandatorycoll">&nbsp;&nbsp;&nbsp;<s:text name="common.mandatoryfields"/></div>
 <br/>
 	</div>
-	
+
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"
-					value="Create Service" 
+					value="Create Service"
 					onclick="return validate('serviceDetails-beforeCreate.action');" />
 			</label>&nbsp;
-			
+
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"
-					value="List Services" 
+					value="List Services"
 					onclick="return validate('serviceDetails-listServices.action');" />
-			</label>			
+			</label>
 		</div>
 
 </s:form>

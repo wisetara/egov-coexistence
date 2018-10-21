@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -72,7 +72,7 @@
 	<div class="position_alert2">
 		<spring:message code="lbl.total.credit.amount" />  : &#8377 <span id="journalVoucherTotalCreditAmount"> <c:out value="${journalVoucherTotalCreditAmount}" default="0.0"></c:out></span>
 	</div>
-	
+
 	<div>
 		<spring:hasBindErrors name="voucherHeader">
 			<div class="alert alert-danger col-md-10 col-md-offset-1">
@@ -94,7 +94,7 @@
 	<div class="buttonbottom" align="center">
 		<jsp:include page="../common/commonworkflowmatrix-button.jsp" />
 	</div>
-  
+
 </form:form>
 <script src="<cdn:url value='/resources/app/js/common/helper.js?rnd=${app_release_no}'/>"></script>
 <script src="<cdn:url value='/resources/app/js/common/voucherBillHelper.js?rnd=${app_release_no}'/>"></script>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -65,15 +65,15 @@ import java.util.Map;
 // Referenced classes of package org.egov.infstr.commons.dao:
 //            DesignationMaster
 
-public class DesignationMasterDAO 
+public class DesignationMasterDAO
     implements Serializable
 {
 
     public final static Logger LOGGER = Logger.getLogger(DesignationMasterDAO.class.getClass());
-    
+
     @PersistenceContext
 	private EntityManager entityManager;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
@@ -103,7 +103,7 @@ public class DesignationMasterDAO
             	throw new ApplicationException("designation.master.null");
             }
             getCurrentSession().delete(designation);
-            
+
     }
 
     public Designation getDesignationMaster(int desigID) throws ApplicationException
@@ -162,24 +162,24 @@ public class DesignationMasterDAO
         	throw new ApplicationRuntimeException(e.getMessage(),e);
         }
     }
-    
+
     /**
      * All comparisons are done after converting to uppercase.
      * @param designationName
      * @return Designation master object if a unique one was found for the input designationName, or null otherwise.
      * @throws NoSuchObjectException ,the input to this exception method is key i.e., defined in application resources
-     * please make sure you are using this key and displaying appropriate messages to client. 
+     * please make sure you are using this key and displaying appropriate messages to client.
      */
     public Designation getDesignationByDesignationName(String designationName) throws NoSuchObjectException
     {
-        
+
     	if(designationName==null)
         {
         	throw new ApplicationRuntimeException("designation.name.null");
         }
     	try
         {
-            
+
         	Query qry = getCurrentSession().createQuery("select d from  Designation d where trim(upper(d.name)) = :designationName ");
             qry.setString   ("designationName", designationName.toUpperCase());
             Designation desig =(Designation) qry.uniqueResult();
@@ -192,5 +192,5 @@ public class DesignationMasterDAO
         {
            throw new ApplicationRuntimeException(e.getMessage(),e);
         }
-    } 
+    }
 }

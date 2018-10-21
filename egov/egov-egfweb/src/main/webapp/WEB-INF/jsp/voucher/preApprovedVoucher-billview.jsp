@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -72,7 +72,7 @@
 		if(document.getElementById('approverDepartment'))
 			document.getElementById('approverDepartment').value = "-1";
 	}
-	
+
 	function checkLength(obj){
 		if(obj.value.length>1024)
 		{
@@ -80,7 +80,7 @@
 			obj.value = obj.value.substring(1,1024);
 		}
 	}
-	
+
 	function printEJV(){
 		var id = '<s:property value="voucherHeader.id"/>';
 		window.open("${pageContext.request.contextPath}/report/expenseJournalVoucherPrint-print.action?id="+id,'Print','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');

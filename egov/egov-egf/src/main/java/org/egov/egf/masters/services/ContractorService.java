@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -168,7 +168,7 @@ public class ContractorService implements EntityTypeService {
     @Override
     public List<? extends org.egov.commons.utils.EntityType> getAllActiveEntities(Integer accountDetailTypeId) {
         // TODO Auto-generated method stub
-        
+
         return contractorRepository.findByStatus();
     }
 
@@ -181,8 +181,8 @@ public class ContractorService implements EntityTypeService {
     @Override
     public List getAssetCodesForProjectCode(Integer accountdetailkey) throws ValidationException {
         // TODO Auto-generated method stub
-       
-        
+
+
         return null;
     }
 

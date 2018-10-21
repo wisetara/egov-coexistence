@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -72,7 +72,7 @@
 							<form:option value="">
 								<spring:message code="lbl.select"/>
 							</form:option>
-							<form:options items="${modulesList}"  />  
+							<form:options items="${modulesList}"  />
 						</form:select>
 						</div>
 						<label for="field-1" class="col-sm-2 control-label"> <spring:message
@@ -80,20 +80,20 @@
 						<div class="col-sm-3 add-margin">
 							<input type="text" name="assessmentNo" class="form-control patternvalidation" data-pattern="number" maxlength="15" id="assessmentNo"
 								 required="required"/>
-						</div>				
 						</div>
-						
-						
+						</div>
+
+
 					<div class="form-group">
 						<div class="text-center">
 							<button type="button" class="btn btn-primary" id="searchservice" >
-							<spring:message code='lbl.search' /></button>	
+							<spring:message code='lbl.search' /></button>
 							<button class="btn btn-danger" type="reset" ><spring:message code="lbl.reset"/></button>
 							<a href="javascript:void(0);" id="closeComplaints"
 								class="btn btn-default" onclick="window.close()"><spring:message code='lbl.close' /></a>
 						</div>
 				</div>
-						
+
 				</form:form>
 			</div>
 		</div>
@@ -103,7 +103,7 @@
 	<div class="col-md-12 table-header text-left">
 		<spring:message code="title.searchresult" />
 	</div>
-	<div class="col-md-12 form-group report-table-container">	
+	<div class="col-md-12 form-group report-table-container">
 	<table class="table table-bordered table-hover"
 		id="SearchResults">
 		<thead>
@@ -115,14 +115,14 @@
 	    		</tr>
 	    	</thead>
 	    	<tbody>
-	    	
+
 	    	</tbody>
 	</table>
 	</div>
 </div>
 
 <link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/jquery.dataTables.min.css' context='/egi'/>"/>
-		<link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/dataTables.bootstrap.min.css' context='/egi'/>">		
+		<link rel="stylesheet" href="<cdn:url value='/resources/global/css/jquery/plugins/datatables/dataTables.bootstrap.min.css' context='/egi'/>">
 	 	<script type="text/javascript"
 		src="<cdn:url value='/resources/global/js/jquery/plugins/jquery.validate.min.js' context='/egi'/>"></script>
 	 	<script type="text/javascript" src="<cdn:url value='/resources/global/js/jquery/plugins/datatables/jquery.dataTables.min.js' context='/egi'/>"></script>

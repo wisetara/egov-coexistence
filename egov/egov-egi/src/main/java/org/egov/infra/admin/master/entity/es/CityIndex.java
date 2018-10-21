@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,29 +59,29 @@ public class CityIndex {
 
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String regionname;
-	
+
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String districtcode;
-	
+
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String districtname;
-	
+
 	@Id
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String citycode;
-	
+
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String name;
-	
+
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String citygrade;
-	
+
 	@Field(type = FieldType.String, index = FieldIndex.not_analyzed)
 	private String domainurl;
-	
+
 	@Field(type = FieldType.Double)
 	private double longitude;
-	
+
 	@Field(type = FieldType.Double)
 	private double latitude;
 

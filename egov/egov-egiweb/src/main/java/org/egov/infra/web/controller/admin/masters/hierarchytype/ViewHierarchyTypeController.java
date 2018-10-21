@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,17 +63,17 @@ public class ViewHierarchyTypeController {
 
     private static final String REQUEST_MAP_VIEW = "/view/{typeName}";
     private HierarchyTypeService hierarchyTypeService;
-    
+
     @Autowired
     public ViewHierarchyTypeController(HierarchyTypeService hierarchyTypeService) {
         this.hierarchyTypeService = hierarchyTypeService;
     }
-    
+
     @ModelAttribute
     public HierarchyType hierarchyTypeModel(@PathVariable String  typeName) {
            return hierarchyTypeService.getHierarchyTypeByName(typeName);
     }
-    
+
     @RequestMapping(value = REQUEST_MAP_VIEW, method = RequestMethod.GET)
     public String hierarchyTypeViewForm() {
         return "hierarchyType-view";

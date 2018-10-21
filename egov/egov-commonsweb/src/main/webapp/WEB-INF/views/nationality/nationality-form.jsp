@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,8 +52,8 @@
 <c:if test="${not empty message}">
                     <div class="alert alert-success" role="alert"><spring:message code="${message}"/></div>
                 </c:if>
-				
-				<div class="panel-body custom-form">				
+
+				<div class="panel-body custom-form">
 					<div class="form-group">
 						<label class="col-sm-3 control-label">
 							<spring:message code="lbl.nationality"/><span class="mandatory"></span>
@@ -70,8 +70,8 @@
 						<div class="col-sm-6">
 							<form:textarea path="description" id="name" type="text" class="form-control low-width" data-pattern="alphanumericwithspecialcharacters" maxlength="50" placeholder="" autocomplete="off" />
                             <form:errors path="description" cssClass="add-margin error-msg"/>
-                             <input type="hidden" name="nationality" value="${nationality.id}" /> 
+                             <input type="hidden" name="nationality" value="${nationality.id}" />
 						</div>
-					</div>				
+					</div>
 				</div>
-			
+

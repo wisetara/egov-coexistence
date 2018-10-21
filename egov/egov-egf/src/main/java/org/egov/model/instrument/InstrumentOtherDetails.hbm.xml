@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -49,7 +49,7 @@
   -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- 
+<!--
       Mapping file created by Mani
 -->
 <hibernate-mapping>
@@ -68,15 +68,15 @@
         <many-to-one name="instrumentHeaderId" class="org.egov.model.instrument.InstrumentHeader" fetch="select">
             <column name="instrumentHeaderId" precision="22" scale="0" />
         </many-to-one>
-        
+
         <many-to-one name="payinslipId" class="org.egov.commons.CVoucherHeader" fetch="select">
             <column name="payinslipId" precision="22" scale="0"  />
         </many-to-one>
         <property name="dishonorBankRefNo" type="string">
             <column name="dishonorBankRefNo" length="30"  />
         </property>
-             
-             
+
+
         <property name="instrumentStatusDate" type="java.util.Date">
             <column name="instrumentStatusDate"   />
         </property>
@@ -91,6 +91,6 @@
         <property name="createdDate" type="java.util.Date">
             <column name="CREATEDDATE"  not-null="true" />
         </property>
-       
+
        </class>
 </hibernate-mapping>

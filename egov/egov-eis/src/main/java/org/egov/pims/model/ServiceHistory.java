@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -61,12 +61,12 @@ public class ServiceHistory implements Serializable,Comparable
    private Long docNo;
    private String payScale;
    private PersonalInformation employeeId;
-   
+
    public ServiceHistory()
    {
-	   
+
    }
-   
+
    public ServiceHistory(PersonalInformation employeeId,Date commentDate,String comments,String reason,String serviceOrderNo,String serviceDocNo, String payScale)
    {
 	   this.commentDate=commentDate;
@@ -76,14 +76,14 @@ public class ServiceHistory implements Serializable,Comparable
 	   this.docNo=serviceDocNo.equals("")? this.docNo : Long.valueOf(serviceDocNo);
 	   this.payScale=payScale;
    }
-   
+
    public ServiceHistory(Integer idService)
    {
 	   this.idService=idService;
    }
-   
-  
-   
+
+
+
 public Integer getIdService() {
 	return idService;
 }
@@ -128,8 +128,8 @@ public static Comparator commentDateComparator = new Comparator() {
 public int compareTo(Object anotherCommentDate) throws ClassCastException {
     if (!(anotherCommentDate instanceof ServiceHistory))
       throw new ClassCastException("A ServiceHistory object expected.");
-    Integer serviceId = ((ServiceHistory) anotherCommentDate).getIdService(); 
-    return this.idService.compareTo(serviceId);  
+    Integer serviceId = ((ServiceHistory) anotherCommentDate).getIdService();
+    return this.idService.compareTo(serviceId);
   }
 
 public String getOrderNo() {
@@ -157,5 +157,5 @@ public void setPayScale(String payScale) {
 }
 
 
-   
+
 }

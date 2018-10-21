@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,14 +55,14 @@ import java.lang.annotation.Target;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
 /**
- * Purpose of this annotation is same as {@link ValidationErrorPage}, In addition to 
+ * Purpose of this annotation is same as {@link ValidationErrorPage}, In addition to
  * main functionality, this annotation also provide two more annotation parameter<br/>
  * toMethod:methodName<br/>
  * makeCall:boolean<br/>
  * Setting makeCall to true and mentioning methodName (any method name in the same action)
  * will cause the action to invoke the given method after ValidationException is processed.
- * 
- * This is useful incase of re populating dropdowns and other dynamic field in the page after 
+ *
+ * This is useful incase of re populating dropdowns and other dynamic field in the page after
  * if there is a ValidationException is thrown from an Action method.
  **/
 @Retention(RetentionPolicy.RUNTIME)
@@ -70,6 +70,6 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 public @interface ValidationErrorPageExt {
 	String action() default SUCCESS;
 	String toMethod() default "";
-	
+
 	boolean makeCall() default false;
 }

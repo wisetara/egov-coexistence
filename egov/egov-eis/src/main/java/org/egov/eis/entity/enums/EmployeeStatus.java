@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -51,9 +51,9 @@ package org.egov.eis.entity.enums;
 import org.apache.commons.lang3.StringUtils;
 
 public enum EmployeeStatus {
-    
+
     EMPLOYED, RETIRED, SUSPENDED, DECEASED, TRANSFERRED, APPLIED, APPROVED, REJECTED, CANCELLED, RESUBMITTED;
-    
+
     @Override
     public String toString() {
         return StringUtils.capitalize(name());

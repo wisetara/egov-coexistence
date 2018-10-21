@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -80,11 +80,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ *
  * @author DivyaShree
  *
  */
-public class PersonalInformationService extends PersistenceService<PersonalInformation, Integer> implements EntityTypeService 
+public class PersonalInformationService extends PersistenceService<PersonalInformation, Integer> implements EntityTypeService
 {
 	//named query tags
 	private static final String ACTIVEEMPSBYLOGGEDINUSER="EMPVIEW-ACTIVE-EMPS-BYLOGGEDINUSER";
@@ -92,7 +92,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	private final String PERSONALINFOEMPCODESTARTSWITH="PERSONALINFO-EMPCODE-STARTSWITH";
 	private final String EMPVIEWBYLOGGEDINUSER="EMPVIEW-EMPS-BYLOGGEDINUSER";
 	private final String EMPVIEWDEPTIDSLOGGEDINUSER="EMPVIEW-DEPTIDS-LOGGEDINUSER";
-	private static final String EMPVIEWACTIVEEMPS="EMPVIEW-ACTIVE-EMPS"; 
+	private static final String EMPVIEWACTIVEEMPS="EMPVIEW-ACTIVE-EMPS";
 	private static final String EMPVIEWEMPSLASTASSPRD="EMPVIEW-EMPS-LASTASSPRD";
 
 	public PersonalInformationService() {
@@ -105,13 +105,13 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Autowired
 	private AppConfigValueService appConfigValuesService;
 
 	@Autowired
 	private EgwStatusHibernateDAO egwStatusHibernateDAO;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
@@ -144,11 +144,11 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	}
 
 	/**
-	 * when filterbydept set to yes return employee list based on the login user who has the current assignment  
-	 * when filterbydept set to no return all employee list  who has the assignment in the current/last assignment 
+	 * when filterbydept set to yes return employee list based on the login user who has the current assignment
+	 * when filterbydept set to no return all employee list  who has the assignment in the current/last assignment
 	 * @param userid
 	 * @param autoValue
-	 * @param maxRecords 
+	 * @param maxRecords
 	 * @return employee list
 	 */
 	public List<PersonalInformation> getActiveEmpListByUserLogin(Integer userid,String autoValue,int maxRecords)
@@ -158,7 +158,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		String filterByDept = appConfigValuesService.getAppConfigValue("EIS-PAYROLL","FILTERBYDEPT","false");
 
 		if(filterByDept!=null && filterByDept.toUpperCase().equals("YES"))
-		{    	
+		{
 			List deptIdList=getDeptsForLoggedInUser(userid);
 			if(deptIdList.isEmpty())
 				return Collections.emptyList();
@@ -169,7 +169,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		{
 			return findPageByNamedQuery(EMPVIEWACTIVEEMPS, 0,pageSize,autoValue).getList();
 			//return findAllByNamedQuery(PERSONALINFOEMPCODESTARTSWITH,autoValue);
-		}	
+		}
 
 
 	}
@@ -177,7 +177,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	 * return employee list based on the login user who has the assignment in the current period/MaxFromdate
 	 * @param userid
 	 * @param autoValue
-	 * @param maxRecords 
+	 * @param maxRecords
 	 * @return employee list
 	 */
 	public List<PersonalInformation> getEmpListByUserLogin(Integer userid,String autoValue,int maxRecords)
@@ -187,7 +187,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		String filterByDept = appConfigValuesService.getAppConfigValue("EIS-PAYROLL","FILTERBYDEPT","false");
 
 		if(filterByDept!=null && filterByDept.toUpperCase().equals("YES"))
-		{   
+		{
 			List deptIdList=getDeptsForLoggedInUser(userid);
 			if(deptIdList.isEmpty())
 				return Collections.emptyList();
@@ -198,12 +198,12 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		else
 		{
 			return findPageByNamedQuery(EMPVIEWEMPSLASTASSPRD,0,pageSize,autoValue,autoValue).getList();
-		}	
+		}
 
 
 	}
 	/**
-	 * Its applicable only when 'isfiltebydept' is set to yes 
+	 * Its applicable only when 'isfiltebydept' is set to yes
 	 * returns the departments for the logged in user dept ,if he/she is HOD then includes those departments as well
 	 * @param userId
 	 * @return DepartmentLsit of ids
@@ -212,7 +212,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		List<BigDecimal> deptList=	findPageByNamedQuery(EMPVIEWDEPTIDSLOGGEDINUSER, 0,null,userId,userId).getList();
 		List<Integer> deptListInt=new ArrayList<Integer>();
 		for(BigDecimal deptId:deptList)
-		{ 
+		{
 			if(deptId!=null)
 			{
 				deptListInt.add(deptId.intValue());
@@ -235,18 +235,18 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	/**
 	 * Returns List of Employees for the given status  and
 	 * Date range considered for the status['Retired','Deceased'] and as of toDate for the status[ 'Employed','Suspended' ]
-	 * @param statusid 
+	 * @param statusid
 	 * @param fromDate
 	 * @param toDate
 	 * @return
 	 */
 	public  List<PersonalInformation> getEmployeesByStatus(Integer statusid ,Date fromDate,Date toDate){
-		List<PersonalInformation> employeeList ; 
+		List<PersonalInformation> employeeList ;
 		Criteria criteria=null;
 
 		try
 		{
-			criteria=getCriteriaForEmpSearchByStatus(statusid,fromDate,toDate);	
+			criteria=getCriteriaForEmpSearchByStatus(statusid,fromDate,toDate);
 			employeeList= criteria.list();
 
 		} catch (HibernateException he) {
@@ -260,7 +260,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	/**
 	 * Returns Page  for the given status  and
 	 * Date range considered for the status['Retired','Deceased'] and as of toDate for the status[ 'Employed','Suspended' ]
-	 * @param statusid 
+	 * @param statusid
 	 * @param fromDate
 	 * @param toDate
 	 * @param pageNumber
@@ -269,15 +269,15 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	 */
 	public  Page getEmployeesByStatus(Integer statusid ,Date fromDate,Date toDate,Integer pageNumber,Integer pageSize){
 
-		Criteria criteria=null;			
-		criteria=getCriteriaForEmpSearchByStatus(statusid,fromDate,toDate);				
+		Criteria criteria=null;
+		criteria=getCriteriaForEmpSearchByStatus(statusid,fromDate,toDate);
 		return new Page(criteria,pageNumber,pageSize);
 
 	}
 	/**
 	 * Returns total record count  for the given status  and
 	 * Date range considered for the status['Retired','Deceased'] and as of toDate for the status[ 'Employed','Suspended' ]
-	 * @param statusid 
+	 * @param statusid
 	 * @param fromDate
 	 * @param toDate
 	 * @return
@@ -288,9 +288,9 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		try
 		{
 
-			criteria=getCriteriaForEmpSearchByStatus(statusid,fromDate,toDate);	
+			criteria=getCriteriaForEmpSearchByStatus(statusid,fromDate,toDate);
 
-			criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY); 
+			criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 			criteria.setProjection(Projections.rowCount());
 			if(criteria.uniqueResult()!=null)
 			{
@@ -318,24 +318,24 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 		}
 		else if(egwStatus.getModuletype().equals("Employee") && egwStatus.getDescription().equalsIgnoreCase("Retired"))
 		{
-			detachCriteriaPersonalInfo.add(Restrictions.between("emp.retirementDate", fromDate, toDate));				
+			detachCriteriaPersonalInfo.add(Restrictions.between("emp.retirementDate", fromDate, toDate));
 
 		}
 		else if(egwStatus.getModuletype().equals("Employee") && egwStatus.getDescription().equalsIgnoreCase("Deceased"))
 		{
 			detachCriteriaPersonalInfo.add(Restrictions.between("emp.deathDate", fromDate, toDate));
 		}
-		return detachCriteriaPersonalInfo.getExecutableCriteria(getCurrentSession());	
+		return detachCriteriaPersonalInfo.getExecutableCriteria(getCurrentSession());
 	}
-	
+
 	/**
 	 * This API returns the list of EmployeeView objects which have a current assignment or
 	 * assignment as on date based on the parameters in the map.
 	 * @param criteriaParams - HashMap<String,Object> where the following keys are supported:-
 	 * "departmentId" 	- Pass the id of the department to restrict the employees to
 	 * "designationId"  - Pass the id of the designation to restrict the resultset
-	 * "isPrimary"      - Possible values "Y" or "N". If "Y", then only employees with 
-	 * 					Primary assignment will be returned. If "N" only employees with 
+	 * "isPrimary"      - Possible values "Y" or "N". If "Y", then only employees with
+	 * 					Primary assignment will be returned. If "N" only employees with
 	 * 					temporary assignment is returned. If this key is not present in the map,
 	 * 					employees with both temporary as well as primary assignments are returned.
 	 * "asOnDate"		- Value should be the date for which the employees need to have an
@@ -346,7 +346,7 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	 * @return
 	 */
 	public List<EmployeeView> getListOfEmployeeViewBasedOnCriteria(HashMap<String,Object> criteriaParams, Integer pageNo, Integer pageSize) {
-		
+
 		List<EmployeeView> employeeList = new ArrayList<EmployeeView>();
 		try {
 			Criteria criteria=getCurrentSession().createCriteria(EmployeeView.class);
@@ -364,20 +364,20 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 				if ("isPrimary".equals(entry.getKey())) {
 					criteria.add(Restrictions.eq("isPrimary",entry.getValue() ));
 				}
-				if ("asOnDate".equals(entry.getKey())) 
+				if ("asOnDate".equals(entry.getKey()))
 					asOnDate = (Date)entry.getValue();
 				else
 					asOnDate = DateUtils.today();
 				criteria.add(Restrictions.and(Restrictions.le("fromDate",asOnDate), Restrictions.ge("toDate",asOnDate)));
 
-				
+
 			}
 			criteria.addOrder(Order.asc("id"));
 			employeeList = new Page(criteria, pageNo, pageSize).getList();
 		} catch (Exception e) {
 			throw new ApplicationRuntimeException("Error occured in searching for employees",e);
 		}
-		
+
 		return employeeList;
 	}
 	/**
@@ -386,13 +386,13 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	 * @param criteriaParams - HashMap<String,Object> where the following keys are supported:-
 	 * "departmentId" 	- Pass the List of id of the department to restrict the employees to
 	 * "designationId"  - Pass the id of the designation to restrict the resultset
-	 * "isPrimary"      - Possible values "Y" or "N". If "Y", then only employees with 
-	 * 					Primary assignment will be returned. If "N" only employees with 
+	 * "isPrimary"      - Possible values "Y" or "N". If "Y", then only employees with
+	 * 					Primary assignment will be returned. If "N" only employees with
 	 * 					temporary assignment is returned. If this key is not present in the map,
 	 * 					employees with both temporary as well as primary assignments are returned.
 	 * "employeeName" 	- Pass employee name.
-	 * "employeeCode" 	- Pass employee codes as list.		 
-	 * "isActive" 	    - Pass Integer Value either 0 or 1.	 * 
+	 * "employeeCode" 	- Pass employee codes as list.
+	 * "isActive" 	    - Pass Integer Value either 0 or 1.	 *
 	 * "asOnDate"		- Value should be the date for which the employees need to have an
 	 * 					assignment. If this key is not passed, employeed that have an assignment
 	 * 					as of today will be returned.
@@ -400,9 +400,9 @@ public class PersonalInformationService extends PersistenceService<PersonalInfor
 	 * @param pageSize
 	 * @return
 	 */
-	
+
 public List<EmployeeView> getListOfEmployeeViewBasedOnListOfDesignationAndOtherCriteria(HashMap<String,Object> criteriaParams, Integer pageNo, Integer pageSize) {
-		
+
 		List<EmployeeView> employeeList = new ArrayList<EmployeeView>();
 		try {
 			Criteria criteria=getCurrentSession().createCriteria(EmployeeView.class);
@@ -431,21 +431,21 @@ public List<EmployeeView> getListOfEmployeeViewBasedOnListOfDesignationAndOtherC
 				if ("employeeCode".equals(entry.getKey())) {
 					criteria.add(Restrictions.in("employeeCode",(List<String>) entry.getValue()));
 				}
-				
-				if ("asOnDate".equals(entry.getKey())) 
+
+				if ("asOnDate".equals(entry.getKey()))
 					asOnDate = (Date)entry.getValue();
 				else
 					asOnDate = DateUtils.today();
 				criteria.add(Restrictions.and(Restrictions.le("fromDate",asOnDate), Restrictions.ge("toDate",asOnDate)));
 
-				
+
 			}
 			criteria.addOrder(Order.asc("id"));
 			employeeList = new Page(criteria, pageNo, pageSize).getList();
 		} catch (Exception e) {
 			throw new ApplicationRuntimeException("Error occured in searching for employees",e);
 		}
-		
+
 		return employeeList;
 	}
 	@Override

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -206,7 +206,7 @@ public class BudgetGroupHibernateDAO implements BudgetGroupDAO {
 
     /**
      * Returns a list of BudgetGroup having entry in budget detail with the given function code.
-     * 
+     *
      * @param function code
      * @throws ValidationException
      */
@@ -250,7 +250,7 @@ public class BudgetGroupHibernateDAO implements BudgetGroupDAO {
     /**
      * Returns a list of BudgetGroup having entry in budget detail with the given function code or given List of ChartOfAccounts
      * or both.
-     * 
+     *
      * @param function code
      * @param chartOfAccountsList
      * @throws ValidationException
@@ -412,7 +412,7 @@ public class BudgetGroupHibernateDAO implements BudgetGroupDAO {
 
     /**
      * Returns a list of BudgetGroup having entry in budget detail with the given fund,function,department and account type.
-     * 
+     *
      * @param fund,function,department and account type
      * @throws ValidationException
      */

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
 <SCRIPT type="text/javascript">
     //makeGrantTable for CFC, SFC & Stamp Duty
     var makeGrantTable = function() {
-    	var grantTableColumns = [ 
+    	var grantTableColumns = [
 			{key:"SlNo",label:'Sl No',width:30},
 			{key:"id",label:'id',width:100,hidden:true, formatter:createTextFieldFormatter('CFCGtable',GRANTLIST,".id","hidden")},
 			{key:"grants.department",label:'Department'+'<span class="mandatory">*</span>',width:110, formatter:createDepartmentDropDownFormatter('CFCGtable',GRANTLIST,".department.id","text")},
@@ -85,12 +85,12 @@
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			grantTableDT.addRow({SlNo:grantTableDT.getRecordSet().getLength()+1});
 			updategrantTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -148,13 +148,13 @@
 			updateYUIGrid(GRANTLIST,'ihID.instrumentNumber',index,'<s:property value="ihID.instrumentNumber"/>');
 			updateYUIGrid(GRANTLIST,'ihID.instrumentDate',index,'<s:date name="ihID.instrumentDate" format="dd/MM/yyyy"/>');
 			updateYUIGrid(GRANTLIST,'remarks',index,'<s:property value="remarks"/>');
-			updategrantTableIndex();	
+			updategrantTableIndex();
 		</s:iterator>
     }
-    
+
     //makeGrantTableET for Entertainment Tax
     var makeGrantTableET = function() {
-    	var grantTableColumns = [ 
+    	var grantTableColumns = [
 			{key:"SlNo",label:'Sl No',width:30},
 			{key:"id",label:'id',width:100,hidden:true, formatter:createTextFieldFormatter('CFCGtable',GRANTLIST,".id","hidden")},
 			{key:"grants.department",label:'Department'+'<span class="mandatory">*</span>',width:110, formatter:createDepartmentDropDownFormatter('CFCGtable',GRANTLIST,".department.id","text")},
@@ -187,12 +187,12 @@
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			grantTableDT.addRow({SlNo:grantTableDT.getRecordSet().getLength()+1});
 			updategrantTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -252,10 +252,10 @@
 			updateYUIGrid(GRANTLIST,'ihID.instrumentDate',index,'<s:date name="ihID.instrumentDate" format="dd/MM/yyyy"/>');
 			updateYUIGrid(GRANTLIST,'commTaxOfficer',index,'<s:property value="commTaxOfficer"/>');
 			updateYUIGrid(GRANTLIST,'remarks',index,'<s:property value="remarks"/>');
-			updategrantTableIndex();	
+			updategrantTableIndex();
 		</s:iterator>
     }
-    
+
     var GRANTLIST='grantsList';
     var grantTableIndex=0;
     var accrualGJV=false;
@@ -304,7 +304,7 @@
       el.innerHTML =element ;
       }
    }
-   
+
 	function createFinYearDropDownFormatter(tableType,prefix,suffix){
 	return function(el, oRecord, oColumn, oData) {
 	var index=getIndexForTableType(tableType);
@@ -326,7 +326,7 @@
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		var imgsuffix=suffix+"img";
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' readonly='true' style='width:90px;' /><img src='/services/egi/resources/erp2/images/searchicon.gif' id='"+prefix+"["+tableIndex+"]"+imgsuffix+"' name='"+prefix+"["+tableIndex+"]"+imgsuffix+"' onclick='openViewVouchers(this)'/>";
-		}    
+		}
 	}
 	function loadChequeNoAndDate(billVhId,name){
 		var url = '../voucher/common!ajaxLoadChequeNoAndDate.action?billVhId='+billVhId;
@@ -375,7 +375,7 @@
 			accrualGJV=true;
 			loadFundingAgencyAmount(data[2],onlyName);
 		}
-		
+
 		}
 	}
 	var fundingAgencyAmount={
@@ -455,7 +455,7 @@
 		grantTableIndex++;
 	}
 	function createDateFieldFormatter(tableType,prefix,suffix)
-	{	
+	{
 		return function(el, oRecord, oColumn, oData) {
 			var value = (YAHOO.lang.isValue(oData))?oData:"";
 			var index=getIndexForTableType(tableType);
@@ -471,14 +471,14 @@
 	function checkDate(obj)
 	{
 		var dat=validateDate(obj.value);
-		if (!dat && dat!=null) 
+		if (!dat && dat!=null)
 		{
 			bootbox.alert('Invalid date format : Enter Date as dd/mm/yyyy');
 			obj.value="";
 			return;
 		}
 	}
-	
+
 	//validation
 	function validateMandatoryFields(){
 		for( i=0;i<grantTableIndex;i++)
@@ -522,7 +522,7 @@
 			if(!(obj6==null || obj6.value==-1  || obj6.value==0 || obj6.value=='') && !(obj7==null || obj7.value==-1  || obj7.value==0 || obj7.value=='')){
 				bootbox.alert("You have linked both GJV and Receipt in Row "+(i+1));
 				obj6.value="";
-				obj7.value="";	
+				obj7.value="";
 				return false;
 			}
 		}

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -50,7 +50,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="org.egov.egf.masters.model.LoanGrantDetail" table="EGF_LOANGRANTDETAIL"> 
+	<class name="org.egov.egf.masters.model.LoanGrantDetail" table="EGF_LOANGRANTDETAIL">
 		<!-- A sequence pk generator -->
 		<id name="id" type="long" unsaved-value="null" >
 			<column name="ID" not-null="true"/>
@@ -58,7 +58,7 @@
 				<param name="sequence_name">SEQ_EGF_LOANGRANTDETAIL</param>
 			</generator>
 		</id>
-	
+
       <many-to-one name="header"  class="org.egov.egf.masters.model.LoanGrantHeader" column="HEADERID"/>
 	  <many-to-one name="fundingAgency" class="org.egov.egf.masters.model.FundingAgency" column="AGENCYID" />
       <property name="loanAmount" column="LOANAMOUNT" type="big_decimal"/>
@@ -77,4 +77,4 @@
       <property name="modifiedDate" column="LASTMODIFIEDDATE" type="timestamp"/>
 	</class>
 </hibernate-mapping>
-		
+

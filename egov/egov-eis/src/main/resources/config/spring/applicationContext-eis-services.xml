@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -55,11 +55,11 @@
 
 	<context:component-scan base-package="org.egov.pims"/>
 	<context:component-scan base-package="org.egov.eis"/>
-	
+
 	<bean id="personalInformationServiceOld" class="org.egov.pims.service.PersonalInformationService"/>
-	
+
 	<bean id="employeeServiceOld" class="org.egov.pims.service.EmployeeServiceImpl"/>
-	
+
 	 <bean id="employeeGrievancePersistenceService" parent="abstractPersistenceService">
         <constructor-arg name="type" value="org.egov.eis.entity.EmployeeGrievance" />
     </bean>

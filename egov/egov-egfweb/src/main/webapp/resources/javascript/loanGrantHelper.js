@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -77,7 +77,7 @@ function createTextFieldFormatterForProjectCode(prefix,suffix){
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text'  id='"+prefix+"["+projectCodeDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+projectCodeDetailTableIndex+"]"+suffix+"' style='width:160px;' onfocus='autocompleteUnmappedProjectCodesBy20(this);' onblur='fillNeibrAfterSplitLG(this);validateDuplicateProjectCode(this);' autocomplete='off' />";
-		
+
 	}
 }
 function createTextFieldFormatterForProjectName(prefix,suffix){
@@ -122,7 +122,7 @@ function createTextFieldFormatterImg(tableType,prefix,suffix,type){
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		var imgsuffix=suffix+"img";
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+tableIndex+"]"+suffix+"' name='"+prefix+"["+tableIndex+"]"+suffix+"' style='width:90px;' /><img src='/services/egi/resources/erp2/images/searchicon.gif' id='"+prefix+"["+tableIndex+"]"+imgsuffix+"' name='"+prefix+"["+tableIndex+"]"+imgsuffix+"' onclick='openViewVouchers(this)'/>";
-	}    
+	}
 }
 function createTextFieldLGAmount(tableType,prefix,suffix,onblurFunction)
 {
@@ -133,7 +133,7 @@ function createTextFieldLGAmount(tableType,prefix,suffix,onblurFunction)
 	}
 }
 function updateTotalAmount(tableType,loanGrantType)
-{	
+{
 	var prefix,suffix,tableIndex,objId,totalObjId;
 	var amt=0;
 	var i,totalg,totall;
@@ -168,7 +168,7 @@ function updateTotalAmount(tableType,loanGrantType)
 	}
 	for( i=0;i<tableIndex;i++)
 	{
-		
+
 		if(null != document.getElementById(prefix+'['+i+'].'+suffix)){
 			var val = document.getElementById(prefix+'['+i+'].'+suffix).value;
 			if(val!="" && !isNaN(val))
@@ -183,12 +183,12 @@ function updateTotalAmount(tableType,loanGrantType)
 	document.getElementById(totalObjId).value=amountConverter(parseFloat(totall)+parseFloat(totalg));
 }
 function updateReceiptTotalAmount()
-{	
+{
 	var amt=0;
 	var i;
 	for( i=0;i<receiptTableIndex;i++)
 	{
-		
+
 		if(null != document.getElementById(RECEIPTLIST+'['+i+'].amount')){
 			var val = document.getElementById(RECEIPTLIST+'['+i+'].amount').value;
 			if(val!="" && !isNaN(val))
@@ -200,7 +200,7 @@ function updateReceiptTotalAmount()
 	document.getElementById('totalreceiptamount').value = amountConverter(amt);
 }
 function updateAllTotalAmounts()
-{	
+{
 	var prefix,tableIndex,objId;
 	var loanAmt=0;
 	var grantAmt=0;
@@ -211,7 +211,7 @@ function updateAllTotalAmounts()
 	loanSuffix='loanAmount';
 	for( i=0;i<sanctionedAmountTableIndex;i++)
 	{
-		
+
 		if(null != document.getElementById(prefix+'['+i+'].'+grantSuffix)){
 			var val = document.getElementById(prefix+'['+i+'].'+grantSuffix).value;
 			if(val!="" && !isNaN(val))
@@ -235,7 +235,7 @@ function updateAllTotalAmounts()
 	grantAmt=0;
 	for( i=0;i<unsanctionedAmountTableIndex;i++)
 	{
-		
+
 		if(null != document.getElementById(prefix+'['+i+'].'+loanSuffix)){
 			var val = document.getElementById(prefix+'['+i+'].'+loanSuffix).value;
 			if(val!="" && !isNaN(val))
@@ -259,7 +259,7 @@ function updateAllTotalAmounts()
 	grantAmt=0;
 	for( i=0;i<revisedAmountTableIndex;i++)
 	{
-		
+
 		if(null != document.getElementById(prefix+'['+i+'].'+loanSuffix)){
 			var val = document.getElementById(prefix+'['+i+'].'+loanSuffix).value;
 			if(val!="" && !isNaN(val))
@@ -301,9 +301,9 @@ function autocompleteUnmappedProjectCodesBy20(obj)
 	   oACDS.scriptQueryParam = "startsWith";
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&subSchemeId="+document.getElementById("subSchemeId").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 3;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";
@@ -361,7 +361,7 @@ function openViewVouchers(obj)
 		document.getElementById(id).value=data[2];
 		onlyName=name.replace(".voucherHeader.voucherNumber","")
 		loadChequeNoAndDate(data[2],onlyName);
-		
+
 	}
 }
 function fillNeibrAfterSplitLG(obj)
@@ -382,7 +382,7 @@ function fillNeibrAfterSplitLG(obj)
 			document.getElementById(objName+currow+"].name").value=name;
 			document.getElementById(objName+currow+"].id").value=id;
 		}
-		else 
+		else
 			obj.value='';
 	}
 	else
@@ -632,7 +632,7 @@ function calculateAllPercentages()
 				document.getElementById("unsanctionedAmountLGDetails["+i+"].grantAmount").value='0';
 				document.getElementById("unsanctionedAmountLGDetails["+i+"].percentage").value='0';
 			}
-		}		
+		}
 		for( i=0;i<revisedAmountTableIndex;i++)
 		{
 			if(document.getElementById("revisedAmountLGDetails["+i+"].loanAmount")!=null)
@@ -970,7 +970,7 @@ function emptyRevisedCostIfZero(obj)
 				bootbox.alert("Please re-enter Project Code for row "+(i+1));
 				return false;
 			}
-			
+
 		}
 		for( i=0;i<sanctionedAmountTableIndex;i++)
 		{
@@ -988,7 +988,7 @@ function emptyRevisedCostIfZero(obj)
 				bootbox.alert("Please enter both Funding Agency and Loan Amount or Grant Amount for Sanctioned amount List for row "+(i+1));
 				return false;
 			}
-			
+
 		}
 		for( i=0;i<unsanctionedAmountTableIndex;i++)
 		{
@@ -1006,7 +1006,7 @@ function emptyRevisedCostIfZero(obj)
 				bootbox.alert("Please enter both Funding Agency and Loan Amount or Grant Amount for Unsanctioned amount List for row "+(i+1));
 				return false;
 			}
-			
+
 		}
 		for( i=0;i<revisedAmountTableIndex;i++)
 		{
@@ -1024,14 +1024,14 @@ function emptyRevisedCostIfZero(obj)
 				bootbox.alert("Please enter both Funding Agency and Loan Amount or Grant Amount for Revised amount List for row "+(i+1));
 				return false;
 			}
-			
+
 		}
 		return validateAmountsBeforeSubmit();
 	}
 	function checkDateLG(obj)
 	{
 		var dat=validateDate(obj.value);
-		if (!dat) 
+		if (!dat)
 		{
 			bootbox.alert('Invalid date format : Enter Date as dd/mm/yyyy');
 			obj.value="";

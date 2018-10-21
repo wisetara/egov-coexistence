@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -49,11 +49,11 @@ package org.egov.collection.web.actions.receipts;
 
 
 public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<ReceiptPayeeDetails,Long>{
-	
+
 	private SearchReceiptAction action;
 	private CollectionObjectFactory objectFactory;
 	Map<String, String[]> parameters = new HashMap<String, String[]>();
-	
+
 	@Before
 	public void setupAction(){
 		action = new SearchReceiptAction();
@@ -61,29 +61,29 @@ public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<
 		action.setPersistenceService(genericService);
 		objectFactory = new CollectionObjectFactory(session);
 	}
-	
+
 	@After
 	public void resetPrepare(){
 		action.setParameters(null);
 	}
-	
+
 	@Test
 	public void prepareAction() {
 		assertNotNull(action.getDropdownData().containsKey("serviceTypeList"));
 	}
-	
+
 	@Test
 	public void testPrepareAction(){
 		List<Location> actualCounterList = genericService.findAllByNamedQuery(CollectionConstants.QUERY_ACTIVE_COUNTERS);
 		List<InstrumentType> actualInstrumentTypeList = genericService.findAllBy("from InstrumentType i where i.isActive = true order by type");
 		List<InstrumentType> actualUserList = genericService.findAllByNamedQuery(CollectionConstants.QUERY_CREATEDBYUSERS_OF_RECEIPTS);
-		
+
 		action.prepare();
 		assertEquals(actualCounterList,action.getDropdownData().get("counterList"));
 		assertEquals(actualInstrumentTypeList,action.getDropdownData().get("instrumentTypeList"));
 		assertEquals(actualUserList,action.getDropdownData().get("userList"));
 	}
-	
+
 	@Test
 	public void testSearchByUser(){
 		objectFactory.createReceiptPayeeDetails();
@@ -96,8 +96,8 @@ public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<
 		assertTrue(actualSearchResults.containsAll(action.getSearchResult().getList()));
 		assertEquals(action.getTarget(),"searchresult");
 	}
-	
-	
+
+
 	@Test
 	public void searchWithOnlyReceiptNumber() {
 		action.setReceiptNumber("RN");
@@ -105,7 +105,7 @@ public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<
 		assertEquals(retResult,"success");
 		assertNotNull(action.getSearchResult());
 	}
-	
+
 	@Test
 	public void searchWithSomeParams() {
 		action.setReceiptNumber("RN");
@@ -115,7 +115,7 @@ public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<
 		assertEquals(retResult,"success");
 		assertNotNull(action.getSearchResult());
 	}
-	
+
 	@Test
 	public void searchWithAllParams() {
 		action.setReceiptNumber("RN");
@@ -129,7 +129,7 @@ public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<
 		assertEquals(retResult,"success");
 		assertNotNull(action.getSearchResult());
 	}
-	
+
 	@Test
 	public void searchWithInstrumentType() {
 		action.setInstrumentType("cheque");
@@ -137,30 +137,30 @@ public class SearchReceiptActionTest { /*extends AbstractPersistenceServiceTest<
 		assertEquals(retResult,"success");
 		assertNotNull(action.getSearchResult());
 	}
-	
+
 	@Test
 	public void searchWithNoParams() {
 		String retResult = action.search();
 		assertEquals(retResult,"success");
 		assertNotNull(action.getSearchResult());
 	}
-	
+
 	@Test
 	public void testGetReceiptStatuses() {
 		List<EgwStatus> expectedStatuses=genericService.findAllBy(
 				"from EgwStatus s where moduletype=? and code != ? order by description",
 				ReceiptHeader.class.getSimpleName(), CollectionConstants.RECEIPT_STATUS_CODE_PENDING);
-		
+
 		List<EgwStatus> actualStatuses=action.getReceiptStatuses();
 		assertTrue(actualStatuses.containsAll(expectedStatuses));
 	}
-	
-	@Test 
+
+	@Test
 	public void testReset()
 	{
 		assertEquals("success", action.reset());
 	}
-	
+
 	@Test
 	public void testGetModel()
 	{

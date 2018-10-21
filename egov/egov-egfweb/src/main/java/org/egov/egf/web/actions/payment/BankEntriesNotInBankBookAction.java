@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -93,9 +93,9 @@ public class BankEntriesNotInBankBookAction extends BasePaymentAction {
     private static final SimpleDateFormat FORMATDDMMYYYY = new SimpleDateFormat("dd/MM/yyyy", Constants.LOCALE);
 
     private Integer bankaccount;
-    
+
     private Integer bank;
-    
+
     private Integer bank_branch;
 
     private List<BankEntriesNotInBankBook> bankEntriesNotInBankBookList;
@@ -105,7 +105,7 @@ public class BankEntriesNotInBankBookAction extends BasePaymentAction {
     private BankBranchHibernateDAO bankBranchHibernateDAO;
     @Autowired
     private BankaccountHibernateDAO bankaccountHibernateDAO;
-    
+
     @Autowired
     private ChartOfAccountsHibernateDAO chartOfAccountsHibernateDAO;
     @Autowired
@@ -115,7 +115,7 @@ public class BankEntriesNotInBankBookAction extends BasePaymentAction {
     private BankEntriesService bankEntriesService;
 
     private Long beId;
-    
+
     private String mode;
 
     @Override

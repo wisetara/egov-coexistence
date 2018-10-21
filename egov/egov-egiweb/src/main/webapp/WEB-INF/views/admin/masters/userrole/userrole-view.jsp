@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -64,7 +64,7 @@
 					<div class="panel-title">
 						<strong><spring:message code="lbl.userRole"/></strong>
 					</div>
-				</div> 
+				</div>
 				<div class="panel-body">
 					<div class="row add-border">
 						<div class="col-md-3 col-xs-6 add-margin"><spring:message code="lbl.userrole.selecteduserName" /></div>
@@ -72,7 +72,7 @@
 							<c:out value="${user.username}"></c:out>
 						</div>
 					</div>
-						
+
 						   <div class="form-group">
                       <label class="col-sm-3 control-label">
                             <spring:message code="lbl.userRole"/>
@@ -85,7 +85,7 @@
                                 </form:select>
                             <form:errors path="roles" cssClass="error-msg"/>
                         </div>
-                     </div> 		
+                     </div>
 				</div>
 			</div>
 			<div class="row">

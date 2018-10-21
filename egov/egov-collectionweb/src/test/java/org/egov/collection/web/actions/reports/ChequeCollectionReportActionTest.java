@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -106,7 +106,7 @@ public class ChequeCollectionReportActionTest { /*extends
 		action.setFromDate(fromDate);
 		action.setToDate(toDate);
 		action.setBoundaryId(boundaryId);
-		
+
 		assertEquals(counterId, action.getCounterId());
 		assertEquals(userId, action.getUserId());
 		assertEquals(fromDate, action.getFromDate());
@@ -130,7 +130,7 @@ public class ChequeCollectionReportActionTest { /*extends
 
 		replay(reportService);
 		assertEquals(action.REPORT, action.report());
-		
+
 		LRUCache<Integer, ReportOutput> reportOutputCache = (LRUCache<Integer, ReportOutput>)actionSession
 		.get(ReportConstants.ATTRIB_EGOV_REPORT_OUTPUT_MAP);
 		assertTrue(reportOutputCache.containsValue(reportOutput));

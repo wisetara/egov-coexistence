@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -65,7 +65,7 @@ $(document).ready(function(){
 		var fn = window[src];
 		if (typeof fn === "function") fn(src);
 	});
-	
+
 });
 
 function property(src){
@@ -145,9 +145,9 @@ function ntr(src){
 			</ul>
 		</nav>
 	</div>
-	
+
 	<div class="col-md-12" style="height:calc(100%);margin-top:10px;margin-bottom:20px;">
 		<iframe id="getiframe" src="http://www.egovernments.org/docs/usermanuals/ap/ptis.pdf" width="100%" height="100%">
 	</div>
-	
+
 </div>

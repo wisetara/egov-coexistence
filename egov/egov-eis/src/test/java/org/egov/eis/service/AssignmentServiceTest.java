@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -68,39 +68,39 @@ public class AssignmentServiceTest extends EISAbstractSpringIntegrationTest {
 
     @Autowired
     private AssignmentService assignmentService;
-    
+
     @Test
     public void getAssignmentById() {
         Assignment assign = assignmentService.getAssignmentById(1l);
-        
+
         assertNotNull(assign);
     }
-    
+
     @Test
     public void getListOfAssignments() {
         List<Assignment> assignList = assignmentService.getAllAssignmentsByEmpId(1l);
-        
+
         assertNotEquals(0,assignList.size());
     }
-    
-    @Test 
+
+    @Test
     public void getListOfActiveAssignments() {
         List<Assignment> assignList = assignmentService.getAllActiveEmployeeAssignmentsByEmpId(1l);
-        
+
         assertNotEquals(0,assignList.size());
     }
-    
+
     @Test
     public void getPrimaryAssignemntForUser() {
         Assignment assign = assignmentService.getPrimaryAssignmentForUser(1l);
-        
+
         assertNotNull(assign);
     }
-    
+
     @Test
     public void isHod() {
         Boolean assign = assignmentService.isHod(1l);
-        
+
         assertTrue(assign);
     }
 }

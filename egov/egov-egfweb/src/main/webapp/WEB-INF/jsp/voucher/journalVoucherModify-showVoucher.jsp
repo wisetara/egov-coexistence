@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -159,7 +159,7 @@
 						<div id="billDetailTable"></div>
 					</div>
 					<script>
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="80%"
 	 </script>
@@ -175,9 +175,9 @@
 						<div id="subLedgerTable"></div>
 					</div>
 					<script>
-			
+
 			makeSubLedgerTable();
-			
+
 			document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="80%"
 		</script>
 
@@ -232,7 +232,7 @@
 
 	<script>
 function validateApproverUser(name,value){
-	
+
 	document.getElementById("actionName").value= name;
 	<s:if test='%{! wfitemstate.equalsIgnoreCase("END")}'>
 		if(!validateUser(name,value)){
@@ -252,7 +252,7 @@ function validateJV(saveMode)
 		document.getElementById('voucherDate').focus();
 		return false;
 	}
-	
+
 	var varVType = document.getElementById('vType').value;
 	if( varVType != 'JVGeneral' && varVType != '-1' )	{
 		if(document.getElementById('voucherTypeBean.partyName').value == '' ) {
@@ -261,7 +261,7 @@ function validateJV(saveMode)
 			return false;
 		}
 	}
-		
+
 	if(!validateMIS())	return false;
 
 	return true;
@@ -277,14 +277,14 @@ function validateJV(saveMode)
 			document.getElementById('voucherTypeBean.billNum').readOnly=true;
 			document.getElementById('billDate').readOnly=true;
 		}
-		
+
 		var varVType = document.getElementById('vType').value;
 		if(varVType == 'JVGeneral' || varVType == '-1') {
 			document.getElementById('partyNameDivId').style.display='none';
 		} else {
 			document.getElementById('partyNameDivId').style.display='inline';
 		}
-		document.getElementById('vType').disabled=true; 
+		document.getElementById('vType').disabled=true;
 		// code- JV subtype - ends
 		var target = '<s:property value="target"/>';
 		var saveMode='<s:property value="saveMode"/>';
@@ -308,7 +308,7 @@ function validateJV(saveMode)
 			   document.getElementById('voucherNumberPrefix').value=tempVoucherNumber.substring(0,prefixLength);
 			   document.getElementById('voucherNumber').value=tempVoucherNumber.substring(prefixLength,tempVoucherNumber.length);
 		</s:if>
-		populateslDropDown(); // to load the subledger detils when page loads, required when validation fails.		
+		populateslDropDown(); // to load the subledger detils when page loads, required when validation fails.
 	}
 
 	function loadBank(fund){

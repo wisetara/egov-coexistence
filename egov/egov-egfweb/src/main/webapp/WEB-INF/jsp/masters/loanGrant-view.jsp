@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,7 +63,7 @@
 	src="/services/EGF/resources/javascript/voucherHelper.js?rnd=${app_release_no}"></script>
 <script type="text/javascript" src="/services/EGF/resources/javascript/helper.js?rnd=${app_release_no}"></script>
 <script type="text/javascript">
- 
+
 	</script>
 <style type="text/css">
 #codescontainer {
@@ -175,7 +175,7 @@ function createDateFieldFormatter(tableType,prefix,suffix)
 }
 var reciptAccountId;
 var makeProjectDetailTable = function() {
-	var projectDetailColumns = [ 
+	var projectDetailColumns = [
 		{key:"SlNo",label:'Sl No',width:30},
 		{key:"projectcodeid",width:90,hidden:true, formatter:createTextFieldFormatterLG('projectcode',PROJECTCODELIST,".id","hidden")},
 		{key:"projectcode",label:'Project Code'+'<span class="mandatory">*</span>',width:160, formatter:createTextFieldFormatterForProjectCode(PROJECTCODELIST,".code")},
@@ -183,18 +183,18 @@ var makeProjectDetailTable = function() {
 		{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 		{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 	];
-    var projectCodeDetailDS = new YAHOO.util.DataSource(); 
+    var projectCodeDetailDS = new YAHOO.util.DataSource();
 	projectCodeDetailsTable = new YAHOO.widget.DataTable("projectCodeTable",projectDetailColumns, projectCodeDetailDS);
 	projectCodeDetailsTable.on('cellClickEvent',function (oArgs) {
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			projectCodeDetailsTable.addRow({SlNo:projectCodeDetailsTable.getRecordSet().getLength()+1});
 			updateProjectCodeTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -220,7 +220,7 @@ var makeProjectDetailTable = function() {
 	</s:iterator>
 }
 var makeSanctionedAmountTable = function() {
-		var amountDetailColumns = [ 
+		var amountDetailColumns = [
                     		{key:"SlNo",label:'Sl<br />No',width:20},
                        		{key:"fundingagency",label:'Funding Agency'+'<span class="mandatory">*</span>',width:110, formatter:createFundingAgencyDropDownFormatter('sanctioned',SANCTIONEDAMOUNTLIST,".fundingAgency.id","text")},
                     		{key:"loanamount",label:'Loan Amount<br />(A)(In Lacs)',width:85, formatter:createTextFieldLGAmount('sanctioned',SANCTIONEDAMOUNTLIST,".loanAmount","validateDigitsAndDecimal(this);validateLGAmount('sanctioned',this,'"+SANCTIONEDAMOUNTLIST+"');updateTotalAmount('sanctioned','loan')")},
@@ -233,24 +233,24 @@ var makeSanctionedAmountTable = function() {
                     		{key:"commissionerorderno",label:'Commissioner <br /> Order Number',width:80, formatter:createTextFieldFormatterWithStyle('sanctioned',SANCTIONEDAMOUNTLIST,".commOrderNo","width:70px")},
                     		{key:"repaymentschedule",label:'Attach',width:70, formatter:createDocUploadFormatterLGSanctioned('sanctioned',SANCTIONEDAMOUNTLIST,".docIdButton")},
                     		{key:"id",label:'id',hidden:true, formatter:createTextFieldFormatterLG('sanctioned',SANCTIONEDAMOUNTLIST,".id","hidden")},
-                    	    {key:"fundingBy",label:'fundingBy',hidden:true, formatter:createTextFieldFormatterWithValue('sanctioned',SANCTIONEDAMOUNTLIST,".patternType","hidden",'sanctioned')},	
+                    	    {key:"fundingBy",label:'fundingBy',hidden:true, formatter:createTextFieldFormatterWithValue('sanctioned',SANCTIONEDAMOUNTLIST,".patternType","hidden",'sanctioned')},
                               {key:"documentNumber",label:'documentNumber',hidden:true, formatter:createTextFieldFormatterLG('sanctioned',SANCTIONEDAMOUNTLIST,".docId","hidden")},
                     		{key:'Add',label:'Add',width:13,formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
                     		{key:'Delete',label:'Del',width:13,formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
                     	];
-	
-    var sanctionedAmountDS = new YAHOO.util.DataSource(); 
+
+    var sanctionedAmountDS = new YAHOO.util.DataSource();
 	sanctionedAmountDT = new YAHOO.widget.DataTable("sanctionedAmountTable",amountDetailColumns, sanctionedAmountDS);
 	sanctionedAmountDT.on('cellClickEvent',function (oArgs) {
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			sanctionedAmountDT.addRow({SlNo:sanctionedAmountDT.getRecordSet().getLength()+1});
 			updateSanctionedAmountTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -291,15 +291,15 @@ var makeSanctionedAmountTable = function() {
 			updateGridNames(SANCTIONEDAMOUNTLIST,'councilResNo',index,'<s:property value="councilResNo"/>');
 			updateGridNames(SANCTIONEDAMOUNTLIST,'loanSanctionNo',index,'<s:property value="loanSanctionNo"/>');
 			updateGridNames(SANCTIONEDAMOUNTLIST,'agreementDate',index,'<s:date  name="agreementDate" format="dd/MM/yyyy" />');
-			updateGridNames(SANCTIONEDAMOUNTLIST,'commOrderNo',index,'<s:property value="commOrderNo"/>'); 
-			updateGridNames(SANCTIONEDAMOUNTLIST,'docId',index,'<s:property value="docId"/>');  
+			updateGridNames(SANCTIONEDAMOUNTLIST,'commOrderNo',index,'<s:property value="commOrderNo"/>');
+			updateGridNames(SANCTIONEDAMOUNTLIST,'docId',index,'<s:property value="docId"/>');
 			var temp=parseFloat('<s:property value="loanAmount"/>');
 			if(!isNaN(temp))
 				totalsanctionedloan = totalsanctionedloan+temp;
 			temp=parseFloat('<s:property value="grantAmount"/>');
 			if(!isNaN(temp))
 				totalsanctionedgrant = totalsanctionedgrant+temp;
-			updateSanctionedAmountTableIndex();	
+			updateSanctionedAmountTableIndex();
 			index++;
 			</s:if>
 		</s:iterator>
@@ -328,7 +328,7 @@ var makeSanctionedAmountTable = function() {
 		document.getElementById('totalsanctioned').value=totalsanctionedgrant+totalsanctionedloan;
 }
 var makeUnsanctionedAmountTable = function() {
-		var amountDetailColumns = [ 
+		var amountDetailColumns = [
                     		{key:"SlNo",label:'Sl<br />No',width:20},
                     		{key:"fundingagency",label:'Funding Agency'+'<span class="mandatory">*</span>',width:110, formatter:createFundingAgencyDropDownFormatter('unsanctioned',UNSANCTIONEDAMOUNTLIST,".fundingAgency.id","text")},
                     		{key:"loanamount",label:'Loan Amount<br />(A)(In Lacs)',width:85, formatter:createTextFieldLGAmount('unsanctioned',UNSANCTIONEDAMOUNTLIST,".loanAmount","validateDigitsAndDecimal(this);validateLGAmount('unsanctioned',this,'"+UNSANCTIONEDAMOUNTLIST+"');updateTotalAmount('unsanctioned','loan')")},
@@ -346,19 +346,19 @@ var makeUnsanctionedAmountTable = function() {
                     		{key:'Add',label:'Add',width:13,formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
                     		{key:'Delete',label:'Del',width:13,formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
                     	];
-	
-    var unsanctionedAmountDS = new YAHOO.util.DataSource(); 
+
+    var unsanctionedAmountDS = new YAHOO.util.DataSource();
 	unsanctionedAmountDT = new YAHOO.widget.DataTable("unsanctionedAmountTable",amountDetailColumns, unsanctionedAmountDS);
 	unsanctionedAmountDT.on('cellClickEvent',function (oArgs) {
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			unsanctionedAmountDT.addRow({SlNo:unsanctionedAmountDT.getRecordSet().getLength()+1});
 			updateUnsanctionedAmountTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -399,8 +399,8 @@ var makeUnsanctionedAmountTable = function() {
 			updateGridNames(UNSANCTIONEDAMOUNTLIST,'councilResNo',index,'<s:property value="councilResNo"/>');
 			updateGridNames(UNSANCTIONEDAMOUNTLIST,'loanSanctionNo',index,'<s:property value="loanSanctionNo"/>');
 			updateGridNames(UNSANCTIONEDAMOUNTLIST,'agreementDate',index,'<s:date  name="agreementDate" format="dd/MM/yyyy" />');
-			updateGridNames(UNSANCTIONEDAMOUNTLIST,'commOrderNo',index,'<s:property value="commOrderNo"/>'); 
-			updateGridNames(UNSANCTIONEDAMOUNTLIST,'docId',index,'<s:property value="docId"/>');  
+			updateGridNames(UNSANCTIONEDAMOUNTLIST,'commOrderNo',index,'<s:property value="commOrderNo"/>');
+			updateGridNames(UNSANCTIONEDAMOUNTLIST,'docId',index,'<s:property value="docId"/>');
 			var temp=parseFloat('<s:property value="loanAmount"/>');
 			if(!isNaN(temp))
 				totalunsanctionedloan = totalunsanctionedloan+temp;
@@ -409,7 +409,7 @@ var makeUnsanctionedAmountTable = function() {
 				totalunsanctionedgrant = totalunsanctionedgrant+temp;
 			updateUnsanctionedAmountTableIndex();
 			index++;
-		</s:if>	
+		</s:if>
 		</s:iterator>
 		var tfoot = unsanctionedAmountDT.getTbodyEl().parentNode.createTFoot();
 		var tr = tfoot.insertRow(-1);
@@ -436,7 +436,7 @@ var makeUnsanctionedAmountTable = function() {
 		document.getElementById('totalunsanctioned').value=totalunsanctionedgrant+totalunsanctionedloan;
 }
 var makeRevisedAmountTable = function() {
-		var amountDetailColumns = [ 
+		var amountDetailColumns = [
                     		{key:"SlNo",label:'Sl<br />No',width:20},
                     		{key:"fundingagency",label:'Funding Agency'+'<span class="mandatory">*</span>',width:110, formatter:createFundingAgencyDropDownFormatter('revised',REVISEDAMOUNTLIST,".fundingAgency.id","text")},
                     		{key:"loanamount",label:'Loan Amount<br />(A)(In Lacs)',width:85, formatter:createTextFieldLGAmount('revised',REVISEDAMOUNTLIST,".loanAmount","validateDigitsAndDecimal(this);validateLGAmount('revised',this,'"+REVISEDAMOUNTLIST+"');updateTotalAmount('revised','loan')")},
@@ -454,19 +454,19 @@ var makeRevisedAmountTable = function() {
                     		{key:'Add',label:'Add',width:13,formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
                     		{key:'Delete',label:'Del',width:13,formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
                     	];
-	
-    var revisedAmountDS = new YAHOO.util.DataSource(); 
+
+    var revisedAmountDS = new YAHOO.util.DataSource();
 	revisedAmountDT = new YAHOO.widget.DataTable("revisedAmountTable",amountDetailColumns, revisedAmountDS);
 	revisedAmountDT.on('cellClickEvent',function (oArgs) {
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			revisedAmountDT.addRow({SlNo:revisedAmountDT.getRecordSet().getLength()+1});
 			updateRevisedAmountTableIndex();
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -507,15 +507,15 @@ var makeRevisedAmountTable = function() {
 			updateGridNames(REVISEDAMOUNTLIST,'councilResNo',index,'<s:property value="councilResNo"/>');
 			updateGridNames(REVISEDAMOUNTLIST,'loanSanctionNo',index,'<s:property value="loanSanctionNo"/>');
 			updateGridNames(REVISEDAMOUNTLIST,'agreementDate',index,'<s:date  name="agreementDate" format="dd/MM/yyyy" />');
-			updateGridNames(REVISEDAMOUNTLIST,'commOrderNo',index,'<s:property value="commOrderNo"/>'); 
-			updateGridNames(REVISEDAMOUNTLIST,'docId',index,'<s:property value="docId"/>');  
+			updateGridNames(REVISEDAMOUNTLIST,'commOrderNo',index,'<s:property value="commOrderNo"/>');
+			updateGridNames(REVISEDAMOUNTLIST,'docId',index,'<s:property value="docId"/>');
 			var temp=parseFloat('<s:property value="loanAmount"/>');
 			if(!isNaN(temp))
 				totalrevisedloan = totalrevisedloan+temp;
 			temp=parseFloat('<s:property value="grantAmount"/>');
 			if(!isNaN(temp))
 				totalrevisedgrant = totalrevisedgrant+temp;
-			updateRevisedAmountTableIndex();	
+			updateRevisedAmountTableIndex();
 			index++;
 			</s:if>
 		</s:iterator>
@@ -544,7 +544,7 @@ var makeRevisedAmountTable = function() {
 		document.getElementById('totalrevised').value=totalrevisedgrant+totalrevisedloan;
 }
 var makeReceiptTable = function() {
-		var receiptColumns = [ 
+		var receiptColumns = [
                     		{key:"SlNo",label:'Sl No',width:20},
                     		{key:"bankbranch",label:'Bank Branch',width:100, formatter:createTextFieldFormatter('receipt',RECEIPTLIST,".bankBranch","text")},
                     		{key:"banckaccountid",label:'Bank Account Id',hidden:true,width:100, formatter:createTextFieldFormatter('receipt',RECEIPTLIST,".bankaccount.id","hidden")},
@@ -562,19 +562,19 @@ var makeReceiptTable = function() {
                     		{key:'Add',label:'Add',width:13,formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
                     		{key:'Delete',label:'Del',width:13,formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
                     	];
-	
-    var receiptDS = new YAHOO.util.DataSource(); 
+
+    var receiptDS = new YAHOO.util.DataSource();
 	receiptDT = new YAHOO.widget.DataTable("receiptTable",receiptColumns, receiptDS);
 	receiptDT.on('cellClickEvent',function (oArgs) {
 		var target = oArgs.target;
 		var record = this.getRecord(target);
 		var column = this.getColumn(target);
-		if (column.key == 'Add') { 
+		if (column.key == 'Add') {
 			receiptDT.addRow({SlNo:receiptDT.getRecordSet().getLength()+1});
 			receiptTableIndex=receiptTableIndex+1;
 		}
-		if (column.key == 'Delete') { 	
-			if(this.getRecordSet().getLength()>1){			
+		if (column.key == 'Delete') {
+			if(this.getRecordSet().getLength()>1){
 				this.deleteRow(record);
 				allRecords=this.getRecordSet();
 				for(var i=0;i<allRecords.getLength();i++){
@@ -630,7 +630,7 @@ var makeReceiptTable = function() {
 		var td = tr.insertCell(-1);
 		td.width="90"
 		td.innerHTML="<input type='text' style='text-align:right;width:100px;'  id='totalreceiptamount' name='totalreceiptamount' readonly='true' tabindex='-1'/>";
-		document.getElementById('totalreceiptamount').value=totalreceiptamount; 
+		document.getElementById('totalreceiptamount').value=totalreceiptamount;
 }
   </script>
 			<div align="left">
@@ -834,9 +834,9 @@ var makeReceiptTable = function() {
 		{
 			bootbox.alert("Select fund first");
 			document.getElementById('bank_branch').options[0].selected=true;
-			return;		
+			return;
 		}
-		var x=	obj.options[obj.selectedIndex].value;	
+		var x=	obj.options[obj.selectedIndex].value;
 		if(x!=-1)
 			populatebankaccount({branchId:x,fundId:fundIdValue});
 	}
@@ -848,7 +848,7 @@ var makeReceiptTable = function() {
 		{
 			bootbox.alert("Select fund first");
 			document.getElementById('bankaccount').options[0].selected=true;
-			return;		
+			return;
 		}
 	}
   	</script>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,17 +76,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 public class CreateRoleControllerTest extends AbstractContextControllerTest<CreateRoleController> {
-	
-	
+
+
 	@Mock
     private SecurityUtils securityUtils;
-	
+
     @Mock
     private RoleService roleService;
-    
+
     @InjectMocks
     private CreateRoleController controller;
-    
+
     @Mock
     private User user;
 
@@ -111,7 +111,7 @@ public class CreateRoleControllerTest extends AbstractContextControllerTest<Crea
                 .andExpect(view().name("role-form"))
                 .andExpect(status().isOk());
     }
-    
+
     @Test
     public void shouldCreateNewRole() throws Exception {
         this.mockMvc.perform(post("/role/create")
@@ -126,7 +126,7 @@ public class CreateRoleControllerTest extends AbstractContextControllerTest<Crea
         assertTrue(createdRole.isNew());
         assertEquals("new-role", createdRole.getName());
     }
-    
+
     @Test
     public void shouldValidateRoleWhileCreating() throws Exception {
         this.mockMvc.perform(post("/role/create"))
@@ -136,6 +136,6 @@ public class CreateRoleControllerTest extends AbstractContextControllerTest<Crea
 
         verify(roleService, never()).createRole(any(Role.class));
     }
-  
-    
+
+
 }

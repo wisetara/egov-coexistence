@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -94,7 +94,7 @@ function updateGridData() {
 	var serialNoSelectedText = new Array();
 	var serialNoObj = document.getElementById("serialNo");
 
-	
+
 	for (var i = 0; i < deptObj.length; i++) {
 		if (jQuery("#departmentList option")[i]['selected'] == true) {
 			deptSelectedValue.push(deptObj.options[i].value);
@@ -107,7 +107,7 @@ function updateGridData() {
 			serialNoSelectedText.push(serialNoObj.options[i].text);
 		}
 	}
-	
+
 	if (deptSelectedValue == "") {
 		document.getElementById("lblError").innerHTML = "Please select a department";
 		return false;
@@ -236,7 +236,7 @@ function validateCheque(obj) {
 				+ '].deptName').innerHTML;
 		var serialNo1 = document.getElementById(CHQDETAILSLIST + '[' + index
 				+ '].serialNo');
-		var serialNo =serialNo1.options[serialNo1.selectedIndex].value; 
+		var serialNo =serialNo1.options[serialNo1.selectedIndex].value;
 		chequeRangeArray.splice(index, 1, fromchqNum + "-" + tochqNum + "-"
 				+ deptId + "-" + serialNo);
 

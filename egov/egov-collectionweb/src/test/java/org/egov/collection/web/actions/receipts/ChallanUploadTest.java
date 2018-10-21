@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -55,7 +55,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 	private @Autowired AppConfigValuesDAO appConfigValuesDAO;
 	private CommonsManager commonsManager;
 	private BoundaryDAO boundaryDAO;
-	
+
 	private ReceiptService receiptService;
 	private ChallanService challanService;
 	private WorkflowService<Challan> challanWorkflowService;
@@ -68,7 +68,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 	private EisManager eisManager;
 	private InstrumentService instrumentService;
 	private EgovCommon egovCommon;
-	
+
 	private Position position;
 	private CollectionCommon collectionCommon;
 	private ReceiptHeaderService receiptHeaderService;
@@ -80,10 +80,10 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 	static CommonsManagerHome cmh = null;
 	static UserManagerHome umh=null;
 	static EisManagerHome emh=null;
-	
+
 	private List<String[]> inputList=new ArrayList<String[]>();
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-	
+
 	@Test
 	public void testMock(){
 	assertTrue(true);
@@ -104,13 +104,13 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 			 {
 				 return textName;
 			 }
-			 
+
 			 @Override
 			 public String getText(String textName,String[] args)
 			 {
 				 return textName;
 			 }
-			 
+
 			 @Override
 			 public String getText(String textName,String args)
 			 {
@@ -132,7 +132,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		ScriptService scriptExecutionService = new ScriptService(2, 5, 10, 30);
 
 		position = (Position) genericService.find("from Position  where name=?","MEDICAL OFFICER_1");
-		
+
 		collectionsUtil=new CollectionsUtil(){
 			public Position getPositionOfUser(User user) {
 				return position;
@@ -155,14 +155,14 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		collectionsUtil.setUserManager(userManager);
 		collectionsUtil.setEisManager(eisManager);
 		collectionsUtil.setPersistenceService(genericService);
-		
+
 		collectionsNumberGenerator=new CollectionsNumberGenerator();
 		collectionsNumberGenerator.setScriptExecutionService(scriptExecutionService);
 		collectionsNumberGenerator.setSequenceGenerator(sequenceGenerator);
-		collectionsNumberGenerator.setCollectionsUtil(collectionsUtil);		
-		
+		collectionsNumberGenerator.setCollectionsUtil(collectionsUtil);
+
 		instrumentService = new InstrumentService(){
-			
+
 			public InstrumentType getInstrumentTypeByType(String type){
 				return (InstrumentType) genericService.find("from InstrumentType  where type=? and isActive=true",type);
 			}
@@ -170,12 +170,12 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		PersistenceService<InstrumentHeader, Long> iHeaderService= new PersistenceService<InstrumentHeader, Long>();
 		iHeaderService.setType(InstrumentHeader.class);
 		instrumentService.setInstrumentHeaderService(iHeaderService);
-		
+
 		PersistenceService<InstrumentOtherDetails, Long> iOtherDetailsService= new PersistenceService<InstrumentOtherDetails, Long>();
 		iOtherDetailsService.setType(InstrumentOtherDetails.class);
 		instrumentService.setInstrumentOtherDetailsService(iOtherDetailsService);
 		instrumentService.setPersistenceService(genericService);
-		
+
 		financialsUtil = new FinancialsUtil(){
 			public CVoucherHeader getReversalVoucher(
 					List<HashMap<String, Object>> paramList){
@@ -186,27 +186,27 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 			}
 		};
 		financialsUtil.setInstrumentService(instrumentService);
-		receiptService = new ReceiptService();		
+		receiptService = new ReceiptService();
 		receiptService.setType(ReceiptPayeeDetails.class);
 		receiptService.setCollectionsUtil(collectionsUtil);
 		receiptService.setFinancialsUtil(financialsUtil);
 		receiptService.setCollectionsNumberGenerator(collectionsNumberGenerator);
-		
+
 		eisUtilService=new EisUtilService();
 		eisUtilService.setPersistenceService(genericService);
 		receiptService.setEisService(eisUtilService);
 		challanService = new ChallanService();
 		challanService.setType(Challan.class);
 		challanService.setCollectionsUtil(collectionsUtil);
-		
+
 		challanWorkflowService = new SimpleWorkflowService<Challan>(
 				challanService, Challan.class);
 		challanService.setChallanWorkflowService(challanWorkflowService);
-		
+
 		receiptHeaderService = new ReceiptHeaderService(){
 			public void startWorkflow(Collection<ReceiptHeader> receiptHeaders)
 			throws ApplicationRuntimeException {
-				
+
 			}
 		};
 		receiptHeaderService.setType(ReceiptHeader.class);
@@ -218,7 +218,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		receiptWorkflowService=new SimpleWorkflowService<ReceiptHeader>(
 				receiptHeaderService, ReceiptHeader.class);
 		receiptHeaderService.setReceiptWorkflowService(receiptWorkflowService);
-		
+
 		collectionCommon = new CollectionCommon();
 		collectionCommon.setPersistenceService(genericService);
 		collectionCommon.setEgovCommon(egovCommon);
@@ -226,9 +226,9 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		collectionCommon.setCollectionsUtil(collectionsUtil);
 		collectionCommon.setReceiptHeaderService(receiptHeaderService);
 		collectionCommon.setReceiptPayeeDetailsService(receiptService);
-		
+
 		financialYear1011=(CFinancialYear)genericService.find("from CFinancialYear  where finYearRange=? ","2010-11");
-		
+
 		action.setPersistenceService(genericService);
 		action.setCommonsManager(commonsManager);
 		action.setBoundaryDAO(boundaryDAO);
@@ -239,7 +239,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		action.setCollectionCommon(collectionCommon);
 		action.setReceiptHeaderService(receiptHeaderService);
 		action.setChallanWorkflowService(challanWorkflowService);
-	
+
 	}
 	public ReceiptHeader createReceiptHeader(String[] inputArray) {
 		ReceiptHeader receiptHeader = new ReceiptHeader();
@@ -273,7 +273,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 	}
 	public Challan createChallan(ReceiptHeader header,String[] inputArray) {
 		Challan challan = new Challan();
-		
+
 		Date date=null;
 		try {
 			date = sdf.parse(inputArray[1]);
@@ -310,7 +310,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		subLedgerlist.add(vd);
 		return subLedgerlist;
 	}
-	
+
 	public List<ReceiptDetailInfo> createSubLedgerlist(String[] inputArray) throws Exception{
 		List<ReceiptDetailInfo> subLedgerlist = new ArrayList<ReceiptDetailInfo>();
 		Accountdetailtype accountdetailtype = (Accountdetailtype)genericService.find("from Accountdetailtype  where name=? ",inputArray[10]);
@@ -319,7 +319,7 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		Class<?> service = Class.forName(table);
 		String simpleName = service.getSimpleName();
 		simpleName = simpleName.substring(0,1).toLowerCase()+simpleName.substring(1)+"Service";
-		
+
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				new String[] { "classpath*:org/egov/infstr/beanfactory/globalApplicationContext.xml" });//To get the globalappContext
 		EntityTypeService entityService = (EntityTypeService) applicationContext
@@ -343,47 +343,47 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		subLedgerlist.add(vd);
 		return subLedgerlist;
 	}
-	
+
 	*//**
 	 * This method will be temporary and can be used till the actual array
 	 * which contains values from the excel/css is ready
 	 *//*
 	private void initialiseInputArray(){
 		String[] inputArrayCash = new String[21];
-		
-		// from the input for challan receipt creation; from the created receipt for initial challan creation 
+
+		// from the input for challan receipt creation; from the created receipt for initial challan creation
 		inputArrayCash[0]="challanNo14";
-		
-		// from the input for challan receipt creation; from the created receipt for initial challan creation 
+
+		// from the input for challan receipt creation; from the created receipt for initial challan creation
 		inputArrayCash[1]="01/04/2010";
-		
+
 		inputArrayCash[2]="testPayeeName1";
 		inputArrayCash[3]="testPayeeAddress1";
 		inputArrayCash[4]="testNarration1";
 		inputArrayCash[5]="Capital Projects Fund";
 		inputArrayCash[6]="A-Accounts Central Cell";
 		inputArrayCash[7]="Municipal Body";
-		
+
 		//accounthead code
 		inputArrayCash[8]="1100101";
-		
+
 		// amount
 		inputArrayCash[9]="2000.0";
-		
+
 		// subledger type
 		inputArrayCash[10]="";
-		
+
 		//subledger code
 		inputArrayCash[11]="";
-		
+
 		//subledger amount
 		inputArrayCash[12]="";
-		
-		// from the input for challan receipt creation; from the created receipt for initial challan creation 
+
+		// from the input for challan receipt creation; from the created receipt for initial challan creation
 		inputArrayCash[13]="testReceiptNo12";
-		
+
 		inputArrayCash[14]="02/04/2010";
-		
+
 		//payment mode can take values CASH, CHEQUE, DD
 		inputArrayCash[15]=CollectionConstants.INSTRUMENTTYPE_CASH;
 		inputArrayCash[16]="2000.0";
@@ -391,44 +391,44 @@ public class ChallanUploadTest {/* extends AbstractPersistenceServiceTest<Challa
 		inputArrayCash[18]="";
 		inputArrayCash[19]="";
 		inputArrayCash[20]="";
-		
+
 		inputList.add(inputArrayCash);
-		
+
 String[] inputArrayCheque = new String[21];
-		
-		// from the input for challan receipt creation; from the created receipt for initial challan creation 
+
+		// from the input for challan receipt creation; from the created receipt for initial challan creation
 		inputArrayCheque[0]="challanNo4";
-		
-		// from the input for challan receipt creation; from the created receipt for initial challan creation 
+
+		// from the input for challan receipt creation; from the created receipt for initial challan creation
 		inputArrayCheque[1]="21/05/2010";
-		
+
 		inputArrayCheque[2]="testPayeeName2";
 		inputArrayCheque[3]="testPayeeAddress2";
 		inputArrayCheque[4]="testNarration2";
 		inputArrayCheque[5]="Primary Education Fund";
 		inputArrayCheque[6]="B-Buildings";
 		inputArrayCheque[7]="Finance Accounts and Audit";
-		
+
 		//accounthead code
 		inputArrayCheque[8]="3117004";
-		
+
 		// amount
 		inputArrayCheque[9]="3500.0";
-		
+
 		// subledger type
 		inputArrayCheque[10]="Employee";
-		
+
 		//subledger code
 		inputArrayCheque[11]="102";
-		
+
 		//subledger amount
 		inputArrayCheque[12]="3500.0";
-		
-		// from the input for challan receipt creation; from the created receipt for initial challan creation 
+
+		// from the input for challan receipt creation; from the created receipt for initial challan creation
 		inputArrayCheque[13]="testReceiptNo4";
-		
+
 		inputArrayCheque[14]="24/05/2010";
-		
+
 		//payment mode can take values CASH, CHEQUE, DD
 		inputArrayCheque[15]=CollectionConstants.INSTRUMENTTYPE_CHEQUE;
 		inputArrayCheque[16]="3500.0";
@@ -436,22 +436,22 @@ String[] inputArrayCheque = new String[21];
 		inputArrayCheque[18]="20/04/2010";
 		inputArrayCheque[19]="AXIS Bank";
 		inputArrayCheque[20]="Jayanagar";
-		
+
 		inputList.add(inputArrayCheque);
-		
+
 	}
 	private void initialiseValuesForSaveNew(String[] inputArray){
 		DepartmentImpl dept = (DepartmentImpl) genericService.find("from DepartmentImpl d where d.deptName=? ",inputArray[6]);
 		action.setDeptId(String.valueOf(dept.getId()));
 		action.setDept(dept);
-		
+
 		ReceiptHeader header = createReceiptHeader(inputArray);
 		Challan challan = createChallan(header,inputArray);
 		header.setChallan(challan);
 		CFunction function=(CFunction)genericService.find("from CFunction  where name=? ",inputArray[7]);
-				
+
 		action.setReceiptHeader(header);
-		
+
 		List<ReceiptDetailInfo> billCreditDetailslist = createCreditDetailslist(inputArray);
 		action.setBillDetailslist(billCreditDetailslist);
 		List<ReceiptDetailInfo> subLedgerlist=null;
@@ -467,28 +467,28 @@ String[] inputArrayCheque = new String[21];
 
 		}
 		action.setSubLedgerlist(subLedgerlist);
-		
+
 		action.setPositionUser(-1);
-		
-		
-		
+
+
+
 		HashMap<String, Object> sessionMap = new HashMap<String, Object>();
 		sessionMap.put("com.egov.user.LoginUserName", "system");
 		action.setSession(sessionMap);
 	}
-	
+
 	private void initialiseValuesForCreateReceipt(String[] inputArray) throws ParseException{
 		action.getReceiptHeader().setService((ServiceDetails) genericService.findByNamedQuery(
-				CollectionConstants.QUERY_SERVICE_BY_CODE, 
+				CollectionConstants.QUERY_SERVICE_BY_CODE,
 				CollectionConstants.SERVICE_CODE_COLLECTIONS));
 		EgwStatus instrumentStatus = (EgwStatus) genericService.find(
 				"from EgwStatus S where S.moduletype =? and S.description =?",
 				CollectionConstants.MODULE_NAME_INSTRUMENTHEADER,
 				CollectionConstants.INSTRUMENT_NEW_STATUS);
-		
+
 		if(CollectionConstants.INSTRUMENTTYPE_CASH.equals(inputArray[15])){
 			action.setInstrumentTypeCashOrCard(CollectionConstants.INSTRUMENTTYPE_CASH);
-			
+
 			InstrumentHeader instrHeaderCash = new InstrumentHeader();
 			List<InstrumentHeader> actualInstrList = new ArrayList<InstrumentHeader>();
 			instrHeaderCash.setInstrumentAmount(new BigDecimal(inputArray[16]));
@@ -500,15 +500,15 @@ String[] inputArrayCheque = new String[21];
 			action.setInstrHeaderCash(instrHeaderCash);
 			List<InstrumentHeader> instrList = new ArrayList<InstrumentHeader>();
 			instrList.add(instrHeaderCash);
-			
+
 			String[] instrumentType = {};
 			action.setInstrumentType(instrumentType);
-			
+
 		}
-		
+
 		if(CollectionConstants.INSTRUMENTTYPE_CHEQUE.equals(inputArray[15]) ||
 				CollectionConstants.INSTRUMENTTYPE_DD.equals(inputArray[15])){
-			
+
 			String[] instrumentType = new String[1];
 			String[] instrAmt =  new String[1];
 			String[] branchName =  new String[1];
@@ -516,7 +516,7 @@ String[] inputArrayCheque = new String[21];
 			String[] bankId =  new String[1];
 			String[] instrDate = new String[1];
 			Bank[] bank = new Bank[1];
-			
+
 			//payt mode is CHEQUE/DD
 			instrumentType[0]=inputArray[15];
 			instrAmt[0]=inputArray[16];
@@ -525,30 +525,30 @@ String[] inputArrayCheque = new String[21];
 			bank[0] = (Bank) genericService.find("from Bank where name=?", inputArray[19]);
 			bankId[0]=bank[0].getId().toString();
 			instrDate[0]=inputArray[18];
-			
+
 			action.setInstrumentAmount(instrAmt);
 			action.setInstrumentType(instrumentType);
 			action.setInstrumentBranchName(branchName);
 			action.setInstrumentNumber(instrNum);
 			action.setInstrumentBankId(bankId);
 			action.setInstrumentDate(instrDate);
-			
+
 			action.setInstrumentTypeCashOrCard(CollectionConstants.INSTRUMENTTYPE_CHEQUE);
-			
+
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date instrumentDate = sdf.parse(inputArray[18]);
-			
+
 			InstrumentHeader instrHeaderChequeDD;
-			
+
 			if(CollectionConstants.INSTRUMENTTYPE_CHEQUE.equals(inputArray[15])){
 			instrHeaderChequeDD = objectFactory.createInstrumentHeaderWithBankDetails(
-					financialsUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_CHEQUE), 
+					financialsUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_CHEQUE),
 					inputArray[17],Double.valueOf(inputArray[16]),instrumentDate,
 					instrumentStatus,bank[0],inputArray[20],"0");
 			}
 			else{
 				instrHeaderChequeDD = objectFactory.createInstrumentHeaderWithBankDetails(
-						financialsUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_DD), 
+						financialsUtil.getInstrumentTypeByType(CollectionConstants.INSTRUMENTTYPE_DD),
 						inputArray[17],Double.valueOf(inputArray[16]),instrumentDate,
 						instrumentStatus,bank[0],inputArray[20],"0");
 			}
@@ -560,37 +560,37 @@ String[] inputArrayCheque = new String[21];
 			action.setInstrumentProxyList(actualInstrList);
 		}
 	}
-	
+
 	//@Test
 	public void testSaveChallanReceipt() throws ApplicationException, ParseException{
 		initialiseInputArray();
-		
-		for (String[] inputArray : inputList) 
+
+		for (String[] inputArray : inputList)
 		{
 		initialiseValuesForSaveNew(inputArray);
-		
+
 		action.setActionName(CollectionConstants.WF_ACTION_NAME_VALIDATE_CHALLAN);
 		action.save();
-		
+
 		// The challan has been created and receipt is reserved for the challan.
 		// Next step is to create the actual receipt for the challan.
 		action.setChallanNumber(action.getReceiptHeader().getChallan().getChallanNumber());
 		action.setChallanId(action.getReceiptHeader().getChallan().getId().toString());
-		
+
 		initialiseValuesForCreateReceipt(inputArray);
-		
+
 		ReportService reportService = EasyMock.createMock(ReportService.class);
 		EasyMock.expect(reportService.isValidTemplate(EasyMock.isA(String.class))).andReturn(false);
 		EasyMock.expect(reportService.isValidTemplate(EasyMock.isA(String.class))).andReturn(true);
 		EasyMock.expect(reportService.createReport(EasyMock.isA(ReportRequest.class))).andReturn(new ReportOutput());
 		EasyMock.replay(reportService);
 		collectionCommon.setReportService(reportService);
-		
+
 		assertEquals(action.saveOrupdate(), CollectionConstants.REPORT);
-		
+
 		}
 	}
-	
+
 	//@After
 	public void tearDown(){
 		if(session.isOpen() && !session.getTransaction().wasCommitted())
@@ -599,8 +599,8 @@ String[] inputArrayCheque = new String[21];
 		//session.getTransaction().commit();
 	}
 	private void setupEJB() throws Exception{
-		
-		
+
+
 		egovEJBTest=new EGovEJBTest();
 		egovEJBTest.setUp();
 		ApplicationThreadLocals.setUserId(user.getId().toString());
@@ -608,7 +608,7 @@ String[] inputArrayCheque = new String[21];
 		egovEJBTest.registerEJB("EmpLeaveManagerHome", EmpLeaveManagerHome.class, EmpLeaveManager.class, EmpLeaveManagerBean.class);
 		egovEJBTest.registerEJB("UserManagerHome", UserManagerHome.class, UserManager.class, UserManagerBean.class);
 		egovEJBTest.registerEJB("EisManagerHome", EisManagerHome.class, EisManager.class, EisManagerBean.class);
-		
+
 		try
         {
         	if(cmh == null){
@@ -625,14 +625,14 @@ String[] inputArrayCheque = new String[21];
         	eisManager = emh.create();
         }
 		catch (CreateException e) {
-            
+
 			throw new ApplicationRuntimeException(e.getMessage(),e);
         }
 		catch (ServiceLocatorException serviceLocatorEx) {
 
         	//LOGGER.error(serviceLocatorEx.getMessage());
 		}
-		
+
 	}
-	
+
 */}

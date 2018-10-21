@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -62,7 +62,7 @@
 		<property column="createdDate" name="createdDate"/>
 		 <property name="createdBy" type="long"><column name="CREATEDBY"></column></property>
 		<property name="modifiedBy" type="long"><column name="LASTMODIFIEDBY"></column></property>
-        
+
         <many-to-one name="chartOfAccount" class="org.egov.commons.CChartOfAccounts" column="GLCODEID"  />
         <property name="head" type="string" column="HEAD"/>
         <property name="salType" type="string" column="SALTYPE"/>

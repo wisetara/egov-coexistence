@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -57,13 +57,13 @@
 		<s:text name="contract.view" />
 	</s:if></title>
 <script type="text/javascript">
-		
+
 	function disableControls(isDisable) {
 		for ( var i = 0; i < document.contractForm.length; i++)
 			document.contractForm.elements[i].disabled = isDisable;
 		document.getElementById('Close').disabled = false;
-	}	
-	
+	}
+
 	function onLoadTask() {
 		var close = '<s:property value="close"/>';
 		var showMode = '<s:property value="showMode"/>';
@@ -74,20 +74,20 @@
 			} else if((success == 'no')){
 				bootbox.alert("ContractType Could Not be Modified");
 				}
-		
+
 		if (close == 'true') {
 			window.close();
 		}
-		
+
 		if (showMode == 'edit') {
 			disableControls(false);
 		} else {
 			disableControls(true);
 		}
 	}
-	
+
 	function setClose() {
-		var close = document.getElementById('close');    
+		var close = document.getElementById('close');
 		   close.value = true;
 		   return true;
 		}

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -85,14 +85,14 @@ import java.util.List;
  */
 public class BudgetService extends PersistenceService<Budget, Long> {
     private static final Logger LOGGER = Logger.getLogger(BudgetService.class);
-    
+
     @Autowired
     protected EisCommonService eisCommonService;
     protected WorkflowService<Budget> budgetWorkflowService;
     @Autowired
     @Qualifier("workflowService")
     protected SimpleWorkflowService<BudgetDetail> budgetDetailWorkflowService;
-    
+
     @Autowired
     @Qualifier("persistenceService")
     private PersistenceService persistenceService;

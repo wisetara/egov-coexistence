@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -419,8 +419,8 @@ function displayPaytModes() {
 	if (cardAllowed == 'true' ) {
 		// display card radio button
 		document.getElementById('cardradiobuttonspan').style.display = "block";
-		if(cashAllowed == 'false'){  
-			document.getElementById('instrumentTypeCashOrCard').value = "card";  
+		if(cashAllowed == 'false'){
+			document.getElementById('instrumentTypeCashOrCard').value = "card";
 		}
 	} else {
 		// do not display card radio button
@@ -441,7 +441,7 @@ function displayPaytModes() {
 		// do not display card radio button
 		document.getElementById('bankradiobuttonspan').style.display = "none";
 	}
-	
+
 	if (onlineAllowed == 'true') {
 		// display bank radio button
 		document.getElementById('onlineradiobuttonspan').style.display = "block";
@@ -482,7 +482,7 @@ function displayPaytModes() {
 		document.getElementById('onlineradiobutton').checked = true;
 		document.getElementById('onlinedetails').style.display = 'table-row';
 		document.getElementById('instrumentTypeCashOrCard').value = "online";
-	} 
+	}
 }
 
 function isChequeDDAllowed() {
@@ -508,7 +508,7 @@ function clearPaytModes() {
 
 	document.getElementById('bankradiobuttonspan').style.display = "none";
 	document.getElementById('bankdetails').style.display = "none";
-	
+
 	document.getElementById('onlineradiobuttonspan').style.display = "none";
 	document.getElementById('onlinedetails').style.display = "none";
 }
@@ -520,7 +520,7 @@ function clearManualReceiptData()
 		document.getElementById("manualReceiptNumber").value="";
 	}
 	document.getElementById('manualreceipt').style.display='none';
-}  
+}
 
 function process(date){
 	   var parts = date.split("/");

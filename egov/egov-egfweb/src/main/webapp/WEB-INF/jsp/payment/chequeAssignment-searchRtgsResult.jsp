@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,7 +63,7 @@
 
 <body>
 	<script>
-		
+
 	</script>
 	<s:form action="chequeAssignment" theme="simple">
 		<jsp:include page="../budget/budgetHeader.jsp">
@@ -166,7 +166,7 @@
 					<s:if test="%{ paymentMode=='rtgs'}">
 						<!-- <td class="greybox">
 							<s:text name="chq.assignment.rtgs.refno"/><span class="mandatory1">*</span>
-							<s:textfield id="rtgsRefNoMap['%{#count}']" name="rtgsRefNoMap['%{#count}']" value=""/>       
+							<s:textfield id="rtgsRefNoMap['%{#count}']" name="rtgsRefNoMap['%{#count}']" value=""/>
 						</td>         -->
 						<td class="greybox"><s:text name="chq.assignment.rtgs.date" /><span
 							class="mandatory1">*</span> <s:date name="rtgsdateMap[%{#count}]"
@@ -213,18 +213,18 @@
 			}
 			function updateDate(obj)
 			{
-				//bootbox.alert("Before"+obj); 
+				//bootbox.alert("Before"+obj);
 				//bootbox.alert("obj.name"+obj.name);
-				//bootbox.alert("obj.value"+obj.value); 
-				document.getElementById(obj).value=obj.value;         
-			//	bootbox.alert("After"+obj);            
-				//bootbox.alert("obj.name"+obj.name);          
-			//	bootbox.alert("obj.value"+obj.value);         
+				//bootbox.alert("obj.value"+obj.value);
+				document.getElementById(obj).value=obj.value;
+			//	bootbox.alert("After"+obj);
+				//bootbox.alert("obj.name"+obj.name);
+			//	bootbox.alert("obj.value"+obj.value);
 			}
 			function validate()
 			{
 				var result=true;
-				
+
 				if(document.getElementById('selectedRows').value=='' || document.getElementById('selectedRows').value==0)
 				{
 					bootbox.alert('Please select the payment voucher');
@@ -232,74 +232,74 @@
 				}
 				if(document.getElementById('rtgsdateMapId').value=='')
 					{
-					
+
 					bootbox.alert('Please select RTGS Date ');
 					return false;
 					}
 				<s:if test="%{paymentMode=='rtgs'}">
-					//result= validateForRtgsMode();  
-				</s:if>    
+					//result= validateForRtgsMode();
+				</s:if>
 				document.chequeAssignment.action='/services/EGF/payment/chequeAssignment-update.action';
 	    		document.chequeAssignment.submit();
-								 
-				return true;                   
+
+				return true;
 			}
 		function validateForRtgsMode(){
 				var noOfSelectedRows=document.getElementById('selectedRows').value;
-				//bootbox.alert("sizseled"+noOfSelectedRows);      
-				var chkCount=0;     
+				//bootbox.alert("sizseled"+noOfSelectedRows);
+				var chkCount=0;
 				var index;
 				var isSelected=0;
 				<s:set var="listCount" value="0"/>
 				var chequeSize='<s:property value ="%{accountNoAndRtgsEntryMap.size()}"/>';
-				
+
 					<s:iterator value="accountNoAndRtgsEntryMap" status="stat">
 					<s:set var="accountId" value="key.id"/>
-				
+
 					<s:iterator value="value" status="s">
-					index='<s:property value="%{#listCount}"/>';       
-					chequeDate='<s:property value="%{rtgsdateMap[#accountId]}"/>';     
-					var paymentDate= document.getElementsByName("value["+index+"].tempPaymentDate")[0].value; 
+					index='<s:property value="%{#listCount}"/>';
+					chequeDate='<s:property value="%{rtgsdateMap[#accountId]}"/>';
+					var paymentDate= document.getElementsByName("value["+index+"].tempPaymentDate")[0].value;
 						if(document.getElementById('isSelected'+index).checked){
-							chkCount++;                 
-							bootbox.alert("cheque Date"+chequeDate +"paymentDate"+paymentDate) ;   
-							bootbox.alert(compareDate(paymentDate,chequeDate))  ;     
-							if( compareDate(paymentDate,chequeDate) == -1){     
+							chkCount++;
+							bootbox.alert("cheque Date"+chequeDate +"paymentDate"+paymentDate) ;
+							bootbox.alert(compareDate(paymentDate,chequeDate))  ;
+							if( compareDate(paymentDate,chequeDate) == -1){
 								bootbox.alert('Cheque Date cannot be less than  payment Date');
-								return false;           
-							 } 
-							if(chkCount==noOfSelectedRows){ 
-								//bootbox.alert("hi"); 
-								return true;}                      
-						}                               
-					<s:set var="listCount" value="%{#listCount+1}"/>                      
-					</s:iterator>          
+								return false;
+							 }
+							if(chkCount==noOfSelectedRows){
+								//bootbox.alert("hi");
+								return true;}
+						}
+					<s:set var="listCount" value="%{#listCount+1}"/>
+					</s:iterator>
 				</s:iterator>
-				return true;           
+				return true;
 			}
-		
-			                
+
+
 			function checkAll(obj)
-			{        
-				var listSize='<s:property value ="%{#counter}"/>';                              
+			{
+				var listSize='<s:property value ="%{#counter}"/>';
 				if(obj.checked)
-				{                     
-					for(var j=0;j<listSize;j++)  {     
-						document.getElementById("isSelected"+j).checked=true;     
-					} document.getElementById('selectedRows').value=listSize;                       
+				{
+					for(var j=0;j<listSize;j++)  {
+						document.getElementById("isSelected"+j).checked=true;
+					} document.getElementById('selectedRows').value=listSize;
 				}
 				else
-				{ 
-					for(var i=0;i<listSize;i++){      
+				{
+					for(var i=0;i<listSize;i++){
 						document.getElementById('isSelected'+i).checked=false;
 					}document.getElementById('selectedRows').value=0;
-				}     
+				}
 			}
 			function viewVoucher(vid){
 				var url = '../voucher/preApprovedVoucher-loadvoucherview.action?vhid='+vid;
 				window.open(url,'Search','resizable=yes,scrollbars=yes,left=300,top=40, width=900, height=700');
 		}
-			                
+
 		</script>
 
 

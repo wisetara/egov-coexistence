@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -151,11 +151,11 @@ public class FunctionService {
 
         return query.getResultList();
     }
-    
-    
+
+
     public List<CFunction> search(final CFunction function,List<Integer> ids,String sortBy,Integer offset,Integer pageSize){
-    	
-    	
+
+
     	 final CriteriaBuilder cb = entityManager.getCriteriaBuilder();
          final CriteriaQuery<CFunction> createQuery = cb.createQuery(CFunction.class);
          final Root<CFunction> functions = createQuery.from(CFunction.class);
@@ -181,18 +181,18 @@ public class FunctionService {
                      cb.equal(functions.get(tempFunction.getDeclaredSingularAttribute("isActive", Boolean.class)), true));
          if (function.getParentId() != null)
              predicates.add(cb.equal(functions.get("parentId"), function.getParentId()));
-         
+
          if(null!=ids && ids.size()>0)
         	 predicates.add(functions.in(ids));
 
          createQuery.where(predicates.toArray(new Predicate[] {}));
          createQuery.orderBy(cb.asc(functions.get(sortBy)));
-         
+
          final TypedQuery<CFunction> query = entityManager.createQuery(createQuery);
-         
+
          query.setFirstResult(offset);
          query.setMaxResults(pageSize);
-    	
+
     	return query.getResultList();
     }
 

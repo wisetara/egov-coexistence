@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -67,12 +67,12 @@ public class GenericMasterDAO implements Serializable
 {
 	@PersistenceContext
 	private EntityManager entityManager;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
 
-	public void create(GenericMaster genericMaster) 
+	public void create(GenericMaster genericMaster)
 	{
 		try
 		{
@@ -81,7 +81,7 @@ public class GenericMasterDAO implements Serializable
 		}
 		catch (HibernateException e)
 		{
-			
+
 			throw  new ApplicationRuntimeException(STR_HIB_EXP+e.getMessage(),e);
 		}
 
@@ -109,7 +109,7 @@ public class GenericMasterDAO implements Serializable
 		}
 		catch (HibernateException e)
 		{
-			
+
 			throw  new ApplicationRuntimeException(STR_HIB_EXP+e.getMessage(),e);
 
 		}
@@ -131,14 +131,14 @@ public class GenericMasterDAO implements Serializable
 		}
 		catch (ClassNotFoundException e)
 		{
-				
+
 			throw  new ApplicationRuntimeException(STR_HIB_EXP+e.getMessage(),e);
 
 		}
 
 
 	}
-	
+
 	private final static String STR_HIB_EXP = "Hibernate Exception : ";
 
 

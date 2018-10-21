@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -84,19 +84,19 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 	private static final Logger logger = Logger.getLogger(EisCommonsServiceImpl.class);
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private PositionMasterDAO positionMasterDAO;
-	
+
 	@Autowired
 	private PersonalInformationHibernateDAO pimsDao;
-	
+
 	@Autowired
         private AppConfigValueService appConfigValuesService;
-    
+
     @PersistenceContext
 	private EntityManager entityManager;
-    
+
 	public Session  getCurrentSession() {
 		return entityManager.unwrap(Session.class);
 	}
@@ -109,7 +109,7 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 		}
 		catch(Exception e)
 		{
-			
+
 			throw new ApplicationRuntimeException("Exception in deleting Installment."+e.getMessage(),e);
 		}
 
@@ -129,7 +129,7 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 		}
 		catch(Exception e)
 		{
-			
+
 			throw new ApplicationRuntimeException("Exception in deleting Installment."+e.getMessage(),e);
 		}
 
@@ -139,7 +139,7 @@ public class EisCommonsServiceImpl implements EisCommonsService {
     {
 
 		Position userPosition = null;
-		
+
 		Date currentDate = new Date();
 		try
 		{
@@ -165,14 +165,14 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 			}
 		}
 		catch (HibernateException he) {
-				
+
 				throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
 			} catch (Exception he)
 			{
 				throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
 			}
 			return userPosition;
- 
+
     }
 
 	public Position getPositionForUserByIdAndDate(Integer userId, Date assignDate)
@@ -214,10 +214,10 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 	public User getUserforPosition(Position pos)
 	{
 		User uerImpl= null;
-		
+
 		try
 		{
-			
+
 		    String mainStr = "";
 			mainStr = " select 	USER_ID  from EG_EIS_EMPLOYEEINFO ev  where ev.POS_ID = :pos and ((ev.to_Date is null and ev.from_Date <= SYSDATE ) OR (ev.from_Date <= SYSDATE AND ev.to_Date > SYSDATE))";
 			Query qry = getCurrentSession().createSQLQuery(mainStr).addScalar("USER_ID", IntegerType.INSTANCE);
@@ -244,7 +244,7 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 			return uerImpl;
 
 	}
-	
+
 	public Boolean isEmployeeAutoGenerateCodeYesOrNo()
 	{
 		String employeeAutoGenCodeYesOrNo=appConfigValuesService.getAppConfigValue("Employee","EMPAUTOGENERATECODE","no");
@@ -253,14 +253,14 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 		{
 			autoGenCode=true;
 		}
-		
+
 		return autoGenCode;
 	}
 	 public Boolean checkEmpCode(String empCode)
 	 {
 		 boolean checkEmpCode = false;
 		 Query qry = null;
-		 
+
 		 try
 		 {
 			String main="from PersonalInformation where employeeCode=:employeeCode";
@@ -272,19 +272,19 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 			}
 		 }
 		 catch (HibernateException he) {
-				
+
 				throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
 			} catch (Exception he)
 			{
-				
+
 				throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
 			}
 		 return checkEmpCode;
 	 }
-	 
+
 	 public  Position getPositionByName(String positionName){
-		 
-		    
+
+
 			Query qry = null;
 			try
 			 {
@@ -294,9 +294,9 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 				{
 					qry.setString("positionName", positionName);
 				}
-				
+
 				return (Position)qry.uniqueResult();
-				
+
 			 }
 			 catch (HibernateException he) {
 					throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
@@ -304,16 +304,16 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 				{
 					throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
 				}
-				
+
 		 }
-		
+
 	 /**
 		 * This method returns the current position id  of the user
-		 * 
+		 *
 		 * @param user the user whose designation is needed.
-		 * 
-		 * 
-		 * @return the position id as integer 
+		 *
+		 *
+		 * @return the position id as integer
 		 */
 	public Position getCurrentPositionByUser(User user)
 	{
@@ -322,24 +322,24 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 		if (null != user){
 			PersonalInformation personalInfo = EisManagersUtill.getEmployeeService().getEmpForUserId(user.getId());
 			position = EisManagersUtill.getEmployeeService().getPositionforEmp(personalInfo.getIdPersonalInformation());
-			
+
 		}
 		}catch(Exception e)
 		{
-			
+
 			throw new ApplicationRuntimeException("Exception in getCurrentPositionByUser :"+e.getMessage(),e);
 		}
 		return position;
 	}
-	
+
 	public  User getUserForPosition(Integer posId, Date date)
 	{
 		User user = null;
-		
+
 		try
 		{
-			
-			
+
+
 			String mainStr = "";
 			mainStr = " select USER_ID from EG_EIS_EMPLOYEEINFO ev where ev.pos_id = :posId and ((ev.to_Date is null and ev.from_Date <= :thisDate ) OR (ev.from_Date <= :thisDate AND ev.to_Date > :thisDate))";
 			Query qry = getCurrentSession().createSQLQuery(mainStr).addScalar("USER_ID", IntegerType.INSTANCE);
@@ -366,7 +366,7 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 				throw new ApplicationRuntimeException(STR_EXCEPTION + he.getMessage(),he);
 			}
 			return user;
-		
+
 	}
 	/**
 	 * Api to get unique designation based on dept and functionary
@@ -378,12 +378,12 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 	 */
 	 public List<Designation> getDesigantionBasedOnFuncDept(Integer deptId,Integer functionaryId) throws Exception
 		{
-		 	
-			
+
+
 			List<EmployeeView> employeeList = null;
 			List<Designation> desgMstr = new ArrayList<Designation>();
 			try
-			{				
+			{
 				String mainStr = "";
 				String subQry = " from EmployeeView ev ";
 				if( ((deptId!=null && deptId!=0) && functionaryId==0 ))
@@ -398,47 +398,47 @@ public class EisCommonsServiceImpl implements EisCommonsService {
 				{
 					subQry+= " where ev.deptId = :deptId and ev.functionary =:functionaryId";
 				}
-				
+
 				subQry=	"select distinct ev.desigId.designationId "+subQry;
-				mainStr ="from Designation dm   where dm.id in( "+subQry+"  ) "; 
-					
+				mainStr ="from Designation dm   where dm.id in( "+subQry+"  ) ";
+
 				Query query = getCurrentSession().createQuery(mainStr);
 				if(deptId!=null && deptId!=0)
 				{
 					query.setInteger("deptId", deptId);
 				}
-				
+
 				if(functionaryId!=null && functionaryId!=0)
 				{
 					query.setInteger("functionaryId", functionaryId);
 				}
-				
+
 				desgMstr=(List<Designation>)query.list();
-				
+
 			}
 			catch(Exception e){
-				
+
 				throw new ApplicationRuntimeException(e.getMessage(),e);
 			}
 			return desgMstr;
-			
+
 		}
-	 
-	 
-	 
+
+
+
 	/**
-	  * Returning temporary  assigned employee object by department,designation,functionary,date 
+	  * Returning temporary  assigned employee object by department,designation,functionary,date
 	  * @param deptId
 	  * @param DesigId
 	  * @param functionaryId
 	  * @param onDate
 	  * @return Employee
-	  * @throws Exception 
+	  * @throws Exception
 	  */
 	 public PersonalInformation getTempAssignedEmployeeByDeptDesigFunctionaryDate(Integer deptId, Integer desigId, Integer functionaryId, Date onDate) throws Exception{
 		 return pimsDao.getTempAssignedEmployeeByDeptDesigFunctionaryDate(deptId, desigId, functionaryId, onDate);
 	 }
-	 
+
 	 private final static String STR_EXCEPTION="Exception:";
 
 }

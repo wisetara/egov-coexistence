@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -135,7 +135,7 @@
 								<div id="billDetailTable"></div>
 							</div>
 							<script>
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="80%"
 	 </script>
@@ -184,7 +184,7 @@
 	</s:form>
 
 	<script>
-	
+
 function onbodyload(){
 <s:iterator value="iHeaderList" status="stat">
 	document.getElementById("chequeDetails").style.display="block";
@@ -199,11 +199,11 @@ function onbodyload(){
 	document.getElementById("fundsourceId").disabled=true;
 	document.getElementById("vouchermis.divisionid").disabled=true;
 	document.getElementById("voucherDate").disabled=true;
-	
+
 	document.getElementById("voucherNumId").style.display="none";
 	document.getElementById("voucherDateId").style.display="none";
-	
-	
+
+
 	var saveMode='<s:property value="contraBean.saveMode"/>';
 	var result='<s:property value="contraBean.result"/>';
 	if(result == 'success'){
@@ -215,7 +215,7 @@ function onbodyload(){
 				bootbox.alert("Payinslip voucher created sucessfully with voucher number =  "+voucherNumber );
 				window.open('../voucher/preApprovedVoucher!loadvoucherview.action?vhid=<s:property value='%{voucherHeader.id}'/>','Search','resizable=yes,scrollbars=yes,left=300,top=40,width=900, height=700');
 			}
-	}		
+	}
 			   <s:if test="%{shouldShowHeaderField('vouchernumber')}">
 			   var tempVoucherNumber='<s:property value="voucherHeader.voucherNumber"/>';
 			   var prefixLength='<s:property value="voucherNumberPrefixLength"/>';
@@ -223,7 +223,7 @@ function onbodyload(){
 			   document.getElementById('payinNumber').value=tempVoucherNumber.substring(prefixLength,tempVoucherNumber.length);
 			</s:if>
 	}
-	
+
 </script>
 
 </body>

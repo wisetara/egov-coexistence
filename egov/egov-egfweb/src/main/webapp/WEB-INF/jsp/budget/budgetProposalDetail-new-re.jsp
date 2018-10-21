@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -82,7 +82,7 @@
 			document.getElementById('budgetDetail_executingDepartment').value=-1;
 		var functionid="";
 		<s:if test="%{function.id!=0}">
-		
+
 			functionid='<s:property value="function.id"/>';
 		</s:if>
 		document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetProposalDetail-newRe.action?re";
@@ -91,31 +91,31 @@
 		defaultDept();
 		 <s:if test="%{referenceBudget != null}">
 			/*  document.getElementById('referenceBudget').value = '<s:property value="referenceBudget.name"/>';  */
-		</s:if> 
+		</s:if>
 		//bootbox.alert(dom.get("testId"));
 			//bootbox.alert(document.getElementById("testId"));
 			//bootbox.alert('Financial yr --- '+document.getElementById("budgetDetail_budget").value+' ----- '+document.getElementById("financialYear").value);
 	 }
-    
+
 	function validateWorkFlowApprover(name,errorDivId) {
-		document.getElementById("workFlowAction").value=name; 
+		document.getElementById("workFlowAction").value=name;
 	  validate();
 	}
-		    
+
      function getActuals(){
 		  if(validateSearch())
-		 {	
+		 {
 		    document.getElementById('hidden_year').value = document.getElementById('financialYear').value;
-		    
+
 			document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetProposalDetail-loadActualsForRe.action";
 			document.forms[0].submit();
 		 }
 		  else{
 			  return false;
 		  }
-				
+
     }
-     
+
 	function save(){
 		document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetProposalDetail-createRe.action";
 		document.forms[0].submit();
@@ -124,7 +124,7 @@
 		document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetProposalDetail-createReAndForward.action";
 		document.forms[0].submit();
 	}
-		    
+
 	var elementId = null;
 	function showDocumentManager(obj){
 	if(obj.id == 'budgetDocUploadButton'){
@@ -135,11 +135,11 @@
 	}
 	docManager(document.getElementById(elementId).value);
 	}
-	
+
     var docNumberUpdater = function (docNumber){
 	document.getElementById(elementId).value = docNumber;
 	}
-				
+
 	onLoadTask();
 	var dept_callback = {
 	success: function(o){
@@ -150,7 +150,7 @@
 	failure: function(o) {
 	}
 	}
-		
+
 	<s:if test="%{showDetails}">
 	var temp = window.setInterval(load,1);
 	function load()
@@ -158,7 +158,7 @@
 		try{document.getElementById('tabber1').onclick(); window.clearInterval(temp);}catch(e){}
 	}
     </s:if>
-    	
+
 	function updateApproverDepartment(obj){
 		//document.getElementById('approverDepartment').value = document.getElementById('budgetDetail_executingDepartment').value;
 		//populateDesg();
@@ -167,20 +167,20 @@
 		//var url = '/EGF/voucher/common!ajaxLoadDefaultDepartment.action';
 		//YAHOO.util.Connect.asyncRequest('POST', url, dept_callback, null);
 	}
-	
+
 	function search(){
 		if(validateSearch()){
-		    
+
 			document.forms[0].action = "${pageContext.request.contextPath}/budget/budgetProposalDetail-loadBudgetDetailList.action";
 			document.forms[0].submit();
-			
+
 		}
 		else{
 			return false;
 		}
-		
+
 	}
-	
+
 	function validate(){
 		validateSearch();
 		anticipatory = false;
@@ -188,11 +188,11 @@
 		for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
 		if(isNaN(document.getElementById('budgetDetailList['+i+'].anticipatoryAmount').value))
 			anticipatory = true;
-		}				
+		}
 		for(i=0;i<budgetDetailsTable.getRecordSet().getLength();i++){
 		if(isNaN(document.getElementById('budgetDetailList['+i+'].originalAmount').value))
 			estimate = true;
-		}				
+		}
 		if(estimate && anticipatory){
 			bootbox.alert('Estimate amount and Anticipatory amount must be a number');
 			return false;
@@ -203,7 +203,7 @@
 			bootbox.alert('Anticipatory amount must be a number');
 			return false;
 	}
-			
+
 	/* var r=confirm("Any new budget line item cannot be added after ASSTADMIN level");
 		if (r==false)
 		{
@@ -241,7 +241,7 @@
 	 	{
 		 return false;
 		}
-				
+
 	}
 
 	function validateSearch()
@@ -254,44 +254,44 @@
 		}
 		 else if('<s:property value="budgetDetail.budget.financialYear.id"/>'==''){
 			document.getElementById('hidden_year').value = document.getElementById('financialYear').value;
-		} 
-		
-		
+		}
+
+
 		if(document.getElementById('budgetDetail_budget').value==0 )
 		{
 			bootbox.alert("Select Budget");
 			result=false;
 		}
-		
+
 		 /* else if('<s:property value="budgetDetail.budget.id"/>'==''){
 			document.getElementById('hidden_budget').value = document.getElementById('budgetDetail_budget').value;
-			
+
 		}  */
-		
+
 		if(document.getElementById('budgetDetail_executingDepartment').value==0 )
 		{
 			bootbox.alert("select Department");
 			result=false;
-		
+
 		}
-		
+
 		//bootbox.alert('<s:property value="function.id"/>');
 		/* if(document.getElementById('budgetDetail_filtered_function').value==0 )
 		{
 			bootbox.alert("Select Function");
 			result=false;
 		} */
-		
+
 		/*  if(document.getElementById('budgetDetail_filtered_function').value!=0){
 			document.getElementById('hidden_function').value = document.getElementById('budgetDetail_filtered_function').value;
-		}  */  
-		
+		}  */
+
 		return result;
 	}
 	/* if(document.getElementById('hidden_budget')!=null)
-		 document.getElementById('hidden_budget').value = '<s:property value="budgetDetail.budget.id"/>' */ 
-	     
-			 
+		 document.getElementById('hidden_budget').value = '<s:property value="budgetDetail.budget.id"/>' */
+
+
 	</script>
 </head>
 <body>
@@ -317,7 +317,7 @@
 								</div>
 								<%@ include file='budgetProposalDetail-form.jsp'%>
 								<s:hidden name="budgetDocumentNumber" id="budgetDocNumber" />
-								
+
 								<input type="hidden" id="re" value='<s:property value="re"/>' />
 								<table width="100%" border="0" cellspacing="0" cellpadding="0"
 									id="budgetDetailFormTable">
@@ -325,7 +325,7 @@
 										<td>&nbsp;</td>
 									</tr>
 									<tr>
-										<td width="15%" class="bluebox">&nbsp;</td> 
+										<td width="15%" class="bluebox">&nbsp;</td>
 										<td width="15%" class="bluebox"><s:text
 												name="budgetdetail.budget.asOnDate" /></td>
 										<td class="bluebox" width="20%"><input type="text"
@@ -393,12 +393,12 @@
 								<s:if test="%{getActionErrors().size()>0 || getFieldErrors().size()>0}">
 									setValues();
 								</s:if>
-							</script> <br /> <br /> 
+							</script> <br /> <br />
 						<s:hidden name="financialYear.id" id="hidden_year" />
                        <%--  <s:hidden name="budget.id" id="hidden_budget" /> --%>
                        <%--  <s:hidden name="function.id" id="hidden_function"/> --%>
-                        
-                        
+
+
 						<div id="savedDataGrid"></div> <script>
 								document.getElementById('hidden_budget').value = '<s:property value="budgetDetail.budget.id"/>'
 								</script>
@@ -411,9 +411,9 @@
 					<span> <!--  <input type="hidden" name="scriptName"
 						id="scriptName" value="BudgetDetail.nextDesg" />  -->
 						   <%@include
-							file="../voucher/workflowApproval.jsp"%>   
+							file="../voucher/workflowApproval.jsp"%>
 							 <%@ include file='../workflow/commonWorkflowMatrix.jsp'%>
-				<%@ include file='../workflow/commonWorkflowMatrix-button.jsp'%> 		
+				<%@ include file='../workflow/commonWorkflowMatrix-button.jsp'%>
 					</span>
 				</div> --%>
 				<!-- Individual tab -->
@@ -437,7 +437,7 @@
 	</table>
 			<%-- <input type="submit" value="Save" id="budgetDetail__createRe"
 				name="method:createRe" onClick="javascript: return validate();"
-				class="buttonsubmit" /> 
+				class="buttonsubmit" />
 				<input type="submit" value="Forward"
 				id="budgetDetail__createReAndForward"
 				name="method:createReAndForward"

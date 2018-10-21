@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -48,17 +48,17 @@
   -->
 
 <sitemesh>
-    <property name="decorators-file" value="/WEB-INF/decorators.xml"/> 
-    <excludes file="${decorators-file}"/>  
- 
-    <page-parsers> 
-        <parser content-type="text/html" 
-		class="com.opensymphony.module.sitemesh.parser.FastPageParser"/> 
-    </page-parsers> 
- 
-    <decorator-mappers> 
-        <mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper"> 
-            <param name="config" value="${decorators-file}"/>  
-        </mapper> 
-    </decorator-mappers> 
-</sitemesh> 
+    <property name="decorators-file" value="/WEB-INF/decorators.xml"/>
+    <excludes file="${decorators-file}"/>
+
+    <page-parsers>
+        <parser content-type="text/html"
+		class="com.opensymphony.module.sitemesh.parser.FastPageParser"/>
+    </page-parsers>
+
+    <decorator-mappers>
+        <mapper class="com.opensymphony.module.sitemesh.mapper.ConfigDecoratorMapper">
+            <param name="config" value="${decorators-file}"/>
+        </mapper>
+    </decorator-mappers>
+</sitemesh>

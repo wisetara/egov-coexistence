@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -111,7 +111,7 @@
 	<queryString>
 		<![CDATA[select vh.vouchernumber AS VOUCHER_NUMBER,rem.referencenumber AS REM_NUMBER,vh.voucherdate AS REM_DATE, sd.name AS SERVICE_NAME,
 		 br.branchname||'-'|| bc.accountnumber as BANK_ACCOUNT_NUMBER,  rd.debitamount AS VOUCHER_AMOUNT, usr.name AS REMITTED_BY,
-		ch.receiptnumber AS RECEIPT_NUMBER,TO_CHAR(ch.receiptdate,'dd/MM/yyyy') AS RECEIPT_DATE,ch.totalamount AS RECEIPT_AMOUNT,vh.id AS VOUCHER_ID 
+		ch.receiptnumber AS RECEIPT_NUMBER,TO_CHAR(ch.receiptdate,'dd/MM/yyyy') AS RECEIPT_DATE,ch.totalamount AS RECEIPT_AMOUNT,vh.id AS VOUCHER_ID
 from voucherheader vh inner join  egcl_remittance rem on vh.id=rem.voucherheader
 inner join egcl_collectionremittance cr on cr.remittance =rem.id
 inner join egcl_collectionheader ch on cr.collectionheader = ch.id
@@ -120,7 +120,7 @@ inner join eg_user usr on rem.createdby =  usr.id
 inner join egcl_servicedetails sd on ch.servicedetails=sd.id
 inner join bankaccount bc on rem.bankaccount=bc.id
 inner join bankbranch br on bc.branchid=br.id
-where rd.debitamount<>0  
+where rd.debitamount<>0
 and vh.status=0
 $P!{Q_BANKACCOUNT_ID}
 $P!{Q_BRANCH_ID}
@@ -128,8 +128,8 @@ $P!{Q_RECEIPT_NUMBER}
 $P!{Q_VOUCHER_NUMBER}
 $P!{Q_REMITTANCE_NUMBER}
 $P!{Q_REMITTANCE_DATE}
-GROUP BY 
-     REM_DATE,VOUCHER_NUMBER,VOUCHER_ID,REM_NUMBER,SERVICE_NAME,BANK_ACCOUNT_NUMBER,VOUCHER_AMOUNT,REMITTED_BY,RECEIPT_NUMBER,RECEIPT_DATE,RECEIPT_AMOUNT 
+GROUP BY
+     REM_DATE,VOUCHER_NUMBER,VOUCHER_ID,REM_NUMBER,SERVICE_NAME,BANK_ACCOUNT_NUMBER,VOUCHER_AMOUNT,REMITTED_BY,RECEIPT_NUMBER,RECEIPT_DATE,RECEIPT_AMOUNT
 ORDER BY
      REM_DATE]]>
 	</queryString>

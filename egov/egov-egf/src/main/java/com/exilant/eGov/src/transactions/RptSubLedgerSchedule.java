@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -88,10 +88,10 @@ public class RptSubLedgerSchedule {
     TaskFailedException taskExc;
     private String glCode, accEntityId, fundId, fyId, deptId;
     private CFinancialYear fyObj;
-  
+
     private LinkedList dataList;
     private static final Logger LOGGER = Logger.getLogger(RptSubLedgerSchedule.class);
- 
+
     @Autowired
     @Qualifier("persistenceService")
     private PersistenceService persistenceService;
@@ -106,7 +106,7 @@ public class RptSubLedgerSchedule {
 
     // code for SubLedger type
     public LinkedList getSubLedgerTypeSchedule(final GeneralLedgerBean reportBean) throws TaskFailedException {
- 
+
         glCode = reportBean.getGlcode();
         fundId = reportBean.getFund_id();
         deptId = reportBean.getDeptId();
@@ -141,7 +141,7 @@ public class RptSubLedgerSchedule {
 
         fyObj = financialYearDAO.getFinYearByDate(dt);
         fyId = fyObj.getId().toString();
-  
+
         final Date finYrStartingDate = fyObj.getStartingDate();
         final String formatedDateStr = formatter1.format(finYrStartingDate);
         if (LOGGER.isInfoEnabled())
@@ -163,7 +163,7 @@ public class RptSubLedgerSchedule {
         String departmentFromCondition = "";
         String departmentWhereCondition = "";
         String departmentConditionTran = "";
-        dataList = new LinkedList();                
+        dataList = new LinkedList();
 
         totalCr = 0.0;
         totalDr = 0.0;
@@ -238,7 +238,7 @@ public class RptSubLedgerSchedule {
             +" GROUP BY detkeyid "
             +") as complist"
             +" group by  slid order by slid";
-            
+
             int i = 0;
             pst = persistenceService.getSession().createSQLQuery(query);
             pst.setLong(i++, Integer.valueOf(accEntityId));
@@ -248,7 +248,7 @@ public class RptSubLedgerSchedule {
             pst.setLong(i++, Long.parseLong(fundId));
             if (deptId != null && !deptId.equalsIgnoreCase(""))
                 pst.setString(i++,deptId);
-  
+
             pst.setLong(i++, Integer.valueOf(accEntityId));
             pst.setString(i++, glCode);
             pst.setString(i++, startDate);
@@ -256,7 +256,7 @@ public class RptSubLedgerSchedule {
             pst.setLong(i++, Long.parseLong(fundId));
             if (deptId != null && !deptId.equalsIgnoreCase(""))
                 pst.setString(i++,deptId);
- 
+
             pst.setLong(i++, Integer.valueOf(accEntityId));
             pst.setString(i++, glCode);
             pst.setString(i++, startDate);
@@ -303,7 +303,7 @@ public class RptSubLedgerSchedule {
                 double prevCredit = 0.0;
                 double debitamount = 0.0;
                 double creditamount = 0.0;
-             
+
                 try {
                        entity = (EntityType) persistenceService.find(" from " + accountdetailtype.getFullQualifiedName()
                                 + " where id="+element[0].toString());
@@ -311,8 +311,8 @@ public class RptSubLedgerSchedule {
                         LOGGER.error(ee.getMessage(), ee);
                         entity = (EntityType) persistenceService.find(" from " + accountdetailtype.getFullQualifiedName()
                                 + " where id="+element[0].toString());
-                    }    
-          
+                    }
+
                 if (entity != null) {
                     gb.setCode(entity.getCode());
                     gb.setName(entity.getName());
@@ -320,7 +320,7 @@ public class RptSubLedgerSchedule {
                     gb.setCode("");
                     gb.setName("");
                 }
-                
+
                 gb.setAccEntityKey(element[0].toString());
                 if (element[5].toString() != null)
                     creditamount = Double.parseDouble(element[5].toString());
@@ -367,7 +367,7 @@ public class RptSubLedgerSchedule {
                     totalCr = totalCr + creditamount;
                 } else
                     gb.setCreditamount("&nbsp;");
-                
+
                 gb.setAccEntityId(accEntityId);
                 totalClosingBal = totalOpgBal + totalCr - totalDr;
                 dataList.add(gb);

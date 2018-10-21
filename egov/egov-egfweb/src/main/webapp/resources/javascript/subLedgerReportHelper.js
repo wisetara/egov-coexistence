@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -53,35 +53,35 @@ function openSearch(obj, index)
 	if (obj.toLowerCase() == 'relation')
 			str = "../HTML/Search.html?tableNameForCode="+obj;
 		else if(obj.toLowerCase() == 'chartofaccounts')
-		{			
-			str = "../HTML/Search.html?tableNameForCode=chartofaccounts_controlcodes";					
+		{
+			str = "../HTML/Search.html?tableNameForCode=chartofaccounts_controlcodes";
 		}
-	
+
 	var sRtn = showModalDialog(str,"","dialogLeft=300;dialogTop=210;dialogWidth=305pt;dialogHeight=400pt;status=no;");
 			PageManager.DataService.setQueryField('index', '0');
     if(index==1)
     {
     	a = sRtn.split("`~`");
 		var type = document.getElementById('glCode1');
-		type.value = a[0]; 	
+		type.value = a[0];
 		rptGLCode = a[0];
 		rptAccName = a[1];
-		
-		document.getElementById('chartOfAccounts_id').value = a[2];		
+
+		document.getElementById('chartOfAccounts_id').value = a[2];
 	}
-	
+
 	coaId=document.getElementById('chartOfAccounts_id').value;
 	if(sRtn!='')
-		loadSubLedgerTypeList();	
-	type.value = a[0];	
+		loadSubLedgerTypeList();
+	type.value = a[0];
 }
 function openAccountCodeSearch()
-{	
+{
 		var	url = "../voucher/common!searchAccountCodes.action";
 		window.open(url, 'EntitySearch','resizable=no,scrollbars=yes,left=300,top=40, width=400, height=500');
 }
 function openEntitySearch()
-{	
+{
 	var detailtypeid = document.getElementById("subLedgerList").value;
 	if( detailtypeid != null && detailtypeid != 0) {
 		var	url = "../voucher/common!searchEntites.action?accountDetailType="+detailtypeid;
@@ -120,32 +120,32 @@ function popupCallbackForAccountCode(glcode,coaid) {
  		document.getElementById('glCode1').value=glcode;
  		neibrObj.value = coaid;
  	}
- 	
+
 			loadSubLedgerTypeList();
-	
+
 }
 
 function loadEntityList()
-{			
-	var glCodeId = document.getElementById('chartOfAccounts_id').value;	
-	glcode=document.getElementById('glCode1').value;	
+{
+	var glCodeId = document.getElementById('chartOfAccounts_id').value;
+	glcode=document.getElementById('glCode1').value;
 	if(glCodeId != '')
 	{
-		PageManager.DataService.setQueryField('glcode', glcode);		
-		PageManager.DataService.setQueryField('glCodeId', glCodeId);				
-		PageManager.DataService.callDataService('accEntityList');				
-	}	
+		PageManager.DataService.setQueryField('glcode', glcode);
+		PageManager.DataService.setQueryField('glCodeId', glCodeId);
+		PageManager.DataService.callDataService('accEntityList');
+	}
 }
 
 function loadSubLedgerTypeList()
-{	
-	var glCodeId = document.getElementById('chartOfAccounts_id').value;	
-	glcode=document.getElementById('glCode1').value;	
+{
+	var glCodeId = document.getElementById('chartOfAccounts_id').value;
+	glcode=document.getElementById('glCode1').value;
 	if(glCodeId != '')
 	{
-		PageManager.DataService.setQueryField('glCode', glcode);		
-		PageManager.DataService.callDataService('subLedgerList');				
-	}	
+		PageManager.DataService.setQueryField('glCode', glcode);
+		PageManager.DataService.callDataService('subLedgerList');
+	}
 }
 
 
@@ -157,7 +157,7 @@ function callEntity() {
 	} else {
 		bootbox.alert("Select the Type.");
 	}
-}    
+}
 function autocompletecode(obj,eventObj)
 {
 	// set position of dropdown
@@ -167,28 +167,28 @@ function autocompletecode(obj,eventObj)
 	target.style.left=posSrc[0]-30;
 	target.style.top=posSrc[1]+15;
 	target.style.width=600;
-	if(obj.name=='accEntityList') target.style.left=posSrc[0]-200;	
+	if(obj.name=='accEntityList') target.style.left=posSrc[0]-200;
 	var currRow=PageManager.DataService.getRow(obj);
 	var coaCodeObj = obj;
 	if(eventObj.keyCode != 40 )
 	{
 		if(eventObj.keyCode != 38 )
 		{
-	
+
 			var oAutoComp = new YAHOO.widget.AutoComplete(coaCodeObj,'codescontainer', codeObj);
 			oAutoComp.queryDelay = 0;
 			oAutoComp.prehighlightClassName = "yui-ac-prehighlight";
 			oAutoComp.useShadow = true;
 		}
-	}	
+	}
 }
 
-//fills the related neighboor object after splitting 
+//fills the related neighboor object after splitting
 function fillNeibrAfterSplit(obj,neibrObjName)
-{  
+{
 	var currRow=PageManager.DataService.getRow (obj);
  	neibrObj=PageManager.DataService.getControlInBranch(currRow,neibrObjName);
- 	var temp = obj.value; 
+ 	var temp = obj.value;
  	temp = temp.split("`-`");
  	if(obj.value==null || obj.value=="") { neibrObj.value= ""; return; }
  	if(temp[1]==null && (neibrObj.value!='' || neibrObj.value!=null) ) {  return ;}
@@ -203,30 +203,30 @@ function beforeRefreshPage(dc)
 {
 	var accName = dc.values['accName'];
 	if(accName != null && accName != '')
-		rptAccName = dc.values['accName'];	
+		rptAccName = dc.values['accName'];
 	if(dc.values['glCode1']!=dc.values['glCode'])
-	{	
+	{
 		dc.values['accEntityList']='';
 		dc.values['accEntityKey']='';
 		dc.values['entityName']='';
 	}
-	var comboSubledgerList = document.getElementById('subLedgerList'); 			
-	clearCombo(comboSubledgerList);	
-	if(dc.values['glCode'])	
-		dc.values['glCode1']=dc.values['glCode'];	
-	
+	var comboSubledgerList = document.getElementById('subLedgerList');
+	clearCombo(comboSubledgerList);
+	if(dc.values['glCode'])
+		dc.values['glCode1']=dc.values['glCode'];
+
 }
 
 function afterRefreshPage(dc)
 {
 	coaId=dc.values['glCodeId'];
 	if(dc.values['serviceID']=='cgNumber')
-	{ 	
+	{
 		loadSubLedgerTypeList();
 	}
 
 	if(dc.values['serviceID']=='getAccCOAID')
-	{			
+	{
 			var glCodeId = document.getElementById('chartOfAccounts_id').value;
 			var glCode= document.getElementById('glCode1').value;
 			if(glCodeId != '')
@@ -243,7 +243,7 @@ function afterRefreshPage(dc)
 	PageManager.DataService.removeQueryField('startDate');
 	PageManager.DataService.removeQueryField('endDate');
 	rptAccName = dc.values['accName'];
-	
+
 	/* to fill the SubLedgerList Combo*/
 	if(dc.values['serviceID']=='subLedgerList')
 	{
@@ -253,30 +253,30 @@ function afterRefreshPage(dc)
 		if(subLedgerList != null)
 		{
 			document.getElementById('accEntityId').value = dc.values['accountDetailTypeId'];
-			var comboSubledgerList = document.getElementById('subLedgerList'); 			
+			var comboSubledgerList = document.getElementById('subLedgerList');
 			clearCombo(comboSubledgerList);
 			var option;
 			for(var i=0; i<subLedgerList.length; i++)
-			{			
+			{
 				option = document.createElement('OPTION');
 				option.value=subLedgerList [i][0];
 				option.text = subLedgerList [i][1];
-				
-				comboSubledgerList.add(option);			
-			} 
+
+				comboSubledgerList.add(option);
+			}
 			//callEntity();
-			
+
 		 }
 	}
 }
- 
+
 function clearCombo(obj)
 {
 	try{
-		for(var i=obj.length-1;i>=0;i--)				
-			obj.remove(i);			
+		for(var i=obj.length-1;i>=0;i--)
+			obj.remove(i);
 	}catch(err) {}
-		
+
 }
 function getAccountName(obj)
 {
@@ -304,7 +304,7 @@ function getDescription(obj)
 }
 
 function buttonFlush()
-{	
+{
 	window.location="SubLedgerReport.jsp?reportType=sl";
 }
 
@@ -313,16 +313,16 @@ function pageSetup()
 	document.body.leftMargin=0.75;
 	document.body.rightMargin=0.75;
 	document.body.topMargin=0.75;
-	document.body.bottomMargin=0.75;	
+	document.body.bottomMargin=0.75;
 }
 
 
 //For Print Preview method
 function buttonPrintPreview()
 {
-	document.getElementById('accEntityId').value=document.getElementById('subLedgerList').value;	
-	document.getElementById('fromBean').value ="2";	   
-	document.forms[0].submit();	
+	document.getElementById('accEntityId').value=document.getElementById('subLedgerList').value;
+	document.getElementById('fromBean').value ="2";
+	document.forms[0].submit();
 }
 
 //For print method
@@ -330,21 +330,21 @@ function buttonPrint()
 {
 	document.getElementById('accEntityId').value=document.getElementById('subLedgerList').value;
 	document.getElementById('fromBean').value ="2";
-    var hide1,hide2; 
+    var hide1,hide2;
     hide1 = document.getElementById("tbl-header1");
-	hide1.style.display = "none";	
+	hide1.style.display = "none";
 	document.forms[0].submit();
   	if(window.print)
-  	{ 
+  	{
   		window.print();
-	} 
+	}
 }
 var detailTypeId=0;
 function onFocusDetailCode(){
 	var detailtypeidObj=document.getElementById("subLedgerList");
 	if(detailTypeId != detailtypeidObj.value){
 		detailTypeId = detailtypeidObj.value;
-		loadDropDownCodesForEntities(); 
+		loadDropDownCodesForEntities();
 	}
 }
 
@@ -357,9 +357,9 @@ function loadDropDownCodesForEntities()
 	   oACDS.scriptQueryParam = "startsWith";
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete("accEntityList",'codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&accountDetailType="+document.getElementById("subLedgerList").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 3;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";
@@ -375,7 +375,7 @@ function loadDropDownCodesForEntities()
 	           YAHOO.util.Dom.setXY(oContainer,pos);
 	           return true;
 	   };
-	   
+
 }
 
 function splitEntitiesDetailCode(obj)
@@ -399,17 +399,17 @@ String.prototype.trim = function () {
 function autocompleteEntities1(obj,myEvent)
 {
 	//bootbox.alert('autocomplete');
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	
-	target.style.left=posSrc[0]-220;	
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+
+	target.style.left=posSrc[0]-220;
 	target.style.top=posSrc[1];
-	target.style.width=470;	
-	      		
-	
+	target.style.width=470;
+
+
 	var coaCodeObj=obj;
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )

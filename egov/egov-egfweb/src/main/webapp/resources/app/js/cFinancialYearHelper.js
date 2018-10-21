@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -72,7 +72,7 @@ function validateFields(){
 		var lastRowFiscalName = getControlInBranch(tbl.rows[lastRow],'name').value;
 		var lastRowEndDate=getControlInBranch(tbl.rows[lastRow],'endDate').value;
 		var finYearEndDate=document.getElementById("endingDate").value;
-		
+
 		if(startingDate!=finYearStartDate){
 			bootbox.alert('Enter valid Start date');
 			getControlInBranch(tbl.rows[1],'startDate').value='';
@@ -103,16 +103,16 @@ function validateFields(){
 				 getControlInBranch(tbl.rows[lastRow],'startDate').focus();
 				 return false;
 			}
-	
+
 	    }
-	
+
 	 return true;
 
 }
 
 
 
-function addRow1() 
+function addRow1()
 {
 	var table = document.getElementById('fiscalPeriodTable');
 
@@ -131,7 +131,7 @@ function addRow1()
 	var cell1 = row.insertCell(0);
 	var fiscalName = document.createElement("input");
 	var att = document.createAttribute("class");
-	fiscalName.setAttributeNode(att); 
+	fiscalName.setAttributeNode(att);
 	fiscalName.setAttribute("class","form-control text-right patternvalidation");
 	fiscalName.type = "text";
 	fiscalName.setAttribute("required", "required");
@@ -153,7 +153,7 @@ function addRow1()
 	fiscalDate.setAttribute("data-inputmask","'mask': 'd/M/y'");
 	fiscalDate.name = "cFiscalPeriod[" + counts + "].startingDate";
 
-	
+
 	cell2.appendChild(fiscalDate);
 
 	var newCol = document.createElement("td");
@@ -166,10 +166,10 @@ function addRow1()
 	fiscalDate.setAttribute("id","endDate");
 	fiscalDate.type = "text";
 	fiscalDate.setAttribute("required", "required");
-	
+
 	fiscalDate.setAttribute("maxlength", "10");
 	fiscalDate.setAttribute("data-inputmask","'mask': 'd/M/y'");
-	
+
 	fiscalDate.name = "cFiscalPeriod[" + counts + "].endingDate";
 	cell3.appendChild(fiscalDate);
 
@@ -193,20 +193,20 @@ function addRow1()
 	hiddenId.id = "cFiscalPeriod[" + counts + "].id";
 	hiddenId.setAttribute("value", "${cFiscalPeriod[" + counts + "].id}");
 	cell4.appendChild(hiddenId);
-	
+
 	jQuery(".datepicker").datepicker({
 		format: "dd/mm/yyyy",
 		autoclose:true
-	}); 
+	});
 
 }
 
-function compareDate(dt1, dt2){			
+function compareDate(dt1, dt2){
 	/*******		Return Values [0 if dt1=dt2], [1 if dt1<dt2],  [-1 if dt1>dt2]     *******/
 	var d1, m1, y1, d2, m2, y2, ret;
 	dt1 = dt1.split('/');
 	dt2 = dt2.split('/');
-	ret = (eval(dt2[2])>eval(dt1[2])) ? 1 : (eval(dt2[2])<eval(dt1[2])) ? -1 : (eval(dt2[1])>eval(dt1[1])) ? 1 : (eval(dt2[1])<eval(dt1[1])) ? -1 : (eval(dt2[0])>eval(dt1[0])) ? 1 : (eval(dt2[0])<eval(dt1[0])) ? -1 : 0 ;										
+	ret = (eval(dt2[2])>eval(dt1[2])) ? 1 : (eval(dt2[2])<eval(dt1[2])) ? -1 : (eval(dt2[1])>eval(dt1[1])) ? 1 : (eval(dt2[1])<eval(dt1[1])) ? -1 : (eval(dt2[0])>eval(dt1[0])) ? 1 : (eval(dt2[0])<eval(dt1[0])) ? -1 : 0 ;
 	return ret;
 }
 
@@ -248,9 +248,9 @@ function formatDate6(dt){
 	var array = dt.split("/");
 	var mon=array[1];
 	var day=array[0];
-	var year=array[2].substring(0,4);			
-	dt = day+"/"+mon+"/"+year;			
-	return dt;	
+	var year=array[2].substring(0,4);
+	dt = day+"/"+mon+"/"+year;
+	return dt;
 }
 
 function getControlInBranch(tableobj, columnName) {
@@ -292,12 +292,12 @@ function validateFiscalEndDate() {
 }
 
 function callAjaxSearch() {
-	drillDowntableContainer = jQuery("#resultTable");		
+	drillDowntableContainer = jQuery("#resultTable");
 	jQuery('.report-section').removeClass('display-hide');
 	reportdatatable = drillDowntableContainer
 	.dataTable({
 		ajax : {
-			url : "/services/EGF/cfinancialyear/ajaxsearch/"+$('#mode').val(),      
+			url : "/services/EGF/cfinancialyear/ajaxsearch/"+$('#mode').val(),
 			type: "POST",
 			"data":  getFormData(jQuery('form'))
 		},
@@ -314,13 +314,13 @@ function callAjaxSearch() {
 			"sSwfPath" : "../../../../../../egi/resources/global/swf/copy_csv_xls_pdf.swf",
 			"aButtons" : [ "xls", "pdf", "print" ]
 		},
-		aaSorting: [],				
-		columns : [ { 
-			"data" : "finYearRange", "sClass" : "text-left"} ,{ 
-				"data" : "startingDate", "sClass" : "text-left"} ,{ 
-					"data" : "endingDate", "sClass" : "text-left"} ,{ 
-							"data" : "isActiveForPosting", "sClass" : "text-left"} ,{ 
-								"data" : "isClosed", "sClass" : "text-left"} ,{ 
-									"data" : "transferClosingBalance", "sClass" : "text-left"}]				
+		aaSorting: [],
+		columns : [ {
+			"data" : "finYearRange", "sClass" : "text-left"} ,{
+				"data" : "startingDate", "sClass" : "text-left"} ,{
+					"data" : "endingDate", "sClass" : "text-left"} ,{
+							"data" : "isActiveForPosting", "sClass" : "text-left"} ,{
+								"data" : "isClosed", "sClass" : "text-left"} ,{
+									"data" : "transferClosingBalance", "sClass" : "text-left"}]
 	});
 }

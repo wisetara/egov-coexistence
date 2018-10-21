@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,11 +53,11 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 	   default-lazy-init="true">
-		
+
 	<context:component-scan base-package="org.egov.infra, org.egov.infstr"/>
 
 	<bean id="masterDataCache" class="org.egov.infstr.utils.EgovMasterDataCaching" lazy-init="false"/>
-	
+
 	<bean id="persistenceService" class="org.egov.infstr.services.PersistenceService">
         <constructor-arg name="type">
             <null/>
@@ -68,26 +68,26 @@
 
 	<bean id="applicationCoreFilter" class="org.egov.infra.web.filter.ApplicationCoreFilter"/>
 	<bean id="restAuthFilter" class="org.egov.infra.web.filter.RestServiceAuthFilter" />
-	
+
 	<bean id="applicationTenantResolverFilter" class="org.egov.infra.web.filter.ApplicationTenantResolverFilter"/>
-	
+
 	<!-- Use this only for generic hibernate query -->
 	<bean id="entityQueryService" class="org.egov.infstr.services.PersistenceService">
 		<constructor-arg name="type" >
 			<null/>
 		</constructor-arg>
 	</bean>
-	
+
 	<!-- NEW WORKFLOW ADDITIONS -->
-	
+
 	<bean id="stateAwarePersistenceService" parent="abstractPersistenceService">
 		<constructor-arg name="type" value="org.egov.infra.workflow.entity.StateAware" />
 	</bean>
-	
+
 	<!--
 		This is a generic bean so do not use this to do transition of your own StateAware objects
 		For your own StateAware object transition declare a separate bean definition
-		like 
+		like
 		<bean id="myStateAwareWorkflowService" parent="workflowService">
 			<constructor-arg index="0" ref="myStateAwarePersistenceService"/>
 		</bean>
@@ -95,7 +95,7 @@
 	<bean id="workflowService" class="org.egov.infra.workflow.service.SimpleWorkflowService">
 		<constructor-arg index="0" ref="stateAwarePersistenceService" />
 	</bean>
-	
+
 	<bean class="org.egov.infra.microservice.utils.MicroserviceUtils" />
-	
+
 </beans>

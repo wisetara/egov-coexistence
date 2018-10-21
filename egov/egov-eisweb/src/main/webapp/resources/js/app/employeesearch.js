@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -47,7 +47,7 @@
  */
 
 $(document).ready(function(){
-	tableContainer1 = $("#employee-table"); 
+	tableContainer1 = $("#employee-table");
 	$("#searchbtn").click(function (){
 		tableContainer1.dataTable({
 			"sDom": "<'row'<'col-xs-12 hidden col-right'f>r>t<'row'<'col-md-6 col-xs-12'i><'col-md-3 col-xs-6'l><'col-md-3 col-xs-6 text-right'p>>",
@@ -59,7 +59,7 @@ $(document).ready(function(){
 			            { "data": "slno","width": "5%" },
 						{ "data": "name","width": "10%" },
 						  {
-					        
+
                             "data" : function(row, type, set, meta){
 	                     	return { name:row.code, id:row.id };
                          },
@@ -74,10 +74,10 @@ $(document).ready(function(){
 						{ "data": "daterange","width": "20%" }
 			]
 		});
-	
+
 });
-	
-	
+
+
 	$('#searchemployee').keyup(function(){
 		tableContainer1.fnFilter(this.value);
 	});
@@ -91,7 +91,7 @@ function goToView(obj) {
 	if(mode=="update")
 		url = "/eis/employee/update/";
 	else if (mode=="updatecontact")
-		url = "/eis/employee/updatecontact/"; 
+		url = "/eis/employee/updatecontact/";
 	window.open(url+jQuery(obj).data('eleval'), '', 'scrollbars=yes,width=1000,height=700,status=yes');
-} 
+}
 

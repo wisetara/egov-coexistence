@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -53,19 +53,19 @@ body {
 	background-color: #FFFFFF;
 	text-align:center;
 	}
-	   
+
 a:link {
 	color: #0066cc;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	}
-	
+
 a:visited {
 	color: #0066cc;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	}
-	
+
 a:hover {
 	color: #CC0000;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -110,7 +110,7 @@ a:active {
 	position: static;
 	padding: 6px 10px;
 	}
-	
+
 #tabmenu a.active {
 	text-decoration: none;
 	font-family: Geneva, Arial, Helvetica, sans-serif;
@@ -171,21 +171,21 @@ a:active {
 	border-bottom-color: #CCCCCC;
 	border-left-color: #CCCCCC;
 	}
-	
+
 div.egov{
-	width:55px; 
-	text-align:right; 
+	width:55px;
+	text-align:right;
 	float:right;
 	margin-right:15px;
 	}
-	
+
 div.gov{
-	width:54px; 
-	text-align:right; 
+	width:54px;
+	text-align:right;
 	float:left;
 	margin-left:15px;
 	}
-	
+
 div.navibar {
 	background-color: #eceded;
 	margin-bottom: 8px;
@@ -200,18 +200,18 @@ div.navibar {
 	height: 26px;
 	}
 
-div.mainheading { 
+div.mainheading {
 	padding-top:6px;
 	float:none;
 	margin-left:auto;
 	margin-right:auto;
 	width:80%;
 	}
-	
-div.formmainbox { 
-	margin-left: 8px; 
+
+div.formmainbox {
+	margin-left: 8px;
 	margin-right: 8px;
-	}	
+	}
 
 td.greybox {
 	background-color: #f7f7f7;
@@ -224,7 +224,7 @@ td.greybox {
 	text-align: left;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	}
-	
+
 #select {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -236,7 +236,7 @@ td.greybox {
 	padding-bottom: 2px;
 	padding-left: 4px;
 	}
-	
+
 textarea {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -261,7 +261,7 @@ input {
 	padding-bottom: 2px;
 	padding-left: 4px;
 	}
-	
+
 input.amount {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -304,7 +304,7 @@ input.hiddenslno {
 	text-align: center;
 	vertical-align: middle;
 	}
-	
+
 input.hiddentext {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -367,7 +367,7 @@ input.buttonsubmit {
 .bold {
 	font-weight: bold;
 	}
-	
+
 div.buttonbottom {
 	margin-bottom: 10px;
 	margin-top: 10px;

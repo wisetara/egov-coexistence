@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -91,7 +91,7 @@ public class FundSourceHibernateDAO {
         return entityManager.unwrap(Session.class);
     }
 
-  
+
 
     public Fundsource fundsourceById(final Integer id) {
         return (Fundsource) getCurrentSession().get(Fundsource.class, id.intValue());

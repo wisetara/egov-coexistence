@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -46,7 +46,7 @@
  *
  */
 var VOUCHERDETAILLIST='billDetailslist';
-var SUBLEDGERLIST='subLedgerlist';                       
+var SUBLEDGERLIST='subLedgerlist';
 var INSTRUMENTLIST='iHeaderList';
 var billDetailsTable;
 var subLedgersTable;
@@ -63,16 +63,16 @@ var funcIdfuncAccCodeArray;
 var accCodeFuncFuncIdArray
 var slAccountCodes = new Array();
 function updateGridPJV(field,index,value){
-	
+
 	document.getElementById(VOUCHERDETAILLIST+'['+index+'].'+field).value=value;
 }
 function updateGridPayInSlip(field,index,value){
-	
+
 	document.getElementById(INSTRUMENTLIST+'['+index+'].'+field).value=value;
 }
 
 function updateGrid(tableName,field,index,value){
-	//bootbox.alert(index);   
+	//bootbox.alert(index);
 	document.getElementById(tableName+'['+index+'].'+field).value=value;
 	//bootbox.alert(document.getElementById(tableName+'['+index+'].'+field).value);
 }
@@ -84,10 +84,10 @@ function updateSLGridPJV(field,index,value){
 function updateGridSLDropdownPJV(field,index,value){
 	var element = document.getElementById('subLedgerlist['+index+'].'+field)
 	var len = element.options.length
-		
+
 	for(var i=0;i<len;i++){
 		if(element.options[i].value == value){
-			
+
 			element.options[i].selected = true;
 		}
 	}
@@ -107,7 +107,7 @@ function createTextFieldFormatterPJV(prefix,suffix,type){
 		el.innerHTML = "<input type='"+type+"' id='"+prefix+"["+billDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' name='"+prefix+"["+billDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' style='width:90px;' onkeyup='autocompletecode(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitGlcode(this)'/>";
 	}
 }
-function createTextFieldFormatterForFunctionPJV(prefix,suffix){  
+function createTextFieldFormatterForFunctionPJV(prefix,suffix){
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text'  id='"+prefix+"["+billDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' name='"+prefix+"["+billDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' style='width:90px;' onkeyup='autocompletecodeFunction(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitFunction(this)'/>";
@@ -133,40 +133,40 @@ function createAmountFieldFormatterPJV(prefix,suffix,onblurfunction){
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text'  id='"+prefix+"["+billDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"'  name='"+prefix+"["+billDetailsTable.getRecordIndex(oRecord)+"]"+suffix+"' style='text-align:right;width:90px;'  onblur='"+onblurfunction+"'/>";
-		
+
 	}
 }
 // JV Datatable code starts
 
 function createTextFieldFormatterJV(prefix,suffix,type){
-	
+
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = " <input type='"+type+"' id='"+prefix+"["+billDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+billDetailTableIndex+"]"+suffix+"' style='width:90px;' onkeyup='autocompletecode(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitGlcode(this);'/>";
-		
+
 	}
 }
 function createTextFieldFormatterForFunctionJV(prefix,suffix,type){
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+prefix+"["+billDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+billDetailTableIndex+"]"+suffix+"' style='width:90px;' onkeyup='autocompletecodeFunction(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitFunction(this)'/>";
-		
+
 	}
-		
+
 }
 function createSLTextFieldFormatterForFunctionJV(prefix,suffix){
     return function(el, oRecord, oColumn, oData) {
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text'  id='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' style='width:90px;' onkeyup='autocompletecodeFunction(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitFunctionSL(this)'/>";
-		
+
 	}
-		
+
 }
 
 function createSLTextFieldwithSearchBtnFormatterJV(prefix,suffix,onblurfunction, suffix2, onClickForSearch) {
 	return function(el, oRecord, oColumn, oData) {
 		el.innerHTML = "<input type='text' id='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' style='width:90px;' onblur='"+onblurfunction+"'/>"
-					  +" <img src='/services/egi/resources/erp2/images/plus1.gif' id='"+prefix+"["+slDetailTableIndex+"]"+suffix2+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix2+"' style='width:18px;'  onClick='"+onClickForSearch+"'/>";	
+					  +" <img src='/services/egi/resources/erp2/images/plus1.gif' id='"+prefix+"["+slDetailTableIndex+"]"+suffix2+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix2+"' style='width:18px;'  onClick='"+onClickForSearch+"'/>";
 	}
 }
 
@@ -175,7 +175,7 @@ function createLongTextFieldFormatterJV(prefix,suffix){
     	var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text' id='"+prefix+"["+index+"]"+suffix+"' name='"+prefix+"["+index+"]"+suffix+"' readOnly style='width:250px;'/>";
 
-    
+
     }
 }
 function createLongTextFieldFormatterJV(prefix,suffix){
@@ -200,7 +200,7 @@ function createSLDetailCodeTextFieldFormatterJV(prefix,suffix,onblurfunction, su
     return function(el, oRecord, oColumn, oData) {
 		el.innerHTML = "<input type='text' id='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' style='width:90px;'  autocomplete='off'  onfocus='onFocusDetailCode(this);autocompleteEntities1By20(this);' onblur='"+onblurfunction+"'/>"
 		+" <img src='/services/egi/resources/erp2/images/plus1.gif' id='"+prefix+"["+slDetailTableIndex+"]"+suffix2+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix2+"' style='width:15px;'  onClick='"+onClickForSearch+"'/>";
-		
+
 	}
 }
 
@@ -243,9 +243,9 @@ function createDropdownFormatterJV1(prefix){
             selectEl.name = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 			selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
             selectEl = el.appendChild(selectEl);
-		var selectedIndex = {value: slDetailTableIndex }; 
+		var selectedIndex = {value: slDetailTableIndex };
             YAHOO.util.Event.addListener(selectEl,"change",onDropdownDetailTypeChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -290,10 +290,10 @@ function createDropdownFormatterJV(prefix){
 			selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 			//selectEl.onfocus=check;
             selectEl = el.appendChild(selectEl);
-	    var selectedIndex = {value: slDetailTableIndex }; 
+	    var selectedIndex = {value: slDetailTableIndex };
 
             YAHOO.util.Event.addListener(selectEl,"change",onDropdownChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -324,16 +324,16 @@ function createDropdownFormatterJV(prefix){
     }
 }
 function updateAccountTableIndex(){
-	
+
 	billDetailTableIndex = billDetailTableIndex +1 ;
 }
 function updateSLTableIndex(){
-	
+
 	 slDetailTableIndex = slDetailTableIndex +1 ;
 }
 
 function updateInstrTableIndex(){
-	
+
 	instrTableIndex = instrTableIndex +1 ;
 }
 
@@ -409,7 +409,7 @@ function loadCoa(id){
 			url = '/EGF/payment/advanceRequisitionPayment-ajaxLoadCoa.action?coaDescription='+coaCode;
 		else
 			url = '/EGF/payment/advanceRequisitionPayment-ajaxLoadCoa.action?coaCode='+coaCode;
-	
+
 		var req2 = initiateRequest();
 		req2.onreadystatechange = function(){
 		  if (req2.readyState == 4){
@@ -423,7 +423,7 @@ function loadCoa(id){
 		req2.open("GET", url, true);
 		req2.send(null);
 	}
-}                 
+}
 
 function loadDropDownCodes()
 {
@@ -445,7 +445,7 @@ function loadDropDownCodes()
 				var key = data[0];
 				var value = data[1]
 				allGlcodes[key] = value;
-			}			
+			}
 			codeObj = new YAHOO.widget.DS_JSArray(acccodeArray);
 		  }
 	  }
@@ -474,9 +474,9 @@ function loadDropDownCodesExcludingCashAndBank()
 				var key = data[0];
 				var value = data[1]
 				allGlcodes[key] = value;
-			}			
+			}
 			codeObj = new YAHOO.widget.DS_JSArray(acccodeArray);
-		  }         
+		  }
 	  }
  	};
 	req2.open("GET", url, true);
@@ -484,7 +484,7 @@ function loadDropDownCodesExcludingCashAndBank()
 }
 /**
  *  this will load all non-subledger and only those subledgers which are mapped to given account detail type
- */       
+ */
 function resetonChangeofSubledger()
 {
 
@@ -494,10 +494,10 @@ function resetonChangeofSubledger()
 		document.getElementById("detailKey").value="";
 		document.getElementById("detailCode").value="";
 	}
-	
+
 	if(document.getElementById("billDetailsTableNet[0].isSubledger").value=='true')
 	{
-	//	bootbox.alert("hii");      
+	//	bootbox.alert("hii");
 		document.getElementById("billDetailsTableNet[0].glcodeDetail").value="-1";
 		document.getElementById("billDetailsTableNet[0].glcodeDetail").disabled=true;
 		document.getElementById("billDetailsTableNet[0].glcodeDetail").tabIndex="-1";
@@ -524,14 +524,14 @@ function resetonChangeofSubledger()
 			document.getElementById("billDetailsTable["+j+"].isSubledger").value="";
 		}
 		j++
-	
+
 	}
 	// credit code table billDetailsTableCredit[0].glcodeDetail
 	//var creditTable=document.getElementById('billDetailsTableCredit').getElementsByTagName('table')[0];
 	//var creditTableLen=creditTable.rows.length;
 	var creditTableLen=billDetailsTableCredit.getRecordSet().getLength();
 	//bootbox.alert("Length of credit table is "+creditTableLen);
-	while(i<creditTableLen)    
+	while(i<creditTableLen)
 	{
 		if(document.getElementById("billDetailsTableCredit["+i+"].isSubledger").value=='true')
 		{
@@ -545,16 +545,16 @@ function resetonChangeofSubledger()
 }
 function loadDropDownCodesForAccountDetailType(obj)
 {
-     
+
 //	bootbox.alert("Hiii  inside loadDropDownCodesForAccountDetailType");
-	// reset deatiltable when subledger=true. 
+	// reset deatiltable when subledger=true.
 	resetonChangeofSubledger();
 	var val=0;
 	if(obj==null)
 		val=0;
 	else
 		val=obj.value;
-		
+
 	var	url = path+"/voucher/common-ajaxLoadCodesOfDetailType.action?accountDetailType="+val;
 	var req2 = initiateRequest();
 	req2.onreadystatechange = function()
@@ -564,10 +564,10 @@ function loadDropDownCodesForAccountDetailType(obj)
 		  if (req2.status == 200)
 		  {
 			var codes2=req2.responseText;
-			
+
 			codes2=	codes2.trim();
-			
-			
+
+
 			var a = codes2.split("^");
 			var codes = a[0];
 			acccodeArray=codes.split("+");
@@ -577,7 +577,7 @@ function loadDropDownCodesForAccountDetailType(obj)
 				var key = data[0];
 				var value = data[1]
 				codesForAccountDetailType[key] = value;
-			}	
+			}
 			codeObj = new YAHOO.widget.DS_JSArray(acccodeArray);
 		  }
 	  }
@@ -593,7 +593,7 @@ function loadDropDownCodesForEntities(obj)
 	entities=null;
 	if(oAutoCompEntity)
 		oAutoCompEntity.destroy();
-	}	
+	}
 	var	url = path+"/voucher/common-ajaxLoadEntites.action?accountDetailType="+obj.value;
 	var req2 = initiateRequest();
 	req2.onreadystatechange = function()
@@ -603,7 +603,7 @@ function loadDropDownCodesForEntities(obj)
 		  if (req2.status == 200)
 		  {
 			var entity=req2.responseText;
-			
+
 			var a = entity.split("^");
 			var eachEntity = a[0];
 			entitiesArray=eachEntity.split("+");
@@ -618,15 +618,15 @@ function loadDropDownCodesForEntities(obj)
 
 function autocompleteEntitiesBy20()
 {
-		
+
 	   oACDS = new YAHOO.widget.DS_XHR("/services/EGF/voucher/common-ajaxLoadEntitesBy20.action", [ "~^"]);
 	   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 	   oACDS.scriptQueryParam = "startsWith";
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete('detailCode','codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&accountDetailType="+document.getElementById("commonBean.subledgerType").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 1;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";
@@ -644,34 +644,34 @@ function autocompleteEntitiesBy20()
 	   };
 
 
-	
+
 }
 
 function getDetailType()
 {
 	bootbox.alert("hello");
-	return 
+	return
 }
 
 
 function autocompleteEntities1(obj,myEvent)
 {
 	//bootbox.alert('autocomplete');
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	
-	target.style.left=posSrc[0]+"px";	
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+
+	target.style.left=posSrc[0]+"px";
 	target.style.top=posSrc[1]+22+"px";
-	target.style.width=650;	
-	      		
-	
+	target.style.width=650;
+
+
 	var coaCodeObj=obj;
 	//var  currRow=getRowIndex(obj);
 	//40 --> Down arrow, 38 --> Up arrow
 //	if(yuiflag[currRow] == undefined)
 	//{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -695,7 +695,7 @@ function autocompleteEntities1(obj,myEvent)
 			}
 		}
 	//	yuiflag[currRow] = 1;
-	//}	
+	//}
 }
 
 function auto(obj)
@@ -713,7 +713,7 @@ function auto(obj)
 var oAutoCompEntityForJV;
 function autocompleteEntities1By20(obj)
 {
-  
+
 	 oACDS = new YAHOO.widget.DS_XHR("/services/EGF/voucher/common-ajaxLoadEntitesBy20.action", [ "~^"]);
 	   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 	   oACDS.scriptQueryParam = "startsWith";
@@ -721,14 +721,14 @@ function autocompleteEntities1By20(obj)
 	   if (oAutoCompEntityForJV!= undefined) {
 		   oAutoCompEntityForJV.destroy();
 		   oAutoCompEntityForJV = null;
-	   } 
-	   
+	   }
+
 	   oAutoCompEntityForJV = new YAHOO.widget.AutoComplete(obj.name,'codescontainer',oACDS);
 	   oAutoCompEntityForJV.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   var detailTypeName=obj.name.replace('detailCode','detailType.id');
 		   return sQuery+"&accountDetailType="+document.getElementById(detailTypeName).value;
-	   } 
+	   }
 	   oAutoCompEntityForJV.queryDelay = 0.5;
 	   oAutoCompEntityForJV.minQueryLength = 1;
 	   oAutoCompEntityForJV.prehighlightClassName = "yui-ac-prehighlight";
@@ -745,7 +745,7 @@ function autocompleteEntities1By20(obj)
 	   };
 
 
-	
+
 }
 
 
@@ -754,19 +754,19 @@ var yuiflag = new Array();
 function autocompletecode(obj,myEvent)
 {
 	//bootbox.alert('autocomplete');
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0];	
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0];
 	target.style.top=posSrc[1]-40;
-	target.style.width=450;	
-	
+	target.style.width=450;
+
 	var coaCodeObj=obj;
 	var  currRow=getRowIndex(obj);
 	//40 --> Down arrow, 38 --> Up arrow
 	if(yuiflag[currRow] == undefined)
 	{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -787,30 +787,30 @@ function autocompletecode(obj,myEvent)
 					 YAHOO.util.Dom.setXY(oContainer,pos);
 					 return true;
 
-				 };*/  
+				 };*/
 			}
 		}
 		yuiflag[currRow] = 1;
-	}	
+	}
 }
 
 function autocompletecodeCommon(obj,myEvent)
 {
-	
-	var src = obj;	
+
+	var src = obj;
 	//bootbox.alert(obj.scrollHeight);
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0]+"px";	
-	target.style.top=(posSrc[1]-((452/3)+20))+"px"; 
-	target.style.width="450px";	
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0]+"px";
+	target.style.top=(posSrc[1]-((452/3)+20))+"px";
+	target.style.width="450px";
 	var coaCodeObj=obj;
 //if multiple tables are there this wont support
 	//var  currRow=getRowIndex(obj);
 	//40 --> Down arrow, 38 --> Up arrow
 //	if(yuiflag[currRow] == undefined)
 //	{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -833,7 +833,7 @@ function autocompletecodeCommon(obj,myEvent)
 			}
 		}
 	//	yuiflag[currRow] = 1;
-	//}	
+	//}
 }
 var funcObj;
 var funcArray;
@@ -862,22 +862,22 @@ function loadDropDownCodesFunction()
 var yuiflagFunc = new Array();
 function autocompletecodeFunction(obj,myEvent)
 {
-	
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0];	
+
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0];
 	target.style.top=posSrc[1]-40;
-	target.style.width=450;	
-		
+	target.style.width=450;
+
 	var coaCodeObj=obj;
 	var  currRow=getRowIndex(obj);
 
 	//40 --> Down arrow, 38 --> Up arrow
 	if(yuiflagFunc[currRow] == undefined)
 	{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -902,29 +902,29 @@ function autocompletecodeFunction(obj,myEvent)
 			}
 		}
 		yuiflagFunc[currRow] = 1;
-	}	
+	}
 }
 
 
 
 function autocompletecodeFunctionHeader(obj,myEvent)
 {
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0]+"px";	
-	target.style.top=(posSrc[1]-((452/3)+10))+"px";  
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0]+"px";
+	target.style.top=(posSrc[1]-((452/3)+10))+"px";
 	console.log(posSrc[1]);
 	console.log(target.style.top);
-	
-	target.style.width=650;	
-		
+
+	target.style.width=650;
+
 	var coaCodeObj=obj;
 	//var  currRow=getRowIndex(obj);
 	//40 --> Down arrow, 38 --> Up arrow
 	//if(yuiflagFunc[currRow] == undefined)
 	//{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -945,7 +945,7 @@ function autocompletecodeFunctionHeader(obj,myEvent)
 			}
 		}
 		//yuiflagFunc[currRow] = 1;
-	//}	
+	//}
 }
 function getRowIndex(obj)
 {
@@ -955,7 +955,7 @@ function getRowIndex(obj)
 }
 
 function fillNeibrAfterSplitGlcode(obj)
-{ 
+{
 	var key = obj.value;
 	var temp = obj.value;
 	temp = temp.split("`-`");
@@ -968,7 +968,7 @@ function fillNeibrAfterSplitGlcode(obj)
 	}*/
 	var accCodeid = allGlcodes[key];
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		var currRow=getRowIndex(obj);
 		document.getElementById('billDetailslist['+currRow+'].glcodeIdDetail').value=allGlcodes[key];
@@ -979,16 +979,16 @@ function fillNeibrAfterSplitGlcode(obj)
 			for(var j=0; j<billDetailTableIndex;j++){
 				if(null != document.getElementById(SUBLEDGERLIST+'['+i+'].glcode.id')){
 					var subledgerSel = document.getElementById(SUBLEDGERLIST+'['+i+'].glcode.id').value;
-					
+
 				}
 				if(null != document.getElementById(VOUCHERDETAILLIST+'['+j+'].glcodeIdDetail')){
 					var billDetailSel = document.getElementById(VOUCHERDETAILLIST+'['+j+'].glcodeIdDetail').value;
 				}
 				if(subledgerSel == billDetailSel){
-					
+
 					flag = true;break;
 				}
-				
+
 			}
 			if(!flag){
 				document.getElementById(SUBLEDGERLIST+'['+i+'].glcode.id').value=0;
@@ -999,7 +999,7 @@ function fillNeibrAfterSplitGlcode(obj)
 				document.getElementById(SUBLEDGERLIST+'['+i+'].detailKey').value="";
 				document.getElementById(SUBLEDGERLIST+'['+i+'].amount').value="";
 			}
-			
+
 		}
 		for (var i=0; i<slDetailTableIndex;i++ )
 		{
@@ -1012,16 +1012,16 @@ function fillNeibrAfterSplitGlcode(obj)
 						if(null != document.getElementById(VOUCHERDETAILLIST+'['+j+'].glcodeIdDetail')){
 							if(d.options[p].value == document.getElementById(VOUCHERDETAILLIST+'['+j+'].glcodeIdDetail').value){
 									flag1=true;
-							}			
+							}
 						}
-						
+
 					}
 					if(!flag1 && d.options[p].value !=0){
 						d.remove(p);
 					}
 				}
 			}
-			
+
 		}
 		check();
 	}else if (temp!="" &&(accCodeid==null || accCodeid=="")){
@@ -1033,7 +1033,7 @@ function fillNeibrAfterSplitGlcode(obj)
 	var funcObj = document.getElementById('billDetailslist['+currRow+'].functionDetail');
 	if(funcObj)
 	fillNeibrAfterSplitFunction(funcObj);
-	
+
 }
 function fillNeibrAfterSplitFunction(obj)
 {
@@ -1042,10 +1042,10 @@ function fillNeibrAfterSplitFunction(obj)
 	var funId = document.getElementById('billDetailslist['+currRow+'].functionIdDetail').value;
 	temp = temp.split("`~`");
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		if(document.getElementById('functionValue'))
-			document.getElementById('functionValue').value =temp[0]; 
+			document.getElementById('functionValue').value =temp[0];
 		if(document.getElementById('functionId'))
 			document.getElementById('functionId').value =temp[1];
 		document.getElementById('billDetailslist['+currRow+'].functionIdDetail').value=temp[1];
@@ -1062,15 +1062,15 @@ function fillNeibrAfterSplitFunction(obj)
 			obj.value="";
 			document.getElementById("billDetailslist['+currRow+'].functionIdDetail").value="";
 		}*/
-		
+
 		//bootbox.alert("Invalid function selected .Please select code from auto complete.");
-		
+
 	}
-		
+
 	loadSlFunction();
 }
 function loadSlFunction(){
-	
+
 	// CODE TO POPULATE THE FUNCTION SELECT BOX IN THE SUBLEDGER GRID IN JV.
 	var accGridFunc;
 	var accGridFuncId;
@@ -1081,9 +1081,9 @@ function loadSlFunction(){
 	//var slAccountCodeArray = getSlAccountCodes(); // array contains the list of control codes.
 	funcIdfuncAccCodeArray = new Array(); // requres for sorting in the SL grid based on the function or account code selection.
 	accCodeFuncFuncIdArray = new Array();
-	
+
 	// PREPARING THE LIST OF FUNCTIONS THAT WILL POPULATE IN THE SUBLEDGER FUNCTION DROP DOWN LIST
-	
+
 	for (var i=0; i<billDetailTableIndex;i++ )
 	{
 		if(null != document.getElementById('billDetailslist['+i+'].functionDetail')){
@@ -1107,9 +1107,9 @@ function loadSlFunction(){
 			accCodeFuncFuncIdArray.push(accGridFuncId+"~"+accGridFunc+"~"+accountCodeId+"~"+accountCode);
 			accCodeFuncFuncIdArray.push(accGridFuncId+"~"+accGridFunc+"~"+"0~0");
 		}
-		
-	}	
-	
+
+	}
+
 	for (var i=0; i<slDetailTableIndex;i++ )
 	{
 		obj1 = document.getElementById('subLedgerlist['+i+'].functionDetail');
@@ -1127,14 +1127,14 @@ function loadSlFunction(){
 					obj1.options[j].value=functionIdArray[j-1];
 				}
 			}
-			
+
 		}
-		
-		
+
+
 	}
 }
 function getSlAccountCodes(){
-	
+
 	var slAccountCodeArray = new Array();
 	var obj = document.getElementById('subLedgerlist[0].glcode.id');
 	for (var j=0; j< obj.options.length;j++ )
@@ -1142,7 +1142,7 @@ function getSlAccountCodes(){
 		console.log("---"+obj.options[j].value+"---");
 		console.log("---"+(obj.options[j].value).trim()+"---");
 		slAccountCodeArray.push((obj.options[j].value).trim());
-		
+
 	}
 	return slAccountCodeArray;
 }
@@ -1153,7 +1153,7 @@ function fillNeibrAfterSplitFunctionSL(obj)
 	temp = temp.split("`~`");
 	var currRow=getRowIndex(obj);
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		document.getElementById('subLedgerlist['+currRow+'].functionIdDetail').value=temp[1];
 	}else{
@@ -1175,9 +1175,9 @@ function createDropdownFormatterPJV(prefix){
             selectEl.name = prefix+'['+subLedgersTable.getRecordIndex(oRecord)+'].'+oColumn.getKey();
 			selectEl.id = prefix+'['+subLedgersTable.getRecordIndex(oRecord)+'].'+oColumn.getKey();
             selectEl = el.appendChild(selectEl);
-			
+
             YAHOO.util.Event.addListener(selectEl,"change",this._onDropdownChange,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -1209,36 +1209,36 @@ function createDropdownFormatterPJV(prefix){
 }
 
 
-var onDropdownDetailTypeChange = function(index,obj) { 
+var onDropdownDetailTypeChange = function(index,obj) {
 	var detailtypeidObj=document.getElementById('subLedgerlist['+obj.value+'].detailType.id');
 	if(detailTypeId != detailtypeidObj.value){ // checks if the subledgercodes already loaded for that detail type
 		detailTypeId = detailtypeidObj.value;
-		//loadDropDownCodesForEntities(detailtypeidObj); 
+		//loadDropDownCodesForEntities(detailtypeidObj);
 	}
-	
+
 };
 function onFocusDetailCode(obj){
 	var currRow=getRowIndex(obj);
 	var detailtypeidObj=document.getElementById('subLedgerlist['+currRow+'].detailType.id');
 	if(detailTypeId != detailtypeidObj.value){
 		detailTypeId = detailtypeidObj.value;
-		loadDropDownCodesForEntities(detailtypeidObj); 
+		loadDropDownCodesForEntities(detailtypeidObj);
 	}
 }
 function loadSLFunc(selectedIndex,funcSelected){
 
 	var filterFuncArray = new Array();
-	var accCodeObj = document.getElementById('subLedgerlist['+selectedIndex.value+'].glcode.id'); 
-	
+	var accCodeObj = document.getElementById('subLedgerlist['+selectedIndex.value+'].glcode.id');
+
 	for(var i=0 ; i<accCodeFuncFuncIdArray.length;i++){
 		var tokens = accCodeFuncFuncIdArray[i].split("~");
-		
+
 		if(accCodeObj.value == tokens[2] ){
-			
+
 			if(filterFuncArray.indexOf(tokens[0]+"~"+tokens[1]) == -1){
 				filterFuncArray.push(tokens[0]+"~"+tokens[1]);
 			}
-			
+
 		}
 	}
 	slFuncObj = document.getElementById('subLedgerlist['+selectedIndex.value+'].functionDetail');
@@ -1250,7 +1250,7 @@ function loadSLFunc(selectedIndex,funcSelected){
 	}
 	slFuncObj.value = funcSelected ;
 }
-var onDropdownChange = function(index,obj) { 
+var onDropdownChange = function(index,obj) {
 		// loadSLFunc(obj,document.getElementById('subLedgerlist['+obj.value+'].functionDetail').value);
 		var subledgerid=document.getElementById('subLedgerlist['+obj.value+'].glcode.id');
 		var accountCode = subledgerid.options[subledgerid.selectedIndex].text;
@@ -1287,7 +1287,7 @@ success: function(o) {
 				obj.options[i+1].value=eachItem[2];
 				document.getElementById('subLedgerlist['+parseInt(eachItem[0])+']'+'.detailTypeName').value = eachItem[1];
 			}
-			
+
 			if(eachItem.length==1) // for deselect the subledger code
 			{
 				var d = document.getElementById('subLedgerlist['+i+'].detailType.id');
@@ -1295,7 +1295,7 @@ success: function(o) {
 				d.options[0].text='---Select---';
 				d.options[0].value=0;
 			}
-		} 
+		}
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -1317,7 +1317,7 @@ success: function(o) {
 		test = test.split('~');
 		for (var j=0; j<slDetailTableIndex;j++ )
 		{
-			
+
 			if(null != document.getElementById('subLedgerlist['+j+'].glcode.id')&& test.length >1 )
 			{
 				d=document.getElementById('subLedgerlist['+j+'].glcode.id');
@@ -1326,9 +1326,9 @@ success: function(o) {
 				{
 					d.options[i].text=test[i*2-2];
 					d.options[i].value=test[i*2 -1];
-					
+
 				}
-			} 
+			}
 			if(test.length<2)
 			{
 				var d = document.getElementById('subLedgerlist['+j+'].glcode.id');
@@ -1340,7 +1340,7 @@ success: function(o) {
 				}
 			}
 		}
-			
+
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -1349,15 +1349,15 @@ success: function(o) {
 
 function loaddropdown(){
 //bootbox.alert(coming);
-	
+
 }
 function updateDebitAmountJV()
-{	
+{
 	var amt=0;
-	
+
 	for(var i=0;i<billDetailTableIndex+1;i++)
 	{
-		
+
 		if(null != document.getElementById('billDetailslist['+i+'].debitAmountDetail')){
 			var val = document.getElementById('billDetailslist['+i+'].debitAmountDetail').value;
 			if(val!="" && !isNaN(val))
@@ -1376,14 +1376,14 @@ function updateCreditAmountJV()
 	{
 		if(null != document.getElementById('billDetailslist['+i+'].creditAmountDetail')){
 			var val = document.getElementById('billDetailslist['+i+'].creditAmountDetail').value;
-			
+
 			if(val!="" && !isNaN(val))
 			{
 				amt = amt + parseFloat(val);
 			}
 		}
-		
-		
+
+
 	}
 	document.getElementById('totalcramount').value = amountConverter(amt);
 }
@@ -1438,7 +1438,7 @@ function validateDetailCode(obj)
 	var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackPJV, null);
 }
 
-// in the place of validateDetailCodeForJV method 
+// in the place of validateDetailCodeForJV method
 
 function splitEntitiesDetailCode(obj)
 {
@@ -1473,7 +1473,7 @@ function splitSchemeCode(obj)
 		}
 	}else
 	{
-		document.getElementById('schemeId').value="";	
+		document.getElementById('schemeId').value="";
 	}
 
 }
@@ -1659,32 +1659,32 @@ function checkVoucherNarrationLen(obj)
 }
 
 function updatecheckBox(field,index,value){
-	
+
 	if(value == 'true'){
 		document.getElementById(INSTRUMENTLIST+'['+index+'].'+field).checked=true;
 	}
 }
 
 
-   
-function findPos(ob) 
+
+function findPos(ob)
 {
 	var obj=eval(ob);
 	var curleft = curtop = 0;
-	if (obj.offsetParent) 
+	if (obj.offsetParent)
 	{
 		curleft = obj.offsetLeft;
 		curtop = obj.offsetTop;
-		while (obj = obj.offsetParent) 
+		while (obj = obj.offsetParent)
 		{	//bootbox.alert(obj.nodeName+"---"+obj.offsetTop+"--"+obj.offsetLeft+"-----"+curtop);
 			curleft =curleft + obj.offsetLeft;
-			curtop =curtop + obj.offsetTop; 
+			curtop =curtop + obj.offsetTop;
 			//bootbox.alert(curtop);
 		}
 	}
 	//bootbox.alert(curleft+"             "+curtop);
 	return [curleft,curtop];
-		
+
 }
 	/*
 	function findPos( oElement ) {
@@ -1706,7 +1706,7 @@ function findPos(ob)
 		}*/
 
 
-   
+
 function limitDigits(obj)
 {
 
@@ -1725,7 +1725,7 @@ function functionFormatter(tableName,columnName,type){
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"'  onkeyup='autocompletecodeFunction(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitFunctionCommon(this)' size='25' />";
 		el.innerHTML = el.innerHTML+"<input type='hidden'  id='"+tableName+"["+index+"]"+".functionIdDetail"+"' name='"+tableName+"["+index+"]"+".functionIdDetail"+"'/>";
 	}
-		
+
 }
 
 function functionidFormatter(tableName,columnName,type){
@@ -1733,10 +1733,10 @@ function functionidFormatter(tableName,columnName,type){
     	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"'/>";
-		
+
 	}
-		
-}   
+
+}
 
 function glcodeFormatter(tableName,columnName,type){
     return function(el, oRecord, oColumn, oData) {
@@ -1746,24 +1746,24 @@ function glcodeFormatter(tableName,columnName,type){
 		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"]"+".glcodeIdDetail"+"' name='"+tableName+"["+index+"]"+".glcodeIdDetail"+"'/>";
 		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"]"+".isSubledger"+"' name='"+tableName+"["+index+"]"+".isSubledger"+"'/>";
 	}
-		
-}   
+
+}
 
 function glcodeFormatterCbillModify(tableName,columnName,type){
     return function(el, oRecord, oColumn, oData) {
-    	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 
-    	 var fieldName=tableName+"["+index+"]"+columnName;  	 
-    	 while(document.getElementById(fieldName)) 
+    	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);
+    	 var fieldName=tableName+"["+index+"]"+columnName;
+    	 while(document.getElementById(fieldName))
     	 {    		 index++;  //bootbox.alert(index) ;
-    	 fieldName=tableName+"["+index+"]"+columnName; 
+    	 fieldName=tableName+"["+index+"]"+columnName;
     	 }
-    	
+
     	 var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"' onkeyup='autocompletecodeCommon(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitGlcodeModify(this)' size='15'/>";
 		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"]"+".glcodeIdDetail"+"' name='"+tableName+"["+index+"]"+".glcodeIdDetail"+"'/>";
 		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"]"+".isSubledger"+"' name='"+tableName+"["+index+"]"+".isSubledger"+"'/>";
 	}
-		
+
 }
 function subledgerFormatter(tableName,columnName,type){
     return function(el, oRecord, oColumn, oData) {
@@ -1773,35 +1773,35 @@ function subledgerFormatter(tableName,columnName,type){
 		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"]"+".glcodeIdDetail"+"' name='"+tableName+"["+index+"]"+".glcodeIdDetail"+"'/>";
 		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"]"+".isSubledger"+"' name='"+tableName+"["+index+"]"+".isSubledger"+"'/>";
 	}
-		
+
 }
 function glcodeidFormatter(tableName,columnName,type){
     return function(el, oRecord, oColumn, oData) {
     	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
-		var value = (YAHOO.lang.isValue(oData))?oData:"";  
+		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"'/>";
-		
+
 	}
-		
+
 }
 
 function accountheadFormatter(tableName,columnName,type){
     return function(el, oRecord, oColumn, oData) {
     	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
-		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"' readOnly tabindex='-1' size='100'/>";  
-		
+		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"' readOnly tabindex='-1' size='100'/>";
+
 	}
-		
+
 }
 function accountheadFormatter1(tableName,columnName,type){
     return function(el, oRecord, oColumn, oData) {
     	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
-		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"' readOnly tabindex='-1' size='50'/>";  
-		
+		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"' readOnly tabindex='-1' size='50'/>";
+
 	}
-		
+
 }
 
 function amountFormatter(tableName,columnName,type){
@@ -1809,9 +1809,9 @@ function amountFormatter(tableName,columnName,type){
     	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"'  onblur='validateDigitsAndDecimal(this);calculateNet(this)' style='text-align:right' maxlength='15' size='15'/>";
-		
+
 	}
-		
+
 }
 
 function amountFormatterForGrid(tableName,columnName,type){
@@ -1819,9 +1819,9 @@ function amountFormatterForGrid(tableName,columnName,type){
     	 var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"'  onblur='validateDigitsAndDecimal(this);calculateNetForGrid(this)' style='text-align:right' maxlength='15' size='15'/>";
-		
+
 	}
-		
+
 }
 
 function detailnameFormatter(tableName,columnName,type)
@@ -1830,7 +1830,7 @@ function detailnameFormatter(tableName,columnName,type)
     	var table_name=eval(tableName);  var index=table_name.getRecordIndex(oRecord);  	 var fieldName=tableName+"["+index+"]"+columnName;  	 while(document.getElementById(fieldName))    	 {    		 index++;    fieldName=tableName+"["+index+"]"+columnName; 	 }
     	var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"'  id='"+tableName+"["+index+"]"+columnName+"' name='"+tableName+"["+index+"]"+columnName+"' size='33'/>";
-		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"].detailKey' name='"+tableName+"["+index+"].detailKey'/>";		
+		el.innerHTML = el.innerHTML+ "<input type='hidden'  id='"+tableName+"["+index+"].detailKey' name='"+tableName+"["+index+"].detailKey'/>";
 	}
 }
 
@@ -1853,7 +1853,7 @@ function fillNeibrAfterSplitFunctionHeader(obj)
 	var temp = obj.value;
 	temp = temp.split("`~`");
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0].split("`-`")[0]+'-'+temp[0].split("`-`")[1];
 		document.getElementById("commonBean.functionId").value=temp[1];
 	}
@@ -1864,7 +1864,7 @@ function fillNeibrAfterSplitGlcodeCommon(obj)
 {
 	var temp = obj.value;
 	var key = obj.value;
-//this is reslut for subledger entity to be selected 
+//this is reslut for subledger entity to be selected
 //default is true for all non subledger
 //every jsp or helper js should return true or false based on subleder data load is complete or error
 if(temp.trim()!="")
@@ -1872,7 +1872,7 @@ if(temp.trim()!="")
 	var sublegerLoaded=true;
 	temp = temp.split("`-`");
 	if(temp.length>1)
-	{ 
+	{
 		if(codesForAccountDetailType[key].split("`-`").length==2 && codesForAccountDetailType[key].split("`-`")[1]=="true")
 		{
 			sublegerLoaded=loadSubledgerGrids(temp);
@@ -1887,9 +1887,9 @@ if(temp.trim()!="")
 			accountHeadeName=accountHeadeName.replace("glcodeDetail","accounthead");
 			isSubledger=isSubledger.replace("glcodeDetail","isSubledger");
 //			bootbox.alert(codesForAccountDetailType[key]);
-	//		bootbox.alert(key);			
+	//		bootbox.alert(key);
 			document.getElementById(hiddenfieldname).value=codesForAccountDetailType[key].split("`-`")[0];
-			
+
 			document.getElementById(accountHeadeName).value=key.split("`-`")[1];
 			if(codesForAccountDetailType[key].split("`-`").length==2)
 			{
@@ -1908,16 +1908,16 @@ if(temp.trim()!="")
 			hiddenfieldname=hiddenfieldname.replace("glcodeDetail","glcodeIdDetail");
 			accountHeadeName=accountHeadeName.replace("glcodeDetail","accounthead");
 			isSubledger=isSubledger.replace("glcodeDetail","isSubledger");
-			
+
 			document.getElementById(hiddenfieldname).value="";
 			document.getElementById(accountHeadeName).value="";
 			document.getElementById(isSubledger).value="";
 		}
-		
-		
+
+
 	}else
 	{
-	
+
 		//bootbox.alert(obj.value+":"+invalidAccountCode); this line will cause problem for mouse selection
 		obj.value="";
 		var hiddenfieldname=obj.name;
@@ -1926,19 +1926,19 @@ if(temp.trim()!="")
 		hiddenfieldname=hiddenfieldname.replace("glcodeDetail","glcodeIdDetail");
 		accountHeadeName=accountHeadeName.replace("glcodeDetail","accounthead");
 		isSubledger=isSubledger.replace("glcodeDetail","isSubledger");
-		
+
 		document.getElementById(hiddenfieldname).value="";
 		document.getElementById(accountHeadeName).value="";
-		document.getElementById(isSubledger).value="";   
+		document.getElementById(isSubledger).value="";
 	}
-}		
+}
 }
 
 function fillNeibrAfterSplitGlcodeModify(obj)
 {
 	var temp = obj.value;
 	var key = obj.value;
-//this is reslut for subledger entity to be selected 
+//this is reslut for subledger entity to be selected
 //default is true for all non subledger
 //every jsp or helper js should return true or false based on subleder data load is complete or error
 if(temp.trim()!="")
@@ -1946,7 +1946,7 @@ if(temp.trim()!="")
 	var sublegerLoaded=true;
 	temp = temp.split("`-`");
 	if(temp.length>1)
-	{ 
+	{
 		/*if(temp.length==3)
 		{
 			sublegerLoaded=loadSubledgerGrids(temp);
@@ -1979,15 +1979,15 @@ if(temp.trim()!="")
 			hiddenfieldname=hiddenfieldname.replace("glcodeDetail","glcodeIdDetail");
 			accountHeadeName=accountHeadeName.replace("glcodeDetail","accounthead");
 			isSubledger=isSubledger.replace("glcodeDetail","isSubledger");
-			
+
 			document.getElementById(hiddenfieldname).value="";
 			document.getElementById(accountHeadeName).value="";
 			document.getElementById(isSubledger).value="";
 		}
-		
-		
+
+
 	}
-}		
+}
 }
 function fillNeibrAfterSplitSubledgercodeCommon(obj,name)
 {
@@ -1996,7 +1996,7 @@ function fillNeibrAfterSplitSubledgercodeCommon(obj,name)
 	/*var value = allGlcodes[key];
 	var secondPart = value.split("`-`");
 	var id = secondPart[0];*/
-//this is reslut for subledger entity to be selected 
+//this is reslut for subledger entity to be selected
 //default is true for all non subledger
 //every jsp or helper js should return true or false based on subleder data load is complete or error
 if(temp.trim()!="")
@@ -2004,7 +2004,7 @@ if(temp.trim()!="")
 	var sublegerLoaded=true;
 	temp = temp.split("`-`");
 	if(temp.length>1)
-	{ 
+	{
 		/*if(secondPart.length==2)
 		{
 			//sublegerLoaded=loadSubledgerGrids(temp);
@@ -2019,12 +2019,12 @@ if(temp.trim()!="")
 		hiddenfieldname=hiddenfieldname.replace(name,"glcodeIdDetail");
 		accountHeadeName=accountHeadeName.replace(name,"accounthead");
 		isSubledger=isSubledger.replace(name,"isSubledger");
-		
+
 		document.getElementById(hiddenfieldname).value=temp[1].split("~")[1].replace("`","");
 		document.getElementById(accountHeadeName).value=temp[1].split("~")[0];
 		if(temp.length==3)
 			document.getElementById(isSubledger).value=temp[2].replace("`","");
-		
+
 		}else
 		{
 			obj.value="";
@@ -2034,15 +2034,15 @@ if(temp.trim()!="")
 			hiddenfieldname=hiddenfieldname.replace(name,"glcodeIdDetail");
 			accountHeadeName=accountHeadeName.replace(name,"accounthead");
 			isSubledger=isSubledger.replace(name,"isSubledger");
-			
+
 			document.getElementById(hiddenfieldname).value="";
 			document.getElementById(accountHeadeName).value="";
 			document.getElementById(isSubledger).value="";
 		}
-		
-		
+
+
 	}
-}		
+}
 }
 
 function validateDigits(obj)
@@ -2063,11 +2063,11 @@ function validateDigits(obj)
 		}
 		else
 		{
-			obj.value=obj.value.replace("+","");	
+			obj.value=obj.value.replace("+","");
 			obj.value=obj.value.trim();
 			if(isNaN(parseFloat(obj.value)))
 			{
-				obj.value=0;	
+				obj.value=0;
 			}
 			else
 			{
@@ -2095,11 +2095,11 @@ function validateDigitsAndDecimal(obj)
 		}
 		else
 		{
-			obj.value=obj.value.replace("+","");	
+			obj.value=obj.value.replace("+","");
 			obj.value=obj.value.trim();
 			if(isNaN(parseFloat(obj.value)))
 			{
-				obj.value=0;	
+				obj.value=0;
 			}
 			else
 			{
@@ -2123,10 +2123,10 @@ function createSLDropdownFormatterFuncJV(prefix){
 			selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 			//selectEl.onfocus=check;
             selectEl = el.appendChild(selectEl);
-	    var selectedIndex = {value: slDetailTableIndex }; 
+	    var selectedIndex = {value: slDetailTableIndex };
 
             YAHOO.util.Event.addListener(selectEl,"change",onSLFuncChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -2156,19 +2156,19 @@ function createSLDropdownFormatterFuncJV(prefix){
         }
     }
 }
-var onSLFuncChange = function(obj,selectedIndex) { 
-   
+var onSLFuncChange = function(obj,selectedIndex) {
+
 	var filterglcodeArray = new Array();
-	var funcObj = document.getElementById('subLedgerlist['+selectedIndex.value+'].functionDetail'); 
+	var funcObj = document.getElementById('subLedgerlist['+selectedIndex.value+'].functionDetail');
 	for(var i=0 ; i<funcIdfuncAccCodeArray.length;i++){
 		var tokens = funcIdfuncAccCodeArray[i].split("~");
-		
+
 		if(funcObj.value == tokens[0]){
-			
+
 			if(filterglcodeArray.indexOf(tokens[2]+"~"+tokens[3]) == -1){
 				filterglcodeArray.push(tokens[2]+"~"+tokens[3]);
 			}
-			
+
 		}
 	}
 	slglcodeObj = document.getElementById('subLedgerlist['+selectedIndex.value+'].glcode.id');
@@ -2178,7 +2178,7 @@ var onSLFuncChange = function(obj,selectedIndex) {
 		slglcodeObj.options[i+1].text=tokens[1];
 		slglcodeObj.options[i+1].value=tokens[0];
 	}
-	
+
 };
 if(!Array.indexOf){
   Array.prototype.indexOf = function(obj){
@@ -2193,7 +2193,7 @@ if(!Array.indexOf){
 /*
 function check(){
 	var accountCodes=new Array();
-	
+
 	for(var i=0;i<billDetailTableIndex+1;i++){
 
 	if(null != document.getElementById('billDetailslist['+i+'].glcodeDetail')){
@@ -2203,7 +2203,7 @@ function check(){
 	var url = path+'/voucher/common!getDetailCode.action?accountCodes='+accountCodes;
 	var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackJV, null);
 
-	
+
 }
 var callbackJV = {
 success: function(o) {
@@ -2221,7 +2221,7 @@ success: function(o) {
 					d.options[i].value=test[i*2 -1];
 					document.getElementById('subLedgerlist['+j+'].subledgerCode').value = test[i*2-2] ;
 				}
-			} 
+			}
 			if(test.length<2)
 			{
 				var d = document.getElementById('subLedgerlist['+j+'].glcode.id');
@@ -2249,12 +2249,12 @@ function autocompleteSchemeBy20()
 	    // bootbox.alert("helllpo");
 	   oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
 	   oACDS.scriptQueryParam = "startsWith";
-	  
+
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete('subScheme.scheme.name','codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&fundId="+document.getElementById("fundId").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 3;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";
@@ -2272,7 +2272,7 @@ function autocompleteSchemeBy20()
 	   };
 
 
-	
+
 }
 function autocompleteSubSchemeBy20  ()
 {
@@ -2282,9 +2282,9 @@ function autocompleteSubSchemeBy20  ()
 	   oACDS.scriptQueryParam = "startsWith";
 	   var oAutoComp1 = new YAHOO.widget.AutoComplete('subScheme.name','codescontainer',oACDS);
 	   oAutoComp1.doBeforeSendQuery = function(sQuery){
-		   loadWaitingImage(); 
+		   loadWaitingImage();
 		   return sQuery+"&schemeId="+document.getElementById("schemeId").value;
-	   } 
+	   }
 	   oAutoComp1.queryDelay = 0.5;
 	   oAutoComp1.minQueryLength = 3;
 	   oAutoComp1.prehighlightClassName = "yui-ac-prehighlight";
@@ -2302,7 +2302,7 @@ function autocompleteSubSchemeBy20  ()
 	   };
 
 
-	
+
 }
 
 function loadProjectCodes()
@@ -2331,6 +2331,6 @@ function disableForm() {
 					document.forms[frmIndex].elements[i].disabled = true;
 			}
 		}
-} 
+}
 
 

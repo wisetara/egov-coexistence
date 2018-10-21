@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -65,7 +65,7 @@ $('#moduleId').change(function(){
 			jQuery.each(response, function(index, value) {
 				jQuery('#applicationType').append($('<option>').text(value).attr('value', index));
 			});
-		}, 
+		},
 		error: function (response) {
 			jQuery('#applicationType').html("");
 			jQuery('#applicationType').append("<option value=''>Select</option>");
@@ -130,7 +130,7 @@ $("#btnsearch").click(
                         },{
                             "sTitle": "Action",
                             "render": function (data, type, row) {
-                            	 return '<a href="javascript:void(0);" onclick="goToAction(' + row.id + ');" data-hiddenele="id">' + 'Modify' + '</a>'; 
+                            	 return '<a href="javascript:void(0);" onclick="goToAction(' + row.id + ');" data-hiddenele="id">' + 'Modify' + '</a>';
                           }
                         }]
                     });

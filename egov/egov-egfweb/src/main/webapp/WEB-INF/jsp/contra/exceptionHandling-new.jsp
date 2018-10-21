@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -149,11 +149,11 @@ function	onLoadTask_new()
 	var 	button='<s:property value="button"/>';
 	if(button!=null && button!="")
 	{
-	
-	if(document.getElementById("Errors").innerHTML=='')  
+
+	if(document.getElementById("Errors").innerHTML=='')
 	{
 	bootbox.alert('<s:text name="contra.transaction.succcess"/>');
-		
+
 	if(button=="Save_Close")
 	{
 	window.close();
@@ -171,7 +171,7 @@ function	onLoadTask_new()
 	}
 	}
  }
- 
+
  <s:if test="egovCommon.isShowChequeNumber()">
  document.getElementById("chequeGrid").style.visibility="visible";
  </s:if>
@@ -184,7 +184,7 @@ function	onLoadTask_new()
  document.getElementById("chequeGrid").style.visibility="visible";
  }
  </s:else>
- 
+
 
 }
 
@@ -193,8 +193,8 @@ function	onLoadTask_new()
 			document.getElementById("chequeGrid").style.visibility="visible";
 			document.getElementById("mdcNumber").innerHTML = '<s:text name="contra.refNumber" />';
 			document.getElementById("mdcDate").innerHTML = '<s:text name="contra.refDate" />';
-			
-			
+
+
 		} else {
 		<s:if test="egovCommon.isShowChequeNumber()">
 		 document.getElementById("chequeGrid").style.visibility="visible";
@@ -204,7 +204,7 @@ function	onLoadTask_new()
 		 </s:else>
 			document.getElementById("mdcNumber").innerHTML = '<s:text name="contra.chequeNumber" />';
 			document.getElementById("mdcDate").innerHTML = '<s:text name="contra.chequeDate" />';
-			
+
 		}
 	}
 </SCRIPT>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -141,19 +141,19 @@ var invalidAccountCode='<s:text name="invalidAccountCode"/>';
 path="${pageContext.request.contextPath}";
 var totaldbamt=0,totalcramt=0;
 var makeVoucherDetailTable = function() {
- var voucherDetailColumns = [ 
+ var voucherDetailColumns = [
 {key:"glcode",label:'Account Code',formatter:glcodeFormatter("billDetailsTable",".glcodeDetail","text")},
-{key:"accounthead", label:'Account Head', width:600, formatter:accountheadFormatter("billDetailsTable",".accounthead","text")},				
-{key:"amount",label:'Debit', formatter:amountFormatter("billDetailsTable",".debitAmountDetail","text")}, 
+{key:"accounthead", label:'Account Head', width:600, formatter:accountheadFormatter("billDetailsTable",".accounthead","text")},
+{key:"amount",label:'Debit', formatter:amountFormatter("billDetailsTable",".debitAmountDetail","text")},
 {key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}","addYUIRow('billDetailsTable',this)")},
 {key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow('billDetailsTable',this)")}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
 <s:iterator value="billDetailslist" status="stat">
 
 	billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
-		
+
 		"glcodeid":'<s:property value="glcodeIdDetail"/>',
 		"glcode":'<s:property value="glcodeDetail"/>',
 		"isSubledger":'<s:property value="isSubledger"/>',
@@ -165,23 +165,23 @@ billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailCol
 	updateGridCbill('billDetailsTable','glcodeDetail',index,'<s:property value="glcodeDetail"/>');
 	updateGridCbill('billDetailsTable','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTable','debitAmountDetail',index,'<s:property value="debitAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 
 
-	
+
 
 }
 var totaldbamt=0,totalcramt=0;
 var makeVoucherDetailTableCredit = function() {
- var voucherDetailColumnsCredit = [ 
+ var voucherDetailColumnsCredit = [
 {key:"glcode",label:'Account Code', disable:true, formatter:glcodeFormatter("billDetailsTableCredit",".glcodeDetail","text")},
-{key:"accounthead", label:'Account Head', width:600,disable:true,formatter:accountheadFormatter("billDetailsTableCredit",".accounthead","text")},				
-{key:"amount",label:'Credit', formatter:amountFormatter("billDetailsTableCredit",".debitAmountDetail","text")}, 
+{key:"accounthead", label:'Account Head', width:600,disable:true,formatter:accountheadFormatter("billDetailsTableCredit",".accounthead","text")},
+{key:"amount",label:'Credit', formatter:amountFormatter("billDetailsTableCredit",".debitAmountDetail","text")},
 {key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}","addYUIRow('billDetailsTableCredit',this)")},
 {key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow('billDetailsTableCredit',this)")}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTableCredit = new YAHOO.widget.DataTable("billDetailTableCredit",voucherDetailColumnsCredit, voucherDetailDS);
 <s:iterator value="billDetailslist" status="stat">
 
@@ -196,20 +196,20 @@ billDetailsTableCredit = new YAHOO.widget.DataTable("billDetailTableCredit",vouc
 	updateGridCbill('billDetailsTableCredit','glcodeDetail',index,'<s:property value="glcodeDetail"/>');
 	updateGridCbill('billDetailsTableCredit','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTableCredit','debitAmountDetail',index,'<s:property value="debitAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 
 
 }
 var makeVoucherDetailTableNet = function() {
- var voucherDetailColumnsNet = [ 
+ var voucherDetailColumnsNet = [
 {key:"glcode",label:'Account Code', formatter:netglcodeFormatter("billDetailsTableNet",".glcodeDetail","text")},
-{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableNet",".accounthead","text")},				
+{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableNet",".accounthead","text")},
 {key:"amount",label:'Net',formatter:amountFormatter("billDetailsTableNet",".debitAmountDetail","text")},
 {key:'Add',label:'Add'},
 {key:'Delete',label:'Delete'}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTableNet = new YAHOO.widget.DataTable("billDetailTableNet",voucherDetailColumnsNet, voucherDetailDS);
 <s:iterator value="billDetailslist" status="stat">
 
@@ -224,20 +224,20 @@ billDetailsTableNet = new YAHOO.widget.DataTable("billDetailTableNet",voucherDet
 	updateGridCbill('billDetailsTableNet','glcodeDetail',index,'<s:property value="glcodeDetail"/>');
 	updateGridCbill('billDetailsTableNet','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTableNet','debitAmountDetail',index,'<s:property value="debitAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 }
 
 
 var makeVoucherDetailTableFinal = function() {
- var voucherDetailColumns = [ 
+ var voucherDetailColumns = [
 {key:"glcode",label:'Account Code', formatter:glcodeFormatterCbillModify("billDetailsTableFinal",".glcodeDetail","text")},
-{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableFinal",".accounthead","text")},				
-{key:"amount",label:'Debit', formatter:amountFormatterForGrid("billDetailsTableFinal",".debitAmountDetail","text")}, 
+{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableFinal",".accounthead","text")},
+{key:"amount",label:'Debit', formatter:amountFormatterForGrid("billDetailsTableFinal",".debitAmountDetail","text")},
 {key:'Add',label:'Add',formatter:createAddImageFormatterEmpty("${pageContext.request.contextPath}","addYUIRow('billDetailsTableFinal',this)")},
 {key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow1('billDetailsTableFinal',this)")}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTableFinal = new YAHOO.widget.DataTable("billDetailTableFinal",voucherDetailColumns, voucherDetailDS);
 <s:iterator value="billDetailsTableFinal" status="stat">
 
@@ -254,23 +254,23 @@ billDetailsTableFinal = new YAHOO.widget.DataTable("billDetailTableFinal",vouche
 	updateGridCbill('billDetailsTableFinal','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTableFinal','isSubledger',index,'<s:property value="isSubledger"/>');
 	updateGridCbill('billDetailsTableFinal','debitAmountDetail',index,'<s:property value="debitAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 
 
-	
+
 
 }
 var totaldbamt=0,totalcramt=0;
 var makeVoucherDetailTableCreditFinal = function() {
- var voucherDetailColumnsCredit = [ 
+ var voucherDetailColumnsCredit = [
 {key:"glcode",label:'Account Code', formatter:glcodeFormatterCbillModify("billDetailsTableCreditFinal",".glcodeDetail","text")},
-{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableCreditFinal",".accounthead","text")},				
+{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableCreditFinal",".accounthead","text")},
 {key:"amount",label:'Credit', formatter:amountFormatterForGrid("billDetailsTableCreditFinal",".creditAmountDetail","text")},
 {key:'Add',label:'Add',formatter:createAddImageFormatterEmpty("${pageContext.request.contextPath}","addYUIRow('billDetailsTableCreditFinal',this)")},
 {key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow1('billDetailsTableCreditFinal',this)")}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTableCreditFinal = new YAHOO.widget.DataTable("billDetailTableCreditFinal",voucherDetailColumnsCredit, voucherDetailDS);
 <s:iterator value="billDetailsTableCreditFinal" status="stat">
 
@@ -282,26 +282,26 @@ billDetailsTableCreditFinal = new YAHOO.widget.DataTable("billDetailTableCreditF
 		"amount":'<s:property value="%{creditAmountDetail}"/>'
 		});
 	var index = '<s:property value="#stat.index"/>';
-	
+
 	updateGridCbill('billDetailsTableCreditFinal','glcodeIdDetail',index,'<s:property value="glcodeIdDetail"/>');
 	updateGridCbill('billDetailsTableCreditFinal','glcodeDetail',index,'<s:property value="glcodeDetail"/>');
 	updateGridCbill('billDetailsTableCreditFinal','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTableCreditFinal','isSubledger',index,'<s:property value="isSubledger"/>');
 	updateGridCbill('billDetailsTableCreditFinal','creditAmountDetail',index,'<s:property value="creditAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 
 
 }
 var makeVoucherDetailTableNetFinal = function() {
- var voucherDetailColumnsNet = [ 
+ var voucherDetailColumnsNet = [
 {key:"glcode",label:'Account Code', formatter:glcodeFormatter("billDetailsTableNetFinal",".glcodeDetail","text")},
-{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableNetFinal",".accounthead","text")},				
+{key:"accounthead", label:'Account Head',width:600,formatter:accountheadFormatter("billDetailsTableNetFinal",".accounthead","text")},
 {key:"amount",label:'Net',formatter:amountFormatter("billDetailsTableNetFinal",".creditAmountDetail","text")},
 {key:'Add',label:'Add'},
 {key:'Delete',label:'Delete'}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTableNetFinal = new YAHOO.widget.DataTable("billDetailTableNetFinal",voucherDetailColumnsNet, voucherDetailDS);
 <s:iterator value="billDetailsTableNetFinal" status="stat">
 	billDetailsTableNetFinal.addRow({SlNo:billDetailsTableNetFinal.getRecordSet().getLength()+1,
@@ -317,21 +317,21 @@ billDetailsTableNetFinal = new YAHOO.widget.DataTable("billDetailTableNetFinal",
 	updateGridCbill('billDetailsTableNetFinal','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTableNetFinal','isSubledger',index,'<s:property value="isSubledger"/>');
 	updateGridCbill('billDetailsTableNetFinal','creditAmountDetail',index,'<s:property value="creditAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 }
 
 var makeVoucherDetailTableSubledger = function() {
- var voucherDetailColumnsSubledger = [ 
+ var voucherDetailColumnsSubledger = [
 {key:"subledgerCode",label:'Subledger Code', width:150, formatter:subledgerFormatter("billDetailsTableSubledger",".subledgerCode","text")},
 {key:"detailCode",label:'Entity Code', width:120,formatter:detailcodeFormatter("billDetailsTableSubledger",".detailCode","text")},
 {key:"detailName",label:'Entity Name', width:300,formatter:detailnameFormatter("billDetailsTableSubledger",".detailName","text")},
-{key:"accounthead", label:'Account Head',width:300,formatter:accountheadFormatter1("billDetailsTableSubledger",".accounthead","text")},				
+{key:"accounthead", label:'Account Head',width:300,formatter:accountheadFormatter1("billDetailsTableSubledger",".accounthead","text")},
 {key:"amount",label:'Amount',width:150,formatter:amountFormatter("billDetailsTableSubledger",".debitAmountDetail","text")},
 {key:'Add',label:'Add',width:30,formatter:createAddImageFormatter("${pageContext.request.contextPath}","addYUIRow('billDetailsTableSubledger',this)")},
 {key:'Delete',label:'Delete',width:30,formatter:createDeleteImageFormatter("${pageContext.request.contextPath}","deleteYUIRow('billDetailsTableSubledger',this)")}
 ];
-var voucherDetailDS = new YAHOO.util.DataSource(); 
+var voucherDetailDS = new YAHOO.util.DataSource();
 billDetailsTableSubledger = new YAHOO.widget.DataTable("billDetailTableSubledger",voucherDetailColumnsSubledger, voucherDetailDS);
 <s:iterator value="billDetailsTableSubledger" status="stat">
 
@@ -341,7 +341,7 @@ billDetailsTableSubledger = new YAHOO.widget.DataTable("billDetailTableSubledger
 		"detailCode":'<s:property value="detailCode"/>',
 		"detailKey":'<s:property value="detailKey"/>',
 		"accounthead":'<s:property value="accounthead"/>',
-		"amount":'<s:property value="amount"/>'   
+		"amount":'<s:property value="amount"/>'
 		});
 	var index = '<s:property value="#stat.index"/>';
 	updateGridCbill('billDetailsTableSubledger','subledgerCode',index,'<s:property value="subledgerCode"/>');
@@ -350,16 +350,16 @@ billDetailsTableSubledger = new YAHOO.widget.DataTable("billDetailTableSubledger
 	updateGridCbill('billDetailsTableSubledger','detailKey',index,'<s:property value="detailKey"/>');
 	updateGridCbill('billDetailsTableSubledger','accounthead',index,'<s:property value="accounthead"/>');
 	updateGridCbill('billDetailsTableSubledger','debitAmountDetail',index,'<s:property value="debitAmountDetail"/>');
-	//updateAccountTableIndex();	
+	//updateAccountTableIndex();
 </s:iterator>
 }
 
 var makeCheckListTable = function() {
- var checkListColumns = [ 
+ var checkListColumns = [
 {key:"name",label:'Check List Name',width:680, formatter:checkListNameFormatter("checkListsTable",".name","text")},
-{key:"val", label:'Check List Value',width:120,formatter:checkListValueFormatter("checkListsTable",".val","text")}			
+{key:"val", label:'Check List Value',width:120,formatter:checkListValueFormatter("checkListsTable",".val","text")}
 ];
-var checkListDS = new YAHOO.util.DataSource(); 
+var checkListDS = new YAHOO.util.DataSource();
 checkListsTable = new YAHOO.widget.DataTable("checkListTable",checkListColumns, checkListDS);
 <s:iterator value="checkListsTable" status="stat">
 
@@ -373,8 +373,8 @@ checkListsTable = new YAHOO.widget.DataTable("checkListTable",checkListColumns, 
 	updateGridCbill('checkListsTable','name',index,'<s:property value="name"/>');
 	updateGridCbill('checkListsTable','id',index,'<s:property value="id"/>');
 	updateGridCbill('checkListsTable','val',index,'<s:property value="val"/>');
-	
-	//updateAccountTableIndex();	
+
+	//updateAccountTableIndex();
 </s:iterator>
 }
 
@@ -385,7 +385,7 @@ function onLoadTask_new(){
 if(button!=undefined && button!="")
 {
 
-if(document.getElementById("Errors").innerHTML=='')  
+if(document.getElementById("Errors").innerHTML=='')
 {
 bootbox.alert(succesMessage);
 
@@ -401,7 +401,7 @@ else if(button=="Save_View")
 }
 else if(button=="Save_New")
 
-{      	
+{
 document.forms[0].button.value='';
 document.forms[0].action = "contingentBill-newform.action";
 document.forms[0].submit();
@@ -426,13 +426,13 @@ var table_name=eval("checkListsTable");
 			var Len=table_name.getRecordSet().getLength();
 
 if(table_name.getRecordSet().getLength()>=1)
-{			
+{
 	allRecords=table_name.getRecordSet();
 	for(var i=allRecords.getLength();i>=0;i--)
 	{
 	table_name.deleteRow(i);
 	}
-}	
+}
 if(obj.value!=0)
 {
 
@@ -466,8 +466,8 @@ var	url = path+"/voucher/common-ajaxLoadCheckList.action?billSubtypeId="+obj.val
 			//bootbox.alert("1");
 			}
 			}
-			
-			
+
+
 		  }
 	  }
  	};
@@ -491,15 +491,15 @@ function validate(name,value){
 	}else if(value == 'Proceed' || value == 'Checked and Proceed'){
 		document.getElementById('nextLevel').value ="END";
 	}
-	
+
 	</s:if>
 return true;
-	
+
 }
 
 
 function printPreview(){
-	
+
 	document.forms[0].action='../bill/expenseBillPrint-print.action?id=<s:property value="billRegisterId"/>';
 	document.forms[0].submit();
 }
@@ -507,17 +507,17 @@ function load(){
 	jQuery('.tabber').find('input, textarea, select').attr('readonly', 'readonly');
 	jQuery('.tabbertab').find('input, textarea, select').attr('readonly', 'readonly');
 	jQuery('.commentsTab').find('input, textarea, select').attr('readonly', 'readonly');
-	
+
 }
 function onSubmit()
 {
 	 var myform = jQuery('#cbill');
 		// re-disabled the set of inputs that you previously
-		var disabled = myform.find(':input:disabled').removeAttr('disabled'); 
+		var disabled = myform.find(':input:disabled').removeAttr('disabled');
 	document.cbill.action='${pageContext.request.contextPath}/bill/contingentBill-update.action';
     document.cbill.submit();
-			
-		
+
+
 }
 
 </script>
@@ -538,7 +538,7 @@ function onSubmit()
 					<jsp:include page="../budget/budgetHeader.jsp">
 						<jsp:param value="Contingent Bill" name="heading" />
 					</jsp:include>
-					
+
 					<center>
 						<span class="mandatory1">
 							<div id="Errors">
@@ -579,15 +579,15 @@ function onSubmit()
 					<div class="yui-skin-sam" align="center">
 						<div id="checkListTable"></div>
 					</div>
-		
+
 					<script>
 				   	makeCheckListTable();
 				   	document.getElementById('checkListTable').getElementsByTagName('table')[0].width="800";
 		</script>
-		
-		
+
+
 				</div>
-			
+
 			<s:if test="%{mode=='approve'}">
 				<div align='center'>
 					<font style='color: red;'>
@@ -663,10 +663,10 @@ var i=0;
 <s:iterator value="netPayList" status="stat">
 	<s:if test="%{chartOfAccountDetails.size()>0}">
 		net.options[i] =new Option('<s:property value="glcode"/>','<s:property value="glcode"/>~#<s:property value="name"/>~#true');
-	</s:if> 
+	</s:if>
 	<s:else>
 		net.options[i] =new Option('<s:property value="glcode"/>','<s:property value="glcode"/>~#<s:property value="name"/>~#false');
-	</s:else>  
+	</s:else>
 i++;
 </s:iterator>
 
@@ -674,18 +674,18 @@ i++;
 	document.getElementById('billDetailsTableNet[0].accounthead').value='<s:property value="defaultNetPayCode.name"/>';
 	document.getElementById('billDetailsTableNet[0].glcodeIdDetail').value='<s:property value="defaultNetPayCode.id"/>';
 	<s:if test="%{defaultNetPayCode.chartOfAccountDetails.size()>0}">
-	net.value='<s:property value="defaultNetPayCode.glcode"/>-<s:property value="defaultNetPayCode.name"/>-true';	
+	net.value='<s:property value="defaultNetPayCode.glcode"/>-<s:property value="defaultNetPayCode.name"/>-true';
 	document.getElementById('billDetailsTableNet[0].isSubledger').value='true';
 	</s:if>
 	<s:else>
-	net.value='<s:property value="defaultNetPayCode.glcode"/>-<s:property value="defaultNetPayCode.name"/>-false';	
+	net.value='<s:property value="defaultNetPayCode.glcode"/>-<s:property value="defaultNetPayCode.name"/>-false';
 	document.getElementById('billDetailsTableNet[0].isSubledger').value='false';
 	</s:else>
 </s:if>
 <s:else>
 document.getElementById('billDetailsTableNet[0].accounthead').value='<s:property value="billDetailsTableNetFinal[0].accounthead"/>';
 document.getElementById('billDetailsTableNet[0].glcodeIdDetail').value='<s:property value="billDetailsTableNetFinal[0].glcodeIdDetail"/>';
-net.value='<s:property value="billDetailsTableNetFinal[0].glcodeDetail"/>-<s:property value="billDetailsTableNetFinal[0].accounthead"/>-<s:property value="billDetailsTableNetFinal[0].isSubledger"/>';	
+net.value='<s:property value="billDetailsTableNetFinal[0].glcodeDetail"/>-<s:property value="billDetailsTableNetFinal[0].accounthead"/>-<s:property value="billDetailsTableNetFinal[0].isSubledger"/>';
 document.getElementById('billDetailsTableNet[0].isSubledger').value='<s:property value="billDetailsTableNetFinal[0].isSubledger"/>';
 </s:else>
 document.getElementById("billDetailTable").style.display="none";
@@ -696,8 +696,8 @@ if(null != document.getElementById("topTableHeader")){
 }
 //disableAll();
 <s:if test='%{! nextLevel.equalsIgnoreCase("END")}'>
-	document.getElementById("departmentid").value= <s:property value="%{voucherHeader.vouchermis.departmentcode}" /> 
-	<s:if test="%{isFieldMandatory('department')}"> 
+	document.getElementById("departmentid").value= <s:property value="%{voucherHeader.vouchermis.departmentcode}" />
+	<s:if test="%{isFieldMandatory('department')}">
 		//This has been changed from true pls check mingle story 2104, 2103 etc.
 		document.getElementById("departmentid").disabled=false;
 	</s:if>
@@ -744,42 +744,42 @@ document.forms[frmIndex].elements[i].disabled =true;
 disableYUIAddDeleteButtons(true);
 
 if(document.getElementById("approverComments"))
-	document.getElementById("approverComments").disabled=false;	
+	document.getElementById("approverComments").disabled=false;
 if(null != document.getElementById("approverDepartment") ){
-	document.getElementById("approverDepartment").disabled=false;    
+	document.getElementById("approverDepartment").disabled=false;
 	document.getElementById("approverDesignation").disabled=false;
 	document.getElementById("approverPositionId").disabled=false;
-	
+
 }
 if(document.getElementById("currentState"))
-	document.getElementById("currentState").disabled=false;		
+	document.getElementById("currentState").disabled=false;
 if(document.getElementById("currentDesignation"))
-	document.getElementById("currentDesignation").disabled=false;		
+	document.getElementById("currentDesignation").disabled=false;
 if(document.getElementById("additionalRule"))
-	document.getElementById("additionalRule").disabled=false;		
+	document.getElementById("additionalRule").disabled=false;
 if(document.getElementById("amountRule"))
-	document.getElementById("amountRule").disabled=false;		
+	document.getElementById("amountRule").disabled=false;
 if(document.getElementById("workFlowDepartment"))
-	document.getElementById("workFlowDepartment").disabled=false;		
+	document.getElementById("workFlowDepartment").disabled=false;
 if(document.getElementById("pendingActions"))
-	document.getElementById("pendingActions").disabled=false;		
+	document.getElementById("pendingActions").disabled=false;
 if(document.getElementById("approverName"))
-	document.getElementById("approverName").disabled=false;		
+	document.getElementById("approverName").disabled=false;
 if(document.getElementById("workFlowAction"))
-	document.getElementById("workFlowAction").disabled=false;		
+	document.getElementById("workFlowAction").disabled=false;
 if(document.getElementById("Forward"))
-	document.getElementById("Forward").disabled=false;	
+	document.getElementById("Forward").disabled=false;
 if(document.getElementById("Reject"))
-	document.getElementById("Reject").disabled=false;	
+	document.getElementById("Reject").disabled=false;
 if(document.getElementById("Cancel"))
-	document.getElementById("Cancel").disabled=false;	
+	document.getElementById("Cancel").disabled=false;
 if(document.getElementById("Approve"))
-	document.getElementById("Approve").disabled=false;	
+	document.getElementById("Approve").disabled=false;
 if(document.getElementById("button2"))
-	document.getElementById("button2").disabled=false;		
+	document.getElementById("button2").disabled=false;
 if(document.getElementById("print"))
 	document.getElementById("print").disabled=false;
-	  	
+
 </script>
 
 </body>

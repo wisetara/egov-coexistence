@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -81,7 +81,7 @@
 	<constant name="struts.mapper.prefixMapping" value="/rest:rest,:struts"/>
 	<!-- Packages whose name ends with one of these strings will be scanned for actions -->
 	<constant name="struts.convention.package.locators" value="actions" />
-	<!-- This makes the URL for an action like HelloWorldAction.java be /helloWorld.action 
+	<!-- This makes the URL for an action like HelloWorldAction.java be /helloWorld.action
 		rather than /hello-world By default Struts2 uses the SEOActionNameBuilder. -->
 	<bean type="org.apache.struts2.convention.ActionNameBuilder" name="defaultActionNameBuilder" class="org.apache.struts2.convention.DefaultActionNameBuilder" />
 	<constant name="struts.convention.actionNameBuilder" value="defaultActionNameBuilder" />
@@ -95,7 +95,7 @@
 			<interceptor name="egov-exception" class="org.egov.infra.web.struts.interceptors.ExceptionInterceptor" />
 			<interceptor name="egov-cahecontrol" class="org.egov.infra.web.struts.interceptors.CacheControlInterceptor"/>
 			<interceptor-stack name="egov-interceptors">
-				<!-- 
+				<!--
 				Commenting out for now since this interceptor creating problem
 				<interceptor-ref name="token">
 					<param name="includeMethods">saveOrupdate,save,create,approve,forward,moveEstimate,createFile,saveFile,saveAsDraft,createFileNotification</param>

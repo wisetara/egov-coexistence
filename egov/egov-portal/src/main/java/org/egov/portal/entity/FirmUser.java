@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -70,7 +70,7 @@ public class FirmUser extends AbstractAuditable {
 
     private static final long serialVersionUID = 1L;
 
-    public static final String SEQ_EGP_FIRMUSERS = "SEQ_EGP_FIRMUSERS"; 
+    public static final String SEQ_EGP_FIRMUSERS = "SEQ_EGP_FIRMUSERS";
 
     @Id
     @GeneratedValue(generator = SEQ_EGP_FIRMUSERS, strategy = GenerationType.SEQUENCE)
@@ -93,10 +93,10 @@ public class FirmUser extends AbstractAuditable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "firmid", nullable = false)
     private Firm firm;
-    
+
     @Transient
     private Long egUserId;
-    
+
     @Override
     public Long getId() {
         return id;

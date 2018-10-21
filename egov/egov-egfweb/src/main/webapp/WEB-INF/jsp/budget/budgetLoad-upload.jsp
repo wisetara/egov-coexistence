@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -82,7 +82,7 @@
 			myfile = jQuery(this).val();
 			var ext = myfile.split('.').pop();
 			if (jQuery.inArray(ext, fileformats) > -1) {
-				//do something    
+				//do something
 			} else {
 				bootbox.alert(ext + " file format is not allowed");
 				jQuery(this).val("");
@@ -115,7 +115,7 @@
 					<s:fielderror />
 				</div> <s:actionmessage />
 			</span>
-										
+
 			<center>
 				<table border="0" width="100%" cellspacing="0" cellpadding="0">
 					<tr width="50%">
@@ -141,7 +141,7 @@
 										</td>
 										<td class="greybox"></td>
 								</tr>
-								
+
 							</table>
 						</td>
 						<td width="25%">
@@ -165,7 +165,7 @@
 											onclick="urlLoad('<s:property value="%{fileStoreId}" />');"
 											id="outputFileId" /> <s:label value="%{fileName}" /> </a></td>
 									</tr>
-									
+
 								</s:iterator>
 							</table>
 						</td>

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -78,11 +78,11 @@ function NamTree(div){ //div is the <div> DOM element where this tree is to be d
 	this.fontFamily		= 'arial';
 	this.fontSize		= '9pt';
 	this.searchIsRequired= 'false';//making it a boolean had issues with loading from XML
-	
+
 	div.setAttribute('namTree', this); //link the div and tree so that we can get one from the other
 	this.div		= div;
 
-	this.images		= new Object(); //stores images for different types of nodes	
+	this.images		= new Object(); //stores images for different types of nodes
 	this.nodeCount	= 0;
 	this.nodes		= new Object(); //contains all node objects as properties
 	this.sortedNodes= null; //sorted on a need basis and kept.
@@ -90,18 +90,18 @@ function NamTree(div){ //div is the <div> DOM element where this tree is to be d
 	this.selectedNode= null;//points to the node user has clicked
 	this.searchString =	""; //last search string
 /* creates a new node.
- * id has to be unique. it is typically an internal code used by the system. id is not displayed. 
- * name is diaplyed. need not be unique, even for a parent. 
+ * id has to be unique. it is typically an internal code used by the system. id is not displayed.
+ * name is diaplyed. need not be unique, even for a parent.
  * paentid id is optional. It is possible to first create nodes, and then 'link' them to create the tree
  * alternately, the parent id can be specified at the time of creating the node, even if the
  *   parent id is not created yet.
  *   This feature allows a server to just dump the rows of its table without worrying about the order
- * 
+ *
  */
 
 this.createNode = function (type, id, name, parentid){
 	if(!id || !name) return (false);
-	
+
 	var node		= this.nodes[id];
 	if (node){ //node exists. design is not to generate error, but just modify it
 		node.name	= name;
@@ -109,25 +109,25 @@ this.createNode = function (type, id, name, parentid){
 		node		= new NamNode(this, type, id, name);
 		node.tree	= this;
 		this.nodes[id] = node;
-		this.nodeCount ++;		
+		this.nodeCount ++;
 	}
-	
+
 	if (parentid)
 		if ( parentid.toUpperCase() == 'NULL' || parentid == 0 || parentid == '') parentid = null;
 	if(parentid) this.link(id,parentid);
 	return (node);
 }
 
-/* 
+/*
  * link is used to creat/remove parent-child relationship between nodes
  * existing link is removed if the new link can be created or parent id is null
  * parent node is created if required before linking
  */
 
-this.link = function (childid, parentid){ 
+this.link = function (childid, parentid){
 	var child = this.nodes[childid];
 	if (!child) return(false);
-	
+
 	var added	= false;
 	var removed = false;
 	var oldparent	= child.parent;
@@ -135,29 +135,29 @@ this.link = function (childid, parentid){
 	if (parentid){
 		var	parent			= this.nodes[parentid];
 		if (!parent) parent = this.createNode('node', parentid,'new',null); //create in anticipation. Name will be attached later
-		if(!child.canAttachTo(parent)) return(false); //wrong connection tried :-) 
+		if(!child.canAttachTo(parent)) return(false); //wrong connection tried :-)
 		parent.children[childid] = child;
 		parent.childCount++;
 		child.parent = parent;
 		added	= true;
 	}
-	
+
 	if(oldparent){ //old link exists
 		oldparent.children[childid] = null;
 		oldparent.childCount--;
 		if(!added) child.parent = null; //this case was to just remove the link
 		removed = true;
 	}
-	
+
 	return (added || removed); //returns true if something was done
 }
 
-/* Creates all the HTML DOM elements to display the tree. 
+/* Creates all the HTML DOM elements to display the tree.
  * Initially, only the root nodes are visible, while the rest are all hidden
  * All the rows are created. Root nodes are set with display attribute as blocked while the rest with 'none'
  */
 
-this.display = function (){	
+this.display = function (){
 
 	var div = this.div;
 	div.innerHTML = ''; //zap existing content
@@ -173,14 +173,14 @@ this.display = function (){
 	if (this.searchIsRequired && this.searchIsRequired.toString().toUpperCase() != 'FALSE' ){
 		var divform = document.createElement('DIV'); //for search fields and buttons
 		div.appendChild(divform);
-		
+
 		var ele = document.createElement('INPUT');
 		ele.divId = div.id;
 		ele.id = 'searchField';
 		ele.width = 15;
 		ele.onchange = NamTreeSearchEvent;
 		divform.appendChild(ele);
-		
+
 		ele = document.createElement('INPUT');
 		ele.type = 'button';
 		ele.value = 'Search';
@@ -197,7 +197,7 @@ this.display = function (){
 		ele.id = 'expandAll';
 		ele.onclick = NamTreeSearchEvent;
 		divform.appendChild(ele);
-		
+
 		ele = document.createElement('INPUT');
 		ele.type = 'button';
 		ele.value = ' - - ';
@@ -206,8 +206,8 @@ this.display = function (){
 		ele.id = 'collapseAll';
 		ele.onclick = NamTreeSearchEvent;
 		divform.appendChild(ele);
-		
-		var ihtm  = '<input width="15" onchange="NamTreeSearchEvent(1," 
+
+		var ihtm  = '<input width="15" onchange="NamTreeSearchEvent(1,"
 			 +"'" +div.id +"','" +this.value +')">&nbsp;';
 		ihtm += '<input type="button" value="Search" name="searchNode" id="searchNode" onclick="NamTreeSearchEvent(2,"'
 			 +"'" +div.id +"'" +')">&nbsp;';
@@ -220,15 +220,15 @@ this.display = function (){
 	}
 
 */
-	
+
 	var tbl		= document.createElement('TABLE');
 	tbl.setAttribute('border','0');
 	tbl.setAttribute('cellSpacing','0');
 	div.appendChild(tbl);
-	
+
 	var tbody = document.createElement('TBODY');
-	tbl.appendChild(tbody);	
-	
+	tbl.appendChild(tbody);
+
 	var node = null;
 	for (var a in this.nodes){
 		node	= this.nodes[a];
@@ -264,10 +264,10 @@ this.expandCollapse = function (expand){
 /*
  * Method to load tree from an XML file
  * This tree is  designed specifically for a server that stores tree in a relational DB
- * Hence, we do not use an XML tree. The XML simply contains just one level of nodes. 
+ * Hence, we do not use an XML tree. The XML simply contains just one level of nodes.
  * XML can have a <confiure> tag that can set various attributes of the tree
  *		 an <images> section that can supply gif file names for different types of tree nodes
- *	     <tree> that contains all the nodes of the tree as is children. 
+ *	     <tree> that contains all the nodes of the tree as is children.
  * <TO DO> write DTD for the XML
  */
 
@@ -279,7 +279,7 @@ this.loadFromXML = function (xmlFile){
 		xmlDoc.load(xmlFile);
 bootbox.alert('XML Loaded but not sure whether it completed or not. hence this alert. Press Ok after few seconds..');
 		//TO DO: How to check ready state and errors???
-	}else if ((typeof ActiveXObject) != "undefined"){ //IE 
+	}else if ((typeof ActiveXObject) != "undefined"){ //IE
 		xmlDoc = new ActiveXObject("msxml2.DOMDocument.4.0");
 		xmlDoc.async = false;
 		xmlDoc.load(xmlFile);
@@ -338,7 +338,7 @@ bootbox.alert('XML Loaded but not sure whether it completed or not. hence this a
 
 this.sort = function (){
 	if (this.sortedNodes)return(true);
-	
+
 	this.sortedNodes = new Array(this.nodeCount);
 	var idx = 0;
 	var p = null;
@@ -380,15 +380,15 @@ this.search = function (strin){
 
 	if (strin) this.searchString = strin;
 	else strin = this.searchString;
-	
+
 	if (strin == ''){
 		bootbox.alert('No search string specified');
 		return(false);
 	}
-	
+
 	str = new String(strin);
 	str = str.toUpperCase();
-	
+
 	if (!this.sortedNodes) this.sort();
 	var node = null;
 	var idx = (this.selectedNode)? this.selectedNode.sortedIndex + 1 : 0;
@@ -423,7 +423,7 @@ this.addImg = function (typ,img){
 
 /*************************
 // A node points to its parent, as well as keeps a list of all children.
-// Instead of using a collection class, property list is used for convinience. 
+// Instead of using a collection class, property list is used for convinience.
 // for example, children is defined as an object, and each child is attached as a property with name = its id
 //
 **************************/
@@ -432,7 +432,7 @@ function NamNode(tree, type, id, name){
 	this.tree		= tree;
 	this.parent		= null;
 	this.type		= type;
-	this.id			= id; 
+	this.id			= id;
 	this.name		= name;
 	this.childCount	= 0;
 	this.children	= new Object(); //children and parent form the tree structure
@@ -448,7 +448,7 @@ this.canAttachTo = function (node){// returns True/false
 	if (!node) return (true);//attaching to non-node means making it root
 	if (this == node) return(false); //can't attach to myself
 	if (node.children[this.id]) return(false); //already a child
-	
+
 	// check if node is a desscendant of 'this' to avoid cyclical network.
 	var p = node.parent;
 	while (p){ //keep going up till you reach the root
@@ -470,7 +470,7 @@ this.isDescendantOf = function (node){
 	return false;
 }
 
-/* common method to expand/collapse. 
+/* common method to expand/collapse.
  * expand = true implies expanf, else collapse
  * cascade = true means cascade expand/collapse
  */
@@ -483,7 +483,7 @@ this.expandCollapse = function (expand,cascade){
 	}else{//collapsed
 		this.alternateImg.src	= tree.collapsedGif;
 	}
-	
+
 	var child	= null;
 	for(var a in this.children){
 		child	= this.children[a];
@@ -501,7 +501,7 @@ this.show = function (show){
 	// if this is already displayed, then no work in show
 	if(this.displayed && show) return (true);
 	if(!this.displayed && !show) return (true); //similar situation for hide
-	
+
 	var tree = this.tree;
 	this.displayed	= show;
 	this.tr.style.display = (show)? tree.styleToShow : tree.styleToHide ; //set the right display attribute
@@ -515,10 +515,10 @@ this.show = function (show){
 }
 
 /*collapse if it is expanded, expand if it is collapsed */
-this.alternate = function (){ 
+this.alternate = function (){
 	this.expandCollapse(!(this.expanded),false); //small trick. flag is set based on current state of the node
 	if (this.expanded == false) this.tree.shiftSelection(); //shifts selection if it is not shown
-}			
+}
 
 /* selects a node (normally on click) When a node is selected:
  *   1. this node is highilighted
@@ -538,7 +538,7 @@ this.select = function (expand){
 		st.backgroundColor	= tree.highlightedbackgroundColor;
 		st.color			= tree.highlightedColor;
 		st.textDecorationUnderline = false;
-		
+
 		if(old){
 			st = old.textNode.style;
 			st.backgroundColor  = tree.normalBackgroundColor;
@@ -546,7 +546,7 @@ this.select = function (expand){
 		}
 	}
 	tree.selectedNode = this;
-	if (this.displayed == false) this.explode();	
+	if (this.displayed == false) this.explode();
 	if (expand && this.childCount > 0 && this.expanded == false){
 		this.expandCollapse(true,false); // true for expandiing, and false for cascading
 	}
@@ -556,7 +556,7 @@ this.select = function (expand){
 }
 /*creates a TR element and attaches itself to tbody
  *level indicates how far to indentation level for the node in the tree
- * This is a fairly long method, but not complex. it essentially creates all elements required for the TR 
+ * This is a fairly long method, but not complex. it essentially creates all elements required for the TR
  */
 
 this.display = function (tbody, level){
@@ -565,7 +565,7 @@ this.display = function (tbody, level){
 	var tr = document.createElement('TR'); //add TR to TBODY
 	tbody.appendChild(tr);
 	this.tr = tr;
-	
+
 	var st = tr.style;
 	st.backgroundColor = tree.normalBackgroundColor;
 	st.fontFamily	= tree.fontFamily;
@@ -579,17 +579,17 @@ this.display = function (tbody, level){
 		st.display = tree.styleToShow;
 		this.displayed	 = true;
 	}
-	
-	var td = document.createElement('TD'); //add TD to TR		
-	tr.appendChild(td);	
-	
+
+	var td = document.createElement('TD'); //add TD to TR
+	tr.appendChild(td);
+
 	//blank gif to indent the node
 	var img = document.createElement('IMG');
 	img.src = tree.spaceGif;
 	img.width = level*tree.indent;
 	img.height=1;
 	td.appendChild(img);
-	
+
 	// + or - or indent gif
 	img = document.createElement('IMG');
 	td.appendChild(img);
@@ -603,7 +603,7 @@ this.display = function (tbody, level){
 		img.src = tree.spaceGif;
 		img.width = tree.indent;
 	}
-	
+
 	if (this.type && tree.images[this.type]) img = tree.images[this.type].cloneNode(false);
 	else {
 		img = document.createElement('IMG'); //leaf gif
@@ -620,7 +620,7 @@ this.display = function (tbody, level){
 	txt.setAttribute('namNode', this);
 	td.appendChild(txt);
 	this.textNode = txt;
-	
+
 	if (this.childCount== 0	)return (true);
 	//display children as well
 	level++; //Indent to next level
@@ -634,7 +634,7 @@ this.display = function (tbody, level){
 
 this.explode = function (){
 	if (this.displayed) return(true);
-	
+
 	var p = this.parent;
 	if (!p.displyed) p.explode(); //can't do anyhting till parent is visible
 								// and remember, root node is always visible, and hence this
@@ -646,7 +646,7 @@ this.explode = function (){
 }
 
 /******************************** Event handling functions ****************/
-/* I wish I could have a better way of passing the tree, 
+/* I wish I could have a better way of passing the tree,
  * To avoid declaring tree as a global variable (and hence keep the option of more than one tree in doc)
  *  I have passed the id of the div, through which I can locate the tree...
  *  Since they all in turn call a specific method of tree, I clubbed the events for search related events
@@ -668,11 +668,11 @@ function NamTreeSearchEvent(evt){
 	case 'expandAll':  //expand all
 		tree.expandCollapse(true);
 		break;
-	case 'collapseAll'://collapse all 
+	case 'collapseAll'://collapse all
 		tree.expandCollapse(false);
 		break;
 	}
-	
+
 	if (evt.cancelBubble) evt.cancelBuuble = true; //IE
 	else if(typeof evt.stopPropagation != "undefined")evt.stopPropagation();//Netscape
 }
@@ -686,7 +686,7 @@ function NamTreeClick(evt){
 	if (!node) return; //not of our concern
 
 	var tree = node.tree;
-	
+
 	//it is a tree element. find out which one and act accordingly
 	if (ele.getAttribute('namAlternate')){ //it is the +/- gif
 		node.alternate();
@@ -712,7 +712,7 @@ function NamTreeDblClick(evt){
 	if(window.NodeOnTreeDblClicked) window.NodeOnTreeDblClicked(node.type, node.id, node.name, (node.parent)? node.parent.id : null);
 	if (evt.cancelBubble) evt.cancelBuuble = true;
 	else if(evt.stopPropagation)evt.stopPropagation();
-	
+
 	//prevent default action from browser (like text selection etc..)
 	if(typeof evt.returnValue != 'undefined') evt.returnValue = false;
 	else if(evt.preventDefault) evt.preventDefault();
@@ -722,7 +722,7 @@ function NamTreeDblClick(evt){
 /*
  * functions to handle scrolling : to bring a selected element into visible region
  */
-  
+
 function GetScrolledParent(ele){ //returns a parent element for which scrolling is active. null if no scrolling
 	var p = ele.parentElement;
 	while(p){
@@ -747,7 +747,7 @@ function ScrollForElement(ele){ //ensure that ele is within the vsisble area by 
 	var pele = GetScrolledParent(ele);
 	if (pele){ //there is a scrollable parent
 		var mytop = GetRelativeTop(ele, pele); //ele top from parent
-		var scrtop = parseInt(pele.scrollTop); //position to which the top is scrolled to 
+		var scrtop = parseInt(pele.scrollTop); //position to which the top is scrolled to
 		var scrhite = parseInt(pele.clientHeight); // height of the scrolling region
 		var scrbot = scrtop + scrhite; //bottom
 		if ( mytop < scrtop || mytop > scrbot){ //not visible
@@ -757,9 +757,9 @@ function ScrollForElement(ele){ //ensure that ele is within the vsisble area by 
 	}
 }
 /*
- * handles mouseover/out event. mouse out = true/false implies the event type 
+ * handles mouseover/out event. mouse out = true/false implies the event type
  */
- 
+
 function NamTreeMouseOver(evt){
 	NamTreeMouseInOut(evt, false);
 }
@@ -768,13 +768,13 @@ function NamTreeMouseOut(evt){
 	NamTreeMouseInOut(evt, true);
 }
 
-function NamTreeMouseInOut(evt, mouseout){	
+function NamTreeMouseInOut(evt, mouseout){
 	evt = (window.event)? window.event : evt;
 	var ele = (evt.srcElement) ? evt.srcElement : evt.target;
-	
+
 	var node = ele.getAttribute('namNode');
-	if (!node) return true; // not a node element 
-	
+	if (!node) return true; // not a node element
+
 	var tree = node.tree;
 	if (tree.selectedNode && node.id == tree.selectedNode.id){ //to be handled properly
 		 return true; // no change for the seletced node
@@ -782,9 +782,9 @@ function NamTreeMouseInOut(evt, mouseout){
 	var st = ele.style;
 	if (mouseout){ // change font back to normal
 		st.textDecorationUnderline = false;
-		st.color=tree.normalColor;	
+		st.color=tree.normalColor;
 	}else{
 		st.textDecorationUnderline = true;
-		st.color="red";		
+		st.color="red";
 	}
-}	
+}

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -53,7 +53,7 @@ import org.egov.infra.validation.exception.ValidationException;
 import java.util.List;
 
 /**
- * 
+ *
  * @author mani
  * Every sevice  of model  which implements EntityType should implement this service.
  *
@@ -63,7 +63,7 @@ public interface EntityTypeService {
 	 * to get the list of active Entities that will used for posting.
 	 * if Entity is mapped to multiple AccountDetailTypes consider the passed input parameter
 	 * for eg: AccountEntity will have master list of Telephone as well as Electricity as AccountDetailTypes
-	 *         
+	 *
 	 * @param accountDetailTypeId
 	 * @return
 	 */
@@ -75,7 +75,7 @@ public interface EntityTypeService {
 	 * boxes on UI. It is expected that the implementation of this method uses
 	 * both the "name" and "code" to perform the filtering, and supports text
 	 * searches (LIKE clause)
-	 * 
+	 *
 	 * @param filterKey
 	 *            The filter key
 	 * @param maxRecords
@@ -89,7 +89,7 @@ public interface EntityTypeService {
 
 	/**
 	 * Returns the list of Asset Codes linked to  accountdetailkey (projectCodeId).
-	 *         
+	 *
 	 * @param accountdetailkey
 	 * @return List of filtered Asset Codes
 	 * @throws ValidationException

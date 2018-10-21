@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -110,48 +110,48 @@
 <script type="text/javascript">
 		path="${pageContext.request.contextPath}";
 		var totaldbamt=0,totalcramt=0;
-		
-		
-		
+
+
+
 		var makeVoucherDetailTable = function() {
-			<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>      
-		var voucherDetailColumns = [ 
+			<s:if test='%{isRestrictedtoOneFunctionCenter == true}'>
+		var voucherDetailColumns = [
 			{key:"functionid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
 			{key:"function",hidden:true,label:'Function Name', formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","hidden")},
 			{key:"glcodeid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
 			{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
-			{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+			{key:"debitamount",label:'Debit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
 			{key:"creditamount",label:'Credit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
 		</s:if>
 		<s:else>
-		var voucherDetailColumns = [ 
+		var voucherDetailColumns = [
      			{key:"functionid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".functionIdDetail","hidden")},
-     			{key:"function",label:'Function Name', formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","text")}, 
+     			{key:"function",label:'Function Name', formatter:createTextFieldFormatterForFunctionJV(VOUCHERDETAILLIST,".functionDetail","text")},
      			{key:"glcodeid",hidden:true, formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeIdDetail","hidden")},
      			{key:"glcode",label:'Account Code <span class="mandatory1">*</span>', formatter:createTextFieldFormatterJV(VOUCHERDETAILLIST,".glcodeDetail","text")},
-     			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},				
-     			{key:"debitamount",label:'Debit Amount',formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")}, 
+     			{key:"accounthead", label:'Account Head',formatter:createLongTextFieldFormatterJV(VOUCHERDETAILLIST,".accounthead")},
+     			{key:"debitamount",label:'Debit Amount',formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".debitAmountDetail","updateDebitAmountJV()")},
      			{key:"creditamount",label:'Credit Amount', formatter:createAmountFieldFormatterJV(VOUCHERDETAILLIST,".creditAmountDetail","updateCreditAmountJV()")},
      			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
      			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
      		];
-		</s:else>    
-	    var voucherDetailDS = new YAHOO.util.DataSource(); 
+		</s:else>
+	    var voucherDetailDS = new YAHOO.util.DataSource();
 		billDetailsTable = new YAHOO.widget.DataTable("billDetailTable",voucherDetailColumns, voucherDetailDS);
 		billDetailsTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1});
 				updateAccountTableIndex();
 			}
-			if (column.key == 'Delete') { 	
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -164,8 +164,8 @@
 					bootbox.alert("This row can not be deleted");
 				}
 			}
-			
-			        
+
+
 		});
 		<s:iterator value="billDetailslist" status="stat">
 				billDetailsTable.addRow({SlNo:billDetailsTable.getRecordSet().getLength()+1,
@@ -189,8 +189,8 @@
 				totalcramt = totalcramt+parseFloat('<s:text name="format.number" ><s:param value="%{creditAmountDetail}"/></s:text>');
 				updateAccountTableIndex();
 			</s:iterator>
-				
-	
+
+
 		var tfoot = billDetailsTable.getTbodyEl().parentNode.createTFoot();
 		var tr = tfoot.insertRow(-1);
 		var th = tr.appendChild(document.createElement('th'));
@@ -212,7 +212,7 @@
 		var td = tr.insertCell(-1);
 		td.style.borderTop = "1px solid #84B1AD";
 	}
-	
+
 	var glcodeOptions=[{label:"--- Select ---", value:"0"}];
 	<s:iterator value="dropdownData.glcodeList">
 	    glcodeOptions.push({label:'<s:property value="glcode"/>', value:'<s:property value="id"/>'})
@@ -221,9 +221,9 @@
 	<s:iterator value="dropdownData.detailTypeList">
 	    detailtypeOptions.push({label:'<s:property value="name"/>', value:'<s:property value="id"/>'})
 	</s:iterator>
-	
+
 	var makeSubLedgerTable = function() {
-		var subledgerColumns = [ 
+		var subledgerColumns = [
 			{key:"glcode",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".subledgerCode","hidden")},
 			{key:"glcode.id",label:'Account Code <span class="mandatory1">*</span>', formatter:createDropdownFormatterJV(SUBLEDGERLIST,"loaddropdown(this)"),  dropdownOptions:glcodeOptions},
 			{key:"detailTypeName",hidden:true, formatter:createSLTextFieldFormatterJV(SUBLEDGERLIST,".detailTypeName","hidden")},
@@ -235,19 +235,19 @@
 			{key:'Add',label:'Add',formatter:createAddImageFormatter("${pageContext.request.contextPath}")},
 			{key:'Delete',label:'Delete',formatter:createDeleteImageFormatter("${pageContext.request.contextPath}")}
 		];
-	    var subledgerDS = new YAHOO.util.DataSource(); 
+	    var subledgerDS = new YAHOO.util.DataSource();
 		subLedgersTable = new YAHOO.widget.DataTable("subLedgerTable",subledgerColumns, subledgerDS);
 		subLedgersTable.on('cellClickEvent',function (oArgs) {
 			var target = oArgs.target;
 			var record = this.getRecord(target);
 			var column = this.getColumn(target);
-			if (column.key == 'Add') { 
+			if (column.key == 'Add') {
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1});
 				updateSLTableIndex();
 				check();
 			}
-			if (column.key == 'Delete') { 			
-				if(this.getRecordSet().getLength()>1){			
+			if (column.key == 'Delete') {
+				if(this.getRecordSet().getLength()>1){
 					this.deleteRow(record);
 					allRecords=this.getRecordSet();
 					for(var i=0;i<allRecords.getLength();i++){
@@ -257,7 +257,7 @@
 				else{
 					bootbox.alert("This row can not be deleted");
 				}
-			}        
+			}
 		});
 		<s:iterator value="subLedgerlist" status="stat">
 				subLedgersTable.addRow({SlNo:subLedgersTable.getRecordSet().getLength()+1,
@@ -281,9 +281,9 @@
 				updateSLGridPJV('amount',index,'<s:text name="format.number" ><s:param value="%{amount}"/></s:text>');
 				updateSLTableIndex();
 			</s:iterator>
-		
+
 	}
-	
+
 	</script>
 <body onload="onLoadTask()">
 
@@ -363,7 +363,7 @@
 						<div id="billDetailTable"></div>
 					</div>
 					<script type="text/javascript">
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="80%"
 	 </script>
@@ -379,9 +379,9 @@
 						<div id="subLedgerTable"></div>
 					</div>
 					<script type="text/javascript">
-			
+
 			makeSubLedgerTable();
-			
+
 			document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="80%"
 		</script>
 
@@ -409,7 +409,7 @@
 		</s:push>
 	</s:form>
 
-	<script type="text/javascript">               
+	<script type="text/javascript">
 
 	function onLoadTask()
 	{
@@ -417,13 +417,13 @@
 		var frmIndex=0;
 		for(var i=0;i<document.forms[frmIndex].length;i++)
 		{
-		
+
 			for(var i=0;i<document.forms[0].length;i++)
 			{
 				if(document.forms[0].elements[i].value != 'Close'){
 					document.forms[frmIndex].elements[i].disabled =true;
-					}					
-			}		
+					}
+			}
 		}
 	}
 

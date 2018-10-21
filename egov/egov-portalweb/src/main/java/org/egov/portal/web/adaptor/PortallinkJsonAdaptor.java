@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,7 +59,7 @@ import com.google.gson.JsonSerializer;
 
 
 public class PortallinkJsonAdaptor implements JsonSerializer<PortalLinkResponse>{
-    
+
     private static final String SERVICE_NAME = "serviceName";
     private static final String OWNER_NAME = "ownerName";
     private static final String CONSUMER_NO = "consumerNo";

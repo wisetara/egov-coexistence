@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -139,26 +139,26 @@
 
 	function viewARF(sourcePath){
 		window.open(sourcePath,'', 'height=650,width=980,scrollbars=yes,left=0,top=0,status=yes');
-	} 
+	}
 
 	function goToCreateAdvancePayment(){
 		var table=document.getElementById('currentRow');
 		var lastRow = table.rows.length-1;
 		var arfId="";
-		
+
 		if(lastRow==1){
 			if(document.getElementById("radio").checked)
-				arfId=document.getElementById("arfId").value;		
+				arfId=document.getElementById("arfId").value;
 		}
 		else{
-			for(i=0;i<lastRow;i++){			
+			for(i=0;i<lastRow;i++){
 				if(document.forms[0].radio[i].checked){
-					arfId=document.forms[0].arfId[i].value;				
+					arfId=document.forms[0].arfId[i].value;
 				}
 			}
 		}
 
-		if(arfId != ''){ 
+		if(arfId != ''){
 			window.open('${pageContext.request.contextPath}/payment/advancePayment!newform.action?advanceRequisitionId='+arfId,'_self');
 		}
 		else{
@@ -168,7 +168,7 @@
 			return false;
 		  }
 		  dom.get("searchAdvanceRequisition_error").style.display='none';
-		  document.getElementById("searchAdvanceRequisition_error").innerHTML=''; 	  
+		  document.getElementById("searchAdvanceRequisition_error").innerHTML='';
 	}
-			     
+
 </script>

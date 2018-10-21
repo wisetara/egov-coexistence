@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -101,7 +101,7 @@ public class FunctionwiseIEAction extends ReportAction
     private final FunctionwiseIE functionwiseIE = new FunctionwiseIE();
     private CityService cityService;
     private City cityWebsite;
-    
+
  @Autowired
  @Qualifier("persistenceService")
  private PersistenceService persistenceService;
@@ -111,7 +111,7 @@ public class FunctionwiseIEAction extends ReportAction
     private Date todayDate;
     @Autowired
     private EgovMasterDataCaching masterDataCache;
-    
+
     public FinancialYearDAO getFinancialYearDAO() {
         return financialYearDAO;
     }

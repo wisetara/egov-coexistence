@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -96,11 +96,11 @@ jQuery(document).ready(function(){
 			jQuery("#"+fieldName).parent().hide();
 		})
 	}
-	
+
 	jQuery("#mobileNumber").on("input", function(){
 		var valid = /\d+$/.test(this.value),
 	       val = this.value;
-	   
+
 	   if(!valid){
 	       console.log("Invalid input!");
 	       this.value = val.substring(0, val.length - 1);
@@ -120,7 +120,7 @@ jQuery(document).ready(function(){
 		setDropDownsAlignment();
 		setTextFieldsAlignment();
 	});
-	
+
 
 	jQuery('.textfieldsvalidate').on('input',function(){
 		var regexp_textfields = /[^0-9a-zA-Z_@./#&+-/!(){}\",^$%*|=;:<>?`~ ]/g;
@@ -205,7 +205,7 @@ function checkIfscCode(){
 }
 
 function checkCorrespondenceAddress(){
-	
+
 	if(jQuery("#correspondenceAddress").val().length == 0){
 		showMessage('contractor_error', jQuery("#correspondenceAddressErrorMsg").val());
 		flag = true;
@@ -349,7 +349,7 @@ function checkDepartment(){
 	return true;
 }
 
-function checkCodeAndName(){  
+function checkCodeAndName(){
 	var regxCode = /^[A-Za-z0-9\-\/]+$/
 	var regxName = /^[A-Za-z0-9\-\& \:\,\/\.()\@]+$/;
 	if(!(jQuery("#codeautogeneration").val() == "true")){
@@ -357,7 +357,7 @@ function checkCodeAndName(){
 			showMessage('contractor_error', jQuery("#codeErrorMsg").val());
 			return false;
 		}
-		  
+
 		  if (!regxCode.test(jQuery("#contractor-save_code").val())) {
 			  showMessage('contractor_error', jQuery("#codeAlphaNeumericErrorMsg").val());
 			  return false;
@@ -367,7 +367,7 @@ function checkCodeAndName(){
 				showMessage('contractor_error', jQuery("#nameErrorMsg").val());
 				return false;
 		  }
-		  
+
 		  if (!regxName.test(jQuery("#name").val())) {
 			  showMessage('contractor_error', jQuery("#nameAlphaNeumericErrorMsg").val());
 			  return false;
@@ -378,18 +378,18 @@ function checkCodeAndName(){
 				showMessage('contractor_error', jQuery("#nameErrorMsg").val());
 				return false;
 			}
-		  
+
 		  if (!regxName.test(jQuery("#name").val())) {
 			  showMessage('contractor_error', jQuery("#nameAlphaNeumericErrorMsg").val());
 			  return false;
 		  }
-			  
+
 		 if(jQuery("#name").val().length < 4){
 				showMessage('contractor_error', jQuery("#nameErrorLengthMsg").val());
 				return false;
 		 }
 	}
-  
+
   return true;
 }
 
@@ -414,7 +414,7 @@ function checkContractorDetailsMandatoryFieldsErrors(fieldName){
 }
 
 function checkContractorMasterMandatoryFieldsErrors(fieldName){
-	if (fieldName == "panNumber") 
+	if (fieldName == "panNumber")
 		checkPanNumber();
 	else if (fieldName == "tinNumber")
 		checkTinNumber();
@@ -466,15 +466,15 @@ function validateContractorFormAndSubmit() {
 		window.scroll(0,0);
 		return false;
 	}
-		
+
 	if (!checkCodeAndName()){
 		window.scroll(0,0);
 		return false;
 	}
 	if (checkForMandatoryValues()){
 		flag = false;
-		return false; 
-	}	
+		return false;
+	}
 	if (!checkDepartment()){
 		window.scroll(0,0);
 		return false;
@@ -483,7 +483,7 @@ function validateContractorFormAndSubmit() {
 		window.scroll(0,0);
 		return false;
 	}
-	
+
 	links=document.contractor.getElementsByTagName("span");
 	for(i=0;i<links.length;i++) {
 		if(links[i].innerHTML=='&nbsp;x' && links[i].style.display!='none'){

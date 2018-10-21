@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -86,11 +86,11 @@ public class JurisdictionService {
     public void delete(final Jurisdiction jurisdiction) {
         jurisdictionRepository.delete(jurisdiction);
     }
-    
+
     public Jurisdiction getById(final Long id) {
         return jurisdictionRepository.findOne(id);
     }
-    
+
     @Transactional
     public Employee removeDeletedJurisdictions(Employee employee,String removedJurisdictionIds) {
         if(null!=removedJurisdictionIds)
@@ -99,12 +99,12 @@ public class JurisdictionService {
          }
          return employee;
      }
-    
+
     public List<Boundary> getEmployeeJuridictions(Long employeeId) {
         List<Boundary> wardBoundaries = jurisdictionRepository.getEmployeeBoundaries(employeeId, WARD, HIERARCHY_TYPE_ADMIN);
         if(wardBoundaries.isEmpty())
             wardBoundaries = jurisdictionRepository.getEmployeeBoundaries(employeeId, BOUNDARY_TYPE_CITY, HIERARCHY_TYPE_ADMIN);
         return wardBoundaries;
-        
+
     }
 }

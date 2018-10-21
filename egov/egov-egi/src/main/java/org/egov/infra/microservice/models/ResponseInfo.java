@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,7 +63,7 @@ public class ResponseInfo {
     private String msgId;
 
     private String status;
-    
+
     public ResponseInfo(String apiId, String ver, String ts, String resMsgId, String msgId, String status) {
 		this.apiId = apiId;
 		this.ver = ver;
@@ -72,7 +72,7 @@ public class ResponseInfo {
 		this.msgId = msgId;
 		this.status = status;
 	}
-    
+
     public ResponseInfo(){}
 
 	public String getApiId() {
@@ -130,7 +130,7 @@ public class ResponseInfo {
 	}
 	 public enum StatusEnum {
 	        SUCCESSFUL("SUCCESSFUL"),
-	        
+
 	        FAILED("FAILED");
 
 	        private String value;
@@ -156,5 +156,5 @@ public class ResponseInfo {
 	        }
 	      }
 
-	
+
 }

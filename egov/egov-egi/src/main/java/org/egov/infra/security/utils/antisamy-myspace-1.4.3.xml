@@ -2,8 +2,8 @@
 
 
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,7 +52,7 @@
 
 <!--
 W3C rules retrieved from:
-http://www.w3.org/TR/html401/struct/global.html 
+http://www.w3.org/TR/html401/struct/global.html
 -->
 
 
@@ -224,7 +224,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		 	<regexp-list>
 		 		<regexp value="[a-zA-Z0-9,\-\s]+"/>
 		 	</regexp-list>
-		 	
+
 		 	<literal-list>
 		 		<literal value="screen"/>
 		 		<literal value="tty"/>

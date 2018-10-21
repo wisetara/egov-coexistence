@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,7 +52,7 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="org.egov.pims.model.StatusMaster" table="EGEIS_LEAVE_STATUS">
-		
+
 		<id
 							name="id"
 							column="ID"
@@ -64,8 +64,8 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		<property
 			name="name"
 			column="STATUS"
-			
+
 		/>
-		
+
 	</class>
 </hibernate-mapping>

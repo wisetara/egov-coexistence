@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -82,7 +82,7 @@ public class Installment implements Serializable, Comparable<Installment> {
     private String installmentType;
 
     private String finYearRange;
-    
+
 	/**
      * @return Returns the id.
      */
@@ -294,7 +294,7 @@ public class Installment implements Serializable, Comparable<Installment> {
 				.append(module.getName(), inst.getModule().getName())
 				.append(toDate, inst.getToDate()).build();
 	}
-    
+
     public String getFinYearRange() {
 		return finYearRange;
 	}

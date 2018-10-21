@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -113,7 +113,7 @@ public class BrsEntries extends AbstractPersistable<Long>
     private Bankaccount bankaccountId;
 
     private Integer isreversed;
-    
+
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "bankentries", targetEntity = BrsEntrieMis.class)
     private Set<BrsEntrieMis> bankentriesMis = new HashSet<BrsEntrieMis>(0);
 

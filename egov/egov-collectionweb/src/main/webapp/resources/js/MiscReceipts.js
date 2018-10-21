@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -63,36 +63,36 @@ var codeTextMessage='Enter 3 letters';
 
 function resetTables(){
 
-    var length = billCreditDetailsTable.getRecordSet().getLength(); 
-        if(length > 1) { 
-            var count = (length > 2) ? length : 2; 
-            billCreditDetailsTable.deleteRows(1,count); 
-        } 
+    var length = billCreditDetailsTable.getRecordSet().getLength();
+        if(length > 1) {
+            var count = (length > 2) ? length : 2;
+            billCreditDetailsTable.deleteRows(1,count);
+        }
         for(var i=0;i<billDetailTableIndex+1;i++)
 		{
 			if(null != document.getElementById('billCreditDetailslist['+i+'].creditAmountDetail')){
 				document.getElementById('billCreditDetailslist['+i+'].creditAmountDetail').value=0;
-	
+
 			}
 		}
-  var rlength = rebateDetailsTable.getRecordSet().getLength(); 
-       if(rlength > 1) { 
-            var rcount = (rlength > 2) ? rlength : 2; 
-            rebateDetailsTable.deleteRows(1,rcount); 
-        } 
-        
+  var rlength = rebateDetailsTable.getRecordSet().getLength();
+       if(rlength > 1) {
+            var rcount = (rlength > 2) ? rlength : 2;
+            rebateDetailsTable.deleteRows(1,rcount);
+        }
+
         for(var i=0;i<rebateDetailTableIndex+1;i++)
 		{
 			if(null != document.getElementById('billRebateDetailslist['+i+'].debitAmountDetail')){
 				document.getElementById('billRebateDetailslist['+i+'].debitAmountDetail').value=0;
-	
+
 			}
 		}
-  var slength = subLedgersTable.getRecordSet().getLength(); 
-        if(slength > 1) { 
-            var scount = (slength > 2) ? slength : 2; 
-            subLedgersTable.deleteRows(1,scount); 
-        } 
+  var slength = subLedgersTable.getRecordSet().getLength();
+        if(slength > 1) {
+            var scount = (slength > 2) ? slength : 2;
+            subLedgersTable.deleteRows(1,scount);
+        }
 	 for (var j=0; j<slDetailTableIndex+1; j++ )
 		{
 			if(document.getElementById('subLedgerlist['+j+'].glcode.id')!=null){
@@ -141,10 +141,10 @@ function createTextFieldFormatterCredit(prefix,suffix,type,table){
 
     return function(el, oRecord, oColumn, oData) {
     var rec='';
-   
+
 if(table=='billCreditDetailsTable')
 rec=billDetailTableIndex;
-else 
+else
 rec=rebateDetailTableIndex;
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		if(suffix == ".accounthead"){
@@ -152,18 +152,18 @@ rec=rebateDetailTableIndex;
 		}else{
 			el.innerHTML = "<input type='"+type+"' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' style='width:90;' readOnly tabindex='-1' />";
 		}
-		
-	
+
+
 	}
 }
 function createTextFieldFormatterForFunctionCredit(prefix,suffix,table){
 
     return function(el, oRecord, oColumn, oData) {
      var rec='';
-   
+
 if(table=='billCreditDetailsTable')
 rec=billDetailTableIndex;
-else 
+else
 rec=rebateDetailTableIndex;
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' style='width:90px;' onfocus='autocompletecodeFunctionCredit(this,event)' onblur='fillNeibrAfterSplitFunctionCredit(this)' />";
@@ -174,14 +174,14 @@ function createTextFieldFormatterForFunctionRebate(prefix,suffix,table){
 
     return function(el, oRecord, oColumn, oData) {
      var rec='';
-   
+
 if(table=='billCreditDetailsTable')
 rec=billDetailTableIndex;
-else 
+else
 rec=rebateDetailTableIndex;
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' style='width:90px;' onfocus='autocompletecodeFunctionRebate(this,event)' onblur='fillNeibrAfterSplitFunctionRebate(this)' />";
-	
+
 	}
 }
 
@@ -190,10 +190,10 @@ function createTextFieldFormatterRebate(prefix,suffix,type,table){
 
     return function(el, oRecord, oColumn, oData) {
     var rec='';
-   
+
 if(table=='billCreditDetailsTable')
 rec=billDetailTableIndex;
-else 
+else
 rec=rebateDetailTableIndex;
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='"+type+"' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' style='width:90px;' readOnly tabindex='-1'/>";
@@ -204,10 +204,10 @@ function createLongTextFieldFormatterCredit(prefix,suffix,table){
 
     return function(el, oRecord, oColumn, oData) {
      var rec='';
-   
+
 if(table=='billCreditDetailsTable')
 rec=billDetailTableIndex;
-else 
+else
 rec=rebateDetailTableIndex;
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' style='width:400px;' onfocus='autocompletecode(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitGlcodeCredit(this)' />";
@@ -217,10 +217,10 @@ function createLongTextFieldFormatterRebate(prefix,suffix,table){
 
     return function(el, oRecord, oColumn, oData) {
      var rec='';
-   
+
 if(table=='billCreditDetailsTable')
 rec=billDetailTableIndex;
-else 
+else
 rec=rebateDetailTableIndex;
 		var value = (YAHOO.lang.isValue(oData))?oData:"";
 		el.innerHTML = "<input type='text' id='"+prefix+"["+rec+"]"+suffix+"' name='"+prefix+"["+rec+"]"+suffix+"' style='width:400px;' onfocus='autocompletecodeRebate(this,event)' autocomplete='off' onblur='fillNeibrAfterSplitGlcodeRebate(this)' />";
@@ -231,11 +231,11 @@ rec=rebateDetailTableIndex;
 function createAmountFieldFormatterRebate(prefix,suffix,onblurfunction,table){
     return function(el, oRecord, oColumn, oData) {
      var rec='';
-   
+
 	if(table=='billCreditDetailsTable'){
 		rec=billDetailTableIndex;
 	}
-	else{ 
+	else{
 		rec=rebateDetailTableIndex;
 	}
 
@@ -283,7 +283,7 @@ function createcheckbox(prefix,suffix,onclickfunction){
 function createSLDetailCodeTextFieldFormatter(prefix,suffix,onblurfunction){
 	 return function(el, oRecord, oColumn, oData) {
 				el.innerHTML = "<input type='text' id='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' name='"+prefix+"["+slDetailTableIndex+"]"+suffix+"' style='width:90px;' onkeyup='autocompleteForEntity(this,event)' autocomplete='off' tabindex='-1' onblur = 'waterMarkTextOut(\""+prefix+"["+slDetailTableIndex+"]"+suffix+"\",\""+codeTextMessage+"\");"+onblurfunction+"' onfocus='onFocusDetailCode(this);waterMarkTextIn(\""+prefix+"["+slDetailTableIndex+"]"+suffix+"\",\""+codeTextMessage+"\");' />";
-				
+
 			}
 	}
 
@@ -365,22 +365,22 @@ function loadDropDownCodesFunction()
 
 function autocompletecodeFunctionCredit(obj,myEvent)
 {
-	
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0]+"px";	
+
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0]+"px";
 	target.style.top=posSrc[1]-40+"px";
-	target.style.width=650;	
-		
+	target.style.width=650;
+
 	var fObj=obj;
 	//var  currRow=getRowIndex(obj);
 
 	//40 --> Down arrow, 38 --> Up arrow
 	//if(yuiflagFunc[currRow] == undefined)
 	//{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -400,27 +400,27 @@ function autocompletecodeFunctionCredit(obj,myEvent)
 			}
 		}
 		//yuiflagFunc[currRow] = 1;
-	//}	
+	//}
 }
 
 function autocompletecodeFunctionRebate(obj,myEvent)
 {
-	
-	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0]+"px";	
+
+	var src = obj;
+	var target = document.getElementById('codescontainer');
+
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0]+"px";
 	target.style.top=posSrc[1]-40+"px";
-	target.style.width=650;	
-		
+	target.style.width=650;
+
 	var fObj=obj;
 	//var  currRow=getRowIndex(obj);
 
 	//40 --> Down arrow, 38 --> Up arrow
 	//if(yuiflagFunc[currRow] == undefined)
 	//{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -440,7 +440,7 @@ function autocompletecodeFunctionRebate(obj,myEvent)
 			}
 		}
 		//yuiflagFunc[currRow] = 1;
-	//}	
+	//}
 }
 
 function fillNeibrAfterSplitFunctionCredit(obj)
@@ -449,7 +449,7 @@ function fillNeibrAfterSplitFunctionCredit(obj)
 	var temp = obj.value;
 	temp = temp.split("`~~`");
 	if(temp.length>1)
-	{ 
+	{
 		var temp1=temp[0];
 		temp1=temp1.split("`~`");
 		obj.value=temp1[0];
@@ -458,8 +458,8 @@ function fillNeibrAfterSplitFunctionCredit(obj)
 		obj.value='';
 		document.getElementById('billCreditDetailslist['+currRow+'].functionIdDetail').value='';
 	}
-	
-	
+
+
 }
 function fillNeibrAfterSplitFunctionRebate(obj)
 {
@@ -467,7 +467,7 @@ function fillNeibrAfterSplitFunctionRebate(obj)
 	var temp = obj.value;
 	temp = temp.split("`~~`");
 	if(temp.length>1)
-	{ 
+	{
 		var temp1=temp[0];
 		temp1=temp1.split("`~`");
 		obj.value=temp1[0];
@@ -476,26 +476,26 @@ function fillNeibrAfterSplitFunctionRebate(obj)
 		obj.value='';
 		document.getElementById('billRebateDetailslist['+currRow+'].functionIdDetail').value='';
 	}
-	
-	
+
+
 }
 
 var yuiflag = new Array();
 var yuiflag1 = new Array();
 function autocompletecode(obj,myEvent)
-{	var src = obj;	
-	var target = document.getElementById('codescontainer');	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0];	
+{	var src = obj;
+	var target = document.getElementById('codescontainer');
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0];
 	target.style.top=posSrc[1]-40;
-	target.style.width=450;	
+	target.style.width=450;
 	codeObj
 	var coaCodeObj=obj;
 		var  currRow=getRowIndex(obj);
 	//40 --> Down a+rrow, 38 --> Up arrow
 	if(yuiflag[currRow] == undefined)
 	{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -512,7 +512,7 @@ function autocompletecode(obj,myEvent)
 			}
 		}
 		yuiflag[currRow] = 1;
-	}	
+	}
 }
 function getRow(obj){
 	if(!obj)return null;
@@ -528,20 +528,20 @@ function getRow(obj){
 function autocompletecodeRebate(obj,myEvent)
 {
 
-	var src = obj;	
-	var target = document.getElementById('rebatecodescontainer');	
-	var posSrc=findPos(src); 
-	target.style.left=posSrc[0];	
+	var src = obj;
+	var target = document.getElementById('rebatecodescontainer');
+	var posSrc=findPos(src);
+	target.style.left=posSrc[0];
 	target.style.top=posSrc[1]-40;
-	target.style.width=450;	
-		
-	
+	target.style.width=450;
+
+
 	var coaCodeObj=obj;
 		var  currRow=getRowIndex(obj);
 	//40 --> Down a+rrow, 38 --> Up arrow
 	if(yuiflag1[currRow] == undefined)
 	{
-		var key = window.event ? window.event.keyCode : myEvent.charCode;  
+		var key = window.event ? window.event.keyCode : myEvent.charCode;
 		if(key != 40 )
 		{
 			if(key != 38 )
@@ -558,7 +558,7 @@ function autocompletecodeRebate(obj,myEvent)
 			}
 		}
 		yuiflag1[currRow] = 1;
-	}	
+	}
 }
 
 
@@ -576,7 +576,7 @@ function fillNeibrAfterSplitGlcodeCredit(obj)
 	var currRow=getRowIndex(obj);
 	var glcodeId = document.getElementById('billCreditDetailslist['+currRow+'].glcodeIdDetail').value;
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		document.getElementById('billCreditDetailslist['+currRow+'].glcodeIdDetail').value=temp[2];
 		document.getElementById('billCreditDetailslist['+currRow+'].glcodeDetail').value=temp[1];
@@ -587,7 +587,7 @@ function fillNeibrAfterSplitGlcodeCredit(obj)
 		document.getElementById('billCreditDetailslist['+currRow+'].glcodeDetail').value="";
 		document.getElementById('billCreditDetailslist['+currRow+'].accounthead').value="";
 	}
-	
+
 }
 
 function fillNeibrAfterSplitGlcodeRebate(obj)
@@ -597,7 +597,7 @@ function fillNeibrAfterSplitGlcodeRebate(obj)
 	temp = temp.split("`-`");
 	var currRow=getRowIndex(obj);
 	if(temp.length>1)
-	{ 
+	{
 		obj.value=temp[0];
 		document.getElementById('billRebateDetailslist['+currRow+'].glcodeIdDetail').value=temp[2];
 		document.getElementById('billRebateDetailslist['+currRow+'].glcodeDetail').value=temp[1];
@@ -627,7 +627,7 @@ function createDropdownFormatterPJV(prefix){
 			selectEl.tabIndex='-1';
             selectEl = el.appendChild(selectEl);
             YAHOO.util.Event.addListener(selectEl,"change",this._onDropdownChange,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -674,9 +674,9 @@ function createDropdownFormatterDetailCode(prefix){
 				selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 				selectEl.tabIndex='-1';
 	            selectEl = el.appendChild(selectEl);
-	            var selectedIndex = {value: slDetailTableIndex }; 
+	            var selectedIndex = {value: slDetailTableIndex };
 	            YAHOO.util.Event.addListener(selectEl,"change",onDropdownDetailCodeChange,selectedIndex,this);
-				
+
 	        }
 	        selectEl = collection[0];
 	        if(selectEl) {
@@ -704,8 +704,8 @@ function createDropdownFormatterDetailCode(prefix){
 	        }
 	    }
 }
-	
-	var onDropdownDetailCodeChange = function(index,obj) { 
+
+	var onDropdownDetailCodeChange = function(index,obj) {
 		var detailtypeid = document.getElementById('subLedgerlist['+obj.value+'].detailType.id').value;
 			var selecteddetailcode1=document.getElementById('subLedgerlist['+obj.value+'].detailCode').value;
 			var url =  path+'/receipts/ajaxReceiptCreate-ajaxValidateDetailCodeNew.action?code='+selecteddetailcode1+'&detailtypeid='+detailtypeid+'&index='+obj.value;
@@ -730,7 +730,7 @@ function createDropdownFormatterDetailCode(prefix){
 	    failure: function(o) {
 	    	bootbox.alert('unable to load subledger details');
 	    }
-	}	
+	}
 
 function createDropdownFormatterDetail(prefix){
     return function(el, oRecord, oColumn, oData) {
@@ -745,9 +745,9 @@ function createDropdownFormatterDetail(prefix){
             selectEl.name = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
 			selectEl.id = prefix+'['+slDetailTableIndex+'].'+oColumn.getKey();
             selectEl = el.appendChild(selectEl);
-            var selectedIndex = {value: slDetailTableIndex }; 
+            var selectedIndex = {value: slDetailTableIndex };
             YAHOO.util.Event.addListener(selectEl,"change",onDropdownDetailChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -779,8 +779,8 @@ function createDropdownFormatterDetail(prefix){
 }
 
 	var selecteddetailcode;
-	var onDropdownDetailChange = function(index,obj) { 
-		
+	var onDropdownDetailChange = function(index,obj) {
+
 		document.getElementById(SUBLEDGERLIST+'['+obj.value+']'+'.detailCode').placeholder=codeTextMessage;
 		document.getElementById(SUBLEDGERLIST+'['+obj.value+']'+'.detailCode').style.color='DarkGray';
 		document.getElementById(SUBLEDGERLIST+'['+obj.value+']'+'.detailKeyId').value='';
@@ -790,7 +790,7 @@ function createDropdownFormatterDetail(prefix){
 		var detailtypeidObj=document.getElementById('subLedgerlist['+obj.value+'].detailType.id');
 		if(detailTypeId != detailtypeidObj.value){ // checks if the subledgercodes already loaded for that detail type
 			detailTypeId = detailtypeidObj.value;
-			//loadDropDownCodesForEntities(detailtypeidObj); 
+			//loadDropDownCodesForEntities(detailtypeidObj);
 		}
 		if(entities)
 		{
@@ -807,12 +807,12 @@ function onFocusDetailCode(obj){
 	var detailtypeidObj=document.getElementById('subLedgerlist['+currRow+'].detailType.id');
 	if(detailTypeId != detailtypeidObj.value){
 		detailTypeId = detailtypeidObj.value;
-		//loadDropDownCodesForEntities(detailtypeidObj); 
+		//loadDropDownCodesForEntities(detailtypeidObj);
 	}
 }
 
 
-	
+
 function createDropdownFormatterCode(prefix){
     return function(el, oRecord, oColumn, oData) {
         var selectedValue = (lang.isValue(oData)) ? oData : oRecord.getData(oColumn.field),
@@ -828,9 +828,9 @@ function createDropdownFormatterCode(prefix){
 			//selectEl.onfocus=check;
 			selectEl.tabIndex='-1';
             selectEl = el.appendChild(selectEl);
-			var selectedIndex = {value: slDetailTableIndex }; 
+			var selectedIndex = {value: slDetailTableIndex };
             YAHOO.util.Event.addListener(selectEl,"change",onDropdownChange,selectedIndex,this);
-			
+
         }
 
         selectEl = collection[0];
@@ -861,8 +861,8 @@ function createDropdownFormatterCode(prefix){
     }
 }
 var selecteddetailtype;
-var onDropdownChange = function(index,obj) { 
-	
+var onDropdownChange = function(index,obj) {
+
 		var subledgerid=document.getElementById('subLedgerlist['+obj.value+'].glcode.id');
 		var accountCode = subledgerid.options[subledgerid.selectedIndex].text;
 		if(subledgerid.options[subledgerid.selectedIndex].value==0){
@@ -905,7 +905,7 @@ success: function(o) {
 					}
 				}
 			}
-			
+
 			if(eachItem[1]!="error"){
 				try{
 					obj.add(new Option(eachItem[3],eachItem[4]), null);
@@ -920,7 +920,7 @@ success: function(o) {
 		if(obj.options[k].value.trim()==selectedval){
 			obj.options[k].selected=true;
 		}
-	}	
+	}
 	if(onload=='false')
 	{
 		document.getElementById(SUBLEDGERLIST+'['+rowid+']'+'.detailCode').placeholder=codeTextMessage;
@@ -937,7 +937,7 @@ success: function(o) {
 function getDetailType(val){
 	selecteddetailtype=document.getElementById('subLedgerlist['+val+'].detailType.id').value;
 	var detail = document.getElementById('subLedgerlist['+val+'].detailType.id');
-	
+
 	for(k=detail.options.length-1;k>=1;k--)
 	{
 		detail.remove(k);
@@ -958,7 +958,7 @@ function getDetailType(val){
 			document.getElementById(SUBLEDGERLIST+'['+val+']'+'.amount').value='';
 		}
 	}
-		
+
 
 }
 
@@ -968,8 +968,8 @@ function getDetailCode(val){
 	detailCode.value='';
 	document.getElementById(SUBLEDGERLIST+'['+val+']'+'.detailKeyId').value='';
 	document.getElementById(SUBLEDGERLIST+'['+val+']'+'.detailKey').value='';
-	
-	
+
+
 }
 
 function getDetailCodeValue(val){
@@ -982,7 +982,7 @@ function getDetailCodeValue(val){
 
 }
 function check(){
-	
+
 	var accountCodes=new Array();
 	var count=0;
 	for(var i=0;i<billDetailTableIndex+1;i++){
@@ -999,7 +999,7 @@ function check(){
 	}
 	var url =  path+'/receipts/ajaxReceiptCreate-getDetailCode.action?accountCodes='+accountCodes;
 	var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackJV, null);
-	
+
 }
 var callbackJV = {
 success: function(o) {
@@ -1026,9 +1026,9 @@ success: function(o) {
 						d.options[i].selected=true;
 					}
 				}
-								
+
 				getDetailType(j);
-			} 
+			}
 			if(test.length<2)
 			{
 				var d = document.getElementById('subLedgerlist['+j+'].glcode.id');
@@ -1036,7 +1036,7 @@ success: function(o) {
 				{
 					d.remove(k);
 				}
-				
+
 				var detail = document.getElementById('subLedgerlist['+j+'].detailType.id');
 				if(detail!=null){
 					for(var k=detail.options.length-1;k>=1;k--)
@@ -1062,7 +1062,7 @@ success: function(o) {
 }
 function loaddropdown(){
 bootbox.alert(coming);
-	
+
 }
 function updateDebitAmount()
 {
@@ -1106,13 +1106,13 @@ function updatetotalAmount(){
 	else {
 		totalamount=parseFloat(document.getElementById('totalcramount').value);
 	}
-	
+
 	var totalAmountStr=(totalamount>0?totalamount:totalamount);
-	
+
 	document.getElementById('misctotalAmount').value=totalAmountStr;
 	document.getElementById('totalamountdisplay').value=document.getElementById('misctotalAmount').value;
 	if(document.getElementById('instrHeaderCash.instrumentAmount')!=null)
-		document.getElementById('instrHeaderCash.instrumentAmount').value=totalAmountStr;	
+		document.getElementById('instrHeaderCash.instrumentAmount').value=totalAmountStr;
 }
 
 function validateDetailCode(obj)
@@ -1172,26 +1172,26 @@ function validateAccountDetail(){
 	for (var i=0; i<billDetailTableIndex+1; i++)
 	{
 		for (var j=0; j<rebateDetailTableIndex+1; j++ )
-		{	
+		{
 			if(document.getElementById('billCreditDetailslist['+i+'].glcodeDetail')!=null && document.getElementById('billRebateDetailslist['+j+'].glcodeDetail')!=null){
 				var s=document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value.length;
-						
-				if ((document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value.length!=0 && 
+
+				if ((document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value.length!=0 &&
 				document.getElementById('billRebateDetailslist['+j+'].glcodeDetail').value.length!=0)&&
 				(document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value == document.getElementById('billRebateDetailslist['+j+'].glcodeDetail').value ))
 				{
 					document.getElementById('receipt_error_area').innerHTML+='Duplicate record in Rebates/Discounts. Please check account : ' + document.getElementById('billRebateDetailslist['+j+'].glcodeDetail').value+'<br>';
 					return false;
 				}
-				
+
 			}
-			
+
 		}
 	}
 	for (var i=0; i<billDetailTableIndex+1; i++)
 	{
 		for (var j=0; j<billDetailTableIndex+1; j++ )
-		{	
+		{
 			if (i!=j)
 			{
 				if(document.getElementById('billCreditDetailslist['+i+'].glcodeDetail')!=null && document.getElementById('billCreditDetailslist['+j+'].glcodeDetail')!=null  ){
@@ -1202,7 +1202,7 @@ function validateAccountDetail(){
 					}
 				}
 			}
-			
+
 		}
 		if(document.getElementById('billCreditDetailslist['+i+'].glcodeDetail')!=null){
 			if (  document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value.length > 0 && document.getElementById('billCreditDetailslist['+i+'].accounthead').value.length==0)
@@ -1235,20 +1235,20 @@ function validateAccountDetail(){
 				document.getElementById('receipt_error_area').innerHTML+='Account code is missing for credit supplied field'+'<br>';
 				return false;
 			}
-			
+
 			if (credit == 0 && document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value.length!= 0)
 			{
 				document.getElementById('billCreditDetailslist['+i+'].creditAmountDetail').focus();
 				document.getElementById('receipt_error_area').innerHTML+='Please enter credit amount for the account code ' +document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value +'<br>';
 				return false;
 			}
-			
+
 		}
 	}
 	for (var i=0; i<rebateDetailTableIndex+1; i++)
 	{
 		for (var j=0; j<rebateDetailTableIndex+1; j++ )
-		{	
+		{
 			if (i!=j)
 			{
 				if(document.getElementById('billRebateDetailslist['+i+'].glcodeDetail')!=null && document.getElementById('billRebateDetailslist['+j+'].glcodeDetail')!=null){
@@ -1260,7 +1260,7 @@ function validateAccountDetail(){
 					}
 				}
 			}
-			
+
 		}
 		if(document.getElementById('billRebateDetailslist['+i+'].glcodeDetail')!=null){
 			if (document.getElementById('billRebateDetailslist['+i+'].glcodeDetail').value.length > 0 && document.getElementById('billRebateDetailslist['+i+'].accounthead').value.length==0)
@@ -1293,14 +1293,14 @@ function validateAccountDetail(){
 				document.getElementById('receipt_error_area').innerHTML+='Account code is missing for debit supplied field'+'<br>';
 				return false;
 			}
-			
+
 			if (debit==0  && document.getElementById('billRebateDetailslist['+i+'].glcodeDetail').value.length!= 0)
 			{
 				document.getElementById('billRebateDetailslist['+i+'].debitAmountDetail').focus();
 				document.getElementById('receipt_error_area').innerHTML+='Please enter debit/credit amount for the account code ' +document.getElementById('billRebateDetailslist['+i+'].glcodeDetail').value+'<br>';
 				return false;
 			}
-			
+
 		}
 	}
 	if(creditTotal<=0)
@@ -1322,16 +1322,16 @@ var subledgerselected = new Array();
 			for (var j=0; j<slDetailTableIndex+1; j++ )
 			{
 				if(document.getElementById('subLedgerlist['+j+'].glcode.id')!=null){
-			
+
 					var accountCode = document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value;
 					var subledgerid = document.getElementById('subLedgerlist['+j+'].glcode.id');
 					var detailtypeid = document.getElementById('subLedgerlist['+j+'].detailType.id');
 					var detailKeyid = document.getElementById('subLedgerlist['+j+'].detailKeyId').value
-				
+
 						var subledgerAccCode =0;
 					if(subledgerid!='null')
 						subledgerAccCode= subledgerid.options[subledgerid.selectedIndex].value;
-					
+
 					if( ( subledgerAccCode !=0) && (detailtypeid.value == "" || detailKeyid ==""))
 					{
 							document.getElementById('receipt_error_area').innerHTML += "Please enter subledger details correctly<br>";
@@ -1350,7 +1350,7 @@ var subledgerselected = new Array();
 					if (accountCode == subledgerid.options[subledgerid.selectedIndex].text.trim())
 					{
 						if(eval(document.getElementById('billCreditDetailslist['+i+'].creditAmountDetail').value) > 0){
-		
+
 							accountDetailamount = document.getElementById('billCreditDetailslist['+i+'].creditAmountDetail').value;
 						}
 						subledgerTotalAmt = subledgerTotalAmt + eval(document.getElementById('subLedgerlist['+j+'].amount').value);
@@ -1366,12 +1366,12 @@ var subledgerselected = new Array();
 						}
 						if(found == 0)subledgerselected[subledgerselected.length+1] = subledgerAccCode;
 					}
-					
+
 					//document.getElementById('subLedgerlist['+j+'].subledgerCode').value= subledgerid.options[subledgerid.selectedIndex].text;
 					//document.getElementById('subLedgerlist['+j+']'+'.detailTypeName').value =  detailtypeid.options[detailtypeid.selectedIndex].text;
 				}
 			}
-		
+
 			if(Math.round(accountDetailamount*100)/100  != Math.round(subledgerTotalAmt*100)/100)
 			{
 				document.getElementById('receipt_error_area').innerHTML += "Total subledger amount is not matching for account code : "+ document.getElementById('billCreditDetailslist['+i+'].glcodeDetail').value+'<br>';
@@ -1379,7 +1379,7 @@ var subledgerselected = new Array();
 			}
 		}
 	}
-	
+
 	return true;
 }
 
@@ -1390,7 +1390,7 @@ var subledgerselected = new Array();
 	{
 		var accountDetailamount=0;
 		var subledgerTotalAmt=0;
-		
+
 		if(document.getElementById('billRebateDetailslist['+i+'].glcodeDetail')!=null){
 			for (var j=0; j<slDetailTableIndex+1; j++ )
 			{
@@ -1400,12 +1400,12 @@ var subledgerselected = new Array();
 						var subledgerid = document.getElementById('subLedgerlist['+j+'].glcode.id');
 						var detailtypeid = document.getElementById('subLedgerlist['+j+'].detailType.id');
 						var detailKeyid = document.getElementById('subLedgerlist['+j+'].detailKeyId').value
-					
-						
-						
+
+
+
 							var subledgerAccCode = subledgerid.options[subledgerid.selectedIndex].value;
-						
-					
+
+
 						if( ( subledgerAccCode !=0) && (detailtypeid.value == "" || detailKeyid ==""))
 						{
 								document.getElementById('receipt_error_area').innerHTML += "Please enter subledger details correctly"+'<br>';
@@ -1419,10 +1419,10 @@ var subledgerselected = new Array();
 						if (accountCode == subledgerid.options[subledgerid.selectedIndex].text.trim())
 						{
 							if(eval(document.getElementById('billRebateDetailslist['+i+'].debitAmountDetail').value) >0){
-			
+
 								accountDetailamount = document.getElementById('billRebateDetailslist['+i+'].debitAmountDetail').value;
-					
-							} 
+
+							}
 							subledgerTotalAmt = subledgerTotalAmt + eval(document.getElementById('subLedgerlist['+j+'].amount').value);
 						}
 						if(subledgerselected == 0){
@@ -1436,12 +1436,12 @@ var subledgerselected = new Array();
 							}
 							if(found == 0)subledgerselected[subledgerselected.length+1] = subledgerAccCode;
 						}
-						
+
 						document.getElementById('subLedgerlist['+j+'].subledgerCode').value= subledgerid.options[subledgerid.selectedIndex].text;
 						document.getElementById('subLedgerlist['+j+']'+'.detailTypeName').value =  detailtypeid.options[detailtypeid.selectedIndex].text;
 				}
 			}
-			
+
 			if(Math.round(accountDetailamount*100)/100  != Math.round(subledgerTotalAmt*100)/100)
 			{
 				document.getElementById('receipt_error_area').innerHTML += "Total subledger amount is not matching for account code : "+ document.getElementById('billRebateDetailslist['+i+'].glcodeDetail').value+'<br>';
@@ -1449,7 +1449,7 @@ var subledgerselected = new Array();
 			}
 		}
 	}
-	
+
 	return true;
 }
 
@@ -1463,16 +1463,16 @@ function checkLength(obj)
 }
 
 function updateAccountTableIndex(){
-	
+
 	billDetailTableIndex = billDetailTableIndex +1 ;
 	patternvalidation();
 }
 function updateSLTableIndex(){
-	
+
 	 slDetailTableIndex = slDetailTableIndex +1 ;
 }
 function updateRebateDetailTableIndex(){
-	
+
 	 rebateDetailTableIndex = rebateDetailTableIndex +1 ;
 }
 function validateAlphaNumeric( strValue )
@@ -1525,7 +1525,7 @@ var  currRow=getRowIndex(obj);
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url, callbackAutoCompleteEntities, null);
 			}
 		}
-		
+
 	}
 }
 
@@ -1538,29 +1538,29 @@ var callbackAutoCompleteEntities = {
 		var eachEntity = a[0];
 		entitiesArray=eachEntity.split("+");
 		entities = new YAHOO.widget.DS_JSArray(entitiesArray);
-		var src = entobj;	
-	var target = document.getElementById('subledgercodescontainer');	
-	var posSrc=findPos(src); 
-	
-	target.style.left=posSrc[0]+"px";	
+		var src = entobj;
+	var target = document.getElementById('subledgercodescontainer');
+	var posSrc=findPos(src);
+
+	target.style.left=posSrc[0]+"px";
 	target.style.top=posSrc[1]-40+"px";
-	target.style.width=650;	
-	      		
-	
+	target.style.width=650;
+
+
 	var coaCodeObj=entobj;
 if(onElementFocused(entobj))//To check if the element is still under focus
 {
 	var  currRow=getRowIndex(entobj);
 	//40 --> Down arrow, 38 --> Up arrow
-	if(yuiflag2[currRow] == undefined)//To make sure autocomplete instance is created only once with that event 
+	if(yuiflag2[currRow] == undefined)//To make sure autocomplete instance is created only once with that event
 	{
-		var key = window.event ? window.event.keyCode : entevent.charCode;  
+		var key = window.event ? window.event.keyCode : entevent.charCode;
 
 		if(key != 40 )
 		{
 			if(key != 38 )
 			{
-				
+
 				oAutoCompEntity = new YAHOO.widget.AutoComplete(coaCodeObj,'subledgercodescontainer', entities);
 				oAutoCompEntity.queryDelay = 0;
 				oAutoCompEntity.prehighlightClassName = "yui-ac-prehighlight";
@@ -1584,7 +1584,7 @@ if(onElementFocused(entobj))//To check if the element is still under focus
 
 }
 HideImage(entobj);
-	
+
     },
     failure: function(o) {
     	bootbox.alert('failure');
@@ -1606,7 +1606,7 @@ function splitEntitiesDetailCode(obj)
 			document.getElementById(SUBLEDGERLIST+'['+currRow+']'+'.detailKeyId').value=entity_array[2];
 			document.getElementById(SUBLEDGERLIST+'['+currRow+']'+'.detailKey').value=entity_array[1];
 			var glcodenew=document.getElementById(SUBLEDGERLIST+'['+currRow+']'+'.glcode.id');
-			
+
 		}
 		else{
 			validateDetailCode(obj);// to validate for the code/name on blur
@@ -1621,17 +1621,17 @@ function splitEntitiesDetailCode(obj)
 function ShowImage(obj)
 {
  obj.style.backgroundImage  = 'url('+path+'/images/LoadingV2.gif)';
- 
+
  obj.style.backgroundRepeat= 'no-repeat';
-                    
+
  obj.style.backgroundPosition = 'right';
 }
 function HideImage(obj)
 {
  obj.style.backgroundImage  = 'none';
-} 
+}
 function onElementFocused(e)
 {
     return document.activeElement ==e?true:false;
-       
-} 
+
+}

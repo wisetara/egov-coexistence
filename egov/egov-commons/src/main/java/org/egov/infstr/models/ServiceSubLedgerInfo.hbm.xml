@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -52,20 +52,20 @@ PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 
 <hibernate-mapping>
 	<class name="org.egov.infstr.models.ServiceSubledgerInfo" table="egcl_service_subledgerinfo" >
-		
+
 		<id name="id" column="ID" type="long" unsaved-value="null">
 			<generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
 				<param name="sequence_name">seq_egcl_service_subledgerinfo</param>
 			</generator>
 		</id>
-		
+
   		<many-to-one name="detailType" class="org.egov.commons.Accountdetailtype" fetch="select">
             <column name="accountdetailtype" not-null="true" />
-        </many-to-one>    
-        
+        </many-to-one>
+
         <property name="detailKeyId" column="accountdetailkey" type="integer" />
         <property name="amount" column="AMOUNT" type="java.math.BigDecimal" precision="15" scale="2"/>
-		<many-to-one name="serviceAccountDetail" class="org.egov.infstr.models.ServiceAccountDetails" 
+		<many-to-one name="serviceAccountDetail" class="org.egov.infstr.models.ServiceAccountDetails"
 					column="serviceaccountdetail" fetch="select" not-null="true"/>
 	</class>
 </hibernate-mapping>

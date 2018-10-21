@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -204,7 +204,7 @@
 			<s:if test="%{paymentHeaderList.size!=0}">
 				dom.get('msgdiv').style.display='none';
 				dom.get('listid').style.display='block';
-			</s:if>	
+			</s:if>
 	function validate(){
 		var fromDate = document.getElementById('fromDate').value;
 		var toDate = document.getElementById('toDate').value;

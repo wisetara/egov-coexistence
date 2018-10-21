@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -79,7 +79,7 @@ public class RelationJpaService {
 
 	@Autowired
 	AccountDetailKeyService accountDetailKeyService;
-	
+
 	@Autowired
 	AccountdetailtypeService accountdetailtypeService;
 	@Autowired
@@ -90,14 +90,14 @@ public class RelationJpaService {
 	@Transactional
 	public Relation create(Relation relation) {
 		 relation =relationRepository.save(relation);
-		 
+
 		 Accountdetailkey ac=new Accountdetailkey();
 		 ac.setDetailkey(relation.getId());
 		 ac.setDetailname(relation.getName());
 		 ac.setGroupid(1);
 		 ac.setAccountdetailtype(accountdetailtypeService.findByName("Supplier"));
 		 accountDetailKeyService.create(ac);
-		 
+
 		 return relation;
 	}
 
@@ -135,14 +135,14 @@ public class RelationJpaService {
 	}
 
 	public List<Relation> search(Relation relation) {
-		
+
 		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Relation> createQuery = cb.createQuery(Relation.class);
 		Root<Relation> relations = createQuery.from(Relation.class);
 		createQuery.select(relations);
 		Metamodel m = entityManager.getMetamodel();
 		EntityType<Relation> Relation_ = m.entity(Relation.class);
-    
+
 		List<Predicate> predicates = new ArrayList<Predicate>();
 		if(relation.getName()!=null)
 		{
@@ -162,19 +162,19 @@ public class RelationJpaService {
 			predicates.add(cb.isNotNull(relations.get("mobile")));
 			predicates.add(cb.like(cb.lower(relations.get(Relation_.getDeclaredSingularAttribute("mobile", String.class))),mobile));
 		}
-		
+
 		if(relation.getPanno()!=null )
 		{
 			String panno=relation.getPanno();
 			predicates.add(cb.isNotNull(relations.get("panno")));
 			predicates.add(cb.like(cb.lower(relations.get(Relation_.getDeclaredSingularAttribute("panno", String.class))),panno));
 		}
-		
+
 		createQuery.where(predicates.toArray(new Predicate[]{}));
 		TypedQuery<Relation> query=entityManager.createQuery(createQuery);
 		List<Relation> resultList = query.getResultList();
 		return resultList;
-		
-	} 
-	
+
+	}
+
 }

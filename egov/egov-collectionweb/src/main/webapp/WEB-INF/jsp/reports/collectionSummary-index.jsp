@@ -1,6 +1,6 @@
  <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -100,7 +100,7 @@ function validate()
 
 		return valSuccess;
 	}
-	
+
 function onChangeServiceClass(obj)
 {
     if(obj!=null && obj.value!=null && obj.value!='-1'){
@@ -154,8 +154,8 @@ function onChangeServiceClass(obj)
 			<td class="bluebox">
 				<s:text name="collectionReport.criteria.payment.mode"/></td>
 	        <td class="bluebox"><s:select headerKey="ALL"
-				headerValue="%{getText('collectionReport.payment.mode.all')}" 
-				name="paymentMode" id="paymentMode" cssClass="selectwk" 
+				headerValue="%{getText('collectionReport.payment.mode.all')}"
+				name="paymentMode" id="paymentMode" cssClass="selectwk"
 				list="paymentModes" value="%{paymentMode}" /> </td>
 				<td class="bluebox"><s:text
 							name="collectionReport.criteria.source" /></td>
@@ -201,7 +201,7 @@ function onChangeServiceClass(obj)
 <div align="left" class="mandatorycoll"><s:text name="common.mandatoryfields"/></div>
     <br/>
 	</div>
-	
+
 	<div class="buttonbottom">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -48,19 +48,19 @@
 
 <%@ include file="/includes/taglibs.jsp" %>
 
-<html>  
+<html>
 <head>
 
-     <title><s:text name="serviceCategory.edit.title"/></title> 
+     <title><s:text name="serviceCategory.edit.title"/></title>
 <script>
 function onSubmit(obj){
 	document.forms[0].action=obj;
 	document.forms[0].submit;
    return true;
 }
-</script> 
-</head>  
-	<body>  
+</script>
+</head>
+	<body>
 	<s:if test="%{hasErrors()}">
 		<div class="errorstyle">
 			<s:actionerror />
@@ -73,17 +73,17 @@ function onSubmit(obj){
 	</s:if>
 		<span>
 		              <font  style='color: red ; font-weight:bold ' size="2">
-                               <s:actionerror/>  
+                               <s:actionerror/>
                                <s:fielderror />
                                </font>
           </span>
-		
-		<s:form action="serviceCategory" theme="simple" >  
+
+		<s:form action="serviceCategory" theme="simple" >
 		   		<div class="subheadnew"></div>
 		   		<s:push value="model">
-		   <s:hidden name="id" id="id" value="%{id}"/> 
+		   <s:hidden name="id" id="id" value="%{id}"/>
 			<div align="left" class="mandatory1"> &nbsp;&nbsp;&nbsp;&nbsp;* Mandatory Fields</div>
-	 		
+
 	 		<div class="buttonbottom">
 	 			<s:submit name="button1" cssClass="buttonsubmit" id="button32" onclick="return onSubmit('serviceTypeToBankAccountMapping-save.action');" value="Save"/>
 				<input name="button2" type="submit" class="buttonsubmit" id="button" onclick="return onSubmit('serviceTypeToBankAccountMapping-list');" value="List"/>
@@ -91,6 +91,6 @@ function onSubmit(obj){
 				<input name="button4" type="button" class="button" id="button" onclick="window.close()" value="Close"/>
 			</div>
 			</s:push>
- 		</s:form>  
-    </body>  
+ 		</s:form>
+    </body>
 </html>

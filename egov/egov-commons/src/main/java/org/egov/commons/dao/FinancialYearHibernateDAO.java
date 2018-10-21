@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -329,12 +329,12 @@ public class FinancialYearHibernateDAO implements FinancialYearDAO {
         query.setDate("sDate", date);
         return query.list();
     }
-    
+
     /**
      * returns active FY from the given date
      * example: 01-04-2016 is given then it will return 2016-17,2017-18 and so on till current financial year
      */
-    
+
     public List<CFinancialYear> getFinancialYearsAfterFromDate(Date date) {
         Query query = getCurrentSession()
                 .createQuery(

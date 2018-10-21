@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -154,7 +154,7 @@
 						<div id="billDetailTable"></div>
 					</div>
 					<script type="text/javascript">
-		
+
 		makeVoucherDetailTable();
 		document.getElementById('billDetailTable').getElementsByTagName('table')[0].width="90%"
 	 </script type="text/javascript" >
@@ -170,9 +170,9 @@
 						<div id="subLedgerTable"></div>
 					</div>
 					<script type="text/javascript">
-			
+
 			makeSubLedgerTable();
-			
+
 			document.getElementById('subLedgerTable').getElementsByTagName('table')[0].width="90%"
 		</script>
 
@@ -226,7 +226,7 @@
 
 	<script type="text/javascript">
 function validateApproverUser(name,value){
-//	bootbox.alert("name value"+name);    
+//	bootbox.alert("name value"+name);
 	document.getElementById("actionName").value= name;
 	<s:if test='%{! wfitemstate.equalsIgnoreCase("END")}'>
 		if(!validateUser(name,value)){
@@ -239,7 +239,7 @@ function onSubmit()
 	if(validateAndSubmitJV())
 		document.forms[0].action='${pageContext.request.contextPath}/voucher/journalVoucherModify-update.action';
 	document.forms[0].submit();
-			
+
 }
 function validateAndSubmitJV()
 {
@@ -278,7 +278,7 @@ function validateJV()
 			return false;
 		}
 	} */
-	
+
 	var varVType = document.getElementById('vType').value;
 	if( varVType != 'JVGeneral' && varVType != '-1' )	{
 		if(document.getElementById('voucherTypeBean.partyName').value == '' ) {
@@ -287,7 +287,7 @@ function validateJV()
 			return false;
 		}
 	}
-		
+
 	if(!validateMIS())	return false;
 	//if(!validateApproverUser(name,value)) return false;
 	return true;
@@ -311,7 +311,7 @@ function validateJV()
 		} else {
 			document.getElementById('partyNameDivId').style.display='inline';
 		}
-		document.getElementById('vType').disabled=true; 
+		document.getElementById('vType').disabled=true;
 		// code- JV subtype - ends
 		var target = '<s:property value="target"/>';
 		var saveMode='<s:property value="saveMode"/>';

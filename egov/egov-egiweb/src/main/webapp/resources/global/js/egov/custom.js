@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -26,12 +26,12 @@
  *
  *         1) All versions of this program, verbatim or modified must carry this
  *            Legal Notice.
- *            Further, all user interfaces, including but not limited to citizen facing interfaces, 
- *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any 
+ *            Further, all user interfaces, including but not limited to citizen facing interfaces,
+ *            Urban Local Bodies interfaces, dashboards, mobile applications, of the program and any
  *            derived works should carry eGovernments Foundation logo on the top right corner.
  *
  *            For the logo, please refer http://egovernments.org/html/logo/egov_logo.png.
- *            For any further queries on attribution, including queries on brand guidelines, 
+ *            For any further queries on attribution, including queries on brand guidelines,
  *            please contact contact@egovernments.org
  *
  *         2) Any misrepresentation of the origin of the material is prohibited. It
@@ -52,7 +52,7 @@ $(document).ready(function()
 	jQuery.fn.preventDoubleSubmission = function() {
 	  $(this).on('submit',function(e){
 	    var $form = $(this);
-	 
+
 	    if ($form.data('submitted') === true) {
 	      // Previously submitted - don't submit again
 	      e.preventDefault();
@@ -61,13 +61,13 @@ $(document).ready(function()
 	      $form.data('submitted', true);
 	    }
 	  });
-	 
+
 	  // Keep chainability
 	  return this;
 	};
-	
+
 	$('form').preventDoubleSubmission();
-	
+
 	$(".is_valid_number").on("input", function(){
         var regexp = /[^0-9]/g;
 		if($(this).val().match(regexp)){
@@ -86,14 +86,14 @@ $(document).ready(function()
 			$(this).val( $(this).val().replace(regexp,'') );
 		}
 	});
-	
+
 	$(".is_valid_alphaNumWithsplchar").on("input", function(){
 		var regexp =  /[^a-zA-Z0-9_@./#&+-]*$/;
 		if($(this).val().match(regexp)){
 			$(this).val( $(this).val().replace(regexp,'') );
 		}
 	});
-	
+
 	$(".is_valid_alphanumeric").on("input", function(){
 		var regexp = /[^a-zA-Z _0-9]/g;
 		if($(this).val().match(regexp)){
@@ -107,14 +107,14 @@ $(document).ready(function()
 		}
 	});
 	try { $('.twitter-typeahead').css('display','block'); } catch(e){}
-	
+
 	try { $(":input").inputmask(); }catch(e){}
-	
-	try { 
+
+	try {
 		$(".datepicker").datepicker({
 			format: "dd/mm/yyyy",
-			autoclose: true 
-		}); 
+			autoclose: true
+		});
 
 		var d = new Date();
 		var currDate = d.getDate();
@@ -126,45 +126,45 @@ $(document).ready(function()
 		}catch(e){
 		//console.warn("No Date Picker");
 	}
-	
-	try { 
+
+	try {
 		$('[data-toggle="tooltip"]').tooltip({
 			'placement': 'bottom'
 		});
 		}catch(e){
 		//console.warn("No tooltip");
 	}
-		
+
 	try{
-		
+
 		$('.select2').select2({
 			placeholder: "Select",
 			minimumResultsForSearch: 1,
 			width:'100%'
 		});
-		
+
 		$('select').on('select2:close', function (evt) {
 		  	$(this).focus();
 		});
-		
+
 	}catch(e){
 		//console.log('No select2');
 	}
-	
+
 	$("a.open-popup").click(function(e) {
-		window.open(this.href, ''+$(this).attr('data-strwindname')+'', 'width=900, height=700, top=300, left=260,scrollbars=yes'); 
+		window.open(this.href, ''+$(this).attr('data-strwindname')+'', 'width=900, height=700, top=300, left=260,scrollbars=yes');
 		return false;
 	});
-	
+
 	$(document).on('click', 'a.open-popup', function(e) {
-		window.open(this.href, ''+$(this).attr('data-strwindname')+'', 'width=900, height=700, top=300, left=260,scrollbars=yes'); 
+		window.open(this.href, ''+$(this).attr('data-strwindname')+'', 'width=900, height=700, top=300, left=260,scrollbars=yes');
 		return false;
 	});
-	
+
 	$("form.form-horizontal[data-ajaxsubmit!='true']").submit(function( event ) {
 		$('.loader-class').modal('show', {backdrop: 'static'});
 	});
-	
+
 	//fade out success message
 	$(".alert-success").fadeTo(5000, 500).slideUp(500, function(){
    		$(".alert-success").alert('close');
@@ -183,12 +183,12 @@ $(document).ready(function()
 			 });
 		 }
 	}
-	
+
 	function offsettoinvalid(){
 		off = (elements[0].offsetTop + 50);
 		$('html, body').animate({scrollTop: off }, 0);
 	}
-	
+
 	try{
 		jQuery.extend(jQuery.validator.messages, {
 			required: "Required"
@@ -198,7 +198,7 @@ $(document).ready(function()
 	}
 
 	$('form[data-ajaxsubmit="true"]').submit(function(e){
-		
+
 		var formData = new FormData($(this)[0]);
 		var formAction = $(this).attr('action');
 
@@ -227,8 +227,8 @@ $(document).ready(function()
 	        error: function (xhr, ajaxOptions, thrownError) {
 	        	//generic error message with error code
 	            var errormsg = 'Error '+xhr.status+' '+ thrownError +'. please, try again!';
-	            //add error alert in current page  
-	            $('.main-content').prepend('<div id="notifyerror" class="alert alert-danger" role="alert"> <div> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span> '+ errormsg +' </div> ');	            
+	            //add error alert in current page
+	            $('.main-content').prepend('<div id="notifyerror" class="alert alert-danger" role="alert"> <div> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span> '+ errormsg +' </div> ');
 	        },
 	        cache: false,
 	        contentType: false,
@@ -236,22 +236,22 @@ $(document).ready(function()
 	    });
 
 	    return false;
-		
+
 	});
-	
+
 	$('.signout').click(function(){
 		$.each( openedWindows, function( i, val ) {
 			var window = val;
 			window.close();
 		});
 	});
-	
+
 });
 
 function pageScrollTop()
 {
     var body = $("html, body");
-    body.stop().animate({scrollTop:0}, '500', 'swing', function() { 
+    body.stop().animate({scrollTop:0}, '500', 'swing', function() {
        //bootbox.alert("Finished animating");
     });
 }
@@ -260,10 +260,10 @@ function DateValidation(start , end){
     if (start != "" && end != "") {
 		var stsplit = start.split("/");
 		var ensplit = end.split("/");
-		
+
 		start = stsplit[1] + "/" + stsplit[0] + "/" + stsplit[2];
 		end = ensplit[1] + "/" + ensplit[0] + "/" + ensplit[2];
-		
+
 		return ValidRange(start, end);
 	}else{
 		return true;
@@ -274,7 +274,7 @@ function ValidRange(start, end) {
 	var retvalue = false;
     var startDate = Date.parse(start);
     var endDate = Date.parse(end);
-	
+
     // Check the date range, 86400000 is the number of milliseconds in one day
     var difference = (endDate - startDate) / (86400000 * 7);
     if (difference < 0) {
@@ -308,10 +308,10 @@ function typeaheadWithEventsHandling(typeaheadobj, hiddeneleid, dependentfield)
 {
 	  typeaheadobj.on('typeahead:selected', function(event, data){
 		//setting hidden value
-		$(hiddeneleid).val(data.value);    
+		$(hiddeneleid).val(data.value);
 	    }).on('keydown', this, function (event) {
 	    	var e = event;
-	    	
+
 	    	var position = $(this).getCursorPosition();
 	        var deleted = '';
 	        var val = $(this).val();
@@ -329,7 +329,7 @@ function typeaheadWithEventsHandling(typeaheadobj, hiddeneleid, dependentfield)
 	        else if (e.which == 46) {
 	            var val = $(this).val();
 	            if (position[0] == position[1]) {
-	                
+
 	                if (position[0] === val.length)
 	                    deleted = '';
 	                else
@@ -339,17 +339,17 @@ function typeaheadWithEventsHandling(typeaheadobj, hiddeneleid, dependentfield)
 	                deleted = val.substring(position[0], position[1]);
 	            }
 	        }
-	        
-	        if(deleted){ 
-	        	$(hiddeneleid).val(''); 
+
+	        if(deleted){
+	        	$(hiddeneleid).val('');
 	        	cleardependentfield(dependentfield);
         	}
 
         }).on('keypress', this, function (event) {
         	//getting charcode by independent browser
         	var evt = (evt) ? evt : event;
-        	var charCode = (evt.which) ? evt.which : 
-                ((evt.charCode) ? evt.charCode : 
+        	var charCode = (evt.which) ? evt.which :
+                ((evt.charCode) ? evt.charCode :
                   ((evt.keyCode) ? evt.keyCode : 0));
         	//only characters keys condition
 	    	if((charCode >= 32 && charCode <= 127)){
@@ -357,10 +357,10 @@ function typeaheadWithEventsHandling(typeaheadobj, hiddeneleid, dependentfield)
 	    	    $(hiddeneleid).val('');
 	    	    cleardependentfield(dependentfield);
 	    	}
-        }).on('focusout', this, function (event) { 
+        }).on('focusout', this, function (event) {
     	    //focus out clear textbox, when no values selected from suggestion list
     	    if(!$(hiddeneleid).val())
-    	    {	
+    	    {
     	    	$(this).typeahead('val', '');
         		cleardependentfield(dependentfield);
     	    }
@@ -388,7 +388,7 @@ function disableRefresh(e) {
 	else if(key == 116){
 		e.preventDefault();
 	}
-			
+
 }
 
 function preventBack(){
@@ -399,12 +399,12 @@ function preventBack(){
 }
 
 function select2initialize(obj,data,multiple){
-	
+
 	obj.empty();
-	
+
 	if(!multiple)
 		obj.append("<option value=''>Select</option>");
-	
+
 	$('.select2').select2({
 		allowClear: true,
         placeholder: "Select",
@@ -413,5 +413,5 @@ function select2initialize(obj,data,multiple){
 		multiple : multiple,
 		width:'100%'
 	});
-	
+
 }

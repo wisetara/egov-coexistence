@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -53,7 +53,7 @@
 
 <div class="panel panel-primary" data-collapsed="0">
 	<div class="panel-heading">
-		
+
 	</div>
 	<div class="form-group">
 		<c:choose>
@@ -65,7 +65,7 @@
 					<form:input path="voucherNumber" id="voucherNumber" class="form-control patternvalidation" data-pattern="alphanumericwithspecialcharacters" maxlength="50" required="required" />
 					<form:errors path="voucherNumber" cssClass="add-margin error-msg" />
 				</div>
-				
+
 				<label class="col-sm-2 control-label text-right"><spring:message code="lbl.voucherdate" />
 				</label>
 				<div class="col-sm-3 add-margin">
@@ -85,13 +85,13 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
-		
+
 	</div>
-	
+
 	<jsp:include page="journalvoucher-subtype.jsp"/>
-	
+
 	<jsp:include page="voucher-trans-filter.jsp"/>
-	
+
 	<div class="form-group">
 		<label class="col-sm-3 control-label text-right">
 			<spring:message code="lbl.narration" />
@@ -100,11 +100,11 @@
 			<form:textarea path="description" id="description" class="form-control" maxlength="300" ></form:textarea>
 			<form:errors path="description" cssClass="add-margin error-msg" />
 		</div>
-				
+
 		<label class="col-sm-2 control-label text-right">
 		</label>
 		<div class="col-sm-3 add-margin">
 		</div>
 	</div>
-	
+
 </div>

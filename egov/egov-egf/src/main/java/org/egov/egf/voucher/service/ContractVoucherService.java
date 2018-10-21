@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -60,19 +60,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ContractVoucherService {
-    
+
     public List<ErrorDetail> validateVoucherReuest(final VoucherRequest request) {
         final List<ErrorDetail> errors = new ArrayList<>();
         ErrorDetail errorDetails = new ErrorDetail();
-        
+
         if (request == null) {
             errorDetails.setErrorCode("EGF-VOUCHER-1");
             errorDetails.setErrorMessage("Please send valid JSON request");
             errors.add(errorDetails);
         }
-        
+
         Voucher  voucher = request.getVouchers().get(0);
-        
+
         if (voucher.getLedgers().size() > 100) {
             errorDetails.setErrorCode("EGF-VOUCHER-2");
             errorDetails.setErrorMessage("Account Details size cannot be greater then 30");
@@ -84,9 +84,9 @@ public class ContractVoucherService {
             errorDetails.setErrorMessage("Account Details List cannot be empty");
             errors.add(errorDetails);
         }
-        
+
         validateVoucherDate(voucher, errors, errorDetails, request);
-     
+
         return errors;
     }
 
@@ -97,7 +97,7 @@ public class ContractVoucherService {
             errorDetails.setErrorMessage("Voucher Date cannot be empty");
             errors.add(errorDetails);
         }
-        
+
         if (request != null && !request.getVoucherDate().isEmpty()) {
             final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             Date voucherDate = null;

@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -59,7 +59,7 @@ import java.text.MessageFormat;
 @Service
 @Transactional(readOnly = true)
 public class MessageTemplateService {
-    
+
     @Autowired
     private MessageTemplateRepository messageTemplateRepository;
 

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -59,7 +59,7 @@
 	 <div class="errorstyle" id="error_area" style="display:none;"></div>
 	<div class="formmainbox">
 	<div class="subheadnew"><s:text name="service.list.service"></s:text> </div>
-	
+
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td class="bluebox"  style="font-size:14px;"> <b><s:text name="service.master.search.category"></s:text></b> : &nbsp;&nbsp;&nbsp; <s:property value="model.serviceCategory.name"/>  </td>
@@ -72,16 +72,16 @@
 	<div align="center">
 		<table width="100%" border="1"colspan="5" >
 
-		
+
 		<tr>
 			<th class="bluebgheadtd" width="5%"> <s:text name="service.select.table.header"/></th>
 			<th class="bluebgheadtd" width="5%" style="text-align:left;" > <s:text name="service.slNo.table.header"/></th>
 			<th class="bluebgheadtd" width="20"> <s:text name="service.create.code"/></th>
 			<th class="bluebgheadtd" style="text-align:left;" width="40%"> <s:text name="service.create.name"/></th>
 			<th class="bluebgheadtd" width="5%"> <s:text name="service.master.enable"/></th>
-		
+
 		</tr>
-		<s:iterator var="p" value="%{serviceCategory.services}" status="s"> 
+		<s:iterator var="p" value="%{serviceCategory.services}" status="s">
 				<tr>
 					<s:hidden id="serviceId" name="serviceId"/>
 					<td width="5%"  class="bluebox"><input type="radio" onclick='dom.get("serviceId").value = <s:property value="id"/>'  name="radioButton1"/>  </td>
@@ -92,7 +92,7 @@
 				</tr>
 		</s:iterator>
 
-	</table>	
+	</table>
 	</div>
 	</s:if>
 	<s:else>
@@ -101,32 +101,32 @@
 	 	</div>
 	</s:else>
 	</div>
-	
+
 	<div class="buttonbottom">
 		<s:if test="%{null != serviceCategory.services && serviceCategory.services.size() >0}">
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"
-					value="View" 
+					value="View"
 					onclick="return validate('serviceDetails-view.action');" />
 			</label>&nbsp;
-			
+
 			<label>
 				<s:submit type="submit" cssClass="buttonsubmit" id="button"
-					value="Modify" 
+					value="Modify"
 					onclick="return validate('serviceDetails-beforeModify.action');" />
-			</label>	
+			</label>
 			</s:if>
 			<s:else>
 				<input type="button" id="back" value="Back" onclick="window.location='${pageContext.request.contextPath}/service/serviceDetails-newform.action?serviceCategoryId=<s:property value='%{serviceCategoryId}'/>';"  class="buttonsubmit"/>
 			</s:else>
 			<label>
 				<input type="button"  class="buttonsubmit" id="button"
-					value="Create Service" 
+					value="Create Service"
 					onclick="window.location='${pageContext.request.contextPath}/service/serviceDetails-beforeCreate.action?serviceCategoryId=<s:property value='%{serviceCategoryId}'/>';" />
 			</label>&nbsp;
 			<label>
 			<input type="button" id="Close" value="Close" onclick="javascript:window.close()" class="buttonsubmit"/>
-			</label>	
+			</label>
 		</div>
 </s:push>
 </s:form>

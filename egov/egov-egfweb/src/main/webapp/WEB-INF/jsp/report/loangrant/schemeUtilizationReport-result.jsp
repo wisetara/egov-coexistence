@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -211,13 +211,13 @@
 		<script>
   var xx=' <table align="top" valign="top" width="100%" cellpadding="0" cellspacing="0" border="0"> ' +
    <s:iterator var="fa" value="faTotalMap.keySet()">
-   '<tr> <td class="blueborderfortd" style="text-align:center"><s:property value="fa"/> </td>' +      
+   '<tr> <td class="blueborderfortd" style="text-align:center"><s:property value="fa"/> </td>' +
    '<td class="blueborderfortd" style="text-align:right"><s:text name="format.amount" ><s:param value="faTotalMap.get(#fa)"/></s:text> </td>'+
    '</tr>'+</s:iterator><s:if test="%{fundingPatternBysubScheme.size() < maxRows}"><s:bean name="org.apache.struts2.util.Counter" var="counter">   <s:param name="last" value="maxRows-fundingPatternBysubScheme.size()"/></s:bean>
    <s:iterator value="#counter">'<tr><td class="blueborderfortd">&nbsp;</td><td class="blueborderfortd">&nbsp;</td></tr>'+</s:iterator></s:if>
-   '<tr><td class="blueborderfortd"></td> <td class="blueborderfortd" style="text-align:right"><s:text name="format.amount" >123</s:text></td></tr></table>'; 
+   '<tr><td class="blueborderfortd"></td> <td class="blueborderfortd" style="text-align:right"><s:text name="format.amount" >123</s:text></td></tr></table>';
   document.getElementById("fdetails").innerHTML=xx;
-  
+
   </script>
 
 	</s:form>

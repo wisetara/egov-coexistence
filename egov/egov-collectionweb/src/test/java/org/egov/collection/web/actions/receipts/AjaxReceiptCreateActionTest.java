@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -49,20 +49,20 @@ package org.egov.collection.web.actions.receipts;
 
 
 public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTest<ReceiptPayeeDetails,Long>{
-	
+
 	private AjaxReceiptCreateAction action;
 	private Session session;
 	private CollectionObjectFactory objectFactory;
-	private Accountdetailtype employeeDetailType;	
+	private Accountdetailtype employeeDetailType;
 	@Before
 	public void setupAction(){
-	
+
 		action = new AjaxReceiptCreateAction();
 		action.setPersistenceService(genericService);
 		objectFactory = new CollectionObjectFactory(session);
 		employeeDetailType=(Accountdetailtype)genericService.find("from Accountdetailtype where name=?", "Employee");
 	}
-	
+
 	@Test
 	public void testajaxLoadSchemes() throws Exception{
 		Fund fund=objectFactory.createFund("01010");
@@ -81,7 +81,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		String result = action.ajaxLoadSubSchemes();
 		assertEquals("subSchemeList",result);
 	}
-	
+
 	@Test
 	public void testjaxValidateDetailCode()throws Exception{
 		Map<String, String[]> map = new HashMap<String, String[]>();
@@ -98,7 +98,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		action.ajaxValidateDetailCode();
 		assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testAjaxValidateDetailCodeWithEmptyEntity()throws Exception{
 		Map<String, String[]> map = new HashMap<String, String[]>();
@@ -110,7 +110,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		action.ajaxValidateDetailCode();
 		assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testAjaxValidateDetailCodeInvalidAccDetailtype()throws Exception{
 		Map<String, String[]> map = new HashMap<String, String[]>();
@@ -122,7 +122,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		action.ajaxValidateDetailCode();
 		assertEquals(0+"~"+"error"+"#", action.getValue());
 	}
-	
+
 	@Test
 	public void testgetDetailType() throws Exception{
 		 CChartOfAccounts chartOfAccounts= objectFactory.createCOA("1010100");
@@ -137,7 +137,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		 action.getDetailType();
 		 assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testgetDetailTypewithInvalidData() throws Exception{
 		 CChartOfAccounts chartOfAccounts= objectFactory.createCOA("1010100");
@@ -150,7 +150,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		 action.getDetailType();
 		 assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testGetDetailCode() throws Exception{
 		 CChartOfAccounts chartOfAccounts= objectFactory.createCOA("1010100");
@@ -162,7 +162,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		 action.getDetailCode();
 		 assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testGetAccountForNoService() throws Exception{
 		objectFactory.createUnsavedChallanServiceDetails();
@@ -172,7 +172,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		action.getAccountForService();
 		assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testGetAccountForService() throws Exception{
 		ServiceDetails sd=objectFactory.createChallanServiceDetails();
@@ -182,7 +182,7 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		action.getAccountForService();
 		assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testGetMISdetailsForService() throws Exception{
 		ServiceDetails sd=objectFactory.createChallanServiceDetails();
@@ -192,10 +192,10 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		action.getMISdetailsForService();
 		assertNotNull(action.getValue());
 	}
-	
+
 	@Test
 	public void testGetCode() throws Exception{
-		
+
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		if(employeeDetailType!=null){
 			map.put("detailTypeId", new String[]{employeeDetailType.getId().toString()});
@@ -209,10 +209,10 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		String result=action.getValue();
 		assertNotNull(result);
 	}
-	
+
 	@Test
 	public void testGetCodeInvalidDetailTypeId() throws Exception{
-		
+
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		map.put("detailTypeId",new String[]{"123"});
 		map.put("filterKey", new String[]{"1"});
@@ -221,10 +221,10 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		String result=action.getValue();
 		assertEquals(result,"");
 	}
-	
+
 	@Test
 	public void testGetCodeNoEntities() throws Exception{
-		
+
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		map.put("detailTypeId",new String[]{"3"});
 		map.put("filterKey", new String[]{"1"});
@@ -233,25 +233,25 @@ public class AjaxReceiptCreateActionTest {/*extends AbstractPersistenceServiceTe
 		String result=action.getValue();
 		assertEquals(result,"");
 	}
-	
+
 	@Test
 	public void testGetModel(){
 		assertNull(action.getModel());
 	}
-	
+
 	@Test
 	public void testGetCodeNew() throws Exception{
 		Map<String, String[]> map = new HashMap<String, String[]>();
-		
+
 		Accountdetailtype accDetType = objectFactory.createAccountdetailtype("testAccDetTypeName");
 		//map.put("detailTypeId",new String[]{accDetType.getId().toString()});
 		map.put("detailTypeId",new String[]{"0"});
 		map.put("filterKey", new String[]{"1"});
 		action.setParameters(map);
 		assertEquals("result", action.getCodeNew());
-		
+
 		map.put("detailTypeId",new String[]{"0"});
 		action.setParameters(map);
-		
+
 	}
 */}

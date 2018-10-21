@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -51,7 +51,7 @@
 	function populateSubSchemes(scheme){
 		populatebudgetDetail_subScheme({schemeId:scheme.options[scheme.selectedIndex].value})
 	}
-	
+
 	function onHeaderSubSchemePopulation(req,res){
 		if(budgetDetailsTable != null){
 			headerSubScheme=dom.get('budgetDetail_subScheme');
@@ -76,7 +76,7 @@
 		        },
 		     failure: function(o) {
 		     }
-	} 
+	}
 
 	function updateYearHeader(){
 		var newPrevious = '';
@@ -105,12 +105,12 @@
 			document.getElementById('yui-dt0-th-total-liner').innerHTML = '<span class="yui-dt-label">Total<br/>'+newCurrent+'(Rs)</span>';
 		}
 	}
-	
+
 	function updateReference(){
 		if(document.getElementById('referenceBudgetName'))
 			document.getElementById('referenceBudget').innerHTML = document.getElementById('referenceBudgetName').value;
 	}
-		
+
 	function getSavedData(){
 		if(budgetDetailsTable != null){
 			element = document.getElementById('budgetDetail_budget')
@@ -119,21 +119,21 @@
 			populateBudgetGroup(id);
 		}
 	}
-	
+
 	var budgetsCallback = {
 		     success: function(o) {
 		     		document.getElementById('budgetDetail_budget').innerHTML = o.responseText;
 		        },
 		     failure: function(o) {
 		     }
-	} 
+	}
 	function fetchBudgets(){
 		var financialYear = document.getElementById('financialYear');
 		id = financialYear.value;
 		beRe = document.getElementById('bere').value;
 		var transaction = YAHOO.util.Connect.asyncRequest('GET', 'budgetDetail!ajaxLoadBudgets.action?financialYear.id='+id+'&bere='+beRe, budgetsCallback, null);
 	}
-	
+
 </script>
 
 <script type="text/javascript"

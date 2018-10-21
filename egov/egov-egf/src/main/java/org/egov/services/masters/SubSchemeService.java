@@ -1,6 +1,6 @@
 /*
- *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
- *    accountability and the service delivery of the government  organizations.
+ *    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+ *    accountability and the service delivery of the government organizations.
  *
  *     Copyright (C) 2017  eGovernments Foundation
  *
@@ -76,7 +76,7 @@ public class SubSchemeService extends PersistenceService<SubScheme, Integer> {
         query.setString("code", code);
         return (SubScheme) query.uniqueResult();
     }
-    
+
     public List<SubScheme> getByIsActive() {
         final Query query = getSession().createQuery(" from SubScheme where isactive = true");
         return query.list();

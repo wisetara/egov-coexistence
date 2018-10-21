@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -78,10 +78,10 @@ var url="../voucher/common-showHistory.action?stateId="+stateId;
 }
 
 function loadBank(fundId){
-	populatebank({fundId:fundId.options[fundId.selectedIndex].value,typeOfAccount:"PAYMENTS,RECEIPTS_PAYMENTS"})	
+	populatebank({fundId:fundId.options[fundId.selectedIndex].value,typeOfAccount:"PAYMENTS,RECEIPTS_PAYMENTS"})
 }
 function loadBankForFund(fundId){
-	populatebank({fundId:fundId.options[fundId.selectedIndex].value})	
+	populatebank({fundId:fundId.options[fundId.selectedIndex].value})
 }
 function validateFund(){
 	var fund = document.getElementById('fundId').value;
@@ -95,13 +95,13 @@ function validateFund(){
 function populateAccNumbers(bankBranch){
 	var fund = document.getElementById('fundId');
 	id = bankBranch.options[bankBranch.selectedIndex].value.split("-")[1]
-	populatebankaccount({branchId:id,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:id,fundId:fund.options[fund.selectedIndex].value})
 }
 function populateAccNumbersForId(bankBranchId){
 	var fund = document.getElementById('fundId');
-	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})	
+	populatebankaccount({branchId:bankBranchId,fundId:fund.options[fund.selectedIndex].value})
 }
-function onLoadTask(){ 
+function onLoadTask(){
 }
 function populateAccNum(branch){
 	var fundObj = document.getElementById('fundId');
@@ -109,9 +109,9 @@ function populateAccNum(branch){
 	var index=bankbranchId.indexOf("-");
 	var bankId = bankbranchId.substring(0,index);
 	var brId=bankbranchId.substring(index+1,bankbranchId.length);
-	
+
 	var vTypeOfAccount = '<s:property value="%{typeOfAccount}"/>';
-	
+
 	populateaccountNumber({fundId: fundObj.options[fundObj.selectedIndex].value,bankId:bankId,branchId:brId,typeOfAccount:vTypeOfAccount})
 }
 function checkLength(obj)
@@ -124,7 +124,7 @@ function checkLength(obj)
 }
 
 function populateUser(){
-	
+
 	var desgFuncry = document.getElementById("designationId").value;
 	var array = desgFuncry.split("-");
 	var functionary = array[1];
@@ -134,7 +134,7 @@ function populateUser(){
 	}
 	populateapproverUserId({departmentId:document.getElementById("departmentid").value,
 	designationId:desgId,functionaryName:functionary})
-		
+
 }
 
 function printVoucher(){
@@ -158,8 +158,8 @@ function printVoucher(){
 					return false;
 				}
 				}
-			}  
-		
+			}
+
 			return true;
 		}
 	function onSubmit()
@@ -167,7 +167,7 @@ function printVoucher(){
 		if(validate()){
 			 var myform = jQuery('#remittanceForm');
 			// re-disabled the set of inputs that you previously
-			var disabled = myform.find(':input:disabled').removeAttr('disabled'); 
+			var disabled = myform.find(':input:disabled').removeAttr('disabled');
 			disableRemitRecoverView();
 			document.remittanceForm.action='${pageContext.request.contextPath}/deduction/remitRecovery-sendForApproval.action';
 			document.remittanceForm.submit();
@@ -387,7 +387,7 @@ function printVoucher(){
 																					<th class="bluebgheadtdnew">Party Code
 																					</td>
 																					<th class="bluebgheadtdnew">Cheque Amount(Rs)
-																					
+
 																					</td>
 																					<th class="bluebgheadtdnew">Cheque Status
 																					</td>
@@ -469,7 +469,7 @@ function printVoucher(){
 				</s:else>
 			</div>
 			<script type="text/javascript">
-	//bootbox.alert('<s:property value="fund.id"/>');                               
+	//bootbox.alert('<s:property value="fund.id"/>');
 	calcTotalForPayment();
 	</script>
 		</s:push>
@@ -492,44 +492,44 @@ function printVoucher(){
 		if(document.getElementById("printPreview"))
 			document.getElementById("printPreview").disabled=false;
 		if(document.getElementById("cancelPayment"))
-			document.getElementById("cancelPayment").disabled=false;	
+			document.getElementById("cancelPayment").disabled=false;
 		if(document.getElementById("approverComments"))
-			document.getElementById("approverComments").disabled=false;	
+			document.getElementById("approverComments").disabled=false;
 		if(null != document.getElementById("approverDepartment") ){
-			document.getElementById("approverDepartment").disabled=false;    
+			document.getElementById("approverDepartment").disabled=false;
 			document.getElementById("approverDesignation").disabled=false;
 			document.getElementById("approverPositionId").disabled=false;
-			
+
 		}
 		if(document.getElementById("currentState"))
-			document.getElementById("currentState").disabled=false;		
+			document.getElementById("currentState").disabled=false;
 		if(document.getElementById("currentDesignation"))
-			document.getElementById("currentDesignation").disabled=false;		
+			document.getElementById("currentDesignation").disabled=false;
 		if(document.getElementById("additionalRule"))
-			document.getElementById("additionalRule").disabled=false;		
+			document.getElementById("additionalRule").disabled=false;
 		if(document.getElementById("amountRule"))
-			document.getElementById("amountRule").disabled=false;		
+			document.getElementById("amountRule").disabled=false;
 		if(document.getElementById("workFlowDepartment"))
-			document.getElementById("workFlowDepartment").disabled=false;		
+			document.getElementById("workFlowDepartment").disabled=false;
 		if(document.getElementById("pendingActions"))
-			document.getElementById("pendingActions").disabled=false;		
+			document.getElementById("pendingActions").disabled=false;
 		if(document.getElementById("approverName"))
-			document.getElementById("approverName").disabled=false;		
+			document.getElementById("approverName").disabled=false;
 		if(document.getElementById("workFlowAction"))
-			document.getElementById("workFlowAction").disabled=false;		
+			document.getElementById("workFlowAction").disabled=false;
 		if(document.getElementById("Forward"))
-			document.getElementById("Forward").disabled=false;	
+			document.getElementById("Forward").disabled=false;
 		if(document.getElementById("Reject"))
-			document.getElementById("Reject").disabled=false;	
+			document.getElementById("Reject").disabled=false;
 		if(document.getElementById("Cancel"))
-			document.getElementById("Cancel").disabled=false;	
+			document.getElementById("Cancel").disabled=false;
 		if(document.getElementById("Approve"))
-			document.getElementById("Approve").disabled=false;	
+			document.getElementById("Approve").disabled=false;
 		if(document.getElementById("button2"))
-			document.getElementById("button2").disabled=false;		
-			  	
-	<s:if test="%{showMode!='view'}">	
-		
+			document.getElementById("button2").disabled=false;
+
+	<s:if test="%{showMode!='view'}">
+
 	 <s:if test="%{canCheckBalance==true}">
 			if(document.getElementById('balanceText'))
 			{
@@ -539,17 +539,17 @@ function printVoucher(){
 				x=parseFloat(x);
 				document.getElementById('availableBalance').value=x.toFixed(2);
 			}
-	</s:if>	
+	</s:if>
 	<s:if test="%{balance=='-1'}">
-	
+
 	bootbox.alert("FundFlow Report not Generated to check Bank Balance. Please generate Report First");
 	for(var i=0;i<document.forms[0].length;i++)
 	if(document.forms[0].elements[i].id!='closeButtonNew')
 		document.forms[0].elements[i].disabled =true;
 	</s:if>
 	</s:if>
-		
-		
+
+
 		if(document.getElementById("wfBtn0"))
 		{
 		document.getElementById("wfBtn0").disabled=false;
@@ -562,8 +562,8 @@ function printVoucher(){
 		{
 		document.getElementById("wfBtn3").disabled=false;
 		}
-		
-		
+
+
 </SCRIPT>
 	</s:form>
 

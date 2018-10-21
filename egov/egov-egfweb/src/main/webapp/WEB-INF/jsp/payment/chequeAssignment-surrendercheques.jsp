@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -73,7 +73,7 @@
 			<!--<s:hidden name="department" />
 			-->
 			<s:hidden name="bankaccount" id="bankaccount" />
-			
+
 			<s:hidden name="bank_branch" />
 			<s:hidden name="fromDate" />
 			<s:hidden name="toDate" />
@@ -231,7 +231,7 @@
 				var index = obj.id.substring(19,obj.id.length);
 				if(obj.value=='')
 					return true;
-				//bootbox.alert(index);		
+				//bootbox.alert(index);
 				if(document.getElementById('department') && document.getElementById('department').options[document.getElementById('department').selectedIndex].value==-1)
 				{
 					bootbox.alert('Select Cheque Issued From');
@@ -246,8 +246,8 @@
 				var url = '${pageContext.request.contextPath}/voucher/common-ajaxValidateChequeNumber.action?bankaccountId='+document.getElementById('bankaccount').value+'&chequeNumber='+obj.value+'&index='+index+'&departmentId='+dept+"&serialNo="+slNo;
 				var transaction = YAHOO.util.Connect.asyncRequest('POST', url,callback , null);
 			}
-			
-			
+
+
 			var callback = {
 				success: function(o) {
 					var res=o.responseText;
@@ -262,8 +262,8 @@
 			    	bootbox.alert('failure');
 			    }
 			}
-			
-		
+
+
 	function openDetails(val)
 	{
 	var mode="view";
@@ -276,8 +276,8 @@
  		document.chequeAssignment.action = '/services/EGF/payment/chequeAssignment-save.action';
 		document.chequeAssignment.submit();
 		 return true;
-		
-		 
+
+
  	}
   	function Reassign()
  	{
@@ -317,7 +317,7 @@
 					bootbox.alert(alertOnlyNumber);
 					}
 					}
-					
+
 					if(newChqDateObj[i].value=="" || newChqDateObj[i].value==undefined)
 					{
 					bootbox.alert(alertDate);
@@ -325,14 +325,14 @@
 					return false;
 	 				}
 	 			}
-	  	
+
 	 		}
-	 	
+
  		}
 	 	disableAll();
 	 	document.chequeAssignment.action = '/services/EGF/payment/chequeAssignment-save.action?containsRTGS='+document.getElementById('containsRTGS').value;
 		document.chequeAssignment.submit();
-		
+
  	}
   	function  populateYearcode(departmentid){
 		console.log('departmentid'+departmentid.value);
@@ -341,29 +341,29 @@
 			url: "/services/EGF/voucher/common-ajaxYearCode.action?departmentId="+departmentid.value+"&bankaccount="+document.getElementById('bankaccount').value,
 			method: 'GET',
 		    async : false,
-		    
+
 			success: function(data)
 			   {
-				//console.log("inside success") ;  
+				//console.log("inside success") ;
 				jQuery('.newSerialNo').empty();
 				var output = '';
-				//console.log("inside data"+data+"---"+data.ResultSet+"---"+data.ResultSet.Result) ;  
+				//console.log("inside data"+data+"---"+data.ResultSet+"---"+data.ResultSet.Result) ;
 				for(i=0;i<data.ResultSet.Result.length;i++){
 					output = output+ '<option value=' + data.ResultSet.Result[i].Value + '>'
 					+ data.ResultSet.Result[i].Text+ '</option>';
 				  }
-				jQuery('.newSerialNo').append(output);  
+				jQuery('.newSerialNo').append(output);
 			   },
 			error: function(jqXHR, textStatus, errorThrown)
 			  {
-				console.log("inside Failure"+errorThrown) ;  
-			  }         
+				console.log("inside Failure"+errorThrown) ;
+			  }
 		});
 
     }
   	var selectedRowsId = new Array();
   	function resetSelectedRowsId(){
-  		
+
   		var newSurrendarReasonsObj=document.getElementsByName('surrendarReasons');
  		var newSerialNoObj=document.getElementsByName('newSerialNo');
  		var newChqNoObj=document.getElementsByName('newInstrumentNumber');
@@ -377,10 +377,10 @@
 							newChqNoObj[index].value+"~"+
 							newChqDateObj[index].value+"~"+
 							newSerialNoObj[index].value+"~"+
-							newSurrendarReasonsObj[index].value+";"				
+							newSurrendarReasonsObj[index].value+";"
 							);
-					
-					
+
+
 				}
 			}
 			document.getElementById('selectedRowsId').value = selectedRowsId;
@@ -397,12 +397,12 @@
 							document.forms[0].elements[i].name != 'button' && document.forms[0].elements[i].name != 'selectedRowsId'
 							&& document.forms[0].elements[i].name != 'containsRTGS' && document.forms[0].elements[i].name != 'voucherNumber'
 							&& document.forms[0].elements[i].name != 'instrumentNumber' && document.forms[0].elements[i].name != 'surrender'
-							&& document.forms[0].elements[i].name != 'department' && document.forms[0].elements[i].name != 'newInstrumentNumber' 
-							&& document.forms[0].elements[i].name != 'newInstrumentDate' && document.forms[0].elements[i].name != 'surrendarReasons' 
+							&& document.forms[0].elements[i].name != 'department' && document.forms[0].elements[i].name != 'newInstrumentNumber'
+							&& document.forms[0].elements[i].name != 'newInstrumentDate' && document.forms[0].elements[i].name != 'surrendarReasons'
 							&& document.forms[0].elements[i].name != 'newInstrumentDate' && document.forms[0].elements[i].name != 'newSerialNo'){
 							document.forms[frmIndex].elements[i].disabled =true;
-						}						
-					}	
+						}
+					}
 			}
 	}
 	</script>

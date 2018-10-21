@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -48,7 +48,7 @@
 
 
 <div class="form-group">
-	<label class="col-sm-2 control-label text-right" for="code"> <spring:message code="contractor.code" /><span class="mandatory"></span> 
+	<label class="col-sm-2 control-label text-right" for="code"> <spring:message code="contractor.code" /><span class="mandatory"></span>
 	</label>
 	<div class="col-sm-3 add-margin">
 		<form:input path="code" maxlength="50" cssClass="form-control patternvalidation" data-pattern="alphanumericwithspace" required="required"/>
@@ -78,9 +78,9 @@
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label text-right" for="contactPerson"> <spring:message code="contractor.contactPerson" /><span class="mandatory"></span> 
+	<label class="col-sm-2 control-label text-right" for="contactPerson"> <spring:message code="contractor.contactPerson" /><span class="mandatory"></span>
 	</label>
-	<div class="col-sm-3 add-margin contactPerson"> 
+	<div class="col-sm-3 add-margin contactPerson">
 		<form:input path="contactPerson" id="contactPerson" size="40" maxlength="100" cssClass="form-control patternvalidation" data-pattern="alphabetwithspace" required="required" />
 		<form:errors path="contactPerson" cssClass="add-margin error-msg" />
 	</div>
@@ -99,7 +99,7 @@
 		<form:textarea path="narration" cols="35" cssClass="form-control textfieldsvalidate" id="narration" maxlength = "250" />
 		<form:errors path="narration" cssClass="add-margin error-msg" />
 	</div>
-	<label class="col-sm-2 control-label text-right" for="mobileNumber"> <spring:message code="lbl.mobile" /><span class="mandatory"></span> 
+	<label class="col-sm-2 control-label text-right" for="mobileNumber"> <spring:message code="lbl.mobile" /><span class="mandatory"></span>
 	</label>
 	<div class="col-sm-3 add-margin">
 		<form:input path="mobileNumber" id="mobileNumber" maxlength="10" cssClass="form-control patternvalidation" data-pattern="number" required="required" />
@@ -114,7 +114,7 @@
 		<form:input path="panNumber" id="panNumber" maxlength="10" cssClass="form-control patternvalidation" data-pattern="alphanumericwithspace"/>
 		<form:errors path="panNumber" cssClass="add-margin error-msg" />
 	</div>
-	<label class="col-sm-2 control-label text-right" for="tinNumber"> <spring:message code="contractor.tinNo" /><span class="mandatory"></span> 
+	<label class="col-sm-2 control-label text-right" for="tinNumber"> <spring:message code="contractor.tinNo" /><span class="mandatory"></span>
 	</label>
 	<div class="col-sm-3 add-margin">
 		<form:input path="tinNumber" id="tinNumber" minlength="15" maxlength="15" cssClass="form-control patternvalidation" data-pattern="alphanumericwithspace" required="required"/>
@@ -156,7 +156,7 @@
 </div>
 
 <div class="form-group">
-	<label class="col-sm-2 control-label text-right" for="status"> <spring:message code="contractor.status" /><span class="mandatory"></span> 
+	<label class="col-sm-2 control-label text-right" for="status"> <spring:message code="contractor.status" /><span class="mandatory"></span>
 	</label>
 	<div class="col-sm-3 add-margin">
 		<form:select path="status" data-first-option="false" id="status" class="form-control" required="required" >

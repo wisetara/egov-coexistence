@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -54,7 +54,7 @@
 <head>
 <title><s:text name="Reconciliation Summary" /></title>
 <script type="text/javascript">
-	
+
 		function validateBank(){
 		var bank = document.getElementById('bank').value;
 		if(bank == -1){
@@ -65,13 +65,13 @@
 	}
 
   function validateAndSubmit(){
-	  
+
 	  var bank = document.getElementById('bankId').value;
 	  var bankBranch=document.getElementById('branchId').value;
 	  var bankAccount = document.getElementById('accountId').value;
 	  var amount = document.getElementById('bankStBalance').value;
 	  var stmtDate = document.getElementById('bankStmtDate').value;
-	  
+
 	  if(bank== "")
 	  {
 		bootbox.alert("Please select a Bank");
@@ -93,17 +93,17 @@
 		  bootbox.alert("Enter Bank Statement Balance");
 			return false;
 		}
-		
+
 		if(stmtDate == "")
 		{
 			bootbox.alert("Enter Bank Statement Date");
 			return false;
 		}
-		
+
 	document.forms[0].action='/EGF/brs/bankReconciliation-brsSummary.action';
 	document.forms[0].submit();
 	return true;
-	
+
 }
   function populatebranch(obj) {
 		var bid = document.getElementById("bankId").value;

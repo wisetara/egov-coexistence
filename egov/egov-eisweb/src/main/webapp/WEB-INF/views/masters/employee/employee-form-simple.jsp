@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -63,8 +63,8 @@
 
 <script src="<cdn:url value='/resources/js/app/ajaxCommonFunctions.js'/>"></script>
 
-		
-		
+
+
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="/egi/resources/global/js/ie8/html5shiv.min.js"></script>
@@ -78,19 +78,19 @@
                     <div id="message" class="success">${message}</div>
                     <div class="alert alert-success" role="alert">${message}</div>
                 </c:if>
-                
+
                 <div class="row">
 					<div class="col-md-12">
-						
+
 						<div class="panel panel-primary" data-collapsed="0">
-							
+
 							<div class="panel-heading">
 								<div class="panel-title">
 									<spring:message code="title.empdetails"/>
 								</div>
-								
+
 							</div>
-							
+
 							<div class="panel-body custom-form">
 							<c:if test="${mode == 'create'}">
                     			<form:hidden path="password" value="12345678"/>
@@ -104,7 +104,7 @@
 									<div class="form-group">
 										<label for="field-1" class="col-sm-3 control-label"><spring:message code="lbl.name"/><span class="mandatory"></span></label>
 										<div class="col-sm-2 col-md-1 add-margin">
-											<form:select path="salutation" id="salutation" 
+											<form:select path="salutation" id="salutation"
 												cssClass="form-control" cssErrorClass="form-control error">
 												<form:option value="MR.">
 													Mr
@@ -121,32 +121,32 @@
 											<form:input type="text" path="name" id="name" cssClass="form-control is_valid_alphabet" maxlength="100" required="required"/>
 										</div>
 									</div>
-									
+
 									<div class="form-group">
 										<label for="field-1" class="col-sm-3 control-label"><spring:message code="lbl.code"/><span class="mandatory"></span></label>
-									
+
 										<div class="col-sm-2 add-margin">
 											<form:input path="code" id="code" type="text" required="required" cssClass="form-control is_valid_alphanumeric"/>
 											<form:hidden path="username"/>
 											<form:errors path="code" cssClass="add-margin error-msg"/>
 										</div>
-										
+
 										<div class="col-sm-1">
 										   <label for="field-1" class="control-label"><spring:message code="lbl.mobile"/><span class="mandatory"></span></label>
 										</div>
-										
+
 										<div class="col-sm-3 add-margin">
-											<form:input type="text" path="mobileNumber" id="mobileNumber" data-inputmask="'mask': '9999999999'" 
+											<form:input type="text" path="mobileNumber" id="mobileNumber" data-inputmask="'mask': '9999999999'"
 											required="required" cssClass="form-control" maxlength="10" placeholder="Mobile Number"/>
 											<form:errors path="mobileNumber" cssClass="add-margin error-msg"/>
 										</div>
-																				
+
 									</div>
 
 									<div class="form-group">
-										
+
 										<label for="field-1" class="col-sm-3 control-label"><spring:message code="lbl.gender"/><span class="mandatory"></span></label>
-										
+
 										<div class="col-sm-2 col-xs-12 add-margin">
 											<form:radiobutton path="gender" id="gender" value="MALE" required="required" checked="true"/>
 											<label>Male</label>
@@ -164,24 +164,24 @@
 
 									<div class="form-group">
 										<label for="field-1"  class="col-sm-3 control-label">Department<span class="mandatory"></span></label>
-										
+
 										<div class="col-sm-6 add-margin">
-										<select class="form-control" name = "deptId" id="deptId" required="required"> 
+										<select class="form-control" name = "deptId" id="deptId" required="required">
 												<option value="">
 													<spring:message code="lbl.select" />
 												</option>
 												  <c:forEach items="${department}" var="dept">
 										            <option value="${dept.id}">${dept.name} </option>
 										         </c:forEach>
-										 </select> 
+										 </select>
 											<input type="hidden" id="deparmentId" name="departmentId" value=""/>
 											<div class="error-msg departmenterror all-errors display-hide"></div>
 										</div>
-										
+
 								</div>
 								<div class="form-group">
 										   <label for="field-1" class="col-sm-3 control-label">Designation<span class="mandatory"></span></label>
-										
+
 										<div class="col-sm-6 add-margin">
 										        <input id="designationName"  name="designationName" type="text" class="form-control " autocomplete="off"
 													value="" placeholder="Designation" required="required">
@@ -197,7 +197,7 @@
 									    <div class="form-group">
 										    <label for="field-1" class="col-sm-3 control-label"><spring:message code="lbl.sign"/></label>
 											<div class="col-md-3 col-xs-6 add-margin view-content">
-												<img width="100" height="70" src='data:image/png;base64,${image}' /> 
+												<img width="100" height="70" src='data:image/png;base64,${image}' />
 										  	</div>
 									    </div>
 									    <div class="form-group">
@@ -211,10 +211,10 @@
 													<div class="remove-img preview-cross1 display-hide" data-file-id><i class="fa fa-times-circle"></i></div>
 													<div class="add-padding" id="filename1"></div>
 											    </div>
-											</div>	
-						                 </div>	                 
+											</div>
+						                 </div>
 									     </c:if>
-									     
+
 										<c:if test="${ empty image}">
 	                                    <div class="form-group">
 											<div class="col-sm-3 col-xs-12 text-center" id="upload-section">
@@ -231,27 +231,27 @@
 						                </div>
 					                </c:if>
 							</div>
-									
-								    
 
 
-									
+
+
+
 								</div>
 							</div>
 						</div>
 					</div>
-				
-				
-				
+
+
+
 				<div class="row">
 					<div class="text-center">
 						<button type="submit" id="submit" class="btn btn-primary"><spring:message code="lbl.submit"/></button>
 						<a href="javascript:void(0);" id="com_cancel" class="btn btn-default" onclick="self.close()"><spring:message code="lbl.close" /></a>
 					</div>
 				</div>
-                
-                
-                
+
+
+
              </form:form>
     </div>
 <script src="<cdn:url value='/resources/js/app/fileuploadndmaps.js'/>"></script>

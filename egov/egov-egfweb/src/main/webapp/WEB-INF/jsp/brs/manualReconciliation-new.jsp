@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -94,7 +94,7 @@
 			<div class="subheadnew">
 				<s:text name="manualbankreconciliation" />
 			</div>
-	
+
 		<div align="center">
 			<font style='color: red;'>
 				<p class="error-block" id="lblError"></p>
@@ -154,8 +154,8 @@
 					</td>
 					<td class="greybox"><s:text name="todate" /> <span
 						class="greybox"><span class="mandatory1">*</span></span></td>
-					<td class="greybox"><input type="text"  name="reconcileBean.toDate" id="toDate" class="form-control datepicker" 
-						data-inputmask="'mask': 'd/m/y'" />	 
+					<td class="greybox"><input type="text"  name="reconcileBean.toDate" id="toDate" class="form-control datepicker"
+						data-inputmask="'mask': 'd/m/y'" />
 
 					</td>
 				</tr>
@@ -187,8 +187,8 @@
 			</div>
       <div class="col-md-12 form-group report-table-container" id="balanceDiv"></div>
       <div id="resultDiv"> </div>
-      
-     
+
+
 		</center>
       </div>
 	</s:form>

@@ -1,6 +1,6 @@
 <%--
-  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency,transparency,
-  ~    accountability and the service delivery of the government  organizations.
+  ~    eGov  SmartCity eGovernance suite aims to improve the internal efficiency, transparency,
+  ~    accountability and the service delivery of the government organizations.
   ~
   ~     Copyright (C) 2017  eGovernments Foundation
   ~
@@ -60,7 +60,7 @@
 
 function loadVoucherNames(selected)
 {
-	var s="";  
+	var s="";
 	if(selected==-1)
 		{
 		document.getElementById('name').options.length=0;
@@ -75,12 +75,12 @@ document.getElementById('name').options[0]= new Option('--------Choose--------',
 
  <s:iterator value="voucherNames[#obj]" status="stat" var="names">
  document.getElementById('name').options[<s:property value="#stat.index+1"/>]= new Option('<s:property value="#names"/>','<s:property value="#names"/>');
- </s:iterator>   
+ </s:iterator>
  }
  </s:iterator>
 
  document.getElementById('name').value='<s:property value="name"/>' ;
-	
+
 }
 
 function loadNamesForSelectedType()
@@ -90,8 +90,8 @@ function loadNamesForSelectedType()
 		loadVoucherNames(document.getElementById('type').value);
 		}
 	}
-	
-		
+
+
 </script>
 <body onload="loadNamesForSelectedType()">
 	<div class="formmainbox">
@@ -150,7 +150,7 @@ function loadNamesForSelectedType()
 	</div>
 	<s:if test="%{voucherSearchList.size!=0}">
 		<div id="listid">
-			<script>             
+			<script>
 			</script>
 			<table width="100%" border="0" align="center" cellpadding="0"
 				cellspacing="0" class="tablebottom">
@@ -164,7 +164,7 @@ function loadNamesForSelectedType()
 					<th class="bluebgheadtd">Narration</th>
 					<th class="bluebgheadtd">Select</th>
 				</tr>
-				<c:set var="trclass" value="greybox" />	
+				<c:set var="trclass" value="greybox" />
 
 				<s:iterator var="p" value="voucherSearchList" status="s">
 					<tr>
@@ -241,18 +241,18 @@ function loadNamesForSelectedType()
 				queryParams+="&selectedVhs="+voucherId;
 			else
 			 	queryParams="selectedVhs="+voucherId;
-		}                                      
-		</s:iterator> 
+		}
+		</s:iterator>
 		if(queryParams==""){
 			bootbox.alert("Alert please select atleast one voucher to cancel");
 			return false;
-		}else{            
+		}else{
 			document.cancelVoucher.action = "${pageContext.request.contextPath}/voucher/cancelVoucher-update.action?"+queryParams;
 			document.cancelVoucher.submit();
-		}          
+		}
 	 return true;
-    }                     
-    
+    }
+
 function viewVoucher(vid){
 		var url = '../voucher/preApprovedVoucher-loadvoucherview.action?vhid='+vid;
 		window.open(url,'',' width=900, height=700');
